@@ -32,8 +32,8 @@ export default function ResumesPage() {
   // 获取标签数据
   useEffect(() => {
     Promise.all([
-      fetch('http://localhost:8000/tags?category=技术类').then(r => r.json()),
-      fetch('http://localhost:8000/tags?category=非技术类').then(r => r.json())
+      fetch(api('/tags?category=技术类')).then(r => r.json()),
+      fetch(api('/tags?category=非技术类')).then(r => r.json())
     ]).then(([techData, nonTechData]) => {
       setTechTags(techData.items || [])
       setNonTechTags(nonTechData.items || [])
