@@ -47,8 +47,23 @@ export default function MatchPage() {
     setResults([])
     setPage(1)
     fetch(api(`/positions/${id}/match`))
-      .then(r => r.json())
+      .then(async (r) => {
+        if (!r.ok) {
+          const text = await r.text()
+          throw new Error(text || `HTTP ${r.status}`)
+        }
+        const ct = r.headers.get('content-type') || ''
+        if (!ct.includes('application/json')) {
+          const text = await r.text()
+          throw new Error(text || '非 JSON 响应')
+        }
+        return r.json()
+      })
       .then(d => setResults(d.items || []))
+      .catch((e) => {
+        console.error('加载匹配结果失败:', e)
+        setResults([])
+      })
       .finally(() => setMatchLoading(false))
   }
 
