@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const tabs = [
@@ -53,13 +53,7 @@ export default function App() {
         {active === 'upload' && (
           <section className="panel">
             <h2>上传简历</h2>
-            <div className="upload">
-              <label className="upload-card">
-                <input type="file" accept=".pdf,.doc,.docx,.txt" hidden />
-                <span className="upload-icon">＋</span>
-                <span className="upload-text">点击或拖拽文件到此处</span>
-              </label>
-            </div>
+            <UploadPanel />
           </section>
         )}
 
@@ -90,6 +84,103 @@ export default function App() {
       </main>
 
       <footer className="footer">© {new Date().getFullYear()} AI Resume</footer>
+    </div>
+  )
+}
+
+function UploadPanel() {
+  const [files, setFiles] = useState<File[]>([])
+  const [uploader, setUploader] = useState('')
+  const [uploading, setUploading] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  function onPick(e: React.ChangeEvent<HTMLInputElement>) {
+    const list = e.target.files
+    if (!list) return
+    setFiles(prev => [...prev, ...Array.from(list)])
+    e.target.value = ''
+  }
+
+  function onDrop(e: React.DragEvent<HTMLLabelElement>) {
+    e.preventDefault()
+    const list = e.dataTransfer.files
+    if (!list) return
+    setFiles(prev => [...prev, ...Array.from(list)])
+  }
+  function onDragOver(e: React.DragEvent) { e.preventDefault() }
+
+  function removeAt(i: number) {
+    setFiles(prev => prev.filter((_, idx) => idx !== i))
+  }
+
+  async function handleUpload() {
+    if (!uploader.trim()) { alert('请输入上传者姓名'); return }
+    if (files.length === 0) { alert('请选择文件'); return }
+    const form = new FormData()
+    form.append('uploaded_by', uploader.trim())
+    files.forEach(f => form.append('files', f))
+
+    setUploading(true)
+    setProgress(0)
+    try {
+      // 使用原生 XMLHttpRequest 以便拿到上传进度
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://localhost:8000/upload')
+      xhr.upload.onprogress = (evt) => {
+        if (evt.lengthComputable) {
+          const p = Math.round((evt.loaded / evt.total) * 100)
+          setProgress(p)
+        }
+      }
+      await new Promise<void>((resolve, reject) => {
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 300) resolve()
+            else reject(new Error(xhr.responseText || '上传失败'))
+          }
+        }
+        xhr.onerror = () => reject(new Error('网络错误'))
+        xhr.send(form)
+      })
+
+      alert('上传成功，后台将自动解析')
+      setFiles([])
+      setUploader('')
+      setProgress(0)
+    } catch (e: any) {
+      alert(e.message || '上传失败')
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  return (
+    <div>
+      <div className="form">
+        <label>
+          <span>上传者姓名</span>
+          <input value={uploader} onChange={e => setUploader(e.target.value)} placeholder="如：张三" />
+        </label>
+      </div>
+
+      <div className="upload">
+        <label className="upload-card" onDrop={onDrop} onDragOver={onDragOver}>
+          <input ref={inputRef} type="file" accept=".pdf,.doc,.docx,.txt" hidden multiple onChange={onPick} />
+          <span className="upload-icon">＋</span>
+          <span className="upload-text">点击或拖拽文件到此处</span>
+        </label>
+      </div>
+      <div className="chips">
+        {files.map((f, i) => (
+          <Chip key={i} text={`${f.name} (${Math.round(f.size/1024)}KB)`} onClose={() => removeAt(i)} />
+        ))}
+      </div>
+
+      <div className="bar end">
+        {uploading && <span className="muted">已上传 {progress}%</span>}
+        <button className="primary" onClick={handleUpload} disabled={uploading}> {uploading ? '上传中...' : '上传'} </button>
+      </div>
     </div>
   )
 }

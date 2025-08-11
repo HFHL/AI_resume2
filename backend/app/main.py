@@ -1,9 +1,14 @@
-from fastapi import FastAPI, HTTPException, Query, Path
+from fastapi import FastAPI, HTTPException, Query, Path, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Literal
+import os
+import shutil
 
 from .db import fetch_schema_via_pg_meta, get_supabase_client
+from .config import get_app_settings
+from . import UPLOAD_DIRS
+from .watcher import start_watcher_in_background
 
 app = FastAPI(title="AI Resume Backend", version="0.5.0")
 
@@ -169,3 +174,90 @@ def create_keyword(payload: KeywordCreate) -> dict:
     if not data:
         raise HTTPException(status_code=500, detail="创建失败：未返回数据")
     return {"ok": True, "keyword": data[0]}
+
+
+# ================== 上传与文件登记 ==================
+class UploadResponse(BaseModel):
+    ok: bool
+    files: List[str]
+
+
+@app.post("/upload", response_model=UploadResponse)
+async def upload_files(
+    uploaded_by: str = Form(..., description="上传者姓名"),
+    files: List[UploadFile] = File(..., description="批量文件"),
+) -> UploadResponse:
+    if not uploaded_by.strip():
+        raise HTTPException(status_code=400, detail="上传者姓名不能为空")
+    if not files:
+        raise HTTPException(status_code=400, detail="未选择文件")
+
+    client = get_supabase_client()
+
+    saved_names: List[str] = []
+    for f in files:
+        # 仅允许部分扩展名
+        _, ext = os.path.splitext(f.filename)
+        ext_lower = ext.lower()
+        if ext_lower not in {".pdf", ".doc", ".docx", ".txt"}:
+            raise HTTPException(status_code=400, detail=f"不支持的文件类型: {f.filename}")
+
+        # 保存到 processing 目录，文件名增加时间戳避免冲突
+        safe_name = f.filename.replace("/", "_").replace("\\", "_")
+        dest_path = UPLOAD_DIRS["processing"] / safe_name
+
+        # 如果存在则在文件名后追加数字
+        counter = 1
+        base, extn = os.path.splitext(dest_path.name)
+        while dest_path.exists():
+            dest_path = UPLOAD_DIRS["processing"] / f"{base}_{counter}{extn}"
+            counter += 1
+
+        with open(dest_path, "wb") as out:
+            shutil.copyfileobj(f.file, out)
+
+        saved_names.append(dest_path.name)
+
+        # 在 resume_files 中登记记录，状态 = 待处理
+        try:
+            client.table("resume_files").insert({
+                "file_name": dest_path.name,
+                "file_path": str(dest_path),
+                "uploaded_by": uploaded_by,
+                "status": "待处理",
+            }).execute()
+        except Exception as exc:
+            # 插入失败也不应阻断其他文件保存
+            # 标记失败目录
+            fail_target = UPLOAD_DIRS["failed"] / dest_path.name
+            try:
+                if dest_path.exists():
+                    dest_path.replace(fail_target)
+            except Exception:
+                pass
+            raise HTTPException(status_code=400, detail=f"登记数据库失败: {exc}")
+
+    return UploadResponse(ok=True, files=saved_names)
+
+
+_observer = None
+
+
+@app.on_event("startup")
+def _on_startup():
+    global _observer
+    try:
+        _observer = start_watcher_in_background()
+    except Exception:
+        _observer = None
+
+
+@app.on_event("shutdown")
+def _on_shutdown():
+    global _observer
+    try:
+        if _observer is not None:
+            _observer.stop()
+            _observer.join(timeout=5)
+    finally:
+        _observer = None
