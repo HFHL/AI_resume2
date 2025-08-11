@@ -5,18 +5,18 @@ import os
 from typing import List, Literal
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Query, Path, UploadFile
+from fastapi import FastAPI, HTTPException, Query, Path, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import Client, create_client
 
 from .config import get_app_settings
+from . import UPLOAD_DIRS
+from .watcher import start_watcher_in_background
 
 # 确保环境变量加载
 load_dotenv()
 
-# 确保上传目录存在
-UPLOAD_DIR = os.path.join(os.getcwd(), "uploads")
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+_observer = None
 
 # 创建 FastAPI 应用
 app = FastAPI(title="AI简历匹配系统 API", version="0.1.0")
@@ -108,7 +108,10 @@ def health() -> dict:
 
 
 @app.post("/upload")
-async def upload_resumes(uploaded_by: str, files: List[UploadFile]):
+async def upload_resumes(
+    uploaded_by: str = Form(..., description="上传者姓名"),
+    files: List[UploadFile] = File(..., description="批量文件"),
+):
     """批量上传简历文件"""
     if not files:
         raise HTTPException(status_code=400, detail="未提供文件")
@@ -117,9 +120,15 @@ async def upload_resumes(uploaded_by: str, files: List[UploadFile]):
     client = get_supabase_client()
 
     for file in files:
-        # 保存文件到本地
-        file_path = os.path.join(UPLOAD_DIR, file.filename)
-        with open(file_path, "wb") as f:
+        # 保存到 processing 目录，避免冲突自动重命名
+        safe_name = file.filename.replace('/', '_').replace('\\', '_')
+        target = UPLOAD_DIRS["processing"] / safe_name
+        base, ext = os.path.splitext(target.name)
+        counter = 1
+        while target.exists():
+            target = UPLOAD_DIRS["processing"] / f"{base}_{counter}{ext}"
+            counter += 1
+        with open(target, "wb") as f:
             content = await file.read()
             f.write(content)
 
@@ -128,12 +137,13 @@ async def upload_resumes(uploaded_by: str, files: List[UploadFile]):
             "file_name": file.filename,
             "uploaded_by": uploaded_by,
             "parse_status": "pending",
-            "s3_key": file_path,  # 暂时存储本地路径
+            "file_path": str(target),
+            "status": "待处理",
         }
 
         try:
-            res = client.table("resumes").insert(data).execute()
-            if res.data:
+            res = client.table("resume_files").insert(data).execute()
+            if getattr(res, "data", None):
                 results.append({"filename": file.filename, "status": "success", "id": res.data[0]["id"]})
             else:
                 results.append({"filename": file.filename, "status": "failed", "error": "插入失败"})
@@ -141,6 +151,27 @@ async def upload_resumes(uploaded_by: str, files: List[UploadFile]):
             results.append({"filename": file.filename, "status": "failed", "error": str(e)})
 
     return {"results": results}
+
+
+@app.on_event("startup")
+def _on_startup():
+    global _observer
+    try:
+        _observer = start_watcher_in_background()
+    except Exception as e:
+        _observer = None
+        print(f"⚠️ 启动目录监听失败: {e}")
+
+
+@app.on_event("shutdown")
+def _on_shutdown():
+    global _observer
+    try:
+        if _observer is not None:
+            _observer.stop()
+            _observer.join(timeout=5)
+    finally:
+        _observer = None
 
 
 @app.get("/tags")
