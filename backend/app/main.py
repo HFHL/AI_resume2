@@ -193,6 +193,161 @@ def get_resume(resume_id: int = Path(...)) -> dict:
     return {"item": items[0]}
 
 
+@app.get("/positions/{position_id}/match")
+def match_resumes_for_position(
+    position_id: int = Path(...),
+    limit: int = Query(2000, ge=1, le=10000),
+    offset: int = Query(0, ge=0),
+) -> dict:
+    """同步计算匹配：基于职位关键词在简历文本中统计命中数并排序。
+    返回：简历基本信息 + matched_keywords + hit_count。
+    """
+    client = get_supabase_client()
+
+    # 1) 读取职位
+    try:
+        pos_res = (
+            client.table("positions")
+            .select("id, position_name, required_keywords, match_type")
+            .eq("id", position_id)
+            .limit(1)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    pos_items = getattr(pos_res, "data", [])
+    if not pos_items:
+        raise HTTPException(status_code=404, detail="职位不存在")
+    position = pos_items[0]
+    req_keywords: List[str] = position.get("required_keywords") or []
+    match_type: str = position.get("match_type") or "any"
+
+    # 若未配置关键词，直接返回空
+    if not req_keywords:
+        return {"position": position, "items": [], "total": 0}
+
+    # 2) 读取简历必要字段
+    try:
+        res = (
+            client.table("resumes")
+            .select(
+                "id, name, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, created_at"
+            )
+            .order("id", desc=True)
+            .range(offset, offset + limit - 1)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    resumes = getattr(res, "data", []) or []
+
+    # 3) 匹配逻辑（Python 内存过滤，适用于中小数据量）
+    kw_list = [str(k).strip().lower() for k in req_keywords if str(k).strip()]
+
+    def make_text_blob(row: dict) -> str:
+        parts: List[str] = []
+        for key in ("skills", "work_experience", "internship_experience", "project_experience"):
+            vals = row.get(key) or []
+            if isinstance(vals, list):
+                parts.extend([str(x) for x in vals])
+        # 追加自评
+        if row.get("self_evaluation"):
+            parts.append(str(row.get("self_evaluation")))
+        return "\n".join(parts).lower()
+
+    def degree_level(text: str | None) -> int:
+        if not text:
+            return 0
+        s = str(text)
+        if "博" in s:
+            return 3
+        if "硕" in s:
+            return 2
+        if "本" in s:
+            return 1
+        return 0
+
+    def tier_level(tiers: list | None) -> int:
+        if not tiers:
+            return 0
+        score_map = {
+            "海外留学": 3,
+            "海外": 3,
+            "overseas": 3,
+            "985": 3,
+            "211": 2,
+            "双一流": 1,
+        }
+        best = 0
+        for t in tiers:
+            v = score_map.get(str(t), None)
+            if v is None:
+                # 模糊包含处理
+                ts = str(t)
+                if "海外" in ts or "overseas" in ts.lower():
+                    v = 3
+                elif "985" in ts:
+                    v = 3
+                elif "211" in ts:
+                    v = 2
+                elif "双一流" in ts:
+                    v = 1
+            if v and v > best:
+                best = v
+        return best
+
+    matched = []
+    for r in resumes:
+        blob = make_text_blob(r)
+        matched_keywords = sorted(list({k for k in kw_list if k and k in blob}))
+        hit_count = len(matched_keywords)
+        if match_type == "all":
+            if hit_count < len(kw_list):
+                continue
+        else:  # any
+            if hit_count == 0:
+                continue
+        # 经验相关：用条目数量近似工作经历强度
+        wexp = r.get("work_experience") or []
+        internships = r.get("internship_experience") or []
+        projects = r.get("project_experience") or []
+
+        deg_lvl = degree_level(r.get("education_degree"))
+        tier_lvl = tier_level(r.get("education_tiers") or [])
+
+        # 评分权重：学位(3/2/1)*20 + 院校(3/2/1)*15 + 工作经历条目*5 + 项目*3 + 实习*2 + 命中数微调
+        score = (
+            deg_lvl * 20
+            + tier_lvl * 15
+            + min(len(wexp), 8) * 5
+            + min(len(projects), 6) * 3
+            + min(len(internships), 4) * 2
+            + hit_count * 1
+        )
+
+        matched.append({
+            "id": r.get("id"),
+            "name": r.get("name") or "未知",
+            "education_degree": r.get("education_degree"),
+            "education_tiers": r.get("education_tiers") or [],
+            "skills": r.get("skills") or [],
+            "matched_keywords": matched_keywords,
+            "hit_count": hit_count,
+            "score": score,
+            "created_at": r.get("created_at"),
+        })
+
+    # 4) 排序：总分降序；若同分，按命中数降序；再按 id 降序
+    matched.sort(key=lambda x: (-x["score"], -x["hit_count"], -(x["id"] or 0)))
+
+    return {
+        "position": position,
+        "items": matched,
+        "total": len(matched),
+    }
+
+
 @app.post("/keywords")
 def create_keyword(payload: KeywordCreate) -> dict:
     kw = payload.keyword.strip()

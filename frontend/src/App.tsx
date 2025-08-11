@@ -7,6 +7,7 @@ import PositionsListPage from './pages/PositionsListPage'
 import PositionCreatePage from './pages/PositionCreatePage'
 import PositionDetailPage from './pages/PositionDetailPage'
 const ResumeDetailPage = lazy(() => import('./pages/ResumeDetailPage'))
+import MatchDetailPage from './pages/MatchResumeDetailPage'
 import MatchPage from './pages/MatchPage'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="positions/create" element={<PositionCreatePage />} />
         <Route path="positions/:id" element={<PositionDetailPage />} />
         <Route path="match" element={<MatchPage />} />
+        <Route path="match/:positionId/resumes/:resumeId" element={<MatchDetailPage />} />
       </Route>
     </Routes>
   )
