@@ -5,6 +5,7 @@ import logging
 import re
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
+from datetime import datetime, date
 
 from .llm import LLMClient
 from .education import analyze_highest_education_level, classify_education_background
@@ -33,6 +34,7 @@ class ParsedResume:
     project_experience: Optional[List[str]]
     self_evaluation: Optional[str]
     other: Optional[str]
+    work_years: Optional[int]
 
     def to_row(self) -> Dict[str, Any]:
         return {
@@ -53,6 +55,7 @@ class ParsedResume:
             "project_experience": self.project_experience or None,
             "self_evaluation": self.self_evaluation or None,
             "other": self.other or None,
+            "work_years": self.work_years,
         }
 
 
@@ -432,6 +435,9 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
     # 7) 分类与标签
     category, tag_names = classify_category_and_tags(text)
 
+    # 8) 纯规则提取工作年限（写入 work_years）
+    work_years = extract_work_years(text)
+
     return ParsedResume(
         resume_file_id=resume_file_id,
         name=name_fallback,
@@ -450,7 +456,164 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
         project_experience=proj_ex,
         self_evaluation=(llm_json.get("self_evaluation") or None),
         other=(llm_json.get("other") or None),
+        work_years=work_years,
     )
+
+
+# ============== 工作年限（纯规则） ==============
+_MONTHS_EN = {
+    'jan': 1, 'january': 1,
+    'feb': 2, 'february': 2,
+    'mar': 3, 'march': 3,
+    'apr': 4, 'april': 4,
+    'may': 5,
+    'jun': 6, 'june': 6,
+    'jul': 7, 'july': 7,
+    'aug': 8, 'august': 8,
+    'sep': 9, 'sept': 9, 'september': 9,
+    'oct': 10, 'october': 10,
+    'nov': 11, 'november': 11,
+    'dec': 12, 'december': 12,
+}
+
+_CN_NUM = {
+    '零': 0, '一': 1, '二': 2, '两': 2, '三': 3, '四': 4, '五': 5,
+    '六': 6, '七': 7, '八': 8, '九': 9, '十': 10,
+}
+
+
+def _parse_year_month(token: str) -> Tuple[int, int]:
+    token = token.strip().lower()
+    # YYYY.MM / YYYY-MM / YYYY/MM
+    m = re.match(r"(\d{4})[\.\-/](\d{1,2})", token)
+    if m:
+        y = int(m.group(1)); mth = int(m.group(2)); return y, max(1, min(12, mth))
+    # YYYY 年 MM 月
+    m = re.match(r"(\d{4})\s*年\s*(\d{1,2})\s*月", token)
+    if m:
+        y = int(m.group(1)); mth = int(m.group(2)); return y, max(1, min(12, mth))
+    # 英文月份 MMM YYYY / MMMM YYYY
+    m = re.match(r"([a-zA-Z]{3,9})\s+(\d{4})", token)
+    if m:
+        mon = _MONTHS_EN.get(m.group(1).lower())
+        if mon:
+            return int(m.group(2)), mon
+    # 仅年份 YYYY -> 默认 06 月
+    m = re.match(r"(\d{4})\b", token)
+    if m:
+        return int(m.group(1)), 6
+    raise ValueError("bad token")
+
+
+def _parse_date(token: str) -> date:
+    y, m = _parse_year_month(token)
+    return date(y, m, 1)
+
+
+def _extract_periods(text: str) -> List[Tuple[date, date]]:
+    t = text.replace("至 今", "至今")
+    now = date.today()
+    periods: List[Tuple[date, date]] = []
+
+    # 常见分隔符：- – — ~ to 至 …
+    sep = r"\s*(?:-|–|—|~|to|至|–|—)\s*"
+    # 起止匹配（支持中文/英文月份/仅年），终点可为至今/Present/Now
+    pat = re.compile(
+        rf"((?:\d{{4}}(?:[\.\-/]\d{{1,2}})?|\d{{4}}年\d{{1,2}}月|[A-Za-z]{{3,9}}\s+\d{{4}})){sep}((?:\d{{4}}(?:[\.\-/]\d{{1,2}})?|\d{{4}}年\d{{1,2}}月|[A-Za-z]{{3,9}}\s+\d{{4}}|至今|present|now))",
+        re.IGNORECASE,
+    )
+    for m in pat.finditer(t):
+        a = m.group(1); b = m.group(2)
+        try:
+            start = _parse_date(a)
+            end = now if re.match(r"^(至今|present|now)$", b, re.IGNORECASE) else _parse_date(b)
+            if end < start:
+                continue
+            periods.append((start, end))
+        except Exception:
+            continue
+
+    return periods
+
+
+def _merge_periods(periods: List[Tuple[date, date]]) -> List[Tuple[date, date]]:
+    if not periods:
+        return []
+    periods.sort(key=lambda x: x[0])
+    merged = [periods[0]]
+    for s, e in periods[1:]:
+        ls, le = merged[-1]
+        if s <= le:
+            if e > le:
+                merged[-1] = (ls, e)
+        else:
+            merged.append((s, e))
+    return merged
+
+
+def _months_between(a: date, b: date) -> int:
+    return (b.year - a.year) * 12 + (b.month - a.month) + 1  # 按月计入，含端点月
+
+
+def _extract_years_from_text(text: str) -> Optional[float]:
+    # 阿拉伯数字：3年/3.5年/8+年/8 years/3+ yrs
+    m = re.findall(r"(\d+(?:\.\d+)?)\s*(?:年|years?|yrs?)\s*(?:以上|\+|多|余)?", text, re.IGNORECASE)
+    vals: List[float] = []
+    for s in m:
+        try:
+            vals.append(float(s))
+        except Exception:
+            pass
+    # 中文数字：三年/两年半/十年以上
+    cn = re.findall(r"([一二三四五六七八九十两]+)(?:年)(半)?(?:以上|多|余|\+)?", text)
+    def cn_to_num(s: str) -> int:
+        total = 0
+        if s == '十':
+            return 10
+        if '十' in s:
+            parts = s.split('十')
+            left = _CN_NUM.get(parts[0], 1) if parts[0] else 1
+            right = _CN_NUM.get(parts[1], 0) if len(parts) > 1 else 0
+            return left * 10 + right
+        for ch in s:
+            total = total * 10 + _CN_NUM.get(ch, 0)
+        return total
+    for num_txt, half in cn:
+        base = cn_to_num(num_txt)
+        vals.append(base + (0.5 if half else 0.0))
+    if not vals:
+        return None
+    # 取中位或最大，可按需调整；这里取中位数更稳
+    vals.sort()
+    return vals[len(vals)//2]
+
+
+def extract_work_years(text: str) -> Optional[int]:
+    """纯规则提取工作年限，返回整数年。"""
+    periods = _extract_periods(text)
+    merged = _merge_periods(periods)
+    total_months = sum(_months_between(s, e) for s, e in merged)
+
+    years_from_periods: Optional[float] = None
+    if total_months > 0:
+        years_from_periods = round(total_months / 12.0, 1)
+
+    years_from_text = _extract_years_from_text(text)
+
+    years_dec: Optional[float]
+    if years_from_periods is not None and years_from_text is not None:
+        # 两者都存在，取更保守的较小值（避免口号夸大）
+        years_dec = min(years_from_periods, years_from_text)
+    elif years_from_periods is not None:
+        years_dec = years_from_periods
+    else:
+        years_dec = years_from_text
+
+    if years_dec is None:
+        return None
+    # 合理边界
+    years_dec = max(0.0, min(60.0, years_dec))
+    return int(years_dec // 1)
 
 
 def classify_category_and_tags(text: str) -> tuple[Optional[str], Optional[list[str]]]:

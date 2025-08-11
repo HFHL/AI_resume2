@@ -4,6 +4,8 @@ import logging
 import threading
 import time
 from pathlib import Path
+import shutil
+import time as _time
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
@@ -127,6 +129,79 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 client.table("resume_files").update({"status": "处理失败"}).eq("file_name", path.name).execute()
             except Exception:
                 pass
+
+    def on_batch(self):
+        """按批次处理：
+        - 从 processing 取最多 5 个 PDF，移动到 batches/batch_<timestamp>/ 目录；
+        - 以该目录为输入根，调用 MinerUProcessor.process_batch() 一次性处理；
+        - 对批次结果逐个入库，并将源文件归档到 completed。
+        """
+        processing_dir = UPLOAD_DIRS["processing"]
+        batch_root = UPLOAD_DIRS["batches"]
+        batch_root.mkdir(parents=True, exist_ok=True)
+
+        pdfs = sorted([p for p in processing_dir.glob("*.pdf") if p.is_file()])[:5]
+        if not pdfs:
+            return
+        batch_dir = batch_root / f"batch_{int(_time.time())}"
+        batch_dir.mkdir(parents=True, exist_ok=True)
+
+        moved_files: list[Path] = []
+        for p in pdfs:
+            target = batch_dir / p.name
+            try:
+                shutil.move(str(p), str(target))
+                moved_files.append(target)
+            except Exception as e:
+                logger.error(f"批次移动失败: {p} -> {target}: {e}")
+
+        # 批次运行 mineru
+        results = self.processor.process_batch(batch_dir)
+
+        client = get_supabase_client()
+        for pdf in moved_files:
+            text_content = results.get(pdf)
+            # 入库（与 _handle_file 中一致）
+            try:
+                rf = client.table("resume_files").select("id").eq("file_name", pdf.name).limit(1).execute()
+                rf_id = None
+                data = getattr(rf, "data", [])
+                if data:
+                    rf_id = data[0]["id"]
+
+                if text_content is None:
+                    client.table("resume_files").update({"status": "处理失败"}).eq("file_name", pdf.name).execute()
+                    continue
+
+                parsed = parse_resume(text_content, rf_id, file_name=pdf.name)
+                row = parsed.to_row()
+                client.table("resumes").insert(row).execute()
+
+                # 归档
+                target_dir = UPLOAD_DIRS["completed"]
+                target_dir.mkdir(parents=True, exist_ok=True)
+                target_path = target_dir / pdf.name
+                if target_path.exists():
+                    base = target_path.stem
+                    ext = target_path.suffix
+                    counter = 1
+                    while (target_dir / f"{base}_{counter}{ext}").exists():
+                        counter += 1
+                    target_path = target_dir / f"{base}_{counter}{ext}"
+                try:
+                    pdf.replace(target_path)
+                except Exception:
+                    target_path = pdf
+
+                update_payload = {"status": "已处理", "file_path": str(target_path)}
+                if rf_id is not None and target_path.name != pdf.name:
+                    update_payload["file_name"] = target_path.name
+                if rf_id is not None:
+                    client.table("resume_files").update(update_payload).eq("id", rf_id).execute()
+                else:
+                    client.table("resume_files").update(update_payload).eq("file_name", pdf.name).execute()
+            except Exception as e:
+                logger.error(f"批次入库失败: {pdf.name}: {e}")
 
 
 def start_watcher_in_background() -> Observer:

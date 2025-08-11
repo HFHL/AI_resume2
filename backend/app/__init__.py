@@ -11,6 +11,8 @@ UPLOAD_DIRS = {
     "processing": _UPLOAD_ROOT / "processing",
     "completed": _UPLOAD_ROOT / "completed",
     "failed": _UPLOAD_ROOT / "failed",
+    "batches": _UPLOAD_ROOT / "batches",           # 每批处理的工作目录（输入目录，持久化）
+    "ocr_output": _UPLOAD_ROOT / "ocr_output",     # MinerU 输出目录（持久化）
 }
 
 for _d in UPLOAD_DIRS.values():
