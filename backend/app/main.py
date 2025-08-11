@@ -1,11 +1,11 @@
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Path
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Literal
 
 from .db import fetch_schema_via_pg_meta, get_supabase_client
 
-app = FastAPI(title="AI Resume Backend", version="0.4.0")
+app = FastAPI(title="AI Resume Backend", version="0.5.0")
 
 # CORS for frontend dev
 app.add_middleware(
@@ -37,6 +37,15 @@ class PositionCreate(BaseModel):
     tags: List[str] = []
 
 
+class PositionUpdate(BaseModel):
+    position_name: str | None = None
+    position_description: str | None = None
+    position_category: str | None = None
+    required_keywords: List[str] | None = None
+    match_type: Literal["any", "all"] | None = None
+    tags: List[str] | None = None
+
+
 @app.post("/positions")
 def create_position(payload: PositionCreate) -> dict:
     client = get_supabase_client()
@@ -55,6 +64,63 @@ def create_position(payload: PositionCreate) -> dict:
     data = getattr(result, "data", None)
     if not data:
         raise HTTPException(status_code=500, detail="插入失败：未返回数据")
+    return {"ok": True, "position": data[0]}
+
+
+@app.get("/positions")
+def list_positions() -> dict:
+    client = get_supabase_client()
+    try:
+        res = (
+            client.table("positions")
+            .select("id, position_name, position_category, tags, match_type, created_at")
+            .order("id", desc=True)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    return {"items": getattr(res, "data", [])}
+
+
+@app.get("/positions/{position_id}")
+def get_position(position_id: int = Path(...)) -> dict:
+    client = get_supabase_client()
+    try:
+        res = (
+            client.table("positions")
+            .select("*")
+            .eq("id", position_id)
+            .limit(1)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=404, detail="职位不存在")
+    return {"item": items[0]}
+
+
+@app.put("/positions/{position_id}")
+def update_position(payload: PositionUpdate, position_id: int = Path(...)) -> dict:
+    client = get_supabase_client()
+    # 过滤掉 None 字段
+    changes = {k: v for k, v in payload.model_dump().items() if v is not None}
+    if not changes:
+        return {"ok": True, "position": (get_position(position_id))["item"]}
+    try:
+        res = (
+            client.table("positions")
+            .update(changes)
+            .eq("id", position_id)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    data = getattr(res, "data", None)
+    if not data:
+        raise HTTPException(status_code=500, detail="更新失败：未返回数据")
     return {"ok": True, "position": data[0]}
 
 

@@ -89,3 +89,11 @@ button{border:none}
 .tag-pick.selected{border-color:var(--brand); box-shadow:0 0 0 2px rgba(79,70,229,.35) inset}
 
 .grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+
+.list{display:grid;gap:10px}
+.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--border);background:#0f1522;border-radius:14px;padding:14px;transition:.15s ease}
+.card:hover{transform:translateY(-1px);border-color:#2b3443}
+.card-title{font-weight:600}
+.card-sub{color:var(--muted);font-size:13px;margin-top:2px}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pill{background:#121a27;border:1px solid var(--border);border-radius:999px;padding:4px 8px;font-size:12px}
