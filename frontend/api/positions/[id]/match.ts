@@ -1,7 +1,21 @@
+/// <reference types="node" />
 import { createClient } from '@supabase/supabase-js'
 export const config = { runtime: 'edge' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
+
+type ResumeRow = {
+  id: number
+  name: string | null
+  contact_info: string | null
+  skills: string[] | null
+  work_experience: string[] | null
+  internship_experience: string[] | null
+  project_experience: string[] | null
+  self_evaluation: string | null
+  education_degree: string | null
+  education_tiers: string[] | null
+}
 
 function parseURL(req: Request) {
   try {
@@ -36,9 +50,9 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   const required: string[] = position.required_keywords || []
   const matchType: 'any' | 'all' = position.match_type || 'any'
 
-  const results = (resumes || []).map((resume) => {
+  const results = (resumes || []).map((resume: ResumeRow) => {
     const parts: string[] = [resume.name || '', resume.contact_info || '', resume.self_evaluation || '']
-    for (const key of ['skills','work_experience','internship_experience','project_experience']) {
+    for (const key of ['skills','work_experience','internship_experience','project_experience'] as const) {
       const vals = (resume as any)[key] || []
       if (Array.isArray(vals)) parts.push(...vals.map(String))
     }
