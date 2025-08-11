@@ -172,6 +172,27 @@ def list_resumes(limit: int = Query(200, ge=1, le=1000), offset: int = Query(0, 
     return {"items": getattr(res, "data", [])}
 
 
+@app.get("/resumes/{resume_id}")
+def get_resume(resume_id: int = Path(...)) -> dict:
+    client = get_supabase_client()
+    try:
+        res = (
+            client.table("resumes")
+            .select(
+                "id, name, contact_info, education_degree, education_school, education_major, education_graduation_year, education_tier, education_tiers, skills, work_experience, internship_experience, project_experience, self_evaluation, other, created_at, updated_at"
+            )
+            .eq("id", resume_id)
+            .limit(1)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=404, detail="简历不存在")
+    return {"item": items[0]}
+
+
 @app.post("/keywords")
 def create_keyword(payload: KeywordCreate) -> dict:
     kw = payload.keyword.strip()

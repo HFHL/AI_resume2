@@ -123,3 +123,18 @@ button{border:none}
   .table-head,.table-row{grid-template-columns:200px 1fr}
   .hide-on-narrow{display:none}
 }
+
+.table-row.clickable{cursor:pointer}
+.table-row.clickable:hover{background:#0f172a}
+
+/* Resume detail */
+.resume-detail{margin-top:12px}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width: 900px){.detail-grid{grid-template-columns:1fr}}
+.detail-card{border:1px solid var(--border);background:#0f1522;border-radius:14px;padding:14px}
+.detail-title{font-weight:600;margin-bottom:8px}
+.detail-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #1f2937}
+.detail-row:last-child{border-bottom:none}
+.detail-row span:first-child{color:var(--muted)}
+.detail-content{margin-top:4px}
+.list-text ul{margin:0;padding-left:18px}
