@@ -1,0 +1,53 @@
+:root{
+  --bg:#0b0f17;        /* 深色背景 */
+  --panel:#111827;     /* 面板色 */
+  --muted:#9aa4b2;     /* 次要文字 */
+  --text:#e5e7eb;      /* 主要文字 */
+  --brand:#4f46e5;     /* 品牌色 */
+  --brand-weak:#3742b0;/* 品牌弱 */
+  --border:#1f2937;    /* 边框 */
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg, #0b0f17 0%, #0e1622 100%);
+  color:var(--text);
+  font:14px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.page{min-height:100%;display:flex;flex-direction:column}
+.header{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;padding:0 20px;border-bottom:1px solid var(--border);
+  background:rgba(11,15,23,0.7);backdrop-filter:saturate(180%) blur(10px);
+}
+.brand{font-weight:700;letter-spacing:.5px}
+.nav{display:flex;gap:8px}
+.nav-item{
+  padding:8px 14px;border-radius:10px;border:1px solid transparent;
+  background:transparent;color:var(--text);cursor:pointer;
+  transition:.2s ease;
+}
+.nav-item:hover{background:#0f172a;border-color:var(--border)}
+.nav-item.active{background:var(--brand);border-color:transparent;box-shadow:0 6px 20px rgba(79,70,229,.35)}
+
+.main{flex:1;max-width:1080px;margin:24px auto;padding:0 20px;width:100%}
+.panel{
+  background:var(--panel);border:1px solid var(--border);border-radius:16px;
+  padding:20px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.panel h2{margin:0 0 12px;font-size:18px}
+.muted{color:var(--muted)}
+
+.upload{display:grid;place-items:center;padding:24px}
+.upload-card{
+  height:160px;width:100%;max-width:520px;border:1.5px dashed #2b3443;border-radius:14px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;color:var(--muted);background:linear-gradient(180deg,#0f1522 0%,#0e1520 100%);
+}
+.upload-icon{font-size:24px;line-height:24px;color:var(--brand)}
+.upload-text{font-size:13px}
+
+.footer{color:var(--muted);text-align:center;padding:20px}
