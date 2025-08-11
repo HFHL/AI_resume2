@@ -15,6 +15,8 @@ function parseURL(req: Request) {
 export default async function handler(req: Request): Promise<Response> {
   const { searchParams } = parseURL(req)
   const method = req.method
+  // edge runtime config (also provided by vercel.json)
+  ;(globalThis as any).config = { runtime: 'edge' }
 
   if (method === 'GET') {
     const q = searchParams.get('q')
