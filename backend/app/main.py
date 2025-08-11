@@ -1,18 +1,27 @@
-from fastapi import FastAPI, HTTPException, Query, Path, UploadFile, File, Form
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List, Literal
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
-import shutil
+from typing import List, Literal
 
-from .db import fetch_schema_via_pg_meta, get_supabase_client
+from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException, Query, Path, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+from supabase import Client, create_client
+
 from .config import get_app_settings
-from . import UPLOAD_DIRS
-from .watcher import start_watcher_in_background
 
-app = FastAPI(title="AI Resume Backend", version="0.5.0")
+# 确保环境变量加载
+load_dotenv()
 
-# CORS for frontend dev
+# 确保上传目录存在
+UPLOAD_DIR = os.path.join(os.getcwd(), "uploads")
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+# 创建 FastAPI 应用
+app = FastAPI(title="AI简历匹配系统 API", version="0.1.0")
+
+# 配置 CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,135 +31,141 @@ app.add_middleware(
 )
 
 
-@app.get("/health")
-def health() -> dict:
-    return {"status": "ok"}
+def get_supabase_client() -> Client:
+    """获取 Supabase 客户端实例"""
+    settings = get_app_settings()
+    return create_client(settings.supabase_url, settings.supabase_key)
 
 
-@app.get("/schema")
-def read_schema() -> dict:
-    schema = fetch_schema_via_pg_meta()
-    return schema
+# ===== Pydantic 模型定义 =====
+from pydantic import BaseModel
+
+
+class ResumeCreate(BaseModel):
+    file_name: str
+    uploaded_by: str | None = None
+    parse_status: str = "pending"
+    s3_key: str | None = None
+    # 解析结果字段在解析后更新
 
 
 class PositionCreate(BaseModel):
     position_name: str
     position_description: str | None = None
-    position_category: str | None = None  # 仅允许：技术类 / 非技术类
+    position_category: str | None = None  # 技术类/非技术类
     required_keywords: List[str] = []
     match_type: Literal["any", "all"] = "any"
     tags: List[str] = []
 
 
-class PositionUpdate(BaseModel):
-    position_name: str | None = None
-    position_description: str | None = None
-    position_category: str | None = None
-    required_keywords: List[str] | None = None
-    match_type: Literal["any", "all"] | None = None
-    tags: List[str] | None = None
+class TagCreate(BaseModel):
+    tag_name: str
+    category: str  # 技术类/非技术类
 
 
-@app.post("/positions")
-def create_position(payload: PositionCreate) -> dict:
-    client = get_supabase_client()
+class KeywordCreate(BaseModel):
+    keyword: str
+
+
+# ===== API 路由 =====
+
+
+@app.on_event("startup")
+async def startup_event():
+    """应用启动时执行"""
+    # 验证数据库连接
     try:
-        result = client.table("positions").insert({
-            "position_name": payload.position_name,
-            "position_description": payload.position_description,
-            "position_category": payload.position_category,
-            "required_keywords": payload.required_keywords,
-            "match_type": payload.match_type,
-            "tags": payload.tags,
-        }).execute()
-    except Exception as exc:  # supabase client raises python exceptions
-        raise HTTPException(status_code=400, detail=str(exc))
-
-    data = getattr(result, "data", None)
-    if not data:
-        raise HTTPException(status_code=500, detail="插入失败：未返回数据")
-    return {"ok": True, "position": data[0]}
+        client = get_supabase_client()
+        print("✅ 数据库连接成功")
+    except Exception as e:
+        print(f"❌ 数据库连接失败: {e}")
 
 
-@app.get("/positions")
-def list_positions() -> dict:
-    client = get_supabase_client()
+@app.get("/")
+def read_root():
+    return {"message": "AI简历匹配系统 API 正在运行", "version": "0.1.0"}
+
+
+@app.get("/health")
+def health() -> dict:
+    """健康检查 + 数据库连通性快速校验（不暴露敏感信息）"""
+    info: dict = {"status": "ok"}
     try:
-        res = (
-            client.table("positions")
-            .select("id, position_name, position_category, tags, match_type, created_at")
-            .order("id", desc=True)
-            .execute()
-        )
+        client = get_supabase_client()
+        # 试探查询任一表，避免权限/网络问题时无感
+        res = client.table("resumes").select("id").limit(1).execute()
+        sample = getattr(res, "data", [])
+        info["db"] = {
+            "ok": True,
+            "sampleCount": len(sample),
+        }
     except Exception as exc:
-        raise HTTPException(status_code=400, detail=str(exc))
-    return {"items": getattr(res, "data", [])}
+        info["db"] = {
+            "ok": False,
+            "error": str(exc),
+        }
+    return info
 
 
-@app.get("/positions/{position_id}")
-def get_position(position_id: int = Path(...)) -> dict:
+@app.post("/upload")
+async def upload_resumes(uploaded_by: str, files: List[UploadFile]):
+    """批量上传简历文件"""
+    if not files:
+        raise HTTPException(status_code=400, detail="未提供文件")
+
+    results = []
     client = get_supabase_client()
-    try:
-        res = (
-            client.table("positions")
-            .select("*")
-            .eq("id", position_id)
-            .limit(1)
-            .execute()
-        )
-    except Exception as exc:
-        raise HTTPException(status_code=400, detail=str(exc))
 
-    items = getattr(res, "data", [])
-    if not items:
-        raise HTTPException(status_code=404, detail="职位不存在")
-    return {"item": items[0]}
+    for file in files:
+        # 保存文件到本地
+        file_path = os.path.join(UPLOAD_DIR, file.filename)
+        with open(file_path, "wb") as f:
+            content = await file.read()
+            f.write(content)
 
+        # 插入记录到数据库
+        data = {
+            "file_name": file.filename,
+            "uploaded_by": uploaded_by,
+            "parse_status": "pending",
+            "s3_key": file_path,  # 暂时存储本地路径
+        }
 
-@app.put("/positions/{position_id}")
-def update_position(payload: PositionUpdate, position_id: int = Path(...)) -> dict:
-    client = get_supabase_client()
-    # 过滤掉 None 字段
-    changes = {k: v for k, v in payload.model_dump().items() if v is not None}
-    if not changes:
-        return {"ok": True, "position": (get_position(position_id))["item"]}
-    try:
-        res = (
-            client.table("positions")
-            .update(changes)
-            .eq("id", position_id)
-            .execute()
-        )
-    except Exception as exc:
-        raise HTTPException(status_code=400, detail=str(exc))
-    data = getattr(res, "data", None)
-    if not data:
-        raise HTTPException(status_code=500, detail="更新失败：未返回数据")
-    return {"ok": True, "position": data[0]}
+        try:
+            res = client.table("resumes").insert(data).execute()
+            if res.data:
+                results.append({"filename": file.filename, "status": "success", "id": res.data[0]["id"]})
+            else:
+                results.append({"filename": file.filename, "status": "failed", "error": "插入失败"})
+        except Exception as e:
+            results.append({"filename": file.filename, "status": "failed", "error": str(e)})
+
+    return {"results": results}
 
 
 @app.get("/tags")
-def list_tags(category: str = Query(..., description="标签类别：技术类 或 非技术类")) -> dict:
+def list_tags(category: str | None = Query(None, description="标签类别筛选"), limit: int = Query(100, ge=1, le=500)) -> dict:
+    """获取标签列表"""
     client = get_supabase_client()
+    query = client.table("tags").select("*").order("tag_name")
+    if category:
+        query = query.eq("category", category)
     try:
-        res = client.table("tags").select("*").eq("category", category).order("tag_name").execute()
+        res = query.limit(limit).execute()
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     return {"items": getattr(res, "data", [])}
 
 
 @app.get("/keywords")
-def list_keywords() -> dict:
+def list_keywords(limit: int = Query(100, ge=1, le=500)) -> dict:
+    """获取关键词列表"""
     client = get_supabase_client()
     try:
-        res = client.table("keywords").select("*").order("keyword").execute()
+        res = client.table("keywords").select("*").order("keyword").limit(limit).execute()
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     return {"items": getattr(res, "data", [])}
-
-
-class KeywordCreate(BaseModel):
-    keyword: str
 
 
 @app.get("/resumes")
@@ -170,6 +185,53 @@ def list_resumes(limit: int = Query(200, ge=1, le=1000), offset: int = Query(0, 
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     return {"items": getattr(res, "data", [])}
+
+
+@app.get("/resumes/_search")
+def search_resumes(q: str | None = Query(None, description="模糊搜索关键字"), limit: int = Query(200, ge=1, le=2000), offset: int = Query(0, ge=0)) -> dict:
+    """简单搜索：在姓名、联系方式、技能、经历、自评等字段中做子串匹配（不区分大小写）。
+    为方便实现，先拉取一定数量记录后在内存中过滤，适合中小数据量。
+    """
+    client = get_supabase_client()
+    try:
+        # 为避免全表扫描压力，这里最多拉取 5000 条进行内存过滤
+        base_limit = 5000
+        res = (
+            client.table("resumes")
+            .select(
+                "id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, created_at"
+            )
+            .order("id", desc=True)
+            .range(0, base_limit - 1)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    rows = getattr(res, "data", []) or []
+    needle = (q or "").strip().lower()
+    if not needle:
+        total = len(rows)
+        sliced = rows[offset: offset + limit]
+        return {"items": sliced, "total": total}
+
+    def make_blob(row: dict) -> str:
+        parts = [
+            str(row.get("name") or ""),
+            str(row.get("contact_info") or ""),
+            str(row.get("self_evaluation") or ""),
+            str(row.get("education_degree") or ""),
+        ]
+        for key in ("skills", "work_experience", "internship_experience", "project_experience"):
+            vals = row.get(key) or []
+            if isinstance(vals, list):
+                parts.extend([str(x) for x in vals])
+        return "\n".join(parts).lower()
+
+    matched = [r for r in rows if needle in make_blob(r)]
+    total = len(matched)
+    sliced = matched[offset: offset + limit]
+    return {"items": sliced, "total": total}
 
 
 @app.get("/resumes/{resume_id}")
@@ -200,259 +262,181 @@ def match_resumes_for_position(
     offset: int = Query(0, ge=0),
 ) -> dict:
     """同步计算匹配：基于职位关键词在简历文本中统计命中数并排序。
-    返回：简历基本信息 + matched_keywords + hit_count。
+    优先返回命中数多的简历。暂不考虑复杂的匹配逻辑（如技能权重、经验年限等）。
     """
     client = get_supabase_client()
 
-    # 1) 读取职位
+    # 1. 获取职位信息
     try:
-        pos_res = (
-            client.table("positions")
-            .select("id, position_name, required_keywords, match_type")
-            .eq("id", position_id)
-            .limit(1)
-            .execute()
-        )
+        pos_res = client.table("positions").select("*").eq("id", position_id).limit(1).execute()
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     pos_items = getattr(pos_res, "data", [])
     if not pos_items:
         raise HTTPException(status_code=404, detail="职位不存在")
     position = pos_items[0]
-    req_keywords: List[str] = position.get("required_keywords") or []
-    match_type: str = position.get("match_type") or "any"
 
-    # 若未配置关键词，直接返回空
-    if not req_keywords:
-        return {"position": position, "items": [], "total": 0}
-
-    # 2) 读取简历必要字段
+    # 2. 拉取所有简历（简化处理，实际场景可能需要分批）
     try:
-        res = (
+        resume_res = (
             client.table("resumes")
             .select(
-                "id, name, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, created_at"
+                "id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers"
             )
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    resumes = getattr(resume_res, "data", []) or []
+
+    # 3. 简单匹配：统计关键词命中
+    required_keywords = position.get("required_keywords") or []
+    match_type = position.get("match_type", "any")
+
+    def compute_match(resume: dict) -> dict:
+        """计算单个简历的匹配结果"""
+        # 构建简历文本
+        parts = [
+            str(resume.get("name") or ""),
+            str(resume.get("contact_info") or ""),
+            str(resume.get("self_evaluation") or ""),
+        ]
+        for key in ("skills", "work_experience", "internship_experience", "project_experience"):
+            vals = resume.get(key) or []
+            if isinstance(vals, list):
+                parts.extend([str(x) for x in vals])
+        blob = "\n".join(parts).lower()
+
+        # 统计命中
+        matched_keywords = []
+        for kw in required_keywords:
+            if kw.lower() in blob:
+                matched_keywords.append(kw)
+
+        hit_count = len(matched_keywords)
+        if match_type == "all" and hit_count < len(required_keywords):
+            # 如果要求全部命中，但没有全部命中，则跳过
+            return None
+
+        # 简单的分数计算（可扩展）
+        score = hit_count * 10  # 每个关键词10分
+        return {
+            "id": resume["id"],
+            "name": resume.get("name", "未知"),
+            "education_degree": resume.get("education_degree"),
+            "education_tiers": resume.get("education_tiers", []),
+            "skills": resume.get("skills", []),
+            "matched_keywords": matched_keywords,
+            "hit_count": hit_count,
+            "score": score,
+        }
+
+    # 执行匹配
+    results = []
+    for r in resumes:
+        m = compute_match(r)
+        if m:
+            results.append(m)
+
+    # 按分数降序排序
+    results.sort(key=lambda x: x["score"], reverse=True)
+
+    # 分页返回
+    total = len(results)
+    sliced = results[offset: offset + limit]
+    return {"items": sliced, "total": total}
+
+
+@app.get("/positions")
+def list_positions(limit: int = Query(100, ge=1, le=500), offset: int = Query(0, ge=0)) -> dict:
+    """获取职位列表"""
+    client = get_supabase_client()
+    try:
+        res = (
+            client.table("positions")
+            .select("id, position_name, position_category, tags, match_type, created_at")
             .order("id", desc=True)
             .range(offset, offset + limit - 1)
             .execute()
         )
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
+    return {"items": getattr(res, "data", [])}
 
-    resumes = getattr(res, "data", []) or []
 
-    # 3) 匹配逻辑（Python 内存过滤，适用于中小数据量）
-    kw_list = [str(k).strip().lower() for k in req_keywords if str(k).strip()]
+@app.get("/positions/{position_id}")
+def get_position(position_id: int = Path(...)) -> dict:
+    """获取单个职位详情"""
+    client = get_supabase_client()
+    try:
+        res = client.table("positions").select("*").eq("id", position_id).limit(1).execute()
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=404, detail="职位不存在")
+    return {"item": items[0]}
 
-    def make_text_blob(row: dict) -> str:
-        parts: List[str] = []
-        for key in ("skills", "work_experience", "internship_experience", "project_experience"):
-            vals = row.get(key) or []
-            if isinstance(vals, list):
-                parts.extend([str(x) for x in vals])
-        # 追加自评
-        if row.get("self_evaluation"):
-            parts.append(str(row.get("self_evaluation")))
-        return "\n".join(parts).lower()
 
-    def degree_level(text: str | None) -> int:
-        if not text:
-            return 0
-        s = str(text)
-        if "博" in s:
-            return 3
-        if "硕" in s:
-            return 2
-        if "本" in s:
-            return 1
-        return 0
-
-    def tier_level(tiers: list | None) -> int:
-        if not tiers:
-            return 0
-        score_map = {
-            "海外留学": 3,
-            "海外": 3,
-            "overseas": 3,
-            "985": 3,
-            "211": 2,
-            "双一流": 1,
-        }
-        best = 0
-        for t in tiers:
-            v = score_map.get(str(t), None)
-            if v is None:
-                # 模糊包含处理
-                ts = str(t)
-                if "海外" in ts or "overseas" in ts.lower():
-                    v = 3
-                elif "985" in ts:
-                    v = 3
-                elif "211" in ts:
-                    v = 2
-                elif "双一流" in ts:
-                    v = 1
-            if v and v > best:
-                best = v
-        return best
-
-    matched = []
-    for r in resumes:
-        blob = make_text_blob(r)
-        matched_keywords = sorted(list({k for k in kw_list if k and k in blob}))
-        hit_count = len(matched_keywords)
-        if match_type == "all":
-            if hit_count < len(kw_list):
-                continue
-        else:  # any
-            if hit_count == 0:
-                continue
-        # 经验相关：用条目数量近似工作经历强度
-        wexp = r.get("work_experience") or []
-        internships = r.get("internship_experience") or []
-        projects = r.get("project_experience") or []
-
-        deg_lvl = degree_level(r.get("education_degree"))
-        tier_lvl = tier_level(r.get("education_tiers") or [])
-
-        # 评分权重：学位(3/2/1)*20 + 院校(3/2/1)*15 + 工作经历条目*5 + 项目*3 + 实习*2 + 命中数微调
-        score = (
-            deg_lvl * 20
-            + tier_lvl * 15
-            + min(len(wexp), 8) * 5
-            + min(len(projects), 6) * 3
-            + min(len(internships), 4) * 2
-            + hit_count * 1
-        )
-
-        matched.append({
-            "id": r.get("id"),
-            "name": r.get("name") or "未知",
-            "education_degree": r.get("education_degree"),
-            "education_tiers": r.get("education_tiers") or [],
-            "skills": r.get("skills") or [],
-            "matched_keywords": matched_keywords,
-            "hit_count": hit_count,
-            "score": score,
-            "created_at": r.get("created_at"),
-        })
-
-    # 4) 排序：总分降序；若同分，按命中数降序；再按 id 降序
-    matched.sort(key=lambda x: (-x["score"], -x["hit_count"], -(x["id"] or 0)))
-
-    return {
-        "position": position,
-        "items": matched,
-        "total": len(matched),
-    }
+@app.post("/positions")
+def create_position(data: PositionCreate) -> dict:
+    """创建新职位"""
+    client = get_supabase_client()
+    insert_data = data.dict()
+    try:
+        res = client.table("positions").insert(insert_data).execute()
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=500, detail="创建失败")
+    return {"position": items[0]}
 
 
 @app.post("/keywords")
-def create_keyword(payload: KeywordCreate) -> dict:
-    kw = payload.keyword.strip()
-    if not kw:
-        raise HTTPException(status_code=400, detail="关键词不能为空")
-
+def create_keyword(data: KeywordCreate) -> dict:
+    """创建新关键词"""
     client = get_supabase_client()
     try:
-        # 简单去重策略：先查再插入
-        exists = client.table("keywords").select("id, keyword").ilike("keyword", kw).limit(1).execute()
-        data = getattr(exists, "data", [])
-        if data:
-            return {"ok": True, "keyword": data[0]}
-        res = client.table("keywords").insert({"keyword": kw}).execute()
+        res = client.table("keywords").insert({"keyword": data.keyword}).execute()
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
-
-    data = getattr(res, "data", None)
-    if not data:
-        raise HTTPException(status_code=500, detail="创建失败：未返回数据")
-    return {"ok": True, "keyword": data[0]}
-
-
-# ================== 上传与文件登记 ==================
-class UploadResponse(BaseModel):
-    ok: bool
-    files: List[str]
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=500, detail="创建失败")
+    return {"keyword": items[0]}
 
 
-@app.post("/upload", response_model=UploadResponse)
-async def upload_files(
-    uploaded_by: str = Form(..., description="上传者姓名"),
-    files: List[UploadFile] = File(..., description="批量文件"),
-) -> UploadResponse:
-    if not uploaded_by.strip():
-        raise HTTPException(status_code=400, detail="上传者姓名不能为空")
-    if not files:
-        raise HTTPException(status_code=400, detail="未选择文件")
-
+@app.put("/positions/{position_id}")
+def update_position(position_id: int, data: PositionCreate) -> dict:
+    """更新职位信息"""
     client = get_supabase_client()
-
-    saved_names: List[str] = []
-    for f in files:
-        # 仅允许部分扩展名
-        _, ext = os.path.splitext(f.filename)
-        ext_lower = ext.lower()
-        if ext_lower not in {".pdf", ".doc", ".docx", ".txt"}:
-            raise HTTPException(status_code=400, detail=f"不支持的文件类型: {f.filename}")
-
-        # 保存到 processing 目录，文件名增加时间戳避免冲突
-        safe_name = f.filename.replace("/", "_").replace("\\", "_")
-        dest_path = UPLOAD_DIRS["processing"] / safe_name
-
-        # 如果存在则在文件名后追加数字
-        counter = 1
-        base, extn = os.path.splitext(dest_path.name)
-        while dest_path.exists():
-            dest_path = UPLOAD_DIRS["processing"] / f"{base}_{counter}{extn}"
-            counter += 1
-
-        with open(dest_path, "wb") as out:
-            shutil.copyfileobj(f.file, out)
-
-        saved_names.append(dest_path.name)
-
-        # 在 resume_files 中登记记录，状态 = 待处理
-        try:
-            client.table("resume_files").insert({
-                "file_name": dest_path.name,
-                "file_path": str(dest_path),
-                "uploaded_by": uploaded_by,
-                "status": "待处理",
-            }).execute()
-        except Exception as exc:
-            # 插入失败也不应阻断其他文件保存
-            # 标记失败目录
-            fail_target = UPLOAD_DIRS["failed"] / dest_path.name
-            try:
-                if dest_path.exists():
-                    dest_path.replace(fail_target)
-            except Exception:
-                pass
-            raise HTTPException(status_code=400, detail=f"登记数据库失败: {exc}")
-
-    return UploadResponse(ok=True, files=saved_names)
-
-
-_observer = None
-
-
-@app.on_event("startup")
-def _on_startup():
-    global _observer
+    update_data = data.dict()
     try:
-        _observer = start_watcher_in_background()
-    except Exception:
-        _observer = None
+        res = client.table("positions").update(update_data).eq("id", position_id).execute()
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=404, detail="职位不存在或更新失败")
+    return {"position": items[0]}
 
 
-@app.on_event("shutdown")
-def _on_shutdown():
-    global _observer
+@app.delete("/positions/{position_id}")
+def delete_position(position_id: int) -> dict:
+    """删除职位"""
+    client = get_supabase_client()
     try:
-        if _observer is not None:
-            _observer.stop()
-            _observer.join(timeout=5)
-    finally:
-        _observer = None
+        res = client.table("positions").delete().eq("id", position_id).execute()
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    items = getattr(res, "data", [])
+    if not items:
+        raise HTTPException(status_code=404, detail="职位不存在")
+    return {"message": "删除成功", "deleted": items[0]}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

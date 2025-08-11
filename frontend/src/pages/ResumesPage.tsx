@@ -23,6 +23,8 @@ export default function ResumesPage() {
   const navigate = useNavigate()
   const [items, setItems] = useState<ResumeItem[]>([])
   const [loading, setLoading] = useState(true)
+  const [searching, setSearching] = useState(false)
+  const [query, setQuery] = useState('')
   const [techTags, setTechTags] = useState<Tag[]>([])
   const [nonTechTags, setNonTechTags] = useState<Tag[]>([])
   
@@ -101,6 +103,92 @@ export default function ResumesPage() {
       .catch(() => setItems([]))
       .finally(() => setLoading(false))
   }, [])
+
+  async function doSearch(next?: string) {
+    const q = (next ?? query).trim()
+    setPage(1)
+    if (!q) {
+      // 恢复初始列表
+      setSearching(false)
+      setLoading(true)
+      try {
+        const r = await fetch('http://localhost:8000/resumes')
+        if (!r.ok) {
+          const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
+          console.error('Failed to fetch resumes:', errorData)
+          alert(`获取简历列表失败: ${errorData.detail || r.statusText}`)
+          return
+        }
+        const d = await r.json()
+        const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null }>
+        setItems(mapRows(rows))
+      } catch (error) {
+        console.error('Error fetching resumes:', error)
+        alert('获取简历列表失败，请检查网络连接')
+      } finally {
+        setLoading(false)
+      }
+      return
+    }
+    setSearching(true)
+    setLoading(true)
+    try {
+      const r = await fetch(`http://localhost:8000/resumes/_search?q=${encodeURIComponent(q)}`)
+      if (!r.ok) {
+        const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
+        console.error('Search failed:', errorData)
+        alert(`搜索失败: ${errorData.detail || r.statusText}`)
+        return
+      }
+      const d = await r.json()
+      const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null }>
+      setItems(mapRows(rows))
+    } catch (error) {
+      console.error('Search error:', error)
+      alert('搜索失败，请检查网络连接')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  function mapRows(rows: Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null }>): ResumeItem[] {
+    const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
+      const s = (x || '').trim()
+      if (!s) return ''
+      if (s.includes('博')) return '博士'
+      if (s.includes('硕')) return '硕士'
+      if (s.includes('本')) return '本科'
+      return ''
+    }
+    const normalizeTiers = (arr: string[] | null | undefined): ResumeItem['tiers'] => {
+      const mapped = (arr || []).map(t => {
+        const v = t.replace('海外', '海外留学')
+        return v as ResumeItem['tiers'][number]
+      }).filter(v => ['985','211','双一流','海外留学'].includes(v)) as ResumeItem['tiers']
+      return Array.from(new Set(mapped)) as ResumeItem['tiers']
+    }
+    const hasTech = (skills: string[] | null | undefined) => {
+      if (!skills || skills.length === 0) return false
+      const techKeywords = ['前端', '后端', '全栈', '算法', '数据', '测试', '运维', '移动端',
+        'Java', 'Python', 'Go', 'C++', 'TypeScript', 'React', 'Vue', 'Node.js', '大模型', 'NLP',
+        'AI', 'ML', 'DevOps', 'Android', 'iOS', 'PHP', 'Ruby', 'Rust', 'Swift', 'Kotlin']
+      const skillsStr = skills.join('、').toLowerCase()
+      return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
+    }
+    return rows.map(r => {
+      const skills = (r.skills || []).map(s => s.trim()).filter(Boolean)
+      const isTech = hasTech(r.skills)
+      return {
+        id: r.id,
+        name: r.name || '未知',
+        category: isTech ? '技术类' : '非技术类',
+        tags: skills,
+        years: null,
+        degree: normalizeDegree(r.education_degree),
+        tiers: normalizeTiers(r.education_tiers),
+      }
+    })
+  }
 
   // 应用到列表的筛选（按"应用筛选"按钮后生效）
   const [category, setCategory] = useState<'技术类' | '非技术类'>('技术类')
@@ -205,6 +293,17 @@ export default function ResumesPage() {
     <section className="panel">
       <h2>简历列表</h2>
       <div className="toolbar">
+        <div className="bar">
+          <input
+            placeholder="搜索姓名、邮箱、电话或任意字符，如 Java/Python..."
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
+            style={{ flex: 1 }}
+          />
+          <button className="primary" onClick={() => doSearch()} disabled={loading}>搜索</button>
+          {searching && <button className="ghost" onClick={() => { setQuery(''); doSearch('') }}>清空搜索</button>}
+        </div>
         <div className="filters-grid">
           <label>
             <span>职位类别</span>
