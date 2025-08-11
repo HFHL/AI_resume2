@@ -25,18 +25,23 @@ class UploadDirEventHandler(FileSystemEventHandler):
     def __init__(self) -> None:
         super().__init__()
         self.processor = MinerUProcessor()
+        # 批处理触发信号：检测到新 PDF 或定时轮询触发
+        self.batch_signal = threading.Event()
 
     def on_created(self, event):
         if event.is_directory:
             return
         path = Path(event.src_path)
-        self._handle_file(path)
+        if path.suffix.lower() == ".pdf":
+            # 仅发出批处理信号，不做即时处理
+            self.batch_signal.set()
 
     def on_moved(self, event):
         if getattr(event, "is_directory", False):
             return
         path = Path(event.dest_path)
-        self._handle_file(path)
+        if path.suffix.lower() == ".pdf":
+            self.batch_signal.set()
 
     def _handle_file(self, path: Path):
         ext = path.suffix.lower()
@@ -129,6 +134,31 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 client.table("resume_files").update({"status": "处理失败"}).eq("file_name", path.name).execute()
             except Exception:
                 pass
+        else:
+            # 打印剩余待处理 PDF 数量（processing 目录中）
+            try:
+                processing_dir = UPLOAD_DIRS["processing"]
+                remaining = sum(1 for _ in processing_dir.glob("*.pdf"))
+                logger.info(f"剩余待处理 PDF: {remaining}")
+            except Exception:
+                pass
+
+    def run_batch_loop(self) -> None:
+        """后台批处理循环：
+        - 每当有信号或超时到期，检查 processing 目录是否存在 PDF；
+        - 若存在则调用 on_batch() 批次处理最多 5 个。
+        """
+        while True:
+            # 最长 3 秒轮询一次；有信号则立即处理
+            self.batch_signal.wait(timeout=3)
+            self.batch_signal.clear()
+            processing_dir = UPLOAD_DIRS["processing"]
+            try:
+                has_pdf = any(processing_dir.glob("*.pdf"))
+            except Exception:
+                has_pdf = False
+            if has_pdf:
+                self.on_batch()
 
     def on_batch(self):
         """按批次处理：
@@ -159,7 +189,7 @@ class UploadDirEventHandler(FileSystemEventHandler):
         results = self.processor.process_batch(batch_dir)
 
         client = get_supabase_client()
-        for pdf in moved_files:
+        for idx, pdf in enumerate(moved_files):
             text_content = results.get(pdf)
             # 入库（与 _handle_file 中一致）
             try:
@@ -202,6 +232,14 @@ class UploadDirEventHandler(FileSystemEventHandler):
                     client.table("resume_files").update(update_payload).eq("file_name", pdf.name).execute()
             except Exception as e:
                 logger.error(f"批次入库失败: {pdf.name}: {e}")
+            finally:
+                # 批次内进度与全局剩余数量
+                try:
+                    processing_dir = UPLOAD_DIRS["processing"]
+                    remaining_global = sum(1 for _ in processing_dir.glob("*.pdf")) + (len(moved_files) - idx - 1)
+                    logger.info(f"剩余待处理 PDF: {remaining_global}")
+                except Exception:
+                    pass
 
 
 def start_watcher_in_background() -> Observer:
@@ -211,5 +249,8 @@ def start_watcher_in_background() -> Observer:
     observer.schedule(handler, str(UPLOAD_DIRS["processing"]) , recursive=False)
     observer.daemon = True
     observer.start()
+    # 启动批处理后台循环线程
+    t = threading.Thread(target=handler.run_batch_loop, daemon=True)
+    t.start()
     logger.info(f"已启动目录监听: {UPLOAD_DIRS['processing']}")
     return observer
