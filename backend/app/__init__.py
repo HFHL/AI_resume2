@@ -9,7 +9,7 @@ _BACKEND_ROOT = _PROJECT_ROOT / "backend"
 _UPLOAD_ROOT = _BACKEND_ROOT / "uploads"
 UPLOAD_DIRS = {
     "processing": _UPLOAD_ROOT / "processing",
-    "processed": _UPLOAD_ROOT / "processed",
+    "completed": _UPLOAD_ROOT / "completed",
     "failed": _UPLOAD_ROOT / "failed",
 }
 

@@ -11,6 +11,7 @@ from watchdog.events import FileSystemEventHandler
 from . import UPLOAD_DIRS
 from .db import get_supabase_client
 from .ocr import MinerUProcessor
+from .parser import parse_resume
 
 
 logger = logging.getLogger("upload_watcher")
@@ -76,7 +77,7 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 pass
             return
 
-        # 将解析内容落库到 resumes，并更新文件状态
+        # 将解析内容落库到 resumes，并更新文件状态与文件归档
         try:
             # 找到对应的 resume_files 记录
             rf = client.table("resume_files").select("id").eq("file_name", path.name).limit(1).execute()
@@ -85,14 +86,41 @@ class UploadDirEventHandler(FileSystemEventHandler):
             if data:
                 rf_id = data[0]["id"]
 
-            # 简单写入到 resumes.other 字段，后续可做结构化抽取
-            client.table("resumes").insert({
-                "resume_file_id": rf_id,
-                "name": "",
-                "other": text_content,
-            }).execute()
+            # 结构化解析
+            parsed = parse_resume(text_content, rf_id, file_name=path.name)
+            row = parsed.to_row()
+            client.table("resumes").insert(row).execute()
 
-            client.table("resume_files").update({"status": "已处理"}).eq("file_name", path.name).execute()
+            # 移动文件到 completed 目录
+            target_dir = UPLOAD_DIRS["completed"]
+            target_dir.mkdir(parents=True, exist_ok=True)
+            target_path = target_dir / path.name
+            if target_path.exists():
+                base = target_path.stem
+                ext = target_path.suffix
+                counter = 1
+                while (target_dir / f"{base}_{counter}{ext}").exists():
+                    counter += 1
+                target_path = target_dir / f"{base}_{counter}{ext}"
+
+            try:
+                path.replace(target_path)
+            except Exception:
+                # 若移动失败，不影响入库，但仍更新状态
+                target_path = path
+
+            # 更新文件记录：状态 + 路径（若重命名也同步 file_name）
+            update_payload = {
+                "status": "已处理",
+                "file_path": str(target_path),
+            }
+            if rf_id is not None and target_path.name != path.name:
+                update_payload["file_name"] = target_path.name
+
+            if rf_id is not None:
+                client.table("resume_files").update(update_payload).eq("id", rf_id).execute()
+            else:
+                client.table("resume_files").update(update_payload).eq("file_name", path.name).execute()
         except Exception as e:
             logger.error(f"写入解析结果失败: {e}")
             try:
@@ -110,5 +138,3 @@ def start_watcher_in_background() -> Observer:
     observer.start()
     logger.info(f"已启动目录监听: {UPLOAD_DIRS['processing']}")
     return observer
-
-

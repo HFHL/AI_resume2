@@ -98,17 +98,20 @@ function UploadPanel() {
   function onPick(e: React.ChangeEvent<HTMLInputElement>) {
     const list = e.target.files
     if (!list) return
-    setFiles(prev => [...prev, ...Array.from(list)])
-    e.target.value = ''
+    // 复制出新的 File 对象数组，避免某些浏览器对同一引用的后续 onChange 不触发
+    const picked = Array.from(list)
+    setFiles(prev => [...prev, ...picked])
+    // 延迟清空，确保本次选择稳定
+    setTimeout(() => { e.target.value = '' }, 0)
   }
 
-  function onDrop(e: React.DragEvent<HTMLLabelElement>) {
+  function onDrop(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault()
     const list = e.dataTransfer.files
     if (!list) return
     setFiles(prev => [...prev, ...Array.from(list)])
   }
-  function onDragOver(e: React.DragEvent) { e.preventDefault() }
+  function onDragOver(e: React.DragEvent<HTMLDivElement>) { e.preventDefault() }
 
   function removeAt(i: number) {
     setFiles(prev => prev.filter((_, idx) => idx !== i))
@@ -119,7 +122,7 @@ function UploadPanel() {
     if (files.length === 0) { alert('请选择文件'); return }
     const form = new FormData()
     form.append('uploaded_by', uploader.trim())
-    files.forEach(f => form.append('files', f))
+    files.forEach(f => form.append('files', f, f.name))
 
     setUploading(true)
     setProgress(0)
@@ -140,6 +143,8 @@ function UploadPanel() {
             else reject(new Error(xhr.responseText || '上传失败'))
           }
         }
+        // 防止缓存导致的请求短路
+        xhr.setRequestHeader('Cache-Control', 'no-cache')
         xhr.onerror = () => reject(new Error('网络错误'))
         xhr.send(form)
       })
@@ -157,6 +162,16 @@ function UploadPanel() {
 
   return (
     <div>
+      {/* 隐藏但可触发的文件选择框，避免使用 hidden 属性引发的首次点击无效问题 */}
+      <input
+        ref={inputRef}
+        type="file"
+        accept=".pdf,.doc,.docx,.txt"
+        multiple
+        onChange={onPick}
+        style={{ position: 'absolute', left: -9999, width: 1, height: 1, opacity: 0 }}
+      />
+
       <div className="form">
         <label>
           <span>上传者姓名</span>
@@ -165,11 +180,24 @@ function UploadPanel() {
       </div>
 
       <div className="upload">
-        <label className="upload-card" onDrop={onDrop} onDragOver={onDragOver}>
-          <input ref={inputRef} type="file" accept=".pdf,.doc,.docx,.txt" hidden multiple onChange={onPick} />
+        <div
+          className="upload-card"
+          role="button"
+          tabIndex={0}
+          onClick={() => !uploading && inputRef.current?.click()}
+          onKeyDown={(e) => {
+            if (uploading) return
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              inputRef.current?.click()
+            }
+          }}
+          onDrop={onDrop}
+          onDragOver={onDragOver}
+        >
           <span className="upload-icon">＋</span>
           <span className="upload-text">点击或拖拽文件到此处</span>
-        </label>
+        </div>
       </div>
       <div className="chips">
         {files.map((f, i) => (

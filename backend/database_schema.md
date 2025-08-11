@@ -61,14 +61,15 @@
 | name | varchar(255) | NOT NULL | - | 姓名 |
 | contact_info | text | NULL | - | 联系信息 |
 | education_degree | varchar(50) | NULL | - | 学历 |
-| education_school | varchar(255) | NULL | - | 学校 |
+| education_school | jsonb | NULL | - | 学校名称数组（JSONB 字符串数组），例如 ["北京邮电大学", "Monash University"] |
 | education_major | varchar(255) | NULL | - | 专业 |
 | education_graduation_year | integer | NULL | - | 毕业年份 |
-| education_tier | varchar(50) | NULL | - | 学校层次 |
-| skills | text[] | NULL | - | 技能数组 |
-| work_experience | text[] | NULL | - | 工作经历数组 |
-| internship_experience | text[] | NULL | - | 实习经历数组 |
-| project_experience | text[] | NULL | - | 项目经历数组 |
+| education_tier | varchar(50) | NULL | - | 学校层次（单值汇总，如：985/211/双一流/海外/普通本科/未知） |
+| education_tiers | jsonb | NULL | - | 学校层次数组（多值并存），如 ["985", "海外"] |
+| skills | text[] | NULL | - | 技能数组（字符串数组） |
+| work_experience | text[] | NULL | - | 工作经历数组（字符串数组） |
+| internship_experience | text[] | NULL | - | 实习经历数组（字符串数组） |
+| project_experience | text[] | NULL | - | 项目经历数组（字符串数组） |
 | self_evaluation | text | NULL | - | 自我评价 |
 | other | text | NULL | - | 其他信息 |
 | created_at | timestamp | NULL | CURRENT_TIMESTAMP | 创建时间 |
