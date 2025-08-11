@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import Chip from '../components/Chip'
+import { api } from '../api'
 
 export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([])
@@ -42,7 +43,7 @@ export default function UploadPage() {
     try {
       // 使用原生 XMLHttpRequest 以便拿到上传进度
       const xhr = new XMLHttpRequest()
-      xhr.open('POST', 'http://localhost:8000/upload')
+      xhr.open('POST', api('/upload'))
       xhr.upload.onprogress = (evt) => {
         if (evt.lengthComputable) {
           const p = Math.round((evt.loaded / evt.total) * 100)

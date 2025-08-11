@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { api } from '../api'
 import { useParams, useNavigate } from 'react-router-dom'
 
 type ResumeDetail = {
@@ -31,7 +32,7 @@ export default function ResumeDetailPage() {
   useEffect(() => {
     if (!id) return
     setLoading(true)
-    fetch(`http://localhost:8000/resumes/${id}`)
+    fetch(api(`/resumes/${id}`))
       .then(r => {
         if (!r.ok) throw new Error('加载失败')
         return r.json()

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Chip from '../components/Chip'
 import KeywordPicker, { type Keyword } from '../components/KeywordPicker'
+import { api } from '../api'
 
 type Tag = { id: number; tag_name: string; category: string }
 
@@ -22,14 +23,14 @@ export default function PositionCreatePage() {
 
   // 拉取标签与关键词
   useEffect(() => {
-    fetch(`http://localhost:8000/tags?category=${encodeURIComponent(category)}`)
+    fetch(api(`/tags?category=${encodeURIComponent(category)}`))
       .then(r => r.json())
       .then(d => setAllTags(d.items || []))
       .catch(() => setAllTags([]))
   }, [category])
 
   useEffect(() => {
-    fetch('http://localhost:8000/keywords')
+    fetch(api('/keywords'))
       .then(r => r.json())
       .then(d => setAllKeywords(d.items || []))
       .catch(() => setAllKeywords([]))
@@ -60,7 +61,7 @@ export default function PositionCreatePage() {
     const kw = text.trim()
     if (!kw) return
     try {
-      const res = await fetch('http://localhost:8000/keywords', {
+      const res = await fetch(api('/keywords'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ keyword: kw }),
@@ -88,7 +89,7 @@ export default function PositionCreatePage() {
         tags: tags.map(t => t.tag_name),
       }
 
-      const res = await fetch('http://localhost:8000/positions', {
+      const res = await fetch(api('/positions'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { api } from '../api'
 
 export type PositionListItem = {
   id: number
@@ -14,7 +15,7 @@ export function usePositions() {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     setLoading(true)
-    fetch('http://localhost:8000/positions')
+    fetch(api('/positions'))
       .then(r => r.json())
       .then(d => setItems(d.items || []))
       .finally(() => setLoading(false))

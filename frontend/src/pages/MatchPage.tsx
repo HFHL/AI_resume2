@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { api } from '../api'
 import { useNavigate } from 'react-router-dom'
 
 type PositionListItem = {
@@ -34,7 +35,7 @@ export default function MatchPage() {
 
   useEffect(() => {
     setLoadingPositions(true)
-    fetch('http://localhost:8000/positions')
+    fetch(api('/positions'))
       .then(r => r.json())
       .then(d => setPositions(d.items || []))
       .finally(() => setLoadingPositions(false))
@@ -45,7 +46,7 @@ export default function MatchPage() {
     setMatchLoading(true)
     setResults([])
     setPage(1)
-    fetch(`http://localhost:8000/positions/${id}/match`)
+    fetch(api(`/positions/${id}/match`))
       .then(r => r.json())
       .then(d => setResults(d.items || []))
       .finally(() => setMatchLoading(false))

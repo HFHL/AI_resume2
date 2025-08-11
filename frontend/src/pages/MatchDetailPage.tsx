@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
+import { api } from '../api'
 
 type Position = {
   id: number
@@ -44,8 +45,8 @@ export default function MatchDetailPage() {
     if (!pid || !rid) return
     setLoading(true)
     Promise.all([
-      fetch(`http://localhost:8000/positions/${pid}`).then(r => r.json()),
-      fetch(`http://localhost:8000/resumes/${rid}`).then(r => r.json()),
+      fetch(api(`/positions/${pid}`)).then(r => r.json()),
+      fetch(api(`/resumes/${rid}`)).then(r => r.json()),
     ])
       .then(([p, r]) => {
         setPosition(p.item)

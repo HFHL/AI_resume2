@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Chip from '../components/Chip'
+import { api } from '../api'
 import Pagination from '../components/Pagination'
 
 type ResumeItem = {
@@ -44,7 +45,7 @@ export default function ResumesPage() {
   
   useEffect(() => {
     setLoading(true)
-    fetch('http://localhost:8000/resumes')
+    fetch(api('/resumes'))
       .then(r => r.json())
       .then((d) => {
         const rows = (d.items || []) as Array<{
@@ -112,7 +113,7 @@ export default function ResumesPage() {
       setSearching(false)
       setLoading(true)
       try {
-        const r = await fetch('http://localhost:8000/resumes')
+        const r = await fetch(api('/resumes'))
         if (!r.ok) {
           const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
           console.error('Failed to fetch resumes:', errorData)
@@ -133,7 +134,7 @@ export default function ResumesPage() {
     setSearching(true)
     setLoading(true)
     try {
-      const r = await fetch(`http://localhost:8000/resumes/_search?q=${encodeURIComponent(q)}`)
+      const r = await fetch(api(`/resumes/_search?q=${encodeURIComponent(q)}`))
       if (!r.ok) {
         const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
         console.error('Search failed:', errorData)

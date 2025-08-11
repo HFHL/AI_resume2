@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { api } from '../api'
 
 type Tag = { id: number; tag_name: string; category: string }
 
@@ -32,7 +33,7 @@ export default function PositionDetail() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`http://localhost:8000/positions/${id}`)
+    fetch(api(`/positions/${id}`))
       .then(r => r.json())
       .then(d => {
         const p: Position = d.item
@@ -43,14 +44,14 @@ export default function PositionDetail() {
   }, [id])
 
   useEffect(() => {
-    fetch(`http://localhost:8000/tags?category=${encodeURIComponent(category)}`)
+    fetch(api(`/tags?category=${encodeURIComponent(category)}`))
       .then(r => r.json())
       .then(d => setAllTags(d.items || []))
       .catch(() => setAllTags([]))
   }, [category])
 
   useEffect(() => {
-    fetch('http://localhost:8000/keywords')
+    fetch(api('/keywords'))
       .then(r => r.json())
       .then(d => setAllKeywords(d.items || []))
       .catch(() => setAllKeywords([]))
@@ -94,7 +95,7 @@ export default function PositionDetail() {
         required_keywords: keywords.map(k => k.keyword),
         tags: tags.map(t => t.tag_name),
       }
-      const res = await fetch(`http://localhost:8000/positions/${position.id}`, {
+      const res = await fetch(api(`/positions/${position.id}`), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
