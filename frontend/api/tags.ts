@@ -2,8 +2,17 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
+function parseURL(req: Request) {
+  try {
+    if (req.url.startsWith('http')) return new URL(req.url)
+    return new URL(req.url, 'http://localhost')
+  } catch {
+    return new URL('http://localhost')
+  }
+}
+
 export default async function handler(req: Request): Promise<Response> {
-  const url = new URL(req.url)
+  const url = parseURL(req)
   const category = url.searchParams.get('category')
   let query = supabase.from('tags').select('*').order('tag_name')
   if (category) query = query.eq('category', category)
