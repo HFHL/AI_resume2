@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+export const config = { runtime: 'edge' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
@@ -14,7 +15,6 @@ function parseURL(req: Request) {
 export default async function handler(req: Request, ctx: any): Promise<Response> {
   const url = parseURL(req)
   const id = ctx?.params?.id || url.pathname.split('/').filter(Boolean).slice(-2, -1)[0]
-  ;(globalThis as any).config = { runtime: 'edge' }
   if (!id) return new Response(JSON.stringify({ detail: 'position id required' }), { status: 400 })
 
   // 读取职位

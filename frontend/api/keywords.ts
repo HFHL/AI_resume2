@@ -1,9 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
+export const config = { runtime: 'edge' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
 export default async function handler(req: Request): Promise<Response> {
-  ;(globalThis as any).config = { runtime: 'edge' }
   const method = req.method
   if (method === 'GET') {
     const { data, error } = await supabase.from('keywords').select('*').order('keyword')

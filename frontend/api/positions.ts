@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+export const config = { runtime: 'edge' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
@@ -14,7 +15,6 @@ function parseURL(req: Request) {
 export default async function handler(req: Request): Promise<Response> {
   const url = parseURL(req)
   const method = req.method
-  ;(globalThis as any).config = { runtime: 'edge' }
   if (method !== 'GET') return new Response('Method Not Allowed', { status: 405 })
   const { data, error } = await supabase
     .from('positions')
