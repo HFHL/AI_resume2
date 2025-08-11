@@ -153,6 +153,25 @@ class KeywordCreate(BaseModel):
     keyword: str
 
 
+@app.get("/resumes")
+def list_resumes(limit: int = Query(200, ge=1, le=1000), offset: int = Query(0, ge=0)) -> dict:
+    """返回简历列表。当前为简单列表接口，筛选由前端先行实现。
+    后续如需服务端筛选/分页，可扩展查询参数。
+    """
+    client = get_supabase_client()
+    try:
+        res = (
+            client.table("resumes")
+            .select("id, name, skills, education_degree, education_tiers, created_at")
+            .order("id", desc=True)
+            .range(offset, offset + limit - 1)
+            .execute()
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    return {"items": getattr(res, "data", [])}
+
+
 @app.post("/keywords")
 def create_keyword(payload: KeywordCreate) -> dict:
     kw = payload.keyword.strip()

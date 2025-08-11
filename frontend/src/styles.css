@@ -33,7 +33,7 @@ body{
 .nav-item:hover{background:#0f172a;border-color:var(--border)}
 .nav-item.active{background:var(--brand);border-color:transparent;box-shadow:0 6px 20px rgba(79,70,229,.35)}
 
-.main{flex:1;max-width:1080px;margin:24px auto;padding:0 20px;width:100%}
+.main{flex:1;max-width:1280px;margin:24px auto;padding:0 20px;width:100%}
 .panel{
   background:var(--panel);border:1px solid var(--border);border-radius:16px;
   padding:20px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);
@@ -97,3 +97,29 @@ button{border:none}
 .card-sub{color:var(--muted);font-size:13px;margin-top:2px}
 .card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .pill{background:#121a27;border:1px solid var(--border);border-radius:999px;padding:4px 8px;font-size:12px}
+
+/* Resumes page */
+.toolbar{margin:8px 0 14px;display:flex;flex-direction:column;gap:12px}
+.filters-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:12px}
+@media (max-width: 1024px){.filters-grid{grid-template-columns:repeat(2, 1fr)}}
+@media (max-width: 640px){.filters-grid{grid-template-columns:1fr}}
+
+.data-table{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#0f1522}
+.table-head,.table-row{display:grid;grid-template-columns:220px 1fr 360px;gap:0;border-bottom:1px solid var(--border)}
+.table-head{background:#0e1520;color:var(--muted);font-size:13px}
+.table-head > div,.table-row > div{padding:12px 14px}
+.table-row:hover{background:#0f172a}
+.cell-name .name{font-weight:600}
+.cell-meta{display:flex;flex-wrap:wrap;gap:6px}
+.small{font-size:12px}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+
+.pagination{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pages{display:flex;gap:6px}
+.page-btn{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 10px;cursor:pointer}
+.page-btn.active{background:var(--brand);border-color:transparent}
+
+@media (max-width: 960px){
+  .table-head,.table-row{grid-template-columns:200px 1fr}
+  .hide-on-narrow{display:none}
+}
