@@ -1,3 +1,4 @@
+export const config = { runtime: 'nodejs18.x' }
 import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: Request): Promise<Response> {
