@@ -25,10 +25,21 @@ export default async function handler(req: Request): Promise<Response> {
 
     const supabase = createClient(supabaseUrl, serviceRoleKey)
 
-    const safeName = fileName.replace(/[\\/]/g, '_')
+    // 规范化文件名，去除可能导致存储键非法的字符，并避免与桶名重复的前缀
     const ts = Date.now()
     const rand = Math.random().toString(36).slice(2, 8)
-    const path = `resumes/original/${ts}_${rand}_${safeName}`
+    const dot = fileName.lastIndexOf('.')
+    const rawName = dot > 0 ? fileName.slice(0, dot) : fileName
+    const ext = dot > 0 ? fileName.slice(dot + 1) : ''
+    const sanitizedBase = rawName
+      .normalize('NFKD')
+      .replace(/[\s]+/g, '_')
+      .replace(/[^a-zA-Z0-9._-]/g, '_')
+      .replace(/_+/g, '_')
+      .slice(0, 100) || 'file'
+    const sanitizedExt = (ext || 'bin').replace(/[^a-zA-Z0-9]/g, '').slice(0, 10) || 'bin'
+    const safeName = `${sanitizedBase}.${sanitizedExt}`
+    const path = `original/${ts}_${rand}_${safeName}`
 
     const contentType = (file as any).type || 'application/octet-stream'
 
