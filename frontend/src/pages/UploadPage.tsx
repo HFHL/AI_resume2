@@ -34,36 +34,42 @@ export default function UploadPage() {
   async function handleUpload() {
     if (!uploader.trim()) { alert('请输入上传者姓名'); return }
     if (files.length === 0) { alert('请选择文件'); return }
-    const form = new FormData()
-    form.append('uploaded_by', uploader.trim())
-    files.forEach(f => form.append('files', f, f.name))
 
     setUploading(true)
     setProgress(0)
     try {
-      // 使用原生 XMLHttpRequest 以便拿到上传进度
-      const xhr = new XMLHttpRequest()
-      xhr.open('POST', api('/upload'))
-      xhr.upload.onprogress = (evt) => {
-        if (evt.lengthComputable) {
-          const p = Math.round((evt.loaded / evt.total) * 100)
-          setProgress(p)
-        }
-      }
-      await new Promise<void>((resolve, reject) => {
-        xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-            if (xhr.status >= 200 && xhr.status < 300) resolve()
-            else reject(new Error(xhr.responseText || '上传失败'))
-          }
-        }
-        // 防止缓存导致的请求短路
-        xhr.setRequestHeader('Cache-Control', 'no-cache')
-        xhr.onerror = () => reject(new Error('网络错误'))
-        xhr.send(form)
-      })
+      let done = 0
+      for (const f of files) {
+        // 1) 请求后端生成预签名 URL
+        const presignRes = await fetch(api('/uploads/presign'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ file_name: f.name, content_type: f.type || 'application/octet-stream' })
+        })
+        if (!presignRes.ok) throw new Error(await presignRes.text())
+        const presign = await presignRes.json() as { url: string, object_key: string, public_url: string }
 
-      alert('上传成功，后台将自动解析')
+        // 2) 直传到 R2（PUT）
+        const putRes = await fetch(presign.url, {
+          method: 'PUT',
+          headers: { 'Content-Type': f.type || 'application/octet-stream' },
+          body: f
+        })
+        if (!putRes.ok) throw new Error('上传到 R2 失败')
+
+        // 3) 通知后端写入数据库
+        const completeRes = await fetch(api('/uploads/complete'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ file_name: f.name, object_key: presign.object_key, uploaded_by: uploader.trim() })
+        })
+        if (!completeRes.ok) throw new Error(await completeRes.text())
+
+        done += 1
+        setProgress(Math.round((done / files.length) * 100))
+      }
+
+      alert('上传成功')
       setFiles([])
       setUploader('')
       setProgress(0)

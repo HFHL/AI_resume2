@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os
+import time
+import uuid
+import logging
 from typing import List, Literal
 
 from dotenv import load_dotenv
@@ -10,8 +13,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from supabase import Client, create_client
 
 from .config import get_app_settings
-from . import UPLOAD_DIRS
+from . import UPLOAD_DIRS, build_r2_public_url
 from .watcher import start_watcher_in_background
+import boto3
+from botocore.client import Config as _BotoConfig
+import certifi
 
 # 确保环境变量加载
 load_dotenv()
@@ -20,6 +26,9 @@ _observer = None
 
 # 创建 FastAPI 应用
 app = FastAPI(title="AI简历匹配系统 API", version="0.1.0")
+logger = logging.getLogger("api")
+if not logger.handlers:
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
 # 配置 CORS
 app.add_middleware(
@@ -120,7 +129,7 @@ async def upload_resumes(
     client = get_supabase_client()
 
     for file in files:
-        # 保存到 processing 目录，避免冲突自动重命名
+        # 保存到 processing 目录，避免冲突自动重命名（后续 watcher 负责 OCR + 上传到 R2 + 入库修正路径）
         safe_name = file.filename.replace('/', '_').replace('\\', '_')
         target = UPLOAD_DIRS["processing"] / safe_name
         base, ext = os.path.splitext(target.name)
@@ -128,11 +137,17 @@ async def upload_resumes(
         while target.exists():
             target = UPLOAD_DIRS["processing"] / f"{base}_{counter}{ext}"
             counter += 1
-        with open(target, "wb") as f:
-            content = await file.read()
-            f.write(content)
+        try:
+            with open(target, "wb") as f:
+                content = await file.read()
+                f.write(content)
+            logger.info(f"[upload] 保存文件到本地 processing: {target}")
+        except Exception as e:
+            logger.error(f"[upload] 保存文件失败: {file.filename}: {e}")
+            results.append({"filename": file.filename, "status": "failed", "error": f"保存失败: {e}"})
+            continue
 
-        # 插入记录到数据库
+        # 插入记录到数据库（初始为本地临时路径，后续 watcher 会把 file_path 更新为 R2 URL）
         data = {
             "file_name": file.filename,
             "uploaded_by": uploaded_by,
@@ -142,15 +157,122 @@ async def upload_resumes(
         }
 
         try:
+            logger.info(f"[upload] 向 resume_files 写入记录: file_name={data['file_name']}, uploaded_by={data['uploaded_by']}")
             res = client.table("resume_files").insert(data).execute()
             if getattr(res, "data", None):
-                results.append({"filename": file.filename, "status": "success", "id": res.data[0]["id"]})
+                rid = res.data[0]["id"]
+                logger.info(f"[upload] 写入 resume_files 成功: id={rid}, path={data['file_path']}")
+                results.append({"filename": file.filename, "status": "success", "id": rid})
             else:
+                logger.error(f"[upload] 写入 resume_files 失败（无返回 data）: {file.filename}")
+                try:
+                    os.remove(target)
+                except Exception:
+                    pass
                 results.append({"filename": file.filename, "status": "failed", "error": "插入失败"})
         except Exception as e:
+            logger.error(f"[upload] 写入 resume_files 异常: {file.filename}: {e}")
+            try:
+                os.remove(target)
+            except Exception:
+                pass
             results.append({"filename": file.filename, "status": "failed", "error": str(e)})
 
     return {"results": results}
+
+
+class PresignRequest(BaseModel):
+    file_name: str
+    content_type: str | None = None
+
+
+class PresignResponse(BaseModel):
+    url: str
+    object_key: str
+    public_url: str
+
+
+@app.post("/uploads/presign", response_model=PresignResponse)
+def presign_upload(req: PresignRequest) -> PresignResponse:
+    settings = get_app_settings()
+    if not (settings.r2_account_id and settings.r2_access_key_id and settings.r2_secret_access_key and settings.r2_bucket):
+        raise HTTPException(status_code=400, detail="未配置 R2，无法生成预签名URL")
+
+    endpoint = f"https://{settings.r2_account_id}.r2.cloudflarestorage.com"
+    s3 = boto3.client(
+        "s3",
+        endpoint_url=endpoint,
+        aws_access_key_id=settings.r2_access_key_id,
+        aws_secret_access_key=settings.r2_secret_access_key,
+        region_name="auto",
+        config=_BotoConfig(
+            signature_version="s3v4",
+            s3={"addressing_style": "path"},
+            retries={"max_attempts": 2, "mode": "standard"},
+        ),
+        verify=certifi.where(),
+    )
+
+    safe_name = req.file_name.replace("/", "_").replace("\\", "_")
+    uniq = f"{int(time.time())}_{uuid.uuid4().hex[:8]}"
+    object_key = f"resumes/original/{uniq}_{safe_name}"
+
+    params = {
+        "Bucket": settings.r2_bucket,
+        "Key": object_key,
+        "ContentType": req.content_type or "application/octet-stream",
+    }
+    try:
+        url = s3.generate_presigned_url(
+            ClientMethod="put_object",
+            Params=params,
+            ExpiresIn=600,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"生成预签名URL失败: {exc}")
+
+    public_url = build_r2_public_url(
+        object_key,
+        r2_public_base_url=settings.r2_public_base_url,
+        r2_bucket=settings.r2_bucket,
+        r2_account_id=settings.r2_account_id,
+    )
+    return PresignResponse(url=url, object_key=object_key, public_url=public_url)
+
+
+class UploadCompleteRequest(BaseModel):
+    file_name: str
+    object_key: str
+    uploaded_by: str
+
+
+@app.post("/uploads/complete")
+def upload_complete(body: UploadCompleteRequest) -> dict:
+    """前端直传 R2 完成后，记录到数据库。"""
+    settings = get_app_settings()
+    public_url = build_r2_public_url(
+        body.object_key,
+        r2_public_base_url=settings.r2_public_base_url,
+        r2_bucket=settings.r2_bucket,
+        r2_account_id=settings.r2_account_id,
+    )
+
+    client = get_supabase_client()
+    row = {
+        "file_name": body.file_name,
+        "uploaded_by": body.uploaded_by,
+        "file_path": public_url,
+        "status": "已上传",
+        "parse_status": "pending",
+    }
+    try:
+        res = client.table("resume_files").insert(row).execute()
+        data = getattr(res, "data", []) or []
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+    if not data:
+        raise HTTPException(status_code=500, detail="写入数据库失败")
+    return {"item": data[0]}
 
 
 @app.on_event("startup")

@@ -10,10 +10,15 @@ import time as _time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from . import UPLOAD_DIRS
+from . import UPLOAD_DIRS, build_r2_public_url
 from .db import get_supabase_client
 from .ocr import MinerUProcessor
 from .parser import parse_resume
+from .config import get_app_settings
+
+import boto3
+from botocore.client import Config as _BotoConfig
+import certifi
 
 
 logger = logging.getLogger("upload_watcher")
@@ -63,6 +68,7 @@ class UploadDirEventHandler(FileSystemEventHandler):
         client = get_supabase_client()
         try:
             client.table("resume_files").update({"status": "处理中"}).eq("file_name", path.name).execute()
+            logger.info(f"[watcher] 标记处理中: file={path.name}")
         except Exception:
             pass
 
@@ -80,11 +86,12 @@ class UploadDirEventHandler(FileSystemEventHandler):
         if text_content is None:
             try:
                 client.table("resume_files").update({"status": "处理失败"}).eq("file_name", path.name).execute()
+                logger.error(f"[watcher] OCR/读取失败，标记处理失败: file={path.name}")
             except Exception:
                 pass
             return
 
-        # 将解析内容落库到 resumes，并更新文件状态与文件归档
+        # 将解析内容落库到 resumes，并更新文件状态与文件归档/上传
         try:
             # 找到对应的 resume_files 记录
             rf = client.table("resume_files").select("id").eq("file_name", path.name).limit(1).execute()
@@ -93,12 +100,71 @@ class UploadDirEventHandler(FileSystemEventHandler):
             if data:
                 rf_id = data[0]["id"]
 
+            logger.info(f"[watcher] 解析完成，准备写入 resumes 并上传: file={path.name}, resume_file_id={rf_id}")
             # 结构化解析
             parsed = parse_resume(text_content, rf_id, file_name=path.name)
             row = parsed.to_row()
-            client.table("resumes").insert(row).execute()
+            # 先上传，再写简历：保证失败不入库
 
-            # 移动文件到 completed 目录
+            # 上传到 Cloudflare R2（仅当为 PDF 时设置 ContentType）
+            settings = get_app_settings()
+            r2_bucket = settings.r2_bucket
+            uploaded_url: str | None = None
+            if settings.r2_account_id and settings.r2_access_key_id and settings.r2_secret_access_key and r2_bucket:
+                endpoint = f"https://{settings.r2_account_id}.r2.cloudflarestorage.com"
+                logger.info(f"[watcher] 初始化 R2 客户端: endpoint={endpoint}, bucket={r2_bucket}")
+                s3 = boto3.client(
+                    "s3",
+                    endpoint_url=endpoint,
+                    aws_access_key_id=settings.r2_access_key_id,
+                    aws_secret_access_key=settings.r2_secret_access_key,
+                    region_name="auto",
+                    config=_BotoConfig(
+                        signature_version="s3v4",
+                        s3={"addressing_style": "path"},
+                        retries={"max_attempts": 2, "mode": "standard"},
+                        proxies={},  # Disable proxy for R2
+                    ),
+                )
+                # 采用对象键：简历/原始/<文件名>，避免与后续解析产物冲突
+                object_key = f"resumes/original/{path.name}"
+                # 若同名存在，自动加后缀
+                try:
+                    s3.head_object(Bucket=r2_bucket, Key=object_key)
+                    base = Path(path.name).stem
+                    ext = Path(path.name).suffix
+                    counter = 1
+                    while True:
+                        object_key = f"resumes/original/{base}_{counter}{ext}"
+                        try:
+                            s3.head_object(Bucket=r2_bucket, Key=object_key)
+                            counter += 1
+                        except Exception:
+                            break
+                except Exception:
+                    pass
+
+                # 执行上传
+                with open(path, "rb") as fsrc:
+                    s3.upload_fileobj(
+                        fsrc,
+                        r2_bucket,
+                        object_key,
+                        ExtraArgs={
+                            "ContentType": "application/pdf" if ext == ".pdf" else "application/octet-stream",
+                        },
+                    )
+                uploaded_url = build_r2_public_url(
+                    object_key,
+                    r2_public_base_url=settings.r2_public_base_url,
+                    r2_bucket=r2_bucket,
+                    r2_account_id=settings.r2_account_id,
+                )
+                logger.info(f"[watcher] 上传 R2 成功: url={uploaded_url}")
+            else:
+                logger.warning("[watcher] 未配置 R2 环境变量，跳过上传，记录将使用本地归档路径")
+
+            # 本地归档（作为备份，可选）
             target_dir = UPLOAD_DIRS["completed"]
             target_dir.mkdir(parents=True, exist_ok=True)
             target_path = target_dir / path.name
@@ -109,18 +175,14 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 while (target_dir / f"{base}_{counter}{ext}").exists():
                     counter += 1
                 target_path = target_dir / f"{base}_{counter}{ext}"
-
             try:
                 path.replace(target_path)
             except Exception:
-                # 若移动失败，不影响入库，但仍更新状态
                 target_path = path
 
-            # 更新文件记录：状态 + 路径（若重命名也同步 file_name）
-            update_payload = {
-                "status": "已处理",
-                "file_path": str(target_path),
-            }
+            # 更新文件记录：状态 + 远程 URL（优先）或本地路径；若重命名也同步 file_name
+            final_path_value = uploaded_url or str(target_path)
+            update_payload = {"status": "已处理", "file_path": final_path_value}
             if rf_id is not None and target_path.name != path.name:
                 update_payload["file_name"] = target_path.name
 
@@ -128,8 +190,13 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 client.table("resume_files").update(update_payload).eq("id", rf_id).execute()
             else:
                 client.table("resume_files").update(update_payload).eq("file_name", path.name).execute()
+            logger.info(f"[watcher] 更新 resume_files 成功: file={path.name}, url={final_path_value}")
+
+            # 最后写入 resumes（确保文件已可用）
+            client.table("resumes").insert(row).execute()
+            logger.info(f"[watcher] 写入 resumes 成功: file={path.name}")
         except Exception as e:
-            logger.error(f"写入解析结果失败: {e}")
+            logger.error(f"[watcher] 处理失败: file={path.name}, error={e}")
             try:
                 client.table("resume_files").update({"status": "处理失败"}).eq("file_name", path.name).execute()
             except Exception:
@@ -201,13 +268,66 @@ class UploadDirEventHandler(FileSystemEventHandler):
 
                 if text_content is None:
                     client.table("resume_files").update({"status": "处理失败"}).eq("file_name", pdf.name).execute()
+                    logger.error(f"[watcher] 批处理OCR失败，标记处理失败: file={pdf.name}")
                     continue
 
+                logger.info(f"[watcher] 批处理解析完成，准备上传并写入: file={pdf.name}, resume_file_id={rf_id}")
                 parsed = parse_resume(text_content, rf_id, file_name=pdf.name)
                 row = parsed.to_row()
-                client.table("resumes").insert(row).execute()
 
-                # 归档
+                # 上传到 Cloudflare R2（批处理同样上传）
+                settings = get_app_settings()
+                r2_bucket = settings.r2_bucket
+                uploaded_url: str | None = None
+                if settings.r2_account_id and settings.r2_access_key_id and settings.r2_secret_access_key and r2_bucket:
+                    endpoint = f"https://{settings.r2_account_id}.r2.cloudflarestorage.com"
+                    logger.info(f"[watcher] 初始化 R2 客户端(批处理): endpoint={endpoint}, bucket={r2_bucket}")
+                    s3 = boto3.client(
+                        "s3",
+                        endpoint_url=endpoint,
+                        aws_access_key_id=settings.r2_access_key_id,
+                        aws_secret_access_key=settings.r2_secret_access_key,
+                        region_name="auto",
+                        config=_BotoConfig(
+                            signature_version="s3v4",
+                            s3={"addressing_style": "path"},
+                            retries={"max_attempts": 2, "mode": "standard"},
+                            proxies={},  # Disable proxy for R2
+                        ),
+                    )
+                    object_key = f"resumes/original/{pdf.name}"
+                    try:
+                        s3.head_object(Bucket=r2_bucket, Key=object_key)
+                        base = pdf.stem
+                        ext = pdf.suffix
+                        counter = 1
+                        while True:
+                            object_key = f"resumes/original/{base}_{counter}{ext}"
+                            try:
+                                s3.head_object(Bucket=r2_bucket, Key=object_key)
+                                counter += 1
+                            except Exception:
+                                break
+                    except Exception:
+                        pass
+
+                    with open(pdf, "rb") as fsrc:
+                        s3.upload_fileobj(
+                            fsrc,
+                            r2_bucket,
+                            object_key,
+                            ExtraArgs={
+                                "ContentType": "application/pdf",
+                            },
+                        )
+                    uploaded_url = build_r2_public_url(
+                        object_key,
+                        r2_public_base_url=settings.r2_public_base_url,
+                        r2_bucket=r2_bucket,
+                        r2_account_id=settings.r2_account_id,
+                    )
+
+                # 归档到本地（可选）
                 target_dir = UPLOAD_DIRS["completed"]
                 target_dir.mkdir(parents=True, exist_ok=True)
                 target_path = target_dir / pdf.name
@@ -223,13 +343,18 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 except Exception:
                     target_path = pdf
 
-                update_payload = {"status": "已处理", "file_path": str(target_path)}
+                update_payload = {"status": "已处理", "file_path": uploaded_url or str(target_path)}
                 if rf_id is not None and target_path.name != pdf.name:
                     update_payload["file_name"] = target_path.name
                 if rf_id is not None:
                     client.table("resume_files").update(update_payload).eq("id", rf_id).execute()
                 else:
                     client.table("resume_files").update(update_payload).eq("file_name", pdf.name).execute()
+                logger.info(f"[watcher] 批处理更新 resume_files 成功: file={pdf.name}, url={update_payload['file_path']}")
+
+                # 文件可用后再写简历
+                client.table("resumes").insert(row).execute()
+                logger.info(f"[watcher] 批处理写入 resumes 成功: file={pdf.name}")
             except Exception as e:
                 logger.error(f"批次入库失败: {pdf.name}: {e}")
             finally:
