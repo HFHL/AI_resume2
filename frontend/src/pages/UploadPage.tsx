@@ -45,7 +45,7 @@ export default function UploadPage() {
         formData.append('file', f)
         formData.append('file_name', f.name)
         
-        const uploadRes = await fetch(api('/uploads/upload'), {
+        const uploadRes = await fetch(api('/uploads/supabase'), {
           method: 'POST',
           body: formData
         })
