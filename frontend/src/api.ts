@@ -12,12 +12,16 @@ export const API_BASE = ((): string => {
 export function api(path: string): string {
   if (path.startsWith('http')) return path
   if (!path.startsWith('/')) path = '/' + path
-  
-  // 上传相关的API始终使用前端的serverless functions
+  // 本地开发时，/uploads/* 走线上 Vercel Functions，避免 Vite 本地 404；
+  // 可通过 VITE_UPLOADS_BASE 覆盖（如使用 `vercel dev` 时设为 http://localhost:3000/api）
+  const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
   if (path.startsWith('/uploads/')) {
-    return `/api${path}`
+    const uploadsBase = isLocal
+      ? (import.meta.env.VITE_UPLOADS_BASE as string | undefined) || 'https://ai-resume2-psi.vercel.app/api'
+      : '/api'
+    return `${uploadsBase}${path}`
   }
-  
+
   return `${API_BASE}${path}`
 }
 

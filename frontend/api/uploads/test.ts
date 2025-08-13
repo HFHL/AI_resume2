@@ -1,38 +1,67 @@
 export const config = { runtime: 'nodejs' }
+import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: Request): Promise<Response> {
+  if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
+
   try {
-    console.log('Test upload endpoint called')
-    console.log('Method:', req.method)
-    console.log('Headers:', Object.fromEntries(req.headers.entries()))
-    
-    if (req.method !== 'POST') {
-      return new Response('Method Not Allowed', { status: 405 })
+    const form = await req.formData()
+    const file = form.get('file') as File | null
+    const fileName = (form.get('file_name') as string | null) || (file?.name ?? null)
+    const uploadedBy = (form.get('uploaded_by') as string | null) || 'web'
+    if (!file || !fileName) {
+      return new Response(JSON.stringify({ detail: 'file 和 file_name 必填' }), { status: 400 })
     }
-    
-    // 测试环境变量
-    const envCheck = {
-      hasSupabaseUrl: !!process.env.SUPABASE_URL,
-      hasSupabaseKey: !!process.env.SUPABASE_KEY,
-      nodeEnv: process.env.NODE_ENV
+
+    const supabaseUrl = process.env.SUPABASE_URL
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY
+    const bucket = process.env.SUPABASE_STORAGE_BUCKET
+    if (!supabaseUrl || !serviceRoleKey || !bucket) {
+      return new Response(
+        JSON.stringify({ detail: '缺少环境变量: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY(or SUPABASE_KEY), SUPABASE_STORAGE_BUCKET' }),
+        { status: 400 }
+      )
     }
-    
-    console.log('Environment check:', envCheck)
-    
-    // 返回测试响应
-    return new Response(JSON.stringify({ 
-      message: 'Test upload endpoint working',
-      timestamp: new Date().toISOString(),
-      env: envCheck,
-      public_url: 'https://example.com/test-file.pdf'
-    }), {
+
+    const supabase = createClient(supabaseUrl, serviceRoleKey)
+
+    const safeName = fileName.replace(/[\\/]/g, '_')
+    const ts = Date.now()
+    const rand = Math.random().toString(36).slice(2, 8)
+    const path = `resumes/original/${ts}_${rand}_${safeName}`
+
+    const buffer = Buffer.from(await file.arrayBuffer())
+    const contentType = (file as any).type || 'application/octet-stream'
+
+    const { error: upErr } = await supabase.storage
+      .from(bucket)
+      .upload(path, buffer, { contentType, upsert: false })
+    if (upErr) {
+      return new Response(JSON.stringify({ detail: `存储上传失败: ${upErr.message}` }), { status: 500 })
+    }
+
+    const { data: pub } = supabase.storage.from(bucket).getPublicUrl(path)
+    const publicUrl = pub?.publicUrl || path
+
+    const row = {
+      file_name: fileName,
+      uploaded_by: uploadedBy,
+      file_path: publicUrl,
+      status: '已上传',
+      parse_status: 'pending',
+    }
+    const { error: dbErr } = await supabase.from('resume_files').insert(row)
+    if (dbErr) {
+      return new Response(JSON.stringify({ detail: `数据库写入失败: ${dbErr.message}` }), { status: 500 })
+    }
+
+    return new Response(JSON.stringify({ ok: true, public_url: publicUrl, path }), {
       headers: { 'Content-Type': 'application/json' },
     })
-    
-  } catch (error: any) {
-    console.error('Test endpoint error:', error)
-    return new Response(JSON.stringify({ 
-      error: error?.message || 'Unknown error'
-    }), { status: 500 })
+  } catch (e: any) {
+    return new Response(
+      JSON.stringify({ detail: '服务器错误', error: e?.message || String(e) }),
+      { status: 500 }
+    )
   }
 }
