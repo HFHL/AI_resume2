@@ -40,22 +40,37 @@ export default function UploadPage() {
     try {
       let done = 0
       for (const f of files) {
+        console.log('开始上传文件:', f.name, '大小:', f.size)
+        
         // 创建FormData直接上传文件
         const formData = new FormData()
         formData.append('file', f)
         formData.append('file_name', f.name)
         
-        const uploadRes = await fetch(api('/uploads/supabase'), {
+        console.log('发送请求到:', api('/uploads/supabase'))
+        
+        const uploadRes = await fetch(api('/uploads/test'), {
           method: 'POST',
           body: formData
         })
         
+        console.log('响应状态:', uploadRes.status)
+        
         if (!uploadRes.ok) {
-          const error = await uploadRes.text()
-          throw new Error(error || '上传失败')
+          const errorText = await uploadRes.text()
+          console.error('上传失败:', errorText)
+          let errorMsg = '上传失败'
+          try {
+            const errorJson = JSON.parse(errorText)
+            errorMsg = errorJson.detail || errorMsg
+          } catch {
+            errorMsg = errorText || errorMsg
+          }
+          throw new Error(errorMsg)
         }
         
         const result = await uploadRes.json() as { public_url: string }
+        console.log('上传成功，URL:', result.public_url)
         uploadedUrls.push(result.public_url)
 
         done += 1
@@ -66,6 +81,7 @@ export default function UploadPage() {
       setFiles([])
       setProgress(0)
     } catch (e: any) {
+      console.error('上传出错:', e)
       alert(e.message || '上传失败')
     } finally {
       setUploading(false)

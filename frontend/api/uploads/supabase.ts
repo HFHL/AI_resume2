@@ -1,10 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
 export const config = { 
-  runtime: 'nodejs',
-  api: {
-    bodyParser: false
-  }
+  runtime: 'nodejs'
 }
 
 export default async function handler(req: Request): Promise<Response> {

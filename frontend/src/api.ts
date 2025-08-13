@@ -12,6 +12,12 @@ export const API_BASE = ((): string => {
 export function api(path: string): string {
   if (path.startsWith('http')) return path
   if (!path.startsWith('/')) path = '/' + path
+  
+  // 上传相关的API始终使用前端的serverless functions
+  if (path.startsWith('/uploads/')) {
+    return `/api${path}`
+  }
+  
   return `${API_BASE}${path}`
 }
 
