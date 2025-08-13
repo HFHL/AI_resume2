@@ -40,25 +40,23 @@ export default function UploadPage() {
     try {
       let done = 0
       for (const f of files) {
-        // 1) 请求后端生成预签名 URL
-        const presignRes = await fetch(api('/uploads/presign'), {
+        // 创建FormData直接上传文件
+        const formData = new FormData()
+        formData.append('file', f)
+        formData.append('file_name', f.name)
+        
+        const uploadRes = await fetch(api('/uploads/upload'), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ file_name: f.name, content_type: f.type || 'application/octet-stream' })
+          body: formData
         })
-        if (!presignRes.ok) throw new Error(await presignRes.text())
-        const presign = await presignRes.json() as { url: string, object_key: string, public_url: string }
-
-        // 2) 直传到 R2（PUT）
-        const putRes = await fetch(presign.url, {
-          method: 'PUT',
-          headers: { 'Content-Type': f.type || 'application/octet-stream' },
-          body: f
-        })
-        if (!putRes.ok) throw new Error('上传到 R2 失败')
-
-        // 保存上传成功的URL
-        uploadedUrls.push(presign.public_url)
+        
+        if (!uploadRes.ok) {
+          const error = await uploadRes.text()
+          throw new Error(error || '上传失败')
+        }
+        
+        const result = await uploadRes.json() as { public_url: string }
+        uploadedUrls.push(result.public_url)
 
         done += 1
         setProgress(Math.round((done / files.length) * 100))
