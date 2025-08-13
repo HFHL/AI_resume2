@@ -1,4 +1,4 @@
-export const config = { runtime: 'nodejs' }
+export const config = { runtime: 'edge' }
 import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: Request): Promise<Response> {
@@ -30,12 +30,11 @@ export default async function handler(req: Request): Promise<Response> {
     const rand = Math.random().toString(36).slice(2, 8)
     const path = `resumes/original/${ts}_${rand}_${safeName}`
 
-    const buffer = Buffer.from(await file.arrayBuffer())
     const contentType = (file as any).type || 'application/octet-stream'
 
     const { error: upErr } = await supabase.storage
       .from(bucket)
-      .upload(path, buffer, { contentType, upsert: false })
+      .upload(path, file, { contentType, upsert: false })
     if (upErr) {
       return new Response(JSON.stringify({ detail: `存储上传失败: ${upErr.message}` }), { status: 500 })
     }
