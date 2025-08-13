@@ -1,3 +1,6 @@
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
+
 export const config = { runtime: 'nodejs' }
 
 export default async function handler(req: Request): Promise<Response> {
@@ -19,8 +22,9 @@ export default async function handler(req: Request): Promise<Response> {
     // 检查必需的环境变量
     const missingVars = []
     if (!accountId) missingVars.push('R2_ACCOUNT_ID')
+    if (!accessKeyId) missingVars.push('R2_ACCESS_KEY_ID')
+    if (!secretAccessKey) missingVars.push('R2_SECRET_ACCESS_KEY')
     if (!bucket) missingVars.push('R2_BUCKET')
-    if (!publicBase) missingVars.push('R2_PUBLIC_BASE_URL')
     
     if (missingVars.length > 0) {
       return new Response(JSON.stringify({ 
@@ -29,24 +33,39 @@ export default async function handler(req: Request): Promise<Response> {
       }), { status: 400 })
     }
 
+    // 初始化S3客户端（用于R2）
+    const s3Client = new S3Client({
+      region: 'auto',
+      endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
+      credentials: {
+        accessKeyId: accessKeyId!,
+        secretAccessKey: secretAccessKey!,
+      },
+    })
+
     // 生成唯一的文件名
     const safeName = body.file_name.replace(/[/\\]/g, '_')
     const timestamp = Date.now()
     const randomStr = Math.random().toString(36).substring(2, 8)
     const objectKey = `resumes/original/${timestamp}_${randomStr}_${safeName}`
     
-    // 如果配置了公共访问域名，直接使用它
-    // 否则构建默认的R2域名
+    // 创建PutObjectCommand
+    const command = new PutObjectCommand({
+      Bucket: bucket,
+      Key: objectKey,
+      ContentType: body.content_type || 'application/octet-stream',
+    })
+
+    // 生成预签名URL，有效期10分钟
+    const presignedUrl = await getSignedUrl(s3Client, command, { expiresIn: 600 })
+    
+    // 构建公共访问URL
     const publicUrl = publicBase 
       ? `${publicBase.replace(/\/$/, '')}/${objectKey}`
       : `https://${bucket}.${accountId}.r2.cloudflarestorage.com/${objectKey}`
     
-    // 为了简化，我们直接返回公共URL
-    // 前端可以直接PUT到这个URL（如果R2 bucket设置了公共写入权限）
-    // 或者你可以在这里实现一个代理上传
-    
     return new Response(JSON.stringify({ 
-      url: publicUrl,  // 直接使用公共URL作为上传地址
+      url: presignedUrl,
       object_key: objectKey, 
       public_url: publicUrl 
     }), {
@@ -57,7 +76,8 @@ export default async function handler(req: Request): Promise<Response> {
     console.error('Handler error:', error)
     return new Response(JSON.stringify({ 
       detail: 'Internal server error', 
-      error: error?.message || 'Unknown error'
+      error: error?.message || 'Unknown error',
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined
     }), { status: 500 })
   }
 }
