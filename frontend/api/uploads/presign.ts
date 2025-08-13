@@ -13,8 +13,15 @@ export default async function handler(req: Request): Promise<Response> {
   const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY
   const bucket = process.env.R2_BUCKET
   const publicBase = process.env.R2_PUBLIC_BASE_URL
-  if (!accountId || !accessKeyId || !secretAccessKey || !bucket) {
-    return new Response(JSON.stringify({ detail: 'R2 环境变量未配置完全' }), { status: 400 })
+  
+  const missingVars = []
+  if (!accountId) missingVars.push('R2_ACCOUNT_ID')
+  if (!accessKeyId) missingVars.push('R2_ACCESS_KEY_ID')
+  if (!secretAccessKey) missingVars.push('R2_SECRET_ACCESS_KEY')
+  if (!bucket) missingVars.push('R2_BUCKET')
+  
+  if (missingVars.length > 0) {
+    return new Response(JSON.stringify({ detail: `R2 环境变量未配置: ${missingVars.join(', ')}` }), { status: 400 })
   }
 
   const endpoint = `https://${accountId}.r2.cloudflarestorage.com`

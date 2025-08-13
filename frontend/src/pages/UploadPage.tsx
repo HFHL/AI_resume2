@@ -4,7 +4,6 @@ import { api } from '../api'
 
 export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([])
-  const [uploader, setUploader] = useState('')
   const [uploading, setUploading] = useState(false)
   const [progress, setProgress] = useState(0)
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -32,11 +31,12 @@ export default function UploadPage() {
   }
 
   async function handleUpload() {
-    if (!uploader.trim()) { alert('请输入上传者姓名'); return }
     if (files.length === 0) { alert('请选择文件'); return }
 
     setUploading(true)
     setProgress(0)
+    const uploadedUrls: string[] = []
+    
     try {
       let done = 0
       for (const f of files) {
@@ -57,21 +57,15 @@ export default function UploadPage() {
         })
         if (!putRes.ok) throw new Error('上传到 R2 失败')
 
-        // 3) 通知后端写入数据库
-        const completeRes = await fetch(api('/uploads/complete'), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ file_name: f.name, object_key: presign.object_key, uploaded_by: uploader.trim() })
-        })
-        if (!completeRes.ok) throw new Error(await completeRes.text())
+        // 保存上传成功的URL
+        uploadedUrls.push(presign.public_url)
 
         done += 1
         setProgress(Math.round((done / files.length) * 100))
       }
 
-      alert('上传成功')
+      alert(`上传成功！\n\n文件URL:\n${uploadedUrls.join('\n')}`)
       setFiles([])
-      setUploader('')
       setProgress(0)
     } catch (e: any) {
       alert(e.message || '上传失败')
@@ -94,12 +88,6 @@ export default function UploadPage() {
           style={{ position: 'absolute', left: -9999, width: 1, height: 1, opacity: 0 }}
         />
 
-        <div className="form">
-          <label>
-            <span>上传者姓名</span>
-            <input value={uploader} onChange={e => setUploader(e.target.value)} placeholder="如：张三" />
-          </label>
-        </div>
 
         <div className="upload">
           <div
