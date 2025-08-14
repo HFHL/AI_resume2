@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import threading
 import time
 from pathlib import Path
@@ -10,15 +11,18 @@ import time as _time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from . import UPLOAD_DIRS, build_r2_public_url
+from . import UPLOAD_DIRS, build_r2_public_url, build_supabase_public_url
 from .db import get_supabase_client
 from .ocr import MinerUProcessor
 from .parser import parse_resume
 from .config import get_app_settings
 
-import boto3
-from botocore.client import Config as _BotoConfig
-import certifi
+import mimetypes
+import unicodedata
+import re
+import time as _ts
+import uuid as _uuid
+from concurrent.futures import ThreadPoolExecutor
 
 
 logger = logging.getLogger("upload_watcher")
@@ -32,6 +36,32 @@ class UploadDirEventHandler(FileSystemEventHandler):
         self.processor = MinerUProcessor()
         # 批处理触发信号：检测到新 PDF 或定时轮询触发
         self.batch_signal = threading.Event()
+        # 并发设置
+        self.max_workers = max(1, int(os.getenv("WATCHER_CONCURRENCY", "3")))
+        self.executor = ThreadPoolExecutor(max_workers=self.max_workers)
+        self._in_progress: set[str] = set()
+        self._in_progress_lock = threading.Lock()
+
+    @staticmethod
+    def _sanitize_name(filename: str) -> tuple[str, str]:
+        """将文件名规范化为 ASCII 安全字符，仅保留 a-zA-Z0-9._-，并返回 (base, ext)。"""
+        base = Path(filename).stem
+        ext = Path(filename).suffix[1:] if Path(filename).suffix else ""
+        norm = unicodedata.normalize("NFKD", base)
+        ascii_only = norm.encode("ascii", "ignore").decode("ascii", "ignore")
+        ascii_only = ascii_only.strip().replace("/", "_").replace("\\", "_").replace(" ", "_")
+        safe_base = re.sub(r"[^A-Za-z0-9._-]", "_", ascii_only)
+        safe_base = re.sub(r"_+", "_", safe_base).strip("._") or "file"
+        safe_base = safe_base[:100]
+        ext_ascii = unicodedata.normalize("NFKD", ext).encode("ascii", "ignore").decode("ascii", "ignore")
+        safe_ext = re.sub(r"[^A-Za-z0-9]", "", ext_ascii)[:10] or "pdf"
+        return safe_base, safe_ext
+
+    @staticmethod
+    def _make_unique_object_key(filename: str) -> str:
+        base_s, ext_s = UploadDirEventHandler._sanitize_name(filename)
+        uniq = f"{int(_ts.time())}_{_uuid.uuid4().hex[:8]}"
+        return f"original/{uniq}_{base_s}.{ext_s}"
 
     def on_created(self, event):
         if event.is_directory:
@@ -64,105 +94,85 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 return
         logger.info(f"检测到新文件: {path.name}")
 
-        # 标记数据库：处理中
+        # 确保 resume_files 存在并标记为处理中（若不存在则创建）
         client = get_supabase_client()
+        rf_id: int | None = None
         try:
-            client.table("resume_files").update({"status": "处理中"}).eq("file_name", path.name).execute()
-            logger.info(f"[watcher] 标记处理中: file={path.name}")
-        except Exception:
-            pass
-
-        # 仅处理 PDF 进行 OCR，其它类型暂时跳过或后续扩展
-        text_content: str | None = None
-        if ext == ".pdf":
-            text_content = self.processor.process_pdf(path)
-            self.processor.cleanup_temp_files(path)
-        else:
-            try:
-                text_content = path.read_text(encoding="utf-8", errors="ignore")
-            except Exception:
-                text_content = None
-
-        if text_content is None:
-            try:
-                client.table("resume_files").update({"status": "处理失败"}).eq("file_name", path.name).execute()
-                logger.error(f"[watcher] OCR/读取失败，标记处理失败: file={path.name}")
-            except Exception:
-                pass
-            return
-
-        # 将解析内容落库到 resumes，并更新文件状态与文件归档/上传
-        try:
-            # 找到对应的 resume_files 记录
             rf = client.table("resume_files").select("id").eq("file_name", path.name).limit(1).execute()
-            rf_id = None
-            data = getattr(rf, "data", [])
+            data = getattr(rf, "data", []) or []
             if data:
                 rf_id = data[0]["id"]
+                client.table("resume_files").update({"status": "处理中"}).eq("id", rf_id).execute()
+            else:
+                ins = client.table("resume_files").insert({
+                    "file_name": path.name,
+                    "file_path": "",  # 不写入本地路径，占位空串（非空约束需调整为允许空串）
+                    "uploaded_by": "watcher",
+                    "status": "处理中",
+                }).execute()
+                items = getattr(ins, "data", []) or []
+                if items:
+                    rf_id = items[0]["id"]
+            logger.info(f"[watcher] 标记/创建处理中: file={path.name}, rf_id={rf_id}")
+        except Exception as e:
+            logger.error(f"[watcher] 标记/创建处理中失败: file={path.name}, error={e}")
 
-            logger.info(f"[watcher] 解析完成，准备写入 resumes 并上传: file={path.name}, resume_file_id={rf_id}")
-            # 结构化解析
-            parsed = parse_resume(text_content, rf_id, file_name=path.name)
-            row = parsed.to_row()
-            # 先上传，再写简历：保证失败不入库
+        # OCR 提取 → 解析 → 上传存储 → 写库
+        try:
+            # 若上面未成功拿到 rf_id，这里再兜底查一次
+            if rf_id is None:
+                rf = client.table("resume_files").select("id").eq("file_name", path.name).limit(1).execute()
+                data = getattr(rf, "data", [])
+                if data:
+                    rf_id = data[0]["id"]
 
-            # 上传到 Cloudflare R2（仅当为 PDF 时设置 ContentType）
-            settings = get_app_settings()
-            r2_bucket = settings.r2_bucket
-            uploaded_url: str | None = None
-            if settings.r2_account_id and settings.r2_access_key_id and settings.r2_secret_access_key and r2_bucket:
-                endpoint = f"https://{settings.r2_account_id}.r2.cloudflarestorage.com"
-                logger.info(f"[watcher] 初始化 R2 客户端: endpoint={endpoint}, bucket={r2_bucket}")
-                s3 = boto3.client(
-                    "s3",
-                    endpoint_url=endpoint,
-                    aws_access_key_id=settings.r2_access_key_id,
-                    aws_secret_access_key=settings.r2_secret_access_key,
-                    region_name="auto",
-                    config=_BotoConfig(
-                        signature_version="s3v4",
-                        s3={"addressing_style": "path"},
-                        retries={"max_attempts": 2, "mode": "standard"},
-                        proxies={},  # Disable proxy for R2
-                    ),
-                )
-                # 采用对象键：简历/原始/<文件名>，避免与后续解析产物冲突
-                object_key = f"resumes/original/{path.name}"
-                # 若同名存在，自动加后缀
+            # 1) OCR / 读取
+            text_content: str | None = None
+            if ext == ".pdf":
+                text_content = self.processor.process_pdf(path)
+                self.processor.cleanup_temp_files(path)
+            else:
                 try:
-                    s3.head_object(Bucket=r2_bucket, Key=object_key)
-                    base = Path(path.name).stem
-                    ext = Path(path.name).suffix
-                    counter = 1
-                    while True:
-                        object_key = f"resumes/original/{base}_{counter}{ext}"
-                        try:
-                            s3.head_object(Bucket=r2_bucket, Key=object_key)
-                            counter += 1
-                        except Exception:
-                            break
+                    text_content = path.read_text(encoding="utf-8", errors="ignore")
+                except Exception:
+                    text_content = None
+
+            if text_content is None:
+                try:
+                    client.table("resume_files").update({"status": "处理失败"}).eq("file_name", path.name).execute()
+                    logger.error(f"[watcher] OCR/读取失败，标记处理失败: file={path.name}")
                 except Exception:
                     pass
+                return
 
-                # 执行上传
-                with open(path, "rb") as fsrc:
-                    s3.upload_fileobj(
-                        fsrc,
-                        r2_bucket,
-                        object_key,
-                        ExtraArgs={
-                            "ContentType": "application/pdf" if ext == ".pdf" else "application/octet-stream",
-                        },
-                    )
-                uploaded_url = build_r2_public_url(
-                    object_key,
-                    r2_public_base_url=settings.r2_public_base_url,
-                    r2_bucket=r2_bucket,
-                    r2_account_id=settings.r2_account_id,
-                )
-                logger.info(f"[watcher] 上传 R2 成功: url={uploaded_url}")
+            # 2) 结构化解析
+            logger.info(f"[watcher] 解析完成，准备上传并写入: file={path.name}, resume_file_id={rf_id}")
+            parsed = parse_resume(text_content, rf_id, file_name=path.name)
+            row = parsed.to_row()
+
+            # 3) 先上传，再写简历
+
+            # 上传到 Supabase Storage（仅当配置了桶名）
+            settings = get_app_settings()
+            uploaded_url: str | None = None
+            if settings.supabase_storage_bucket:
+                client_storage = get_supabase_client().storage.from_(settings.supabase_storage_bucket)
+                # 对象键：original/<文件名>（若冲突自动加后缀）
+                object_key = self._make_unique_object_key(path.name)
+                content_type = mimetypes.guess_type(path.name)[0] or ("application/pdf" if ext == ".pdf" else "application/octet-stream")
+                try:
+                    with open(path, "rb") as fsrc:
+                        data = fsrc.read()
+                    up = client_storage.upload(object_key, data, {"content-type": content_type, "x-upsert": "false"})
+                    if up is False:
+                        raise RuntimeError("upload failed")
+                    uploaded_url = build_supabase_public_url(object_key, supabase_url=settings.supabase_url, bucket=settings.supabase_storage_bucket)
+                    logger.info(f"[watcher] 上传 Supabase Storage 成功: url={uploaded_url}")
+                except Exception as ue:
+                    logger.error(f"[watcher] 上传 Supabase Storage 失败: file={path.name}, error={ue}")
+                    uploaded_url = None
             else:
-                logger.warning("[watcher] 未配置 R2 环境变量，跳过上传，记录将使用本地归档路径")
+                logger.warning("[watcher] 未配置 SUPABASE_STORAGE_BUCKET，跳过上传，记录将使用本地归档路径")
 
             # 本地归档（作为备份，可选）
             target_dir = UPLOAD_DIRS["completed"]
@@ -180,9 +190,9 @@ class UploadDirEventHandler(FileSystemEventHandler):
             except Exception:
                 target_path = path
 
-            # 更新文件记录：状态 + 远程 URL（优先）或本地路径；若重命名也同步 file_name
-            final_path_value = uploaded_url or str(target_path)
-            update_payload = {"status": "已处理", "file_path": final_path_value}
+            # 不论上传是否成功，只要解析成功都要写入 resumes。
+            # files 表统一记录：status 置为已处理，file_path 写入 URL 或空串。
+            update_payload = {"status": "已处理", "file_path": uploaded_url or ""}
             if rf_id is not None and target_path.name != path.name:
                 update_payload["file_name"] = target_path.name
 
@@ -190,11 +200,20 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 client.table("resume_files").update(update_payload).eq("id", rf_id).execute()
             else:
                 client.table("resume_files").update(update_payload).eq("file_name", path.name).execute()
-            logger.info(f"[watcher] 更新 resume_files 成功: file={path.name}, url={final_path_value}")
+            logger.info(f"[watcher] 更新 resume_files 成功: file={path.name}, url={uploaded_url or ''}")
 
-            # 最后写入 resumes（确保文件已可用）
-            client.table("resumes").insert(row).execute()
-            logger.info(f"[watcher] 写入 resumes 成功: file={path.name}")
+            # 4) 写入 resumes（若已存在则不重复写入）
+            try:
+                if rf_id is not None:
+                    exists = client.table("resumes").select("id").eq("resume_file_id", rf_id).limit(1).execute()
+                    if not (getattr(exists, "data", []) or []):
+                        client.table("resumes").insert(row).execute()
+                        logger.info(f"[watcher] 写入 resumes 成功: file={path.name}")
+                else:
+                    client.table("resumes").insert(row).execute()
+                    logger.info(f"[watcher] 写入 resumes 成功(无rf_id): file={path.name}")
+            except Exception as ie:
+                logger.error(f"[watcher] 写入 resumes 失败: {path.name}: {ie}")
         except Exception as e:
             logger.error(f"[watcher] 处理失败: file={path.name}, error={e}")
             try:
@@ -210,161 +229,35 @@ class UploadDirEventHandler(FileSystemEventHandler):
             except Exception:
                 pass
 
-    def run_batch_loop(self) -> None:
-        """后台批处理循环：
-        - 每当有信号或超时到期，检查 processing 目录是否存在 PDF；
-        - 若存在则调用 on_batch() 批次处理最多 5 个。
-        """
+    def run_processing_loop(self) -> None:
+        """后台循环：检测 processing 目录是否存在 PDF；逐个调用 _handle_file 处理。"""
         while True:
-            # 最长 3 秒轮询一次；有信号则立即处理
             self.batch_signal.wait(timeout=3)
             self.batch_signal.clear()
             processing_dir = UPLOAD_DIRS["processing"]
             try:
-                has_pdf = any(processing_dir.glob("*.pdf"))
+                pdfs = sorted([p for p in processing_dir.glob("*.pdf") if p.is_file()])
             except Exception:
-                has_pdf = False
-            if has_pdf:
-                self.on_batch()
+                pdfs = []
+            for p in pdfs:
+                name = p.name
+                with self._in_progress_lock:
+                    if name in self._in_progress:
+                        continue
+                    self._in_progress.add(name)
 
-    def on_batch(self):
-        """按批次处理：
-        - 从 processing 取最多 5 个 PDF，移动到 batches/batch_<timestamp>/ 目录；
-        - 以该目录为输入根，调用 MinerUProcessor.process_batch() 一次性处理；
-        - 对批次结果逐个入库，并将源文件归档到 completed。
-        """
-        processing_dir = UPLOAD_DIRS["processing"]
-        batch_root = UPLOAD_DIRS["batches"]
-        batch_root.mkdir(parents=True, exist_ok=True)
-
-        pdfs = sorted([p for p in processing_dir.glob("*.pdf") if p.is_file()])[:5]
-        if not pdfs:
-            return
-        batch_dir = batch_root / f"batch_{int(_time.time())}"
-        batch_dir.mkdir(parents=True, exist_ok=True)
-
-        moved_files: list[Path] = []
-        for p in pdfs:
-            target = batch_dir / p.name
-            try:
-                shutil.move(str(p), str(target))
-                moved_files.append(target)
-            except Exception as e:
-                logger.error(f"批次移动失败: {p} -> {target}: {e}")
-
-        # 批次运行 mineru
-        results = self.processor.process_batch(batch_dir)
-
-        client = get_supabase_client()
-        for idx, pdf in enumerate(moved_files):
-            text_content = results.get(pdf)
-            # 入库（与 _handle_file 中一致）
-            try:
-                rf = client.table("resume_files").select("id").eq("file_name", pdf.name).limit(1).execute()
-                rf_id = None
-                data = getattr(rf, "data", [])
-                if data:
-                    rf_id = data[0]["id"]
-
-                if text_content is None:
-                    client.table("resume_files").update({"status": "处理失败"}).eq("file_name", pdf.name).execute()
-                    logger.error(f"[watcher] 批处理OCR失败，标记处理失败: file={pdf.name}")
-                    continue
-
-                logger.info(f"[watcher] 批处理解析完成，准备上传并写入: file={pdf.name}, resume_file_id={rf_id}")
-                parsed = parse_resume(text_content, rf_id, file_name=pdf.name)
-                row = parsed.to_row()
-
-                # 上传到 Cloudflare R2（批处理同样上传）
-                settings = get_app_settings()
-                r2_bucket = settings.r2_bucket
-                uploaded_url: str | None = None
-                if settings.r2_account_id and settings.r2_access_key_id and settings.r2_secret_access_key and r2_bucket:
-                    endpoint = f"https://{settings.r2_account_id}.r2.cloudflarestorage.com"
-                    logger.info(f"[watcher] 初始化 R2 客户端(批处理): endpoint={endpoint}, bucket={r2_bucket}")
-                    s3 = boto3.client(
-                        "s3",
-                        endpoint_url=endpoint,
-                        aws_access_key_id=settings.r2_access_key_id,
-                        aws_secret_access_key=settings.r2_secret_access_key,
-                        region_name="auto",
-                        config=_BotoConfig(
-                            signature_version="s3v4",
-                            s3={"addressing_style": "path"},
-                            retries={"max_attempts": 2, "mode": "standard"},
-                            proxies={},  # Disable proxy for R2
-                        ),
-                    )
-                    object_key = f"resumes/original/{pdf.name}"
+                def _worker(path: Path, fname: str) -> None:
                     try:
-                        s3.head_object(Bucket=r2_bucket, Key=object_key)
-                        base = pdf.stem
-                        ext = pdf.suffix
-                        counter = 1
-                        while True:
-                            object_key = f"resumes/original/{base}_{counter}{ext}"
-                            try:
-                                s3.head_object(Bucket=r2_bucket, Key=object_key)
-                                counter += 1
-                            except Exception:
-                                break
-                    except Exception:
-                        pass
+                        self._handle_file(path)
+                    except Exception as e:
+                        logger.error(f"[watcher] 处理文件异常: {path}: {e}")
+                    finally:
+                        with self._in_progress_lock:
+                            self._in_progress.discard(fname)
 
-                    with open(pdf, "rb") as fsrc:
-                        s3.upload_fileobj(
-                            fsrc,
-                            r2_bucket,
-                            object_key,
-                            ExtraArgs={
-                                "ContentType": "application/pdf",
-                            },
-                        )
-                    uploaded_url = build_r2_public_url(
-                        object_key,
-                        r2_public_base_url=settings.r2_public_base_url,
-                        r2_bucket=r2_bucket,
-                        r2_account_id=settings.r2_account_id,
-                    )
+                self.executor.submit(_worker, p, name)
 
-                # 归档到本地（可选）
-                target_dir = UPLOAD_DIRS["completed"]
-                target_dir.mkdir(parents=True, exist_ok=True)
-                target_path = target_dir / pdf.name
-                if target_path.exists():
-                    base = target_path.stem
-                    ext = target_path.suffix
-                    counter = 1
-                    while (target_dir / f"{base}_{counter}{ext}").exists():
-                        counter += 1
-                    target_path = target_dir / f"{base}_{counter}{ext}"
-                try:
-                    pdf.replace(target_path)
-                except Exception:
-                    target_path = pdf
-
-                update_payload = {"status": "已处理", "file_path": uploaded_url or str(target_path)}
-                if rf_id is not None and target_path.name != pdf.name:
-                    update_payload["file_name"] = target_path.name
-                if rf_id is not None:
-                    client.table("resume_files").update(update_payload).eq("id", rf_id).execute()
-                else:
-                    client.table("resume_files").update(update_payload).eq("file_name", pdf.name).execute()
-                logger.info(f"[watcher] 批处理更新 resume_files 成功: file={pdf.name}, url={update_payload['file_path']}")
-
-                # 文件可用后再写简历
-                client.table("resumes").insert(row).execute()
-                logger.info(f"[watcher] 批处理写入 resumes 成功: file={pdf.name}")
-            except Exception as e:
-                logger.error(f"批次入库失败: {pdf.name}: {e}")
-            finally:
-                # 批次内进度与全局剩余数量
-                try:
-                    processing_dir = UPLOAD_DIRS["processing"]
-                    remaining_global = sum(1 for _ in processing_dir.glob("*.pdf")) + (len(moved_files) - idx - 1)
-                    logger.info(f"剩余待处理 PDF: {remaining_global}")
-                except Exception:
-                    pass
+    # 删除批处理逻辑
 
 
 def start_watcher_in_background() -> Observer:
@@ -375,7 +268,7 @@ def start_watcher_in_background() -> Observer:
     observer.daemon = True
     observer.start()
     # 启动批处理后台循环线程
-    t = threading.Thread(target=handler.run_batch_loop, daemon=True)
+    t = threading.Thread(target=handler.run_processing_loop, daemon=True)
     t.start()
     logger.info(f"已启动目录监听: {UPLOAD_DIRS['processing']}")
     return observer

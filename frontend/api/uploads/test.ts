@@ -51,7 +51,13 @@ export default async function handler(req: Request): Promise<Response> {
     }
 
     const { data: pub } = supabase.storage.from(bucket).getPublicUrl(path)
-    const publicUrl = pub?.publicUrl || path
+    const publicUrl = pub?.publicUrl
+    if (!publicUrl) {
+      return new Response(
+        JSON.stringify({ detail: 'Storage 桶必须为 public 才能生成可访问的 URL。请将该桶设为 public 后重试。' }),
+        { status: 400 }
+      )
+    }
 
     const row = {
       file_name: fileName,

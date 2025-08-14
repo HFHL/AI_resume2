@@ -20,7 +20,21 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
     .limit(1)
 
   if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
-  const item = (data || [])[0]
+  const item = (data || [])[0] as any
   if (!item) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404 })
+
+  // 关联查询文件直链（若存在 resume_file_id）
+  if (item.resume_file_id) {
+    const { data: fileRow, error: fileErr } = await supabase
+      .from('resume_files')
+      .select('file_path')
+      .eq('id', item.resume_file_id as number)
+      .maybeSingle()
+
+    if (!fileErr && fileRow && (fileRow as any).file_path) {
+      item.file_url = (fileRow as any).file_path
+    }
+  }
+
   return new Response(JSON.stringify({ item }), { headers: { 'Content-Type': 'application/json' } })
 }

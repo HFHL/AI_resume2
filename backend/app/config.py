@@ -15,6 +15,8 @@ class AppSettings:
     supabase_url: str
     supabase_key: str
     port: int = 8000
+    # Supabase Storage 配置
+    supabase_storage_bucket: Optional[str] = None
     # Cloudflare R2 (S3 兼容) 配置（可选）
     r2_account_id: Optional[str] = None
     r2_access_key_id: Optional[str] = None
@@ -39,6 +41,7 @@ def get_app_settings() -> AppSettings:
         supabase_url=_require_env("SUPABASE_URL"),
         supabase_key=_require_env("SUPABASE_KEY"),
         port=int(os.getenv("PORT", "8000")),
+        supabase_storage_bucket=os.getenv("SUPABASE_STORAGE_BUCKET"),
         r2_account_id=os.getenv("R2_ACCOUNT_ID"),
         r2_access_key_id=os.getenv("R2_ACCESS_KEY_ID"),
         r2_secret_access_key=os.getenv("R2_SECRET_ACCESS_KEY"),

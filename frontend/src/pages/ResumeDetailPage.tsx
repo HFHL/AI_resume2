@@ -20,6 +20,8 @@ type ResumeDetail = {
   other: string | null
   created_at?: string
   updated_at?: string
+  resume_file_id?: number | null
+  file_url?: string | null
 }
 
 export default function ResumeDetailPage() {
@@ -62,69 +64,84 @@ export default function ResumeDetailPage() {
       {loading && <div className="empty">加载中...</div>}
       {error && !loading && <div className="empty">{error}</div>}
       {!loading && !error && item && (
-        <div className="resume-detail">
-          <div className="detail-grid">
-            <div className="detail-card">
-              <div className="detail-title">基础信息</div>
-              <div className="detail-row"><span>姓名</span><span>{item.name || '未知'}</span></div>
-              <div className="detail-row"><span>联系方式</span><span>{item.contact_info || '-'}</span></div>
-              <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>
-              <div className="detail-row"><span>毕业年份</span><span>{item.education_graduation_year ?? '-'}</span></div>
-              <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
-              <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
-              <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
-            </div>
+        <div className="resume-detail-layout">
+          <div className="resume-detail">
+            <div className="detail-grid">
+              <div className="detail-card">
+                <div className="detail-title">基础信息</div>
+                <div className="detail-row"><span>姓名</span><span>{item.name || '未知'}</span></div>
+                <div className="detail-row"><span>联系方式</span><span>{item.contact_info || '-'}</span></div>
+                <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>
+                <div className="detail-row"><span>毕业年份</span><span>{item.education_graduation_year ?? '-'}</span></div>
+                <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
+                <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
+                <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
+              </div>
 
-            <div className="detail-card">
-              <div className="detail-title">技能</div>
-              <div className="detail-content">
-                {(item.skills || []).length ? (
-                  <div className="card-tags">
-                    {(item.skills || []).map((t, i) => <span key={i} className="pill">{t}</span>)}
-                  </div>
-                ) : <span className="muted">无</span>}
+              <div className="detail-card">
+                <div className="detail-title">技能</div>
+                <div className="detail-content">
+                  {(item.skills || []).length ? (
+                    <div className="card-tags">
+                      {(item.skills || []).map((t, i) => <span key={i} className="pill">{t}</span>)}
+                    </div>
+                  ) : <span className="muted">无</span>}
+                </div>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-title">工作经历</div>
+                <div className="detail-content list-text">
+                  {(item.work_experience || []).length ? (
+                    <ul>
+                      {(item.work_experience || []).map((t, i) => <li key={i}>{t}</li>)}
+                    </ul>
+                  ) : <span className="muted">无</span>}
+                </div>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-title">实习经历</div>
+                <div className="detail-content list-text">
+                  {(item.internship_experience || []).length ? (
+                    <ul>
+                      {(item.internship_experience || []).map((t, i) => <li key={i}>{t}</li>)}
+                    </ul>
+                  ) : <span className="muted">无</span>}
+                </div>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-title">项目经历</div>
+                <div className="detail-content list-text">
+                  {(item.project_experience || []).length ? (
+                    <ul>
+                      {(item.project_experience || []).map((t, i) => <li key={i}>{t}</li>)}
+                    </ul>
+                  ) : <span className="muted">无</span>}
+                </div>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-title">自我评价</div>
+                <div className="detail-content">
+                  {item.self_evaluation || <span className="muted">无</span>}
+                </div>
               </div>
             </div>
-
-            <div className="detail-card">
-              <div className="detail-title">工作经历</div>
-              <div className="detail-content list-text">
-                {(item.work_experience || []).length ? (
-                  <ul>
-                    {(item.work_experience || []).map((t, i) => <li key={i}>{t}</li>)}
-                  </ul>
-                ) : <span className="muted">无</span>}
-              </div>
-            </div>
-
-            <div className="detail-card">
-              <div className="detail-title">实习经历</div>
-              <div className="detail-content list-text">
-                {(item.internship_experience || []).length ? (
-                  <ul>
-                    {(item.internship_experience || []).map((t, i) => <li key={i}>{t}</li>)}
-                  </ul>
-                ) : <span className="muted">无</span>}
-              </div>
-            </div>
-
-            <div className="detail-card">
-              <div className="detail-title">项目经历</div>
-              <div className="detail-content list-text">
-                {(item.project_experience || []).length ? (
-                  <ul>
-                    {(item.project_experience || []).map((t, i) => <li key={i}>{t}</li>)}
-                  </ul>
-                ) : <span className="muted">无</span>}
-              </div>
-            </div>
-
-            <div className="detail-card">
-              <div className="detail-title">自我评价</div>
-              <div className="detail-content">
-                {item.self_evaluation || <span className="muted">无</span>}
-              </div>
-            </div>
+          </div>
+          <div className="pdf-pane">
+            <div className="detail-title">源文件预览</div>
+            {item.file_url ? (
+              <>
+                <iframe className="pdf-frame" src={item.file_url} />
+                <div className="bar end" style={{ marginTop: 8 }}>
+                  <a className="ghost" href={item.file_url} target="_blank" rel="noreferrer">在新标签打开</a>
+                </div>
+              </>
+            ) : (
+              <div className="empty">未找到源文件链接</div>
+            )}
           </div>
         </div>
       )}

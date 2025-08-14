@@ -13,7 +13,6 @@ UPLOAD_DIRS = {
     # 本地归档目录仍保留，可作为失败回退/本地缓存
     "completed": _UPLOAD_ROOT / "completed",
     "failed": _UPLOAD_ROOT / "failed",
-    "batches": _UPLOAD_ROOT / "batches",           # 每批处理的工作目录（输入目录，持久化）
     "ocr_output": _UPLOAD_ROOT / "ocr_output",     # MinerU 输出目录（持久化）
 }
 
@@ -37,3 +36,11 @@ def build_r2_public_url(object_key: str, *,
         # 最差回退，本地路径风格（避免报错）；上层应避免这种情况
         return object_key
     return f"https://{r2_bucket}.{r2_account_id}.r2.cloudflarestorage.com/{object_key}"
+
+
+def build_supabase_public_url(object_key: str, *,
+                              supabase_url: str,
+                              bucket: str) -> str:
+    object_key = object_key.lstrip("/")
+    base = supabase_url.rstrip("/")
+    return f"{base}/storage/v1/object/public/{bucket}/{object_key}"
