@@ -87,7 +87,6 @@ export default function ResumesPage() {
         }
         
         const mapped: ResumeItem[] = rows.map(r => {
-          const skills = (r.skills || []).map(s => s.trim()).filter(Boolean)
           const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
           const isTech = hasTech(r.skills)
           
@@ -95,7 +94,7 @@ export default function ResumesPage() {
             id: r.id,
             name: r.name || '未知',
             category: isTech ? '技术类' : '非技术类',
-            tags: tags.length > 0 ? tags : skills, // 优先使用 tag_names，回退到 skills
+            tags, // 只显示标签，不回退到 skills
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
@@ -180,14 +179,13 @@ export default function ResumesPage() {
       return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
     }
     return rows.map(r => {
-      const skills = (r.skills || []).map(s => s.trim()).filter(Boolean)
       const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
       const isTech = hasTech(r.skills)
       return {
         id: r.id,
         name: r.name || '未知',
         category: isTech ? '技术类' : '非技术类',
-        tags: tags.length > 0 ? tags : skills, // 优先使用 tag_names，回退到 skills
+        tags, // 只显示标签
         work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),

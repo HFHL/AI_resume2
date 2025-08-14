@@ -102,16 +102,7 @@ export default function ResumeDetailPage() {
                 </div>
               </div>
 
-              <div className="detail-card">
-                <div className="detail-title">技能</div>
-                <div className="detail-content">
-                  {(item.skills || []).length ? (
-                    <div className="card-tags">
-                      {(item.skills || []).map((t, i) => <span key={i} className="pill">{t}</span>)}
-                    </div>
-                  ) : <span className="muted">无</span>}
-                </div>
-              </div>
+              
 
               <div className="detail-card">
                 <div className="detail-title">工作经历</div>
