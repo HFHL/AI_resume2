@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { api } from '../api'
 import { useNavigate } from 'react-router-dom'
 
@@ -32,6 +32,7 @@ export default function MatchPage() {
   const [results, setResults] = useState<MatchResultItem[]>([])
   const [page, setPage] = useState(1)
   const pageSize = 12
+  const restoreRef = useRef<{ activeId: number; page: number; scrollY: number } | null>(null)
 
   useEffect(() => {
     setLoadingPositions(true)
@@ -39,6 +40,21 @@ export default function MatchPage() {
       .then(r => r.json())
       .then(d => setPositions(d.items || []))
       .finally(() => setLoadingPositions(false))
+  }, [])
+
+  // 恢复返回前的查看位置（职位ID、页码、滚动位置）
+  useEffect(() => {
+    const raw = sessionStorage.getItem('matchReturnState')
+    if (!raw) return
+    try {
+      const st = JSON.parse(raw) as { activeId: number; page: number; scrollY: number }
+      if (st && st.activeId) {
+        restoreRef.current = st
+        setActiveId(st.activeId)
+        setPage(st.page || 1)
+        loadMatch(st.activeId)
+      }
+    } catch {}
   }, [])
 
   function loadMatch(id: number) {
@@ -66,6 +82,18 @@ export default function MatchPage() {
       })
       .finally(() => setMatchLoading(false))
   }
+
+  // 在结果加载完成后，若存在需要恢复的滚动位置，则滚动并清理状态
+  useEffect(() => {
+    if (!matchLoading && restoreRef.current) {
+      const y = restoreRef.current.scrollY || 0
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: y })
+        sessionStorage.removeItem('matchReturnState')
+        restoreRef.current = null
+      })
+    }
+  }, [matchLoading])
 
   const total = results.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -120,7 +148,17 @@ export default function MatchPage() {
                 </div>
                 {matchLoading && <div className="empty">加载中...</div>}
                 {!matchLoading && pageItems.map(item => (
-                  <div key={item.id} className="table-row clickable" onClick={() => activeId && navigate(`/match/${activeId}/resumes/${item.id}`)}>
+                  <div
+                    key={item.id}
+                    className="table-row clickable"
+                    onClick={() => {
+                      if (!activeId) return
+                      const scrollY = window.scrollY || document.documentElement.scrollTop || 0
+                      const state = { activeId, page, scrollY }
+                      try { sessionStorage.setItem('matchReturnState', JSON.stringify(state)) } catch {}
+                      navigate(`/match/${activeId}/resumes/${item.id}`)
+                    }}
+                  >
                     <div className="cell-name">
                       <div className="name">{item.name}</div>
                       <div className="muted small">命中 {item.hit_count} 个</div>
