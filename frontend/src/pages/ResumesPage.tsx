@@ -9,6 +9,7 @@ type ResumeItem = {
   name: string
   category: '技术类' | '非技术类'
   tags: string[]
+  tag_names?: string[] | null
   work_years: number | null
   degree: '' | '本科' | '硕士' | '博士'
   tiers: Array<'985' | '211' | '双一流' | '海外留学'>
@@ -94,7 +95,8 @@ export default function ResumesPage() {
             id: r.id,
             name: r.name || '未知',
             category: isTech ? '技术类' : '非技术类',
-            tags, // 只显示标签，不回退到 skills
+            tags, // 只显示标签
+            tag_names: r.tag_names || [],
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
@@ -219,8 +221,8 @@ export default function ResumesPage() {
   }, [uiCategory, techTags, nonTechTags])
 
   // 基于当前标签字典，构建快速判断集合
-  const techTagNameSet = useMemo(() => new Set(techTags.map(t => t.tag_name.toLowerCase())), [techTags])
-  const nonTechTagNameSet = useMemo(() => new Set(nonTechTags.map(t => t.tag_name.toLowerCase())), [nonTechTags])
+  const techTagNameSet = useMemo(() => new Set(techTags.map(t => (t.tag_name || '').toLowerCase())), [techTags])
+  const nonTechTagNameSet = useMemo(() => new Set(nonTechTags.map(t => (t.tag_name || '').toLowerCase())), [nonTechTags])
 
   function resetAll() {
     setUiCategory('技术类')
@@ -274,7 +276,7 @@ export default function ResumesPage() {
     
     return items.filter(r => {
       // 结合 tag_names 推断类别，优先于基于 skills 的静态类别
-      const tagsLower = (r.tags || []).map(t => t.toLowerCase())
+      const tagsLower = (r.tag_names || r.tags || []).map(t => t.toLowerCase())
       const hitsTech = tagsLower.some(t => techTagNameSet.has(t))
       const hitsNonTech = tagsLower.some(t => nonTechTagNameSet.has(t))
       const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : r.category
@@ -286,7 +288,7 @@ export default function ResumesPage() {
       
       // 标签筛选：需要包含所有选中的标签
       if (selectedTags.length) {
-        const resumeTagsLower = (r.tags || []).map(t => t.toLowerCase())
+        const resumeTagsLower = ((r.tag_names || r.tags) || []).map(t => t.toLowerCase())
         // 支持中英文统一、空格差异处理
         const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, '')
         const hasAllTags = selectedTags.every(tag => {
