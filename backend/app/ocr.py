@@ -58,7 +58,7 @@ class MinerUProcessor:
                 capture_output=True,
                 text=True,
                 timeout=300,
-                shell=True,  # Windows 环境
+                shell=False,  # 使用直接执行，避免 Windows 下带空格路径被拆分
                 env=env_vars,
             )
             if result.stderr:
@@ -109,7 +109,7 @@ class MinerUProcessor:
 
     def is_mineru_available(self) -> bool:
         try:
-            result = subprocess.run(["mineru", "--help"], capture_output=True, text=True, timeout=15, shell=True)
+            result = subprocess.run(["mineru", "--help"], capture_output=True, text=True, timeout=15, shell=False)
             return result.returncode == 0
         except Exception:
             return False
@@ -147,7 +147,7 @@ class MinerUProcessor:
                 capture_output=True,
                 text=True,
                 timeout=600,
-                shell=True,
+                shell=False,
                 env=env_vars,
             )
             if result.stderr:

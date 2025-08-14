@@ -10,6 +10,8 @@ import time as _time
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+import httpx
+import certifi
 
 from . import UPLOAD_DIRS, build_r2_public_url, build_supabase_public_url
 from .db import get_supabase_client
@@ -236,7 +238,11 @@ class UploadDirEventHandler(FileSystemEventHandler):
             self.batch_signal.clear()
             processing_dir = UPLOAD_DIRS["processing"]
             try:
-                pdfs = sorted([p for p in processing_dir.glob("*.pdf") if p.is_file()])
+                # 支持多种后缀：pdf/doc/docx/txt
+                candidates = []
+                for pattern in ("*.pdf", "*.doc", "*.docx", "*.txt"):
+                    candidates.extend([p for p in processing_dir.glob(pattern) if p.is_file()])
+                pdfs = sorted(candidates)
             except Exception:
                 pdfs = []
             for p in pdfs:
@@ -271,4 +277,114 @@ def start_watcher_in_background() -> Observer:
     t = threading.Thread(target=handler.run_processing_loop, daemon=True)
     t.start()
     logger.info(f"已启动目录监听: {UPLOAD_DIRS['processing']}")
+    
+    # 启动周期拉取任务：从数据库查询 status='未处理' 的记录并下载到 processing
+    def _pull_loop() -> None:
+        poll_interval = max(3, int(os.getenv("PULL_UNPROCESSED_INTERVAL", "10")))
+        client = get_supabase_client()
+        processing_dir = UPLOAD_DIRS["processing"]
+        processing_dir.mkdir(parents=True, exist_ok=True)
+        # HTTP 客户端：禁用 HTTP/2，关闭 keep-alive，允许重定向，设置 UA
+        http_limits = httpx.Limits(max_keepalive_connections=0, max_connections=10)
+        http_client = httpx.Client(
+            timeout=30.0,
+            follow_redirects=True,
+            http2=False,
+            verify=certifi.where(),
+            limits=http_limits,
+            headers={"User-Agent": "AIResumeFetcher/1.0"},
+        )
+        while True:
+            try:
+                # 拉取一批待处理（未处理）的记录
+                res = (
+                    client
+                    .table("resume_files")
+                    .select("id,file_name,file_path,status")
+                    .eq("status", "未处理")
+                    .order("id")
+                    .limit(20)
+                    .execute()
+                )
+                items = getattr(res, "data", []) or []
+                if not items:
+                    _time.sleep(poll_interval)
+                    continue
+                for item in items:
+                    rid = item.get("id")
+                    fname = (item.get("file_name") or "").strip()
+                    url = (item.get("file_path") or "").strip()
+                    if not rid or not fname or not url:
+                        continue
+                    # 抢占：将状态从 未处理 -> 拉取中，避免重复并发拉取
+                    try:
+                        upd = (
+                            client
+                            .table("resume_files")
+                            .update({"status": "拉取中"})
+                            .eq("id", rid)
+                            .eq("status", "未处理")
+                            .execute()
+                        )
+                        updated_rows = getattr(upd, "data", []) or []
+                        if not updated_rows:
+                            continue  # 未能抢到
+                    except Exception:
+                        continue
+
+                    # 计算保存路径，若重名则追加后缀
+                    target_path = processing_dir / fname
+                    if target_path.exists():
+                        base = target_path.stem
+                        ext = target_path.suffix
+                        counter = 1
+                        while (processing_dir / f"{base}_{counter}{ext}").exists():
+                            counter += 1
+                        target_path = processing_dir / f"{base}_{counter}{ext}"
+
+                    # 下载文件到 processing 目录（带重试与退避）
+                    max_attempts = max(1, int(os.getenv("PULL_DOWNLOAD_RETRIES", "3")))
+                    attempt = 0
+                    while True:
+                        attempt += 1
+                        try:
+                            with http_client.stream("GET", url) as resp:
+                                status = resp.status_code
+                                if status >= 400:
+                                    raise httpx.HTTPStatusError(
+                                        f"bad status: {status}", request=resp.request, response=resp
+                                    )
+                                with open(target_path, "wb") as f:
+                                    for chunk in resp.iter_bytes(65536):
+                                        if chunk:
+                                            f.write(chunk)
+                            logger.info(f"[pull] 下载成功: id={rid}, file={target_path.name}")
+                            # 放到目录后，目录监听/扫描会自动处理。先置为 处理中。
+                            try:
+                                client.table("resume_files").update({"status": "处理中"}).eq("id", rid).execute()
+                            except Exception:
+                                pass
+                            # 触发批处理信号，尽快扫描
+                            handler.batch_signal.set()
+                            break
+                        except Exception as de:
+                            if attempt >= max_attempts:
+                                logger.error(f"[pull] 下载失败: id={rid}, url={url}, error={de}")
+                                try:
+                                    client.table("resume_files").update({"status": "未处理"}).eq("id", rid).execute()
+                                except Exception:
+                                    pass
+                                break
+                            # 指数退避
+                            backoff = min(20.0, 1.5 * attempt)
+                            logger.warning(f"[pull] 下载失败，退避重试({attempt}/{max_attempts})，等待 {backoff:.1f}s: id={rid}, url={url}")
+                            _time.sleep(backoff)
+                _time.sleep(0.5)
+            except Exception as e:
+                logger.error(f"[pull] 拉取循环异常: {e}")
+                _time.sleep(poll_interval)
+
+    tp = threading.Thread(target=_pull_loop, daemon=True)
+    tp.start()
+    
     return observer
