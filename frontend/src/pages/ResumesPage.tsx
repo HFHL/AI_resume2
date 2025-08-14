@@ -420,9 +420,11 @@ export default function ResumesPage() {
             </div>
             <div className="cell-tags">
               <div className="card-tags">
-                {item.tags.length ? item.tags.map((t, i) => (
-                  <span key={i} className="pill">{t}</span>
-                )) : <span className="muted">无标签</span>}
+                {((item.tag_names && item.tag_names.length ? item.tag_names : item.tags).length) ? (
+                  (item.tag_names && item.tag_names.length ? item.tag_names : item.tags).map((t, i) => (
+                    <span key={i} className="pill">{t}</span>
+                  ))
+                ) : <span className="muted">无标签</span>}
               </div>
             </div>
             <div className="cell-meta hide-on-narrow">
