@@ -276,7 +276,7 @@ export default function ResumesPage() {
     
     return items.filter(r => {
       // 结合 tag_names 推断类别，优先于基于 skills 的静态类别
-      const tagsLower = (r.tag_names || r.tags || []).map(t => t.toLowerCase())
+      const tagsLower = (r.tag_names || []).map(t => t.toLowerCase())
       const hitsTech = tagsLower.some(t => techTagNameSet.has(t))
       const hitsNonTech = tagsLower.some(t => nonTechTagNameSet.has(t))
       const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : r.category
@@ -288,7 +288,7 @@ export default function ResumesPage() {
       
       // 标签筛选：需要包含所有选中的标签
       if (selectedTags.length) {
-        const resumeTagsLower = ((r.tag_names || r.tags) || []).map(t => t.toLowerCase())
+        const resumeTagsLower = (r.tag_names || []).map(t => t.toLowerCase())
         // 支持中英文统一、空格差异处理
         const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, '')
         const hasAllTags = selectedTags.every(tag => {
@@ -420,8 +420,8 @@ export default function ResumesPage() {
             </div>
             <div className="cell-tags">
               <div className="card-tags">
-                {((item.tag_names && item.tag_names.length ? item.tag_names : item.tags).length) ? (
-                  (item.tag_names && item.tag_names.length ? item.tag_names : item.tags).map((t, i) => (
+                {item.tag_names && item.tag_names.length ? (
+                  item.tag_names.map((t, i) => (
                     <span key={i} className="pill">{t}</span>
                   ))
                 ) : <span className="muted">无标签</span>}
