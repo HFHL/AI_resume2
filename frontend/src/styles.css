@@ -33,7 +33,7 @@ body{
 .nav-item:hover{background:#0f172a;border-color:var(--border)}
 .nav-item.active{background:var(--brand);border-color:transparent;box-shadow:0 6px 20px rgba(79,70,229,.35)}
 
-.main{flex:1;max-width:1280px;margin:24px auto;padding:0 20px;width:100%}
+.main{flex:1;max-width:none;margin:24px auto;padding:0 20px;width:100%}
 .panel{
   background:var(--panel);border:1px solid var(--border);border-radius:16px;
   padding:20px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);
@@ -129,7 +129,7 @@ button{border:none}
 
 /* Resume detail */
 .resume-detail{margin-top:12px}
-.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.detail-grid{display:grid;grid-template-columns:1fr;gap:14px}
 @media (max-width: 900px){.detail-grid{grid-template-columns:1fr}}
 .detail-card{border:1px solid var(--border);background:#0f1522;border-radius:14px;padding:14px}
 .detail-title{font-weight:600;margin-bottom:8px}
@@ -157,7 +157,7 @@ button{border:none}
 @media (max-width: 900px){.match-detail-grid{grid-template-columns:1fr}}
 
 /* Resume detail layout with PDF pane */
-.resume-detail-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:12px}
+.resume-detail-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:14px;margin-top:12px}
 @media (max-width: 1100px){.resume-detail-layout{grid-template-columns:1fr}}
 .pdf-pane{border:1px solid var(--border);background:#0f1522;border-radius:14px;padding:12px;display:flex;flex-direction:column;min-height:400px}
-.pdf-frame{flex:1;border:none;border-radius:10px;background:#0b0f17;min-height:60vh}
+.pdf-frame{flex:1;border:none;border-radius:10px;background:#0b0f17;min-height:80vh}

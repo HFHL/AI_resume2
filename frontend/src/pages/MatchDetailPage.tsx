@@ -28,6 +28,8 @@ type ResumeDetail = {
   project_experience: string[] | null
   self_evaluation: string | null
   other: string | null
+  resume_file_id?: number | null
+  file_url?: string | null
 }
 
 export default function MatchDetailPage() {
@@ -70,38 +72,49 @@ export default function MatchDetailPage() {
       {error && !loading && <div className="empty">{error}</div>}
 
       {!loading && !error && (
-        <div className="match-detail-grid">
-          <div className="detail-card">
-            <div className="detail-title">职位信息</div>
-            {position ? (
-              <div className="detail-content">
-                <div className="detail-row"><span>名称</span><span>{position.position_name}</span></div>
-                <div className="detail-row"><span>类别</span><span>{position.position_category || '-'}</span></div>
-                <div className="detail-row"><span>匹配方式</span><span>{position.match_type === 'all' ? '全部命中' : '任一命中'}</span></div>
-                <div className="detail-row"><span>关键词</span><span>{(position.required_keywords || []).join('、') || '-'}</span></div>
-                <div className="detail-row"><span>标签</span><span>{(position.tags || []).join('、') || '-'}</span></div>
-                <div className="detail-row"><span>描述</span><span>{position.position_description || '-'}</span></div>
-              </div>
-            ) : <div className="muted">无职位信息</div>}
+        <div className="resume-detail-layout">
+          <div>
+            <div className="detail-card">
+              <div className="detail-title">职位信息</div>
+              {position ? (
+                <div className="detail-content">
+                  <div className="detail-row"><span>名称</span><span>{position.position_name}</span></div>
+                  <div className="detail-row"><span>类别</span><span>{position.position_category || '-'}</span></div>
+                  <div className="detail-row"><span>匹配方式</span><span>{position.match_type === 'all' ? '全部命中' : '任一命中'}</span></div>
+                  <div className="detail-row"><span>关键词</span><span>{(position.required_keywords || []).join('、') || '-'}</span></div>
+                  <div className="detail-row"><span>标签</span><span>{(position.tags || []).join('、') || '-'}</span></div>
+                  <div className="detail-row"><span>描述</span><span>{position.position_description || '-'}</span></div>
+                </div>
+              ) : <div className="muted">无职位信息</div>}
+            </div>
+
+            <div className="detail-card" style={{ marginTop: 14 }}>
+              <div className="detail-title">简历信息</div>
+              {resume ? (
+                <div className="detail-content">
+                  <div className="detail-row"><span>姓名</span><span>{resume.name || '未知'}</span></div>
+                  <div className="detail-row"><span>联系方式</span><span>{resume.contact_info || '-'}</span></div>
+                  <div className="detail-row"><span>学历</span><span>{resume.education_degree || '-'}</span></div>
+                  <div className="detail-row"><span>院校层次</span><span>{(resume.education_tiers || []).join('、') || (resume.education_tier || '-')}</span></div>
+                  <div className="detail-row"><span>学校</span><span>{(resume.education_school || []).join('、') || '-'}</span></div>
+                  <div className="detail-row"><span>专业</span><span>{resume.education_major || '-'}</span></div>
+                  <div className="detail-row"><span>技能</span><span>{(resume.skills || []).join('、') || '-'}</span></div>
+                  <div className="detail-row"><span>工作经历</span><span>{(resume.work_experience || []).join('；') || '-'}</span></div>
+                  <div className="detail-row"><span>实习经历</span><span>{(resume.internship_experience || []).join('；') || '-'}</span></div>
+                  <div className="detail-row"><span>项目经历</span><span>{(resume.project_experience || []).join('；') || '-'}</span></div>
+                  <div className="detail-row"><span>自我评价</span><span>{resume.self_evaluation || '-'}</span></div>
+                </div>
+              ) : <div className="muted">无简历信息</div>}
+            </div>
           </div>
 
-          <div className="detail-card">
-            <div className="detail-title">简历信息</div>
-            {resume ? (
-              <div className="detail-content">
-                <div className="detail-row"><span>姓名</span><span>{resume.name || '未知'}</span></div>
-                <div className="detail-row"><span>联系方式</span><span>{resume.contact_info || '-'}</span></div>
-                <div className="detail-row"><span>学历</span><span>{resume.education_degree || '-'}</span></div>
-                <div className="detail-row"><span>院校层次</span><span>{(resume.education_tiers || []).join('、') || (resume.education_tier || '-')}</span></div>
-                <div className="detail-row"><span>学校</span><span>{(resume.education_school || []).join('、') || '-'}</span></div>
-                <div className="detail-row"><span>专业</span><span>{resume.education_major || '-'}</span></div>
-                <div className="detail-row"><span>技能</span><span>{(resume.skills || []).join('、') || '-'}</span></div>
-                <div className="detail-row"><span>工作经历</span><span>{(resume.work_experience || []).join('；') || '-'}</span></div>
-                <div className="detail-row"><span>实习经历</span><span>{(resume.internship_experience || []).join('；') || '-'}</span></div>
-                <div className="detail-row"><span>项目经历</span><span>{(resume.project_experience || []).join('；') || '-'}</span></div>
-                <div className="detail-row"><span>自我评价</span><span>{resume.self_evaluation || '-'}</span></div>
-              </div>
-            ) : <div className="muted">无简历信息</div>}
+          <div className="pdf-pane">
+            <div className="detail-title">源文件预览</div>
+            {resume?.file_url ? (
+              <iframe className="pdf-frame" src={resume.file_url} />
+            ) : (
+              <div className="empty">未找到源文件链接</div>
+            )}
           </div>
         </div>
       )}
