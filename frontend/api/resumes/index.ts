@@ -13,7 +13,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   let query = supabase
     .from('resumes')
-    .select('id, name, tag_names, education_degree, education_tiers, work_years, created_at')
+    .select('id, name, skills, tag_names, work_years, education_degree, education_tiers, created_at')
     .order('id', { ascending: false })
 
   // 如果有搜索词，进行模糊搜索
@@ -56,7 +56,7 @@ export default async function handler(req: Request): Promise<Response> {
     })
   }
 
-  return new Response(JSON.stringify({ items, _meta: { source: 'edge:resumes-index', version: 2 } }), {
+  return new Response(JSON.stringify({ items, _meta: { source: 'edge:resumes-index', version: 3 } }), {
     headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
   })
 }

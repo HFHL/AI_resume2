@@ -8,8 +8,8 @@ type ResumeItem = {
   id: number
   name: string
   category: '技术类' | '非技术类'
-  tags: string[]
-  tag_names?: string[] | null
+  tags: string[] // 等同于 tag_names，用于渲染与筛选
+  tag_names: string[]
   work_years: number | null
   degree: '' | '本科' | '硕士' | '博士'
   tiers: Array<'985' | '211' | '双一流' | '海外留学'>
@@ -45,7 +45,7 @@ export default function ResumesPage() {
     })
   }, [])
 
-  // 加载每份简历的 tag_names（后端此接口已验证有返回）
+  // 加载每份简历的 tag_names
   useEffect(() => {
     fetch(api('/resumes/tags'))
       .then(r => r.json())
@@ -69,11 +69,10 @@ export default function ResumesPage() {
         const rows = (d.items || []) as Array<{
           id: number
           name: string | null
-          skills: string[] | null
+          tag_names?: string[] | null
           education_degree: string | null
           education_tiers: string[] | null
           work_years: number | null
-          tag_names: string[] | null
         }>
         
         const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
@@ -92,31 +91,25 @@ export default function ResumesPage() {
           }).filter(v => ['985','211','双一流','海外留学'].includes(v)) as ResumeItem['tiers']
           return Array.from(new Set(mapped)) as ResumeItem['tiers']
         }
-        
-        // 判断是否为技术类（基于技能标签）
-        const hasTech = (skills: string[] | null | undefined) => {
-          if (!skills || skills.length === 0) return false
-          // 技术相关的关键词
-          const techKeywords = ['前端', '后端', '全栈', '算法', '数据', '测试', '运维', '移动端',
-            'Java', 'Python', 'Go', 'C++', 'TypeScript', 'React', 'Vue', 'Node.js', '大模型', 'NLP',
-            'AI', 'ML', 'DevOps', 'Android', 'iOS', 'PHP', 'Ruby', 'Rust', 'Swift', 'Kotlin']
-          const skillsStr = skills.join('、').toLowerCase()
-          return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
-        }
+
+        const techSet = new Set(techTags.map(t => t.tag_name.toLowerCase()))
+        const nonTechSet = new Set(nonTechTags.map(t => t.tag_name.toLowerCase()))
         
         const mapped: ResumeItem[] = rows.map(r => {
-          // 先不信任 /resumes 的 tag_names，统一以 /resumes/tags 返回为准
-          const fallbackTags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
           const externalTags = idToTags.get(r.id) || []
-          const tags = externalTags.length ? externalTags : fallbackTags
-          const isTech = hasTech(r.skills)
+          const fallbackTags = (r.tag_names || [])
+          const tagNames = (externalTags.length ? externalTags : fallbackTags).map(s => s.trim()).filter(Boolean)
+          const tagsLower = tagNames.map(t => t.toLowerCase())
+          const hitsTech = tagsLower.some(t => techSet.has(t))
+          const hitsNonTech = tagsLower.some(t => nonTechSet.has(t))
+          const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : '技术类'
           
           return {
             id: r.id,
             name: r.name || '未知',
-            category: isTech ? '技术类' : '非技术类',
-            tags,
-            tag_names: tags,
+            category: derivedCategory,
+            tags: tagNames,
+            tag_names: tagNames,
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
@@ -127,7 +120,7 @@ export default function ResumesPage() {
       })
       .catch(() => setItems([]))
       .finally(() => setLoading(false))
-  }, [idToTags])
+  }, [idToTags, techTags, nonTechTags])
 
   async function doSearch(next?: string) {
     const q = (next ?? query).trim()
@@ -145,8 +138,8 @@ export default function ResumesPage() {
           return
         }
         const d = await r.json()
-        const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; tag_names:string[]|null }>
-        setItems(mapRows(rows, idToTags))
+        const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
+        setItems(mapRows(rows, idToTags, techTags, nonTechTags))
       } catch (error) {
         console.error('Error fetching resumes:', error)
         alert('获取简历列表失败，请检查网络连接')
@@ -166,8 +159,8 @@ export default function ResumesPage() {
         return
       }
       const d = await r.json()
-      const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; tag_names:string[]|null }>
-      setItems(mapRows(rows, idToTags))
+      const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
+      setItems(mapRows(rows, idToTags, techTags, nonTechTags))
     } catch (error) {
       console.error('Search error:', error)
       alert('搜索失败，请检查网络连接')
@@ -176,7 +169,12 @@ export default function ResumesPage() {
     }
   }
 
-  function mapRows(rows: Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; tag_names:string[]|null }>, tagMap?: Map<number, string[]>): ResumeItem[] {
+  function mapRows(
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>,
+    tagMap?: Map<number, string[]>,
+    techTagsArr?: Tag[],
+    nonTechTagsArr?: Tag[],
+  ): ResumeItem[] {
     const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
       const s = (x || '').trim()
       if (!s) return ''
@@ -192,25 +190,25 @@ export default function ResumesPage() {
       }).filter(v => ['985','211','双一流','海外留学'].includes(v)) as ResumeItem['tiers']
       return Array.from(new Set(mapped)) as ResumeItem['tiers']
     }
-    const hasTech = (skills: string[] | null | undefined) => {
-      if (!skills || skills.length === 0) return false
-      const techKeywords = ['前端', '后端', '全栈', '算法', '数据', '测试', '运维', '移动端',
-        'Java', 'Python', 'Go', 'C++', 'TypeScript', 'React', 'Vue', 'Node.js', '大模型', 'NLP',
-        'AI', 'ML', 'DevOps', 'Android', 'iOS', 'PHP', 'Ruby', 'Rust', 'Swift', 'Kotlin']
-      const skillsStr = skills.join('、').toLowerCase()
-      return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
-    }
+
+    const techSet = new Set((techTagsArr || []).map(t => t.tag_name.toLowerCase()))
+    const nonTechSet = new Set((nonTechTagsArr || []).map(t => t.tag_name.toLowerCase()))
+
     return rows.map(r => {
       const externalTags = tagMap?.get(r.id) || []
       const fallbackTags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
-      const tags = externalTags.length ? externalTags : fallbackTags
-      const isTech = hasTech(r.skills)
+      const tagNames = externalTags.length ? externalTags : fallbackTags
+      const tagsLower = tagNames.map(t => t.toLowerCase())
+      const hitsTech = tagsLower.some(t => techSet.has(t))
+      const hitsNonTech = tagsLower.some(t => nonTechSet.has(t))
+      const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : '技术类'
+
       return {
         id: r.id,
         name: r.name || '未知',
-        category: isTech ? '技术类' : '非技术类',
-        tags,
-        tag_names: tags,
+        category: derivedCategory,
+        tags: tagNames,
+        tag_names: tagNames,
         work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
