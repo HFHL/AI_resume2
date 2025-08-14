@@ -87,23 +87,18 @@ export default function ResumesPage() {
           return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
         }
         
-        // DEBUG: 检查原始数据
-        console.log('前端收到的原始数据:', rows.slice(0, 3))
+        console.log('检查tag_names字段:', rows.slice(0, 3).map(r => ({ id: r.id, tag_names: r.tag_names, has_tag_names: 'tag_names' in r })))
         
         const mapped: ResumeItem[] = rows.map(r => {
+          // 使用tag_names作为标签显示
           const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
           const isTech = hasTech(r.skills)
-          
-          // DEBUG: 检查每条记录的tag_names
-          if (r.id && r.tag_names) {
-            console.log(`简历 ${r.id} 的 tag_names:`, r.tag_names)
-          }
           
           return {
             id: r.id,
             name: r.name || '未知',
             category: isTech ? '技术类' : '非技术类',
-            tags, // 只显示标签
+            tags, // 使用tag_names作为标签
             tag_names: r.tag_names || [],
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
@@ -189,13 +184,13 @@ export default function ResumesPage() {
       return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
     }
     return rows.map(r => {
-      const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
+      const tags = (r.skills || []).map(s => s.trim()).filter(Boolean)
       const isTech = hasTech(r.skills)
       return {
         id: r.id,
         name: r.name || '未知',
         category: isTech ? '技术类' : '非技术类',
-        tags, // 只显示标签
+        tags, // 使用skills作为标签
         work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
@@ -283,20 +278,15 @@ export default function ResumesPage() {
     const requiredLevel = degree ? degreeLevel(degree) : 0
     
     return items.filter(r => {
-      // 结合 tag_names 推断类别，优先于基于 skills 的静态类别
-      const tagsLower = (r.tag_names || []).map(t => t.toLowerCase())
-      const hitsTech = tagsLower.some(t => techTagNameSet.has(t))
-      const hitsNonTech = tagsLower.some(t => nonTechTagNameSet.has(t))
-      const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : r.category
-
-      if (derivedCategory !== category) return false
+      // 基于skills推断类别
+      if (r.category !== category) return false
       if (requiredLevel > 0 && degreeLevel(r.degree) < requiredLevel) return false
       if (tiers.length && !tiers.every(t => r.tiers.includes(t))) return false
       if (!matchYears(r.work_years)) return false
       
       // 标签筛选：需要包含所有选中的标签
       if (selectedTags.length) {
-        const resumeTagsLower = (r.tag_names || []).map(t => t.toLowerCase())
+        const resumeTagsLower = (r.tags || []).map(t => t.toLowerCase())
         // 支持中英文统一、空格差异处理
         const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, '')
         const hasAllTags = selectedTags.every(tag => {
@@ -428,8 +418,8 @@ export default function ResumesPage() {
             </div>
             <div className="cell-tags">
               <div className="card-tags">
-                {item.tag_names && item.tag_names.length ? (
-                  item.tag_names.map((t, i) => (
+                {item.tags && item.tags.length ? (
+                  item.tags.map((t, i) => (
                     <span key={i} className="pill">{t}</span>
                   ))
                 ) : <span className="muted">无标签</span>}

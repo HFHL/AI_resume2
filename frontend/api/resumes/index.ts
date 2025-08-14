@@ -13,7 +13,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   let query = supabase
     .from('resumes')
-    .select('*')
+    .select('id, name, contact_info, skills, education_degree, education_tiers, work_experience, internship_experience, project_experience, self_evaluation, work_years, tag_names, created_at')
     .order('id', { ascending: false })
 
   // 如果有搜索词，进行模糊搜索
@@ -37,8 +37,8 @@ export default async function handler(req: Request): Promise<Response> {
 
   let items = data || []
   
-  // DEBUG: 强制打印前3条的tag_names看看到底有什么
-  console.log('DEBUG resumes data:', items.slice(0, 3).map(r => ({ id: r.id, name: r.name, tag_names: r.tag_names })))
+  // DEBUG: 强制打印前3条的完整数据看看有什么字段
+  console.log('DEBUG resumes ALL fields:', items.slice(0, 1))
   
   // 额外的后置过滤：支持数组字段的"包含子串"匹配（如 tag_names/skills 中的模糊匹配）
   if (searchQuery && items.length) {
