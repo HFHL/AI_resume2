@@ -13,6 +13,7 @@ type ResumeDetail = {
   education_tier: string | null
   education_tiers: string[] | null
   skills: string[] | null
+  tag_names?: string[] | null
   work_experience: string[] | null
   internship_experience: string[] | null
   project_experience: string[] | null
@@ -88,6 +89,17 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
                 <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
                 <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
+              </div>
+
+              <div className="detail-card">
+                <div className="detail-title">标签</div>
+                <div className="detail-content">
+                  {(item.tag_names || []).length ? (
+                    <div className="card-tags">
+                      {(item.tag_names || []).map((t, i) => <span key={i} className="pill">{t}</span>)}
+                    </div>
+                  ) : <span className="muted">无</span>}
+                </div>
               </div>
 
               <div className="detail-card">
