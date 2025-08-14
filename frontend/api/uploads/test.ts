@@ -63,7 +63,7 @@ export default async function handler(req: Request): Promise<Response> {
       file_name: fileName,
       uploaded_by: uploadedBy,
       file_path: publicUrl,
-    status: '已上传',
+    status: '未处理',
     }
     const { error: dbErr } = await supabase.from('resume_files').insert(row)
     if (dbErr) {
