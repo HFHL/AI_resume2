@@ -55,6 +55,7 @@ export default function ResumesPage() {
           education_degree: string | null
           education_tiers: string[] | null
           work_years: number | null
+          tag_names: string[] | null
         }>
         
         const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
@@ -87,13 +88,14 @@ export default function ResumesPage() {
         
         const mapped: ResumeItem[] = rows.map(r => {
           const skills = (r.skills || []).map(s => s.trim()).filter(Boolean)
+          const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
           const isTech = hasTech(r.skills)
           
           return {
             id: r.id,
             name: r.name || '未知',
             category: isTech ? '技术类' : '非技术类',
-            tags: skills,
+            tags: tags.length > 0 ? tags : skills, // 优先使用 tag_names，回退到 skills
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
@@ -122,7 +124,7 @@ export default function ResumesPage() {
           return
         }
         const d = await r.json()
-        const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
+        const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; tag_names:string[]|null }>
         setItems(mapRows(rows))
       } catch (error) {
         console.error('Error fetching resumes:', error)
@@ -143,7 +145,7 @@ export default function ResumesPage() {
         return
       }
       const d = await r.json()
-      const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
+      const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; tag_names:string[]|null }>
       setItems(mapRows(rows))
     } catch (error) {
       console.error('Search error:', error)
@@ -153,7 +155,7 @@ export default function ResumesPage() {
     }
   }
 
-  function mapRows(rows: Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>): ResumeItem[] {
+  function mapRows(rows: Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; tag_names:string[]|null }>): ResumeItem[] {
     const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
       const s = (x || '').trim()
       if (!s) return ''
@@ -179,12 +181,13 @@ export default function ResumesPage() {
     }
     return rows.map(r => {
       const skills = (r.skills || []).map(s => s.trim()).filter(Boolean)
+      const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
       const isTech = hasTech(r.skills)
       return {
         id: r.id,
         name: r.name || '未知',
         category: isTech ? '技术类' : '非技术类',
-        tags: skills,
+        tags: tags.length > 0 ? tags : skills, // 优先使用 tag_names，回退到 skills
         work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
