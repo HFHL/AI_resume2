@@ -43,7 +43,7 @@ export default function MatchPage() {
   }, [])
 
   // 恢复返回前的查看位置（职位ID、页码、滚动位置）
-  useEffect(() => {
+	useEffect(() => {
     const raw = sessionStorage.getItem('matchReturnState')
     if (!raw) return
     try {
@@ -52,16 +52,18 @@ export default function MatchPage() {
         restoreRef.current = st
         setActiveId(st.activeId)
         setPage(st.page || 1)
-        loadMatch(st.activeId)
+				loadMatch(st.activeId, { keepPage: true })
       }
     } catch {}
   }, [])
 
-  function loadMatch(id: number) {
+  function loadMatch(id: number, opts?: { keepPage?: boolean }) {
     setActiveId(id)
     setMatchLoading(true)
     setResults([])
-    setPage(1)
+    if (!opts?.keepPage) {
+      setPage(1)
+    }
     fetch(api(`/positions/${id}/match`))
       .then(async (r) => {
         if (!r.ok) {
