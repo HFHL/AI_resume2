@@ -36,7 +36,11 @@ export default async function handler(req: Request): Promise<Response> {
   if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
 
   let items = data || []
-  // 额外的后置过滤：支持数组字段的“包含子串”匹配（如 tag_names/skills 中的模糊匹配）
+  
+  // DEBUG: 强制打印前3条的tag_names看看到底有什么
+  console.log('DEBUG resumes data:', items.slice(0, 3).map(r => ({ id: r.id, name: r.name, tag_names: r.tag_names })))
+  
+  // 额外的后置过滤：支持数组字段的"包含子串"匹配（如 tag_names/skills 中的模糊匹配）
   if (searchQuery && items.length) {
     const q = searchQuery.toLowerCase()
     items = items.filter((r: any) => {
