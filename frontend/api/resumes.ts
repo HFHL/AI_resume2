@@ -26,14 +26,14 @@ export default async function handler(req: Request): Promise<Response> {
       // 简单搜索：拉取部分数据后在函数内过滤
       const { data, error } = await supabase
         .from('resumes')
-        .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, created_at')
+        .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, tag_names, created_at')
         .order('id', { ascending: false })
         .limit(5000)
       if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
       const needle = q.toLowerCase()
       const makeBlob = (row: any) => {
         const parts: string[] = [row.name || '', row.contact_info || '', row.self_evaluation || '', row.education_degree || '']
-        for (const key of ['skills','work_experience','internship_experience','project_experience']) {
+        for (const key of ['skills','work_experience','internship_experience','project_experience','tag_names']) {
           const vals = (row[key] || []) as string[]
           if (Array.isArray(vals)) parts.push(...vals.map(String))
         }
@@ -42,17 +42,17 @@ export default async function handler(req: Request): Promise<Response> {
       const matched = (data || []).filter(r => makeBlob(r).includes(needle))
       const total = matched.length
       const sliced = matched.slice(offset, offset + limit)
-      return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json' } })
+      return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
     }
 
-    // 默认列表
+    // 默认列表（包含 tag_names）
     const { data, error } = await supabase
       .from('resumes')
-      .select('id, name, skills, education_degree, education_tiers, created_at')
+      .select('id, name, tag_names, education_degree, education_tiers, created_at')
       .order('id', { ascending: false })
       .range(offset, offset + limit - 1)
     if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
-    return new Response(JSON.stringify({ items: data || [] }), { headers: { 'Content-Type': 'application/json' } })
+    return new Response(JSON.stringify({ items: data || [] }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
   }
 
   return new Response('Method Not Allowed', { status: 405 })
