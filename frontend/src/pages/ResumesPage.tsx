@@ -87,9 +87,17 @@ export default function ResumesPage() {
           return techKeywords.some(keyword => skillsStr.includes(keyword.toLowerCase()))
         }
         
+        // DEBUG: 检查原始数据
+        console.log('前端收到的原始数据:', rows.slice(0, 3))
+        
         const mapped: ResumeItem[] = rows.map(r => {
           const tags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
           const isTech = hasTech(r.skills)
+          
+          // DEBUG: 检查每条记录的tag_names
+          if (r.id && r.tag_names) {
+            console.log(`简历 ${r.id} 的 tag_names:`, r.tag_names)
+          }
           
           return {
             id: r.id,
