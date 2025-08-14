@@ -3,12 +3,31 @@ export const config = { runtime: 'edge' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
+function parseURL(req: Request) {
+  try { return new URL(req.url) } catch { return new URL(req.url, 'http://localhost') }
+}
+
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'GET') {
-    const { data, error } = await supabase
+    const url = parseURL(req)
+    const searchQuery = url.searchParams.get('q')?.trim()
+
+    let query = supabase
       .from('positions')
-      .select('id, position_name, position_category, tags, match_type, created_at')
+      .select('id, position_name, position_category, tags, match_type, required_keywords, created_at')
       .order('id', { ascending: false })
+
+    // 如果有搜索词，进行模糊搜索
+    if (searchQuery) {
+      query = query.or(
+        `position_name.ilike.%${searchQuery}%,` +
+        `position_category.ilike.%${searchQuery}%,` +
+        `tags.cs.{${searchQuery}},` +
+        `required_keywords.cs.{${searchQuery}}`
+      )
+    }
+
+    const { data, error } = await query
 
     if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
     return new Response(JSON.stringify({ items: data || [] }), { headers: { 'Content-Type': 'application/json' } })

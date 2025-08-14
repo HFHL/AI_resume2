@@ -9,7 +9,7 @@ type ResumeItem = {
   name: string
   category: '技术类' | '非技术类'
   tags: string[]
-  years: number | null
+  work_years: number | null
   degree: '' | '本科' | '硕士' | '博士'
   tiers: Array<'985' | '211' | '双一流' | '海外留学'>
 }
@@ -54,6 +54,7 @@ export default function ResumesPage() {
           skills: string[] | null
           education_degree: string | null
           education_tiers: string[] | null
+          work_years: number | null
         }>
         
         const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
@@ -93,7 +94,7 @@ export default function ResumesPage() {
             name: r.name || '未知',
             category: isTech ? '技术类' : '非技术类',
             tags: skills,
-            years: null,
+            work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
           }
@@ -121,7 +122,7 @@ export default function ResumesPage() {
           return
         }
         const d = await r.json()
-        const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null }>
+        const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
         setItems(mapRows(rows))
       } catch (error) {
         console.error('Error fetching resumes:', error)
@@ -142,7 +143,7 @@ export default function ResumesPage() {
         return
       }
       const d = await r.json()
-      const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null }>
+      const rows = (d.items || []) as Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
       setItems(mapRows(rows))
     } catch (error) {
       console.error('Search error:', error)
@@ -152,7 +153,7 @@ export default function ResumesPage() {
     }
   }
 
-  function mapRows(rows: Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null }>): ResumeItem[] {
+  function mapRows(rows: Array<{ id:number; name:string|null; skills:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>): ResumeItem[] {
     const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
       const s = (x || '').trim()
       if (!s) return ''
@@ -184,7 +185,7 @@ export default function ResumesPage() {
         name: r.name || '未知',
         category: isTech ? '技术类' : '非技术类',
         tags: skills,
-        years: null,
+        work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
       }
@@ -270,7 +271,7 @@ export default function ResumesPage() {
       if (r.category !== category) return false
       if (requiredLevel > 0 && degreeLevel(r.degree) < requiredLevel) return false
       if (tiers.length && !tiers.every(t => r.tiers.includes(t))) return false
-      if (!matchYears(r.years)) return false
+      if (!matchYears(r.work_years)) return false
       
       // 标签筛选：需要包含所有选中的标签
       if (selectedTags.length) {
@@ -410,7 +411,7 @@ export default function ResumesPage() {
             </div>
             <div className="cell-meta hide-on-narrow">
               {item.degree && <span className="pill muted">{item.degree}</span>}
-              {item.years !== null && <span className="pill muted">{item.years}年</span>}
+              {item.work_years !== null && <span className="pill muted">{item.work_years}年</span>}
               {item.tiers.map((t, i) => (
                 <span key={i} className="pill muted">{t}</span>
               ))}
