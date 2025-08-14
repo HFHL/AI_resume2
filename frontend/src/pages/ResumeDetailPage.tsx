@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { api } from '../api'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
@@ -33,6 +33,8 @@ export default function ResumeDetailPage() {
   const [error, setError] = useState<string | null>(null)
   const [matchedPositions, setMatchedPositions] = useState<Array<{ id:number; position_name:string; position_category:string|null; tags:string[]; matched_keywords:string[]; hit_count:number; score:number }>>([])
   const [loadingMatches, setLoadingMatches] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
     if (!id) return
@@ -174,6 +176,55 @@ export default function ResumeDetailPage() {
           </div>
           <div className="pdf-pane">
             <div className="detail-title">源文件预览</div>
+            <div className="bar" style={{ gap: 8, marginBottom: 8 }}>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt"
+                style={{ display: 'none' }}
+                onChange={async (e) => {
+                  const file = e.target.files?.[0]
+                  if (!file || !id) return
+                  try {
+                    setUploading(true)
+                    const fd = new FormData()
+                    fd.append('file', file)
+                    fd.append('file_name', file.name)
+                    const upRes = await fetch(api('/uploads/supabase'), { method: 'POST', body: fd })
+                    if (!upRes.ok) {
+                      const detail = await upRes.text().catch(() => '')
+                      throw new Error(detail || '上传失败')
+                    }
+                    const upJson = await upRes.json()
+                    const path = upJson.file_path as string
+                    if (!path) throw new Error('上传失败：无路径')
+                    const bindRes = await fetch(api(`/resumes/${id}/attach_file`), {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ path, file_name: file.name, uploaded_by: 'web' })
+                    })
+                    if (!bindRes.ok) {
+                      const detail = await bindRes.text().catch(() => '')
+                      throw new Error(detail || '绑定失败')
+                    }
+                    // 重新加载详情
+                    const r = await fetch(api(`/resumes/${id}`))
+                    if (r.ok) {
+                      const d = await r.json()
+                      setItem(d.item)
+                    }
+                  } catch (err: any) {
+                    alert(err?.message || '上传失败')
+                  } finally {
+                    setUploading(false)
+                    if (fileInputRef.current) fileInputRef.current.value = ''
+                  }
+                }}
+              />
+              <button className="ghost" disabled={uploading} onClick={() => fileInputRef.current?.click()}>
+                {uploading ? '上传中...' : '上传简历文件'}
+              </button>
+            </div>
             {item.file_url ? (
               <>
                 <iframe className="pdf-frame" src={item.file_url} />
