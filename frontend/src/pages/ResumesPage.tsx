@@ -495,9 +495,12 @@ export default function ResumesPage() {
               <div className="cell-meta hide-on-narrow">
                 {item.degree && <span className="pill muted">{item.degree}</span>}
                 {item.work_years !== null && <span className="pill muted">{item.work_years}年</span>}
-                {item.tiers.map((t, i) => (
-                  <span key={i} className="pill muted">{t}</span>
-                ))}
+                {item.tiers.map((t, i) => {
+                  const isHighlight = ['985', '211', '海外留学'].includes(t)
+                  return (
+                    <span key={i} className={`pill ${isHighlight ? 'primary' : 'muted'}`}>{t}</span>
+                  )
+                })}
                 {item.created_at && (
                   <span className="pill muted">录入 {String(item.created_at).replace('T',' ').slice(0, 10)}</span>
                 )}
