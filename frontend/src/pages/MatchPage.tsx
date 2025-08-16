@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { api } from '../api'
-import { useNavigate } from 'react-router-dom'
 
 type PositionListItem = {
   id: number
@@ -23,7 +22,6 @@ type MatchResultItem = {
 }
 
 export default function MatchPage() {
-  const navigate = useNavigate()
   const [positions, setPositions] = useState<PositionListItem[]>([])
   const [loadingPositions, setLoadingPositions] = useState(true)
   const [activeId, setActiveId] = useState<number | null>(null)
@@ -158,7 +156,8 @@ export default function MatchPage() {
                       const scrollY = window.scrollY || document.documentElement.scrollTop || 0
                       const state = { activeId, page, scrollY }
                       try { sessionStorage.setItem('matchReturnState', JSON.stringify(state)) } catch {}
-                      navigate(`/match/${activeId}/resumes/${item.id}`)
+                      const url = `/match/${activeId}/resumes/${item.id}`
+                      window.open(url, '_blank')
                     }}
                   >
                     <div className="cell-name">

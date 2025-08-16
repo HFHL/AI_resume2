@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Chip from '../components/Chip'
 import { api } from '../api'
 import Pagination from '../components/Pagination'
@@ -22,7 +21,6 @@ type Tag = {
 }
 
 export default function ResumesPage() {
-  const navigate = useNavigate()
   const [items, setItems] = useState<ResumeItem[]>([])
   const [loading, setLoading] = useState(true)
   const [searching, setSearching] = useState(false)
@@ -426,7 +424,7 @@ export default function ResumesPage() {
         {!loading && pageItems.map(item => {
           const displayTags = idToTags.get(item.id) || item.tags || []
           return (
-            <div key={item.id} className="table-row clickable" onClick={() => navigate(`/resumes/${item.id}`)}>
+            <div key={item.id} className="table-row clickable" onClick={() => window.open(`/resumes/${item.id}`, '_blank')}>
               <div className="cell-name">
                 <div className="name">{item.name}</div>
                 <div className="muted small">{item.category}</div>
