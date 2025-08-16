@@ -39,20 +39,45 @@ export default async function handler(req: Request): Promise<Response> {
         }
         return parts.join('\n').toLowerCase()
       }
-      const matched = (data || []).filter(r => makeBlob(r).includes(needle))
+      // 对搜索结果也进行工作经历合并处理
+      const processedSearchData = (data || []).map((r: any) => {
+        const work = Array.isArray(r.work_experience) ? r.work_experience : []
+        if (work.length > 0) return r
+        
+        const intern = Array.isArray(r.internship_experience) ? r.internship_experience : []
+        const proj = Array.isArray(r.project_experience) ? r.project_experience : []
+        const merged = [...intern, ...proj].filter(Boolean)
+        
+        return { ...r, work_experience: merged }
+      })
+      
+      const matched = processedSearchData.filter(r => makeBlob(r).includes(needle))
       const total = matched.length
       const sliced = matched.slice(offset, offset + limit)
       return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
     }
 
-    // 默认列表（包含 tag_names、skills、work_years）
+    // 默认列表（包含 tag_names、skills、work_years、work_experience）
     const { data, error } = await supabase
       .from('resumes')
-      .select('id, name, tag_names, skills, work_years, education_degree, education_tiers, created_at')
+      .select('id, name, tag_names, skills, work_years, education_degree, education_tiers, created_at, work_experience, internship_experience, project_experience')
       .order('id', { ascending: false })
       .range(offset, offset + limit - 1)
     if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
-    return new Response(JSON.stringify({ items: data || [] }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
+    
+    // 对于 work_experience 为空的记录，尝试合并 internship_experience 和 project_experience
+    const processedData = (data || []).map((r: any) => {
+      const work = Array.isArray(r.work_experience) ? r.work_experience : []
+      if (work.length > 0) return r
+      
+      const intern = Array.isArray(r.internship_experience) ? r.internship_experience : []
+      const proj = Array.isArray(r.project_experience) ? r.project_experience : []
+      const merged = [...intern, ...proj].filter(Boolean)
+      
+      return { ...r, work_experience: merged }
+    })
+    
+    return new Response(JSON.stringify({ items: processedData }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
   }
 
   return new Response('Method Not Allowed', { status: 405 })
