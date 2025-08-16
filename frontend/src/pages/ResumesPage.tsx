@@ -13,6 +13,7 @@ type ResumeItem = {
   degree: '' | '本科' | '硕士' | '博士'
   tiers: Array<'985' | '211' | '双一流' | '海外留学'>
   created_at?: string
+  work_experience?: string[]
 }
 
 type Tag = {
@@ -73,6 +74,7 @@ export default function ResumesPage() {
           education_tiers: string[] | null
           work_years: number | null
           created_at?: string | null
+          work_experience?: string[] | null
         }>
         
         const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
@@ -114,6 +116,7 @@ export default function ResumesPage() {
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
             created_at: (r as any).created_at || undefined,
+            work_experience: (r as any).work_experience || [],
           }
         })
         
@@ -171,7 +174,7 @@ export default function ResumesPage() {
   }
 
   function mapRows(
-    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null }>,
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>,
     tagMap?: Map<number, string[]>,
     techTagsArr?: Tag[],
     nonTechTagsArr?: Tag[],
@@ -214,6 +217,7 @@ export default function ResumesPage() {
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
         created_at: r.created_at || undefined,
+        work_experience: (r.work_experience || []) as string[],
       }
     })
   }
@@ -419,7 +423,7 @@ export default function ResumesPage() {
       <div className="data-table">
         <div className="table-head">
           <div>姓名</div>
-          <div>标签</div>
+          <div>工作经历</div>
           <div className="hide-on-narrow">信息</div>
         </div>
         {loading && (
@@ -434,12 +438,28 @@ export default function ResumesPage() {
                 <div className="muted small">{item.category}</div>
               </div>
               <div className="cell-tags">
-                <div className="card-tags">
+                {/* 保留标签的简洁展示 */}
+                <div className="card-tags" style={{ marginBottom: 6 }}>
                   {displayTags.length ? (
-                    displayTags.map((t, i) => (
+                    displayTags.slice(0, 6).map((t, i) => (
                       <span key={i} className="pill">{t}</span>
                     ))
                   ) : <span className="muted">无标签</span>}
+                  {displayTags.length > 6 && <span className="pill muted">+{displayTags.length - 6}</span>}
+                </div>
+                {/* 新增工作经历长文本友好展示（不使用圆角边框） */}
+                <div className="list-text">
+                  {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
+                    <ul>
+                      {item.work_experience.map((t, i) => {
+                        const s = (t || '').trim()
+                        const short = s.length > 20 ? s.slice(0, 20) + '…' : s
+                        return <li key={i}>{short || '-'}</li>
+                      })}
+                    </ul>
+                  ) : (
+                    <span className="muted">无工作经历</span>
+                  )}
                 </div>
               </div>
               <div className="cell-meta hide-on-narrow">
