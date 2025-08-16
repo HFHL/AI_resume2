@@ -321,7 +321,7 @@ export default function ResumesPage() {
       <div className="toolbar">
         <div className="bar">
           <input
-            placeholder="搜索姓名、邮箱、电话或任意字符，如 Java/Python..."
+            placeholder="支持多关键词搜索，如：Java Python 3年 本科"
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') doSearch() }}

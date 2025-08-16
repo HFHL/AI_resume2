@@ -30,7 +30,8 @@ export default async function handler(req: Request): Promise<Response> {
         .order('id', { ascending: false })
         .limit(5000)
       if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
-      const needle = q.toLowerCase()
+      // 多关键词AND逻辑搜索：分词后每个关键词都必须匹配
+      const keywords = q.trim().split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
       const makeBlob = (row: any) => {
         const parts: string[] = [row.name || '', row.contact_info || '', row.self_evaluation || '', row.education_degree || '']
         for (const key of ['skills','work_experience','internship_experience','project_experience','tag_names']) {
@@ -51,7 +52,11 @@ export default async function handler(req: Request): Promise<Response> {
         return { ...r, work_experience: merged }
       })
       
-      const matched = processedSearchData.filter(r => makeBlob(r).includes(needle))
+      // AND逻辑：所有关键词都必须在简历内容中出现
+      const matched = processedSearchData.filter(r => {
+        const blob = makeBlob(r)
+        return keywords.every(keyword => blob.includes(keyword))
+      })
       const total = matched.length
       const sliced = matched.slice(offset, offset + limit)
       return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
