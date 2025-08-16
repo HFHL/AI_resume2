@@ -498,7 +498,7 @@ export default function ResumesPage() {
                 {item.tiers.map((t, i) => {
                   const isHighlight = ['985', '211', '海外留学'].includes(t)
                   return (
-                    <span key={i} className={`pill ${isHighlight ? 'primary' : 'muted'}`}>{t}</span>
+                    <span key={i} className={`pill ${isHighlight ? 'highlight' : 'muted'}`}>{t}</span>
                   )
                 })}
                 {item.created_at && (
