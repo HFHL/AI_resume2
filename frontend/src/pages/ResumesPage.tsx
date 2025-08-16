@@ -483,7 +483,7 @@ export default function ResumesPage() {
                     <ul>
                       {item.work_experience.map((t, i) => {
                         const s = (t || '').trim()
-                        const short = s.length > 20 ? s.slice(0, 20) + '…' : s
+                        const short = s.length > 50 ? s.slice(0, 50) + '…' : s
                         return <li key={i}>{short || '-'}</li>
                       })}
                     </ul>
