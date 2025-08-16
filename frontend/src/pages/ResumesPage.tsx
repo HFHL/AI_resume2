@@ -177,8 +177,8 @@ export default function ResumesPage() {
     setSearching(true)
     setLoading(true)
     try {
-      const searchUrl = api(`/resumes/_search?q=${encodeURIComponent(q)}`)
-      console.log('[ResumesPage] Fetch search URL:', searchUrl)
+      const searchUrl = api(`/resumes?q=${encodeURIComponent(q)}`)
+      console.log('[ResumesPage] Fetch search URL (index.ts on edge):', searchUrl)
       const r = await fetch(searchUrl)
       if (!r.ok) {
         const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
@@ -189,7 +189,7 @@ export default function ResumesPage() {
       const d = await r.json()
       try {
         const sample = Array.isArray(d?.items) ? d.items.slice(0, 3) : d
-        console.log('[ResumesPage] /resumes/_search raw first3:', sample)
+        console.log('[ResumesPage] /resumes raw first3 (search):', sample)
       } catch {}
       const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
       const mapped = mapRows(rows, idToTags, techTags, nonTechTags)
