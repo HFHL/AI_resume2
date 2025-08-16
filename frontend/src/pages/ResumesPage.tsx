@@ -47,9 +47,15 @@ export default function ResumesPage() {
 
   // 加载每份简历的 tag_names
   useEffect(() => {
-    fetch(api('/resumes/tags'))
+    const url = api('/resumes/tags')
+    console.log('[ResumesPage] Fetch resume tags URL:', url)
+    fetch(url)
       .then(r => r.json())
       .then(d => {
+        try {
+          const sample = Array.isArray(d?.items) ? d.items.slice(0, 3) : d
+          console.log('[ResumesPage] /resumes/tags raw first3:', sample)
+        } catch {}
         const map = new Map<number, string[]>()
         for (const x of (d.items || [])) {
           if (x && typeof x.id === 'number' && Array.isArray(x.tag_names)) {
@@ -57,15 +63,22 @@ export default function ResumesPage() {
           }
         }
         setIdToTags(map)
+        console.log('[ResumesPage] resume tags map size:', map.size)
       })
       .catch(() => setIdToTags(new Map()))
   }, [])
   
   useEffect(() => {
     setLoading(true)
-    fetch(api('/resumes'))
+    const url = api('/resumes')
+    console.log('[ResumesPage] Fetch list URL:', url)
+    fetch(url)
       .then(r => r.json())
       .then((d) => {
+        try {
+          const sample = Array.isArray(d?.items) ? d.items.slice(0, 3) : d
+          console.log('[ResumesPage] /resumes raw first3:', sample)
+        } catch {}
         const rows = (d.items || []) as Array<{
           id: number
           name: string | null
@@ -120,6 +133,7 @@ export default function ResumesPage() {
           }
         })
         
+        console.log('[ResumesPage] mapped first3:', mapped.slice(0, 3))
         setItems(mapped)
       })
       .catch(() => setItems([]))
@@ -134,7 +148,9 @@ export default function ResumesPage() {
       setSearching(false)
       setLoading(true)
       try {
-        const r = await fetch(api('/resumes'))
+        const url = api('/resumes')
+        console.log('[ResumesPage] Fetch list URL (reset):', url)
+        const r = await fetch(url)
         if (!r.ok) {
           const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
           console.error('Failed to fetch resumes:', errorData)
@@ -142,8 +158,14 @@ export default function ResumesPage() {
           return
         }
         const d = await r.json()
-        const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
-        setItems(mapRows(rows, idToTags, techTags, nonTechTags))
+        try {
+          const sample = Array.isArray(d?.items) ? d.items.slice(0, 3) : d
+          console.log('[ResumesPage] /resumes raw first3 (reset):', sample)
+        } catch {}
+        const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
+        const mapped = mapRows(rows, idToTags, techTags, nonTechTags)
+        console.log('[ResumesPage] mapped first3 (reset):', mapped.slice(0, 3))
+        setItems(mapped)
       } catch (error) {
         console.error('Error fetching resumes:', error)
         alert('获取简历列表失败，请检查网络连接')
@@ -155,7 +177,9 @@ export default function ResumesPage() {
     setSearching(true)
     setLoading(true)
     try {
-      const r = await fetch(api(`/resumes/_search?q=${encodeURIComponent(q)}`))
+      const searchUrl = api(`/resumes/_search?q=${encodeURIComponent(q)}`)
+      console.log('[ResumesPage] Fetch search URL:', searchUrl)
+      const r = await fetch(searchUrl)
       if (!r.ok) {
         const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
         console.error('Search failed:', errorData)
@@ -163,8 +187,14 @@ export default function ResumesPage() {
         return
       }
       const d = await r.json()
-      const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>
-      setItems(mapRows(rows, idToTags, techTags, nonTechTags))
+      try {
+        const sample = Array.isArray(d?.items) ? d.items.slice(0, 3) : d
+        console.log('[ResumesPage] /resumes/_search raw first3:', sample)
+      } catch {}
+      const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
+      const mapped = mapRows(rows, idToTags, techTags, nonTechTags)
+      console.log('[ResumesPage] mapped first3 (search):', mapped.slice(0, 3))
+      setItems(mapped)
     } catch (error) {
       console.error('Search error:', error)
       alert('搜索失败，请检查网络连接')
