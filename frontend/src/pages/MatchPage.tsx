@@ -156,7 +156,7 @@ export default function MatchPage() {
                       const scrollY = window.scrollY || document.documentElement.scrollTop || 0
                       const state = { activeId, page, scrollY }
                       try { sessionStorage.setItem('matchReturnState', JSON.stringify(state)) } catch {}
-                      const url = `/match/${activeId}/resumes/${item.id}`
+                      const url = `/resumes/${item.id}`
                       window.open(url, '_blank')
                     }}
                   >
