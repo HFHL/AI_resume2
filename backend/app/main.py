@@ -330,7 +330,7 @@ def list_resumes(limit: int = Query(200, ge=1, le=1000), offset: int = Query(0, 
     try:
         res = (
             client.table("resumes")
-            .select("id, name, skills, education_degree, education_tiers, created_at")
+            .select("id, name, skills, work_experience, education_degree, education_tiers, created_at")
             .order("id", desc=True)
             .range(offset, offset + limit - 1)
             .execute()

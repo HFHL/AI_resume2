@@ -155,7 +155,7 @@ export default function ResumesPage() {
     setSearching(true)
     setLoading(true)
     try {
-      const r = await fetch(api(`/resumes?q=${encodeURIComponent(q)}`))
+      const r = await fetch(api(`/resumes/_search?q=${encodeURIComponent(q)}`))
       if (!r.ok) {
         const errorData = await r.json().catch(() => ({ detail: 'Unknown error' }))
         console.error('Search failed:', errorData)
