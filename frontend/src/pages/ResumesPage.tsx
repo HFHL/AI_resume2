@@ -6,7 +6,6 @@ import Pagination from '../components/Pagination'
 type ResumeItem = {
   id: number
   name: string
-  category: '技术类' | '非技术类'
   tags: string[] // 等同于 tag_names，用于渲染与筛选
   tag_names: string[]
   work_years: number | null
@@ -27,21 +26,15 @@ export default function ResumesPage() {
   const [loading, setLoading] = useState(true)
   const [searching, setSearching] = useState(false)
   const [query, setQuery] = useState('')
-  const [techTags, setTechTags] = useState<Tag[]>([])
-  const [nonTechTags, setNonTechTags] = useState<Tag[]>([])
+  const [allTags, setAllTags] = useState<Tag[]>([])
   const [idToTags, setIdToTags] = useState<Map<number, string[]>>(new Map())
   
-  // 获取标签数据
+  // 获取所有标签数据
   useEffect(() => {
-    Promise.all([
-      fetch(api('/tags?category=技术类')).then(r => r.json()),
-      fetch(api('/tags?category=非技术类')).then(r => r.json())
-    ]).then(([techData, nonTechData]) => {
-      setTechTags(techData.items || [])
-      setNonTechTags(nonTechData.items || [])
+    fetch(api('/tags')).then(r => r.json()).then(data => {
+      setAllTags(data.items || [])
     }).catch(() => {
-      setTechTags([])
-      setNonTechTags([])
+      setAllTags([])
     })
   }, [])
 
@@ -107,22 +100,14 @@ export default function ResumesPage() {
           return Array.from(new Set(mapped)) as ResumeItem['tiers']
         }
 
-        const techSet = new Set(techTags.map(t => t.tag_name.toLowerCase()))
-        const nonTechSet = new Set(nonTechTags.map(t => t.tag_name.toLowerCase()))
-        
         const mapped: ResumeItem[] = rows.map(r => {
           const externalTags = idToTags.get(r.id) || []
           const fallbackTags = (r.tag_names || [])
           const tagNames = (externalTags.length ? externalTags : fallbackTags).map(s => s.trim()).filter(Boolean)
-          const tagsLower = tagNames.map(t => t.toLowerCase())
-          const hitsTech = tagsLower.some(t => techSet.has(t))
-          const hitsNonTech = tagsLower.some(t => nonTechSet.has(t))
-          const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : '技术类'
           
           return {
             id: r.id,
             name: r.name || '未知',
-            category: derivedCategory,
             tags: tagNames,
             tag_names: tagNames,
             work_years: r.work_years,
@@ -138,7 +123,7 @@ export default function ResumesPage() {
       })
       .catch(() => setItems([]))
       .finally(() => setLoading(false))
-  }, [idToTags, techTags, nonTechTags])
+  }, [idToTags, allTags])
 
   async function doSearch(next?: string) {
     const q = (next ?? query).trim()
@@ -163,7 +148,7 @@ export default function ResumesPage() {
           console.log('[ResumesPage] /resumes raw first3 (reset):', sample)
         } catch {}
         const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
-        const mapped = mapRows(rows, idToTags, techTags, nonTechTags)
+        const mapped = mapRows(rows, idToTags, allTags)
         console.log('[ResumesPage] mapped first3 (reset):', mapped.slice(0, 3))
         setItems(mapped)
       } catch (error) {
@@ -192,7 +177,7 @@ export default function ResumesPage() {
         console.log('[ResumesPage] /resumes raw first3 (search):', sample)
       } catch {}
       const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
-      const mapped = mapRows(rows, idToTags, techTags, nonTechTags)
+      const mapped = mapRows(rows, idToTags, allTags)
       console.log('[ResumesPage] mapped first3 (search):', mapped.slice(0, 3))
       setItems(mapped)
     } catch (error) {
@@ -206,8 +191,7 @@ export default function ResumesPage() {
   function mapRows(
     rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>,
     tagMap?: Map<number, string[]>,
-    techTagsArr?: Tag[],
-    nonTechTagsArr?: Tag[],
+    allTagsArr?: Tag[],
   ): ResumeItem[] {
     const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
       const s = (x || '').trim()
@@ -225,22 +209,14 @@ export default function ResumesPage() {
       return Array.from(new Set(mapped)) as ResumeItem['tiers']
     }
 
-    const techSet = new Set((techTagsArr || []).map(t => t.tag_name.toLowerCase()))
-    const nonTechSet = new Set((nonTechTagsArr || []).map(t => t.tag_name.toLowerCase()))
-
     return rows.map(r => {
       const externalTags = tagMap?.get(r.id) || []
       const fallbackTags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
       const tagNames = externalTags.length ? externalTags : fallbackTags
-      const tagsLower = tagNames.map(t => t.toLowerCase())
-      const hitsTech = tagsLower.some(t => techSet.has(t))
-      const hitsNonTech = tagsLower.some(t => nonTechSet.has(t))
-      const derivedCategory: ResumeItem['category'] = hitsTech ? '技术类' : hitsNonTech ? '非技术类' : '技术类'
 
       return {
         id: r.id,
         name: r.name || '未知',
-        category: derivedCategory,
         tags: tagNames,
         tag_names: tagNames,
         work_years: r.work_years,
@@ -253,7 +229,6 @@ export default function ResumesPage() {
   }
 
   // 应用到列表的筛选（按"应用筛选"按钮后生效）
-  const [category, setCategory] = useState<'技术类' | '非技术类'>('技术类')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [yearsBand, setYearsBand] = useState<'不限' | '1年以内' | '1-3年' | '3-5年' | '5-10年' | '10年以上'>('不限')
   const [degree, setDegree] = useState<'' | '本科' | '硕士' | '博士'>('')
@@ -261,24 +236,18 @@ export default function ResumesPage() {
   const [page, setPage] = useState(1)
 
   // UI 中待编辑的筛选（实时变更，不立即生效）
-  const [uiCategory, setUiCategory] = useState<typeof category>(category)
   const [uiSelectedTags, setUiSelectedTags] = useState<string[]>(selectedTags)
   const [uiYearsBand, setUiYearsBand] = useState<typeof yearsBand>(yearsBand)
   const [uiDegree, setUiDegree] = useState<typeof degree>(degree)
   const [uiTiers, setUiTiers] = useState<typeof tiers>(tiers)
   const pageSize = 12
 
-  // 根据当前选择的类别，获取可用的标签
+  // 获取所有可用的标签
   const availableTagsForCategory = useMemo(() => {
-    if (uiCategory === '技术类') {
-      return techTags.map(t => t.tag_name)
-    } else {
-      return nonTechTags.map(t => t.tag_name)
-    }
-  }, [uiCategory, techTags, nonTechTags])
+    return allTags.map(t => t.tag_name)
+  }, [allTags])
 
   function resetAll() {
-    setUiCategory('技术类')
     setUiSelectedTags([])
     setUiYearsBand('不限')
     setUiDegree('')
@@ -286,7 +255,6 @@ export default function ResumesPage() {
   }
 
   function applyFilters() {
-    setCategory(uiCategory)
     setSelectedTags(uiSelectedTags)
     setYearsBand(uiYearsBand)
     setDegree(uiDegree)
@@ -306,12 +274,6 @@ export default function ResumesPage() {
     setUiTiers(prev => prev.includes(t) ? prev.filter(x => x !== t) : [...prev, t])
   }
 
-  // 切换类别时，清空已选标签
-  function switchCategory(next: '技术类' | '非技术类') {
-    setUiCategory(next)
-    setUiSelectedTags([])
-  }
-
   function matchYears(y: number | null) {
     switch (yearsBand) {
       case '不限': return true
@@ -328,7 +290,6 @@ export default function ResumesPage() {
     const requiredLevel = degree ? degreeLevel(degree) : 0
     
     return items.filter(r => {
-      if (r.category !== category) return false
       if (requiredLevel > 0 && degreeLevel(r.degree) < requiredLevel) return false
       if (tiers.length && !tiers.every(t => r.tiers.includes(t))) return false
       if (!matchYears(r.work_years)) return false
@@ -347,7 +308,7 @@ export default function ResumesPage() {
       
       return true
     })
-  }, [items, idToTags, category, degree, tiers, yearsBand, selectedTags])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -370,13 +331,6 @@ export default function ResumesPage() {
           {searching && <button className="ghost" onClick={() => { setQuery(''); doSearch('') }}>清空搜索</button>}
         </div>
         <div className="filters-grid">
-          <label>
-            <span>职位类别</span>
-            <div className="seg">
-              <button type="button" className={`seg-item ${uiCategory === '技术类' ? 'active' : ''}`} onClick={() => switchCategory('技术类')}>技术类</button>
-              <button type="button" className={`seg-item ${uiCategory === '非技术类' ? 'active' : ''}`} onClick={() => switchCategory('非技术类')}>非技术类</button>
-            </div>
-          </label>
 
           <label>
             <span>工作年限</span>
@@ -421,7 +375,7 @@ export default function ResumesPage() {
         </div>
 
         <label>
-          <span>{uiCategory === '技术类' ? '技术标签' : '标签'}（点击可多选，点击"应用筛选"生效）</span>
+          <span>标签（点击可多选，点击"应用筛选"生效）</span>
           <div className="chips">
             {uiSelectedTags.map(t => (
               <Chip key={t} text={t} onClose={() => removeTag(t)} />
@@ -465,7 +419,6 @@ export default function ResumesPage() {
             <div key={item.id} className="table-row clickable" onClick={() => window.open(`/resumes/${item.id}`, '_blank')}>
               <div className="cell-name">
                 <div className="name">{item.name}</div>
-                <div className="muted small">{item.category}</div>
               </div>
               <div className="cell-tags">
                 {/* 保留标签的简洁展示 */}
