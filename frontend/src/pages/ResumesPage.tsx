@@ -12,6 +12,7 @@ type ResumeItem = {
   work_years: number | null
   degree: '' | '本科' | '硕士' | '博士'
   tiers: Array<'985' | '211' | '双一流' | '海外留学'>
+  created_at?: string
 }
 
 type Tag = {
@@ -71,6 +72,7 @@ export default function ResumesPage() {
           education_degree: string | null
           education_tiers: string[] | null
           work_years: number | null
+          created_at?: string | null
         }>
         
         const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
@@ -111,6 +113,7 @@ export default function ResumesPage() {
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
+            created_at: (r as any).created_at || undefined,
           }
         })
         
@@ -168,7 +171,7 @@ export default function ResumesPage() {
   }
 
   function mapRows(
-    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null }>,
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null }>,
     tagMap?: Map<number, string[]>,
     techTagsArr?: Tag[],
     nonTechTagsArr?: Tag[],
@@ -210,6 +213,7 @@ export default function ResumesPage() {
         work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
+        created_at: r.created_at || undefined,
       }
     })
   }
@@ -444,6 +448,9 @@ export default function ResumesPage() {
                 {item.tiers.map((t, i) => (
                   <span key={i} className="pill muted">{t}</span>
                 ))}
+                {item.created_at && (
+                  <span className="pill muted">录入 {String(item.created_at).replace('T',' ').slice(0, 10)}</span>
+                )}
               </div>
             </div>
           )

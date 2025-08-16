@@ -30,6 +30,7 @@ type ResumeDetail = {
   other: string | null
   resume_file_id?: number | null
   file_url?: string | null
+  created_at?: string | null
 }
 
 export default function MatchDetailPage() {
@@ -98,6 +99,7 @@ export default function MatchDetailPage() {
                   <div className="detail-row"><span>院校层次</span><span>{(resume.education_tiers || []).join('、') || (resume.education_tier || '-')}</span></div>
                   <div className="detail-row"><span>学校</span><span>{(resume.education_school || []).join('、') || '-'}</span></div>
                   <div className="detail-row"><span>专业</span><span>{resume.education_major || '-'}</span></div>
+                  <div className="detail-row"><span>录入时间</span><span>{resume.created_at ? String(resume.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
                   <div className="detail-row"><span>技能</span><span>{(resume.skills || []).join('、') || '-'}</span></div>
                   <div className="detail-row"><span>工作经历</span><span>{(resume.work_experience || []).join('；') || '-'}</span></div>
                   <div className="detail-row"><span>实习经历</span><span>{(resume.internship_experience || []).join('；') || '-'}</span></div>

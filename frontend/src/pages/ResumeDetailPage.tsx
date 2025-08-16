@@ -91,6 +91,7 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
                 <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
                 <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
+                <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
               </div>
 
               <div className="detail-card">
