@@ -15,6 +15,9 @@ type ResumeRow = {
   self_evaluation: string | null
   education_degree: string | null
   education_tiers: string[] | null
+  tag_names: string[] | null
+  work_years: number | null
+  created_at: string | null
 }
 
 function parseURL(req: Request) {
@@ -44,7 +47,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   // 拉取简历
   const { data: resumes, error: rErr } = await supabase
     .from('resumes')
-    .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers')
+    .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, tag_names, work_years, created_at')
   if (rErr) return new Response(JSON.stringify({ detail: rErr.message }), { status: 400 })
 
   const required: string[] = position.required_keywords || []
@@ -60,7 +63,18 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
     const matched = required.filter(k => (k || '').toLowerCase() && blob.includes((k || '').toLowerCase()))
     const hit = matched.length
     const ok = matchType === 'all' ? hit === required.length : hit > 0
-    return ok ? {
+    if (!ok) return null
+
+    // 合并工作经历（与 /api/resumes 的逻辑保持一致：若 work_experience 为空，则合并实习与项目经验）
+    const work = Array.isArray(resume.work_experience) ? resume.work_experience : []
+    const workMerged = work.length > 0
+      ? work
+      : [
+          ...(Array.isArray(resume.internship_experience) ? resume.internship_experience : []),
+          ...(Array.isArray(resume.project_experience) ? resume.project_experience : []),
+        ].filter(Boolean)
+
+    return {
       id: resume.id,
       name: resume.name || '未知',
       education_degree: resume.education_degree || null,
@@ -69,7 +83,11 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
       matched_keywords: matched,
       hit_count: hit,
       score: hit * 10,
-    } : null
+      tag_names: resume.tag_names || [],
+      work_years: resume.work_years ?? null,
+      created_at: resume.created_at ?? null,
+      work_experience: workMerged,
+    }
   }).filter(Boolean) as any[]
 
   results.sort((a, b) => (b.score - a.score) || (b.hit_count - a.hit_count) || (b.id - a.id))

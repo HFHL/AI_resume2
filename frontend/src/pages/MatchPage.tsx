@@ -19,6 +19,10 @@ type MatchResultItem = {
   matched_keywords: string[]
   hit_count: number
   score?: number
+  tag_names?: string[]
+  work_years?: number | null
+  created_at?: string | null
+  work_experience?: string[]
 }
 
 export default function MatchPage() {
@@ -142,7 +146,7 @@ export default function MatchPage() {
               <div className="data-table">
                 <div className="table-head">
                   <div>姓名</div>
-                  <div>命中关键词</div>
+                  <div>工作经历</div>
                   <div className="hide-on-narrow">信息</div>
                   <div className="hide-on-narrow">分数</div>
                 </div>
@@ -162,16 +166,39 @@ export default function MatchPage() {
                   >
                     <div className="cell-name">
                       <div className="name">{item.name}</div>
-                      <div className="muted small">命中 {item.hit_count} 个</div>
                     </div>
                     <div className="cell-tags">
-                      <div className="card-tags">
-                        {item.matched_keywords.map((t, i) => <span key={i} className="pill">{t}</span>)}
+                      {/* 标签展示，与 ResumesPage 保持一致的风格 */}
+                      <div className="card-tags" style={{ marginBottom: 6 }}>
+                        {(item.tag_names || []).length ? (
+                          (item.tag_names || []).slice(0, 6).map((t, i) => (
+                            <span key={i} className="pill">{t}</span>
+                          ))
+                        ) : <span className="muted">无标签</span>}
+                        {(item.tag_names || []).length > 6 && <span className="pill muted">+{(item.tag_names || []).length - 6}</span>}
+                      </div>
+                      {/* 工作经历长文本（合并后的） */}
+                      <div className="list-text">
+                        {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
+                          <ul>
+                            {item.work_experience.map((t, i) => {
+                              const s = (t || '').trim()
+                              const short = s.length > 50 ? s.slice(0, 50) + '…' : s
+                              return <li key={i}>{short || '-'}</li>
+                            })}
+                          </ul>
+                        ) : (
+                          <span className="muted">无工作经历</span>
+                        )}
                       </div>
                     </div>
                     <div className="cell-meta hide-on-narrow">
                       {item.education_degree && <span className="pill muted">{item.education_degree}</span>}
                       {(item.education_tiers || []).map((t, i) => <span key={i} className="pill muted">{t}</span>)}
+                      {item.work_years !== undefined && item.work_years !== null && <span className="pill muted">{item.work_years}年</span>}
+                      {item.created_at && (
+                        <span className="pill muted">录入 {String(item.created_at).replace('T',' ').slice(0, 10)}</span>
+                      )}
                     </div>
                     <div className="hide-on-narrow" style={{display:'flex',alignItems:'center'}}>
                       <strong>{Math.round((item.score ?? 0))}</strong>
