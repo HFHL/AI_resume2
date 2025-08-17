@@ -408,62 +408,96 @@ export default function ResumesPage() {
         </div>
       </div>
 
-      <div className="data-table">
-        <div className="table-head">
-          <div>姓名</div>
-          <div>工作经历</div>
-          <div className="hide-on-narrow">信息</div>
-        </div>
+      <div className="resume-cards">
         {loading && (
           <div className="empty">加载中...</div>
         )}
         {!loading && pageItems.map(item => {
           const displayTags = idToTags.get(item.id) || item.tags || []
           return (
-            <div key={item.id} className="table-row clickable" onClick={() => window.open(`/resumes/${item.id}`, '_blank')}>
-              <div className="cell-name">
-                <div className="name">{item.name}</div>
-              </div>
-              <div className="cell-tags">
-                {/* 保留标签的简洁展示 */}
-                <div className="card-tags" style={{ marginBottom: 6 }}>
-                  {displayTags.length ? (
-                    displayTags.slice(0, 6).map((t, i) => (
-                      <span key={i} className="pill">{t}</span>
-                    ))
-                  ) : <span className="muted">无标签</span>}
-                  {displayTags.length > 6 && <span className="pill muted">+{displayTags.length - 6}</span>}
+            <div key={item.id} className="resume-card" onClick={() => window.open(`/resumes/${item.id}`, '_blank')}>
+              <div className="card-left">
+                <div className="name-section">
+                  <div className="name">{item.name}</div>
+                  <div className="education-info">
+                    {Array.isArray(item.schools) && item.schools.length > 0 && (
+                      <div className="schools">
+                        {item.schools.map((s, i) => (
+                          <span key={i} className="school-item">{s}</span>
+                        ))}
+                      </div>
+                    )}
+                    {item.degree && (
+                      <div className="degree">{item.degree}</div>
+                    )}
+                  </div>
                 </div>
-                {/* 新增工作经历长文本友好展示（不使用圆角边框） */}
-                <div className="list-text">
-                  {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
-                    <ul>
-                      {item.work_experience.map((t, i) => {
-                        const s = (t || '').trim()
-                        const short = s.length > 50 ? s.slice(0, 50) + '…' : s
-                        return <li key={i}>{short || '-'}</li>
-                      })}
-                    </ul>
-                  ) : (
-                    <span className="muted">无工作经历</span>
+                <div className="meta-info">
+                  {item.created_at && (
+                    <div className="created-time">
+                      录入时间：{String(item.created_at).replace('T',' ').slice(0, 10)}
+                    </div>
+                  )}
+                  {item.work_years !== null && (
+                    <div className="work-years">工作年限：{item.work_years}年</div>
                   )}
                 </div>
               </div>
-              <div className="cell-meta hide-on-narrow">
-                {item.degree && <span className="pill muted">{item.degree}</span>}
-                {item.work_years !== null && <span className="pill muted">{item.work_years}年</span>}
-                {item.tiers.map((t, i) => {
-                  const isHighlight = ['985', '211', '海外留学'].includes(t)
-                  return (
-                    <span key={i} className={`pill ${isHighlight ? 'highlight' : 'muted'}`}>{t}</span>
-                  )
-                })}
-                {Array.isArray(item.schools) && item.schools.map((s, i) => (
-                  <span key={i} className="pill">{s}</span>
-                ))}
-                {item.created_at && (
-                  <span className="pill muted">录入 {String(item.created_at).replace('T',' ').slice(0, 10)}</span>
-                )}
+              
+              <div className="card-center">
+                <div className="work-experience">
+                  <div className="section-title">工作经历</div>
+                  {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
+                    <div className="experience-list">
+                      {item.work_experience.slice(0, 3).map((exp, i) => {
+                        const s = (exp || '').trim()
+                        const short = s.length > 80 ? s.slice(0, 80) + '…' : s
+                        return (
+                          <div key={i} className="experience-item">{short || '-'}</div>
+                        )
+                      })}
+                      {item.work_experience.length > 3 && (
+                        <div className="more-indicator">还有 {item.work_experience.length - 3} 条经历...</div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="no-data">暂无工作经历</div>
+                  )}
+                </div>
+              </div>
+              
+              <div className="card-right">
+                <div className="tags-section">
+                  <div className="section-title">标签</div>
+                  <div className="tags-list">
+                    {displayTags.length ? (
+                      displayTags.slice(0, 8).map((t, i) => (
+                        <span key={i} className="tag-item">{t}</span>
+                      ))
+                    ) : (
+                      <span className="no-data">无标签</span>
+                    )}
+                    {displayTags.length > 8 && (
+                      <span className="more-tags">+{displayTags.length - 8}</span>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="tiers-section">
+                  <div className="section-title">院校层次</div>
+                  <div className="tiers-list">
+                    {item.tiers.length > 0 ? (
+                      item.tiers.map((t, i) => {
+                        const isHighlight = ['985', '211', '海外留学'].includes(t)
+                        return (
+                          <span key={i} className={`tier-item ${isHighlight ? 'highlight' : ''}`}>{t}</span>
+                        )
+                      })
+                    ) : (
+                      <span className="no-data">未知</span>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           )

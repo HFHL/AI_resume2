@@ -106,28 +106,92 @@ button{border:none}
 @media (max-width: 1024px){.filters-grid{grid-template-columns:repeat(2, 1fr)}}
 @media (max-width: 640px){.filters-grid{grid-template-columns:1fr}}
 
-.data-table{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#0f1522}
-.table-head,.table-row{display:grid;grid-template-columns:220px 1fr 360px;gap:0;border-bottom:1px solid var(--border)}
-.table-head{background:#0e1520;color:var(--muted);font-size:13px}
-.table-head > div,.table-row > div{padding:12px 14px}
-.table-row:hover{background:#0f172a}
-.cell-name .name{font-weight:600}
-.cell-meta{display:flex;flex-wrap:wrap;gap:6px}
-.small{font-size:12px}
+/* Resume Cards Layout */
+.resume-cards{display:grid;gap:16px;margin-top:16px}
+.resume-card{
+  display:grid;
+  grid-template-columns:280px 1fr 240px;
+  gap:20px;
+  border:1px solid var(--border);
+  background:#0f1522;
+  border-radius:12px;
+  padding:20px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.resume-card:hover{
+  transform:translateY(-2px);
+  border-color:#2b3443;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* Card Left - Name & Basic Info */
+.card-left{display:flex;flex-direction:column;gap:16px}
+.name-section .name{font-size:18px;font-weight:600;margin-bottom:8px;color:var(--text)}
+.education-info{display:flex;flex-direction:column;gap:6px}
+.schools{display:flex;flex-direction:column;gap:4px}
+.school-item{font-size:14px;color:#93c5fd;font-weight:500}
+.degree{font-size:14px;color:var(--brand);font-weight:500}
+.meta-info{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:13px}
+
+/* Card Center - Work Experience */
+.card-center{display:flex;flex-direction:column}
+.work-experience{height:100%}
+.section-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:12px;border-bottom:1px solid #1f2937;padding-bottom:6px}
+.experience-list{display:flex;flex-direction:column;gap:8px}
+.experience-item{
+  font-size:13px;
+  line-height:1.4;
+  color:#d1d5db;
+  padding:8px 0;
+  border-bottom:1px dotted #374151;
+}
+.experience-item:last-child{border-bottom:none}
+.more-indicator{font-size:12px;color:var(--muted);font-style:italic;margin-top:8px}
+.no-data{color:var(--muted);font-size:13px;font-style:italic}
+
+/* Card Right - Tags & Tiers */
+.card-right{display:flex;flex-direction:column;gap:16px}
+.tags-section,.tiers-section{display:flex;flex-direction:column}
+.tags-list,.tiers-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag-item,.tier-item{
+  background:#121a27;
+  border:1px solid var(--border);
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:6px;
+  color:var(--text);
+}
+.tier-item.highlight{
+  background:linear-gradient(135deg, #f59e0b, #d97706);
+  border-color:#f59e0b;
+  color:white;
+  font-weight:600;
+}
+.more-tags{font-size:12px;color:var(--muted)}
+
+/* Responsive */
+@media (max-width: 1200px){
+  .resume-card{grid-template-columns:260px 1fr 200px;gap:16px;padding:16px}
+}
+@media (max-width: 960px){
+  .resume-card{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .card-left,.card-center,.card-right{
+    border-bottom:1px solid #1f2937;
+    padding-bottom:16px;
+  }
+  .card-right{border-bottom:none;padding-bottom:0}
+}
+
 .empty{padding:24px;text-align:center;color:var(--muted)}
 
 .pagination{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
 .pages{display:flex;gap:6px}
 .page-btn{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 10px;cursor:pointer}
 .page-btn.active{background:var(--brand);border-color:transparent}
-
-@media (max-width: 960px){
-  .table-head,.table-row{grid-template-columns:200px 1fr}
-  .hide-on-narrow{display:none}
-}
-
-.table-row.clickable{cursor:pointer}
-.table-row.clickable:hover{background:#0f172a}
 
 /* Resume detail */
 .resume-detail{margin-top:12px}
