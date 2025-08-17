@@ -79,6 +79,7 @@ export default function ResumesPage() {
           tag_names?: string[] | null
           education_degree: string | null
           education_tiers: string[] | null
+          education_school?: string[] | null
           work_years: number | null
           created_at?: string | null
           work_experience?: string[] | null
@@ -114,6 +115,7 @@ export default function ResumesPage() {
             work_years: r.work_years,
             degree: normalizeDegree(r.education_degree),
             tiers: normalizeTiers(r.education_tiers),
+            schools: (r.education_school || undefined) as any,
             created_at: (r as any).created_at || undefined,
             work_experience: (r as any).work_experience || [],
           }
