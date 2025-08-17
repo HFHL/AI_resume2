@@ -13,7 +13,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   let query = supabase
     .from('resumes')
-    .select('id, name, skills, tag_names, work_years, education_degree, education_tiers, created_at, work_experience, internship_experience, project_experience')
+    .select('id, name, skills, tag_names, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience')
     .order('id', { ascending: false })
 
   // 如果有搜索词，进行模糊搜索
