@@ -15,6 +15,7 @@ type ResumeRow = {
   self_evaluation: string | null
   education_degree: string | null
   education_tiers: string[] | null
+  education_school: string[] | null
   tag_names: string[] | null
   work_years: number | null
   created_at: string | null
@@ -47,7 +48,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   // 拉取简历
   const { data: resumes, error: rErr } = await supabase
     .from('resumes')
-    .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, tag_names, work_years, created_at')
+    .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
   if (rErr) return new Response(JSON.stringify({ detail: rErr.message }), { status: 400 })
 
   const required: string[] = position.required_keywords || []
@@ -79,6 +80,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
       name: resume.name || '未知',
       education_degree: resume.education_degree || null,
       education_tiers: resume.education_tiers || [],
+      education_school: resume.education_school || [],
       skills: resume.skills || [],
       matched_keywords: matched,
       hit_count: hit,

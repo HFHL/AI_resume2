@@ -15,6 +15,7 @@ type MatchResultItem = {
   name: string
   education_degree: string | null
   education_tiers: string[]
+  education_school?: string[]
   skills: string[]
   matched_keywords: string[]
   hit_count: number
@@ -195,6 +196,9 @@ export default function MatchPage() {
                     <div className="cell-meta hide-on-narrow">
                       {item.education_degree && <span className="pill muted">{item.education_degree}</span>}
                       {(item.education_tiers || []).map((t, i) => <span key={i} className="pill muted">{t}</span>)}
+                      {Array.isArray(item.education_school) && item.education_school.map((s, i) => (
+                        <span key={i} className="pill">{s}</span>
+                      ))}
                       {item.work_years !== undefined && item.work_years !== null && <span className="pill muted">{item.work_years}年</span>}
                       {item.created_at && (
                         <span className="pill muted">录入 {String(item.created_at).replace('T',' ').slice(0, 10)}</span>
