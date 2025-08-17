@@ -144,18 +144,12 @@ export default function MatchPage() {
                 <div style={{ flex: 1 }} />
                 <button className="ghost" onClick={() => loadMatch(activeId)}>刷新</button>
               </div>
-              <div className="data-table">
-                <div className="table-head">
-                  <div>姓名</div>
-                  <div>工作经历</div>
-                  <div className="hide-on-narrow">信息</div>
-                  <div className="hide-on-narrow">分数</div>
-                </div>
+              <div className="match-resume-cards">
                 {matchLoading && <div className="empty">加载中...</div>}
                 {!matchLoading && pageItems.map(item => (
                   <div
                     key={item.id}
-                    className="table-row clickable"
+                    className="match-resume-card"
                     onClick={() => {
                       if (!activeId) return
                       const scrollY = window.scrollY || document.documentElement.scrollTop || 0
@@ -165,47 +159,93 @@ export default function MatchPage() {
                       window.open(url, '_blank')
                     }}
                   >
-                    <div className="cell-name">
-                      <div className="name">{item.name}</div>
-                    </div>
-                    <div className="cell-tags">
-                      {/* 标签展示，与 ResumesPage 保持一致的风格 */}
-                      <div className="card-tags" style={{ marginBottom: 6 }}>
-                        {(item.tag_names || []).length ? (
-                          (item.tag_names || []).slice(0, 6).map((t, i) => (
-                            <span key={i} className="pill">{t}</span>
-                          ))
-                        ) : <span className="muted">无标签</span>}
-                        {(item.tag_names || []).length > 6 && <span className="pill muted">+{(item.tag_names || []).length - 6}</span>}
+                    <div className="card-left">
+                      <div className="name-section">
+                        <div className="name">{item.name}</div>
+                        <div className="education-info">
+                          {Array.isArray(item.education_school) && item.education_school.length > 0 && (
+                            <div className="schools">
+                              {item.education_school.map((s, i) => (
+                                <span key={i} className="school-item">{s}</span>
+                              ))}
+                            </div>
+                          )}
+                          {item.education_degree && (
+                            <div className="degree">{item.education_degree}</div>
+                          )}
+                        </div>
                       </div>
-                      {/* 工作经历长文本（合并后的） */}
-                      <div className="list-text">
-                        {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
-                          <ul>
-                            {item.work_experience.map((t, i) => {
-                              const s = (t || '').trim()
-                              const short = s.length > 50 ? s.slice(0, 50) + '…' : s
-                              return <li key={i}>{short || '-'}</li>
-                            })}
-                          </ul>
-                        ) : (
-                          <span className="muted">无工作经历</span>
+                      <div className="meta-info">
+                        {item.created_at && (
+                          <div className="created-time">
+                            录入时间：{String(item.created_at).replace('T',' ').slice(0, 10)}
+                          </div>
+                        )}
+                        {item.work_years !== undefined && item.work_years !== null && (
+                          <div className="work-years">工作年限：{item.work_years}年</div>
                         )}
                       </div>
                     </div>
-                    <div className="cell-meta hide-on-narrow">
-                      {item.education_degree && <span className="pill muted">{item.education_degree}</span>}
-                      {(item.education_tiers || []).map((t, i) => <span key={i} className="pill muted">{t}</span>)}
-                      {Array.isArray(item.education_school) && item.education_school.map((s, i) => (
-                        <span key={i} className="pill">{s}</span>
-                      ))}
-                      {item.work_years !== undefined && item.work_years !== null && <span className="pill muted">{item.work_years}年</span>}
-                      {item.created_at && (
-                        <span className="pill muted">录入 {String(item.created_at).replace('T',' ').slice(0, 10)}</span>
-                      )}
+                    
+                    <div className="card-center">
+                      <div className="work-experience">
+                        <div className="section-title">工作经历</div>
+                        {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
+                          <div className="experience-list">
+                            {item.work_experience.slice(0, 3).map((exp, i) => {
+                              const s = (exp || '').trim()
+                              const short = s.length > 80 ? s.slice(0, 80) + '…' : s
+                              return (
+                                <div key={i} className="experience-item">{short || '-'}</div>
+                              )
+                            })}
+                            {item.work_experience.length > 3 && (
+                              <div className="more-indicator">还有 {item.work_experience.length - 3} 条经历...</div>
+                            )}
+                          </div>
+                        ) : (
+                          <div className="no-data">暂无工作经历</div>
+                        )}
+                      </div>
                     </div>
-                    <div className="hide-on-narrow" style={{display:'flex',alignItems:'center'}}>
-                      <strong>{Math.round((item.score ?? 0))}</strong>
+                    
+                    <div className="card-right">
+                      <div className="tags-section">
+                        <div className="section-title">标签</div>
+                        <div className="tags-list">
+                          {(item.tag_names || []).length ? (
+                            (item.tag_names || []).slice(0, 8).map((t, i) => (
+                              <span key={i} className="tag-item">{t}</span>
+                            ))
+                          ) : (
+                            <span className="no-data">无标签</span>
+                          )}
+                          {(item.tag_names || []).length > 8 && (
+                            <span className="more-tags">+{(item.tag_names || []).length - 8}</span>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className="tiers-section">
+                        <div className="section-title">院校层次</div>
+                        <div className="tiers-list">
+                          {(item.education_tiers || []).length > 0 ? (
+                            (item.education_tiers || []).map((t, i) => {
+                              const isHighlight = ['985', '211', '海外留学'].includes(t)
+                              return (
+                                <span key={i} className={`tier-item ${isHighlight ? 'highlight' : ''}`}>{t}</span>
+                              )
+                            })
+                          ) : (
+                            <span className="no-data">未知</span>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className="match-score">
+                        <div className="section-title">匹配分数</div>
+                        <div className="score-value">{Math.round((item.score ?? 0))}</div>
+                      </div>
                     </div>
                   </div>
                 ))}
