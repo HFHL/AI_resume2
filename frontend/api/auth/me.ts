@@ -1,5 +1,5 @@
 export const config = { runtime: 'nodejs' }
-import { requireUser } from '../lib/auth'
+import { requireUser } from '../lib/auth.js'
 
 export default async function handler(req: Request): Promise<Response> {
   try {
