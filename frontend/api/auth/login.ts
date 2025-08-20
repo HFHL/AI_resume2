@@ -2,6 +2,13 @@ export const config = { runtime: 'nodejs' }
 // 最简单的登录：直接查数据库，比较密码
 import { createClient } from '@supabase/supabase-js'
 
+type VerifiedUserRow = {
+  id: number
+  username: string
+  role: string
+  is_active: boolean
+}
+
 export default async function handler(req: Request): Promise<Response> {
   console.log('登录接口被调用，方法:', req.method)
   
@@ -57,39 +64,25 @@ export default async function handler(req: Request): Promise<Response> {
       },
     })
 
-    // 查询用户
-    console.log('开始查询用户:', username)
-    const { data: user, error } = await supabase
-      .from('auth_users')
-      .select('id, username, password_hash, role, is_active')
-      .eq('username', username)
+    // 通过数据库 crypt() 验证（兼容 bcrypt 存储）
+    console.log('通过 rpc 验证用户:', username)
+    const { data: verified, error } = await supabase
+      .rpc('verify_user_password', { p_username: username, p_password: password })
       .single()
 
     clearTimeout(timeoutId)
 
-    console.log('查询结果:', { user: user ? '找到用户' : '未找到', error: error?.message })
+    console.log('验证结果:', { ok: !!verified, error: error?.message })
 
-    if (error || !user) {
-      console.log('用户不存在或查询错误:', error?.message)
+    if (error || !verified) {
       return new Response(JSON.stringify({ detail: '用户名或密码错误' }), { 
         status: 401,
         headers: { 'Content-Type': 'application/json' }
       })
     }
 
-    if (!user.is_active) {
-      console.log('用户已禁用')
+    if ((verified as VerifiedUserRow).is_active === false) {
       return new Response(JSON.stringify({ detail: '账号已禁用' }), { 
-        status: 401,
-        headers: { 'Content-Type': 'application/json' }
-      })
-    }
-
-    // 比较密码（明文比较）
-    console.log('比较密码')
-    if (user.password_hash !== password) {
-      console.log('密码错误')
-      return new Response(JSON.stringify({ detail: '用户名或密码错误' }), { 
         status: 401,
         headers: { 'Content-Type': 'application/json' }
       })
@@ -100,9 +93,9 @@ export default async function handler(req: Request): Promise<Response> {
     return new Response(JSON.stringify({ 
       success: true, 
       user: { 
-        id: user.id, 
-        username: user.username, 
-        role: user.role 
+        id: (verified as VerifiedUserRow).id, 
+        username: (verified as VerifiedUserRow).username, 
+        role: (verified as VerifiedUserRow).role 
       } 
     }), {
       status: 200,
