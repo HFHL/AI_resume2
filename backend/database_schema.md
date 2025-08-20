@@ -52,6 +52,15 @@
 
 **触发器：** `update_resume_files_timestamp_trigger` - 自动更新 updated_at 字段
 
+**索引：** `idx_resume_files_file_name`（btree，file_name）
+
+**状态枚举（约定，未做枚举约束）：**
+- `未处理`（前端上传完成后初始状态，等待后端拉取）
+- `拉取中`（后端 watcher 抢占并下载中）
+- `处理中`（OCR/解析中）
+- `已处理`（处理完成）
+- `处理失败`
+
 ### 4. resumes（简历信息表）
 
 | 列名 | 数据类型 | 是否可空 | 默认值 | 说明 |
@@ -74,10 +83,23 @@
 | other | text | NULL | - | 其他信息 |
 | created_at | timestamp | NULL | CURRENT_TIMESTAMP | 创建时间 |
 | updated_at | timestamp | NULL | CURRENT_TIMESTAMP | 更新时间 |
+| category | varchar(20) | NULL | - | 简历类别（技术类/非技术类） |
+| tag_names | text[] | NULL | - | 解析出的标签名称数组 |
+| work_years | integer | NULL | - | 规则/估算得到的工作年限（0-60） |
 
 **外键约束：** `resumes_resume_file_id_fkey` - resume_file_id 引用 resume_files(id)
 
-**触发器：** `update_resumes_timestamp_trigger` - 自动更新 updated_at 字段
+**触发器：**
+- `update_resumes_timestamp_trigger` - 自动更新 updated_at 字段
+- `fix_unicode_on_resumes`（调用 `fix_unicode_arrays()`）- 规范化数组字段中的 Unicode 编码，在 INSERT/UPDATE 前执行
+
+**检查约束：**
+- `resumes_category_chk`：`category` 仅允许 `技术类`/`非技术类` 或 NULL
+- `resumes_work_years_chk`：`work_years` 必须在 0 到 60 之间或为 NULL
+
+**索引：**
+- `idx_resumes_name`（btree，name）
+- `idx_resumes_resume_file_id`（btree，resume_file_id）
 
 ### 5. tags（标签表）
 

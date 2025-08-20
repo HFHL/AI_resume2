@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
-export const config = { runtime: 'edge' }
+import { requireAdmin, requireUser } from '../_auth'
+export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
@@ -14,6 +15,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   if (!id) return new Response(JSON.stringify({ detail: 'position id required' }), { status: 400 })
 
   if (req.method === 'GET') {
+    try { await requireUser(req) } catch (e: any) { return e instanceof Response ? e : new Response('Unauthorized', { status: 401 }) }
     const { data, error } = await supabase
       .from('positions')
       .select('*')
@@ -27,6 +29,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   }
 
   if (req.method === 'PUT') {
+    try { await requireAdmin(req) } catch (e: any) { return e instanceof Response ? e : new Response('Forbidden', { status: 403 }) }
     const body = await req.json().catch(() => null)
     if (!body) return new Response(JSON.stringify({ detail: 'request body required' }), { status: 400 })
 

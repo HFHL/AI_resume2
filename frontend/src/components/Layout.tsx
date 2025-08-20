@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { api } from '../api'
 
 const tabs = [
   { id: 'upload', label: '上传简历', path: '/upload' },
@@ -8,6 +9,13 @@ const tabs = [
 ] as const
 
 export default function Layout() {
+  const nav = useNavigate()
+  async function doLogout() {
+    try {
+      await fetch(api('/auth/logout'), { method: 'POST', credentials: 'include' })
+    } catch {}
+    nav('/login')
+  }
   return (
     <div className="page">
       <header className="header">
@@ -23,6 +31,8 @@ export default function Layout() {
             </NavLink>
           ))}
         </nav>
+        <div style={{ flex: 1 }} />
+        <button className="ghost" onClick={doLogout}>退出登录</button>
       </header>
 
       <main className="main">

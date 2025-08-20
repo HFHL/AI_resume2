@@ -1,10 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
-export const config = { runtime: 'edge' }
+import { requireAdmin } from '../_auth'
+export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
+  try { await requireAdmin(req) } catch (e: any) { return e instanceof Response ? e : new Response('Forbidden', { status: 403 }) }
   const body = await req.json().catch(() => null)
   if (!body || !body.position_name) return new Response(JSON.stringify({ detail: 'position_name required' }), { status: 400 })
 

@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from './components/Layout'
+import LoginPage from './pages/LoginPage'
 import UploadPage from './pages/UploadPage'
 import ResumesPage from './pages/ResumesPage'
 import PositionsListPage from './pages/PositionsListPage'
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="match" element={<MatchPage />} />
         <Route path="match/:positionId/resumes/:resumeId" element={<MatchDetailPage />} />
       </Route>
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   )
 }

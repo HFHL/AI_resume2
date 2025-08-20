@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
-export const config = { runtime: 'edge' }
+import { requireUser } from '../_auth'
+export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
@@ -8,6 +9,7 @@ function parseURL(req: Request) {
 }
 
 export default async function handler(req: Request, ctx: any): Promise<Response> {
+  try { await requireUser(req) } catch (e: any) { return e instanceof Response ? e : new Response('Unauthorized', { status: 401 }) }
   const url = parseURL(req)
   const idStr = ctx?.params?.id || url.pathname.split('/').filter(Boolean).pop()
   const id = Number(idStr)
