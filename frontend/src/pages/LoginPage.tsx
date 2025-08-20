@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { supabase } from '../supabase'
+import { getSupabase } from '../supabase'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
@@ -12,7 +12,9 @@ export default function LoginPage() {
     setLoading(true)
     try {
       // 最简：前端直接查表（需 Supabase anon key 能 select）
-      const { data, error } = await supabase
+      const cli = getSupabase()
+      if (!cli) throw new Error('缺少 Supabase 配置')
+      const { data, error } = await cli
         .from('auth_users')
         .select('id, username, role, password_hash, is_active')
         .eq('username', username)
