@@ -1,5 +1,5 @@
 export const config = { runtime: 'nodejs' }
-import { setCookie } from '../_auth'
+import { setCookie } from '../lib/auth'
 
 export default async function handler(): Promise<Response> {
   const cookie = setCookie('auth', '', { httpOnly: true, sameSite: 'Lax', path: '/', secure: !!process.env.VERCEL, maxAge: 0 })

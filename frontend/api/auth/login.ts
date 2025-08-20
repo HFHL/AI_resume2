@@ -1,7 +1,7 @@
 export const config = { runtime: 'nodejs' }
 import { createClient } from '@supabase/supabase-js'
 import bcrypt from 'bcryptjs'
-import { setCookie } from '../_auth'
+import { setCookie } from '../lib/auth'
 
 export default async function handler(req: Request): Promise<Response> {
   try {

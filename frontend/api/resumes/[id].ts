@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { requireUser } from '../_auth'
+import { requireUser } from '../lib/auth'
 export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
