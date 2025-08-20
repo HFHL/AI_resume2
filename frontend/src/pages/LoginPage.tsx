@@ -15,11 +15,15 @@ export default function LoginPage() {
     
     setLoading(true)
     try {
+      const abort = new AbortController()
+      const clientTimeout = setTimeout(() => abort.abort(), 7000)
       const response = await fetch(api('/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
+        signal: abort.signal,
       })
+      clearTimeout(clientTimeout)
       
       const data = await response.json()
       
@@ -34,7 +38,11 @@ export default function LoginPage() {
         throw new Error('登录失败')
       }
     } catch (e: any) {
-      alert(e?.message || '网络错误')
+      if (e?.name === 'AbortError') {
+        alert('请求超时，请稍后再试')
+      } else {
+        alert(e?.message || '网络错误')
+      }
       console.error('登录错误:', e)
     } finally {
       setLoading(false)

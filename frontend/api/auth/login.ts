@@ -1,3 +1,4 @@
+export const config = { runtime: 'nodejs' }
 // 最简单的登录：直接查数据库，比较密码
 import { createClient } from '@supabase/supabase-js'
 
@@ -44,9 +45,17 @@ export default async function handler(req: Request): Promise<Response> {
       })
     }
 
-    // 创建 Supabase 客户端
+    // 创建 Supabase 客户端（带 6s 超时）
     console.log('创建 Supabase 客户端')
-    const supabase = createClient(supabaseUrl, supabaseKey)
+    const abortController = new AbortController()
+    const timeoutId = setTimeout(() => abortController.abort(), 6000)
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      global: {
+        fetch: (input: any, init?: any) => {
+          return fetch(input, { ...(init || {}), signal: abortController.signal })
+        },
+      },
+    })
 
     // 查询用户
     console.log('开始查询用户:', username)
@@ -55,6 +64,8 @@ export default async function handler(req: Request): Promise<Response> {
       .select('id, username, password_hash, role, is_active')
       .eq('username', username)
       .single()
+
+    clearTimeout(timeoutId)
 
     console.log('查询结果:', { user: user ? '找到用户' : '未找到', error: error?.message })
 
