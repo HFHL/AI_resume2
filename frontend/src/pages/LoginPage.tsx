@@ -8,23 +8,34 @@ export default function LoginPage() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!username || !password) { alert('请输入用户名和密码'); return }
+    if (!username || !password) { 
+      alert('请输入用户名和密码')
+      return 
+    }
+    
     setLoading(true)
     try {
-      // 最简：前端直接查表（需 Supabase anon key 能 select）
-      const r = await fetch(api('/auth/login'), {
+      const response = await fetch(api('/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       })
-      if (!r.ok) {
-        const d = await r.json().catch(() => ({}))
-        throw new Error(d.detail || r.statusText)
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.detail || '登录失败')
       }
-      // 登录成功，跳首页
-      window.location.href = '/'
+      
+      if (data.success) {
+        alert('登录成功')
+        window.location.href = '/'
+      } else {
+        throw new Error('登录失败')
+      }
     } catch (e: any) {
-      alert(e?.message || '登录失败')
+      alert(e?.message || '网络错误')
+      console.error('登录错误:', e)
     } finally {
       setLoading(false)
     }
