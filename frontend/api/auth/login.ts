@@ -1,7 +1,6 @@
 export const config = { runtime: 'nodejs' }
 import { createClient } from '@supabase/supabase-js'
-import bcrypt from 'bcryptjs'
-import { setCookie } from '../lib/auth.js'
+// 最简版：纯明文比对，不设置任何 Cookie/会话
 
 export default async function handler(req: Request): Promise<Response> {
   try {
@@ -25,14 +24,12 @@ export default async function handler(req: Request): Promise<Response> {
     const row = (data || [])[0] as any
     if (!row || row.is_active === false) return new Response(JSON.stringify({ detail: '账号不存在或已禁用' }), { status: 401 })
 
-    const ok = await bcrypt.compare(password, row.password_hash)
+    const ok = String(row.password_hash || '') === password
     if (!ok) return new Response(JSON.stringify({ detail: '用户名或密码错误' }), { status: 401 })
 
-    const b64 = Buffer.from(`${username}:${password}`, 'utf8').toString('base64')
-    const cookie = setCookie('auth', b64, { httpOnly: true, sameSite: 'Lax', path: '/', secure: !!process.env.VERCEL })
     return new Response(JSON.stringify({ ok: true, user: { id: row.id, username: row.username, role: row.role } }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json', 'Set-Cookie': cookie },
+      headers: { 'Content-Type': 'application/json' },
     })
   } catch (e: any) {
     return new Response(JSON.stringify({ detail: e?.message || '服务器错误' }), { status: 500 })

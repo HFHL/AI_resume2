@@ -15,10 +15,8 @@ function GuardedApp() {
     let cancelled = false
     async function check() {
       if (/^\/login\/?$/.test(loc.pathname)) { setOk(true); setReady(true); return }
-      const ctrl = new AbortController()
-      const timer = setTimeout(() => ctrl.abort(), 8000)
       try {
-        const r = await fetch(api('/auth/me'), { credentials: 'include', signal: ctrl.signal })
+        const r = await fetch(api('/auth/me'), { credentials: 'include' })
         if (r.ok) {
           if (!cancelled) { setOk(true) }
         } else {
@@ -27,7 +25,6 @@ function GuardedApp() {
       } catch {
         if (!cancelled) { setOk(false); nav('/login') }
       } finally {
-        clearTimeout(timer)
         if (!cancelled) setReady(true)
       }
     }

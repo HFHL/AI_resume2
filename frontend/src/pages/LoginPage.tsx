@@ -11,8 +11,7 @@ export default function LoginPage() {
     if (!username || !password) { alert('请输入用户名和密码'); return }
     setLoading(true)
     try {
-      const basic = btoa(unescape(encodeURIComponent(`${username}:${password}`)))
-      const r = await fetch(api(`/auth/login?auth=${encodeURIComponent(basic)}`), {
+      const r = await fetch(api(`/auth/login`), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
