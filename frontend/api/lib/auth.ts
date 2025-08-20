@@ -24,26 +24,46 @@ export function setCookie(name: string, value: string, opts?: { maxAge?: number;
   return segs.join('; ')
 }
 
-function parseBasicAuthCookie(req: Request): { username: string; password: string } | null {
-  const b64 = getCookie(req, 'auth')
-  if (!b64) return null
-  try {
-    let raw = ''
-    if (typeof (globalThis as any).atob === 'function') {
-      raw = decodeURIComponent(escape((globalThis as any).atob(b64)))
-    } else if (typeof Buffer !== 'undefined') {
-      raw = Buffer.from(b64, 'base64').toString('utf8')
-    } else {
-      return null
-    }
-    const idx = raw.indexOf(':')
-    if (idx <= 0) return null
-    const username = raw.slice(0, idx)
-    const password = raw.slice(idx + 1)
-    return { username, password }
-  } catch {
-    return null
+function parseCredsFromAny(req: Request): { username: string; password: string } | null {
+  // 1) Authorization: Basic base64(user:pass)
+  const authz = req.headers.get('authorization') || req.headers.get('Authorization')
+  if (authz && authz.toLowerCase().startsWith('basic ')) {
+    const b64 = authz.slice(6).trim()
+    try {
+      const raw = typeof (globalThis as any).atob === 'function'
+        ? decodeURIComponent(escape((globalThis as any).atob(b64)))
+        : Buffer.from(b64, 'base64').toString('utf8')
+      const idx = raw.indexOf(':')
+      if (idx > 0) return { username: raw.slice(0, idx), password: raw.slice(idx + 1) }
+    } catch {}
   }
+
+  // 2) Cookie: auth=base64(user:pass)
+  const b64c = getCookie(req, 'auth')
+  if (b64c) {
+    try {
+      const raw = typeof (globalThis as any).atob === 'function'
+        ? decodeURIComponent(escape((globalThis as any).atob(b64c)))
+        : Buffer.from(b64c, 'base64').toString('utf8')
+      const idx = raw.indexOf(':')
+      if (idx > 0) return { username: raw.slice(0, idx), password: raw.slice(idx + 1) }
+    } catch {}
+  }
+
+  // 3) Query param: ?auth=base64(user:pass)
+  try {
+    const url = new URL(req.url)
+    const qp = url.searchParams.get('auth')
+    if (qp) {
+      const raw = typeof (globalThis as any).atob === 'function'
+        ? decodeURIComponent(escape((globalThis as any).atob(qp)))
+        : Buffer.from(qp, 'base64').toString('utf8')
+      const idx = raw.indexOf(':')
+      if (idx > 0) return { username: raw.slice(0, idx), password: raw.slice(idx + 1) }
+    }
+  } catch {}
+
+  return null
 }
 
 function getSupabaseAdmin() {
@@ -54,7 +74,7 @@ function getSupabaseAdmin() {
 }
 
 export async function requireUser(req: Request): Promise<AuthedUser> {
-  const cred = parseBasicAuthCookie(req)
+  const cred = parseCredsFromAny(req)
   if (!cred) throw new Response(JSON.stringify({ detail: '未登录' }), { status: 401 })
 
   const supabase = getSupabaseAdmin()
