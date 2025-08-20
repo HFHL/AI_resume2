@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getSupabase } from '../supabase'
+import { api } from '../api'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
@@ -12,17 +12,15 @@ export default function LoginPage() {
     setLoading(true)
     try {
       // 最简：前端直接查表（需 Supabase anon key 能 select）
-      const cli = getSupabase()
-      if (!cli) throw new Error('缺少 Supabase 配置')
-      const { data, error } = await cli
-        .from('auth_users')
-        .select('id, username, role, password_hash, is_active')
-        .eq('username', username)
-        .limit(1)
-      if (error) throw new Error(error.message)
-      const row = (data || [])[0] as any
-      if (!row || row.is_active === false) throw new Error('用户不存在或已禁用')
-      if (String(row.password_hash || '') !== password) throw new Error('用户名或密码错误')
+      const r = await fetch(api('/auth/login'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      })
+      if (!r.ok) {
+        const d = await r.json().catch(() => ({}))
+        throw new Error(d.detail || r.statusText)
+      }
       // 登录成功，跳首页
       window.location.href = '/'
     } catch (e: any) {
