@@ -14,16 +14,21 @@ function GuardedApp() {
   useEffect(() => {
     let cancelled = false
     async function check() {
-      if (loc.pathname === '/login') { setOk(true); setReady(true); return }
+      if (/^\/login\/?$/.test(loc.pathname)) { setOk(true); setReady(true); return }
+      const ctrl = new AbortController()
+      const timer = setTimeout(() => ctrl.abort(), 8000)
       try {
-        const r = await fetch(api('/auth/me'), { credentials: 'include' })
+        const r = await fetch(api('/auth/me'), { credentials: 'include', signal: ctrl.signal })
         if (r.ok) {
-          if (!cancelled) { setOk(true); setReady(true) }
+          if (!cancelled) { setOk(true) }
         } else {
-          if (!cancelled) { setOk(false); setReady(true); nav('/login') }
+          if (!cancelled) { setOk(false); nav('/login') }
         }
       } catch {
-        if (!cancelled) { setOk(false); setReady(true); nav('/login') }
+        if (!cancelled) { setOk(false); nav('/login') }
+      } finally {
+        clearTimeout(timer)
+        if (!cancelled) setReady(true)
       }
     }
     check()
