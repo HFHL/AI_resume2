@@ -57,32 +57,45 @@ export default function UploadPage() {
         
         console.log('发送请求到:', api('/uploads/test'))
         
-        const controller = new AbortController()
-        const t = setTimeout(() => controller.abort(), 30000)
-        const uploadRes = await fetch(api('/uploads/test'), {
+        // 1) 申请签名上传 URL
+        const presignRes = await fetch(api('/uploads/presign'), {
           method: 'POST',
-          body: formData,
-          signal: controller.signal,
-        }).finally(() => clearTimeout(t))
-        
-        console.log('响应状态:', uploadRes.status)
-        
-        if (!uploadRes.ok) {
-          const errorText = await uploadRes.text()
-          console.error('上传失败:', errorText)
-          let errorMsg = '上传失败'
-          try {
-            const errorJson = JSON.parse(errorText)
-            errorMsg = errorJson.detail || errorMsg
-          } catch {
-            errorMsg = errorText || errorMsg
-          }
-          throw new Error(errorMsg)
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ file_name: f.name, content_type: (f as any).type || 'application/octet-stream' }),
+        })
+        if (!presignRes.ok) {
+          const txt = await presignRes.text().catch(() => '')
+          throw new Error(txt || '获取上传地址失败')
         }
-        
-        const result = await uploadRes.json() as { public_url: string }
-        console.log('上传成功，URL:', result.public_url)
-        uploadedUrls.push(result.public_url)
+        const { signed_url, path, public_url } = await presignRes.json()
+        if (!signed_url || !path) throw new Error('获取上传地址失败：响应不完整')
+
+        // 2) 直传 Storage（PUT）
+        const putRes = await fetch(signed_url, {
+          method: 'PUT',
+          headers: { 'Content-Type': (f as any).type || 'application/octet-stream' },
+          body: f,
+        })
+        if (!putRes.ok) {
+          const txt = await putRes.text().catch(() => '')
+          throw new Error(txt || '直传失败')
+        }
+
+        // 3) 回调完成，记录数据库 resume_files
+        const u = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
+        const who = (u?.full_name || u?.account || 'web') as string
+        const completeRes = await fetch(api('/uploads/complete'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ file_name: f.name, object_key: path, uploaded_by: who, path }),
+        })
+        if (!completeRes.ok) {
+          const txt = await completeRes.text().catch(() => '')
+          throw new Error(txt || '回调失败')
+        }
+        const c = await completeRes.json()
+        const finalUrl = public_url || c?.item?.file_path
+        if (finalUrl) uploadedUrls.push(finalUrl)
 
         done += 1
         setProgress(Math.round((done / files.length) * 100))
