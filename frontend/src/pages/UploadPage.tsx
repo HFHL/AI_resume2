@@ -46,8 +46,16 @@ export default function UploadPage() {
         const formData = new FormData()
         formData.append('file', f)
         formData.append('file_name', f.name)
+        // 读取当前登录用户，作为 uploaded_by 写入数据库
+        try {
+          const u = JSON.parse(localStorage.getItem('auth_user') || 'null')
+          const who = (u?.full_name || u?.account || 'web') as string
+          formData.append('uploaded_by', who)
+        } catch {
+          formData.append('uploaded_by', 'web')
+        }
         
-        console.log('发送请求到:', api('/uploads/supabase'))
+        console.log('发送请求到:', api('/uploads/test'))
         
         const uploadRes = await fetch(api('/uploads/test'), {
           method: 'POST',
