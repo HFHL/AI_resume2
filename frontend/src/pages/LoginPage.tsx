@@ -13,12 +13,14 @@ export default function LoginPage() {
     }
     ;(async () => {
       try {
+        console.log('[LoginPage] submit with', { username, hasPassword: Boolean(password) })
         const res = await fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username, password }),
         })
         const data = await res.json().catch(() => ({}))
+        console.log('[LoginPage] response', { status: res.status, data })
         if (!res.ok) {
           alert(data?.detail || '登录失败')
           return
