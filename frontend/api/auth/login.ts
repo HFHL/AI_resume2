@@ -25,14 +25,15 @@ export default async function handler(req: Request): Promise<Response> {
 
   try {
     // 直接从 app_users 查找并做明文字符串匹配（按你的要求，不考虑安全）
+    // 沿用其他 API 的查询风格：limit(1) + 读取 data[0]
     const { data, error } = await supabase
       .from('app_users')
-      .select('id, full_name, account, password, is_admin')
+      .select('*')
       .eq('account', account)
       .limit(1)
-      .maybeSingle()
 
-    console.log('[auth/login] supabase query result', { hasError: Boolean(error), data })
+    const row = (Array.isArray(data) && data.length > 0) ? data[0] : null
+    console.log('[auth/login] supabase query result', { hasError: Boolean(error), row })
 
     if (error) {
       return new Response(JSON.stringify({ detail: error.message }), {
@@ -41,21 +42,24 @@ export default async function handler(req: Request): Promise<Response> {
       })
     }
 
-    if (!data) {
-      return new Response(JSON.stringify({ success: false, detail: '用户不存在' }), {
+    if (!row) {
+      return new Response(JSON.stringify({ success: false, detail: '用户不存在', user: null }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' },
       })
     }
 
-    if (String(password) === String(data.password ?? '')) {
+    // 打印该账号的所有信息（包含明文密码），仅用于调试
+    console.log('[auth/login] fetched user row', row)
+
+    if (String(password) === String((row as any).password ?? '')) {
       return new Response(
-        JSON.stringify({ success: true, user: { id: data.id, full_name: data.full_name, account: data.account, is_admin: data.is_admin } }),
+        JSON.stringify({ success: true, user: row }),
         { headers: { 'Content-Type': 'application/json' } }
       )
     }
 
-    return new Response(JSON.stringify({ success: false, detail: '密码不正确' }), {
+    return new Response(JSON.stringify({ success: false, detail: '密码不正确', user: row }), {
       status: 401,
       headers: { 'Content-Type': 'application/json' },
     })

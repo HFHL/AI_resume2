@@ -21,6 +21,9 @@ export default function LoginPage() {
         })
         const data = await res.json().catch(() => ({}))
         console.log('[LoginPage] response', { status: res.status, data })
+        if (data?.user) {
+          console.log('[LoginPage] fetched user row', data.user)
+        }
         if (!res.ok) {
           alert(data?.detail || '登录失败')
           return
