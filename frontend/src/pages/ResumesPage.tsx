@@ -247,8 +247,15 @@ export default function ResumesPage() {
   const pageSize = 12
 
   // 获取所有可用的标签
-  const availableTagsForCategory = useMemo(() => {
-    return allTags.map(t => t.tag_name)
+  const tagsByCategory = useMemo(() => {
+    const map = new Map<string, string[]>()
+    for (const t of allTags) {
+      const cat = (t.category || '未分类') as string
+      const arr = map.get(cat) || []
+      arr.push(t.tag_name)
+      map.set(cat, arr)
+    }
+    return Array.from(map.entries()) as Array<[string, string[]]>
   }, [allTags])
 
   function resetAll() {
@@ -379,27 +386,32 @@ export default function ResumesPage() {
         </div>
 
         <label>
-          <span>标签（点击可多选，点击"应用筛选"生效）</span>
+          <span>标签（按类别分组，点击可多选；点击"应用筛选"生效）</span>
           <div className="chips">
             {uiSelectedTags.map(t => (
               <Chip key={t} text={t} onClose={() => removeTag(t)} />
             ))}
           </div>
-          <div className="tag-grid">
-            {availableTagsForCategory.map(t => (
-              <button 
-                key={t} 
-                type="button" 
-                className={`tag-pick ${uiSelectedTags.includes(t) ? 'selected' : ''}`} 
-                onClick={() => toggleTag(t)}
-              >
-                {t}
-              </button>
-            ))}
-            {availableTagsForCategory.length === 0 && (
-              <div className="muted">暂无可用标签</div>
-            )}
-          </div>
+          {tagsByCategory.length === 0 && (
+            <div className="muted">暂无可用标签</div>
+          )}
+          {tagsByCategory.map(([cat, names]) => (
+            <div key={cat} style={{ marginTop: 8 }}>
+              <div className="section-title">{cat}</div>
+              <div className="tag-grid">
+                {names.map(t => (
+                  <button
+                    key={`${cat}::${t}`}
+                    type="button"
+                    className={`tag-pick ${uiSelectedTags.includes(t) ? 'selected' : ''}`}
+                    onClick={() => toggleTag(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
         </label>
 
         <div className="bar end">
