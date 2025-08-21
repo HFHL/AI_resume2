@@ -1,66 +1,104 @@
-import { createClient } from '@supabase/supabase-js'
-// 已移除鉴权
-export const config = { runtime: 'nodejs' }
+export const config = { runtime: 'edge' }
 
-const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
-
-function parseURL(req: Request) {
-  try { return new URL(req.url) } catch { return new URL(req.url, 'http://localhost') }
+function parseIdFromUrl(urlStr: string): number | null {
+	let url: URL
+	try { url = new URL(urlStr) } catch { url = new URL(urlStr, 'http://localhost') }
+	const parts = url.pathname.split('/').filter(Boolean)
+	const idStr = parts[parts.length - 1]
+	const id = Number(idStr)
+	return Number.isFinite(id) && id > 0 ? id : null
 }
 
-export default async function handler(req: Request, ctx: any): Promise<Response> {
-  // GET：无鉴权，直接查询
-  const url = parseURL(req)
-  const idStr = ctx?.params?.id || url.pathname.split('/').filter(Boolean).pop()
-  const id = Number(idStr)
-  if (!id) return new Response(JSON.stringify({ detail: 'resume id required' }), { status: 400 })
-  console.log('[api/resumes/[id]] incoming', { method: req.method, id })
+export default async function handler(req: Request): Promise<Response> {
+	try {
+		const SUPABASE_URL = process.env.SUPABASE_URL as string | undefined
+		// 优先使用 SERVICE_ROLE，其次回退到 SUPABASE_KEY（仅演示用途）
+		const EFFECTIVE_KEY = (process.env.SUPABASE_SERVICE_ROLE_KEY as string | undefined) || (process.env.SUPABASE_KEY as string | undefined)
+		console.log('[api/resumes/[id]] env', { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(EFFECTIVE_KEY) })
+		if (!SUPABASE_URL || !EFFECTIVE_KEY) {
+			return new Response(JSON.stringify({ detail: '缺少 SUPABASE_URL 或 KEY' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+		}
 
-  if (req.method === 'DELETE') {
-    console.log('[api/resumes/[id]] delete try', { id })
-    const isAdmin = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
-    if (!isAdmin) return new Response(JSON.stringify({ detail: '仅管理员可删除简历' }), { status: 403 })
+		const id = parseIdFromUrl(req.url)
+		if (!id) return new Response(JSON.stringify({ detail: 'resume id required' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+		console.log('[api/resumes/[id]] incoming', { method: req.method, id })
 
-    const { data, error } = await supabase
-      .from('resumes')
-      .delete()
-      .eq('id', id)
-      .select('*')
-      .limit(1)
+		if (req.method === 'DELETE') {
+			const isAdmin = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
+			if (!isAdmin) return new Response(JSON.stringify({ detail: '仅管理员可删除简历' }), { status: 403, headers: { 'Content-Type': 'application/json' } })
 
-    if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
-    const deleted = (data || [])[0]
-    if (!deleted) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404 })
-    console.log('[api/resumes/[id]] deleted', { id })
-    return new Response(JSON.stringify({ ok: true, deleted }), { headers: { 'Content-Type': 'application/json' } })
-  }
+			const delUrl = `${SUPABASE_URL!.replace(/\/$/, '')}/rest/v1/resumes?id=eq.${id}`
+			const delResp = await fetch(delUrl, {
+				method: 'DELETE',
+				headers: {
+					'apikey': EFFECTIVE_KEY!,
+					'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+					'Prefer': 'return=representation',
+					'Accept': 'application/json',
+				},
+			})
+			if (!delResp.ok) {
+				const text = await delResp.text().catch(() => '')
+				return new Response(JSON.stringify({ detail: text || `DELETE failed ${delResp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+			}
+			const deletedRows = await delResp.json().catch(() => []) as any[]
+			const deleted = Array.isArray(deletedRows) && deletedRows.length > 0 ? deletedRows[0] : null
+			if (!deleted) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+			return new Response(JSON.stringify({ ok: true, deleted }), { headers: { 'Content-Type': 'application/json' } })
+		}
 
-  console.log('[api/resumes/[id]] query start', { id })
-  const { data, error } = await supabase
-    .from('resumes')
-    .select('*')
-    .eq('id', id)
-    .limit(1)
+		// GET 详情
+		const controller = new AbortController()
+		const timeout = setTimeout(() => controller.abort(), 9000)
+		const base = SUPABASE_URL!.replace(/\/$/, '')
+		const detailUrl = `${base}/rest/v1/resumes?select=*&id=eq.${id}&limit=1`
+		const resp = await fetch(detailUrl, {
+			method: 'GET',
+			headers: {
+				'apikey': EFFECTIVE_KEY!,
+				'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+				'Accept': 'application/json',
+			},
+			signal: controller.signal,
+		}).catch((e) => {
+			console.error('[api/resumes/[id]] fetch error', e)
+			return null as unknown as Response
+		})
+		clearTimeout(timeout)
+		if (!resp) {
+			return new Response(JSON.stringify({ detail: 'Supabase 请求失败' }), { status: 502, headers: { 'Content-Type': 'application/json' } })
+		}
+		if (!resp.ok) {
+			const text = await resp.text().catch(() => '')
+			return new Response(JSON.stringify({ detail: text || `Resumes 错误: ${resp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+		}
+		const rows = await resp.json().catch(() => []) as any[]
+		const item = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
+		if (!item) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+		console.log('[api/resumes/[id]] base row fetched', { id, hasFileId: Boolean(item.resume_file_id) })
 
-  if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
-  const item = (data || [])[0] as any
-  if (!item) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404 })
-  console.log('[api/resumes/[id]] base row fetched', { id, hasFileId: Boolean(item.resume_file_id) })
+		// 若有文件 ID，则查询文件链接
+		if (item.resume_file_id) {
+			const fileUrl = `${base}/rest/v1/resume_files?select=file_path&id=eq.${encodeURIComponent(String(item.resume_file_id))}&limit=1`
+			const fResp = await fetch(fileUrl, {
+				method: 'GET',
+				headers: {
+					'apikey': EFFECTIVE_KEY!,
+					'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+					'Accept': 'application/json',
+				},
+			})
+			if (fResp.ok) {
+				const fRows = await fResp.json().catch(() => []) as any[]
+				const f = Array.isArray(fRows) && fRows.length > 0 ? fRows[0] : null
+				if (f && f.file_path) item.file_url = f.file_path
+			}
+		}
 
-  // 关联查询文件直链（若存在 resume_file_id）
-  if (item.resume_file_id) {
-    console.log('[api/resumes/[id]] fetch file row', { resume_file_id: item.resume_file_id })
-    const { data: fileRow, error: fileErr } = await supabase
-      .from('resume_files')
-      .select('file_path')
-      .eq('id', item.resume_file_id as number)
-      .maybeSingle()
-
-    if (!fileErr && fileRow && (fileRow as any).file_path) {
-      item.file_url = (fileRow as any).file_path
-    }
-  }
-
-  console.log('[api/resumes/[id]] respond', { id, hasUrl: Boolean(item.file_url) })
-  return new Response(JSON.stringify({ item }), { headers: { 'Content-Type': 'application/json' } })
+		console.log('[api/resumes/[id]] respond', { id, hasUrl: Boolean(item.file_url) })
+		return new Response(JSON.stringify({ item }), { headers: { 'Content-Type': 'application/json' } })
+	} catch (e: any) {
+		console.error('[api/resumes/[id]] unhandled', e)
+		return new Response(JSON.stringify({ detail: e?.message || 'Internal Server Error' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+	}
 }
