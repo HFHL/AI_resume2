@@ -1,10 +1,8 @@
 export const config = { runtime: 'nodejs' }
 import { createClient } from '@supabase/supabase-js'
-import { requireUser } from '../lib/auth.js'
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
-  try { await requireUser(req) } catch (e: any) { return e instanceof Response ? e : new Response('Unauthorized', { status: 401 }) }
 
   try {
     const form = await req.formData()

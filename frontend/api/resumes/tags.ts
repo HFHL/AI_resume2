@@ -1,11 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
-import { requireUser } from '../lib/auth.js'
 export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
 export default async function handler(req: Request): Promise<Response> {
-  try { await requireUser(req) } catch (e: any) { return e instanceof Response ? e : new Response('Unauthorized', { status: 401 }) }
+  // 无鉴权，直接查询
   const { data, error } = await supabase
     .from('resumes')
     .select('id, tag_names')

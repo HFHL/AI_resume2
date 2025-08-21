@@ -1,19 +1,19 @@
 import { createClient } from '@supabase/supabase-js'
-import { requireAdmin, requireUser } from '../lib/auth.js'
+// 已移除鉴权
 export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'GET') {
-    try { await requireUser(req) } catch (e: any) { return e instanceof Response ? e : new Response('Unauthorized', { status: 401 }) }
+    // 无鉴权，直接返回
     const { data, error } = await supabase.from('keywords').select('*').order('keyword')
     if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
     return new Response(JSON.stringify({ items: data || [] }), { headers: { 'Content-Type': 'application/json' } })
   }
 
   if (req.method === 'POST') {
-    try { await requireAdmin(req) } catch (e: any) { return e instanceof Response ? e : new Response('Forbidden', { status: 403 }) }
+    // 无鉴权，允许创建
     const body = await req.json().catch(() => ({}))
     const kw = (body.keyword || '').trim()
     if (!kw) return new Response(JSON.stringify({ detail: 'keyword required' }), { status: 400 })

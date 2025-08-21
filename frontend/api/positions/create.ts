@@ -1,12 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
-import { requireAdmin } from '../lib/auth.js'
+// 已移除鉴权
 export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
-  try { await requireAdmin(req) } catch (e: any) { return e instanceof Response ? e : new Response('Forbidden', { status: 403 }) }
+  // 无鉴权，允许创建
   const body = await req.json().catch(() => null)
   if (!body || !body.position_name) return new Response(JSON.stringify({ detail: 'position_name required' }), { status: 400 })
 

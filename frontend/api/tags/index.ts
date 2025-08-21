@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { requireUser } from '../lib/auth.js'
+// 已移除鉴权
 export const config = { runtime: 'nodejs' }
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
@@ -10,7 +10,7 @@ function getCategory(url: URL): string | null {
 }
 
 export default async function handler(req: Request): Promise<Response> {
-  try { await requireUser(req) } catch (e: any) { return e instanceof Response ? e : new Response('Unauthorized', { status: 401 }) }
+  // 无鉴权，直接查询
   let url: URL
   try { url = new URL(req.url) } catch { url = new URL(req.url, 'http://localhost') }
   const category = getCategory(url)
