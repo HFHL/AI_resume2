@@ -49,20 +49,7 @@ export default function UploadPage() {
       for (const f of files) {
         console.log('开始上传文件:', f.name, '大小:', f.size)
         
-        // 创建FormData直接上传文件
-        const formData = new FormData()
-        formData.append('file', f)
-        formData.append('file_name', f.name)
-        // 读取当前登录用户，作为 uploaded_by 写入数据库
-        try {
-          const u = JSON.parse(localStorage.getItem('auth_user') || 'null')
-          const who = (u?.full_name || u?.account || 'web') as string
-          formData.append('uploaded_by', who)
-        } catch {
-          formData.append('uploaded_by', 'web')
-        }
-        
-        console.log('发送请求到:', api('/uploads/test'))
+        // 读取当前登录用户，用于完成回调
         
         // 1) 前端直传到 Supabase Storage（anon key）
         const bucket = (import.meta as any).env?.VITE_SUPABASE_STORAGE_BUCKET as string | undefined
@@ -82,11 +69,19 @@ export default function UploadPage() {
         // 3) 回调完成，记录数据库 resume_files（依然走服务端，写入 uploaded_by）
         const u = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
         const who = (u?.full_name || u?.account || 'web') as string
-        const completeRes = await fetch(api('/uploads/complete'), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ file_name: f.name, object_key: objectPath, uploaded_by: who, path: objectPath }),
-        })
+        // 对 complete 增加简单重试，缓解偶发网络波动
+        async function callCompleteOnce() {
+          return fetch(api('/uploads/complete'), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ file_name: f.name, object_key: objectPath, uploaded_by: who, path: objectPath }),
+          })
+        }
+        let completeRes = await callCompleteOnce()
+        if (!completeRes.ok) {
+          await new Promise(r => setTimeout(r, 800))
+          completeRes = await callCompleteOnce()
+        }
         if (!completeRes.ok) {
           const txt = await completeRes.text().catch(() => '')
           throw new Error(txt || '回调失败')
