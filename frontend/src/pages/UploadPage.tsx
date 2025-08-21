@@ -66,29 +66,17 @@ export default function UploadPage() {
         const publicUrl = pub?.publicUrl
         if (!publicUrl) throw new Error('生成 publicUrl 失败，请确认桶为 public')
 
-        // 3) 回调完成，记录数据库 resume_files（依然走服务端，写入 uploaded_by）
+        // 3) 直接写入数据库（你不在意安全性，允许前端直写）
         const u = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
         const who = (u?.full_name || u?.account || 'web') as string
-        // 对 complete 增加简单重试，缓解偶发网络波动
-        async function callCompleteOnce() {
-          return fetch(api('/uploads/complete'), {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ file_name: f.name, object_key: objectPath, uploaded_by: who, path: objectPath }),
-          })
-        }
-        let completeRes = await callCompleteOnce()
-        if (!completeRes.ok) {
-          await new Promise(r => setTimeout(r, 800))
-          completeRes = await callCompleteOnce()
-        }
-        if (!completeRes.ok) {
-          const txt = await completeRes.text().catch(() => '')
-          throw new Error(txt || '回调失败')
-        }
-        const c = await completeRes.json()
-        const finalUrl = publicUrl || c?.item?.file_path
-        if (finalUrl) uploadedUrls.push(finalUrl)
+        const { error: dbErr } = await sb.from('resume_files').insert({
+          file_name: f.name,
+          uploaded_by: who,
+          file_path: publicUrl,
+          status: '已上传',
+        })
+        if (dbErr) throw new Error(dbErr.message)
+        uploadedUrls.push(publicUrl)
 
         done += 1
         setProgress(Math.round((done / files.length) * 100))
