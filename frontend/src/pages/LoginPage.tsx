@@ -14,11 +14,9 @@ export default function LoginPage() {
     ;(async () => {
       try {
         console.log('[LoginPage] submit with', { username, hasPassword: Boolean(password) })
-        const res = await fetch('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password }),
-        })
+        console.log('[LoginPage] 正在请求登录API...')
+        const q = new URLSearchParams({ username, password }).toString()
+        const res = await fetch(`/api/auth/login?${q}`, { method: 'GET' })
         // 优先按 JSON 解析；失败时尝试读取纯文本，便于定位 500 的详细错误
         let data: any = {}
         try {
@@ -48,7 +46,8 @@ export default function LoginPage() {
           alert(data?.detail || '密码不正确')
         }
       } catch (err: any) {
-        alert(err?.message || '网络错误')
+        console.error('[LoginPage] 请求错误:', err)
+        alert(`网络错误: ${err?.message || 'API请求失败，请检查开发服务器'}`)
       }
     })()
   }

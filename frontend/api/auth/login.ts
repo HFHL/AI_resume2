@@ -11,38 +11,37 @@ export default async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify({ detail: '缺少 SUPABASE_URL 或 SUPABASE_SERVICE_ROLE_KEY 环境变量' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
     }
 
-    // 允许 GET 作为调试：快速确认函数是否可运行以及环境变量是否存在
+    // GET 支持：从查询参数读取 username/account 与 password
+    let account: string | undefined
+    let password: string | undefined
     if (req.method === 'GET') {
-      return new Response(
-        JSON.stringify({ ok: true, env: { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_SERVICE_ROLE_KEY) } }),
-        { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } }
-      )
-    }
-
-    if (req.method !== 'POST') {
+      let url: URL
+      try { url = new URL(req.url) } catch { url = new URL(req.url, 'http://localhost') }
+      account = url.searchParams.get('account') || url.searchParams.get('username') || undefined
+      password = url.searchParams.get('password') || undefined
+    } else if (req.method === 'POST') {
+      // 兼容 Node.js 运行时没有 req.json 的情况
+      let body: any = null
+      try {
+        const anyReq: any = req as any
+        if (typeof anyReq.json === 'function') {
+          body = await anyReq.json()
+        } else if (typeof anyReq.text === 'function') {
+          const txt = await anyReq.text()
+          try { body = JSON.parse(txt) } catch { body = null }
+        } else {
+          // @ts-ignore
+          const cloned = new Response((req as any).body)
+          try { body = await cloned.json() } catch { body = null }
+        }
+      } catch {
+        body = null
+      }
+      account = body?.account || body?.username
+      password = body?.password
+    } else {
       return new Response(JSON.stringify({ detail: 'Method Not Allowed' }), { status: 405, headers: { 'Content-Type': 'application/json' } })
     }
-
-    // 兼容 Node.js 运行时没有 req.json 的情况
-    let body: any = null
-    try {
-      const anyReq: any = req as any
-      if (typeof anyReq.json === 'function') {
-        body = await anyReq.json()
-      } else if (typeof anyReq.text === 'function') {
-        const txt = await anyReq.text()
-        try { body = JSON.parse(txt) } catch { body = null }
-      } else {
-        // @ts-ignore
-        const cloned = new Response((req as any).body)
-        try { body = await cloned.json() } catch { body = null }
-      }
-    } catch {
-      body = null
-    }
-
-    const account = body?.account || body?.username
-    const password = body?.password
 
     console.log('[auth/login] incoming request', { method: req.method })
     console.log('[auth/login] parsed body (masked)', { account, hasPassword: Boolean(password) })

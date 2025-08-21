@@ -6,7 +6,21 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      // 推荐使用 `vercel dev` 本地模拟 Vercel Functions；若未使用，可暂不代理
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        configure: (proxy, options) => {
+          proxy.on('error', (err, req, res) => {
+            console.log('proxy error', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            console.log('Sending Request to the Target:', req.method, req.url);
+          });
+          proxy.on('proxyRes', (proxyRes, req, res) => {
+            console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+          });
+        },
+      }
     },
   },
 })
