@@ -23,7 +23,24 @@ export default async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify({ detail: 'Method Not Allowed' }), { status: 405, headers: { 'Content-Type': 'application/json' } })
     }
 
-    const body = await req.json().catch(() => null)
+    // 兼容 Node.js 运行时没有 req.json 的情况
+    let body: any = null
+    try {
+      const anyReq: any = req as any
+      if (typeof anyReq.json === 'function') {
+        body = await anyReq.json()
+      } else if (typeof anyReq.text === 'function') {
+        const txt = await anyReq.text()
+        try { body = JSON.parse(txt) } catch { body = null }
+      } else {
+        // @ts-ignore
+        const cloned = new Response((req as any).body)
+        try { body = await cloned.json() } catch { body = null }
+      }
+    } catch {
+      body = null
+    }
+
     const account = body?.account || body?.username
     const password = body?.password
 
