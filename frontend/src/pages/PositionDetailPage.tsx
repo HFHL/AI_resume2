@@ -139,7 +139,13 @@ export default function PositionDetail() {
         <div className="bar">
           <Link to="/" className="ghost">← 返回</Link>
           <div style={{ flex: 1 }} />
-          <button className="primary" onClick={save} disabled={saving}>{saving ? '保存中...' : '保存'}</button>
+          {(() => {
+            let u: any = null
+            try { u = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+            const isAdmin = Boolean(u?.is_admin)
+            if (!isAdmin) return null
+            return <button className="primary" onClick={save} disabled={saving}>{saving ? '保存中...' : '保存'}</button>
+          })()}
           {(() => {
             let user: any = null
             try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
@@ -168,12 +174,12 @@ export default function PositionDetail() {
         <div className="form">
           <label>
             <span>职位名称</span>
-            <input value={position.position_name} onChange={e => setPosition({ ...position, position_name: e.target.value })} />
+            <input value={position.position_name} onChange={e => setPosition({ ...position, position_name: e.target.value })} readOnly={!JSON.parse(localStorage.getItem('auth_user') || 'null')?.is_admin} />
           </label>
 
           <label>
             <span>职位描述</span>
-            <textarea value={position.position_description ?? ''} onChange={e => setPosition({ ...position, position_description: e.target.value })} rows={4} />
+            <textarea value={position.position_description ?? ''} onChange={e => setPosition({ ...position, position_description: e.target.value })} rows={4} readOnly={!JSON.parse(localStorage.getItem('auth_user') || 'null')?.is_admin} />
           </label>
 
           <div className="row">
