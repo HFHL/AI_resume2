@@ -5,17 +5,23 @@ import { createClient } from '@supabase/supabase-js'
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
 
-  const body = (await req.json().catch(() => null)) as { file_name?: string; content_type?: string } | null
+  let body: { file_name?: string; content_type?: string } | null = null
+  try {
+    const t = await req.text()
+    body = t ? JSON.parse(t) : null
+  } catch {
+    body = null
+  }
   if (!body || !body.file_name) {
     return new Response(JSON.stringify({ detail: 'file_name required' }), { status: 400 })
   }
 
   const supabaseUrl = process.env.SUPABASE_URL
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY
   const bucket = process.env.SUPABASE_STORAGE_BUCKET
   if (!supabaseUrl || !serviceRoleKey || !bucket) {
     return new Response(
-      JSON.stringify({ detail: 'Missing env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SUPABASE_STORAGE_BUCKET' }),
+      JSON.stringify({ detail: 'Missing env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY(or SUPABASE_KEY), SUPABASE_STORAGE_BUCKET' }),
       { status: 400 }
     )
   }
