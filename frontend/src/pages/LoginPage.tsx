@@ -19,7 +19,19 @@ export default function LoginPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username, password }),
         })
-        const data = await res.json().catch(() => ({}))
+        // 优先按 JSON 解析；失败时尝试读取纯文本，便于定位 500 的详细错误
+        let data: any = {}
+        try {
+          data = await res.json()
+        } catch (_) {
+          try {
+            const txt = await res.text()
+            console.log('[LoginPage] non-json error body:', txt)
+            data = { detail: txt }
+          } catch {
+            data = {}
+          }
+        }
         console.log('[LoginPage] response', { status: res.status, data })
         if (data?.user) {
           console.log('[LoginPage] fetched user row', data.user)
