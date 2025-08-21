@@ -3,9 +3,17 @@ import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
-  const body = (await req.json().catch(() => null)) as { file_name?: string; path?: string; uploaded_by?: string } | null
-  if (!body || !body.file_name || !body.path || !body.uploaded_by) {
-    return new Response(JSON.stringify({ detail: 'file_name, path, uploaded_by required' }), { status: 400 })
+  // 兼容某些 Node 运行时 req.json 异常：用 text 再 parse
+  let body: { file_name?: string; path?: string; object_key?: string; uploaded_by?: string } | null = null
+  try {
+    const t = await req.text()
+    body = t ? JSON.parse(t) : null
+  } catch {
+    body = null
+  }
+  const objectKey = body?.object_key || body?.path
+  if (!body || !body.file_name || !objectKey || !body.uploaded_by) {
+    return new Response(JSON.stringify({ detail: 'file_name, object_key/path, uploaded_by required' }), { status: 400 })
   }
 
   const supabaseUrl = process.env.SUPABASE_URL as string | undefined
@@ -18,7 +26,7 @@ export default async function handler(req: Request): Promise<Response> {
   const supabase = createClient(supabaseUrl, serviceRoleKey)
 
   // 若桶为 public，生成长期可用的 publicUrl；否则可只存 path
-  const { data: pub } = supabase.storage.from(bucket).getPublicUrl(body.path)
+  const { data: pub } = supabase.storage.from(bucket).getPublicUrl(objectKey)
   const publicUrl = pub?.publicUrl
   if (!publicUrl) {
     return new Response(
@@ -32,7 +40,6 @@ export default async function handler(req: Request): Promise<Response> {
     uploaded_by: body.uploaded_by,
     file_path: publicUrl,
     status: '已上传',
-    parse_status: 'pending',
   }
   const { data, error } = await supabase.from('resume_files').insert(row).select('*').limit(1)
   if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 500 })
