@@ -146,6 +146,8 @@ button{border:none}
   padding:6px 0;
   border-bottom:1px dotted var(--border);
 }
+.hl-company{color:#2563eb;font-weight:700}
+.hl-role{color:#d97706;font-weight:700}
 .experience-item:last-child{border-bottom:none}
 .more-indicator{font-size:13px;color:var(--muted);font-style:italic;margin-top:6px}
 .no-data{color:var(--muted);font-size:14px;font-style:italic}

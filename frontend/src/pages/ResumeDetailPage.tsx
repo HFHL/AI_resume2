@@ -144,7 +144,27 @@ export default function ResumeDetailPage() {
                 <div className="detail-content list-text">
                   {(item.work_experience || []).length ? (
                     <ul>
-                      {(item.work_experience || []).map((t, i) => <li key={i}>{t}</li>)}
+                      {(item.work_experience || []).map((t, i) => {
+                        const s = String(t || '')
+                        // 简单高亮：匹配“公司/单位名 + 职位/岗位 + 其他”这样的开头格式
+                        // 示例：2024.3-至今 ChainVerse Labs 后端开发工程师
+                        const m = s.match(/^(.*?)([\u4e00-\u9fa5A-Za-z0-9_.\- ]{2,})(?:\s+)([\u4e00-\u9fa5A-Za-z0-9_\-]{2,})/) // 粗略匹配
+                        if (m && m[2] && m[3]) {
+                          const prefix = s.slice(0, m.index! + (m[1] ? m[1].length : 0))
+                          const company = m[2]
+                          const role = m[3]
+                          const rest = s.slice((m.index || 0) + (m[0] ? m[0].length : 0))
+                          return (
+                            <li key={i}>
+                              {prefix}
+                              <span className="hl-company">{company}</span>{' '}
+                              <span className="hl-role">{role}</span>
+                              {rest}
+                            </li>
+                          )
+                        }
+                        return <li key={i}>{s}</li>
+                      })}
                     </ul>
                   ) : <span className="muted">无</span>}
                 </div>
