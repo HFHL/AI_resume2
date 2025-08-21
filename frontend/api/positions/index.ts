@@ -37,13 +37,14 @@ export default async function handler(req: Request): Promise<Response> {
 
   if (req.method === 'POST') {
     // 无鉴权，允许创建
-    const body = await req.json().catch(() => null)
+    let body: any = null
+    try { const t = await req.text(); body = t ? JSON.parse(t) : null } catch { body = null }
     if (!body || !body.position_name) return new Response(JSON.stringify({ detail: 'position_name required' }), { status: 400 })
 
     const payload = {
-      position_name: body.position_name,
-      position_description: body.position_description ?? null,
-      position_category: body.position_category ?? null,
+      position_name: String(body.position_name || '').trim(),
+      position_description: String(body.position_description || '').trim(), // 表字段 NOT NULL
+      position_category: String(body.position_category || '').trim(),       // 表字段 NOT NULL
       required_keywords: Array.isArray(body.required_keywords) ? body.required_keywords : [],
       match_type: body.match_type === 'all' ? 'all' : 'any',
       tags: Array.isArray(body.tags) ? body.tags : [],

@@ -82,8 +82,8 @@ export default function PositionCreatePage() {
     try {
       const payload = {
         position_name: form.position_name.trim(),
-        position_description: form.position_description.trim() || null,
-        position_category: category,
+        position_description: form.position_description.trim(), // NOT NULL
+        position_category: category, // NOT NULL
         required_keywords: keywords.map(k => k.keyword),
         match_type: form.match_type as 'any' | 'all',
         tags: tags.map(t => t.tag_name),

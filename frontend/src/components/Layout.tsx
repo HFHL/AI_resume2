@@ -36,6 +36,9 @@ export default function Layout() {
               {t.label}
             </NavLink>
           ))}
+          {user?.is_admin && (
+            <NavLink to="/admin/users" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>用户管理</NavLink>
+          )}
         </nav>
         <div style={{ flex: 1 }} />
         <div className="bar" style={{ gap: 12 }}>
