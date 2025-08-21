@@ -11,7 +11,29 @@ export default function LoginPage() {
       alert('请输入用户名和密码')
       return
     }
-    alert('仅展示界面，功能未实现')
+    ;(async () => {
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+        })
+        const data = await res.json().catch(() => ({}))
+        if (!res.ok) {
+          alert(data?.detail || '登录失败')
+          return
+        }
+        if (data?.success) {
+          alert('登录成功')
+          // 简单处理：登录成功后返回首页
+          window.location.href = '/'
+        } else {
+          alert(data?.detail || '密码不正确')
+        }
+      } catch (err: any) {
+        alert(err?.message || '网络错误')
+      }
+    })()
   }
 
   return (
