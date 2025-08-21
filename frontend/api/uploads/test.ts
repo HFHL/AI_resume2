@@ -1,10 +1,11 @@
-export const config = { runtime: 'nodejs' }
+export const config = { runtime: 'nodejs', maxDuration: 30 }
 import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 })
 
   try {
+    console.log('[uploads/test] incoming', { method: req.method, ct: req.headers.get('content-type') })
     const form = await req.formData()
     const file = form.get('file') as File | null
     const fileName = (form.get('file_name') as string | null) || (file?.name ?? null)
@@ -12,6 +13,7 @@ export default async function handler(req: Request): Promise<Response> {
     if (!file || !fileName) {
       return new Response(JSON.stringify({ detail: 'file 和 file_name 必填' }), { status: 400 })
     }
+    console.log('[uploads/test] parsed form', { fileName, size: (file as any)?.size || 0, uploadedBy })
 
     const supabaseUrl = process.env.SUPABASE_URL
     const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY
@@ -43,12 +45,15 @@ export default async function handler(req: Request): Promise<Response> {
 
     const contentType = (file as any).type || 'application/octet-stream'
 
-    const { error: upErr } = await supabase.storage
-      .from(bucket)
-      .upload(path, file, { contentType, upsert: false })
+    // 为防止长时间阻塞，增加 25 秒超时
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 25000)
+    const uploadPromise = supabase.storage.from(bucket).upload(path, file, { contentType, upsert: false })
+    const { error: upErr } = await uploadPromise.finally(() => clearTimeout(timeout))
     if (upErr) {
       return new Response(JSON.stringify({ detail: `存储上传失败: ${upErr.message}` }), { status: 500 })
     }
+    console.log('[uploads/test] storage uploaded', { path })
 
     const { data: pub } = supabase.storage.from(bucket).getPublicUrl(path)
     const publicUrl = pub?.publicUrl
@@ -69,6 +74,7 @@ export default async function handler(req: Request): Promise<Response> {
     if (dbErr) {
       return new Response(JSON.stringify({ detail: `数据库写入失败: ${dbErr.message}` }), { status: 500 })
     }
+    console.log('[uploads/test] db inserted', { fileName })
 
     return new Response(JSON.stringify({ ok: true, public_url: publicUrl, path }), {
       headers: { 'Content-Type': 'application/json' },

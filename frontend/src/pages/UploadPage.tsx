@@ -57,10 +57,13 @@ export default function UploadPage() {
         
         console.log('发送请求到:', api('/uploads/test'))
         
+        const controller = new AbortController()
+        const t = setTimeout(() => controller.abort(), 30000)
         const uploadRes = await fetch(api('/uploads/test'), {
           method: 'POST',
-          body: formData
-        })
+          body: formData,
+          signal: controller.signal,
+        }).finally(() => clearTimeout(t))
         
         console.log('响应状态:', uploadRes.status)
         
