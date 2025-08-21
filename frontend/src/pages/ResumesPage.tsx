@@ -450,10 +450,25 @@ export default function ResumesPage() {
                   {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
                     <div className="experience-list">
                       {item.work_experience.slice(0, 3).map((exp, i) => {
-                        const s = (exp || '').trim()
-                        const short = s.length > 80 ? s.slice(0, 80) + '…' : s
+                        const raw = (exp || '').trim()
+                        const s = raw.length > 80 ? raw.slice(0, 80) + '…' : raw
+                        const m = s.match(/^(.*?)([\u4e00-\u9fa5A-Za-z0-9_.\- ]{2,})(?:\s+)([\u4e00-\u9fa5A-Za-z0-9_\-]{2,})/)
+                        if (m && m[2] && m[3]) {
+                          const prefix = s.slice(0, m.index! + (m[1] ? m[1].length : 0))
+                          const company = m[2]
+                          const role = m[3]
+                          const rest = s.slice((m.index || 0) + (m[0] ? m[0].length : 0))
+                          return (
+                            <div key={i} className="experience-item">
+                              {prefix}
+                              <span className="hl-company">{company}</span>{' '}
+                              <span className="hl-role">{role}</span>
+                              {rest}
+                            </div>
+                          )
+                        }
                         return (
-                          <div key={i} className="experience-item">{short || '-'}</div>
+                          <div key={i} className="experience-item">{s || '-'}</div>
                         )
                       })}
                       {item.work_experience.length > 3 && (
