@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import Chip from '../components/Chip'
 import { api } from '../api'
+import { getSupabase } from '../supabase'
 
 export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([])
@@ -39,6 +40,12 @@ export default function UploadPage() {
     
     try {
       let done = 0
+      const sb = getSupabase()
+      if (!sb) {
+        alert('未配置前端 Supabase（VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY）')
+        return
+      }
+
       for (const f of files) {
         console.log('开始上传文件:', f.name, '大小:', f.size)
         
@@ -57,44 +64,35 @@ export default function UploadPage() {
         
         console.log('发送请求到:', api('/uploads/test'))
         
-        // 1) 申请签名上传 URL
-        const presignRes = await fetch(api('/uploads/presign'), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ file_name: f.name, content_type: (f as any).type || 'application/octet-stream' }),
-        })
-        if (!presignRes.ok) {
-          const txt = await presignRes.text().catch(() => '')
-          throw new Error(txt || '获取上传地址失败')
-        }
-        const { signed_url, path, public_url } = await presignRes.json()
-        if (!signed_url || !path) throw new Error('获取上传地址失败：响应不完整')
+        // 1) 前端直传到 Supabase Storage（anon key）
+        const bucket = (import.meta as any).env?.VITE_SUPABASE_STORAGE_BUCKET as string | undefined
+        if (!bucket) throw new Error('缺少 VITE_SUPABASE_STORAGE_BUCKET')
+        const ts = Date.now()
+        const rand = Math.random().toString(36).slice(2, 8)
+        const safe = f.name.replace(/[\\/]/g, '_')
+        const objectPath = `resumes/original/${ts}_${rand}_${safe}`
+        const { error: upErr } = await sb.storage.from(bucket).upload(objectPath, f, { upsert: false, contentType: (f as any).type || 'application/octet-stream' })
+        if (upErr) throw new Error(upErr.message)
 
-        // 2) 直传 Storage（PUT）
-        const putRes = await fetch(signed_url, {
-          method: 'PUT',
-          headers: { 'Content-Type': (f as any).type || 'application/octet-stream' },
-          body: f,
-        })
-        if (!putRes.ok) {
-          const txt = await putRes.text().catch(() => '')
-          throw new Error(txt || '直传失败')
-        }
+        // 2) 生成 publicUrl
+        const { data: pub } = sb.storage.from(bucket).getPublicUrl(objectPath)
+        const publicUrl = pub?.publicUrl
+        if (!publicUrl) throw new Error('生成 publicUrl 失败，请确认桶为 public')
 
-        // 3) 回调完成，记录数据库 resume_files
+        // 3) 回调完成，记录数据库 resume_files（依然走服务端，写入 uploaded_by）
         const u = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
         const who = (u?.full_name || u?.account || 'web') as string
         const completeRes = await fetch(api('/uploads/complete'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ file_name: f.name, object_key: path, uploaded_by: who, path }),
+          body: JSON.stringify({ file_name: f.name, object_key: objectPath, uploaded_by: who, path: objectPath }),
         })
         if (!completeRes.ok) {
           const txt = await completeRes.text().catch(() => '')
           throw new Error(txt || '回调失败')
         }
         const c = await completeRes.json()
-        const finalUrl = public_url || c?.item?.file_path
+        const finalUrl = publicUrl || c?.item?.file_path
         if (finalUrl) uploadedUrls.push(finalUrl)
 
         done += 1
