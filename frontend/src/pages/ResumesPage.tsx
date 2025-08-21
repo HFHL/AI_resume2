@@ -464,20 +464,35 @@ export default function ResumesPage() {
                       {item.work_experience.slice(0, 3).map((exp, i) => {
                         const raw = (exp || '').trim()
                         const s = raw.length > 80 ? raw.slice(0, 80) + '…' : raw
-                        const m = s.match(/^(.*?)([\u4e00-\u9fa5A-Za-z0-9_.\- ]{2,})(?:\s+)([\u4e00-\u9fa5A-Za-z0-9_\-]{2,})/)
-                        if (m && m[2] && m[3]) {
-                          const prefix = s.slice(0, m.index! + (m[1] ? m[1].length : 0))
-                          const company = m[2]
-                          const role = m[3]
-                          const rest = s.slice((m.index || 0) + (m[0] ? m[0].length : 0))
-                          return (
-                            <div key={i} className="experience-item">
-                              {prefix}
-                              <span className="hl-company">{company}</span>{' '}
-                              <span className="hl-role">{role}</span>
-                              {rest}
-                            </div>
-                          )
+                        const jobKeywords = ['工程师','经理','开发','产品','运营','测试','设计','前端','后端','全栈','算法','数据','销售','市场','人力','HR','专家','负责人','总监','主管','实习','分析师','科学家','架构师','运维','支持','客服','BD','商务','财务','法务','审计']
+                        const dateRe = /^\s*(\d{4}(?:[./年]\s*\d{1,2})?(?:\s*[—\-–~至到]+\s*(?:至今|现在|\d{4}(?:[./年]\s*\d{1,2})?))?)/
+                        const dm = s.match(dateRe)
+                        const datePrefix = dm ? dm[0] : ''
+                        const rest0 = s.slice(datePrefix.length).trim()
+                        if (rest0) {
+                          let splitPos = -1
+                          for (const kw of jobKeywords) {
+                            const idx = rest0.indexOf(kw)
+                            if (idx > 0 && (splitPos === -1 || idx < splitPos)) splitPos = idx
+                          }
+                          let company = ''
+                          let role = ''
+                          let tail = ''
+                          if (splitPos > 0) {
+                            company = rest0.slice(0, splitPos).trim()
+                            const roleAll = rest0.slice(splitPos).trim()
+                            const m2 = roleAll.match(/^(\S.+?)([，,。;；].+)?$/)
+                            role = m2 ? m2[1] : roleAll
+                            tail = m2 && m2[2] ? m2[2] : ''
+                            return (
+                              <div key={i} className="experience-item">
+                                {datePrefix}
+                                {company && <><span className="hl-company">{company}</span>{' '}</>}
+                                {role && <span className="hl-role">{role}</span>}
+                                {tail}
+                              </div>
+                            )
+                          }
                         }
                         return (
                           <div key={i} className="experience-item">{s || '-'}</div>
