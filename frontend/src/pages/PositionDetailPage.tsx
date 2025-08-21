@@ -129,6 +129,28 @@ export default function PositionDetail() {
           <Link to="/" className="ghost">← 返回</Link>
           <div style={{ flex: 1 }} />
           <button className="primary" onClick={save} disabled={saving}>{saving ? '保存中...' : '保存'}</button>
+          {(() => {
+            let user: any = null
+            try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+            const isAdmin = Boolean(user?.is_admin)
+            if (!isAdmin || !position) return null
+            return (
+              <button
+                className="danger"
+                onClick={async () => {
+                  if (!confirm('确定删除该职位吗？')) return
+                  const res = await fetch(api(`/positions/${position.id}`), { method: 'DELETE', headers: { 'x-admin': 'true' } })
+                  if (!res.ok) {
+                    const d = await res.json().catch(() => ({}))
+                    alert(d?.detail || '删除失败')
+                    return
+                  }
+                  alert('删除成功')
+                  window.location.href = '/positions'
+                }}
+              >删除职位</button>
+            )
+          })()}
         </div>
 
         <h2>职位详情</h2>

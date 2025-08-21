@@ -73,6 +73,30 @@ export default function ResumeDetailPage() {
       <div className="bar">
         <button className="ghost" onClick={() => navigate(-1)}>← 返回</button>
         <div style={{ flex: 1 }} />
+        {(() => {
+          let user: any = null
+          try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+          const isAdmin = Boolean(user?.is_admin)
+          if (!isAdmin || !item) return null
+          return (
+            <div className="bar" style={{ gap: 8 }}>
+              {item.file_url && (
+                <a className="ghost" href={item.file_url} download target="_blank" rel="noreferrer">下载简历</a>
+              )}
+              <button className="danger" onClick={async () => {
+                if (!confirm('确定删除这份简历吗？')) return
+                const res = await fetch(api(`/resumes/${item.id}`), { method: 'DELETE', headers: { 'x-admin': 'true' } })
+                if (!res.ok) {
+                  const d = await res.json().catch(() => ({}))
+                  alert(d?.detail || '删除失败')
+                  return
+                }
+                alert('删除成功')
+                navigate('/resumes')
+              }}>删除简历</button>
+            </div>
+          )
+        })()}
       </div>
       <h2>简历详情</h2>
 
