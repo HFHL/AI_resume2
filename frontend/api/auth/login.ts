@@ -5,16 +5,16 @@ export const config = { runtime: 'nodejs' }
 export default async function handler(req: Request): Promise<Response> {
   try {
     const SUPABASE_URL = process.env.SUPABASE_URL as string | undefined
-    const SUPABASE_KEY = process.env.SUPABASE_KEY as string | undefined
-    console.log('[auth/login] env check', { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_KEY) })
-    if (!SUPABASE_URL || !SUPABASE_KEY) {
-      return new Response(JSON.stringify({ detail: '缺少 SUPABASE_URL 或 SUPABASE_KEY 环境变量' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+    const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY as string | undefined
+    console.log('[auth/login] env check', { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_SERVICE_ROLE_KEY) })
+    if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
+      return new Response(JSON.stringify({ detail: '缺少 SUPABASE_URL 或 SUPABASE_SERVICE_ROLE_KEY 环境变量' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
     }
 
     // 允许 GET 作为调试：快速确认函数是否可运行以及环境变量是否存在
     if (req.method === 'GET') {
       return new Response(
-        JSON.stringify({ ok: true, env: { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_KEY) } }),
+        JSON.stringify({ ok: true, env: { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_SERVICE_ROLE_KEY) } }),
         { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } }
       )
     }
@@ -51,7 +51,7 @@ export default async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify({ detail: 'account/username 与 password 必填' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
     }
 
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+    const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
     try {
       // 直接从 app_users 查找并做明文字符串匹配
