@@ -55,5 +55,23 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
     return new Response(JSON.stringify({ ok: true, item }), { headers: { 'Content-Type': 'application/json' } })
   }
 
+  if (req.method === 'DELETE') {
+    // 简单管理员校验：依赖前端传入 x-admin: true（仅演示用途，不安全）
+    const isAdmin = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
+    if (!isAdmin) return new Response(JSON.stringify({ detail: '仅管理员可删除职位' }), { status: 403 })
+
+    const { data, error } = await supabase
+      .from('positions')
+      .delete()
+      .eq('id', id)
+      .select('*')
+      .limit(1)
+
+    if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
+    const deleted = (data || [])[0]
+    if (!deleted) return new Response(JSON.stringify({ detail: '职位不存在' }), { status: 404 })
+    return new Response(JSON.stringify({ ok: true, deleted }), { headers: { 'Content-Type': 'application/json' } })
+  }
+
   return new Response('Method Not Allowed', { status: 405 })
 }

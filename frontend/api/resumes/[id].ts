@@ -9,11 +9,28 @@ function parseURL(req: Request) {
 }
 
 export default async function handler(req: Request, ctx: any): Promise<Response> {
-  // 无鉴权，直接查询
+  // GET：无鉴权，直接查询
   const url = parseURL(req)
   const idStr = ctx?.params?.id || url.pathname.split('/').filter(Boolean).pop()
   const id = Number(idStr)
   if (!id) return new Response(JSON.stringify({ detail: 'resume id required' }), { status: 400 })
+
+  if (req.method === 'DELETE') {
+    const isAdmin = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
+    if (!isAdmin) return new Response(JSON.stringify({ detail: '仅管理员可删除简历' }), { status: 403 })
+
+    const { data, error } = await supabase
+      .from('resumes')
+      .delete()
+      .eq('id', id)
+      .select('*')
+      .limit(1)
+
+    if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
+    const deleted = (data || [])[0]
+    if (!deleted) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404 })
+    return new Response(JSON.stringify({ ok: true, deleted }), { headers: { 'Content-Type': 'application/json' } })
+  }
 
   const { data, error } = await supabase
     .from('resumes')
