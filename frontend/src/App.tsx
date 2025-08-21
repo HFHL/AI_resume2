@@ -9,6 +9,7 @@ import PositionDetailPage from './pages/PositionDetailPage'
 const ResumeDetailPage = lazy(() => import('./pages/ResumeDetailPage'))
 import MatchDetailPage from './pages/MatchResumeDetailPage'
 import MatchPage from './pages/MatchPage'
+import LoginPage from './pages/LoginPage'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/upload" replace />} />
         <Route path="upload" element={<UploadPage />} />
+        <Route path="login" element={<LoginPage />} />
         <Route path="resumes" element={<ResumesPage />} />
         <Route path="resumes/:id" element={<Suspense fallback={<div className="empty">加载中...</div>}><ResumeDetailPage /></Suspense>} />
         <Route path="positions" element={<PositionsListPage />} />

@@ -1,52 +1,17 @@
 import { useState } from 'react'
-import { api } from '../api'
 
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading] = useState(false)
 
-  async function onSubmit(e: React.FormEvent) {
+  function onSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!username || !password) { 
+    if (!username || !password) {
       alert('请输入用户名和密码')
-      return 
+      return
     }
-    
-    setLoading(true)
-    try {
-      const abort = new AbortController()
-      const clientTimeout = setTimeout(() => abort.abort(), 7000)
-      const response = await fetch(api('/auth/login'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-        signal: abort.signal,
-      })
-      clearTimeout(clientTimeout)
-      
-      const data = await response.json()
-      
-      if (!response.ok) {
-        throw new Error(data.detail || '登录失败')
-      }
-      
-      if (data.success) {
-        alert('登录成功')
-        window.location.href = '/'
-      } else {
-        throw new Error('登录失败')
-      }
-    } catch (e: any) {
-      if (e?.name === 'AbortError') {
-        alert('请求超时，请稍后再试')
-      } else {
-        alert(e?.message || '网络错误')
-      }
-      console.error('登录错误:', e)
-    } finally {
-      setLoading(false)
-    }
+    alert('仅展示界面，功能未实现')
   }
 
   return (

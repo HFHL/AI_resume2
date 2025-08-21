@@ -5,6 +5,7 @@ const tabs = [
   { id: 'resumes', label: '简历', path: '/resumes' },
   { id: 'positions', label: '职位', path: '/positions' },
   { id: 'match', label: '匹配', path: '/match' },
+  { id: 'login', label: '登录', path: '/login' },
 ] as const
 
 export default function Layout() {
