@@ -2,19 +2,25 @@ import { createClient } from '@supabase/supabase-js'
 
 export const config = { runtime: 'nodejs' }
 
-const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_KEY as string)
-
 export default async function handler(req: Request): Promise<Response> {
   try {
-    if (req.method !== 'POST') {
-      return new Response(JSON.stringify({ detail: 'Method Not Allowed' }), { status: 405, headers: { 'Content-Type': 'application/json' } })
-    }
-
     const SUPABASE_URL = process.env.SUPABASE_URL as string | undefined
     const SUPABASE_KEY = process.env.SUPABASE_KEY as string | undefined
     console.log('[auth/login] env check', { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_KEY) })
     if (!SUPABASE_URL || !SUPABASE_KEY) {
       return new Response(JSON.stringify({ detail: '缺少 SUPABASE_URL 或 SUPABASE_KEY 环境变量' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+    }
+
+    // 允许 GET 作为调试：快速确认函数是否可运行以及环境变量是否存在
+    if (req.method === 'GET') {
+      return new Response(
+        JSON.stringify({ ok: true, env: { hasUrl: Boolean(SUPABASE_URL), hasKey: Boolean(SUPABASE_KEY) } }),
+        { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } }
+      )
+    }
+
+    if (req.method !== 'POST') {
+      return new Response(JSON.stringify({ detail: 'Method Not Allowed' }), { status: 405, headers: { 'Content-Type': 'application/json' } })
     }
 
     const body = await req.json().catch(() => null)
