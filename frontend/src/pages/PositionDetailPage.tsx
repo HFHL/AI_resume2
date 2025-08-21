@@ -33,8 +33,19 @@ export default function PositionDetail() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(api(`/positions/${id}`))
-      .then(r => r.json())
+    const url = api(`/positions/${id}`)
+    console.log('[PositionDetailPage] fetch detail', url)
+    const controller = new AbortController()
+    const t = setTimeout(() => controller.abort(), 10000)
+    fetch(url, { signal: controller.signal })
+      .then(async r => {
+        clearTimeout(t)
+        if (!r.ok) {
+          const detail = await r.text().catch(() => '')
+          throw new Error(detail || '加载失败')
+        }
+        return r.json()
+      })
       .then(d => {
         const p: Position = d.item
         setPosition(p)

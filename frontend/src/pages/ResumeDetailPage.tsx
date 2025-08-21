@@ -39,9 +39,17 @@ export default function ResumeDetailPage() {
   useEffect(() => {
     if (!id) return
     setLoading(true)
-    fetch(api(`/resumes/${id}`))
-      .then(r => {
-        if (!r.ok) throw new Error('加载失败')
+    const url = api(`/resumes/${id}`)
+    console.log('[ResumeDetailPage] fetch detail', url)
+    const controller = new AbortController()
+    const t = setTimeout(() => controller.abort(), 10000)
+    fetch(url, { signal: controller.signal })
+      .then(async r => {
+        clearTimeout(t)
+        if (!r.ok) {
+          const detail = await r.text().catch(() => '')
+          throw new Error(detail || '加载失败')
+        }
         return r.json()
       })
       .then(d => setItem(d.item))
