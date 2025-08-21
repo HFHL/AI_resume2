@@ -146,6 +146,9 @@ button{border:none}
   padding:6px 0;
   border-bottom:1px dotted var(--border);
 }
+.resume-detail .experience-list{gap:10px}
+.resume-detail .experience-item{padding:10px 0;line-height:1.6;border-bottom:1px solid var(--border)}
+.resume-detail .experience-item:last-child{border-bottom:none}
 .hl-company{color:#2563eb;font-weight:700}
 .hl-role{color:#d97706;font-weight:700}
 .experience-item:last-child{border-bottom:none}
