@@ -39,6 +39,7 @@ export default function LoginPage() {
           return
         }
         if (data?.success) {
+          try { localStorage.setItem('auth_user', JSON.stringify(data.user)) } catch {}
           alert('登录成功')
           // 简单处理：登录成功后返回首页
           window.location.href = '/'

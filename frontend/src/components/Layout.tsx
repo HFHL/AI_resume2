@@ -9,6 +9,15 @@ const tabs = [
 ] as const
 
 export default function Layout() {
+  const user = (() => {
+    try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null }
+  })()
+
+  function logout() {
+    try { localStorage.removeItem('auth_user') } catch {}
+    window.location.href = '/login'
+  }
+
   return (
     <div className="page">
       <header className="header">
@@ -25,6 +34,14 @@ export default function Layout() {
           ))}
         </nav>
         <div style={{ flex: 1 }} />
+        {user ? (
+          <div className="bar" style={{ gap: 12 }}>
+            <span>您好，{user.full_name || user.account}</span>
+            <button onClick={logout}>退出</button>
+          </div>
+        ) : (
+          <NavLink to="/login" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>登录</NavLink>
+        )}
       </header>
 
       <main className="main">
