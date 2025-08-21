@@ -261,9 +261,17 @@ export default function ResumeDetailPage() {
             {item.file_url ? (
               <>
                 <iframe className="pdf-frame" src={item.file_url} />
-                <div className="bar end" style={{ marginTop: 8 }}>
-                  <a className="ghost" href={item.file_url} target="_blank" rel="noreferrer">在新标签打开</a>
-                </div>
+                {(() => {
+                  let user: any = null
+                  try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+                  const isAdmin = Boolean(user?.is_admin)
+                  if (!isAdmin) return null
+                  return (
+                    <div className="bar end" style={{ marginTop: 8 }}>
+                      <a className="ghost" href={item.file_url} target="_blank" rel="noreferrer">在新标签打开</a>
+                    </div>
+                  )
+                })()}
               </>
             ) : (
               <div className="empty">未找到源文件链接</div>
