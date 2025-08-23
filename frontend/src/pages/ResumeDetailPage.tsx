@@ -122,7 +122,6 @@ export default function ResumeDetailPage() {
     <section className="panel">
       <div className="bar">
         <div style={{ flex: 1 }} />
-        <button className="ghost" onClick={() => setIsEditing(true)} disabled={isEditing}>编辑</button>
         {(() => {
           let user: any = null
           try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
@@ -130,9 +129,6 @@ export default function ResumeDetailPage() {
           if (!isAdmin || !item) return null
           return (
             <div className="bar" style={{ gap: 8 }}>
-              {item.file_url && (
-                <a className="ghost" href={item.file_url} download target="_blank" rel="noreferrer">下载简历</a>
-              )}
               <button className="danger" onClick={async () => {
                 if (!confirm('确定删除这份简历吗？')) return
                 const res = await fetch(api(`/resumes/${item.id}`), { method: 'DELETE', headers: { 'x-admin': 'true' } })
@@ -157,7 +153,10 @@ export default function ResumeDetailPage() {
           <div className="resume-detail">
             <div className="detail-grid">
               <div className="detail-card">
-                <div className="detail-title">基础信息</div>
+                <div className="detail-title" style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+                  <span>基础信息</span>
+                  <button className="ghost" onClick={() => setIsEditing(true)} disabled={isEditing}>编辑</button>
+                </div>
                 <div className="detail-row"><span>姓名</span>
                   <span>
                     {isEditing ? (
