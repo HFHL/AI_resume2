@@ -32,6 +32,9 @@ export default function ResumeDetailPage() {
   const [item, setItem] = useState<ResumeDetail | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [saving, setSaving] = useState(false)
+  const [editName, setEditName] = useState('')
+  const [editContact, setEditContact] = useState('')
   const [matchedPositions, setMatchedPositions] = useState<Array<{ id:number; position_name:string; position_category:string|null; tags:string[]; matched_keywords:string[]; hit_count:number; score:number }>>([])
   const [loadingMatches, setLoadingMatches] = useState(false)
   const [uploading, setUploading] = useState(false)
@@ -53,10 +56,39 @@ export default function ResumeDetailPage() {
         }
         return r.json()
       })
-      .then(d => setItem(d.item))
+      .then(d => {
+        setItem(d.item)
+        const it = d.item as ResumeDetail
+        setEditName(String(it?.name || ''))
+        setEditContact(String(it?.contact_info || ''))
+      })
       .catch(e => setError(e.message || '加载失败'))
       .finally(() => setLoading(false))
   }, [id])
+  async function saveBasics() {
+    if (!id) return
+    if (!item) return
+    try {
+      setSaving(true)
+      const payload: any = { name: editName, contact_info: editContact }
+      const r = await fetch(api(`/resumes/${id}`), {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!r.ok) {
+        const text = await r.text().catch(() => '')
+        throw new Error(text || '保存失败')
+      }
+      const d = await r.json()
+      setItem(d.item)
+      alert('已保存')
+    } catch (e: any) {
+      alert(e?.message || '保存失败')
+    } finally {
+      setSaving(false)
+    }
+  }
 
   useEffect(() => {
     if (!id) return
@@ -117,8 +149,16 @@ export default function ResumeDetailPage() {
             <div className="detail-grid">
               <div className="detail-card">
                 <div className="detail-title">基础信息</div>
-                <div className="detail-row"><span>姓名</span><span>{item.name || '未知'}</span></div>
-                <div className="detail-row"><span>联系方式</span><span>{item.contact_info || '-'}</span></div>
+                <div className="detail-row"><span>姓名</span>
+                  <span>
+                    <input value={editName} onChange={e => setEditName(e.target.value)} placeholder="请输入姓名" />
+                  </span>
+                </div>
+                <div className="detail-row"><span>联系方式</span>
+                  <span>
+                    <input value={editContact} onChange={e => setEditContact(e.target.value)} placeholder="手机/电话/邮箱可写在这里" />
+                  </span>
+                </div>
                 <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>
                 <div className="detail-row"><span>毕业年份</span><span>{item.education_graduation_year ?? '-'}</span></div>
                 <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
@@ -126,6 +166,9 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
                 <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
                 <div className="detail-row"><span>上传者</span><span>{item.uploaded_by || '-'}</span></div>
+                <div className="bar end" style={{ marginTop: 8 }}>
+                  <button className="primary" disabled={saving} onClick={saveBasics}>{saving ? '保存中...' : '保存'}</button>
+                </div>
               </div>
 
               <div className="detail-card">

@@ -47,6 +47,61 @@ export default async function handler(req: Request): Promise<Response> {
 			return new Response(JSON.stringify({ ok: true, deleted }), { headers: { 'Content-Type': 'application/json' } })
 		}
 
+		if (req.method === 'PATCH' || req.method === 'PUT') {
+			let payload: any = null
+			try { payload = await req.json() } catch { payload = null }
+			if (!payload || typeof payload !== 'object') {
+				return new Response(JSON.stringify({ detail: 'Invalid JSON body' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+			}
+			const update: Record<string, any> = {}
+			if (typeof payload.name === 'string') update.name = payload.name
+			if (typeof payload.contact_info === 'string') update.contact_info = payload.contact_info
+			if (Object.keys(update).length === 0) {
+				return new Response(JSON.stringify({ detail: 'No updatable fields' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+			}
+			const base = SUPABASE_URL!.replace(/\/$/, '')
+			const updUrl = `${base}/rest/v1/resumes?id=eq.${id}`
+			const updResp = await fetch(updUrl, {
+				method: 'PATCH',
+				headers: {
+					'apikey': EFFECTIVE_KEY!,
+					'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+					'Content-Type': 'application/json',
+					'Prefer': 'return=representation',
+					'Accept': 'application/json',
+				},
+				body: JSON.stringify(update),
+			})
+			if (!updResp.ok) {
+				const text = await updResp.text().catch(() => '')
+				return new Response(JSON.stringify({ detail: text || `更新失败 ${updResp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+			}
+			const rows = await updResp.json().catch(() => []) as any[]
+			const updated = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
+			if (!updated) return new Response(JSON.stringify({ detail: '未返回更新结果' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+
+			// 若有文件 ID，则补充文件信息（与 GET 对齐）
+			if (updated.resume_file_id) {
+				const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by&id=eq.${encodeURIComponent(String(updated.resume_file_id))}&limit=1`
+				const fResp = await fetch(fileUrl, {
+					method: 'GET',
+					headers: {
+						'apikey': EFFECTIVE_KEY!,
+						'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+						'Accept': 'application/json',
+					},
+				})
+				if (fResp.ok) {
+					const fRows = await fResp.json().catch(() => []) as any[]
+					const f = Array.isArray(fRows) && fRows.length > 0 ? fRows[0] : null
+					if (f && f.file_path) (updated as any).file_url = f.file_path
+					if (f && typeof f.uploaded_by !== 'undefined') (updated as any).uploaded_by = f.uploaded_by || null
+				}
+			}
+
+			return new Response(JSON.stringify({ item: updated }), { headers: { 'Content-Type': 'application/json' } })
+		}
+
 		// GET 详情
 		const controller = new AbortController()
 		const timeout = setTimeout(() => controller.abort(), 9000)
