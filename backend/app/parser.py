@@ -687,7 +687,7 @@ def classify_category_and_tags(text: str) -> tuple[Optional[str], Optional[list[
             "示例1 文本: '5年Java后端开发，微服务，K8s与Docker' -> {\"category\": \"技术类\"}\n"
             "示例2 文本: '内容策划与品牌运营，活动组织' -> {\"category\": \"非技术类\"}\n"
         )
-        cat_content = cat_llm.extract(cat_prompt, text[:10000], max_tokens=20)
+        cat_content = cat_llm.extract(cat_prompt, text)
         if cat_content:
             try:
                 cat_obj = json.loads(cat_content.strip().strip('`'))
@@ -718,7 +718,7 @@ def classify_category_and_tags(text: str) -> tuple[Optional[str], Optional[list[
             "输入: '内容策划、品牌运营，新媒体运营'（已直接命中: 无）\n"
             "输出: {\"tags\": [\"内容运营\", \"品牌运营\"]}\n"
         )
-        tag_content = tag_llm.extract(tag_prompt, text[:20000], max_tokens=400)
+        tag_content = tag_llm.extract(tag_prompt, text)
         add_data = None
         if tag_content:
             try:
