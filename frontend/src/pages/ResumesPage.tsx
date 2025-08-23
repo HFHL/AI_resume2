@@ -16,6 +16,7 @@ type ResumeItem = {
   work_experience?: string[]
   uploaded_by?: string | null
   work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
+  project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
 }
 
 type Tag = {
@@ -110,6 +111,7 @@ export default function ResumesPage() {
           const tagNames = (externalTags.length ? externalTags : fallbackTags).map(s => s.trim()).filter(Boolean)
           
           const wxs = (r as any).work_experience_struct as Array<any> | undefined
+          const pxs = (r as any).project_experience_struct as Array<any> | undefined
           return {
             id: r.id,
             name: r.name || '未知',
@@ -123,6 +125,7 @@ export default function ResumesPage() {
             work_experience: (r as any).work_experience || [],
             uploaded_by: (r as any).uploaded_by ?? null,
             work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
+            project_experience_struct: Array.isArray(pxs) ? pxs : undefined,
           }
         })
         
@@ -197,7 +200,7 @@ export default function ResumesPage() {
   }
 
   function mapRows(
-    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null }>,
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null; project_experience_struct?: any[] | null }>,
     tagMap?: Map<number, string[]>,
     allTagsArr?: Tag[],
   ): ResumeItem[] {
@@ -223,6 +226,7 @@ export default function ResumesPage() {
       const tagNames = externalTags.length ? externalTags : fallbackTags
 
       const wxs = (r as any).work_experience_struct as Array<any> | undefined
+      const pxs = (r as any).project_experience_struct as Array<any> | undefined
       return {
         id: r.id,
         name: r.name || '未知',
@@ -236,6 +240,7 @@ export default function ResumesPage() {
         work_experience: (r.work_experience || []) as string[],
         uploaded_by: (r as any).uploaded_by ?? null,
         work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
+        project_experience_struct: Array.isArray(pxs) ? pxs : undefined,
       }
     })
   }
@@ -468,9 +473,13 @@ export default function ResumesPage() {
               <div className="card-center">
                 <div className="work-experience">
                   <div className="section-title">工作经历</div>
-                  {Array.isArray(item.work_experience_struct) && item.work_experience_struct.length > 0 ? (
+                  {(() => {
+                    const wx = Array.isArray(item.work_experience_struct) ? item.work_experience_struct : []
+                    const px = Array.isArray(item.project_experience_struct) ? item.project_experience_struct : []
+                    const merged = [...wx, ...px].filter(Boolean)
+                    return merged.length > 0 ? (
                     <div className="experience-list">
-                      {item.work_experience_struct.slice(0, 3).map((wx, i) => {
+                      {merged.slice(0, 3).map((wx, i) => {
                         const start = (wx as any)?.start || ''
                         const end = (wx as any)?.end || ''
                         const time = start ? `${start} - ${end || '至今'}` : ''
@@ -484,13 +493,14 @@ export default function ResumesPage() {
                           </div>
                         )
                       })}
-                      {item.work_experience_struct.length > 3 && (
-                        <div className="more-indicator">还有 {item.work_experience_struct.length - 3} 条经历...</div>
+                      {merged.length > 3 && (
+                        <div className="more-indicator">还有 {merged.length - 3} 条经历...</div>
                       )}
                     </div>
-                  ) : (
-                    <div className="no-data">暂无工作经历</div>
-                  )}
+                    ) : (
+                      <div className="no-data">暂无工作经历</div>
+                    )
+                  })()}
                 </div>
               </div>
               
