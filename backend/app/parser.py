@@ -1083,6 +1083,32 @@ def extract_experience_via_llm(entries: List[str]) -> Optional[List[Dict[str, An
             "details": details or None,
             "duration_months": None,
         })
+    # 规范化 *_en 字段：确保仅在确为英文且不同于中文时保留，避免重复
+    for it in cleaned:
+        te = it.get("title_en") or ""
+        tc = it.get("title") or ""
+        if te and (not _is_mostly_english(te) or te.strip() == tc.strip()):
+            it["title_en"] = None
+        de = it.get("description_en") or ""
+        dc = it.get("description") or ""
+        if de and (not _is_mostly_english(de) or de.strip() == dc.strip()):
+            it["description_en"] = None
+        # 过滤 details_en 中非英文或与中文重复的条目
+        den = it.get("details_en")
+        if isinstance(den, list):
+            new_den = []
+            for s in den:
+                try:
+                    s1 = str(s)
+                except Exception:
+                    continue
+                if _is_mostly_english(s1):
+                    new_den.append(s1)
+            it["details_en"] = new_den or None
+        # 若 details_en 与 details 完全相同则去除
+        if isinstance(it.get("details_en"), list) and isinstance(it.get("details"), list):
+            if [str(x).strip() for x in it["details_en"]] == [str(x).strip() for x in it["details"]]:
+                it["details_en"] = None
     # 可选：计算时长
     for it in cleaned:
         try:
