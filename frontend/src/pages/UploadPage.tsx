@@ -46,6 +46,21 @@ export default function UploadPage() {
         return
       }
 
+      function sanitizeObjectName(name: string): string {
+        const base = name.replace(/\.[^.]+$/, '')
+        const ext = (name.match(/\.([^.]+)$/)?.[1] || 'bin').toLowerCase()
+        // 转 ASCII，去掉非 ASCII 字符
+        const ascii = base.normalize('NFKD').replace(/[^\x00-\x7F]/g, '')
+        // 仅保留安全字符，并压缩多余下划线，去除首尾无效字符
+        const safeBase = ascii
+          .replace(/[^A-Za-z0-9._-]/g, '_')
+          .replace(/_+/g, '_')
+          .replace(/^[_\.]+|[_\.]+$/g, '')
+          .slice(0, 100) || 'file'
+        const safeExt = ext.replace(/[^A-Za-z0-9]/g, '').slice(0, 10) || 'bin'
+        return `${safeBase}.${safeExt}`
+      }
+
       for (const f of files) {
         console.log('开始上传文件:', f.name, '大小:', f.size)
         
@@ -56,7 +71,7 @@ export default function UploadPage() {
         if (!bucket) throw new Error('缺少 VITE_SUPABASE_STORAGE_BUCKET')
         const ts = Date.now()
         const rand = Math.random().toString(36).slice(2, 8)
-        const safe = f.name.replace(/[\\/]/g, '_')
+        const safe = sanitizeObjectName(f.name)
         const objectPath = `resumes/original/${ts}_${rand}_${safe}`
         const { error: upErr } = await sb.storage.from(bucket).upload(objectPath, f, { upsert: false, contentType: (f as any).type || 'application/octet-stream' })
         if (upErr) throw new Error(upErr.message)
