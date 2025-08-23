@@ -197,7 +197,7 @@ export default function ResumesPage() {
   }
 
   function mapRows(
-    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>,
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null }>,
     tagMap?: Map<number, string[]>,
     allTagsArr?: Tag[],
   ): ResumeItem[] {
@@ -222,6 +222,7 @@ export default function ResumesPage() {
       const fallbackTags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
       const tagNames = externalTags.length ? externalTags : fallbackTags
 
+      const wxs = (r as any).work_experience_struct as Array<any> | undefined
       return {
         id: r.id,
         name: r.name || '未知',
@@ -234,6 +235,7 @@ export default function ResumesPage() {
         created_at: r.created_at || undefined,
         work_experience: (r.work_experience || []) as string[],
         uploaded_by: (r as any).uploaded_by ?? null,
+        work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
       }
     })
   }
