@@ -45,6 +45,7 @@ export default function ResumeDetailPage() {
   const [uploading, setUploading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const [editWechat, setEditWechat] = useState('')
+  const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
     if (!id) return
@@ -120,8 +121,8 @@ export default function ResumeDetailPage() {
   return (
     <section className="panel">
       <div className="bar">
-        <button className="ghost" onClick={() => navigate(-1)}>← 返回</button>
         <div style={{ flex: 1 }} />
+        <button className="ghost" onClick={() => setIsEditing(true)} disabled={isEditing}>编辑</button>
         {(() => {
           let user: any = null
           try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
@@ -159,22 +160,38 @@ export default function ResumeDetailPage() {
                 <div className="detail-title">基础信息</div>
                 <div className="detail-row"><span>姓名</span>
                   <span>
-                    <input value={editName} onChange={e => setEditName(e.target.value)} placeholder="请输入姓名" />
+                    {isEditing ? (
+                      <input value={editName} onChange={e => setEditName(e.target.value)} placeholder="请输入姓名" />
+                    ) : (
+                      <>{item.name || '未知'}</>
+                    )}
                   </span>
                 </div>
                 <div className="detail-row"><span>邮箱</span>
                   <span>
-                    <input value={editEmail} onChange={e => setEditEmail(e.target.value)} placeholder="请输入邮箱" />
+                    {isEditing ? (
+                      <input value={editEmail} onChange={e => setEditEmail(e.target.value)} placeholder="请输入邮箱" />
+                    ) : (
+                      <>{item.email || '-'}</>
+                    )}
                   </span>
                 </div>
                 <div className="detail-row"><span>电话</span>
                   <span>
-                    <input value={editPhone} onChange={e => setEditPhone(e.target.value)} placeholder="请输入电话" />
+                    {isEditing ? (
+                      <input value={editPhone} onChange={e => setEditPhone(e.target.value)} placeholder="请输入电话" />
+                    ) : (
+                      <>{item.phone || '-'}</>
+                    )}
                   </span>
                 </div>
                 <div className="detail-row"><span>微信</span>
                   <span>
-                    <input value={editWechat} onChange={e => setEditWechat(e.target.value)} placeholder="请输入微信" />
+                    {isEditing ? (
+                      <input value={editWechat} onChange={e => setEditWechat(e.target.value)} placeholder="请输入微信" />
+                    ) : (
+                      <>{(item as any)?.wechat || '-'}</>
+                    )}
                   </span>
                 </div>
                 <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>
@@ -184,9 +201,23 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
                 <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
                 <div className="detail-row"><span>上传者</span><span>{item.uploaded_by || '-'}</span></div>
-                <div className="bar end" style={{ marginTop: 8 }}>
-                  <button className="primary" disabled={saving} onClick={saveBasics}>{saving ? '保存中...' : '保存'}</button>
-                </div>
+                {isEditing && (
+                  <div className="bar end" style={{ marginTop: 8 }}>
+                    <button className="ghost" onClick={() => {
+                      setIsEditing(false)
+                      if (item) {
+                        setEditName(String(item.name || ''))
+                        setEditEmail(String(item.email || ''))
+                        setEditPhone(String(item.phone || ''))
+                        setEditWechat(String((item as any)?.wechat || ''))
+                      }
+                    }}>取消</button>
+                    <button className="primary" disabled={saving} onClick={async () => {
+                      await saveBasics()
+                      setIsEditing(false)
+                    }}>{saving ? '保存中...' : '保存'}</button>
+                  </div>
+                )}
               </div>
 
               <div className="detail-card">
