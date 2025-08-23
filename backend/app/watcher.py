@@ -297,11 +297,12 @@ def start_watcher_in_background() -> Observer:
         while True:
             try:
                 # 拉取一批待处理（未处理）的记录
+                # 允许多来源写入的不同初始状态：未处理/已上传/待处理
                 res = (
                     client
                     .table("resume_files")
                     .select("id,file_name,file_path,status")
-                    .eq("status", "未处理")
+                    .in_("status", ["未处理", "已上传", "待处理"])  # 统一当作待拉取
                     .order("id")
                     .limit(20)
                     .execute()
@@ -316,14 +317,14 @@ def start_watcher_in_background() -> Observer:
                     url = (item.get("file_path") or "").strip()
                     if not rid or not fname or not url:
                         continue
-                    # 抢占：将状态从 未处理 -> 拉取中，避免重复并发拉取
+                    # 抢占：将状态 从(未处理/已上传/待处理) -> 拉取中，避免重复并发拉取
                     try:
                         upd = (
                             client
                             .table("resume_files")
                             .update({"status": "拉取中"})
                             .eq("id", rid)
-                            .eq("status", "未处理")
+                            .in_("status", ["未处理", "已上传", "待处理"]) 
                             .execute()
                         )
                         updated_rows = getattr(upd, "data", []) or []
@@ -364,6 +365,8 @@ def start_watcher_in_background() -> Observer:
                                 client.table("resume_files").update({"status": "处理中"}).eq("id", rid).execute()
                             except Exception:
                                 pass
+                            # 触发处理循环，尽快消费新下载的文件
+                            handler.batch_signal.set()
                             # 触发批处理信号，尽快扫描
                             handler.batch_signal.set()
                             break

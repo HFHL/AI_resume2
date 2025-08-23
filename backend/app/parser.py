@@ -33,6 +33,9 @@ class ParsedResume:
     work_experience: Optional[List[str]]
     internship_experience: Optional[List[str]]
     project_experience: Optional[List[str]]
+    # 结构化经历（不直接入库；如需入库建议新增 jsonb 字段）
+    work_experience_items: Optional[List[Dict[str, Any]]] = None
+    project_experience_items: Optional[List[Dict[str, Any]]] = None
     self_evaluation: Optional[str]
     other: Optional[str]
     work_years: Optional[int]
@@ -55,6 +58,9 @@ class ParsedResume:
             "work_experience": self.work_experience or None,
             "internship_experience": self.internship_experience or None,
             "project_experience": self.project_experience or None,
+            # 结构化 JSONB 字段
+            "work_experience_struct": self.work_experience_items or None,
+            "project_experience_struct": self.project_experience_items or None,
             "self_evaluation": self.self_evaluation or None,
             "other": self.other or None,
             "work_years": self.work_years,
@@ -403,6 +409,10 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
     intern_ex = _normalize_string_list(llm_json.get("internship_experience"))
     proj_ex = _normalize_string_list(llm_json.get("project_experience"))
 
+    # 结构化解析：工作/项目经历
+    work_items = parse_experience_items(work_ex or []) or None
+    proj_items = parse_experience_items(proj_ex or []) or None
+
     # 5) 学校：单独 LLM 抽取（基于关键词窗口）；若不可用/为空，再尝试通用 LLM 字段；最后回退正则
     schools_llm_windows = extract_schools_via_llm(text)
     if schools_llm_windows:
@@ -460,6 +470,8 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
         self_evaluation=(llm_json.get("self_evaluation") or None),
         other=(llm_json.get("other") or None),
         work_years=work_years,
+        work_experience_items=work_items,
+        project_experience_items=proj_items,
     )
 
 
@@ -699,4 +711,137 @@ def classify_category_and_tags(text: str) -> tuple[Optional[str], Optional[list[
 
     return category, (sorted(tags_set) if tags_set else None)
 
+
+# ============== 结构化经历解析 ==============
+
+_ROLE_KEYWORDS = [
+    "工程师","经理","开发","产品","运营","测试","设计","前端","后端","全栈",
+    "算法","数据","销售","市场","人力","HR","专家","负责人","总监","主管",
+    "实习","分析师","科学家","架构师","运维","支持","客服","BD","商务",
+    "财务","法务","审计","产品负责人","产品经理","交易产品经理","Web 工程师",
+]
+
+def _normalize_text_line(line: str) -> str:
+    s = (line or "").strip()
+    if not s:
+        return s
+    s = re.sub(r"[—–~~]+", "-", s)
+    s = s.replace("至 今", "至今")
+    s = re.sub(r"\s+", " ", s)
+    return s.strip()
+
+
+def _extract_time_range_from_header(header: str) -> tuple[Optional[date], Optional[date], str, Optional[str], Optional[str]]:
+    """从头部提取时间范围，返回 (start_date, end_date, remainder_after_time, start_token, end_token)."""
+    token = r"(?:\d{4}(?:[./\-]\s*\d{1,2})?|\d{4}\s*年\s*\d{1,2}\s*月|[A-Za-z]{3,9}\s+\d{4}|\d{4})"
+    rng = re.compile(rf"^\s*({token})\s*(?:[-~至到]|to)\s*({token}|至今|现在|present|now)\b", re.IGNORECASE)
+    m = rng.search(header)
+    if not m:
+        return None, None, header.strip(), None, None
+    start_tok = m.group(1)
+    end_tok = m.group(2)
+    def _to_date(tok: str) -> Optional[date]:
+        if tok is None:
+            return None
+        if re.fullmatch(r"(?i)(至今|现在|present|now)", tok or ""):
+            return date.today()
+        try:
+            return _parse_date(tok)
+        except Exception:
+            return None
+    start_dt = _to_date(start_tok)
+    end_dt = _to_date(end_tok)
+    rest = header[m.end():].strip()
+    return start_dt, end_dt, rest, start_tok, end_tok
+
+
+def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
+    """从时间后的剩余部分分割公司和岗位。返回 (company, title, tail_after_title)."""
+    t = (rest or "").strip()
+    if not t:
+        return None, None, ""
+    # 优先：双空格切分
+    m = re.match(r"^([^\s].*?)\s{2,}([^\s].*?)\s*$", t)
+    if m:
+        return m.group(1).strip(), m.group(2).strip(), ""
+    # 其次：Role @ Company
+    if "@" in t:
+        m2 = re.match(r"^([^@]+?)\s*@\s*(.+)$", t)
+        if m2:
+            title = m2.group(1).strip()
+            company = m2.group(2).strip()
+            return company or None, title or None, ""
+    # 关键词法：找到最早的岗位关键词位置
+    idx = -1
+    kw_found = None
+    for kw in _ROLE_KEYWORDS:
+        p = t.find(kw)
+        if p > 0 and (idx == -1 or p < idx):
+            idx = p; kw_found = kw
+    if idx > 0:
+        company = t[:idx].strip(" -、，,；;·") or None
+        title_and_tail = t[idx:].strip()
+        # 将标题后面的逗号/句号之后归到 tail
+        m3 = re.match(r"^(\S.+?)([，,。;；].+)?$", title_and_tail)
+        if m3:
+            title = m3.group(1).strip()
+            tail = (m3.group(2) or "").strip()
+            return company, title or None, tail
+        return company, title_and_tail or None, ""
+    # 回退：用最后一个空格切分
+    parts = t.split()
+    if len(parts) >= 2:
+        company = " ".join(parts[:-1]).strip()
+        title = parts[-1].strip()
+        return company or None, title or None, ""
+    # 无法判定
+    return None, t or None, ""
+
+
+def _format_ym(d: Optional[date]) -> Optional[str]:
+    if not d:
+        return None
+    return f"{d.year:04d}-{d.month:02d}"
+
+
+def parse_experience_items(entries: List[str]) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    for raw in entries:
+        if not raw or not isinstance(raw, str):
+            continue
+        text = raw.strip()
+        if not text:
+            continue
+        # 分割头部与描述（第一行作为头部）
+        head, sep, tail_block = text.partition("\n")
+        header = _normalize_text_line(head)
+        desc = tail_block.strip()
+
+        start_dt, end_dt, rest, _s_tok, _e_tok = _extract_time_range_from_header(header)
+        company, title, tail_after = _split_company_title(rest)
+        extra = tail_after.strip()
+        description = " ".join(x for x in [extra, desc] if x).strip() or None
+
+        # 若都为空，尝试把 header 直接当作描述
+        if not (company or title) and not start_dt and not end_dt:
+            description = text
+
+        # 计算时长
+        duration_months: Optional[int] = None
+        if start_dt:
+            end_for_calc = end_dt or date.today()
+            try:
+                duration_months = _months_between(start_dt, end_for_calc)
+            except Exception:
+                duration_months = None
+
+        items.append({
+            "start": _format_ym(start_dt),
+            "end": (_format_ym(end_dt) if end_dt else ("present" if start_dt else None)),
+            "company": company,
+            "title": title,
+            "description": description,
+            "duration_months": duration_months,
+        })
+    return items
 
