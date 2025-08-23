@@ -18,6 +18,8 @@ type ResumeDetail = {
   work_experience: string[] | null
   internship_experience: string[] | null
   project_experience: string[] | null
+  work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; description?: string | null }>
+  project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; description?: string | null }>
   self_evaluation: string | null
   other: string | null
   created_at?: string
@@ -195,52 +197,16 @@ export default function ResumeDetailPage() {
               <div className="detail-card">
                 <div className="detail-title">工作经历</div>
                 <div className="detail-content list-text">
-                  {(item.work_experience || []).length ? (
+                  {Array.isArray(item.work_experience_struct) && item.work_experience_struct.length ? (
                     <ul>
-                      {(item.work_experience || []).map((t, i) => {
-                        const raw = String(t || '')
-                        const jobKeywords = ['工程师','经理','开发','产品','运营','测试','设计','前端','后端','全栈','算法','数据','销售','市场','人力','HR','专家','负责人','总监','主管','实习','分析师','科学家','架构师','运维','支持','客服','BD','商务','财务','法务','审计']
-                        // 1) 提取前缀日期范围（不高亮）
-                        const dateRe = /^\s*(\d{4}(?:[./年]\s*\d{1,2})?(?:\s*[—\-–~至到]+\s*(?:至今|现在|\d{4}(?:[./年]\s*\d{1,2})?))?)/
-                        const dm = raw.match(dateRe)
-                        const datePrefix = dm ? dm[0] : ''
-                        const rest0 = raw.slice(datePrefix.length).trim()
-                        if (!rest0) return <li key={i}>{raw}</li>
-                        // 2) 在剩余文本中定位职位关键词，分割公司/职位
-                        let splitPos = -1
-                        for (const kw of jobKeywords) {
-                          const idx = rest0.indexOf(kw)
-                          if (idx > 0 && (splitPos === -1 || idx < splitPos)) splitPos = idx
-                        }
-                        let company = ''
-                        let role = ''
-                        let tail = ''
-                        if (splitPos > 0) {
-                          company = rest0.slice(0, splitPos).trim()
-                          const roleAll = rest0.slice(splitPos).trim()
-                          // 将职位之后的补充信息划到 tail
-                          const m2 = roleAll.match(/^(\S.+?)([，,。;；].+)?$/)
-                          role = m2 ? m2[1] : roleAll
-                          tail = m2 && m2[2] ? m2[2] : ''
-                        } else {
-                          // 回退：用最后一个空格切分
-                          const parts = rest0.split(/\s+/)
-                          if (parts.length >= 2) {
-                            company = parts.slice(0, parts.length - 1).join(' ')
-                            role = parts[parts.length - 1]
-                          } else {
-                            return <li key={i}>{raw}</li>
-                          }
-                        }
-                        return (
-                          <li key={i}>
-                            {datePrefix}
-                            {company && <><span className="hl-company">{company}</span>{' '}</>}
-                            {role && <span className="hl-role">{role}</span>}
-                            {tail}
-                          </li>
-                        )
-                      })}
+                      {item.work_experience_struct.map((wx, i) => (
+                        <li key={i}>
+                          {(wx.start || '') && <>{wx.start} - {wx.end || '至今'} </>}
+                          {wx.company && <><span className="hl-company">{wx.company}</span>{' '}</>}
+                          {wx.title && <span className="hl-role">{wx.title}</span>}
+                          {wx.description ? <> {wx.description}</> : null}
+                        </li>
+                      ))}
                     </ul>
                   ) : <span className="muted">无</span>}
                 </div>
@@ -260,9 +226,16 @@ export default function ResumeDetailPage() {
               <div className="detail-card">
                 <div className="detail-title">项目经历</div>
                 <div className="detail-content list-text">
-                  {(item.project_experience || []).length ? (
+                  {Array.isArray(item.project_experience_struct) && item.project_experience_struct.length ? (
                     <ul>
-                      {(item.project_experience || []).map((t, i) => <li key={i}>{t}</li>)}
+                      {item.project_experience_struct.map((px, i) => (
+                        <li key={i}>
+                          {(px.start || '') && <>{px.start} - {px.end || '至今'} </>}
+                          {px.company && <><span className="hl-company">{px.company}</span>{' '}</>}
+                          {px.title && <span className="hl-role">{px.title}</span>}
+                          {px.description ? <> {px.description}</> : null}
+                        </li>
+                      ))}
                     </ul>
                   ) : <span className="muted">无</span>}
                 </div>

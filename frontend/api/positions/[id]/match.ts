@@ -90,6 +90,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
       work_years: resume.work_years ?? null,
       created_at: resume.created_at ?? null,
       work_experience: workMerged,
+      work_experience_struct: Array.isArray((resume as any).work_experience_struct) ? (resume as any).work_experience_struct : [],
     }
   }).filter(Boolean) as any[]
 
