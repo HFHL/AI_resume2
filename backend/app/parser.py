@@ -752,6 +752,8 @@ def _extract_time_range_from_header(header: str) -> tuple[Optional[date], Option
     start_dt = _to_date(start_tok)
     end_dt = _to_date(end_tok)
     rest = header[m.end():].strip()
+    # 去除时间范围后，可能仍残留类似“年 07 月”等噪声日期片段，先剥离
+    rest = _strip_leading_date_noise(rest)
     return start_dt, end_dt, rest, start_tok, end_tok
 
 
@@ -763,14 +765,16 @@ def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
     # 优先：双空格切分
     m = re.match(r"^([^\s].*?)\s{2,}([^\s].*?)\s*$", t)
     if m:
-        return m.group(1).strip(), m.group(2).strip(), ""
+        comp = _strip_leading_date_noise(m.group(1).strip())
+        titl = (m.group(2) or "").strip()
+        return (comp or None), (titl or None), ""
     # 其次：Role @ Company
     if "@" in t:
         m2 = re.match(r"^([^@]+?)\s*@\s*(.+)$", t)
         if m2:
             title = m2.group(1).strip()
-            company = m2.group(2).strip()
-            return company or None, title or None, ""
+            company = _strip_leading_date_noise(m2.group(2).strip())
+            return (company or None), (title or None), ""
     # 关键词法：找到最早的岗位关键词位置
     idx = -1
     kw_found = None
@@ -779,7 +783,7 @@ def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
         if p > 0 and (idx == -1 or p < idx):
             idx = p; kw_found = kw
     if idx > 0:
-        company = t[:idx].strip(" -、，,；;·") or None
+        company = _strip_leading_date_noise(t[:idx].strip(" -、，,；;·") or "") or None
         title_and_tail = t[idx:].strip()
         # 将标题后面的逗号/句号之后归到 tail
         m3 = re.match(r"^(\S.+?)([，,。;；].+)?$", title_and_tail)
@@ -791,9 +795,9 @@ def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
     # 回退：用最后一个空格切分
     parts = t.split()
     if len(parts) >= 2:
-        company = " ".join(parts[:-1]).strip()
+        company = _strip_leading_date_noise(" ".join(parts[:-1]).strip())
         title = parts[-1].strip()
-        return company or None, title or None, ""
+        return (company or None), (title or None), ""
     # 无法判定
     return None, t or None, ""
 
@@ -803,6 +807,28 @@ def _format_ym(d: Optional[date]) -> Optional[str]:
         return None
     return f"{d.year:04d}-{d.month:02d}"
 
+
+def _strip_leading_date_noise(s: str) -> str:
+    """移除开头的日期残片，如“年 07 月”、“2020 年 06 月”、“2020.06”等，以及其后的常见分隔符。"""
+    if not s:
+        return s
+    patterns = [
+        r"^(?:\d{4}\s*年\s*\d{1,2}\s*月)",
+        r"^(?:\d{4}[./-]\s*\d{1,2})",
+        r"^(?:年\s*\d{1,2}\s*月)",
+        r"^(?:\d{1,2}\s*月)",
+    ]
+    txt = s.lstrip()
+    changed = True
+    while changed:
+        changed = False
+        for pat in patterns:
+            m = re.match(pat, txt)
+            if m:
+                txt = txt[m.end():].lstrip(" -、，,；;·")
+                changed = True
+                break
+    return txt.strip()
 
 def parse_experience_items(entries: List[str]) -> List[Dict[str, Any]]:
     items: List[Dict[str, Any]] = []
