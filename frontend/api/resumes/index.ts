@@ -15,7 +15,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   let query = supabase
     .from('resumes')
-    .select('id, name, skills, tag_names, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience')
+    .select('id, resume_file_id, name, skills, tag_names, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience')
     .order('id', { ascending: false })
 
   // 如果有搜索词，进行模糊搜索
@@ -60,6 +60,31 @@ export default async function handler(req: Request): Promise<Response> {
       }
       return parts.join('\n').toLowerCase().includes(q)
     })
+  }
+
+  // 合并 uploaded_by（通过 resume_file_id 关联 resume_files 表）
+  try {
+    const rfIds = Array.from(new Set((items || []).map((r: any) => r.resume_file_id).filter((x: any) => typeof x === 'number' && x > 0))) as number[]
+    if (rfIds.length > 0) {
+      const { data: files, error: fileErr } = await supabase
+        .from('resume_files')
+        .select('id, uploaded_by')
+        .in('id', rfIds)
+      if (!fileErr && Array.isArray(files)) {
+        const idToUploader = new Map<number, string>()
+        for (const f of files) {
+          if (f && typeof f.id === 'number') {
+            idToUploader.set(f.id, (f as any).uploaded_by || '')
+          }
+        }
+        items = (items || []).map((r: any) => ({
+          ...r,
+          uploaded_by: r.resume_file_id ? (idToUploader.get(r.resume_file_id) || null) : null,
+        }))
+      }
+    }
+  } catch {
+    // 忽略 uploaded_by 合并失败，不影响主流程
   }
 
   return new Response(JSON.stringify({ items, _meta: { source: 'edge:resumes-index', version: 3 } }), {

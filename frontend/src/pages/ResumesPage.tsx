@@ -14,6 +14,7 @@ type ResumeItem = {
   schools?: string[]
   created_at?: string
   work_experience?: string[]
+  uploaded_by?: string | null
 }
 
 type Tag = {
@@ -118,6 +119,7 @@ export default function ResumesPage() {
             schools: (r.education_school || undefined) as any,
             created_at: (r as any).created_at || undefined,
             work_experience: (r as any).work_experience || [],
+            uploaded_by: (r as any).uploaded_by ?? null,
           }
         })
         
@@ -228,6 +230,7 @@ export default function ResumesPage() {
         schools: (r.education_school || undefined) as any,
         created_at: r.created_at || undefined,
         work_experience: (r.work_experience || []) as string[],
+        uploaded_by: (r as any).uploaded_by ?? null,
       }
     })
   }
@@ -453,6 +456,7 @@ export default function ResumesPage() {
                   {item.work_years !== null && (
                     <div className="work-years">工作年限：{item.work_years}年</div>
                   )}
+                  <div className="uploader">上传者：{item.uploaded_by || '-'}</div>
                 </div>
               </div>
               

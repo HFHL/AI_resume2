@@ -26,7 +26,7 @@ export default async function handler(req: Request): Promise<Response> {
       // 简单搜索：拉取部分数据后在函数内过滤
       const { data, error } = await supabase
         .from('resumes')
-        .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
+        .select('id, resume_file_id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
         .order('id', { ascending: false })
         .limit(5000)
       if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
@@ -51,6 +51,23 @@ export default async function handler(req: Request): Promise<Response> {
         
         return { ...r, work_experience: merged }
       })
+      // 合并 uploaded_by
+      try {
+        const rfIds = Array.from(new Set(processedSearchData.map((r: any) => r.resume_file_id).filter((x: any) => typeof x === 'number' && x > 0))) as number[]
+        if (rfIds.length > 0) {
+          const { data: files } = await supabase
+            .from('resume_files')
+            .select('id, uploaded_by')
+            .in('id', rfIds)
+          const idToUploader = new Map<number, string>()
+          for (const f of (files || []) as any[]) {
+            if (f && typeof f.id === 'number') idToUploader.set(f.id, f.uploaded_by || '')
+          }
+          for (const r of processedSearchData as any[]) {
+            r.uploaded_by = r.resume_file_id ? (idToUploader.get(r.resume_file_id) || null) : null
+          }
+        }
+      } catch {}
       
       // AND逻辑：所有关键词都必须在简历内容中出现
       const matched = processedSearchData.filter(r => {
@@ -65,7 +82,7 @@ export default async function handler(req: Request): Promise<Response> {
     // 默认列表（包含 tag_names、skills、work_years、work_experience）
     const { data, error } = await supabase
       .from('resumes')
-      .select('id, name, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience')
+      .select('id, resume_file_id, name, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience')
       .order('id', { ascending: false })
       .range(offset, offset + limit - 1)
     if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
@@ -81,6 +98,23 @@ export default async function handler(req: Request): Promise<Response> {
       
       return { ...r, work_experience: merged }
     })
+    // 合并 uploaded_by
+    try {
+      const rfIds = Array.from(new Set(processedData.map((r: any) => r.resume_file_id).filter((x: any) => typeof x === 'number' && x > 0))) as number[]
+      if (rfIds.length > 0) {
+        const { data: files } = await supabase
+          .from('resume_files')
+          .select('id, uploaded_by')
+          .in('id', rfIds)
+        const idToUploader = new Map<number, string>()
+        for (const f of (files || []) as any[]) {
+          if (f && typeof f.id === 'number') idToUploader.set(f.id, f.uploaded_by || '')
+        }
+        for (const r of processedData as any[]) {
+          r.uploaded_by = r.resume_file_id ? (idToUploader.get(r.resume_file_id) || null) : null
+        }
+      }
+    } catch {}
     
     return new Response(JSON.stringify({ items: processedData }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
   }

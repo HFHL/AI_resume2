@@ -77,9 +77,9 @@ export default async function handler(req: Request): Promise<Response> {
 		if (!item) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
 		console.log('[api/resumes/[id]] base row fetched', { id, hasFileId: Boolean(item.resume_file_id) })
 
-		// 若有文件 ID，则查询文件链接
+		// 若有文件 ID，则查询文件链接与上传者
 		if (item.resume_file_id) {
-			const fileUrl = `${base}/rest/v1/resume_files?select=file_path&id=eq.${encodeURIComponent(String(item.resume_file_id))}&limit=1`
+			const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by&id=eq.${encodeURIComponent(String(item.resume_file_id))}&limit=1`
 			const fResp = await fetch(fileUrl, {
 				method: 'GET',
 				headers: {
@@ -92,6 +92,7 @@ export default async function handler(req: Request): Promise<Response> {
 				const fRows = await fResp.json().catch(() => []) as any[]
 				const f = Array.isArray(fRows) && fRows.length > 0 ? fRows[0] : null
 				if (f && f.file_path) item.file_url = f.file_path
+				if (f && typeof f.uploaded_by !== 'undefined') (item as any).uploaded_by = f.uploaded_by || null
 			}
 		}
 

@@ -48,7 +48,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   // 拉取简历
   const { data: resumes, error: rErr } = await supabase
     .from('resumes')
-    .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
+    .select('id, resume_file_id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
   if (rErr) return new Response(JSON.stringify({ detail: rErr.message }), { status: 400 })
 
   const required: string[] = position.required_keywords || []
@@ -91,6 +91,29 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
       work_experience: workMerged,
     }
   }).filter(Boolean) as any[]
+
+  // 合并 uploaded_by（批量查询 resume_files）
+  try {
+    const rfIds = Array.from(new Set(results.map((r: any) => (resumes as any[]).find(x => x.id === r.id)?.resume_file_id).filter((x: any) => typeof x === 'number' && x > 0))) as number[]
+    if (rfIds.length > 0) {
+      const { data: files } = await supabase
+        .from('resume_files')
+        .select('id, uploaded_by')
+        .in('id', rfIds)
+      const idToUploader = new Map<number, string>()
+      for (const f of (files || []) as any[]) {
+        if (f && typeof f.id === 'number') idToUploader.set(f.id, f.uploaded_by || '')
+      }
+      const idToRF = new Map<number, number>()
+      for (const r of (resumes || []) as any[]) {
+        if (typeof r.id === 'number' && typeof r.resume_file_id === 'number') idToRF.set(r.id, r.resume_file_id)
+      }
+      for (const r of results as any[]) {
+        const fid = idToRF.get(r.id)
+        r.uploaded_by = fid ? (idToUploader.get(fid) || null) : null
+      }
+    }
+  } catch {}
 
   results.sort((a, b) => (b.score - a.score) || (b.hit_count - a.hit_count) || (b.id - a.id))
 

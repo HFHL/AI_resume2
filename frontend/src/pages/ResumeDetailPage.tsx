@@ -23,6 +23,7 @@ type ResumeDetail = {
   updated_at?: string
   resume_file_id?: number | null
   file_url?: string | null
+  uploaded_by?: string | null
 }
 
 export default function ResumeDetailPage() {
@@ -124,6 +125,7 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
                 <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
                 <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
+                <div className="detail-row"><span>上传者</span><span>{item.uploaded_by || '-'}</span></div>
               </div>
 
               <div className="detail-card">

@@ -24,6 +24,7 @@ type MatchResultItem = {
   work_years?: number | null
   created_at?: string | null
   work_experience?: string[]
+  uploaded_by?: string | null
 }
 
 export default function MatchPage() {
@@ -184,6 +185,7 @@ export default function MatchPage() {
                         {item.work_years !== undefined && item.work_years !== null && (
                           <div className="work-years">工作年限：{item.work_years}年</div>
                         )}
+                        <div className="uploader">上传者：{item.uploaded_by || '-'}</div>
                       </div>
                     </div>
                     
