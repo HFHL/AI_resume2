@@ -7,7 +7,8 @@ const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SU
 type ResumeRow = {
   id: number
   name: string | null
-  contact_info: string | null
+  email: string | null
+  phone: string | null
   skills: string[] | null
   work_experience: string[] | null
   internship_experience: string[] | null
@@ -48,14 +49,14 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   // 拉取简历
   const { data: resumes, error: rErr } = await supabase
     .from('resumes')
-    .select('id, resume_file_id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
+    .select('id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
   if (rErr) return new Response(JSON.stringify({ detail: rErr.message }), { status: 400 })
 
   const required: string[] = position.required_keywords || []
   const matchType: 'any' | 'all' = position.match_type || 'any'
 
   const results = (resumes || []).map((resume: ResumeRow) => {
-    const parts: string[] = [resume.name || '', resume.contact_info || '', resume.self_evaluation || '']
+    const parts: string[] = [resume.name || '', (resume as any).email || '', (resume as any).phone || '', resume.self_evaluation || '']
     for (const key of ['skills','work_experience','internship_experience','project_experience'] as const) {
       const vals = (resume as any)[key] || []
       if (Array.isArray(vals)) parts.push(...vals.map(String))

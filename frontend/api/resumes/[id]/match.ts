@@ -24,7 +24,8 @@ type PositionRow = {
 type ResumeRow = {
   id: number
   name: string | null
-  contact_info: string | null
+  email: string | null
+  phone: string | null
   skills: string[] | null
   work_experience: string[] | null
   internship_experience: string[] | null
@@ -41,7 +42,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   // 读取简历
   const { data: rlist, error: rerr } = await supabase
     .from('resumes')
-    .select('id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation')
+    .select('id, name, email, phone, skills, work_experience, internship_experience, project_experience, self_evaluation')
     .eq('id', resumeId)
     .limit(1)
   if (rerr) return new Response(JSON.stringify({ detail: rerr.message }), { status: 400 })
@@ -55,7 +56,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   if (perr) return new Response(JSON.stringify({ detail: perr.message }), { status: 400 })
 
   // 将简历内容拼接为文本块
-  const parts: string[] = [resume.name || '', resume.contact_info || '', resume.self_evaluation || '']
+  const parts: string[] = [resume.name || '', (resume as any).email || '', (resume as any).phone || '', resume.self_evaluation || '']
   for (const key of ['skills','work_experience','internship_experience','project_experience'] as const) {
     const vals = (resume as any)[key] || []
     if (Array.isArray(vals)) parts.push(...vals.map(String))

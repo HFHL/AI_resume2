@@ -65,7 +65,8 @@
 | id | serial | 主键 |
 | resume_file_id | integer | 关联 `resume_files.id`（可空） |
 | name | varchar(255) | 姓名（可能由解析/LLM/文件名兜底） |
-| contact_info | text | 联系方式（邮箱/电话拼接） |
+| email | varchar(255) | 邮箱 |
+| phone | varchar(50) | 电话 |
 | education_degree | varchar(50) | 学历关键字（本科/硕士/博士等） |
 | education_school | jsonb | 学校名称数组（示例：["北京邮电大学", "Monash University"]） |
 | education_major | varchar(255) | 专业 |

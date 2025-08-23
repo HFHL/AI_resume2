@@ -5,7 +5,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 type ResumeDetail = {
   id: number
   name: string | null
-  contact_info: string | null
+  email: string | null
+  phone: string | null
   education_degree: string | null
   education_school: string[] | null
   education_major: string | null
@@ -34,7 +35,8 @@ export default function ResumeDetailPage() {
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [editName, setEditName] = useState('')
-  const [editContact, setEditContact] = useState('')
+  const [editEmail, setEditEmail] = useState('')
+  const [editPhone, setEditPhone] = useState('')
   const [matchedPositions, setMatchedPositions] = useState<Array<{ id:number; position_name:string; position_category:string|null; tags:string[]; matched_keywords:string[]; hit_count:number; score:number }>>([])
   const [loadingMatches, setLoadingMatches] = useState(false)
   const [uploading, setUploading] = useState(false)
@@ -60,7 +62,8 @@ export default function ResumeDetailPage() {
         setItem(d.item)
         const it = d.item as ResumeDetail
         setEditName(String(it?.name || ''))
-        setEditContact(String(it?.contact_info || ''))
+        setEditEmail(String(it?.email || ''))
+        setEditPhone(String(it?.phone || ''))
       })
       .catch(e => setError(e.message || '加载失败'))
       .finally(() => setLoading(false))
@@ -70,7 +73,7 @@ export default function ResumeDetailPage() {
     if (!item) return
     try {
       setSaving(true)
-      const payload: any = { name: editName, contact_info: editContact }
+      const payload: any = { name: editName, email: editEmail, phone: editPhone }
       const r = await fetch(api(`/resumes/${id}`), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -154,9 +157,14 @@ export default function ResumeDetailPage() {
                     <input value={editName} onChange={e => setEditName(e.target.value)} placeholder="请输入姓名" />
                   </span>
                 </div>
-                <div className="detail-row"><span>联系方式</span>
+                <div className="detail-row"><span>邮箱</span>
                   <span>
-                    <input value={editContact} onChange={e => setEditContact(e.target.value)} placeholder="手机/电话/邮箱可写在这里" />
+                    <input value={editEmail} onChange={e => setEditEmail(e.target.value)} placeholder="请输入邮箱" />
+                  </span>
+                </div>
+                <div className="detail-row"><span>电话</span>
+                  <span>
+                    <input value={editPhone} onChange={e => setEditPhone(e.target.value)} placeholder="请输入电话" />
                   </span>
                 </div>
                 <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>

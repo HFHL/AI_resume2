@@ -15,7 +15,8 @@ type Position = {
 type ResumeDetail = {
   id: number
   name: string | null
-  contact_info: string | null
+  email: string | null
+  phone: string | null
   education_degree: string | null
   education_school: string[] | null
   education_major: string | null
@@ -94,7 +95,8 @@ export default function MatchDetailPage() {
               {resume ? (
                 <div className="detail-content">
                   <div className="detail-row"><span>姓名</span><span>{resume.name || '未知'}</span></div>
-                  <div className="detail-row"><span>联系方式</span><span>{resume.contact_info || '-'}</span></div>
+                  <div className="detail-row"><span>邮箱</span><span>{resume.email || '-'}</span></div>
+                  <div className="detail-row"><span>电话</span><span>{resume.phone || '-'}</span></div>
                   <div className="detail-row"><span>学历</span><span>{resume.education_degree || '-'}</span></div>
                   <div className="detail-row"><span>院校层次</span><span>{(resume.education_tiers || []).join('、') || (resume.education_tier || '-')}</span></div>
                   <div className="detail-row"><span>学校</span><span>{(resume.education_school || []).join('、') || '-'}</span></div>

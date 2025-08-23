@@ -23,7 +23,8 @@ export default async function handler(req: Request): Promise<Response> {
     // 使用 Supabase 的 ilike 进行多字段搜索
     query = query.or(
       `name.ilike.%${searchQuery}%,` +
-      `contact_info.ilike.%${searchQuery}%,` +
+      `email.ilike.%${searchQuery}%,` +
+      `phone.ilike.%${searchQuery}%,` +
       `skills.cs.{${searchQuery}},` +
       `tag_names.cs.{${searchQuery}},` +
       `work_experience.cs.{${searchQuery}},` +
@@ -52,7 +53,8 @@ export default async function handler(req: Request): Promise<Response> {
     items = items.filter((r: any) => {
       const parts: string[] = []
       if (r.name) parts.push(String(r.name))
-      if (r.contact_info) parts.push(String(r.contact_info))
+      if ((r as any).email) parts.push(String((r as any).email))
+      if ((r as any).phone) parts.push(String((r as any).phone))
       if (r.self_evaluation) parts.push(String(r.self_evaluation))
       for (const key of ['skills','tag_names','work_experience','internship_experience','project_experience'] as const) {
         const arr = (r as any)[key]

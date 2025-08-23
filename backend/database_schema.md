@@ -68,7 +68,8 @@
 | id | serial | NOT NULL | - | 主键，自增ID |
 | resume_file_id | integer | NULL | - | 关联的简历文件ID |
 | name | varchar(255) | NOT NULL | - | 姓名 |
-| contact_info | text | NULL | - | 联系信息 |
+| email | varchar(255) | NULL | - | 邮箱 |
+| phone | varchar(50) | NULL | - | 电话 |
 | education_degree | varchar(50) | NULL | - | 学历 |
 | education_school | jsonb | NULL | - | 学校名称数组（JSONB 字符串数组），例如 ["北京邮电大学", "Monash University"] |
 | education_major | varchar(255) | NULL | - | 专业 |

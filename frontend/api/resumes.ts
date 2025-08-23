@@ -26,14 +26,14 @@ export default async function handler(req: Request): Promise<Response> {
       // 简单搜索：拉取部分数据后在函数内过滤
       const { data, error } = await supabase
         .from('resumes')
-        .select('id, resume_file_id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
+        .select('id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
         .order('id', { ascending: false })
         .limit(5000)
       if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
       // 多关键词AND逻辑搜索：分词后每个关键词都必须匹配
       const keywords = q.trim().split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
       const makeBlob = (row: any) => {
-        const parts: string[] = [row.name || '', row.contact_info || '', row.self_evaluation || '', row.education_degree || '']
+        const parts: string[] = [row.name || '', row.email || '', row.phone || '', row.self_evaluation || '', row.education_degree || '']
         for (const key of ['skills','work_experience','internship_experience','project_experience','tag_names']) {
           const vals = (row[key] || []) as string[]
           if (Array.isArray(vals)) parts.push(...vals.map(String))
