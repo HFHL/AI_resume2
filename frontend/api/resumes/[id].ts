@@ -56,6 +56,8 @@ export default async function handler(req: Request): Promise<Response> {
 			const update: Record<string, any> = {}
 			if (typeof payload.name === 'string') update.name = payload.name
 			if (typeof payload.contact_info === 'string') update.contact_info = payload.contact_info
+			if (typeof payload.email === 'string') update.email = payload.email
+			if (typeof payload.phone === 'string') update.phone = payload.phone
 			if (Object.keys(update).length === 0) {
 				return new Response(JSON.stringify({ detail: 'No updatable fields' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
 			}
