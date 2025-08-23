@@ -19,8 +19,8 @@ type ResumeDetail = {
   work_experience: string[] | null
   internship_experience: string[] | null
   project_experience: string[] | null
-  work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; title_en?: string | null; description?: string | null; description_en?: string | null }>
-  project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; title_en?: string | null; description?: string | null; description_en?: string | null }>
+  work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; title_en?: string | null; description?: string | null; description_en?: string | null; details?: string[] | null; details_en?: string[] | null }>
+  project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; title_en?: string | null; description?: string | null; description_en?: string | null; details?: string[] | null; details_en?: string[] | null }>
   self_evaluation: string | null
   other: string | null
   created_at?: string
@@ -260,6 +260,20 @@ export default function ResumeDetailPage() {
                             ) : (
                               wx.description ? <> {wx.description}</> : null
                             )}
+                            {Array.isArray((wx as any).details_en) && (wx as any).details_en.length > 0 && (
+                              <ul style={{ marginTop: 6 }}>
+                                {(wx as any).details_en.map((d: string, idx: number) => (
+                                  <li key={idx}>{d}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {Array.isArray((wx as any).details) && (wx as any).details.length > 0 && (
+                              <ul style={{ marginTop: 4 }}>
+                                {(wx as any).details.map((d: string, idx: number) => (
+                                  <li key={idx}>{d}</li>
+                                ))}
+                              </ul>
+                            )}
                           </li>
                         )
                       })}
@@ -306,6 +320,20 @@ export default function ResumeDetailPage() {
                               </div>
                             ) : (
                               px.description ? <> {px.description}</> : null
+                            )}
+                            {Array.isArray((px as any).details_en) && (px as any).details_en.length > 0 && (
+                              <ul style={{ marginTop: 6 }}>
+                                {(px as any).details_en.map((d: string, idx: number) => (
+                                  <li key={idx}>{d}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {Array.isArray((px as any).details) && (px as any).details.length > 0 && (
+                              <ul style={{ marginTop: 4 }}>
+                                {(px as any).details.map((d: string, idx: number) => (
+                                  <li key={idx}>{d}</li>
+                                ))}
+                              </ul>
                             )}
                           </li>
                         )

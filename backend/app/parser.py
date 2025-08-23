@@ -1028,24 +1028,25 @@ def extract_experience_via_llm(entries: List[str]) -> Optional[List[Dict[str, An
         return None
     schema = (
         "请将下面的经历条目解析为结构化 JSON，仅输出 JSON 数组，不要任何解释。\n"
-        "每个元素：{\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title\": string|null, \"description\": string|null}\n"
+        "每个元素：{\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title_en\": string|null, \"title\": string|null, \"description_en\": string|null, \"description\": string|null, \"details_en\": string[]|null, \"details\": string[]|null}\n"
         "规则：\n"
         "- 起止时间支持 YYYY.MM / YYYY-MM / 中文‘YYYY年MM月’ / 英文月份。\n"
         "- 若括号中有时间段，如 ‘项目名 (2024.11 - 2025.02)’，抽取为 start/end 并从公司/职位中移除括号时间。\n"
         "- end 缺省为 'present'。\n"
         "- company 与 title 不得包含日期或括号时间。\n"
-        "- description 用剩余关键信息，简洁。\n"
-        "- 全过程一律用中文返回字段内容；但专有名词（公司/机构/学校/产品/技术/代币/公链/人名等）保持原文，不需要翻译。\n"
+        "- description / details 要求逐句保留，不要总结，不要省略；details 用于承载具体要点（项目符号/多行）。\n"
+        "- 字段含义：*_en 为原文（通常英文），对应的无 _en 字段为简体中文直译。公司名保持原文。\n"
+        "- 全过程一律用中文返回中文字段内容；但专有名词保持原文（英文即可）。\n"
         "\nFew-shot 1：\n"
         "输入：\n"
-        "2019.05 - 2020.12  ABC Exchange  产品经理  负责永续合约从0-1设计，撮合性能优化，清结算链路。\n"
+        "2019.05 - 2020.12  ABC Exchange  Product Manager  Built perpetual from 0-1; optimized matching; settlement.\n"
         "输出：\n"
-        "[{\"start\": \"2019-05\", \"end\": \"2020-12\", \"company\": \"ABC Exchange\", \"title\": \"产品经理\", \"description\": \"负责永续合约从0-1设计，撮合性能优化，清结算链路\"}]\n"
+        "[{\"start\": \"2019-05\", \"end\": \"2020-12\", \"company\": \"ABC Exchange\", \"title_en\": \"Product Manager\", \"title\": \"产品经理\", \"description_en\": \"Built perpetual from 0-1; optimized matching; settlement\", \"description\": \"从0-1搭建永续；优化撮合；清结算\", \"details_en\": [\"Built perpetual from 0-1\", \"Optimized matching\", \"Settlement\"], \"details\": [\"从0-1搭建永续\", \"优化撮合\", \"清结算\"]}]\n"
         "\nFew-shot 2：\n"
         "输入：\n"
         "XT Future 2.0 (2024.11 - 2025.02)  项目负责人  统一账户模型规划与实施。\n"
         "输出：\n"
-        "[{\"start\": \"2024-11\", \"end\": \"2025-02\", \"company\": \"XT Future 2.0\", \"title\": \"项目负责人\", \"description\": \"统一账户模型规划与实施\"}]\n"
+        "[{\"start\": \"2024-11\", \"end\": \"2025-02\", \"company\": \"XT Future 2.0\", \"title_en\": null, \"title\": \"项目负责人\", \"description_en\": null, \"description\": \"统一账户模型规划与实施\", \"details_en\": null, \"details\": [\"统一账户模型规划与实施\"]}]\n"
     )
     content = "\n---\n".join(str(x) for x in entries)
     out = llm.extract(schema, content, max_tokens=1200)
@@ -1058,18 +1059,28 @@ def extract_experience_via_llm(entries: List[str]) -> Optional[List[Dict[str, An
     for it in obj:
         if not isinstance(it, dict):
             continue
-        start = it.get("start"); end = it.get("end"); company = it.get("company"); title = it.get("title"); desc = it.get("description")
+        start = it.get("start"); end = it.get("end"); company = it.get("company");
+        title_en = it.get("title_en"); title = it.get("title")
+        desc_en = it.get("description_en"); desc = it.get("description")
+        details_en = it.get("details_en") if isinstance(it.get("details_en"), list) else None
+        details = it.get("details") if isinstance(it.get("details"), list) else None
         # 简单清洗
         if isinstance(company, str):
             company = _strip_leading_date_noise(_strip_edge_parens(company))
         if isinstance(title, str):
             title = _strip_edge_parens(title)
+        if isinstance(title_en, str):
+            title_en = _strip_edge_parens(title_en)
         cleaned.append({
             "start": start if (isinstance(start, str) or start is None) else None,
             "end": end if (isinstance(end, str) or end is None) else None,
             "company": (company or None),
+            "title_en": (title_en or None),
             "title": (title or None),
+            "description_en": (desc_en or None),
             "description": (desc or None),
+            "details_en": details_en or None,
+            "details": details or None,
             "duration_months": None,
         })
     # 可选：计算时长
