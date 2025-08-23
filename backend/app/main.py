@@ -352,7 +352,7 @@ def search_resumes(q: str | None = Query(None, description="模糊搜索关键�
         res = (
             client.table("resumes")
             .select(
-                "id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, created_at"
+                "id, name, email, phone, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, created_at"
             )
             .order("id", desc=True)
             .range(0, base_limit - 1)
@@ -371,7 +371,8 @@ def search_resumes(q: str | None = Query(None, description="模糊搜索关键�
     def make_blob(row: dict) -> str:
         parts = [
             str(row.get("name") or ""),
-            str(row.get("contact_info") or ""),
+            str(row.get("email") or ""),
+            str(row.get("phone") or ""),
             str(row.get("self_evaluation") or ""),
             str(row.get("education_degree") or ""),
         ]
@@ -394,7 +395,7 @@ def get_resume(resume_id: int = Path(...)) -> dict:
         res = (
             client.table("resumes")
             .select(
-                "id, name, contact_info, education_degree, education_school, education_major, education_graduation_year, education_tier, education_tiers, skills, work_experience, internship_experience, project_experience, self_evaluation, other, created_at, updated_at"
+                "id, name, email, phone, education_degree, education_school, education_major, education_graduation_year, education_tier, education_tiers, skills, work_experience, internship_experience, project_experience, self_evaluation, other, created_at, updated_at"
             )
             .eq("id", resume_id)
             .limit(1)
@@ -434,7 +435,7 @@ def match_resumes_for_position(
         resume_res = (
             client.table("resumes")
             .select(
-                "id, name, contact_info, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers"
+                "id, name, email, phone, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers"
             )
             .execute()
         )
@@ -451,7 +452,8 @@ def match_resumes_for_position(
         # 构建简历文本
         parts = [
             str(resume.get("name") or ""),
-            str(resume.get("contact_info") or ""),
+            str(resume.get("email") or ""),
+            str(resume.get("phone") or ""),
             str(resume.get("self_evaluation") or ""),
         ]
         for key in ("skills", "work_experience", "internship_experience", "project_experience"):

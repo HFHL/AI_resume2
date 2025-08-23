@@ -19,7 +19,8 @@ logger = logging.getLogger("resume_parser")
 class ParsedResume:
     resume_file_id: Optional[int]
     name: Optional[str]
-    contact_info: Optional[str]
+    email: Optional[str]
+    phone: Optional[str]
     education_degree: Optional[str]
     education_school: Optional[List[str]]
     education_major: Optional[str]
@@ -40,7 +41,8 @@ class ParsedResume:
         return {
             "resume_file_id": self.resume_file_id,
             "name": self.name or None,
-            "contact_info": self.contact_info or None,
+            "email": self.email or None,
+            "phone": self.phone or None,
             "education_degree": self.education_degree or None,
             "education_school": self.education_school or None,
             "education_major": self.education_major or None,
@@ -67,15 +69,14 @@ def _first_or_none(lst: List[str]) -> Optional[str]:
     return lst[0] if lst else None
 
 
-def extract_contact_info(text: str) -> Optional[str]:
+def extract_first_email(text: str) -> Optional[str]:
     emails = EMAIL_RE.findall(text)
+    return emails[0] if emails else None
+
+
+def extract_first_phone(text: str) -> Optional[str]:
     phones = PHONE_RE.findall(text)
-    parts: List[str] = []
-    if emails:
-        parts.append(f"邮箱: {emails[0]}")
-    if phones:
-        parts.append(f"电话: {phones[0]}")
-    return " | ".join(parts) if parts else None
+    return phones[0] if phones else None
 
 
 def extract_degree(text: str) -> Optional[str]:
@@ -361,7 +362,8 @@ def _normalize_string_list(values: Any, max_items: int = 50) -> Optional[List[st
 
 def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[str] = None) -> ParsedResume:
     # 1) 先用正则抓联系方式/学历（学校交由 LLM 为主）
-    contact = extract_contact_info(text) or None
+    email_val = extract_first_email(text) or None
+    phone_val = extract_first_phone(text) or None
     degree = extract_degree(text) or None
     schools: Optional[List[str]] = None
 
@@ -441,7 +443,8 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
     return ParsedResume(
         resume_file_id=resume_file_id,
         name=name_fallback,
-        contact_info=contact,
+        email=email_val,
+        phone=phone_val,
         education_degree=degree,
         education_school=schools,
         education_major=(llm_json.get("education_major") or None),
