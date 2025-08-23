@@ -452,13 +452,29 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
         levels = (cls or {}).get("education_levels") or []
         education_tiers = [code_to_cn.get(lv, lv) for lv in levels]
 
+    # 6.1) 为学校/专业做中英并存：英文 -> 中文翻译后合并为 "en zh"
+    schools_bilingual: Optional[List[str]] = None
+    if schools:
+        schools_bilingual = _bilingual_schools(schools)
+        if schools_bilingual:
+            schools = schools_bilingual
+
+    if isinstance(llm_json.get("education_major"), str):
+        education_major_val = (llm_json.get("education_major") or "").strip()
+        if education_major_val:
+            llm_major = _bilingual_major(education_major_val)
+            if llm_major:
+                llm_json["education_major"] = llm_major
+
     # 7) 分类与标签
     category, tag_names = classify_category_and_tags(text)
 
+    # 7.1) 经历项中文化（title/description 翻译为中文；公司名保持原文）
+    # 在生成 structured items 后统一处理
     # 8) 纯规则提取工作年限（写入 work_years）
     work_years = extract_work_years(text)
 
-    return ParsedResume(
+    pr = ParsedResume(
         resume_file_id=resume_file_id,
         name=name_fallback,
         email=email_val,
@@ -481,6 +497,10 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
         work_experience_items=work_items,
         project_experience_items=proj_items,
     )
+
+    # 经历项中文化：将 title/description 翻成中文（若主要为英文）
+    _localize_experience_items(pr)
+    return pr
 
 
 # ============== 工作年限（纯规则） ==============
@@ -873,6 +893,89 @@ def _extract_inline_parenthesized_time(header: str) -> Optional[tuple[Optional[d
     rest = _strip_leading_date_noise(rest)
     rest = _strip_edge_parens(rest)
     return start_dt, end_dt, rest, start_tok, end_tok
+
+
+def _is_mostly_english(s: str) -> bool:
+    if not s:
+        return False
+    letters = sum(1 for ch in s if ('A' <= ch <= 'Z') or ('a' <= ch <= 'z'))
+    total = len([ch for ch in s if ch.strip()])
+    return total > 0 and (letters / total) > 0.5
+
+
+def _bilingual_schools(schools: List[str]) -> List[str]:
+    """对英文学校添加中文翻译，合并为 `en zh`。中文学校保持原样。"""
+    en_list = [s for s in schools if _is_mostly_english(s)]
+    zh_map: Dict[str, str] = {}
+    if en_list:
+        tr = _translate_to_zh_batch(en_list, instruction="只翻译学校名称为简体中文，保持专有名词准确；仅输出 JSON 数组")
+        if tr:
+            for en, zh in zip(en_list, tr):
+                zh_map[en] = zh
+    out: List[str] = []
+    for s in schools:
+        if s in zh_map and zh_map[s]:
+            out.append(f"{s} {zh_map[s]}")
+        else:
+            out.append(s)
+    return out
+
+
+def _bilingual_major(major: str) -> Optional[str]:
+    if not _is_mostly_english(major):
+        return None
+    tr = _translate_to_zh_batch([major], instruction="只翻译专业名称为简体中文；仅输出 JSON 数组")
+    if tr and tr[0]:
+        return f"{major} {tr[0]}"
+    return None
+
+
+def _translate_to_zh_batch(items: List[str], instruction: str) -> Optional[List[str]]:
+    llm = LLMClient.from_env_with_model("gpt-4o-mini")
+    if not llm or not items:
+        return None
+    prompt = (
+        instruction
+        + "\n要求：逐句直译，不要总结，不要省略，不要融合句子，保证原文信息完整；只翻译为简体中文。"
+        + "\n返回严格 JSON 数组，元素与输入一一对应；不得返回 Markdown 或多余文字。\n输入：\n"
+        + "\n".join(f"- {x}" for x in items)
+    )
+    content = llm.extract(prompt, "")
+    if not content:
+        return None
+    fixed = _strip_code_fences(content)
+    try:
+        arr = json.loads(fixed)
+        if isinstance(arr, list):
+            return [str(x) if x is not None else "" for x in arr]
+    except Exception:
+        return None
+    return None
+
+
+def _localize_experience_items(pr: "ParsedResume") -> None:
+    def localize(items: Optional[List[Dict[str, Any]]]) -> None:
+        if not items:
+            return
+        titles = [it.get("title") or "" for it in items]
+        descs = [it.get("description") or "" for it in items]
+        need_t = [i for i, t in enumerate(titles) if _is_mostly_english(t)]
+        need_d = [i for i, d in enumerate(descs) if _is_mostly_english(d)]
+        # 批量翻译（逐句直译，不省略）
+        titles_zh = _translate_to_zh_batch([titles[i] for i in need_t], instruction="将职位名称翻译为简体中文；仅输出 JSON 数组") or []
+        descs_zh = _translate_to_zh_batch([descs[i] for i in need_d], instruction="将描述翻译为简体中文；仅输出 JSON 数组") or []
+        for k, i in enumerate(need_t):
+            if k < len(titles_zh) and titles_zh[k]:
+                items[i]["title_en"] = titles[i]
+                items[i]["title"] = titles_zh[k]
+        for k, i in enumerate(need_d):
+            if k < len(descs_zh) and descs_zh[k]:
+                items[i]["description_en"] = descs[i]
+                items[i]["description"] = descs_zh[k]
+
+    localize(pr.work_experience_items)
+    localize(pr.project_experience_items)
+    # 实习经历若结构化后扩展，这里同样调用
 
 def parse_experience_items(entries: List[str]) -> List[Dict[str, Any]]:
     # 兜底：若 entries 为空，尝试从整段 markdown 中切出经历块（按常见标题拆分）

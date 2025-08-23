@@ -19,8 +19,8 @@ type ResumeDetail = {
   work_experience: string[] | null
   internship_experience: string[] | null
   project_experience: string[] | null
-  work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; description?: string | null }>
-  project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; description?: string | null }>
+  work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; title_en?: string | null; description?: string | null; description_en?: string | null }>
+  project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null; title_en?: string | null; description?: string | null; description_en?: string | null }>
   self_evaluation: string | null
   other: string | null
   created_at?: string
@@ -237,14 +237,32 @@ export default function ResumeDetailPage() {
                 <div className="detail-content list-text">
                   {Array.isArray(item.work_experience_struct) && item.work_experience_struct.length ? (
                     <ul>
-                      {item.work_experience_struct.map((wx, i) => (
-                        <li key={i}>
-                          {(wx.start || '') && <>{wx.start} - {wx.end || '至今'} </>}
-                          {wx.company && <><span className="hl-company">{wx.company}</span>{' '}</>}
-                          {wx.title && <span className="hl-role">{wx.title}</span>}
-                          {wx.description ? <> {wx.description}</> : null}
-                        </li>
-                      ))}
+                      {item.work_experience_struct.map((wx, i) => {
+                        const hasEnTitle = (wx as any).title_en && String((wx as any).title_en).trim()
+                        const hasEnDesc = (wx as any).description_en && String((wx as any).description_en).trim()
+                        return (
+                          <li key={i}>
+                            {(wx.start || '') && <>{wx.start} - {wx.end || '至今'} </>}
+                            {wx.company && <><span className="hl-company">{wx.company}</span>{' '}</>}
+                            {hasEnTitle ? (
+                              <div>
+                                <div className="hl-role">{(wx as any).title_en}</div>
+                                <div className="hl-role">{wx.title}</div>
+                              </div>
+                            ) : (
+                              wx.title && <span className="hl-role">{wx.title}</span>
+                            )}
+                            {hasEnDesc ? (
+                              <div>
+                                <div>{(wx as any).description_en}</div>
+                                <div>{wx.description}</div>
+                              </div>
+                            ) : (
+                              wx.description ? <> {wx.description}</> : null
+                            )}
+                          </li>
+                        )
+                      })}
                     </ul>
                   ) : <span className="muted">无</span>}
                 </div>
@@ -266,14 +284,32 @@ export default function ResumeDetailPage() {
                 <div className="detail-content list-text">
                   {Array.isArray(item.project_experience_struct) && item.project_experience_struct.length ? (
                     <ul>
-                      {item.project_experience_struct.map((px, i) => (
-                        <li key={i}>
-                          {(px.start || '') && <>{px.start} - {px.end || '至今'} </>}
-                          {px.company && <><span className="hl-company">{px.company}</span>{' '}</>}
-                          {px.title && <span className="hl-role">{px.title}</span>}
-                          {px.description ? <> {px.description}</> : null}
-                        </li>
-                      ))}
+                      {item.project_experience_struct.map((px, i) => {
+                        const hasEnTitle = (px as any).title_en && String((px as any).title_en).trim()
+                        const hasEnDesc = (px as any).description_en && String((px as any).description_en).trim()
+                        return (
+                          <li key={i}>
+                            {(px.start || '') && <>{px.start} - {px.end || '至今'} </>}
+                            {px.company && <><span className="hl-company">{px.company}</span>{' '}</>}
+                            {hasEnTitle ? (
+                              <div>
+                                <div className="hl-role">{(px as any).title_en}</div>
+                                <div className="hl-role">{px.title}</div>
+                              </div>
+                            ) : (
+                              px.title && <span className="hl-role">{px.title}</span>
+                            )}
+                            {hasEnDesc ? (
+                              <div>
+                                <div>{(px as any).description_en}</div>
+                                <div>{px.description}</div>
+                              </div>
+                            ) : (
+                              px.description ? <> {px.description}</> : null
+                            )}
+                          </li>
+                        )
+                      })}
                     </ul>
                   ) : <span className="muted">无</span>}
                 </div>
