@@ -7,6 +7,7 @@ type ResumeDetail = {
   name: string | null
   email: string | null
   phone: string | null
+  wechat?: string | null
   education_degree: string | null
   education_school: string[] | null
   education_major: string | null
@@ -43,6 +44,7 @@ export default function ResumeDetailPage() {
   const [loadingMatches, setLoadingMatches] = useState(false)
   const [uploading, setUploading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const [editWechat, setEditWechat] = useState('')
 
   useEffect(() => {
     if (!id) return
@@ -66,6 +68,7 @@ export default function ResumeDetailPage() {
         setEditName(String(it?.name || ''))
         setEditEmail(String(it?.email || ''))
         setEditPhone(String(it?.phone || ''))
+        setEditWechat(String((it as any)?.wechat || ''))
       })
       .catch(e => setError(e.message || '加载失败'))
       .finally(() => setLoading(false))
@@ -75,7 +78,7 @@ export default function ResumeDetailPage() {
     if (!item) return
     try {
       setSaving(true)
-      const payload: any = { name: editName, email: editEmail, phone: editPhone }
+      const payload: any = { name: editName, email: editEmail, phone: editPhone, wechat: editWechat }
       const r = await fetch(api(`/resumes/${id}`), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -167,6 +170,11 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>电话</span>
                   <span>
                     <input value={editPhone} onChange={e => setEditPhone(e.target.value)} placeholder="请输入电话" />
+                  </span>
+                </div>
+                <div className="detail-row"><span>微信</span>
+                  <span>
+                    <input value={editWechat} onChange={e => setEditWechat(e.target.value)} placeholder="请输入微信" />
                   </span>
                 </div>
                 <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>

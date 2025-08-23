@@ -409,9 +409,9 @@ def parse_resume(text: str, resume_file_id: Optional[int], file_name: Optional[s
     intern_ex = _normalize_string_list(llm_json.get("internship_experience"))
     proj_ex = _normalize_string_list(llm_json.get("project_experience"))
 
-    # 结构化解析：工作/项目经历
-    work_items = parse_experience_items(work_ex or []) or None
-    proj_items = parse_experience_items(proj_ex or []) or None
+    # 结构化解析：优先用小模型 LLM（gpt-4o-mini），失败再回退规则
+    work_items = extract_experience_via_llm(work_ex or []) or parse_experience_items(work_ex or []) or None
+    proj_items = extract_experience_via_llm(proj_ex or []) or parse_experience_items(proj_ex or []) or None
 
     # 5) 学校：单独 LLM 抽取（基于关键词窗口）；若不可用/为空，再尝试通用 LLM 字段；最后回退正则
     schools_llm_windows = extract_schools_via_llm(text)
@@ -737,6 +737,10 @@ def _extract_time_range_from_header(header: str) -> tuple[Optional[date], Option
     rng = re.compile(rf"^\s*({token})\s*(?:[-~至到]|to)\s*({token}|至今|现在|present|now)\b", re.IGNORECASE)
     m = rng.search(header)
     if not m:
+        # 尝试从括号内抽取时间范围：如 "项目名 (2024.11 - 2025.02) 角色"
+        alt = _extract_inline_parenthesized_time(header)
+        if alt is not None:
+            return alt
         return None, None, header.strip(), None, None
     start_tok = m.group(1)
     end_tok = m.group(2)
@@ -754,6 +758,7 @@ def _extract_time_range_from_header(header: str) -> tuple[Optional[date], Option
     rest = header[m.end():].strip()
     # 去除时间范围后，可能仍残留类似“年 07 月”等噪声日期片段，先剥离
     rest = _strip_leading_date_noise(rest)
+    rest = _strip_edge_parens(rest)
     return start_dt, end_dt, rest, start_tok, end_tok
 
 
@@ -765,15 +770,15 @@ def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
     # 优先：双空格切分
     m = re.match(r"^([^\s].*?)\s{2,}([^\s].*?)\s*$", t)
     if m:
-        comp = _strip_leading_date_noise(m.group(1).strip())
-        titl = (m.group(2) or "").strip()
+        comp = _strip_leading_date_noise(_strip_edge_parens(m.group(1).strip()))
+        titl = _strip_edge_parens((m.group(2) or "").strip())
         return (comp or None), (titl or None), ""
     # 其次：Role @ Company
     if "@" in t:
         m2 = re.match(r"^([^@]+?)\s*@\s*(.+)$", t)
         if m2:
-            title = m2.group(1).strip()
-            company = _strip_leading_date_noise(m2.group(2).strip())
+            title = _strip_edge_parens(m2.group(1).strip())
+            company = _strip_leading_date_noise(_strip_edge_parens(m2.group(2).strip()))
             return (company or None), (title or None), ""
     # 关键词法：找到最早的岗位关键词位置
     idx = -1
@@ -783,20 +788,20 @@ def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
         if p > 0 and (idx == -1 or p < idx):
             idx = p; kw_found = kw
     if idx > 0:
-        company = _strip_leading_date_noise(t[:idx].strip(" -、，,；;·") or "") or None
+        company = _strip_leading_date_noise(_strip_edge_parens(t[:idx].strip(" -、，,；;·") or "")) or None
         title_and_tail = t[idx:].strip()
         # 将标题后面的逗号/句号之后归到 tail
         m3 = re.match(r"^(\S.+?)([，,。;；].+)?$", title_and_tail)
         if m3:
-            title = m3.group(1).strip()
+            title = _strip_edge_parens(m3.group(1).strip())
             tail = (m3.group(2) or "").strip()
             return company, title or None, tail
         return company, title_and_tail or None, ""
     # 回退：用最后一个空格切分
     parts = t.split()
     if len(parts) >= 2:
-        company = _strip_leading_date_noise(" ".join(parts[:-1]).strip())
-        title = parts[-1].strip()
+        company = _strip_leading_date_noise(_strip_edge_parens(" ".join(parts[:-1]).strip()))
+        title = _strip_edge_parens(parts[-1].strip())
         return (company or None), (title or None), ""
     # 无法判定
     return None, t or None, ""
@@ -829,6 +834,37 @@ def _strip_leading_date_noise(s: str) -> str:
                 changed = True
                 break
     return txt.strip()
+
+
+def _strip_edge_parens(s: str) -> str:
+    """去除字符串首尾多余的圆括号/中文括号。"""
+    if not s:
+        return s
+    return s.strip().strip("()").strip("（）").strip()
+
+
+def _extract_inline_parenthesized_time(header: str) -> Optional[tuple[Optional[date], Optional[date], str, Optional[str], Optional[str]]]:
+    token = r"(?:\d{4}(?:[./\-]\s*\d{1,2})?|\d{4}\s*年\s*\d{1,2}\s*月|[A-Za-z]{3,9}\s+\d{4}|\d{4})"
+    pat = re.compile(rf"\(\s*({token})\s*(?:[-~至到]|to)\s*({token}|至今|现在|present|now)\s*\)", re.IGNORECASE)
+    m = pat.search(header)
+    if not m:
+        return None
+    start_tok = m.group(1)
+    end_tok = m.group(2)
+    def _to_date(tok: str) -> Optional[date]:
+        if re.fullmatch(r"(?i)(至今|现在|present|now)", tok or ""):
+            return date.today()
+        try:
+            return _parse_date(tok)
+        except Exception:
+            return None
+    start_dt = _to_date(start_tok)
+    end_dt = _to_date(end_tok)
+    # 去掉括号中的时间段
+    rest = (header[:m.start()] + header[m.end():]).strip()
+    rest = _strip_leading_date_noise(rest)
+    rest = _strip_edge_parens(rest)
+    return start_dt, end_dt, rest, start_tok, end_tok
 
 def parse_experience_items(entries: List[str]) -> List[Dict[str, Any]]:
     items: List[Dict[str, Any]] = []
@@ -870,4 +906,58 @@ def parse_experience_items(entries: List[str]) -> List[Dict[str, Any]]:
             "duration_months": duration_months,
         })
     return items
+
+
+def extract_experience_via_llm(entries: List[str]) -> Optional[List[Dict[str, Any]]]:
+    if not entries:
+        return None
+    llm = LLMClient.from_env_with_model("gpt-4o-mini")
+    if not llm:
+        return None
+    schema = (
+        "请将下面的经历条目解析为结构化 JSON，仅输出 JSON 数组，不要任何解释。\n"
+        "每个元素形如：{\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title\": string|null, \"description\": string|null}\n"
+        "规则：\n"
+        "- 起止时间支持 YYYY.MM/ YYYY-MM/ 中文‘YYYY年MM月’/ 英文月份。\n"
+        "- 如果在括号内出现时间段，如 ‘项目名 (2024.11 - 2025.02)’，请抽取到 start/end。\n"
+        "- end 缺省视为 'present'。\n"
+        "- company 不得包含日期或括号时间，title 不得包含日期或括号时间。\n"
+        "- description 用剩余信息，尽量简洁。\n"
+    )
+    content = "\n---\n".join(str(x) for x in entries)
+    out = llm.extract(schema, content, max_tokens=1200)
+    if not out:
+        return None
+    obj = _extract_json_object(out)
+    if not isinstance(obj, list):
+        return None
+    cleaned: List[Dict[str, Any]] = []
+    for it in obj:
+        if not isinstance(it, dict):
+            continue
+        start = it.get("start"); end = it.get("end"); company = it.get("company"); title = it.get("title"); desc = it.get("description")
+        # 简单清洗
+        if isinstance(company, str):
+            company = _strip_leading_date_noise(_strip_edge_parens(company))
+        if isinstance(title, str):
+            title = _strip_edge_parens(title)
+        cleaned.append({
+            "start": start if (isinstance(start, str) or start is None) else None,
+            "end": end if (isinstance(end, str) or end is None) else None,
+            "company": (company or None),
+            "title": (title or None),
+            "description": (desc or None),
+            "duration_months": None,
+        })
+    # 可选：计算时长
+    for it in cleaned:
+        try:
+            s = it.get("start"); e = it.get("end")
+            sd = _parse_date(str(s)) if isinstance(s, str) and s else None
+            ed = date.today() if (isinstance(e, str) and e.lower() == 'present') else (_parse_date(str(e)) if isinstance(e, str) and e else None)
+            if sd:
+                it["duration_months"] = _months_between(sd, ed or date.today())
+        except Exception:
+            pass
+    return cleaned
 
