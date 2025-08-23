@@ -15,6 +15,7 @@ type ResumeItem = {
   created_at?: string
   work_experience?: string[]
   uploaded_by?: string | null
+  work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
 }
 
 type Tag = {
@@ -108,6 +109,7 @@ export default function ResumesPage() {
           const fallbackTags = (r.tag_names || [])
           const tagNames = (externalTags.length ? externalTags : fallbackTags).map(s => s.trim()).filter(Boolean)
           
+          const wxs = (r as any).work_experience_struct as Array<any> | undefined
           return {
             id: r.id,
             name: r.name || '未知',
@@ -120,6 +122,7 @@ export default function ResumesPage() {
             created_at: (r as any).created_at || undefined,
             work_experience: (r as any).work_experience || [],
             uploaded_by: (r as any).uploaded_by ?? null,
+            work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
           }
         })
         
@@ -463,47 +466,24 @@ export default function ResumesPage() {
               <div className="card-center">
                 <div className="work-experience">
                   <div className="section-title">工作经历</div>
-                  {Array.isArray(item.work_experience) && item.work_experience.length > 0 ? (
+                  {Array.isArray(item.work_experience_struct) && item.work_experience_struct.length > 0 ? (
                     <div className="experience-list">
-                      {item.work_experience.slice(0, 3).map((exp, i) => {
-                        const raw = (exp || '').trim()
-                        const s = raw.length > 80 ? raw.slice(0, 80) + '…' : raw
-                        const jobKeywords = ['工程师','经理','开发','产品','运营','测试','设计','前端','后端','全栈','算法','数据','销售','市场','人力','HR','专家','负责人','总监','主管','实习','分析师','科学家','架构师','运维','支持','客服','BD','商务','财务','法务','审计']
-                        const dateRe = /^\s*(\d{4}(?:[./年]\s*\d{1,2})?(?:\s*[—\-–~至到]+\s*(?:至今|现在|\d{4}(?:[./年]\s*\d{1,2})?))?)/
-                        const dm = s.match(dateRe)
-                        const datePrefix = dm ? dm[0] : ''
-                        const rest0 = s.slice(datePrefix.length).trim()
-                        if (rest0) {
-                          let splitPos = -1
-                          for (const kw of jobKeywords) {
-                            const idx = rest0.indexOf(kw)
-                            if (idx > 0 && (splitPos === -1 || idx < splitPos)) splitPos = idx
-                          }
-                          let company = ''
-                          let role = ''
-                          let tail = ''
-                          if (splitPos > 0) {
-                            company = rest0.slice(0, splitPos).trim()
-                            const roleAll = rest0.slice(splitPos).trim()
-                            const m2 = roleAll.match(/^(\S.+?)([，,。;；].+)?$/)
-                            role = m2 ? m2[1] : roleAll
-                            tail = m2 && m2[2] ? m2[2] : ''
-                            return (
-                              <div key={i} className="experience-item">
-                                {datePrefix}
-                                {company && <><span className="hl-company">{company}</span>{' '}</>}
-                                {role && <span className="hl-role">{role}</span>}
-                                {tail}
-                              </div>
-                            )
-                          }
-                        }
+                      {item.work_experience_struct.slice(0, 3).map((wx, i) => {
+                        const start = (wx as any)?.start || ''
+                        const end = (wx as any)?.end || ''
+                        const time = start ? `${start} - ${end || '至今'}` : ''
+                        const company = (wx as any)?.company || ''
+                        const title = (wx as any)?.title || ''
                         return (
-                          <div key={i} className="experience-item">{s || '-'}</div>
+                          <div key={i} className="experience-item">
+                            {time && <span className="time">{time} </span>}
+                            {company && <span className="hl-company">{company}</span>}{company && title ? ' ' : ''}
+                            {title && <span className="hl-role">{title}</span>}
+                          </div>
                         )
                       })}
-                      {item.work_experience.length > 3 && (
-                        <div className="more-indicator">还有 {item.work_experience.length - 3} 条经历...</div>
+                      {item.work_experience_struct.length > 3 && (
+                        <div className="more-indicator">还有 {item.work_experience_struct.length - 3} 条经历...</div>
                       )}
                     </div>
                   ) : (

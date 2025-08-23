@@ -36,9 +36,9 @@ class ParsedResume:
     # 结构化经历（不直接入库；如需入库建议新增 jsonb 字段）
     work_experience_items: Optional[List[Dict[str, Any]]] = None
     project_experience_items: Optional[List[Dict[str, Any]]] = None
-    self_evaluation: Optional[str]
-    other: Optional[str]
-    work_years: Optional[int]
+    self_evaluation: Optional[str] = None
+    other: Optional[str] = None
+    work_years: Optional[int] = None
 
     def to_row(self) -> Dict[str, Any]:
         return {

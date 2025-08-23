@@ -49,7 +49,7 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
   // 拉取简历
   const { data: resumes, error: rErr } = await supabase
     .from('resumes')
-    .select('id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
+    .select('id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
   if (rErr) return new Response(JSON.stringify({ detail: rErr.message }), { status: 400 })
 
   const required: string[] = position.required_keywords || []
