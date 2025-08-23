@@ -96,7 +96,7 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 return
         logger.info(f"检测到新文件: {path.name}")
 
-        # 确保 resume_files 存在并标记为处理中（若不存在则创建）
+        # 仅处理来源于数据库/远程拉取的文件：要求 resume_files 已存在
         client = get_supabase_client()
         rf_id: int | None = None
         try:
@@ -106,16 +106,9 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 rf_id = data[0]["id"]
                 client.table("resume_files").update({"status": "处理中"}).eq("id", rf_id).execute()
             else:
-                ins = client.table("resume_files").insert({
-                    "file_name": path.name,
-                    "file_path": "",  # 不写入本地路径，占位空串（非空约束需调整为允许空串）
-                    "uploaded_by": "watcher",
-                    "status": "处理中",
-                }).execute()
-                items = getattr(ins, "data", []) or []
-                if items:
-                    rf_id = items[0]["id"]
-            logger.info(f"[watcher] 标记/创建处理中: file={path.name}, rf_id={rf_id}")
+                logger.warning(f"[watcher] 跳过本地孤立文件（无对应 resume_files 记录）: {path.name}")
+                return
+            logger.info(f"[watcher] 标记处理中: file={path.name}, rf_id={rf_id}")
         except Exception as e:
             logger.error(f"[watcher] 标记/创建处理中失败: file={path.name}, error={e}")
 
