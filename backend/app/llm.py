@@ -56,10 +56,10 @@ class LLMClient:
             completion = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "你是简历信息抽取助手，严格按用户要求输出 JSON。"},
-                    {"role": "user", "content": prompt + "\n\n```\n" + text[:20000] + "\n```"},
+                    {"role": "system", "content": "你是简历信息抽取助手，只能输出严格 JSON。禁止输出说明、示例、Markdown 或 ``` 代码块。所有阶段一律使用中文输出字段内容；但专有名词（公司/机构/学校/产品/技术/代币/公链/人名等）保持原文，英文就好，不要翻译。"},
+                    {"role": "user", "content": prompt + "\n\n<文本开始>\n" + text[:20000] + "\n<文本结束>"},
                 ],
-                temperature=0.2,
+                temperature=0.0,
                 max_tokens=max_tokens,
             )
             return completion.choices[0].message.content or None

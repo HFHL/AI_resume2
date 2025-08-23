@@ -273,8 +273,16 @@ def extract_schools_via_llm(text: str) -> Optional[List[str]]:
     context = "\n---\n".join(snippets[:200])
     content = llm.extract(SCHOOL_JSON_PROMPT, context, max_tokens=600)
     if not content:
-        return None
-    obj = _extract_json_object(content)
+        # 一次重试：仅投工作/项目经历相关片段
+        brief_lines = [ln for ln in entries if isinstance(ln, str)]
+        brief = "\n".join(brief_lines)[:16000]
+        content = llm.extract(schema, brief, max_tokens=900)
+        if not content:
+            return None
+    # JSON repair：去围栏、截取首尾花/方括号、去尾逗号
+    fixed = _strip_code_fences(content)
+    fixed = re.sub(r",\s*([\]}])", r"\1", fixed)
+    obj = _extract_json_object(fixed)
     if not isinstance(obj, dict):
         return None
     schools = _normalize_string_list(obj.get("education_school"))
@@ -867,6 +875,7 @@ def _extract_inline_parenthesized_time(header: str) -> Optional[tuple[Optional[d
     return start_dt, end_dt, rest, start_tok, end_tok
 
 def parse_experience_items(entries: List[str]) -> List[Dict[str, Any]]:
+    # 兜底：若 entries 为空，尝试从整段 markdown 中切出经历块（按常见标题拆分）
     items: List[Dict[str, Any]] = []
     for raw in entries:
         if not raw or not isinstance(raw, str):
@@ -916,13 +925,24 @@ def extract_experience_via_llm(entries: List[str]) -> Optional[List[Dict[str, An
         return None
     schema = (
         "请将下面的经历条目解析为结构化 JSON，仅输出 JSON 数组，不要任何解释。\n"
-        "每个元素形如：{\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title\": string|null, \"description\": string|null}\n"
+        "每个元素：{\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title\": string|null, \"description\": string|null}\n"
         "规则：\n"
-        "- 起止时间支持 YYYY.MM/ YYYY-MM/ 中文‘YYYY年MM月’/ 英文月份。\n"
-        "- 如果在括号内出现时间段，如 ‘项目名 (2024.11 - 2025.02)’，请抽取到 start/end。\n"
-        "- end 缺省视为 'present'。\n"
-        "- company 不得包含日期或括号时间，title 不得包含日期或括号时间。\n"
-        "- description 用剩余信息，尽量简洁。\n"
+        "- 起止时间支持 YYYY.MM / YYYY-MM / 中文‘YYYY年MM月’ / 英文月份。\n"
+        "- 若括号中有时间段，如 ‘项目名 (2024.11 - 2025.02)’，抽取为 start/end 并从公司/职位中移除括号时间。\n"
+        "- end 缺省为 'present'。\n"
+        "- company 与 title 不得包含日期或括号时间。\n"
+        "- description 用剩余关键信息，简洁。\n"
+        "- 全过程一律用中文返回字段内容；但专有名词（公司/机构/学校/产品/技术/代币/公链/人名等）保持原文，不需要翻译。\n"
+        "\nFew-shot 1：\n"
+        "输入：\n"
+        "2019.05 - 2020.12  ABC Exchange  产品经理  负责永续合约从0-1设计，撮合性能优化，清结算链路。\n"
+        "输出：\n"
+        "[{\"start\": \"2019-05\", \"end\": \"2020-12\", \"company\": \"ABC Exchange\", \"title\": \"产品经理\", \"description\": \"负责永续合约从0-1设计，撮合性能优化，清结算链路\"}]\n"
+        "\nFew-shot 2：\n"
+        "输入：\n"
+        "XT Future 2.0 (2024.11 - 2025.02)  项目负责人  统一账户模型规划与实施。\n"
+        "输出：\n"
+        "[{\"start\": \"2024-11\", \"end\": \"2025-02\", \"company\": \"XT Future 2.0\", \"title\": \"项目负责人\", \"description\": \"统一账户模型规划与实施\"}]\n"
     )
     content = "\n---\n".join(str(x) for x in entries)
     out = llm.extract(schema, content, max_tokens=1200)
