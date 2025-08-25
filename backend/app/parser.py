@@ -749,6 +749,15 @@ _ROLE_KEYWORDS = [
     "财务","法务","审计","产品负责人","产品经理","交易产品经理","Web 工程师",
 ]
 
+_ROLE_KEYWORDS_EN = [
+    # base roles
+    "engineer","developer","manager","director","architect","analyst","scientist","specialist",
+    "consultant","lead","principal","staff","intern","researcher","sre","devops","qa",
+    # domain modifiers
+    "product","software","data","security","infrastructure","program","project",
+    "site reliability",
+]
+
 def _normalize_text_line(line: str) -> str:
     s = (line or "").strip()
     if not s:
@@ -815,8 +824,15 @@ def _split_company_title(rest: str) -> tuple[Optional[str], Optional[str], str]:
         p = t.find(kw)
         if p > 0 and (idx == -1 or p < idx):
             idx = p; kw_found = kw
+    # 英文岗位关键词（大小写不敏感）
+    if idx == -1:
+        low = t.lower()
+        for kw in _ROLE_KEYWORDS_EN:
+            p = low.find(kw)
+            if p > 0 and (idx == -1 or p < idx):
+                idx = p; kw_found = kw
     if idx > 0:
-        company = _strip_leading_date_noise(_strip_edge_parens(t[:idx].strip(" -、，,；;·") or "")) or None
+        company = _strip_leading_date_noise(_strip_edge_parens(t[:idx].strip(" -、，,；;·:") or "")) or None
         title_and_tail = t[idx:].strip()
         # 将标题后面的逗号/句号之后归到 tail
         m3 = re.match(r"^(\S.+?)([，,。;；].+)?$", title_and_tail)
@@ -900,7 +916,7 @@ def _is_mostly_english(s: str) -> bool:
         return False
     letters = sum(1 for ch in s if ('A' <= ch <= 'Z') or ('a' <= ch <= 'z'))
     total = len([ch for ch in s if ch.strip()])
-    return total > 0 and (letters / total) > 0.5
+    return total > 0 and (letters / total) > 0.8
 
 
 def _bilingual_schools(schools: List[str]) -> List[str]:

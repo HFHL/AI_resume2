@@ -98,6 +98,8 @@ export default function PositionDetail() {
     if (!position) return
     setSaving(true)
     try {
+      const user = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
+      const isAdmin = !!(user && user.is_admin)
       const payload = {
         position_name: position.position_name,
         position_description: position.position_description,
@@ -108,10 +110,14 @@ export default function PositionDetail() {
       }
       const res = await fetch(api(`/positions/${position.id}`), {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'x-admin': isAdmin ? 'true' : 'false' },
         body: JSON.stringify(payload),
       })
-      if (!res.ok) throw new Error('保存失败')
+      if (!res.ok) {
+        let msg = '保存失败'
+        try { const d = await res.json(); if (d?.detail) msg = d.detail } catch {}
+        throw new Error(msg)
+      }
       alert('已保存')
     } catch (e: any) {
       alert(e.message || '保存失败')
