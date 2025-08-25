@@ -10,7 +10,7 @@ type Position = {
   id: number
   position_name: string
   position_description: string | null
-  position_category: '技术类' | '非技术类' | null
+  position_category: string | null
   required_keywords: string[] | null
   match_type: 'any' | 'all'
   tags: string[] | null
@@ -24,9 +24,14 @@ export default function PositionDetail() {
   const [saving, setSaving] = useState(false)
   const [position, setPosition] = useState<Position | null>(null)
 
-  const [category, setCategory] = useState<'技术类' | '非技术类'>('技术类')
+  const [category, setCategory] = useState<string>('')
   const [tags, setTags] = useState<Tag[]>([])
   const [allTags, setAllTags] = useState<Tag[]>([])
+  const categoryOptions = useMemo(() => {
+    const set = new Set<string>()
+    for (const t of allTags) { if (t.category) set.add(t.category) }
+    return Array.from(set)
+  }, [allTags])
 
   const [keywords, setKeywords] = useState<Keyword[]>([])
   const [allKeywords, setAllKeywords] = useState<Keyword[]>([])
@@ -55,11 +60,11 @@ export default function PositionDetail() {
   }, [id])
 
   useEffect(() => {
-    fetch(api(`/tags?category=${encodeURIComponent(category)}`))
+    fetch(api(`/tags`))
       .then(r => r.json())
       .then(d => setAllTags(d.items || []))
       .catch(() => setAllTags([]))
-  }, [category])
+  }, [])
 
   useEffect(() => {
     fetch(api('/keywords'))
@@ -191,10 +196,12 @@ export default function PositionDetail() {
           <div className="row">
             <label>
               <span>职位类别</span>
-              <div className="seg">
-                <button type="button" className={`seg-item ${category === '技术类' ? 'active' : ''}`} onClick={() => setCategory('技术类')}>技术类</button>
-                <button type="button" className={`seg-item ${category === '非技术类' ? 'active' : ''}`} onClick={() => setCategory('非技术类')}>非技术类</button>
-              </div>
+              <select value={category} onChange={e => setCategory(e.target.value)}>
+                <option value="">请选择类别</option>
+                {categoryOptions.map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
             </label>
             <label>
               <span>匹配方式</span>
@@ -216,10 +223,17 @@ export default function PositionDetail() {
               ))}
             </div>
             <div className="tag-grid">
-              {allTags.map(t => (
-                <button key={t.id} type="button" className={`tag-pick ${isTagSelected(t) ? 'selected' : ''}`} onClick={() => toggleTag(t)}>
-                  {t.tag_name}
-                </button>
+              {categoryOptions.map(cat => (
+                <div key={cat} style={{ marginBottom: 12 }}>
+                  <div style={{ fontWeight: 600, margin: '8px 0' }}>{cat}</div>
+                  <div className="tag-grid">
+                    {allTags.filter(t => t.category === cat).map(t => (
+                      <button key={t.id} type="button" className={`tag-pick ${isTagSelected(t) ? 'selected' : ''}`} onClick={() => toggleTag(t)}>
+                        {t.tag_name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </label>
