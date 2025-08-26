@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import KeywordPicker from '../components/KeywordPicker'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api'
 
@@ -98,6 +99,23 @@ export default function PositionDetail() {
 
   function addKeyword(k: Keyword) { setKeywords(prev => (prev.some(x => x.id === k.id) ? prev : [...prev, k])) }
   function removeKeyword(id: number) { setKeywords(prev => prev.filter(k => k.id !== id)) }
+
+  async function createKeywordInline(text: string) {
+    const kw = text.trim()
+    if (!kw) return
+    try {
+      const res = await fetch(api('/keywords'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ keyword: kw }),
+      })
+      if (!res.ok) throw new Error('创建关键词失败')
+      const data = await res.json()
+      const item = data.keyword as Keyword
+      setAllKeywords(prev => (prev.some(p => p.id === item.id) ? prev : [...prev, item]))
+      addKeyword(item)
+    } catch {}
+  }
 
   async function save() {
     if (!position) return
@@ -239,7 +257,7 @@ export default function PositionDetail() {
           </label>
 
           <label>
-            <span>关键词</span>
+            <span>关键词（点击选择/取消；可回车新增）</span>
             <div className="chips">
               {keywords.map(k => (
                 <span key={k.id} className="chip">
@@ -248,21 +266,13 @@ export default function PositionDetail() {
                 </span>
               ))}
             </div>
-            <div className="grid">
-              {allKeywords.map(k => {
-                const selected = keywords.some(s => s.id === k.id)
-                return (
-                  <button
-                    key={k.id}
-                    type="button"
-                    className={`tag-pick ${selected ? 'selected' : ''}`}
-                    onClick={() => (selected ? removeKeyword(k.id) : addKeyword(k))}
-                  >
-                    {k.keyword}
-                  </button>
-                )
-              })}
-            </div>
+            <KeywordPicker
+              options={allKeywords}
+              selected={keywords}
+              onPick={addKeyword}
+              onRemove={(id) => removeKeyword(id)}
+              onCreate={createKeywordInline}
+            />
           </label>
         </div>
       </div>
