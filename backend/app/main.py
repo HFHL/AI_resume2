@@ -322,33 +322,41 @@ def list_keywords(limit: int = Query(100, ge=1, le=500)) -> dict:
 
 
 @app.get("/resumes")
-def list_resumes(limit: int = Query(200, ge=1, le=1000), offset: int = Query(0, ge=0)) -> dict:
+def list_resumes(limit: str | int = Query("200"), offset: int = Query(0, ge=0)) -> dict:
     """返回简历列表。当前为简单列表接口，筛选由前端先行实现。
     后续如需服务端筛选/分页，可扩展查询参数。
     """
     client = get_supabase_client()
+    # 支持 limit=all 拉全量
+    limit_str = str(limit).lower() if isinstance(limit, str) else str(limit)
+    unlimited = limit_str in ("all", "0", "-1")
     try:
-        res = (
+        query = (
             client.table("resumes")
             .select("id, name, skills, work_experience, education_degree, education_tiers, created_at")
             .order("id", desc=True)
-            .range(offset, offset + limit - 1)
-            .execute()
         )
+        if unlimited:
+            res = query.execute()
+        else:
+            lim_val = max(1, min(int(limit_str or "200"), 1000000))
+            res = query.range(offset, offset + lim_val - 1).execute()
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     return {"items": getattr(res, "data", [])}
 
 
 @app.get("/resumes/_search")
-def search_resumes(q: str | None = Query(None, description="模糊搜索关键字"), limit: int = Query(200, ge=1, le=2000), offset: int = Query(0, ge=0)) -> dict:
+def search_resumes(q: str | None = Query(None, description="模糊搜索关键字"), limit: str | int = Query("200"), offset: int = Query(0, ge=0)) -> dict:
     """简单搜索：在姓名、联系方式、技能、经历、自评等字段中做子串匹配（不区分大小写）。
     为方便实现，先拉取一定数量记录后在内存中过滤，适合中小数据量。
     """
     client = get_supabase_client()
     try:
         # 为避免全表扫描压力，这里最多拉取 5000 条进行内存过滤
-        base_limit = 5000
+        limit_str = str(limit).lower() if isinstance(limit, str) else str(limit)
+        unlimited = limit_str in ("all", "0", "-1")
+        base_limit = 1000000 if unlimited else 5000
         res = (
             client.table("resumes")
             .select(
@@ -365,7 +373,11 @@ def search_resumes(q: str | None = Query(None, description="模糊搜索关键�
     needle = (q or "").strip().lower()
     if not needle:
         total = len(rows)
-        sliced = rows[offset: offset + limit]
+        if unlimited:
+            sliced = rows
+        else:
+            lim_val = max(1, min(int(limit_str or "200"), 1000000))
+            sliced = rows[offset: offset + lim_val]
         return {"items": sliced, "total": total}
 
     def make_blob(row: dict) -> str:
@@ -384,7 +396,11 @@ def search_resumes(q: str | None = Query(None, description="模糊搜索关键�
 
     matched = [r for r in rows if needle in make_blob(r)]
     total = len(matched)
-    sliced = matched[offset: offset + limit]
+    if unlimited:
+        sliced = matched
+    else:
+        lim_val = max(1, min(int(limit_str or "200"), 1000000))
+        sliced = matched[offset: offset + lim_val]
     return {"items": sliced, "total": total}
 
 

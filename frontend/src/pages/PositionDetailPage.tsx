@@ -73,7 +73,7 @@ export default function PositionDetail() {
       .then(d => setAllKeywords(d.items || []))
       .catch(() => setAllKeywords([]))
   }, [])
-
+  
   // 初始化选中标签与关键词
   useEffect(() => {
     if (!position) return
@@ -99,7 +99,7 @@ export default function PositionDetail() {
 
   function addKeyword(k: Keyword) { setKeywords(prev => (prev.some(x => x.id === k.id) ? prev : [...prev, k])) }
   function removeKeyword(id: number) { setKeywords(prev => prev.filter(k => k.id !== id)) }
-
+  
   async function createKeywordInline(text: string) {
     const kw = text.trim()
     if (!kw) return

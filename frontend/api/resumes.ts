@@ -19,7 +19,9 @@ export default async function handler(req: Request): Promise<Response> {
 
   if (method === 'GET') {
     const q = searchParams.get('q')
-    const limit = Math.min(parseInt(searchParams.get('limit') || '200', 10), 1000)
+    const limitParam = (searchParams.get('limit') || '200').toLowerCase()
+    const unlimited = limitParam === 'all' || limitParam === '0' || limitParam === '-1'
+    const limit = unlimited ? 1000000 : Math.min(parseInt(limitParam, 10) || 200, 1000000)
     const offset = Math.max(parseInt(searchParams.get('offset') || '0', 10), 0)
 
     if (q && q.trim()) {
@@ -28,7 +30,7 @@ export default async function handler(req: Request): Promise<Response> {
         .from('resumes')
         .select('id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
         .order('id', { ascending: false })
-        .limit(5000)
+        .limit(unlimited ? 1000000 : 5000)
       if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
       // 多关键词AND逻辑搜索：分词后每个关键词都必须匹配
       const keywords = q.trim().split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
@@ -80,11 +82,13 @@ export default async function handler(req: Request): Promise<Response> {
     }
 
     // 默认列表（包含 tag_names、skills、work_years、work_experience）
-    const { data, error } = await supabase
+    const base = supabase
       .from('resumes')
       .select('id, resume_file_id, name, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
       .order('id', { ascending: false })
-      .range(offset, offset + limit - 1)
+    const { data, error } = unlimited
+      ? await base.select('*')
+      : await base.range(offset, offset + limit - 1)
     if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
     
     // 对于 work_experience 为空的记录，尝试合并 internship_experience 和 project_experience

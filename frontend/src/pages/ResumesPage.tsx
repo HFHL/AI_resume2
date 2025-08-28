@@ -67,7 +67,7 @@ export default function ResumesPage() {
   
   useEffect(() => {
     setLoading(true)
-    const url = api('/resumes')
+    const url = api('/resumes?limit=all&offset=0')
     console.log('[ResumesPage] Fetch list URL:', url)
     fetch(url)
       .then(r => r.json())
@@ -144,7 +144,7 @@ export default function ResumesPage() {
       setSearching(false)
       setLoading(true)
       try {
-        const url = api('/resumes')
+        const url = api('/resumes?limit=all&offset=0')
         console.log('[ResumesPage] Fetch list URL (reset):', url)
         const r = await fetch(url)
         if (!r.ok) {
@@ -173,7 +173,7 @@ export default function ResumesPage() {
     setSearching(true)
     setLoading(true)
     try {
-      const searchUrl = api(`/resumes?q=${encodeURIComponent(q)}`)
+      const searchUrl = api(`/resumes?q=${encodeURIComponent(q)}&limit=all&offset=0`)
       console.log('[ResumesPage] Fetch search URL (index.ts on edge):', searchUrl)
       const r = await fetch(searchUrl)
       if (!r.ok) {
