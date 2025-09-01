@@ -24,7 +24,7 @@ import unicodedata
 import re
 import time as _ts
 import uuid as _uuid
-from concurrent.futures import ThreadPoolExecutor
+ 
 
 
 logger = logging.getLogger("upload_watcher")
@@ -38,11 +38,29 @@ class UploadDirEventHandler(FileSystemEventHandler):
         self.processor = MinerUProcessor()
         # 批处理触发信号：检测到新 PDF 或定时轮询触发
         self.batch_signal = threading.Event()
-        # 并发设置
-        self.max_workers = max(1, int(os.getenv("WATCHER_CONCURRENCY", "3")))
-        self.executor = ThreadPoolExecutor(max_workers=self.max_workers)
+        # 串行处理：强制单线程顺序执行
         self._in_progress: set[str] = set()
         self._in_progress_lock = threading.Lock()
+
+    @staticmethod
+    def _normalize_download_name(filename: str) -> str:
+        """规范下载下来的文件名，处理多余空格/重复后缀/非法字符等。
+        - 去除首尾空白与尾随点
+        - 折叠连续空白为单空格
+        - 移除 Windows 不允许字符
+        - 合并尾部重复的 .pdf（含空格变体）为一个 .pdf
+        """
+        name = (filename or "").strip()
+        # 折叠空白
+        name = re.sub(r"\s+", " ", name)
+        # 去掉尾随空格与点
+        name = name.rstrip(" .")
+        # 移除非法字符
+        name = re.sub(r"[\\/:*?\"<>|]", "_", name)
+        # 合并重复 pdf 后缀（支持中间有空格的变体）
+        name = re.sub(r"(?i)\s*(?:\.pdf\s*)+$", ".pdf", name)
+        # 避免空文件名
+        return name or "file.pdf"
 
     @staticmethod
     def _sanitize_name(filename: str) -> tuple[str, str]:
@@ -96,18 +114,59 @@ class UploadDirEventHandler(FileSystemEventHandler):
                 return
         logger.info(f"检测到新文件: {path.name}")
 
+        # 文件名规范化：如含多余空格/非法字符/重复后缀，先本地重命名再处理
+        original_name = path.name
+        normalized_name = self._normalize_download_name(original_name)
+        renamed = False
+        if normalized_name != original_name:
+            target_dir = path.parent
+            new_path = target_dir / normalized_name
+            if new_path.exists():
+                base = new_path.stem
+                extn = new_path.suffix
+                counter = 1
+                while (target_dir / f"{base}_{counter}{extn}").exists():
+                    counter += 1
+                new_path = target_dir / f"{base}_{counter}{extn}"
+            try:
+                path = path.replace(new_path)
+                renamed = True
+                logger.info(f"[watcher] 已重命名文件: '{original_name}' -> '{path.name}'")
+            except Exception as re:
+                logger.warning(f"[watcher] 重命名失败，继续使用原名: {original_name}, error={re}")
+
         # 仅处理来源于数据库/远程拉取的文件：要求 resume_files 已存在
         client = get_supabase_client()
         rf_id: int | None = None
         try:
-            rf = client.table("resume_files").select("id").eq("file_name", path.name).limit(1).execute()
+            # 优先用原始名查找（如果发生过重命名），否则用当前名
+            lookup_name = original_name if renamed else path.name
+            rf = client.table("resume_files").select("id").eq("file_name", lookup_name).limit(1).execute()
             data = getattr(rf, "data", []) or []
             if data:
                 rf_id = data[0]["id"]
                 client.table("resume_files").update({"status": "处理中"}).eq("id", rf_id).execute()
+                # 若已重命名本地文件，则同步更新数据库中的文件名
+                if renamed and path.name != lookup_name:
+                    try:
+                        client.table("resume_files").update({"file_name": path.name}).eq("id", rf_id).execute()
+                        logger.info(f"[watcher] 同步更新数据库文件名: rf_id={rf_id}, file_name={path.name}")
+                    except Exception:
+                        pass
             else:
-                logger.warning(f"[watcher] 跳过本地孤立文件（无对应 resume_files 记录）: {path.name}")
-                return
+                # 若按原始名没找到且发生过重命名，退而按新名再查一次
+                if renamed:
+                    rf2 = client.table("resume_files").select("id").eq("file_name", path.name).limit(1).execute()
+                    data2 = getattr(rf2, "data", []) or []
+                    if data2:
+                        rf_id = data2[0]["id"]
+                        client.table("resume_files").update({"status": "处理中"}).eq("id", rf_id).execute()
+                    else:
+                        logger.warning(f"[watcher] 跳过本地孤立文件（无对应 resume_files 记录）: {path.name}")
+                        return
+                else:
+                    logger.warning(f"[watcher] 跳过本地孤立文件（无对应 resume_files 记录）: {path.name}")
+                    return
             logger.info(f"[watcher] 标记处理中: file={path.name}, rf_id={rf_id}")
         except Exception as e:
             logger.error(f"[watcher] 标记/创建处理中失败: file={path.name}, error={e}")
@@ -254,7 +313,8 @@ class UploadDirEventHandler(FileSystemEventHandler):
                         with self._in_progress_lock:
                             self._in_progress.discard(fname)
 
-                self.executor.submit(_worker, p, name)
+                # 串行执行：直接调用，不使用线程池
+                _worker(p, name)
 
     # 删除批处理逻辑
 
@@ -307,6 +367,7 @@ def start_watcher_in_background() -> Observer:
                 for item in items:
                     rid = item.get("id")
                     fname = (item.get("file_name") or "").strip()
+                    new_fname = UploadDirEventHandler._normalize_download_name(fname)
                     url = (item.get("file_path") or "").strip()
                     if not rid or not fname or not url:
                         continue
@@ -327,7 +388,7 @@ def start_watcher_in_background() -> Observer:
                         continue
 
                     # 计算保存路径，若重名则追加后缀
-                    target_path = processing_dir / fname
+                    target_path = processing_dir / new_fname
                     if target_path.exists():
                         base = target_path.stem
                         ext = target_path.suffix
@@ -336,45 +397,42 @@ def start_watcher_in_background() -> Observer:
                             counter += 1
                         target_path = processing_dir / f"{base}_{counter}{ext}"
 
-                    # 下载文件到 processing 目录（带重试与退避）
-                    max_attempts = max(1, int(os.getenv("PULL_DOWNLOAD_RETRIES", "3")))
-                    attempt = 0
-                    while True:
-                        attempt += 1
+                    # 下载文件到 processing 目录（单次尝试，无退避重试）
+                    try:
+                        with http_client.stream("GET", url) as resp:
+                            status = resp.status_code
+                            if status >= 400:
+                                raise httpx.HTTPStatusError(
+                                    f"bad status: {status}", request=resp.request, response=resp
+                                )
+                            with open(target_path, "wb") as f:
+                                for chunk in resp.iter_bytes(65536):
+                                    if chunk:
+                                        f.write(chunk)
+                        logger.info(f"[pull] 下载成功: id={rid}, file={target_path.name}")
+                        # 如文件名被规范化/去重，则写回数据库保持一致
                         try:
-                            with http_client.stream("GET", url) as resp:
-                                status = resp.status_code
-                                if status >= 400:
-                                    raise httpx.HTTPStatusError(
-                                        f"bad status: {status}", request=resp.request, response=resp
-                                    )
-                                with open(target_path, "wb") as f:
-                                    for chunk in resp.iter_bytes(65536):
-                                        if chunk:
-                                            f.write(chunk)
-                            logger.info(f"[pull] 下载成功: id={rid}, file={target_path.name}")
-                            # 放到目录后，目录监听/扫描会自动处理。先置为 处理中。
-                            try:
-                                client.table("resume_files").update({"status": "处理中"}).eq("id", rid).execute()
-                            except Exception:
-                                pass
-                            # 触发处理循环，尽快消费新下载的文件
-                            handler.batch_signal.set()
-                            # 触发批处理信号，尽快扫描
-                            handler.batch_signal.set()
-                            break
-                        except Exception as de:
-                            if attempt >= max_attempts:
-                                logger.error(f"[pull] 下载失败: id={rid}, url={url}, error={de}")
-                                try:
-                                    client.table("resume_files").update({"status": "未处理"}).eq("id", rid).execute()
-                                except Exception:
-                                    pass
-                                break
-                            # 指数退避
-                            backoff = min(20.0, 1.5 * attempt)
-                            logger.warning(f"[pull] 下载失败，退避重试({attempt}/{max_attempts})，等待 {backoff:.1f}s: id={rid}, url={url}")
-                            _time.sleep(backoff)
+                            if new_fname != fname or target_path.name != fname:
+                                client.table("resume_files").update({
+                                    "file_name": target_path.name
+                                }).eq("id", rid).execute()
+                        except Exception:
+                            pass
+                        # 放到目录后，目录监听/扫描会自动处理。先置为 处理中。
+                        try:
+                            client.table("resume_files").update({"status": "处理中"}).eq("id", rid).execute()
+                        except Exception:
+                            pass
+                        # 触发处理循环，尽快消费新下载的文件
+                        handler.batch_signal.set()
+                        # 触发批处理信号，尽快扫描
+                        handler.batch_signal.set()
+                    except Exception as de:
+                        logger.error(f"[pull] 下载失败: id={rid}, url={url}, error={de}")
+                        try:
+                            client.table("resume_files").update({"status": "未处理"}).eq("id", rid).execute()
+                        except Exception:
+                            pass
                 _time.sleep(0.5)
             except Exception as e:
                 logger.error(f"[pull] 拉取循环异常: {e}")

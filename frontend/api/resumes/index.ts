@@ -12,6 +12,10 @@ export default async function handler(req: Request): Promise<Response> {
   // 无鉴权，直接查询
   const url = parseURL(req)
   const searchQuery = url.searchParams.get('q')?.trim()
+  const limitParam = (url.searchParams.get('limit') || '200').toLowerCase()
+  const unlimited = limitParam === 'all' || limitParam === '0' || limitParam === '-1'
+  const limit = unlimited ? 1000000 : Math.min(parseInt(limitParam, 10) || 200, 1000000)
+  const offset = Math.max(parseInt(url.searchParams.get('offset') || '0', 10), 0)
 
   let query = supabase
     .from('resumes')
@@ -34,9 +38,36 @@ export default async function handler(req: Request): Promise<Response> {
     )
   }
 
-  const { data, error } = await query
+  let data: any[] = []
+  try {
+    if (unlimited) {
+      // 批量抓取，避免 1000 条默认限制
+      const batchSize = 1000
+      const safetyMax = 500000
+      let fetched: any[] = []
+      let currentOffset = offset
+      while (fetched.length < limit && fetched.length < safetyMax) {
+        const remaining = Math.min(batchSize, limit - fetched.length)
+        const from = currentOffset
+        const to = currentOffset + remaining - 1
+        const { data: chunk, error } = await query.range(from, to)
+        if (error) throw new Error(error.message)
+        const rows = Array.isArray(chunk) ? chunk : []
+        fetched = fetched.concat(rows)
+        if (rows.length < remaining) break
+        currentOffset += rows.length
+      }
+      data = fetched
+    } else {
+      const { data: pageData, error } = await query.range(offset, offset + limit - 1)
+      if (error) throw new Error(error.message)
+      data = Array.isArray(pageData) ? pageData : []
+    }
+  } catch (e: any) {
+    return new Response(JSON.stringify({ detail: e?.message || 'Query failed' }), { status: 400 })
+  }
 
-  if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
+  
 
   let items = (data || []).map((r: any) => {
     const work = Array.isArray(r.work_experience) ? r.work_experience : []

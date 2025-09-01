@@ -24,14 +24,45 @@ export default async function handler(req: Request): Promise<Response> {
     const limit = unlimited ? 1000000 : Math.min(parseInt(limitParam, 10) || 200, 1000000)
     const offset = Math.max(parseInt(searchParams.get('offset') || '0', 10), 0)
 
+    const columns = 'id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at'
+
+    async function fetchInBatches(baseQuery: any, startOffset: number, maxRows: number): Promise<any[]> {
+      const batchSize = 1000
+      const safetyMax = 500000
+      let fetched: any[] = []
+      let currentOffset = startOffset
+      while (fetched.length < maxRows && fetched.length < safetyMax) {
+        const remaining = Math.min(batchSize, maxRows - fetched.length)
+        const from = currentOffset
+        const to = currentOffset + remaining - 1
+        const { data, error } = await baseQuery.range(from, to)
+        if (error) throw new Error(error.message)
+        const rows = Array.isArray(data) ? data : []
+        fetched = fetched.concat(rows)
+        if (rows.length < remaining) break
+        currentOffset += rows.length
+      }
+      return fetched
+    }
+
     if (q && q.trim()) {
       // 简单搜索：拉取部分数据后在函数内过滤
-      const { data, error } = await supabase
+      const baseQuery = supabase
         .from('resumes')
-        .select('id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at')
+        .select(columns)
         .order('id', { ascending: false })
-        .limit(unlimited ? 1000000 : 5000)
-      if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
+
+      let data: any[] = []
+      try {
+        if (unlimited) {
+          data = await fetchInBatches(baseQuery, 0, 1000000)
+        } else {
+          // 抓取比请求略多的数据，避免关键词过滤后不足
+          data = await fetchInBatches(baseQuery, 0, Math.max(limit + offset, 5000))
+        }
+      } catch (e: any) {
+        return new Response(JSON.stringify({ detail: e?.message || 'Query failed' }), { status: 400 })
+      }
       // 多关键词AND逻辑搜索：分词后每个关键词都必须匹配
       const keywords = q.trim().split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
       const makeBlob = (row: any) => {
@@ -77,7 +108,7 @@ export default async function handler(req: Request): Promise<Response> {
         return keywords.every(keyword => blob.includes(keyword))
       })
       const total = matched.length
-      const sliced = matched.slice(offset, offset + limit)
+      const sliced = matched.slice(offset, offset + (unlimited ? total : limit))
       return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
     }
 
@@ -86,10 +117,18 @@ export default async function handler(req: Request): Promise<Response> {
       .from('resumes')
       .select('id, resume_file_id, name, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
       .order('id', { ascending: false })
-    const { data, error } = unlimited
-      ? await base.select('*')
-      : await base.range(offset, offset + limit - 1)
-    if (error) return new Response(JSON.stringify({ detail: error.message }), { status: 400 })
+    let data: any[] = []
+    try {
+      if (unlimited) {
+        data = await fetchInBatches(base, 0, 1000000)
+      } else {
+        const { data: pageData, error } = await base.range(offset, offset + limit - 1)
+        if (error) throw new Error(error.message)
+        data = Array.isArray(pageData) ? pageData : []
+      }
+    } catch (e: any) {
+      return new Response(JSON.stringify({ detail: e?.message || 'Query failed' }), { status: 400 })
+    }
     
     // 对于 work_experience 为空的记录，尝试合并 internship_experience 和 project_experience
     const processedData = (data || []).map((r: any) => {
