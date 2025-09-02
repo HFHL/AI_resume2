@@ -30,6 +30,9 @@ export default function ResumesPage() {
   const [loading, setLoading] = useState(true)
   const [searching, setSearching] = useState(false)
   const [query, setQuery] = useState('')
+  const [positionQuery, setPositionQuery] = useState('')
+  const [positionSuggestions, setPositionSuggestions] = useState<Array<{ id: number; position_name: string }>>([])
+  const [selectedPosition, setSelectedPosition] = useState<{ id: number; position_name: string } | null>(null)
   const [allTags, setAllTags] = useState<Tag[]>([])
   const [idToTags, setIdToTags] = useState<Map<number, string[]>>(new Map())
   
@@ -159,7 +162,20 @@ export default function ResumesPage() {
           console.log('[ResumesPage] /resumes raw first3 (reset):', sample)
         } catch {}
         const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
-        const mapped = mapRows(rows, idToTags, allTags)
+        let mapped = mapRows(rows, idToTags, allTags)
+        // 如选择了职位，则与职位匹配结果求交集
+        if (selectedPosition) {
+          try {
+            const matchUrl = api(`/positions/${selectedPosition.id}/match`)
+            console.log('[ResumesPage] Fetch position match (reset):', matchUrl)
+            const mr = await fetch(matchUrl)
+            const md = await mr.json().catch(() => ({ items: [] }))
+            const idSet = new Set<number>((md.items || []).map((x: any) => x.id))
+            mapped = mapped.filter(x => idSet.has(x.id))
+          } catch (e) {
+            console.warn('职位匹配请求失败（reset）: ', e)
+          }
+        }
         console.log('[ResumesPage] mapped first3 (reset):', mapped.slice(0, 3))
         setItems(mapped)
       } catch (error) {
@@ -188,7 +204,20 @@ export default function ResumesPage() {
         console.log('[ResumesPage] /resumes raw first3 (search):', sample)
       } catch {}
       const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
-      const mapped = mapRows(rows, idToTags, allTags)
+      let mapped = mapRows(rows, idToTags, allTags)
+      // 如选择了职位，则与职位匹配结果求交集
+      if (selectedPosition) {
+        try {
+          const matchUrl = api(`/positions/${selectedPosition.id}/match`)
+          console.log('[ResumesPage] Fetch position match (search):', matchUrl)
+          const mr = await fetch(matchUrl)
+          const md = await mr.json().catch(() => ({ items: [] }))
+          const idSet = new Set<number>((md.items || []).map((x: any) => x.id))
+          mapped = mapped.filter(x => idSet.has(x.id))
+        } catch (e) {
+          console.warn('职位匹配请求失败（search）: ', e)
+        }
+      }
       console.log('[ResumesPage] mapped first3 (search):', mapped.slice(0, 3))
       setItems(mapped)
     } catch (error) {
@@ -198,6 +227,25 @@ export default function ResumesPage() {
       setLoading(false)
     }
   }
+
+  // 职位输入建议（简单实时查询）
+  useEffect(() => {
+    const q = positionQuery.trim()
+    if (!q || selectedPosition) { setPositionSuggestions([]); return }
+    const ctrl = new AbortController()
+    const timer = setTimeout(async () => {
+      try {
+        const url = api(`/positions?q=${encodeURIComponent(q)}`)
+        const r = await fetch(url, { signal: ctrl.signal })
+        const d = await r.json().catch(() => ({ items: [] }))
+        const arr = Array.isArray(d?.items) ? d.items : []
+        setPositionSuggestions(arr.map((x: any) => ({ id: x.id, position_name: x.position_name })))
+      } catch {
+        setPositionSuggestions([])
+      }
+    }, 250)
+    return () => { clearTimeout(timer); ctrl.abort() }
+  }, [positionQuery, selectedPosition])
 
   function mapRows(
     rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null; project_experience_struct?: any[] | null }>,
@@ -351,6 +399,29 @@ export default function ResumesPage() {
             onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
             style={{ flex: 1 }}
           />
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+            <input
+              placeholder="职位（如：产品）"
+              value={selectedPosition ? selectedPosition.position_name : positionQuery}
+              onChange={e => { setSelectedPosition(null); setPositionQuery(e.target.value) }}
+              onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
+              style={{ width: 180, marginLeft: 8 }}
+            />
+            {!!selectedPosition && (
+              <button className="ghost" style={{ marginLeft: 6 }} onClick={() => { setSelectedPosition(null); setPositionQuery('') }}>清空职位</button>
+            )}
+            {(!selectedPosition && positionSuggestions.length > 0) && (
+              <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: 'white', border: '1px solid #ddd', zIndex: 2 }}>
+                {positionSuggestions.slice(0, 8).map(opt => (
+                  <div
+                    key={opt.id}
+                    onClick={() => { setSelectedPosition(opt); setPositionQuery(''); setPositionSuggestions([]) }}
+                    style={{ padding: '6px 8px', cursor: 'pointer' }}
+                  >{opt.position_name}</div>
+                ))}
+              </div>
+            )}
+          </div>
           <button className="primary" onClick={() => doSearch()} disabled={loading}>搜索</button>
           {searching && <button className="ghost" onClick={() => { setQuery(''); doSearch('') }}>清空搜索</button>}
         </div>
