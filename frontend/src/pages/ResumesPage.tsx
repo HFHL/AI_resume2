@@ -477,7 +477,7 @@ export default function ResumesPage() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
-            style={{ flex: 1 }}
+            style={{ flex: 1, fontSize: 20, padding: '14px 18px', height: 56 }}
           />
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
             <input
@@ -485,7 +485,7 @@ export default function ResumesPage() {
               value={selectedPosition ? selectedPosition.position_name : positionQuery}
               onChange={e => { setSelectedPosition(null); setPositionQuery(e.target.value) }}
               onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
-              style={{ width: 180, marginLeft: 8 }}
+              style={{ width: 420, marginLeft: 8, fontSize: 20, padding: '14px 18px', height: 56 }}
             />
             {!!selectedPosition && (
               <button className="ghost" style={{ marginLeft: 6 }} onClick={() => { setSelectedPosition(null); setPositionQuery('') }}>清空职位</button>
