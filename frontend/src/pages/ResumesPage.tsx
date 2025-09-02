@@ -163,7 +163,10 @@ export default function ResumesPage() {
         } catch {}
         const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
         let mapped = mapRows(rows, idToTags, allTags)
-        // 如选择了职位，则与职位匹配结果求交集
+        // 职位筛选：
+        const posWordRaw = (selectedPosition?.position_name || positionQuery || '').trim()
+        const posWord = posWordRaw.toLowerCase()
+        // 若选择了职位，则与职位匹配结果求交集（基于配置的 required_keywords）
         if (selectedPosition) {
           try {
             const matchUrl = api(`/positions/${selectedPosition.id}/match`)
@@ -175,6 +178,43 @@ export default function ResumesPage() {
           } catch (e) {
             console.warn('职位匹配请求失败（reset）: ', e)
           }
+        }
+        // 无论是否选择职位，只要职位输入框有词，都用职位标题二次过滤
+        if (posWord) {
+          const cleanupTitle = (s: string) => {
+            let t = String(s || '')
+            t = t.replace(/[\t]+/g, ' ').replace(/\s+/g, ' ').trim()
+            t = t.replace(/^(?:职位|岗位|职务)[:：]\s*/g, '')
+            t = t.replace(/(负责|参与|主要|带领|领导|完成|进行).*/g, '')
+            return t.trim()
+          }
+          const extractTitlesFromTextLine = (line: string): string[] => {
+            const src = String(line || '')
+            const titles: string[] = []
+            const patterns: RegExp[] = [
+              /^\s*\d{2,4}(?:[./年-]\d{1,2}(?:[./-]\d{1,2})?)?\s*[-~—–到至]\s*(?:\d{2,4}(?:[./年-]\d{1,2}(?:[./-]\d{1,2})?)?|至今|现在|Present)\s+.+?\s{2,}(.+?)\s*$/i,
+              /公司[:：]\s*.+?\s+(?:职位|岗位|职务)[:：]\s*([^\n]+)/i,
+              /^\s*.+?\s*[|｜/·•]\s*([^\n]+)$/,
+              /^\s*.+?\s{2,}([^\n]+)$/,
+            ]
+            for (const re of patterns) {
+              const m = src.match(re)
+              if (m && m[1]) titles.push(cleanupTitle(m[1]))
+            }
+            return Array.from(new Set(titles.filter(Boolean)))
+          }
+          const getAllTitles = (r: any): string[] => {
+            const acc: string[] = []
+            const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+            for (const it of wxs) { if (it && (it as any).title) acc.push(cleanupTitle((it as any).title)) }
+            const lines: string[] = Array.isArray(r.work_experience) ? r.work_experience as any : []
+            for (const ln of lines) acc.push(...extractTitlesFromTextLine(ln))
+            return Array.from(new Set(acc.filter(Boolean)))
+          }
+          mapped = mapped.filter(row => {
+            const titles = getAllTitles(row).map(s => s.toLowerCase())
+            return titles.some(t => t.includes(posWord))
+          })
         }
         console.log('[ResumesPage] mapped first3 (reset):', mapped.slice(0, 3))
         setItems(mapped)
@@ -205,7 +245,10 @@ export default function ResumesPage() {
       } catch {}
       const rows = (d.items || []) as Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null }>
       let mapped = mapRows(rows, idToTags, allTags)
-      // 如选择了职位，则与职位匹配结果求交集
+      // 职位筛选：
+      const posWordRaw = (selectedPosition?.position_name || positionQuery || '').trim()
+      const posWord = posWordRaw.toLowerCase()
+      // 若选择了职位，则与职位匹配结果求交集（基于配置的 required_keywords）
       if (selectedPosition) {
         try {
           const matchUrl = api(`/positions/${selectedPosition.id}/match`)
@@ -217,6 +260,43 @@ export default function ResumesPage() {
         } catch (e) {
           console.warn('职位匹配请求失败（search）: ', e)
         }
+      }
+      // 无论是否选择职位，只要职位输入框有词，都用职位标题二次过滤
+      if (posWord) {
+        const cleanupTitle = (s: string) => {
+          let t = String(s || '')
+          t = t.replace(/[\t]+/g, ' ').replace(/\s+/g, ' ').trim()
+          t = t.replace(/^(?:职位|岗位|职务)[:：]\s*/g, '')
+          t = t.replace(/(负责|参与|主要|带领|领导|完成|进行).*/g, '')
+          return t.trim()
+        }
+        const extractTitlesFromTextLine = (line: string): string[] => {
+          const src = String(line || '')
+          const titles: string[] = []
+          const patterns: RegExp[] = [
+            /^\s*\d{2,4}(?:[./年-]\d{1,2}(?:[./-]\d{1,2})?)?\s*[-~—–到至]\s*(?:\d{2,4}(?:[./年-]\d{1,2}(?:[./-]\d{1,2})?)?|至今|现在|Present)\s+.+?\s{2,}(.+?)\s*$/i,
+            /公司[:：]\s*.+?\s+(?:职位|岗位|职务)[:：]\s*([^\n]+)/i,
+            /^\s*.+?\s*[|｜/·•]\s*([^\n]+)$/,
+            /^\s*.+?\s{2,}([^\n]+)$/,
+          ]
+          for (const re of patterns) {
+            const m = src.match(re)
+            if (m && m[1]) titles.push(cleanupTitle(m[1]))
+          }
+          return Array.from(new Set(titles.filter(Boolean)))
+        }
+        const getAllTitles = (r: any): string[] => {
+          const acc: string[] = []
+          const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+          for (const it of wxs) { if (it && (it as any).title) acc.push(cleanupTitle((it as any).title)) }
+          const lines: string[] = Array.isArray(r.work_experience) ? r.work_experience as any : []
+          for (const ln of lines) acc.push(...extractTitlesFromTextLine(ln))
+          return Array.from(new Set(acc.filter(Boolean)))
+        }
+        mapped = mapped.filter(row => {
+          const titles = getAllTitles(row).map(s => s.toLowerCase())
+          return titles.some(t => t.includes(posWord))
+        })
       }
       console.log('[ResumesPage] mapped first3 (search):', mapped.slice(0, 3))
       setItems(mapped)
