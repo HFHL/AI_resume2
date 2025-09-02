@@ -64,7 +64,12 @@ export default async function handler(req: Request): Promise<Response> {
         return new Response(JSON.stringify({ detail: e?.message || 'Query failed' }), { status: 400 })
       }
       // 多关键词AND逻辑搜索：分词后每个关键词都必须匹配
-      const keywords = q.trim().split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
+      // 解析查询：支持 "关键词 + 职位词" 语法
+      const hasPlus = q.includes('+')
+      const [leftPart, rightPart] = hasPlus ? q.split('+', 2).map(s => s.trim()) : [q.trim(), '']
+      const generalKeywords = (leftPart || '').split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
+      const titleKeywords = (rightPart || '').split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
+
       const makeBlob = (row: any) => {
         const parts: string[] = [row.name || '', row.email || '', row.phone || '', row.self_evaluation || '', row.education_degree || '']
         for (const key of ['skills','work_experience','internship_experience','project_experience']) {
@@ -72,6 +77,47 @@ export default async function handler(req: Request): Promise<Response> {
           if (Array.isArray(vals)) parts.push(...vals.map(String))
         }
         return parts.join('\n').toLowerCase()
+      }
+
+      const cleanupTitle = (s: string) => {
+        let t = String(s || '')
+        t = t.replace(/[\t]+/g, ' ').replace(/\s+/g, ' ').trim()
+        t = t.replace(/^(?:职位|岗位|职务)[:：]\s*/g, '')
+        t = t.replace(/(负责|参与|主要|带领|领导|完成|进行).*/g, '')
+        return t.trim()
+      }
+
+      const extractTitlesFromTextLine = (line: string): string[] => {
+        const src = String(line || '')
+        const titles: string[] = []
+        const patterns: RegExp[] = [
+          // 1) 日期-日期  公司  职位
+          /^\s*\d{2,4}(?:[./年-]\d{1,2}(?:[./-]\d{1,2})?)?\s*[-~—–到至]\s*(?:\d{2,4}(?:[./年-]\d{1,2}(?:[./-]\d{1,2})?)?|至今|现在|Present)\s+.+?\s{2,}(.+?)\s*$/i,
+          // 2) 公司：X 职位：Y
+          /公司[:：]\s*.+?\s+(?:职位|岗位|职务)[:：]\s*([^\n]+)/i,
+          // 3) 公司 | 职位  或  公司 / 职位  或  公司 · 职位
+          /^\s*.+?\s*[|｜/·•]\s*([^\n]+)$/,
+          // 4) 兜底：两段以上空格分隔的最后一段视为职位
+          /^\s*.+?\s{2,}([^\n]+)$/,
+        ]
+        for (const re of patterns) {
+          const m = src.match(re)
+          if (m && m[1]) {
+            titles.push(cleanupTitle(m[1]))
+          }
+        }
+        return Array.from(new Set(titles.filter(Boolean)))
+      }
+
+      const getAllTitles = (row: any): string[] => {
+        const acc: string[] = []
+        const structs: any[] = Array.isArray(row.work_experience_struct) ? row.work_experience_struct : []
+        for (const it of structs) {
+          if (it && it.title) acc.push(cleanupTitle(it.title))
+        }
+        const lines: string[] = Array.isArray(row.work_experience) ? row.work_experience as any : []
+        for (const ln of lines) acc.push(...extractTitlesFromTextLine(ln))
+        return Array.from(new Set(acc.filter(Boolean)))
       }
       // 对搜索结果也进行工作经历合并处理
       const processedSearchData = (data || []).map((r: any) => {
@@ -105,7 +151,13 @@ export default async function handler(req: Request): Promise<Response> {
       // AND逻辑：所有关键词都必须在简历内容中出现
       const matched = processedSearchData.filter(r => {
         const blob = makeBlob(r)
-        return keywords.every(keyword => blob.includes(keyword))
+        const okGeneral = generalKeywords.length === 0 || generalKeywords.every(k => blob.includes(k))
+        if (!okGeneral) return false
+        if (titleKeywords.length === 0) return true
+        const titles = getAllTitles(r).map(s => s.toLowerCase())
+        if (titles.length === 0) return false
+        // 至少有一个职位标题同时包含所有 title 关键词
+        return titles.some(t => titleKeywords.every(k => t.includes(k)))
       })
       const total = matched.length
       const sliced = matched.slice(offset, offset + (unlimited ? total : limit))
