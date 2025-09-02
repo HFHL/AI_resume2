@@ -46,6 +46,28 @@ export default function ResumeDetailPage() {
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const [editWechat, setEditWechat] = useState('')
   const [isEditing, setIsEditing] = useState(false)
+  const [editUploadedBy, setEditUploadedBy] = useState('')
+  const [editCreatedAtLocal, setEditCreatedAtLocal] = useState('')
+
+  const toInputValue = (s?: string | null) => {
+    if (!s) return ''
+    const d = new Date(s)
+    if (isNaN(d.getTime())) return ''
+    const pad = (n: number) => String(n).padStart(2, '0')
+    const yyyy = d.getFullYear()
+    const mm = pad(d.getMonth() + 1)
+    const dd = pad(d.getDate())
+    const hh = pad(d.getHours())
+    const mi = pad(d.getMinutes())
+    return `${yyyy}-${mm}-${dd}T${hh}:${mi}`
+  }
+
+  const toDbTimestamp = (local: string) => {
+    if (!local) return undefined
+    // Expecting YYYY-MM-DDTHH:mm
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(local)) return `${local}:00`
+    return local
+  }
 
   useEffect(() => {
     if (!id) return
@@ -70,6 +92,8 @@ export default function ResumeDetailPage() {
         setEditEmail(String(it?.email || ''))
         setEditPhone(String(it?.phone || ''))
         setEditWechat(String((it as any)?.wechat || ''))
+        setEditUploadedBy(String((it as any)?.uploaded_by || ''))
+        setEditCreatedAtLocal(toInputValue(it?.created_at))
       })
       .catch(e => setError(e.message || '加载失败'))
       .finally(() => setLoading(false))
@@ -80,6 +104,15 @@ export default function ResumeDetailPage() {
     try {
       setSaving(true)
       const payload: any = { name: editName, email: editEmail, phone: editPhone, wechat: editWechat }
+      // 管理员可改 uploaded_by 与 created_at
+      let user: any = null
+      try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+      const isAdmin = Boolean(user?.is_admin)
+      if (isAdmin) {
+        const ts = toDbTimestamp(editCreatedAtLocal)
+        if (ts) payload.created_at = ts
+        if (typeof editUploadedBy === 'string') payload.uploaded_by = editUploadedBy
+      }
       const r = await fetch(api(`/resumes/${id}`), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -200,6 +233,34 @@ export default function ResumeDetailPage() {
                 <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
                 <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
                 <div className="detail-row"><span>上传者</span><span>{item.uploaded_by || '-'}</span></div>
+                {(() => {
+                  let user: any = null
+                  try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+                  const isAdmin = Boolean(user?.is_admin)
+                  if (!isAdmin) return null
+                  return (
+                    <>
+                      <div className="detail-row"><span>修改录入时间</span>
+                        <span>
+                          {isEditing ? (
+                            <input type="datetime-local" value={editCreatedAtLocal} onChange={e => setEditCreatedAtLocal(e.target.value)} />
+                          ) : (
+                            <span className="muted">仅编辑模式可修改</span>
+                          )}
+                        </span>
+                      </div>
+                      <div className="detail-row"><span>修改上传者</span>
+                        <span>
+                          {isEditing ? (
+                            <input value={editUploadedBy} onChange={e => setEditUploadedBy(e.target.value)} placeholder="请输入上传者" />
+                          ) : (
+                            <span className="muted">仅编辑模式可修改</span>
+                          )}
+                        </span>
+                      </div>
+                    </>
+                  )
+                })()}
                 {isEditing && (
                   <div className="bar end" style={{ marginTop: 8 }}>
                     <button className="ghost" onClick={() => {
@@ -209,6 +270,8 @@ export default function ResumeDetailPage() {
                         setEditEmail(String(item.email || ''))
                         setEditPhone(String(item.phone || ''))
                         setEditWechat(String((item as any)?.wechat || ''))
+                        setEditUploadedBy(String((item as any)?.uploaded_by || ''))
+                        setEditCreatedAtLocal(toInputValue(item?.created_at))
                       }
                     }}>取消</button>
                     <button className="primary" disabled={saving} onClick={async () => {

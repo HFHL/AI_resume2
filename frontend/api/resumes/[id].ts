@@ -59,32 +59,86 @@ export default async function handler(req: Request): Promise<Response> {
 			if (typeof payload.email === 'string') update.email = payload.email
 			if (typeof payload.phone === 'string') update.phone = payload.phone
 			if (typeof payload.wechat === 'string') update.wechat = payload.wechat
+			if (typeof payload.created_at === 'string') update.created_at = payload.created_at
+
+			const wantUpdateUploader = typeof payload.uploaded_by === 'string'
 			if (Object.keys(update).length === 0) {
-				return new Response(JSON.stringify({ detail: 'No updatable fields' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+				// 允许仅更新上传者（uploaded_by）
+				if (!wantUpdateUploader) {
+					return new Response(JSON.stringify({ detail: 'No updatable fields' }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+				}
 			}
 			const base = SUPABASE_URL!.replace(/\/$/, '')
-			const updUrl = `${base}/rest/v1/resumes?id=eq.${id}`
-			const updResp = await fetch(updUrl, {
-				method: 'PATCH',
-				headers: {
-					'apikey': EFFECTIVE_KEY!,
-					'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
-					'Content-Type': 'application/json',
-					'Prefer': 'return=representation',
-					'Accept': 'application/json',
-				},
-				body: JSON.stringify(update),
-			})
-			if (!updResp.ok) {
-				const text = await updResp.text().catch(() => '')
-				return new Response(JSON.stringify({ detail: text || `更新失败 ${updResp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+			let updated: any = null
+			if (Object.keys(update).length > 0) {
+				const updUrl = `${base}/rest/v1/resumes?id=eq.${id}`
+				const updResp = await fetch(updUrl, {
+					method: 'PATCH',
+					headers: {
+						'apikey': EFFECTIVE_KEY!,
+						'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+						'Content-Type': 'application/json',
+						'Prefer': 'return=representation',
+						'Accept': 'application/json',
+					},
+					body: JSON.stringify(update),
+				})
+				if (!updResp.ok) {
+					const text = await updResp.text().catch(() => '')
+					return new Response(JSON.stringify({ detail: text || `更新失败 ${updResp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+				}
+				const rows = await updResp.json().catch(() => []) as any[]
+				updated = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
+				if (!updated) return new Response(JSON.stringify({ detail: '未返回更新结果' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
 			}
-			const rows = await updResp.json().catch(() => []) as any[]
-			const updated = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
-			if (!updated) return new Response(JSON.stringify({ detail: '未返回更新结果' }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+
+			// 仅更新上传者：需要先拿到 resume_file_id，然后更新 resume_files.uploaded_by
+			if (wantUpdateUploader) {
+				let resumeFileId: number | null = null
+				if (updated && typeof updated.resume_file_id === 'number') {
+					resumeFileId = updated.resume_file_id
+				} else {
+					const qUrl = `${base}/rest/v1/resumes?select=resume_file_id&id=eq.${id}&limit=1`
+					const qResp = await fetch(qUrl, {
+						method: 'GET',
+						headers: {
+							'apikey': EFFECTIVE_KEY!,
+							'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+							'Accept': 'application/json',
+						},
+					})
+					if (qResp.ok) {
+						const qRows = await qResp.json().catch(() => []) as any[]
+						const row = Array.isArray(qRows) && qRows.length ? qRows[0] : null
+						if (row && typeof row.resume_file_id === 'number') resumeFileId = row.resume_file_id
+					}
+				}
+				if (resumeFileId) {
+					const upfUrl = `${base}/rest/v1/resume_files?id=eq.${encodeURIComponent(String(resumeFileId))}`
+					const upfResp = await fetch(upfUrl, {
+						method: 'PATCH',
+						headers: {
+							'apikey': EFFECTIVE_KEY!,
+							'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+							'Content-Type': 'application/json',
+							'Prefer': 'return=representation',
+							'Accept': 'application/json',
+						},
+						body: JSON.stringify({ uploaded_by: payload.uploaded_by }),
+					})
+					if (upfResp.ok) {
+						const fRows = await upfResp.json().catch(() => []) as any[]
+						const f = Array.isArray(fRows) && fRows.length ? fRows[0] : null
+						if (f) {
+							if (!updated) { updated = {}; }
+							(updated as any).uploaded_by = f.uploaded_by || null
+						}
+					}
+				}
+			}
 
 			// 若有文件 ID，则补充文件信息（与 GET 对齐）
-			if (updated.resume_file_id) {
+			if (updated && updated.resume_file_id) {
 				const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by&id=eq.${encodeURIComponent(String(updated.resume_file_id))}&limit=1`
 				const fResp = await fetch(fileUrl, {
 					method: 'GET',
