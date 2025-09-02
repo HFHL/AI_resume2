@@ -30,7 +30,6 @@ export default async function handler(req: Request): Promise<Response> {
       `email.ilike.%${searchQuery}%,` +
       `phone.ilike.%${searchQuery}%,` +
       `skills.cs.{${searchQuery}},` +
-      `tag_names.cs.{${searchQuery}},` +
       `work_experience.cs.{${searchQuery}},` +
       `internship_experience.cs.{${searchQuery}},` +
       `project_experience.cs.{${searchQuery}},` +
@@ -87,7 +86,7 @@ export default async function handler(req: Request): Promise<Response> {
       if ((r as any).email) parts.push(String((r as any).email))
       if ((r as any).phone) parts.push(String((r as any).phone))
       if (r.self_evaluation) parts.push(String(r.self_evaluation))
-      for (const key of ['skills','tag_names','work_experience','internship_experience','project_experience'] as const) {
+      for (const key of ['skills','work_experience','internship_experience','project_experience'] as const) {
         const arr = (r as any)[key]
         if (Array.isArray(arr)) parts.push(...arr.map((x: any) => String(x)))
       }

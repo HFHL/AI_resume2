@@ -67,7 +67,7 @@ export default async function handler(req: Request): Promise<Response> {
       const keywords = q.trim().split(/\s+/).filter(Boolean).map(k => k.toLowerCase())
       const makeBlob = (row: any) => {
         const parts: string[] = [row.name || '', row.email || '', row.phone || '', row.self_evaluation || '', row.education_degree || '']
-        for (const key of ['skills','work_experience','internship_experience','project_experience','tag_names']) {
+        for (const key of ['skills','work_experience','internship_experience','project_experience']) {
           const vals = (row[key] || []) as string[]
           if (Array.isArray(vals)) parts.push(...vals.map(String))
         }
