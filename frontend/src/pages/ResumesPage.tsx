@@ -386,6 +386,7 @@ export default function ResumesPage() {
   const [uiDegree, setUiDegree] = useState<typeof degree>(degree)
   const [uiTiers, setUiTiers] = useState<typeof tiers>(tiers)
   const pageSize = 12
+  const [tagsExpanded, setTagsExpanded] = useState(false)
 
   // 获取所有可用的标签
   const tagsByCategory = useMemo(() => {
@@ -549,34 +550,44 @@ export default function ResumesPage() {
           </label>
         </div>
 
-        <label>
-          <span>标签（按类别分组，点击可多选；点击"应用筛选"生效）</span>
+        <div>
+          <div className="bar" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+            <span>标签（按类别分组，点击可多选；点击"应用筛选"生效）</span>
+            <button className="ghost" type="button" onClick={() => setTagsExpanded(v => !v)}>
+              {tagsExpanded ? '收起标签筛选' : '展开标签筛选'}
+            </button>
+          </div>
           <div className="chips">
             {uiSelectedTags.map(t => (
               <Chip key={t} text={t} onClose={() => removeTag(t)} />
             ))}
+            {uiSelectedTags.length === 0 && <span className="muted">未选择任何标签</span>}
           </div>
-          {tagsByCategory.length === 0 && (
-            <div className="muted">暂无可用标签</div>
+          {tagsExpanded && (
+            <>
+              {tagsByCategory.length === 0 && (
+                <div className="muted">暂无可用标签</div>
+              )}
+              {tagsByCategory.map(([cat, names]) => (
+                <div key={cat} style={{ marginTop: 8 }}>
+                  <div className="section-title">{cat}</div>
+                  <div className="tag-grid">
+                    {names.map(t => (
+                      <button
+                        key={`${cat}::${t}`}
+                        type="button"
+                        className={`tag-pick ${uiSelectedTags.includes(t) ? 'selected' : ''}`}
+                        onClick={() => toggleTag(t)}
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </>
           )}
-          {tagsByCategory.map(([cat, names]) => (
-            <div key={cat} style={{ marginTop: 8 }}>
-              <div className="section-title">{cat}</div>
-              <div className="tag-grid">
-                {names.map(t => (
-                  <button
-                    key={`${cat}::${t}`}
-                    type="button"
-                    className={`tag-pick ${uiSelectedTags.includes(t) ? 'selected' : ''}`}
-                    onClick={() => toggleTag(t)}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </label>
+        </div>
 
         <div className="bar end">
           <button className="ghost" onClick={resetAll}>清空</button>
