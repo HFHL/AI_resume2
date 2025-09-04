@@ -82,3 +82,8 @@ frontend/.cache/
 *.log
 .DS_Store
 Thumbs.db1
+
+/37
+.37/
+
+/missing_bucket

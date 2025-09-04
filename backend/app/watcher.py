@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import os
 import threading
+from concurrent.futures import ThreadPoolExecutor
 import time
 from pathlib import Path
 import shutil
@@ -38,7 +39,12 @@ class UploadDirEventHandler(FileSystemEventHandler):
         self.processor = MinerUProcessor()
         # 批处理触发信号：检测到新 PDF 或定时轮询触发
         self.batch_signal = threading.Event()
-        # 串行处理：强制单线程顺序执行
+        # 并发控制：最多 N 个并行处理（默认 3，可通过 WATCHER_WORKERS 配置）
+        try:
+            self._max_workers = max(1, int(os.getenv("WATCHER_WORKERS", "3")))
+        except Exception:
+            self._max_workers = 3
+        self._executor = ThreadPoolExecutor(max_workers=self._max_workers, thread_name_prefix="watcher-worker")
         self._in_progress: set[str] = set()
         self._in_progress_lock = threading.Lock()
 
@@ -313,8 +319,14 @@ class UploadDirEventHandler(FileSystemEventHandler):
                         with self._in_progress_lock:
                             self._in_progress.discard(fname)
 
-                # 串行执行：直接调用，不使用线程池
-                _worker(p, name)
+                # 提交到线程池，由最多 self._max_workers 个并行处理
+                try:
+                    self._executor.submit(_worker, p, name)
+                except Exception as se:
+                    logger.error(f"[watcher] 任务提交失败: {p}: {se}")
+                    # 若提交失败，立即释放占位，避免卡死
+                    with self._in_progress_lock:
+                        self._in_progress.discard(name)
 
     # 删除批处理逻辑
 
