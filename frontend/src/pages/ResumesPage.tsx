@@ -9,8 +9,8 @@ type ResumeItem = {
   tags: string[] // 等同于 tag_names，用于渲染与筛选
   tag_names: string[]
   work_years: number | null
-  degree: '' | '本科' | '硕士' | '博士'
-  tiers: Array<'985' | '211' | '双一流' | '海外留学'>
+  degree: '' | '专科' | '本科' | '硕士' | '博士'
+  tiers: Array<'985' | '211' | '双一流' | '海外留学' | '专科'>
   schools?: string[]
   created_at?: string
   work_experience?: string[]
@@ -97,6 +97,8 @@ export default function ResumesPage() {
           if (s.includes('博')) return '博士'
           if (s.includes('硕')) return '硕士'
           if (s.includes('本')) return '本科'
+          if (s.includes('专')) return '专科'
+          if (s.includes('大专')) return '专科'
           return ''
         }
         
@@ -104,7 +106,7 @@ export default function ResumesPage() {
           const mapped = (arr || []).map(t => {
             const v = t.replace('海外', '海外留学')
             return v as ResumeItem['tiers'][number]
-          }).filter(v => ['985','211','双一流','海外留学'].includes(v)) as ResumeItem['tiers']
+          }).filter(v => ['985','211','双一流','海外留学','专科'].includes(v)) as ResumeItem['tiers']
           return Array.from(new Set(mapped)) as ResumeItem['tiers']
         }
 
@@ -115,14 +117,17 @@ export default function ResumesPage() {
           
           const wxs = (r as any).work_experience_struct as Array<any> | undefined
           const pxs = (r as any).project_experience_struct as Array<any> | undefined
+          const deg = normalizeDegree(r.education_degree)
+          let trs = normalizeTiers(r.education_tiers)
+          if (deg === '专科' && !trs.includes('专科')) trs = [...trs, '专科'] as ResumeItem['tiers']
           return {
             id: r.id,
             name: r.name || '未知',
             tags: tagNames,
             tag_names: tagNames,
             work_years: r.work_years,
-            degree: normalizeDegree(r.education_degree),
-            tiers: normalizeTiers(r.education_tiers),
+            degree: deg,
+            tiers: trs,
             schools: (r.education_school || undefined) as any,
             created_at: (r as any).created_at || undefined,
             work_experience: (r as any).work_experience || [],
@@ -376,8 +381,8 @@ export default function ResumesPage() {
   // 应用到列表的筛选（按"应用筛选"按钮后生效）
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [yearsBand, setYearsBand] = useState<'不限' | '1年以内' | '1-3年' | '3-5年' | '5-10年' | '10年以上'>('不限')
-  const [degree, setDegree] = useState<'' | '本科' | '硕士' | '博士'>('')
-  const [tiers, setTiers] = useState<Array<'985' | '211' | '双一流' | '海外留学'>>([])
+  const [degree, setDegree] = useState<'' | '专科' | '本科' | '硕士' | '博士'>('')
+  const [tiers, setTiers] = useState<Array<'985' | '211' | '双一流' | '海外留学' | '专科'>>([])
   const [page, setPage] = useState(1)
 
   // UI 中待编辑的筛选（实时变更，不立即生效）
@@ -538,7 +543,7 @@ export default function ResumesPage() {
               ))}
             </div>
             <div className="grid">
-              {(['985','211','双一流','海外留学'] as const).map(t => (
+              {(['985','211','双一流','海外留学','专科'] as const).map(t => (
                 <button
                   key={t}
                   type="button"
