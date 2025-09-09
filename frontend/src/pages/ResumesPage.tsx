@@ -35,6 +35,7 @@ export default function ResumesPage() {
   const [selectedPosition, setSelectedPosition] = useState<{ id: number; position_name: string } | null>(null)
   const [allTags, setAllTags] = useState<Tag[]>([])
   const [idToTags, setIdToTags] = useState<Map<number, string[]>>(new Map())
+  const [selectedIds, setSelectedIds] = useState<number[]>([])
   
   // 获取所有标签数据
   useEffect(() => {
@@ -473,6 +474,77 @@ export default function ResumesPage() {
   const currentPage = Math.min(page, totalPages)
   const pageItems = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
+  const selectedSet = useMemo(() => new Set<number>(selectedIds), [selectedIds])
+  const isPageAllSelected = useMemo(() => pageItems.length > 0 && pageItems.every(it => selectedSet.has(it.id)), [pageItems, selectedSet])
+
+  const isAdmin = useMemo(() => {
+    try {
+      const user = JSON.parse(localStorage.getItem('auth_user') || 'null')
+      return Boolean(user?.is_admin)
+    } catch {
+      return false
+    }
+  }, [])
+
+  function toggleSelectOne(id: number, checked: boolean) {
+    setSelectedIds(prev => {
+      const s = new Set(prev)
+      if (checked) s.add(id)
+      else s.delete(id)
+      return Array.from(s)
+    })
+  }
+
+  function toggleSelectAllCurrentPage(nextChecked?: boolean) {
+    const target = typeof nextChecked === 'boolean' ? nextChecked : !isPageAllSelected
+    setSelectedIds(prev => {
+      const s = new Set(prev)
+      if (target) {
+        for (const it of pageItems) s.add(it.id)
+      } else {
+        for (const it of pageItems) s.delete(it.id)
+      }
+      return Array.from(s)
+    })
+  }
+
+  function clearSelection() {
+    setSelectedIds([])
+  }
+
+  async function bulkDelete() {
+    if (!isAdmin) {
+      alert('仅管理员可删除简历')
+      return
+    }
+    const ids = selectedIds.slice()
+    if (ids.length === 0) {
+      alert('请先选择要删除的简历')
+      return
+    }
+    if (!confirm(`确定删除选中的 ${ids.length} 份简历吗？`)) return
+    try {
+      const r = await fetch(api('/resumes/bulk_delete'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin': 'true' },
+        body: JSON.stringify({ ids })
+      })
+      if (!r.ok) {
+        const d = await r.json().catch(() => ({ detail: '删除失败' }))
+        alert(d?.detail || '删除失败')
+        return
+      }
+      const d = await r.json().catch(() => ({ ok: true, deletedIds: ids }))
+      const deletedIds: number[] = Array.isArray(d?.deletedIds) ? d.deletedIds : ids
+      const delSet = new Set<number>(deletedIds)
+      setItems(prev => prev.filter(it => !delSet.has(it.id)))
+      setSelectedIds(prev => prev.filter(id => !delSet.has(id)))
+      alert(`已删除 ${deletedIds.length} 条`)
+    } catch (e) {
+      alert('删除失败，请稍后重试')
+    }
+  }
+
   return (
     <section className="panel">
       <h2>简历列表</h2>
@@ -600,6 +672,17 @@ export default function ResumesPage() {
         </div>
       </div>
 
+      <div className="bar" style={{ alignItems: 'center' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <input type="checkbox" checked={isPageAllSelected} onChange={e => toggleSelectAllCurrentPage(e.target.checked)} />
+          <span>全选当前页</span>
+        </label>
+        <span className="muted">已选 {selectedIds.length} 条</span>
+        <div style={{ flex: 1 }} />
+        <button className="ghost" onClick={clearSelection} disabled={selectedIds.length === 0}>清空选择</button>
+        <button className="danger" onClick={bulkDelete} disabled={!isAdmin || selectedIds.length === 0}>批量删除</button>
+      </div>
+
       <div className="resume-cards">
         {loading && (
           <div className="empty">加载中...</div>
@@ -609,6 +692,14 @@ export default function ResumesPage() {
           return (
             <div key={item.id} className="resume-card" onClick={() => window.open(`/resumes/${item.id}`, '_blank')}>
               <div className="card-left">
+                <div onClick={e => e.stopPropagation()}>
+                  <input
+                    type="checkbox"
+                    checked={selectedSet.has(item.id)}
+                    onChange={e => toggleSelectOne(item.id, e.target.checked)}
+                    title="选择此简历"
+                  />
+                </div>
                 <div className="name-section">
                   <div className="name">{item.name}</div>
                   <div className="education-info">
