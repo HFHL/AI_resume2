@@ -385,12 +385,14 @@ export default function ResumesPage() {
   const [degree, setDegree] = useState<'' | '专科' | '本科' | '硕士' | '博士'>('')
   const [tiers, setTiers] = useState<Array<'985' | '211' | '双一流' | '海外留学' | '专科'>>([])
   const [page, setPage] = useState(1)
+  const [minTenureYears, setMinTenureYears] = useState<number | ''>('')
 
   // UI 中待编辑的筛选（实时变更，不立即生效）
   const [uiSelectedTags, setUiSelectedTags] = useState<string[]>(selectedTags)
   const [uiYearsBand, setUiYearsBand] = useState<typeof yearsBand>(yearsBand)
   const [uiDegree, setUiDegree] = useState<typeof degree>(degree)
   const [uiTiers, setUiTiers] = useState<typeof tiers>(tiers)
+  const [uiMinTenureYears, setUiMinTenureYears] = useState<number | ''>('')
   const pageSize = 12
   const [tagsExpanded, setTagsExpanded] = useState(false)
 
@@ -411,6 +413,7 @@ export default function ResumesPage() {
     setUiYearsBand('不限')
     setUiDegree('')
     setUiTiers([])
+    setUiMinTenureYears('')
   }
 
   function applyFilters() {
@@ -418,6 +421,7 @@ export default function ResumesPage() {
     setYearsBand(uiYearsBand)
     setDegree(uiDegree)
     setTiers(uiTiers)
+    setMinTenureYears(uiMinTenureYears)
     setPage(1)
   }
 
@@ -444,6 +448,39 @@ export default function ResumesPage() {
     }
   }
 
+  // 预计算：基于最早 start 得到“起始至今工龄(年)”
+  const tenureById = useMemo(() => {
+    const map = new Map<number, number | null>()
+    const now = new Date()
+    const msPerYear = 365.25 * 24 * 3600 * 1000
+    const parseStart = (raw: string | null | undefined): Date | null => {
+      const s = (raw || '').trim()
+      if (!s) return null
+      // 支持: YYYY, YYYY-MM, YYYY/MM, YYYY.MM, YYYY年MM月, YYYY年
+      const m = s.match(/^\s*(\d{4})(?:[./-年\s]?(\d{1,2}))?/)
+      if (!m) return null
+      const y = Number(m[1])
+      const mm = m[2] ? Number(m[2]) : 1
+      if (!Number.isFinite(y)) return null
+      const d = new Date(Date.UTC(y, Math.max(0, Math.min(11, mm - 1)), 1))
+      return isNaN(d.getTime()) ? null : d
+    }
+    for (const r of items) {
+      const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+      const starts: Date[] = []
+      for (const it of wxs) {
+        const d = parseStart((it as any)?.start)
+        if (d) starts.push(d)
+      }
+      if (starts.length === 0) { map.set(r.id, null); continue }
+      let earliest = starts[0]
+      for (const d of starts) { if (d < earliest) earliest = d }
+      const years = Math.floor((now.getTime() - earliest.getTime()) / msPerYear)
+      map.set(r.id, years >= 0 ? years : 0)
+    }
+    return map
+  }, [items])
+
   const filtered = useMemo(() => {
     const degreeLevel = (d: ResumeItem['degree']) => d === '博士' ? 3 : d === '硕士' ? 2 : d === '本科' ? 1 : 0
     const requiredLevel = degree ? degreeLevel(degree) : 0
@@ -464,10 +501,21 @@ export default function ResumesPage() {
         })
         if (!hasAllTags) return false
       }
+      // 起始至今工龄（年）下限
+      if (minTenureYears !== '' && Number.isFinite(Number(minTenureYears))) {
+        const threshold = Number(minTenureYears)
+        const computed = tenureById.get(r.id)
+        if (computed !== null && computed !== undefined) {
+          if (computed < threshold) return false
+        } else {
+          const approx = r.work_years
+          if (approx === null || approx < threshold) return false
+        }
+      }
       
       return true
     })
-  }, [items, idToTags, degree, tiers, yearsBand, selectedTags])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -624,6 +672,23 @@ export default function ResumesPage() {
                 >{t}</button>
               ))}
             </div>
+          </label>
+
+          <label>
+            <span>毕业时长（年，最低）</span>
+            <input
+              type="number"
+              min={0}
+              step={1}
+              placeholder="例如：30"
+              value={uiMinTenureYears}
+              onChange={e => {
+                const v = e.target.value
+                if (v === '') { setUiMinTenureYears(''); return }
+                const n = Number(v)
+                if (Number.isFinite(n) && n >= 0) setUiMinTenureYears(Math.floor(n))
+              }}
+            />
           </label>
         </div>
 
