@@ -11,7 +11,7 @@ export default function AdminDeletedResumesPage() {
   const pageSize = 12
 
   useEffect(() => {
-    const url = api('/resumes?only_deleted=true&limit=all&offset=0&admin=true')
+    const url = api('/resumes/deleted')
     fetch(url, { headers: { 'x-admin': 'true' } })
       .then(r => r.json())
       .then(d => {
@@ -42,7 +42,7 @@ export default function AdminDeletedResumesPage() {
               <div className="bar" style={{ marginTop: 8 }}>
                 <button className="ghost" onClick={async () => {
                   if (!confirm('确定恢复该简历吗？')) return
-                  const r = await fetch(api(`/resumes/${it.id}`), { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'x-admin': 'true' }, body: JSON.stringify({ is_deleted: false, deleted_at: null }) })
+                  const r = await fetch(api(`/resumes/${it.id}/restore`), { method: 'POST', headers: { 'x-admin': 'true' } })
                   if (!r.ok) { alert('恢复失败'); return }
                   setItems(prev => prev.filter(x => x.id !== it.id))
                 }}>恢复</button>
