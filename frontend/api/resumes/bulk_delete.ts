@@ -31,18 +31,20 @@ export default async function handler(req: Request): Promise<Response> {
 
     const base = SUPABASE_URL!.replace(/\/$/, '')
     const inList = batch.join(',')
-    const delUrl = `${base}/rest/v1/resumes?id=in.(${inList})`
+    const updUrl = `${base}/rest/v1/resumes?id=in.(${inList})`
 
     const controller = new AbortController()
     const t = setTimeout(() => controller.abort(), 12000)
-    const delResp = await fetch(delUrl, {
-      method: 'DELETE',
+    const delResp = await fetch(updUrl, {
+      method: 'PATCH',
       headers: {
         'apikey': EFFECTIVE_KEY!,
         'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
         'Prefer': 'return=representation',
         'Accept': 'application/json',
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ is_deleted: true, deleted_at: new Date().toISOString() }),
       signal: controller.signal,
     }).catch((e) => {
       console.error('[api/resumes/bulk_delete] fetch error', e)

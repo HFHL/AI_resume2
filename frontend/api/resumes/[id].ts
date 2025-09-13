@@ -27,24 +27,29 @@ export default async function handler(req: Request): Promise<Response> {
 			const isAdmin = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
 			if (!isAdmin) return new Response(JSON.stringify({ detail: '仅管理员可删除简历' }), { status: 403, headers: { 'Content-Type': 'application/json' } })
 
-			const delUrl = `${SUPABASE_URL!.replace(/\/$/, '')}/rest/v1/resumes?id=eq.${id}`
-			const delResp = await fetch(delUrl, {
-				method: 'DELETE',
+			// Soft delete: set is_deleted=true, deleted_at=now()
+			const base = SUPABASE_URL!.replace(/\/$/, '')
+			const updUrl = `${base}/rest/v1/resumes?id=eq.${id}`
+			const body = { is_deleted: true, deleted_at: new Date().toISOString() }
+			const updResp = await fetch(updUrl, {
+				method: 'PATCH',
 				headers: {
 					'apikey': EFFECTIVE_KEY!,
 					'Authorization': `Bearer ${EFFECTIVE_KEY!}`,
+					'Content-Type': 'application/json',
 					'Prefer': 'return=representation',
 					'Accept': 'application/json',
 				},
+				body: JSON.stringify(body),
 			})
-			if (!delResp.ok) {
-				const text = await delResp.text().catch(() => '')
-				return new Response(JSON.stringify({ detail: text || `DELETE failed ${delResp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+			if (!updResp.ok) {
+				const text = await updResp.text().catch(() => '')
+				return new Response(JSON.stringify({ detail: text || `软删除失败 ${updResp.status}` }), { status: 400, headers: { 'Content-Type': 'application/json' } })
 			}
-			const deletedRows = await delResp.json().catch(() => []) as any[]
-			const deleted = Array.isArray(deletedRows) && deletedRows.length > 0 ? deletedRows[0] : null
-			if (!deleted) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
-			return new Response(JSON.stringify({ ok: true, deleted }), { headers: { 'Content-Type': 'application/json' } })
+			const rows = await updResp.json().catch(() => []) as any[]
+			const updated = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
+			if (!updated) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+			return new Response(JSON.stringify({ ok: true, deleted: updated }), { headers: { 'Content-Type': 'application/json' } })
 		}
 
 		if (req.method === 'PATCH' || req.method === 'PUT') {
@@ -187,6 +192,11 @@ export default async function handler(req: Request): Promise<Response> {
 		const rows = await resp.json().catch(() => []) as any[]
 		const item = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
 		if (!item) return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+		// 非管理员不可查看软删除记录
+		const isAdminView = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
+		if ((item as any).is_deleted && !isAdminView) {
+			return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+		}
 		console.log('[api/resumes/[id]] base row fetched', { id, hasFileId: Boolean(item.resume_file_id) })
 
 		// 若有文件 ID，则查询文件链接与上传者

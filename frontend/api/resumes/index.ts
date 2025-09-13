@@ -19,7 +19,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   let query = supabase
     .from('resumes')
-    .select('id, resume_file_id, name, skills, tag_names, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
+    .select('id, resume_file_id, name, email, phone, is_deleted, deleted_at, skills, tag_names, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
     .order('id', { ascending: false })
 
   // 如果有搜索词，进行模糊搜索
@@ -35,6 +35,20 @@ export default async function handler(req: Request): Promise<Response> {
       `project_experience.cs.{${searchQuery}},` +
       `self_evaluation.ilike.%${searchQuery}%`
     )
+  }
+
+  // 软删除过滤：默认排除；管理员可通过 ?include_deleted=true 或 ?only_deleted=true 控制
+  const isAdmin = (url.searchParams.get('admin') || '').toLowerCase() === 'true' || (url.searchParams.get('x-admin') || '').toLowerCase() === 'true'
+  const includeDeleted = (url.searchParams.get('include_deleted') || '').toLowerCase() === 'true'
+  const onlyDeleted = (url.searchParams.get('only_deleted') || '').toLowerCase() === 'true'
+  if (isAdmin) {
+    if (onlyDeleted) {
+      query = query.eq('is_deleted', true)
+    } else if (!includeDeleted) {
+      query = query.eq('is_deleted', false)
+    }
+  } else {
+    query = query.eq('is_deleted', false)
   }
 
   let data: any[] = []
