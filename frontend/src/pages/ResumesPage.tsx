@@ -36,6 +36,8 @@ export default function ResumesPage() {
   const [allTags, setAllTags] = useState<Tag[]>([])
   const [idToTags, setIdToTags] = useState<Map<number, string[]>>(new Map())
   const [selectedIds, setSelectedIds] = useState<number[]>([])
+  const [vendorOnly, setVendorOnly] = useState(false)
+  const [vendorList, setVendorList] = useState<string[]>([])
   
   // 获取所有标签数据
   useEffect(() => {
@@ -67,6 +69,21 @@ export default function ResumesPage() {
         console.log('[ResumesPage] resume tags map size:', map.size)
       })
       .catch(() => setIdToTags(new Map()))
+  }, [])
+
+  // 加载外包公司名单
+  useEffect(() => {
+    const url = api('/outsourcing_companies')
+    fetch(url)
+      .then(r => r.json())
+      .then(d => {
+        const arr = Array.isArray(d?.items) ? d.items : []
+        const names = arr
+          .filter((x: any) => x && typeof x.company_name === 'string' && x.company_name.trim())
+          .map((x: any) => String(x.company_name).trim().toLowerCase())
+        setVendorList(Array.from(new Set(names)))
+      })
+      .catch(() => setVendorList([]))
   }, [])
   
   useEffect(() => {
@@ -512,10 +529,31 @@ export default function ResumesPage() {
           if (approx === null || approx < threshold) return false
         }
       }
+      // 外包公司筛选
+      if (vendorOnly) {
+        const companies: string[] = []
+        const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+        for (const it of wxs) {
+          const c = (it as any)?.company
+          if (typeof c === 'string' && c.trim()) companies.push(c)
+        }
+        if (companies.length === 0) {
+          const lines = Array.isArray(r.work_experience) ? r.work_experience : []
+          for (const ln of lines) {
+            if (typeof ln !== 'string') continue
+            const head = (ln.split(/\n/)[0] || '').trim()
+            const m = head.match(/^([^\n]{2,40}?)(?:\s{2,}|[|｜/·•])/)
+            if (m && m[1]) companies.push(m[1])
+          }
+        }
+        const low = companies.map(s => s.toLowerCase())
+        const hit = vendorList.length > 0 && low.some(c => vendorList.some(v => c.includes(v)))
+        if (!hit) return false
+      }
       
       return true
     })
-  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -734,6 +772,10 @@ export default function ResumesPage() {
         <div className="bar end">
           <button className="ghost" onClick={resetAll}>清空</button>
           <button className="primary" onClick={applyFilters}>应用筛选</button>
+          <label style={{ marginLeft: 8, display: 'flex', alignItems: 'center', gap: 6 }} title="仅显示在外包公司有过经历的简历">
+            <input type="checkbox" checked={vendorOnly} onChange={e => setVendorOnly(e.target.checked)} />
+            <span>仅外包经历</span>
+          </label>
         </div>
       </div>
 
