@@ -164,10 +164,10 @@ export default async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
     }
 
-    // 默认列表（包含 tag_names、skills、work_years、work_experience）
+    // 默认列表（包含 tag_names、skills、work_years、work_experience、email、phone）
     const base = supabase
       .from('resumes')
-      .select('id, resume_file_id, name, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
+      .select('id, resume_file_id, name, email, phone, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
       .order('id', { ascending: false })
     let data: any[] = []
     try {

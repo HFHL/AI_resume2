@@ -15,6 +15,8 @@ type ResumeItem = {
   created_at?: string
   work_experience?: string[]
   uploaded_by?: string | null
+  email?: string | null
+  phone?: string | null
   work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
   project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
 }
@@ -127,6 +129,8 @@ export default function ResumesPage() {
           work_years: number | null
           created_at?: string | null
           work_experience?: string[] | null
+          email?: string | null
+          phone?: string | null
         }>
         
         const normalizeDegree = (x: string | null | undefined): ResumeItem['degree'] => {
@@ -170,6 +174,8 @@ export default function ResumesPage() {
             created_at: (r as any).created_at || undefined,
             work_experience: (r as any).work_experience || [],
             uploaded_by: (r as any).uploaded_by ?? null,
+            email: (r as any).email ?? null,
+            phone: (r as any).phone ?? null,
             work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
             project_experience_struct: Array.isArray(pxs) ? pxs : undefined,
           }
@@ -423,6 +429,7 @@ export default function ResumesPage() {
   const [tiers, setTiers] = useState<Array<'985' | '211' | '双一流' | '海外留学' | '专科'>>([])
   const [page, setPage] = useState(1)
   const [minTenureYears, setMinTenureYears] = useState<number | ''>('')
+  const [onlyPhoneEmpty, setOnlyPhoneEmpty] = useState(false)
 
   // UI 中待编辑的筛选（实时变更，不立即生效）
   const [uiSelectedTags, setUiSelectedTags] = useState<string[]>(selectedTags)
@@ -549,6 +556,11 @@ export default function ResumesPage() {
           if (approx === null || approx < threshold) return false
         }
       }
+      if (onlyPhoneEmpty) {
+        const p = (r as any).phone
+        const ok = p === null || (typeof p === 'string' && p.trim() === '') || typeof p === 'undefined'
+        if (!ok) return false
+      }
       // 外包公司筛选
       if (vendorOnly) {
         const companies: string[] = []
@@ -594,7 +606,7 @@ export default function ResumesPage() {
       
       return true
     })
-  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords, onlyPhoneEmpty])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -820,6 +832,10 @@ export default function ResumesPage() {
           <label style={{ marginLeft: 8, display: 'flex', alignItems: 'center', gap: 6 }} title="公司名包含省份/城市（如：四川/成都/上海/广州 等）">
             <input type="checkbox" checked={geoCompanyOnly} onChange={e => setGeoCompanyOnly(e.target.checked)} />
             <span>公司名含地名</span>
+          </label>
+          <label style={{ marginLeft: 8, display: 'flex', alignItems: 'center', gap: 6 }} title="仅显示电话字段为空的简历">
+            <input type="checkbox" checked={onlyPhoneEmpty} onChange={e => setOnlyPhoneEmpty(e.target.checked)} />
+            <span>仅电话为空</span>
           </label>
         </div>
       </div>
