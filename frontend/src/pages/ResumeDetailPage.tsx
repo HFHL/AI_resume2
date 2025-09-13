@@ -76,7 +76,12 @@ export default function ResumeDetailPage() {
     console.log('[ResumeDetailPage] fetch detail', url)
     const controller = new AbortController()
     const t = setTimeout(() => controller.abort(), 10000)
-    fetch(url, { signal: controller.signal })
+    // 管理员查看软删除详情需要携带 x-admin: true
+    let isAdmin = false
+    try { const u = JSON.parse(localStorage.getItem('auth_user') || 'null'); isAdmin = Boolean(u?.is_admin) } catch {}
+    const headers: Record<string, string> = {}
+    if (isAdmin) headers['x-admin'] = 'true'
+    fetch(url, { signal: controller.signal, headers })
       .then(async r => {
         clearTimeout(t)
         if (!r.ok) {
@@ -475,7 +480,9 @@ export default function ResumeDetailPage() {
                       throw new Error(detail || '绑定失败')
                     }
                     // 重新加载详情
-                    const r = await fetch(api(`/resumes/${id}`))
+                    const reloadHeaders: Record<string, string> = {}
+                    try { const u = JSON.parse(localStorage.getItem('auth_user') || 'null'); if (u?.is_admin) reloadHeaders['x-admin'] = 'true' } catch {}
+                    const r = await fetch(api(`/resumes/${id}`), { headers: reloadHeaders })
                     if (r.ok) {
                       const d = await r.json()
                       setItem(d.item)
