@@ -38,6 +38,26 @@ export default function ResumesPage() {
   const [selectedIds, setSelectedIds] = useState<number[]>([])
   const [vendorOnly, setVendorOnly] = useState(false)
   const [vendorList, setVendorList] = useState<string[]>([])
+  const [geoCompanyOnly, setGeoCompanyOnly] = useState(false)
+  const geoKeywords = useMemo(() => {
+    return [
+      // 直辖市
+      '北京','上海','天津','重庆',
+      // 省份/自治区
+      '河北','山西','辽宁','吉林','黑龙江','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','海南','四川','贵州','云南','陕西','甘肃','青海','台湾',
+      '内蒙古','广西','西藏','宁夏','新疆',
+      // 常见城市
+      '深圳','广州','东莞','佛山','珠海','中山','惠州',
+      '杭州','宁波','温州','绍兴','嘉兴','金华','台州',
+      '南京','苏州','无锡','常州','南通','扬州','镇江','徐州',
+      '青岛','济南','烟台','潍坊',
+      '武汉','长沙','南昌','合肥','郑州','西安','太原','石家庄',
+      '成都','重庆','贵阳','昆明',
+      '沈阳','大连','长春','哈尔滨',
+      '厦门','福州','泉州',
+      '兰州','银川','西宁','拉萨','乌鲁木齐','海口','三亚'
+    ].map(s => s.toLowerCase())
+  }, [])
   
   // 获取所有标签数据
   useEffect(() => {
@@ -550,10 +570,31 @@ export default function ResumesPage() {
         const hit = vendorList.length > 0 && low.some(c => vendorList.some(v => c.includes(v)))
         if (!hit) return false
       }
+      // 公司名包含省份/城市
+      if (geoCompanyOnly) {
+        const companies: string[] = []
+        const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+        for (const it of wxs) {
+          const c = (it as any)?.company
+          if (typeof c === 'string' && c.trim()) companies.push(c)
+        }
+        if (companies.length === 0) {
+          const lines = Array.isArray(r.work_experience) ? r.work_experience : []
+          for (const ln of lines) {
+            if (typeof ln !== 'string') continue
+            const head = (ln.split(/\n/)[0] || '').trim()
+            const m = head.match(/^([^\n]{2,40}?)(?:\s{2,}|[|｜/·•])/)
+            if (m && m[1]) companies.push(m[1])
+          }
+        }
+        const low = companies.map(s => s.toLowerCase())
+        const geoHit = low.some(c => geoKeywords.some(g => c.includes(g)))
+        if (!geoHit) return false
+      }
       
       return true
     })
-  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -775,6 +816,10 @@ export default function ResumesPage() {
           <label style={{ marginLeft: 8, display: 'flex', alignItems: 'center', gap: 6 }} title="仅显示在外包公司有过经历的简历">
             <input type="checkbox" checked={vendorOnly} onChange={e => setVendorOnly(e.target.checked)} />
             <span>仅外包经历</span>
+          </label>
+          <label style={{ marginLeft: 8, display: 'flex', alignItems: 'center', gap: 6 }} title="公司名包含省份/城市（如：四川/成都/上海/广州 等）">
+            <input type="checkbox" checked={geoCompanyOnly} onChange={e => setGeoCompanyOnly(e.target.checked)} />
+            <span>公司名含地名</span>
           </label>
         </div>
       </div>
