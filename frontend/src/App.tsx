@@ -12,6 +12,7 @@ import MatchPage from './pages/MatchPage'
 import LoginPage from './pages/LoginPage'
 import AdminUsersPage from './pages/AdminUsersPage'
 import AdminDeletedResumesPage from './pages/AdminDeletedResumesPage'
+import AdminDeduplicatePage from './pages/AdminDeduplicatePage'
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="match/:positionId/resumes/:resumeId" element={<MatchDetailPage />} />
         <Route path="admin/users" element={<AdminUsersPage />} />
         <Route path="admin/resumes/deleted" element={<AdminDeletedResumesPage />} />
+        <Route path="admin/resumes/deduplicate" element={<AdminDeduplicatePage />} />
       </Route>
     </Routes>
   )

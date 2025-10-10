@@ -42,6 +42,9 @@ export default function Layout() {
           {user?.is_admin && (
             <NavLink to="/admin/resumes/deleted" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>回收站</NavLink>
           )}
+          {user?.is_admin && (
+            <NavLink to="/admin/resumes/deduplicate" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>去重</NavLink>
+          )}
         </nav>
         <div style={{ flex: 1 }} />
         <div className="bar" style={{ gap: 12 }}>
