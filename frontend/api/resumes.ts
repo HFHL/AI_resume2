@@ -167,21 +167,25 @@ export default async function handler(req: Request): Promise<Response> {
     // 默认列表（包含 tag_names、skills、work_years、work_experience、email、phone）
     const base = supabase
       .from('resumes')
-      .select('id, resume_file_id, name, email, phone, is_deleted, deleted_at, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
+      .select('id, resume_file_id, name, email, phone, is_deleted, deleted_at, is_dedup_hidden, canonical_id, tag_names, skills, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
       .order('id', { ascending: false })
     let data: any[] = []
     try {
-      // 默认排除软删除；支持 admin 查询覆盖
+      // 默认排除软删除与去重隐藏；支持 admin 查询覆盖
       const urlObj = new URL(typeof location !== 'undefined' ? location.href : 'http://localhost')
       const isAdmin = (urlObj.searchParams.get('admin') || '').toLowerCase() === 'true' || (urlObj.searchParams.get('x-admin') || '').toLowerCase() === 'true'
       const includeDeleted = (urlObj.searchParams.get('include_deleted') || '').toLowerCase() === 'true'
       const onlyDeleted = (urlObj.searchParams.get('only_deleted') || '').toLowerCase() === 'true'
+      const includeHidden = (urlObj.searchParams.get('include_hidden') || '').toLowerCase() === 'true'
+      const onlyHidden = (urlObj.searchParams.get('only_hidden') || '').toLowerCase() === 'true'
       let baseQuery: any = base
       if (isAdmin) {
         if (onlyDeleted) baseQuery = baseQuery.eq('is_deleted', true)
         else if (!includeDeleted) baseQuery = baseQuery.eq('is_deleted', false)
+        if (onlyHidden) baseQuery = baseQuery.eq('is_dedup_hidden', true)
+        else if (!includeHidden) baseQuery = baseQuery.eq('is_dedup_hidden', false)
       } else {
-        baseQuery = baseQuery.eq('is_deleted', false)
+        baseQuery = baseQuery.eq('is_deleted', false).eq('is_dedup_hidden', false)
       }
       if (unlimited) {
         data = await fetchInBatches(baseQuery, 0, 1000000)

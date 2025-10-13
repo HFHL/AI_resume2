@@ -219,6 +219,15 @@ export default async function handler(req: Request): Promise<Response> {
 		}
 
 		console.log('[api/resumes/[id]] respond', { id, hasUrl: Boolean(item.file_url) })
+		// 非管理员访问去重隐藏条：可返回 404 或提示跳转到 canonical
+		const _isAdminView = (req.headers.get('x-admin') || '').toLowerCase() === 'true'
+		if ((item as any).is_dedup_hidden && !_isAdminView) {
+			const canon = (item as any).canonical_id
+			if (typeof canon === 'number' && canon > 0) {
+				return new Response(JSON.stringify({ detail: '已合并至保留版', redirect_to: `/resumes/${canon}` }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+			}
+			return new Response(JSON.stringify({ detail: '简历不存在' }), { status: 404, headers: { 'Content-Type': 'application/json' } })
+		}
 		return new Response(JSON.stringify({ item }), { headers: { 'Content-Type': 'application/json' } })
 	} catch (e: any) {
 		console.error('[api/resumes/[id]] unhandled', e)

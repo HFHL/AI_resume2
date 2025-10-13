@@ -13,6 +13,7 @@ export default function AdminDeduplicatePage() {
   const [page, setPage] = useState(1)
   const pageSize = 10
   const [selected, setSelected] = useState<Set<number>>(new Set())
+  const groupKeyMap: Record<Rule,string> = { email: 'email', phone: 'phone', name: 'name_contact', filename: 'filename' }
 
   async function load() {
     setLoading(true)
@@ -65,20 +66,30 @@ export default function AdminDeduplicatePage() {
     })
   }
 
-  async function bulkDelete() {
-    const ids = Array.from(selected)
-    if (ids.length === 0) { alert('未选择任何记录'); return }
-    if (!confirm(`确定删除选中的 ${ids.length} 条吗？`)) return
-    const r = await fetch(api('/resumes/bulk_delete'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin': 'true' },
-      body: JSON.stringify({ ids })
-    })
-    if (!r.ok) { const d = await r.json().catch(() => ({})); alert(d?.detail || '删除失败'); return }
-    const delSet = new Set<number>(ids)
-    setItems(prev => prev.map(g => ({ ...g, ids: g.ids.filter(id => !delSet.has(id)), rows: g.rows.filter(r => !delSet.has(r.id)), count: g.count - g.rows.filter(r => delSet.has(r.id)).length })).filter(g => g.count > 1))
+  async function applyDedup() {
+    // 将每个分组第一条作为保留，选中的作为隐藏
+    // 构造 keep_id 与 hide_ids 按组提交（可以多组一次提交）
+    const hideIds = Array.from(selected)
+    if (hideIds.length === 0) { alert('未选择任何记录'); return }
+    // 选任一组的第一条作为 keep_id（逐组执行更稳）
+    const key = groupKeyMap[rule]
+    for (const g of items) {
+      const ids = g.ids || []
+      const keepId = ids[0]
+      const groupHide = ids.slice(1).filter(id => hideIds.includes(id))
+      if (groupHide.length === 0) continue
+      const r = await fetch(api('/resumes/dedup/mark_canonical'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin': 'true' },
+        body: JSON.stringify({ keep_id: keepId, hide_ids: groupHide, group_key: key })
+      })
+      if (!r.ok) { const d = await r.json().catch(() => ({})); alert(d?.detail || '保存失败'); return }
+    }
+    // 本地移除已处理的隐藏条
+    const delSet = new Set<number>(hideIds)
+    setItems(prev => prev.map(g => ({ ...g, ids: g.ids.filter(id => !delSet.has(id)), rows: g.rows.filter(r => !delSet.has(r.id)), count: g.ids.filter(id => !delSet.has(id)).length })).filter(g => g.count > 1))
     setSelected(new Set())
-    alert('已删除（软删除）')
+    alert('已保存（已隐藏非保留条）')
   }
 
   return (
@@ -100,7 +111,7 @@ export default function AdminDeduplicatePage() {
         <div style={{ flex: 1 }} />
         <button className="ghost" onClick={() => selectAllCurrentPage(true)}>当前页全选（保留最新）</button>
         <button className="ghost" onClick={() => selectAllCurrentPage(false)}>取消全选</button>
-        <button className="danger" onClick={bulkDelete} disabled={selected.size === 0}>删除选中</button>
+        <button className="primary" onClick={applyDedup} disabled={selected.size === 0}>保存为“仅保留一份”</button>
       </div>
 
       {loading && <div className="empty">加载中...</div>}
