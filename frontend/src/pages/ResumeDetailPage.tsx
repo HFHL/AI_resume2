@@ -46,6 +46,8 @@ export default function ResumeDetailPage() {
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const [editWechat, setEditWechat] = useState('')
   const [isEditing, setIsEditing] = useState(false)
+  const [dupGroups, setDupGroups] = useState<Array<{ key: string; rule: string; rows: Array<{ id:number; name?:string|null; email?:string|null; phone?:string|null; created_at?:string|null; is_dedup_hidden?:boolean; canonical_id?:number|null }> }>>([])
+  const [loadingDup, setLoadingDup] = useState(false)
   const [editUploadedBy, setEditUploadedBy] = useState('')
   const [editCreatedAtLocal, setEditCreatedAtLocal] = useState('')
 
@@ -102,6 +104,20 @@ export default function ResumeDetailPage() {
       })
       .catch(e => setError(e.message || '加载失败'))
       .finally(() => setLoading(false))
+  }, [id])
+
+  // 管理员：加载当前条目的重复集合
+  useEffect(() => {
+    if (!id) return
+    let isAdmin = false
+    try { const u = JSON.parse(localStorage.getItem('auth_user') || 'null'); isAdmin = Boolean(u?.is_admin) } catch {}
+    if (!isAdmin) return
+    setLoadingDup(true)
+    fetch(api(`/resumes/${id}/duplicates`), { headers: { 'x-admin': 'true' } })
+      .then(r => r.json())
+      .then(d => setDupGroups(Array.isArray(d?.items) ? d.items : []))
+      .catch(() => setDupGroups([]))
+      .finally(() => setLoadingDup(false))
   }, [id])
   async function saveBasics() {
     if (!id) return
@@ -183,6 +199,49 @@ export default function ResumeDetailPage() {
         })()}
       </div>
       <h2>简历详情</h2>
+      {(() => {
+        let user: any = null
+        try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+        const isAdmin = Boolean(user?.is_admin)
+        if (!isAdmin || !dupGroups.length) return null
+        return (
+          <div className="detail-card">
+            <div className="detail-title">重复集合（管理员可切换保留）</div>
+            {loadingDup && <div className="muted">加载中...</div>}
+            {!loadingDup && dupGroups.map(g => (
+              <div key={g.key} style={{ marginTop: 8 }}>
+                <div className="section-title">{g.rule} · {g.key} · {g.rows.length}条</div>
+                <div className="list">
+                  {g.rows.map((r) => (
+                    <div key={r.id} className="bar" style={{ alignItems:'center', gap: 8 }}>
+                      <a className="ghost" href={`/resumes/${r.id}`} target="_blank" rel="noreferrer">查看</a>
+                      <span className="muted">#{r.id}</span>
+                      <span style={{ flex: 1 }}>{r.name || '未知'}</span>
+                      <span className="muted">{r.email || '-'}</span>
+                      <span className="muted">{r.phone || '-'}</span>
+                      {(r as any).is_dedup_hidden ? <span className="pill">隐藏</span> : <span className="pill">保留</span>}
+                      <button className="primary" onClick={async () => {
+                        // 将当前这条设为保留，其余同组隐藏
+                        const keepId = r.id
+                        const hideIds = g.rows.map(x => x.id).filter(x => x !== keepId)
+                        const res = await fetch(api('/resumes/dedup/mark_canonical'), { method: 'POST', headers: { 'Content-Type':'application/json', 'x-admin':'true' }, body: JSON.stringify({ keep_id: keepId, hide_ids: hideIds, group_key: g.rule }) })
+                        if (!res.ok) { const d = await res.json().catch(() => ({})); alert(d?.detail || '保存失败'); return }
+                        // 重新加载重复集合
+                        setLoadingDup(true)
+                        const r2 = await fetch(api(`/resumes/${id}/duplicates`), { headers: { 'x-admin':'true' } })
+                        const d2 = await r2.json().catch(() => ({ items: [] }))
+                        setDupGroups(Array.isArray(d2?.items) ? d2.items : [])
+                        setLoadingDup(false)
+                        alert('已设置保留并隐藏其余')
+                      }}>设为保留</button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      })()}
 
       {loading && <div className="empty">加载中...</div>}
       {error && !loading && <div className="empty">{error}</div>}
