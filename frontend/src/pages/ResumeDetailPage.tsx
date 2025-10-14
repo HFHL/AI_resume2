@@ -572,6 +572,12 @@ export default function ResumeDetailPage() {
                   return (
                     <div className="bar end" style={{ marginTop: 8 }}>
                       <a className="ghost" href={item.file_url} target="_blank" rel="noreferrer">在新标签打开</a>
+                      <a
+                        className="primary"
+                        href={item.file_url}
+                        download={`${(item.name || 'resume')}_${item.id}.pdf`}
+                        title="下载PDF"
+                      >下载PDF</a>
                     </div>
                   )
                 })()}
