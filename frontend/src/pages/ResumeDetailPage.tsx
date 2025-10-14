@@ -560,7 +560,10 @@ export default function ResumeDetailPage() {
             </div>
             {item.file_url ? (
               <>
-                <iframe className="pdf-frame" src={item.file_url} />
+                <iframe
+                  className="pdf-frame"
+                  src={`${item.file_url}${item.file_url.includes('#') ? '' : '#'}toolbar=0&navpanes=0&scrollbar=0`}
+                />
                 {(() => {
                   let user: any = null
                   try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
