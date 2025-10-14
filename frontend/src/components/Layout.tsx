@@ -36,6 +36,9 @@ export default function Layout() {
               {t.label}
             </NavLink>
           ))}
+          {user && (
+            <NavLink to="/my-uploads" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>我上传的</NavLink>
+          )}
           {user?.is_admin && (
             <NavLink to="/admin/users" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>用户管理</NavLink>
           )}

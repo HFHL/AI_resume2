@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage'
 import AdminUsersPage from './pages/AdminUsersPage'
 import AdminDeletedResumesPage from './pages/AdminDeletedResumesPage'
 import AdminDeduplicatePage from './pages/AdminDeduplicatePage'
+import MyUploadsPage from './pages/MyUploadsPage'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route index element={<Navigate to="/upload" replace />} />
         <Route path="upload" element={<UploadPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="my-uploads" element={<MyUploadsPage />} />
         <Route path="resumes" element={<ResumesPage />} />
         <Route path="resumes/:id" element={<Suspense fallback={<div className="empty">加载中...</div>}><ResumeDetailPage /></Suspense>} />
         <Route path="positions" element={<PositionsListPage />} />
