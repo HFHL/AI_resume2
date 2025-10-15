@@ -24,7 +24,7 @@ export default async function handler(req: Request): Promise<Response> {
     const limit = unlimited ? 1000000 : Math.min(parseInt(limitParam, 10) || 200, 1000000)
     const offset = Math.max(parseInt(searchParams.get('offset') || '0', 10), 0)
 
-    const columns = 'id, resume_file_id, name, email, phone, skills, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at'
+    const columns = 'id, resume_file_id, name, email, phone, is_deleted, deleted_at, is_dedup_hidden, canonical_id, skills, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct, self_evaluation, education_degree, education_tiers, education_school, tag_names, work_years, created_at'
 
     async function fetchInBatches(baseQuery: any, startOffset: number, maxRows: number): Promise<any[]> {
       const batchSize = 1000
@@ -47,13 +47,28 @@ export default async function handler(req: Request): Promise<Response> {
 
     if (q && q.trim()) {
       // 简单搜索：拉取部分数据后在函数内过滤
-      const baseQuery = supabase
+      let baseQuery = supabase
         .from('resumes')
         .select(columns)
         .order('id', { ascending: false })
 
       let data: any[] = []
       try {
+        // 软删除/去重隐藏过滤（默认排除；支持管理员覆盖）
+        const isAdmin = (searchParams.get('admin') || '').toLowerCase() === 'true' || (searchParams.get('x-admin') || '').toLowerCase() === 'true'
+        const includeDeleted = (searchParams.get('include_deleted') || '').toLowerCase() === 'true'
+        const onlyDeleted = (searchParams.get('only_deleted') || '').toLowerCase() === 'true'
+        const includeHidden = (searchParams.get('include_hidden') || '').toLowerCase() === 'true'
+        const onlyHidden = (searchParams.get('only_hidden') || '').toLowerCase() === 'true'
+        if (isAdmin) {
+          if (onlyDeleted) baseQuery = baseQuery.eq('is_deleted', true)
+          else if (!includeDeleted) baseQuery = baseQuery.eq('is_deleted', false)
+          if (onlyHidden) baseQuery = baseQuery.eq('is_dedup_hidden', true)
+          else if (!includeHidden) baseQuery = baseQuery.eq('is_dedup_hidden', false)
+        } else {
+          baseQuery = baseQuery.eq('is_deleted', false).eq('is_dedup_hidden', false)
+        }
+
         if (unlimited) {
           data = await fetchInBatches(baseQuery, 0, 1000000)
         } else {
@@ -159,8 +174,29 @@ export default async function handler(req: Request): Promise<Response> {
         // 至少有一个职位标题同时包含所有 title 关键词
         return titles.some(t => titleKeywords.every(k => t.includes(k)))
       })
-      const total = matched.length
-      const sliced = matched.slice(offset, offset + (unlimited ? total : limit))
+      // 对未显式去重隐藏的重复姓名做“保留最新”折叠（按 name 归一化，同名仅保留 id 最大）
+      const uniqByName = (() => {
+        const map = new Map<string, any>()
+        for (const r of matched) {
+          const key = (r?.name || '').toString().trim().toLowerCase()
+          if (!key) { continue }
+          const prev = map.get(key)
+          if (!prev || (r.id > prev.id)) map.set(key, r)
+        }
+        // 若关键词不包含姓名（比如查“支付”），不强制折叠，以免影响其他筛选；只有当 matched 中存在同名多条时才折叠那些同名集合
+        // 这里简单执行折叠：优先返回折叠集合 + 其余无名或独名的记录
+        const keptIds = new Set(Array.from(map.values()).map((x: any) => x.id))
+        const others = matched.filter((r: any) => {
+          const key = (r?.name || '').toString().trim().toLowerCase()
+          if (!key) return true
+          return keptIds.has(r.id)
+        })
+        // others 中已只含“独名/折叠后保留”
+        return others
+      })()
+
+      const total = uniqByName.length
+      const sliced = uniqByName.slice(offset, offset + (unlimited ? total : limit))
       return new Response(JSON.stringify({ items: sliced, total }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
     }
 
