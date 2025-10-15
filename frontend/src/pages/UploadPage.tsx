@@ -37,6 +37,7 @@ export default function UploadPage() {
     setUploading(true)
     setProgress(0)
     const uploadedUrls: string[] = []
+    const uploadedNames: string[] = []
     
     try {
       let done = 0
@@ -92,12 +93,13 @@ export default function UploadPage() {
         })
         if (dbErr) throw new Error(dbErr.message)
         uploadedUrls.push(publicUrl)
+        uploadedNames.push(f.name)
 
         done += 1
         setProgress(Math.round((done / files.length) * 100))
       }
 
-      alert(`上传成功！\n\n文件URL:\n${uploadedUrls.join('\n')}`)
+      alert(`上传成功！\n\n文件：\n${uploadedNames.join('\n')}`)
       setFiles([])
       setProgress(0)
     } catch (e: any) {
