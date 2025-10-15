@@ -12,7 +12,6 @@ export default function AdminDeduplicatePage() {
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
   const pageSize = 10
-  const [selected, setSelected] = useState<Set<number>>(new Set())
   const groupKeyMap: Record<Rule,string> = { email: 'email', phone: 'phone', name: 'name_contact', filename: 'filename' }
 
   async function load() {
@@ -23,13 +22,6 @@ export default function AdminDeduplicatePage() {
       const d = await r.json()
       const arr: Group[] = Array.isArray(d?.items) ? d.items : []
       setItems(arr)
-      // 默认勾选每组除最新外的所有 id
-      const next = new Set<number>()
-      for (const g of arr) {
-        const ids = Array.isArray(g.ids) ? g.ids : []
-        for (let i = 1; i < ids.length; i++) next.add(ids[i])
-      }
-      setSelected(next)
       setPage(1)
     } catch {
       setItems([])
@@ -45,52 +37,34 @@ export default function AdminDeduplicatePage() {
   const currentPage = Math.min(page, totalPages)
   const pageItems = useMemo(() => items.slice((currentPage - 1) * pageSize, currentPage * pageSize), [items, currentPage])
 
-  function toggleOne(id: number, checked: boolean) {
-    setSelected(prev => {
-      const s = new Set(prev)
-      if (checked) s.add(id); else s.delete(id)
-      return s
-    })
-  }
-
-  function selectAllCurrentPage(del: boolean) {
-    setSelected(prev => {
-      const s = new Set(prev)
-      for (const g of pageItems) {
-        const ids = g.ids || []
-        for (let i = 1; i < ids.length; i++) { // 除最新外
-          if (del) s.add(ids[i]); else s.delete(ids[i])
-        }
-      }
-      return s
-    })
-  }
-
-  async function applyDedup() {
-    // 将每个分组第一条作为保留，选中的作为隐藏
-    // 构造 keep_id 与 hide_ids 按组提交（可以多组一次提交）
-    const hideIds = Array.from(selected)
-    if (hideIds.length === 0) { alert('未选择任何记录'); return }
-    // 选任一组的第一条作为 keep_id（逐组执行更稳）
+  async function setGroupCanonical(g: Group, keepId: number) {
+    const hideIds = (g.ids || []).filter(id => id !== keepId)
+    if (hideIds.length === 0) { alert('本组无可隐藏项'); return }
     const key = groupKeyMap[rule]
+    const r = await fetch(api('/resumes/dedup/mark_canonical'), {
+      method: 'POST', headers: { 'Content-Type':'application/json', 'x-admin':'true' },
+      body: JSON.stringify({ keep_id: keepId, hide_ids: hideIds, group_key: key })
+    })
+    if (!r.ok) { const d = await r.json().catch(() => ({})); alert(d?.detail || '保存失败'); return }
+    // 刷新本组显示（is_dedup_hidden 标记）
+    setItems(prev => prev.map(x => x.key === g.key ? {
+      ...x,
+      rows: x.rows.map(row => ({ ...row, is_dedup_hidden: row.id !== keepId })),
+      ids: x.rows.map(row => row.id),
+      count: x.rows.length,
+    } : x))
+    alert('已设置保留并隐藏其余')
+  }
+
+  async function keepAllNewest() {
     for (const g of items) {
       const ids = g.ids || []
-      const keepId = ids[0]
-      const groupHide = ids.slice(1).filter(id => hideIds.includes(id))
-      if (groupHide.length === 0) continue
-      const r = await fetch(api('/resumes/dedup/mark_canonical'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-admin': 'true' },
-        body: JSON.stringify({ keep_id: keepId, hide_ids: groupHide, group_key: key })
-      })
-      if (!r.ok) { const d = await r.json().catch(() => ({})); alert(d?.detail || '保存失败'); return }
+      if (ids.length <= 1) continue
+      const newest = ids[0]
+      await setGroupCanonical(g, newest)
     }
-    // 本地移除已处理的隐藏条
-    const delSet = new Set<number>(hideIds)
-    setItems(prev => prev.map(g => ({ ...g, ids: g.ids.filter(id => !delSet.has(id)), rows: g.rows.filter(r => !delSet.has(r.id)), count: g.ids.filter(id => !delSet.has(id)).length })).filter(g => g.count > 1))
-    setSelected(new Set())
-    alert('已保存（已隐藏非保留条）')
   }
+
 
   return (
     <section className="panel">
@@ -109,9 +83,7 @@ export default function AdminDeduplicatePage() {
         </label>
         <button className="ghost" onClick={() => load()} disabled={loading}>刷新</button>
         <div style={{ flex: 1 }} />
-        <button className="ghost" onClick={() => selectAllCurrentPage(true)}>当前页全选（保留最新）</button>
-        <button className="ghost" onClick={() => selectAllCurrentPage(false)}>取消全选</button>
-        <button className="primary" onClick={applyDedup} disabled={selected.size === 0}>保存为“仅保留一份”</button>
+        <button className="primary" onClick={keepAllNewest} disabled={items.length === 0}>一键保留每组最新</button>
       </div>
 
       {loading && <div className="empty">加载中...</div>}
@@ -125,14 +97,14 @@ export default function AdminDeduplicatePage() {
               <div className="list">
                 {g.rows.map((r, idx) => (
                   <div key={r.id} className="bar" style={{ alignItems: 'center', gap: 8 }}>
-                    <input type="checkbox" checked={selected.has(r.id)} onChange={e => toggleOne(r.id, e.target.checked)} title="删除此记录" />
                     <span className="muted">#{r.id}</span>
                     <a className="ghost" href={`/resumes/${r.id}`} target="_blank" rel="noreferrer">查看</a>
                     <span style={{ flex: 1 }}>{r.name || '未知'}</span>
                     <span className="muted">{r.email || '-'}</span>
                     <span className="muted">{r.phone || '-'}</span>
                     <span className="muted">{r.created_at ? String(r.created_at).replace('T',' ').slice(0,16) : '-'}</span>
-                    {idx === 0 && <span className="pill">保留</span>}
+                    {!(r as any).is_dedup_hidden ? <span className="pill">保留</span> : <span className="muted">隐藏</span>}
+                    <button className="primary" onClick={() => setGroupCanonical(g, r.id)}>设为保留</button>
                   </div>
                 ))}
               </div>

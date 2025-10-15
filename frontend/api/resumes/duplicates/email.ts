@@ -20,7 +20,7 @@ export default async function handler(req: Request): Promise<Response> {
   // 拉取必要字段（未删除且有 email）
   const { data, error } = await supabase
     .from('resumes')
-    .select('id, name, email, phone, created_at')
+    .select('id, name, email, phone, created_at, is_dedup_hidden, canonical_id')
     .eq('is_deleted', false)
     .not('email', 'is', null)
     .order('id', { ascending: false })

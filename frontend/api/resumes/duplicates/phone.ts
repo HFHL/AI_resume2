@@ -19,7 +19,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   const { data, error } = await supabase
     .from('resumes')
-    .select('id, name, email, phone, created_at')
+    .select('id, name, email, phone, created_at, is_dedup_hidden, canonical_id')
     .eq('is_deleted', false)
     .not('phone', 'is', null)
     .order('id', { ascending: false })

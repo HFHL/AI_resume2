@@ -36,7 +36,7 @@ export default async function handler(req: Request): Promise<Response> {
   // 拉取必要的 resumes（未删除），并带上其 rf_id
   const { data: resumes, error: rerr } = await supabase
     .from('resumes')
-    .select('id, name, email, phone, resume_file_id, created_at')
+    .select('id, name, email, phone, resume_file_id, created_at, is_dedup_hidden, canonical_id')
     .eq('is_deleted', false)
 
   if (rerr) return new Response(JSON.stringify({ detail: rerr.message }), { status: 400, headers: { 'Content-Type': 'application/json' } })
