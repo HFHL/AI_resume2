@@ -48,6 +48,33 @@ export default function ResumeDetailPage() {
   const [isEditing, setIsEditing] = useState(false)
   const [dupGroups, setDupGroups] = useState<Array<{ key: string; rule: string; rows: Array<{ id:number; name?:string|null; email?:string|null; phone?:string|null; created_at?:string|null; is_dedup_hidden?:boolean; canonical_id?:number|null }> }>>([])
   const [loadingDup, setLoadingDup] = useState(false)
+
+  async function triggerDownload(url: string, filename: string) {
+    try {
+      const resp = await fetch(url, { credentials: 'omit', referrerPolicy: 'no-referrer' })
+      if (!resp.ok) throw new Error('download failed')
+      const blob = await resp.blob()
+      const link = document.createElement('a')
+      const objectUrl = URL.createObjectURL(blob)
+      link.href = objectUrl
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(objectUrl)
+    } catch (e) {
+      // 回退：尝试通过 ?download=filename 方式
+      const sep = url.includes('?') ? '&' : '?'
+      const safeName = encodeURIComponent(filename)
+      const dlUrl = `${url}${sep}download=${safeName}`
+      const link = document.createElement('a')
+      link.href = dlUrl
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+    }
+  }
   const [editUploadedBy, setEditUploadedBy] = useState('')
   const [editCreatedAtLocal, setEditCreatedAtLocal] = useState('')
 
@@ -572,12 +599,14 @@ export default function ResumeDetailPage() {
                   return (
                     <div className="bar end" style={{ marginTop: 8 }}>
                       <a className="ghost" href={item.file_url} target="_blank" rel="noreferrer">在新标签打开</a>
-                      <a
+                      <button
                         className="primary"
-                        href={item.file_url}
-                        download={`${(item as any).file_name || (item.name ? item.name + '_' + item.id + '.pdf' : 'resume_' + item.id + '.pdf')}`}
                         title="下载PDF"
-                      >下载PDF</a>
+                        onClick={() => {
+                          const fname = (item as any).file_name || (item.name ? item.name + '_' + item.id + '.pdf' : 'resume_' + item.id + '.pdf')
+                          if (item.file_url) triggerDownload(item.file_url, fname)
+                        }}
+                      >下载PDF</button>
                     </div>
                   )
                 })()}
