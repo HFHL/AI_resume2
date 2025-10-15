@@ -575,7 +575,7 @@ export default function ResumeDetailPage() {
                       <a
                         className="primary"
                         href={item.file_url}
-                        download={`${(item.name || 'resume')}_${item.id}.pdf`}
+                        download={`${(item as any).file_name || (item.name ? item.name + '_' + item.id + '.pdf' : 'resume_' + item.id + '.pdf')}`}
                         title="下载PDF"
                       >下载PDF</a>
                     </div>

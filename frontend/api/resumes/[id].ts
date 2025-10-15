@@ -144,7 +144,7 @@ export default async function handler(req: Request): Promise<Response> {
 
 			// 若有文件 ID，则补充文件信息（与 GET 对齐）
 			if (updated && updated.resume_file_id) {
-				const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by&id=eq.${encodeURIComponent(String(updated.resume_file_id))}&limit=1`
+				const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by,file_name&id=eq.${encodeURIComponent(String(updated.resume_file_id))}&limit=1`
 				const fResp = await fetch(fileUrl, {
 					method: 'GET',
 					headers: {
@@ -158,6 +158,7 @@ export default async function handler(req: Request): Promise<Response> {
 					const f = Array.isArray(fRows) && fRows.length > 0 ? fRows[0] : null
 					if (f && f.file_path) (updated as any).file_url = f.file_path
 					if (f && typeof f.uploaded_by !== 'undefined') (updated as any).uploaded_by = f.uploaded_by || null
+					if (f && typeof f.file_name !== 'undefined') (updated as any).file_name = f.file_name || null
 				}
 			}
 
@@ -201,7 +202,7 @@ export default async function handler(req: Request): Promise<Response> {
 
 		// 若有文件 ID，则查询文件链接与上传者
 		if (item.resume_file_id) {
-			const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by&id=eq.${encodeURIComponent(String(item.resume_file_id))}&limit=1`
+			const fileUrl = `${base}/rest/v1/resume_files?select=file_path,uploaded_by,file_name&id=eq.${encodeURIComponent(String(item.resume_file_id))}&limit=1`
 			const fResp = await fetch(fileUrl, {
 				method: 'GET',
 				headers: {
@@ -215,6 +216,7 @@ export default async function handler(req: Request): Promise<Response> {
 				const f = Array.isArray(fRows) && fRows.length > 0 ? fRows[0] : null
 				if (f && f.file_path) item.file_url = f.file_path
 				if (f && typeof f.uploaded_by !== 'undefined') (item as any).uploaded_by = f.uploaded_by || null
+				if (f && typeof f.file_name !== 'undefined') (item as any).file_name = f.file_name || null
 			}
 		}
 
