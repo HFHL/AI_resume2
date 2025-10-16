@@ -43,6 +43,21 @@ export default async function handler(req: Request, ctx: any): Promise<Response>
       return new Response(JSON.stringify({ ok: true, item }), { headers: { 'Content-Type': 'application/json' } })
     }
 
+    if (req.method === 'DELETE') {
+      const url = `${base}/rest/v1/app_users?id=eq.${encodeURIComponent(id)}`
+      const controller = new AbortController()
+      const t = setTimeout(() => controller.abort(), 8000)
+      const r = await fetch(url, {
+        method: 'DELETE',
+        headers: { apikey: KEY, Authorization: `Bearer ${KEY}` },
+        signal: controller.signal,
+      }).catch((e) => { console.error('[admin/users/[id]][DELETE] fetch error', e); return null as unknown as Response })
+      clearTimeout(t)
+      if (!r) return new Response(JSON.stringify({ detail: 'Supabase request failed' }), { status: 502, headers: { 'Content-Type': 'application/json' } })
+      if (!r.ok) return new Response(JSON.stringify({ detail: await r.text() }), { status: 400, headers: { 'Content-Type': 'application/json' } })
+      return new Response(JSON.stringify({ ok: true }), { headers: { 'Content-Type': 'application/json' } })
+    }
+
     return new Response('Method Not Allowed', { status: 405 })
   } catch (e: any) {
     console.error('[admin/users/[id]] unhandled', e)

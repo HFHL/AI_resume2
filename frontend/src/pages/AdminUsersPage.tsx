@@ -67,6 +67,22 @@ export default function AdminUsersPage() {
     }
   }
 
+  async function deleteUser(u: User) {
+    if (!confirm(`确定要删除用户"${u.full_name}"（账号：${u.account}）吗？此操作不可恢复！`)) return
+    try {
+      const r = await fetch(api(`/admin/users/${u.id}`), {
+        method: 'DELETE',
+        headers: { 'x-admin': 'true' },
+      })
+      const d = await r.json().catch(() => ({}))
+      if (!r.ok) throw new Error(d?.detail || '删除失败')
+      alert('删除成功')
+      load()
+    } catch (e: any) {
+      alert(e?.message || '删除失败')
+    }
+  }
+
   return (
     <section className="panel">
       <h2>用户管理</h2>
@@ -115,6 +131,7 @@ export default function AdminUsersPage() {
                   updateUser(u, { password: pwd } as any)
                 }}>改密码</button>
                 <button className="ghost" onClick={() => updateUser(u, { is_admin: !u.is_admin })}>{u.is_admin ? '设为普通' : '设为管理员'}</button>
+                <button className="ghost" style={{ color: '#d32f2f' }} onClick={() => deleteUser(u)}>删除</button>
               </div>
             </div>
           ))}
