@@ -713,21 +713,21 @@ export default function ResumesPage() {
       <div className="toolbar">
         <div className="bar">
           <input
-            placeholder="如：defi 合约 DEX"
+            placeholder="关键词：如：defi 合约 DEX"
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
             style={{ flex: 1, fontSize: 18, padding: '14px 18px', height: 56, borderRadius: 10 }}
           />
           <input
-            placeholder="如：币安（别忘记搜索公司名英文）"
+            placeholder="公司：如：币安（别忘记搜索公司名英文）"
             value={companyQuery}
             onChange={e => setCompanyQuery(e.target.value)}
             style={{ width: 420, marginLeft: 8, fontSize: 18, padding: '14px 18px', height: 56, borderRadius: 10 }}
           />
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
             <input
-              placeholder="如：产品"
+              placeholder="职位：如：产品"
               value={selectedPosition ? selectedPosition.position_name : positionQuery}
               onChange={e => { setSelectedPosition(null); setPositionQuery(e.target.value) }}
               onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
