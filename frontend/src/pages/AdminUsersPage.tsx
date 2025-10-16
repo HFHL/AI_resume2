@@ -83,9 +83,9 @@ export default function AdminUsersPage() {
           <span>密码（明文）</span>
           <input value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} />
         </label>
-        <label>
+        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
           <span>管理员</span>
-          <input type="checkbox" checked={form.is_admin} onChange={e => setForm({ ...form, is_admin: e.target.checked })} />
+          <input type="checkbox" checked={form.is_admin} onChange={e => setForm({ ...form, is_admin: e.target.checked })} style={{ marginLeft: 0 }} />
         </label>
         <div className="bar end">
           <button className="primary" onClick={createUser} disabled={creating}>{creating ? '创建中...' : '创建用户'}</button>
