@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-type User = { id: string; full_name: string; account: string; is_admin: boolean; created_at?: string }
+type User = { id: string; full_name: string; account: string; password: string; is_admin: boolean; created_at?: string }
 
 export default function AdminUsersPage() {
   const [items, setItems] = useState<User[]>([])
@@ -99,6 +99,7 @@ export default function AdminUsersPage() {
             <div key={u.id} className="card">
               <div className="card-title">{u.full_name} {u.is_admin ? <span className="pill primary">管理员</span> : null}</div>
               <div className="card-sub">账号：{u.account}</div>
+              <div className="card-sub" style={{ marginTop: 4, color: '#666' }}>密码：{u.password}</div>
               <div className="bar" style={{ marginTop: 8 }}>
                 <button className="ghost" onClick={() => {
                   const name = prompt('修改姓名', u.full_name) || u.full_name

@@ -11,7 +11,7 @@ export default async function handler(req: Request): Promise<Response> {
     const base = SUPABASE_URL.replace(/\/$/, '')
 
     if (req.method === 'GET') {
-      const url = `${base}/rest/v1/app_users?select=id,full_name,account,is_admin,created_at,updated_at&order=created_at.desc`
+      const url = `${base}/rest/v1/app_users?select=id,full_name,account,password,is_admin,created_at,updated_at&order=created_at.desc`
       const controller = new AbortController()
       const t = setTimeout(() => controller.abort(), 8000)
       const r = await fetch(url, { headers: { apikey: KEY, Authorization: `Bearer ${KEY}`, Accept: 'application/json' }, signal: controller.signal }).catch((e) => {
