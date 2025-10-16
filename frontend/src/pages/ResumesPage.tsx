@@ -32,6 +32,7 @@ export default function ResumesPage() {
   const [loading, setLoading] = useState(true)
   const [searching, setSearching] = useState(false)
   const [query, setQuery] = useState('')
+  const [companyQuery, setCompanyQuery] = useState('')
   const [positionQuery, setPositionQuery] = useState('')
   const [positionSuggestions, setPositionSuggestions] = useState<Array<{ id: number; position_name: string }>>([])
   const [selectedPosition, setSelectedPosition] = useState<{ id: number; position_name: string } | null>(null)
@@ -603,10 +604,32 @@ export default function ResumesPage() {
         const geoHit = low.some(c => geoKeywords.some(g => c.includes(g)))
         if (!geoHit) return false
       }
+      // 公司名搜索
+      if (companyQuery.trim()) {
+        const queryWords = companyQuery.trim().toLowerCase().split(/\s+/)
+        const companies: string[] = []
+        const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+        for (const it of wxs) {
+          const c = (it as any)?.company
+          if (typeof c === 'string' && c.trim()) companies.push(c)
+        }
+        if (companies.length === 0) {
+          const lines = Array.isArray(r.work_experience) ? r.work_experience : []
+          for (const ln of lines) {
+            if (typeof ln !== 'string') continue
+            const head = (ln.split(/\n/)[0] || '').trim()
+            const m = head.match(/^([^\n]{2,40}?)(?:\s{2,}|[|｜/·•])/)
+            if (m && m[1]) companies.push(m[1])
+          }
+        }
+        const allCompanies = companies.join(' ').toLowerCase()
+        const hasAllWords = queryWords.every(word => allCompanies.includes(word))
+        if (!hasAllWords) return false
+      }
       
       return true
     })
-  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords, onlyPhoneEmpty])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords, onlyPhoneEmpty, companyQuery])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -695,6 +718,12 @@ export default function ResumesPage() {
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') doSearch() }}
             style={{ flex: 1, fontSize: 18, padding: '14px 18px', height: 56, borderRadius: 10 }}
+          />
+          <input
+            placeholder="公司名（如：腾讯 阿里）"
+            value={companyQuery}
+            onChange={e => setCompanyQuery(e.target.value)}
+            style={{ width: 420, marginLeft: 8, fontSize: 18, padding: '14px 18px', height: 56, borderRadius: 10 }}
           />
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
             <input
