@@ -281,77 +281,79 @@ export default function ResumeDetailPage() {
                   <span>基础信息</span>
                   <button className="ghost" onClick={() => setIsEditing(true)} disabled={isEditing}>编辑</button>
                 </div>
-                <div className="detail-row"><span>姓名</span>
-                  <span>
-                    {isEditing ? (
-                      <input value={editName} onChange={e => setEditName(e.target.value)} placeholder="请输入姓名" />
-                    ) : (
-                      <>{item.name || '未知'}</>
-                    )}
-                  </span>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+                  <div className="detail-row"><span>姓名</span>
+                    <span>
+                      {isEditing ? (
+                        <input value={editName} onChange={e => setEditName(e.target.value)} placeholder="请输入姓名" />
+                      ) : (
+                        <>{item.name || '未知'}</>
+                      )}
+                    </span>
+                  </div>
+                  <div className="detail-row"><span>邮箱</span>
+                    <span>
+                      {isEditing ? (
+                        <input value={editEmail} onChange={e => setEditEmail(e.target.value)} placeholder="请输入邮箱" />
+                      ) : (
+                        <>{item.email || '-'}</>
+                      )}
+                    </span>
+                  </div>
+                  <div className="detail-row"><span>电话</span>
+                    <span>
+                      {isEditing ? (
+                        <input value={editPhone} onChange={e => setEditPhone(e.target.value)} placeholder="请输入电话" />
+                      ) : (
+                        <>{item.phone || '-'}</>
+                      )}
+                    </span>
+                  </div>
+                  <div className="detail-row"><span>微信</span>
+                    <span>
+                      {isEditing ? (
+                        <input value={editWechat} onChange={e => setEditWechat(e.target.value)} placeholder="请输入微信" />
+                      ) : (
+                        <>{(item as any)?.wechat || '-'}</>
+                      )}
+                    </span>
+                  </div>
+                  <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>
+                  <div className="detail-row"><span>毕业年份</span><span>{item.education_graduation_year ?? '-'}</span></div>
+                  <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
+                  <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
+                  <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
+                  <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
+                  <div className="detail-row"><span>上传者</span><span>{item.uploaded_by || '-'}</span></div>
+                  {(() => {
+                    let user: any = null
+                    try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
+                    const isAdmin = Boolean(user?.is_admin)
+                    if (!isAdmin) return null
+                    return (
+                      <>
+                        <div className="detail-row"><span>修改录入时间</span>
+                          <span>
+                            {isEditing ? (
+                              <input type="datetime-local" value={editCreatedAtLocal} onChange={e => setEditCreatedAtLocal(e.target.value)} />
+                            ) : (
+                              <span className="muted">仅编辑模式可修改</span>
+                            )}
+                          </span>
+                        </div>
+                        <div className="detail-row"><span>修改上传者</span>
+                          <span>
+                            {isEditing ? (
+                              <input value={editUploadedBy} onChange={e => setEditUploadedBy(e.target.value)} placeholder="请输入上传者" />
+                            ) : (
+                              <span className="muted">仅编辑模式可修改</span>
+                            )}
+                          </span>
+                        </div>
+                      </>
+                    )
+                  })()}
                 </div>
-                <div className="detail-row"><span>邮箱</span>
-                  <span>
-                    {isEditing ? (
-                      <input value={editEmail} onChange={e => setEditEmail(e.target.value)} placeholder="请输入邮箱" />
-                    ) : (
-                      <>{item.email || '-'}</>
-                    )}
-                  </span>
-                </div>
-                <div className="detail-row"><span>电话</span>
-                  <span>
-                    {isEditing ? (
-                      <input value={editPhone} onChange={e => setEditPhone(e.target.value)} placeholder="请输入电话" />
-                    ) : (
-                      <>{item.phone || '-'}</>
-                    )}
-                  </span>
-                </div>
-                <div className="detail-row"><span>微信</span>
-                  <span>
-                    {isEditing ? (
-                      <input value={editWechat} onChange={e => setEditWechat(e.target.value)} placeholder="请输入微信" />
-                    ) : (
-                      <>{(item as any)?.wechat || '-'}</>
-                    )}
-                  </span>
-                </div>
-                <div className="detail-row"><span>最高学历</span><span>{degreeNorm || '-'}</span></div>
-                <div className="detail-row"><span>毕业年份</span><span>{item.education_graduation_year ?? '-'}</span></div>
-                <div className="detail-row"><span>院校层次</span><span>{(item.education_tiers || []).join('、') || (item.education_tier || '-')}</span></div>
-                <div className="detail-row"><span>学校</span><span>{(item.education_school || []).join('、') || '-'}</span></div>
-                <div className="detail-row"><span>专业</span><span>{item.education_major || '-'}</span></div>
-                <div className="detail-row"><span>录入时间</span><span>{item.created_at ? String(item.created_at).replace('T', ' ').slice(0, 16) : '-'}</span></div>
-                <div className="detail-row"><span>上传者</span><span>{item.uploaded_by || '-'}</span></div>
-                {(() => {
-                  let user: any = null
-                  try { user = JSON.parse(localStorage.getItem('auth_user') || 'null') } catch {}
-                  const isAdmin = Boolean(user?.is_admin)
-                  if (!isAdmin) return null
-                  return (
-                    <>
-                      <div className="detail-row"><span>修改录入时间</span>
-                        <span>
-                          {isEditing ? (
-                            <input type="datetime-local" value={editCreatedAtLocal} onChange={e => setEditCreatedAtLocal(e.target.value)} />
-                          ) : (
-                            <span className="muted">仅编辑模式可修改</span>
-                          )}
-                        </span>
-                      </div>
-                      <div className="detail-row"><span>修改上传者</span>
-                        <span>
-                          {isEditing ? (
-                            <input value={editUploadedBy} onChange={e => setEditUploadedBy(e.target.value)} placeholder="请输入上传者" />
-                          ) : (
-                            <span className="muted">仅编辑模式可修改</span>
-                          )}
-                        </span>
-                      </div>
-                    </>
-                  )
-                })()}
                 {isEditing && (
                   <div className="bar end" style={{ marginTop: 8 }}>
                     <button className="ghost" onClick={() => {
