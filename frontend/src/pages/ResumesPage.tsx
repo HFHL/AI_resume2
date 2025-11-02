@@ -15,10 +15,13 @@ type ResumeItem = {
   schools?: string[]
   created_at?: string
   work_experience?: string[]
+  internship_experience?: string[]
+  project_experience?: string[]
   uploaded_by?: string | null
   email?: string | null
   phone?: string | null
   work_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
+  internship_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
   project_experience_struct?: Array<{ start?: string | null; end?: string | null; company?: string | null; title?: string | null }>
 }
 
@@ -28,12 +31,50 @@ type Tag = {
   category: string
 }
 
-function prioritizeByResumeFile(list: ResumeItem[]): ResumeItem[] {
+function prioritizeResumes(list: ResumeItem[]): ResumeItem[] {
   return [...list].sort((a, b) => {
     const aHas = Number(Boolean(a.resume_file_id))
     const bHas = Number(Boolean(b.resume_file_id))
-    return bHas - aHas
+    if (aHas !== bHas) return bHas - aHas
+
+    const score = (item: ResumeItem) => {
+      const hasWork = hasNonEmptyExperience(item.work_experience_struct, item.work_experience)
+      const hasIntern = hasNonEmptyExperience(item.internship_experience_struct, item.internship_experience)
+      const hasProject = hasNonEmptyExperience(item.project_experience_struct, item.project_experience)
+      return hasWork * 3 + hasIntern * 2 + hasProject
+    }
+
+    return score(b) - score(a)
   })
+}
+
+function hasNonEmptyExperience(
+  structured: Array<{ company?: string | null; title?: string | null; description?: string | null; description_en?: string | null; details?: string[] | null; details_en?: string[] | null }> | undefined,
+  flat: string[] | undefined,
+): number {
+  if (Array.isArray(structured) && structured.some(x => {
+    if (!x) return false
+    const company = (x as any)?.company
+    const title = (x as any)?.title
+    const description = (x as any)?.description
+    const descriptionEn = (x as any)?.description_en
+    const details = (x as any)?.details
+    const detailsEn = (x as any)?.details_en
+    return Boolean(
+      (typeof company === 'string' && company.trim()) ||
+      (typeof title === 'string' && title.trim()) ||
+      (typeof description === 'string' && description.trim()) ||
+      (typeof descriptionEn === 'string' && descriptionEn.trim()) ||
+      (Array.isArray(details) && details.some((d: unknown) => typeof d === 'string' && d.trim())) ||
+      (Array.isArray(detailsEn) && detailsEn.some((d: unknown) => typeof d === 'string' && d.trim())),
+    )
+  })) {
+    return 1
+  }
+  if (Array.isArray(flat) && flat.some(line => typeof line === 'string' && line.trim())) {
+    return 1
+  }
+  return 0
 }
 
 export default function ResumesPage() {
@@ -169,6 +210,7 @@ export default function ResumesPage() {
           
           const wxs = (r as any).work_experience_struct as Array<any> | undefined
           const pxs = (r as any).project_experience_struct as Array<any> | undefined
+          const ixs = (r as any).internship_experience_struct as Array<any> | undefined
           const deg = normalizeDegree(r.education_degree)
           let trs = normalizeTiers(r.education_tiers)
           if (deg === '专科' && !trs.includes('专科')) trs = [...trs, '专科'] as ResumeItem['tiers']
@@ -184,15 +226,18 @@ export default function ResumesPage() {
             schools: (r.education_school || undefined) as any,
             created_at: (r as any).created_at || undefined,
             work_experience: (r as any).work_experience || [],
+            internship_experience: (r as any).internship_experience || [],
+            project_experience: (r as any).project_experience || [],
             uploaded_by: (r as any).uploaded_by ?? null,
             email: (r as any).email ?? null,
             phone: (r as any).phone ?? null,
             work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
+            internship_experience_struct: Array.isArray(ixs) ? ixs : undefined,
             project_experience_struct: Array.isArray(pxs) ? pxs : undefined,
           }
         })
         
-        const prioritized = prioritizeByResumeFile(mapped)
+        const prioritized = prioritizeResumes(mapped)
         console.log('[ResumesPage] mapped first3:', prioritized.slice(0, 3))
         setItems(prioritized)
       })
@@ -389,7 +434,7 @@ export default function ResumesPage() {
   }, [positionQuery, selectedPosition])
 
   function mapRows(
-    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; resume_file_id?: number | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null; project_experience_struct?: any[] | null }>,
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; resume_file_id?: number | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; internship_experience?: string[] | null; project_experience?: string[] | null; work_experience_struct?: any[] | null; internship_experience_struct?: any[] | null; project_experience_struct?: any[] | null }>,
     tagMap?: Map<number, string[]>,
     allTagsArr?: Tag[],
   ): ResumeItem[] {
@@ -416,6 +461,7 @@ export default function ResumesPage() {
 
       const wxs = (r as any).work_experience_struct as Array<any> | undefined
       const pxs = (r as any).project_experience_struct as Array<any> | undefined
+      const ixs = (r as any).internship_experience_struct as Array<any> | undefined
       return {
         id: r.id,
         name: r.name || '未知',
@@ -428,13 +474,16 @@ export default function ResumesPage() {
         schools: (r.education_school || undefined) as any,
         created_at: r.created_at || undefined,
         work_experience: (r.work_experience || []) as string[],
+        internship_experience: ((r as any).internship_experience || []) as string[],
+        project_experience: ((r as any).project_experience || []) as string[],
         uploaded_by: (r as any).uploaded_by ?? null,
         work_experience_struct: Array.isArray(wxs) ? wxs : undefined,
+        internship_experience_struct: Array.isArray(ixs) ? ixs : undefined,
         project_experience_struct: Array.isArray(pxs) ? pxs : undefined,
       }
     })
 
-    return prioritizeByResumeFile(mapped)
+    return prioritizeResumes(mapped)
   }
 
   // 应用到列表的筛选（按"应用筛选"按钮后生效）
