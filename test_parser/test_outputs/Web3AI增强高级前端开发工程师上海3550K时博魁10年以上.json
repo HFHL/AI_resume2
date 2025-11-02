@@ -1,0 +1,308 @@
+{
+  "file_name": "Web3AI增强高级前端开发工程师上海3550K时博魁10年以上.md",
+  "parsed_at": "2025-10-21T17:11:53.913762",
+  "result": {
+    "resume_file_id": null,
+    "name": "时博魁",
+    "email": null,
+    "phone": "17621156124",
+    "education_degree": "本科",
+    "education_school": [
+      "湖南大学"
+    ],
+    "education_major": "软件工程",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "go",
+      "python",
+      "产品",
+      "全栈",
+      "前端",
+      "后端",
+      "支付",
+      "测试",
+      "设计",
+      "运营",
+      "钱包"
+    ],
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "HTML",
+      "CSS",
+      "Vue",
+      "React",
+      "NestJS",
+      "Flask",
+      "MySQL",
+      "Postgres",
+      "MongoDB",
+      "Redis",
+      "Celery",
+      "PyTorch",
+      "Unity3D",
+      "AI编程工具",
+      "CI/CD"
+    ],
+    "work_experience": [
+      "2023.08 – 2025.02 Kaya Tech Pte Ltd（新加坡） | 项目前端负责人 | 职责：核心业务(web3卡牌游戏)及扩展运营玩法前端功能开发，前端开发团队负责人",
+      "2021.04 – 2023.08 上海微芒教育科技 | 前端开发工程师 | 职责：H5相关项目开发及负责人；后台运营系统开发",
+      "2017.05 – 2020.05 海深智能科技 | 图像算法工程师 | 职责：图像检测识别模型设计和调优；无人货柜应用开发负责人",
+      "2013.12 – 2017.03 山东数字人科技 | 全栈工程师、Unity3D主程 | 职责：医学教学平台全栈开发；数字人3D教学应用PC端开发；数字人3D教学应用VR端负责人"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "Lepoker 卡牌游戏（Kaya Tech） | Web3德州扑克游戏平台, 在Web端和telegram twitter等社交平台进行快速卡牌游戏，对接Web3钱包进行各种token的推广，同时发布平台币用于游戏中的增值服务。业绩: 从0搭建游戏核心功能，设计数据通讯协议，两个月完成首个版本发布并支持了后续功能快速迭代；搭建定制化组件库，更适用于业务需求，大幅提升用户体验和开发效率；快速拓展各种玩法，保证业务模式快速上线验证，迅速推出了锦标赛、天梯、战队等各种玩法，同时接入各种web3和商业化功能，保持领先竞品；持续进行项目优化，大幅提高客户端加载速度，保证项目代码结构清晰，保证新人快速上手。",
+      "天天跳绳H5 （上海微芒） | 结合APP核心运动功能推出各种扩展玩法，方便各种节日运营活动和数据的APP外部展示。业绩: 进行项目规划和流程管理，深度参与功能设计和需求分析，保证各功能的及时上线。各页面DAU平均达数十万，具有良好的移动端设备兼容性；开发通用的后台运营工具，简化了页面开发交付流程，提升了功能上线速度和质量；优化开发框架，重构项目代码，推动客户端进行H5功能的迭代，提升用户体验和开发效率。",
+      "无人货柜应用开发 （海深智能科技） | 基于图像识别的无人货柜应用，通过纯视觉方案实现无人货柜购物流程，支持微信支付宝信用支付，人脸支付等。支持三方商户接入，提供saas系统，智能补货分账。同时支持数据反馈辅助算法优化。业绩: 开发小程序应用模板，方便后续功能扩展及三方商户二次开发；完全重构后端结算逻辑，结合图像算法的特点将原有多个业务流程统一化，解决了因数据错误导致的人为数据维护工作，节省了大量人力，同时系统响应速度提高40%；优化货柜嵌入式程序逻辑，提高货柜硬件相关流程稳定性。",
+      "商品图片检测识别 (海深智能科技) | 用于支撑无人货柜应用的算法模型，结合最新深度学习视觉模型，通过模型整合、参数调优和数据增强提升图片检测识别的准确率。业绩: 调研并落地最新图像识别框架，改进网络结构，训练了可用于实际购物场景的检测和识别模型；基于业务流程，引入图像特征缓存，在提案阶段效率提升80%；基于模型实际使用环境，提出额外的辅助分类模型，将算法服务准确率提高了1%；开发各种数据处理、测试以及可视化工具，简历基于货柜应用的数据反馈机制，提升训练数据质量，降低了数据采集成本。",
+      "3D数字人 （数字人科技） | 使用真实人体切片配合主流医学教材，还原高精度真实人体3D模型，使用unity3D应用进行多方位模型展示，以满足医学院校多元化需要，提供多平台设备支持，如pc, 横/竖触摸屏设备，3D显示器，VR头显等。业绩: 重构项目，引入最新版unity3D引擎及配套开发工具，提高了开发效率和项目质量；提供内容编辑工具，简化了教学数据制作的流程，节省开发人力；主导新项目在多款VR设备上快速落地，帮助公司极大提升了产品竞争力。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-08",
+        "end": "2025-02",
+        "company": "Kaya Tech Pte Ltd",
+        "title_en": "Project Frontend Lead",
+        "title": "项目负责人",
+        "description_en": "Core business (web3 card game) and expansion operation gameplay frontend function development, frontend development team leader",
+        "description": "核心业务(web3卡牌游戏)及扩展运营玩法前端功能开发，前端开发团队负责人",
+        "details_en": [
+          "Core business (web3 card game) and expansion operation gameplay frontend function development",
+          "Frontend development team leader"
+        ],
+        "details": [
+          "核心业务(web3卡牌游戏)及扩展运营玩法前端功能开发",
+          "前端开发团队负责人"
+        ],
+        "duration_months": 19
+      },
+      {
+        "start": "2021-04",
+        "end": "2023-08",
+        "company": "上海微芒教育科技",
+        "title_en": "Frontend Developer",
+        "title": "前端开发工程师",
+        "description_en": "H5 related project development and lead; backend operation system development",
+        "description": "H5相关项目开发及负责人；后台运营系统开发",
+        "details_en": [
+          "H5 related project development and lead",
+          "Backend operation system development"
+        ],
+        "details": [
+          "H5相关项目开发及负责人",
+          "后台运营系统开发"
+        ],
+        "duration_months": 29
+      },
+      {
+        "start": "2017-05",
+        "end": "2020-05",
+        "company": "海深智能科技",
+        "title_en": "Image Algorithm Engineer",
+        "title": "图像算法工程师",
+        "description_en": "Image detection and recognition model design and tuning; unmanned cabinet application development lead",
+        "description": "图像检测识别模型设计和调优；无人货柜应用开发负责人",
+        "details_en": [
+          "Image detection and recognition model design and tuning",
+          "Unmanned cabinet application development lead"
+        ],
+        "details": [
+          "图像检测识别模型设计和调优",
+          "无人货柜应用开发负责人"
+        ],
+        "duration_months": 37
+      },
+      {
+        "start": "2013-12",
+        "end": "2017-03",
+        "company": "山东数字人科技",
+        "title_en": "Full Stack Engineer, Unity3D Lead",
+        "title": "全栈工程师、Unity3D主程",
+        "description_en": "Full stack development of medical teaching platform; PC end development of digital human 3D teaching application; VR end lead of digital human 3D teaching application",
+        "description": "医学教学平台全栈开发；数字人3D教学应用PC端开发；数字人3D教学应用VR端负责人",
+        "details_en": [
+          "Full stack development of medical teaching platform",
+          "PC end development of digital human 3D teaching application",
+          "VR end lead of digital human 3D teaching application"
+        ],
+        "details": [
+          "医学教学平台全栈开发",
+          "数字人3D教学应用PC端开发",
+          "数字人3D教学应用VR端负责人"
+        ],
+        "duration_months": 40
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Lepoker 卡牌游戏（Kaya Tech） | Web3德州扑克游戏平台, 在Web端和telegram twitter等社交平台进行快速卡牌游戏，对接Web3钱包进行各种token的推广，同时发布平台币用于游戏中的增值服务。业绩: 从0搭建游戏核心功能",
+        "title": "设计数据通讯协议",
+        "description": "，两个月完成首个版本发布并支持了后续功能快速迭代；搭建定制化组件库，更适用于业务需求，大幅提升用户体验和开发效率；快速拓展各种玩法，保证业务模式快速上线验证，迅速推出了锦标赛、天梯、战队等各种玩法，同时接入各种web3和商业化功能，保持领先竞品；持续进行项目优化，大幅提高客户端加载速度，保证项目代码结构清晰，保证新人快速上手。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "天天跳绳H5 （上海微芒） | 结合APP核心运动功能推出各种扩展玩法，方便各种节日",
+        "title": "运营活动和数据的APP外部展示",
+        "description": "。业绩: 进行项目规划和流程管理，深度参与功能设计和需求分析，保证各功能的及时上线。各页面DAU平均达数十万，具有良好的移动端设备兼容性；开发通用的后台运营工具，简化了页面开发交付流程，提升了功能上线速度和质量；优化开发框架，重构项目代码，推动客户端进行H5功能的迭代，提升用户体验和开发效率。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "无人货柜应用",
+        "title": "开发 （海深智能科技） | 基于图像识别的无人货柜应用",
+        "description": "，通过纯视觉方案实现无人货柜购物流程，支持微信支付宝信用支付，人脸支付等。支持三方商户接入，提供saas系统，智能补货分账。同时支持数据反馈辅助算法优化。业绩: 开发小程序应用模板，方便后续功能扩展及三方商户二次开发；完全重构后端结算逻辑，结合图像算法的特点将原有多个业务流程统一化，解决了因数据错误导致的人为数据维护工作，节省了大量人力，同时系统响应速度提高40%；优化货柜嵌入式程序逻辑，提高货柜硬件相关流程稳定性。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "商品图片检测识别 (海深智能科技) | 用于支撑无人货柜应用的",
+        "title": "算法模型",
+        "description": "，结合最新深度学习视觉模型，通过模型整合、参数调优和数据增强提升图片检测识别的准确率。业绩: 调研并落地最新图像识别框架，改进网络结构，训练了可用于实际购物场景的检测和识别模型；基于业务流程，引入图像特征缓存，在提案阶段效率提升80%；基于模型实际使用环境，提出额外的辅助分类模型，将算法服务准确率提高了1%；开发各种数据处理、测试以及可视化工具，简历基于货柜应用的数据反馈机制，提升训练数据质量，降低了数据采集成本。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "3D数字人 （数字人科技） | 使用真实人体切片配合主流医学教材，还原高精度真实人体3D模型，使用unity3D应用进行多方位模型展示，以满足医学院校多元化需要，提供多平台设备",
+        "title": "支持",
+        "description": "，如pc, 横/竖触摸屏设备，3D显示器，VR头显等。业绩: 重构项目，引入最新版unity3D引擎及配套开发工具，提高了开发效率和项目质量；提供内容编辑工具，简化了教学数据制作的流程，节省开发人力；主导新项目在多款VR设备上快速落地，帮助公司极大提升了产品竞争力。",
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "全栈能力： 12年多领域web全栈开发、CV算法开发经验，熟悉多平台前端开发、机器学习算法、后端业务开发、架构设计、web3相关技术。技术实践能力：多个项目从零到一搭建和系统重构经验，善于技术整合和快速进行业务落地。团队领导力：长期担任项目研发负责人，进行资源整合推动高效协作。",
+    "other": null,
+    "work_years": 9,
+    "self_evaluation_zh": "全栈能力： 12年多领域web全栈开发、CV算法开发经验，熟悉多平台前端开发、机器学习算法、后端业务开发、架构设计、web3相关技术。技术实践能力：多个项目从零到一搭建和系统重构经验，善于技术整合和快速进行业务落地。团队领导力：长期担任项目研发负责人，进行资源整合推动高效协作。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.08 – 2025.02 Kaya Tech Pte Ltd（新加坡） | 项目前端负责人 | 职责：核心业务(web3卡牌游戏)及扩展运营玩法前端功能开发，前端开发团队负责人",
+      "2021.04 – 2023.08 上海微芒教育科技 | 前端开发工程师 | 职责：H5相关项目开发及负责人；后台运营系统开发",
+      "2017.05 – 2020.05 海深智能科技 | 图像算法工程师 | 职责：图像检测识别模型设计和调优；无人货柜应用开发负责人",
+      "2013.12 – 2017.03 山东数字人科技 | 全栈工程师、Unity3D主程 | 职责：医学教学平台全栈开发；数字人3D教学应用PC端开发；数字人3D教学应用VR端负责人"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "Lepoker 卡牌游戏（Kaya Tech） | Web3德州扑克游戏平台, 在Web端和telegram twitter等社交平台进行快速卡牌游戏，对接Web3钱包进行各种token的推广，同时发布平台币用于游戏中的增值服务。业绩: 从0搭建游戏核心功能，设计数据通讯协议，两个月完成首个版本发布并支持了后续功能快速迭代；搭建定制化组件库，更适用于业务需求，大幅提升用户体验和开发效率；快速拓展各种玩法，保证业务模式快速上线验证，迅速推出了锦标赛、天梯、战队等各种玩法，同时接入各种web3和商业化功能，保持领先竞品；持续进行项目优化，大幅提高客户端加载速度，保证项目代码结构清晰，保证新人快速上手。",
+      "天天跳绳H5 （上海微芒） | 结合APP核心运动功能推出各种扩展玩法，方便各种节日运营活动和数据的APP外部展示。业绩: 进行项目规划和流程管理，深度参与功能设计和需求分析，保证各功能的及时上线。各页面DAU平均达数十万，具有良好的移动端设备兼容性；开发通用的后台运营工具，简化了页面开发交付流程，提升了功能上线速度和质量；优化开发框架，重构项目代码，推动客户端进行H5功能的迭代，提升用户体验和开发效率。",
+      "无人货柜应用开发 （海深智能科技） | 基于图像识别的无人货柜应用，通过纯视觉方案实现无人货柜购物流程，支持微信支付宝信用支付，人脸支付等。支持三方商户接入，提供saas系统，智能补货分账。同时支持数据反馈辅助算法优化。业绩: 开发小程序应用模板，方便后续功能扩展及三方商户二次开发；完全重构后端结算逻辑，结合图像算法的特点将原有多个业务流程统一化，解决了因数据错误导致的人为数据维护工作，节省了大量人力，同时系统响应速度提高40%；优化货柜嵌入式程序逻辑，提高货柜硬件相关流程稳定性。",
+      "商品图片检测识别 (海深智能科技) | 用于支撑无人货柜应用的算法模型，结合最新深度学习视觉模型，通过模型整合、参数调优和数据增强提升图片检测识别的准确率。业绩: 调研并落地最新图像识别框架，改进网络结构，训练了可用于实际购物场景的检测和识别模型；基于业务流程，引入图像特征缓存，在提案阶段效率提升80%；基于模型实际使用环境，提出额外的辅助分类模型，将算法服务准确率提高了1%；开发各种数据处理、测试以及可视化工具，简历基于货柜应用的数据反馈机制，提升训练数据质量，降低了数据采集成本。",
+      "3D数字人 （数字人科技） | 使用真实人体切片配合主流医学教材，还原高精度真实人体3D模型，使用unity3D应用进行多方位模型展示，以满足医学院校多元化需要，提供多平台设备支持，如pc, 横/竖触摸屏设备，3D显示器，VR头显等。业绩: 重构项目，引入最新版unity3D引擎及配套开发工具，提高了开发效率和项目质量；提供内容编辑工具，简化了教学数据制作的流程，节省开发人力；主导新项目在多款VR设备上快速落地，帮助公司极大提升了产品竞争力。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-08",
+        "end": "2025-02",
+        "company": "Kaya Tech Pte Ltd",
+        "title_en": "Project Frontend Lead",
+        "title": "项目负责人",
+        "description_en": "Core business (web3 card game) and expansion operation gameplay frontend function development, frontend development team leader",
+        "description": "核心业务(web3卡牌游戏)及扩展运营玩法前端功能开发，前端开发团队负责人",
+        "details_en": [
+          "Core business (web3 card game) and expansion operation gameplay frontend function development",
+          "Frontend development team leader"
+        ],
+        "details": [
+          "核心业务(web3卡牌游戏)及扩展运营玩法前端功能开发",
+          "前端开发团队负责人"
+        ],
+        "duration_months": 19,
+        "title_zh": "项目前端负责人",
+        "description_zh": "核心业务（web3 卡牌游戏）和扩展运营游戏前端功能开发，前端开发团队负责人",
+        "details_zh": [
+          "核心业务（web3 卡牌游戏）和扩展运营游戏玩法前端功能开发",
+          "前端开发团队负责人"
+        ]
+      },
+      {
+        "start": "2021-04",
+        "end": "2023-08",
+        "company": "上海微芒教育科技",
+        "title_en": "Frontend Developer",
+        "title": "前端开发工程师",
+        "description_en": "H5 related project development and lead; backend operation system development",
+        "description": "H5相关项目开发及负责人；后台运营系统开发",
+        "details_en": [
+          "H5 related project development and lead",
+          "Backend operation system development"
+        ],
+        "details": [
+          "H5相关项目开发及负责人",
+          "后台运营系统开发"
+        ],
+        "duration_months": 29,
+        "title_zh": "前端开发者",
+        "description_zh": "H5相关项目开发和领导；后端操作系统开发",
+        "details_zh": [
+          "H5相关项目开发和领导",
+          "后台操作系统开发"
+        ]
+      },
+      {
+        "start": "2017-05",
+        "end": "2020-05",
+        "company": "海深智能科技",
+        "title_en": "Image Algorithm Engineer",
+        "title": "图像算法工程师",
+        "description_en": "Image detection and recognition model design and tuning; unmanned cabinet application development lead",
+        "description": "图像检测识别模型设计和调优；无人货柜应用开发负责人",
+        "details_en": [
+          "Image detection and recognition model design and tuning",
+          "Unmanned cabinet application development lead"
+        ],
+        "details": [
+          "图像检测识别模型设计和调优",
+          "无人货柜应用开发负责人"
+        ],
+        "duration_months": 37,
+        "title_zh": "图像算法工程师",
+        "description_zh": "图像检测和识别模型设计与调优；无人柜应用开发负责人",
+        "details_zh": [
+          "图像检测和识别模型设计与调优",
+          "无人柜应用开发负责人"
+        ]
+      },
+      {
+        "start": "2013-12",
+        "end": "2017-03",
+        "company": "山东数字人科技",
+        "title_en": "Full Stack Engineer, Unity3D Lead",
+        "title": "全栈工程师、Unity3D主程",
+        "description_en": "Full stack development of medical teaching platform; PC end development of digital human 3D teaching application; VR end lead of digital human 3D teaching application",
+        "description": "医学教学平台全栈开发；数字人3D教学应用PC端开发；数字人3D教学应用VR端负责人",
+        "details_en": [
+          "Full stack development of medical teaching platform",
+          "PC end development of digital human 3D teaching application",
+          "VR end lead of digital human 3D teaching application"
+        ],
+        "details": [
+          "医学教学平台全栈开发",
+          "数字人3D教学应用PC端开发",
+          "数字人3D教学应用VR端负责人"
+        ],
+        "duration_months": 40,
+        "title_zh": "全栈工程师，Unity3D 负责人",
+        "description_zh": "医疗教学平台的全栈开发；数字人3D教学应用的PC端开发；数字人3D教学应用的VR端负责人",
+        "details_zh": [
+          "医疗教学平台的全栈开发",
+          "PC端数字人3D教学应用开发",
+          "数字人3D教学应用的VR端负责人"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\Web3AI增强高级前端开发工程师上海3550K时博魁10年以上.md",
+    "md_mostly_english": false
+  }
+}

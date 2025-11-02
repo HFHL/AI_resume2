@@ -1,0 +1,295 @@
+{
+  "file_name": "AI前端全栈开发工程师北京周博睿2年.md",
+  "parsed_at": "2025-10-21T16:45:56.657548",
+  "result": {
+    "resume_file_id": null,
+    "name": "周博睿",
+    "email": "borui@seas.upenn.edu",
+    "phone": "15977393016",
+    "education_degree": "硕士",
+    "education_school": [
+      "University of Pennsylvania 宾夕法尼亚大学",
+      "桂林电子科技大学"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "OP",
+      "PR",
+      "RAG",
+      "android",
+      "iOS",
+      "java",
+      "python",
+      "全栈",
+      "数据分析",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "Python",
+      "Java",
+      "C++",
+      "SQL",
+      "Shell",
+      "Pyspark",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "C#",
+      "PostgreSQL",
+      "React",
+      "Node.js",
+      "AWS"
+    ],
+    "work_experience": [
+      "2023.09 - 至今, Elite Co., Senior Software Developer, 迪拜，阿联酋（远程）\n全栈开发，框架使用 React 和 Node.js，使用 TypeScript，C#，Python，PHP，PostgreSQL 等技术进行软件开发，搭建公司内部数据平台和货运司机 app，以及与其他公司交互使用其 API 服务，及设计 API 供其他公司使用，为新的服务编写 Github CI/CD 流程，以及编写单元测试，轮流值班，负责处理公司全平台应用的紧急问题和技术支持，及 Android, IOS APP 的开发维护。",
+      "2023.02 – 2023.07, 百度在线网络技术（北京）有限公司, 广告算法工程师, 商业搜索研发部, 北京, 中国\n参与搜索和广告算法相关项目，用 SQL, Mapreduce, Python 进行数据分析，参与百度凤巢广告系统开发，更新等需求，使用 Python，C++ 进行开发，以及参与 AI-Backend 的开发工作。",
+      "2022.07 – 2022.09, 字节跳动有限公司, 法实习生, AML (Applied Machine Learning)部门, 北京, 中国\n主要使用 Pyspark, Pandas, Shell, SQL, Python 进行大数据分析相关工作，参与小米商城、快看漫画推荐算法相关项目。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "英语 AI 教学助手\n基于 AWS SageMaker 平台对 Llama3 模型进行微调，结合 Python 脚本完成模型的训练和部署，实现了一个定制的英语 AI 辅导功能，整合 Amazon S3、Lambda 等 AWS 服务，优化了训练数据的存储和模型调用的效率。基于 Neo4j 的图数据库构建知识图谱基于历史记忆进行 RAG。",
+      "基于 PyTorch 和 TensorFlow 的神经网络构建与心脏病预测分析\n通过 PyTorch 和 TensorFlow 搭建深度神经网络模型，根据已有的数据和图像(CNN)进行心脏病预测，并使用 PySpark 和 SQL 对医疗数据进行预处理、分析与可视化展示。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-09",
+        "end": "present",
+        "company": "Elite Co.",
+        "title_en": "Senior Software Developer",
+        "title": "高级软件开发工程师",
+        "description_en": "Full stack development, using frameworks like React and Node.js, software development using technologies such as TypeScript, C#, Python, PHP, PostgreSQL, building internal data platforms and freight driver apps, interacting with other companies using their API services, designing APIs for other companies, writing Github CI/CD processes for new services, writing unit tests, taking turns on-call, responsible for handling urgent issues and technical support for the company's full platform applications, and developing and maintaining Android, IOS apps.",
+        "description": "全栈开发，框架使用 React 和 Node.js，使用 TypeScript，C#，Python，PHP，PostgreSQL 等技术进行软件开发，搭建公司内部数据平台和货运司机 app，以及与其他公司交互使用其 API 服务，及设计 API 供其他公司使用，为新的服务编写 Github CI/CD 流程，以及编写单元测试，轮流值班，负责处理公司全平台应用的紧急问题和技术支持，及 Android, IOS APP 的开发维护。",
+        "details_en": [
+          "Full stack development",
+          "Using frameworks like React and Node.js",
+          "Software development using technologies such as TypeScript, C#, Python, PHP, PostgreSQL",
+          "Building internal data platforms and freight driver apps",
+          "Interacting with other companies using their API services",
+          "Designing APIs for other companies",
+          "Writing Github CI/CD processes for new services",
+          "Writing unit tests",
+          "Taking turns on-call",
+          "Responsible for handling urgent issues and technical support for the company's full platform applications",
+          "Developing and maintaining Android, IOS apps"
+        ],
+        "details": [
+          "全栈开发",
+          "框架使用 React 和 Node.js",
+          "使用 TypeScript，C#，Python，PHP，PostgreSQL 等技术进行软件开发",
+          "搭建公司内部数据平台和货运司机 app",
+          "与其他公司交互使用其 API 服务",
+          "设计 API 供其他公司使用",
+          "为新的服务编写 Github CI/CD 流程",
+          "编写单元测试",
+          "轮流值班",
+          "负责处理公司全平台应用的紧急问题和技术支持",
+          "及 Android, IOS APP 的开发维护"
+        ],
+        "duration_months": 26
+      },
+      {
+        "start": "2023-02",
+        "end": "2023-07",
+        "company": "百度在线网络技术（北京）有限公司",
+        "title_en": "Advertising Algorithm Engineer",
+        "title": "广告算法工程师",
+        "description_en": "Participated in search and advertising algorithm-related projects, performed data analysis using SQL, Mapreduce, Python, participated in the development and updates of Baidu Fengchao advertising system, and worked on AI-Backend development.",
+        "description": "参与搜索和广告算法相关项目，用 SQL, Mapreduce, Python 进行数据分析，参与百度凤巢广告系统开发，更新等需求，使用 Python，C++ 进行开发，以及参与 AI-Backend 的开发工作。",
+        "details_en": [
+          "Participated in search and advertising algorithm-related projects",
+          "Performed data analysis using SQL, Mapreduce, Python",
+          "Participated in the development and updates of Baidu Fengchao advertising system",
+          "Worked on AI-Backend development"
+        ],
+        "details": [
+          "参与搜索和广告算法相关项目",
+          "用 SQL, Mapreduce, Python 进行数据分析",
+          "参与百度凤巢广告系统开发，更新等需求",
+          "使用 Python，C++ 进行开发",
+          "参与 AI-Backend 的开发工作"
+        ],
+        "duration_months": 6
+      },
+      {
+        "start": "2022-07",
+        "end": "2022-09",
+        "company": "字节跳动有限公司",
+        "title_en": "Legal Intern",
+        "title": "法实习生",
+        "description_en": "Mainly used Pyspark, Pandas, Shell, SQL, Python for big data analysis-related work, participated in recommendation algorithm projects related to Xiaomi Mall and Kuaikan Manhua.",
+        "description": "主要使用 Pyspark, Pandas, Shell, SQL, Python 进行大数据分析相关工作，参与小米商城、快看漫画推荐算法相关项目。",
+        "details_en": [
+          "Mainly used Pyspark, Pandas, Shell, SQL, Python for big data analysis-related work",
+          "Participated in recommendation algorithm projects related to Xiaomi Mall and Kuaikan Manhua"
+        ],
+        "details": [
+          "主要使用 Pyspark, Pandas, Shell, SQL, Python 进行大数据分析相关工作",
+          "参与小米商城、快看漫画推荐算法相关项目"
+        ],
+        "duration_months": 3
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "AWS SageMaker",
+        "title_en": null,
+        "title": "英语 AI 教学助手",
+        "description_en": null,
+        "description": "基于 AWS SageMaker 平台对 Llama3 模型进行微调，结合 Python 脚本完成模型的训练和部署，实现了一个定制的英语 AI 辅导功能，整合 Amazon S3、Lambda 等 AWS 服务，优化了训练数据的存储和模型调用的效率。基于 Neo4j 的图数据库构建知识图谱基于历史记忆进行 RAG。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": "基于 PyTorch 和 TensorFlow 的神经网络构建与心脏病预测分析",
+        "description_en": null,
+        "description": "通过 PyTorch 和 TensorFlow 搭建深度神经网络模型，根据已有的数据和图像(CNN)进行心脏病预测，并使用 PySpark 和 SQL 对医疗数据进行预处理、分析与可视化展示。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 0,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.09 - 至今, Elite Co., Senior Software Developer, 迪拜，阿联酋（远程）\n全栈开发，框架使用 React 和 Node.js，使用 TypeScript，C#，Python，PHP，PostgreSQL 等技术进行软件开发，搭建公司内部数据平台和货运司机 app，以及与其他公司交互使用其 API 服务，及设计 API 供其他公司使用，为新的服务编写 Github CI/CD 流程，以及编写单元测试，轮流值班，负责处理公司全平台应用的紧急问题和技术支持，及 Android, IOS APP 的开发维护。",
+      "2023.02 – 2023.07, 百度在线网络技术（北京）有限公司, 广告算法工程师, 商业搜索研发部, 北京, 中国\n参与搜索和广告算法相关项目，用 SQL, Mapreduce, Python 进行数据分析，参与百度凤巢广告系统开发，更新等需求，使用 Python，C++ 进行开发，以及参与 AI-Backend 的开发工作。",
+      "2022.07 – 2022.09, 字节跳动有限公司, 法实习生, AML (Applied Machine Learning)部门, 北京, 中国\n主要使用 Pyspark, Pandas, Shell, SQL, Python 进行大数据分析相关工作，参与小米商城、快看漫画推荐算法相关项目。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "英语 AI 教学助手\n基于 AWS SageMaker 平台对 Llama3 模型进行微调，结合 Python 脚本完成模型的训练和部署，实现了一个定制的英语 AI 辅导功能，整合 Amazon S3、Lambda 等 AWS 服务，优化了训练数据的存储和模型调用的效率。基于 Neo4j 的图数据库构建知识图谱基于历史记忆进行 RAG。",
+      "基于 PyTorch 和 TensorFlow 的神经网络构建与心脏病预测分析\n通过 PyTorch 和 TensorFlow 搭建深度神经网络模型，根据已有的数据和图像(CNN)进行心脏病预测，并使用 PySpark 和 SQL 对医疗数据进行预处理、分析与可视化展示。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-09",
+        "end": "present",
+        "company": "Elite Co.",
+        "title_en": "Senior Software Developer",
+        "title": "高级软件开发工程师",
+        "description_en": "Full stack development, using frameworks like React and Node.js, software development using technologies such as TypeScript, C#, Python, PHP, PostgreSQL, building internal data platforms and freight driver apps, interacting with other companies using their API services, designing APIs for other companies, writing Github CI/CD processes for new services, writing unit tests, taking turns on-call, responsible for handling urgent issues and technical support for the company's full platform applications, and developing and maintaining Android, IOS apps.",
+        "description": "全栈开发，框架使用 React 和 Node.js，使用 TypeScript，C#，Python，PHP，PostgreSQL 等技术进行软件开发，搭建公司内部数据平台和货运司机 app，以及与其他公司交互使用其 API 服务，及设计 API 供其他公司使用，为新的服务编写 Github CI/CD 流程，以及编写单元测试，轮流值班，负责处理公司全平台应用的紧急问题和技术支持，及 Android, IOS APP 的开发维护。",
+        "details_en": [
+          "Full stack development",
+          "Using frameworks like React and Node.js",
+          "Software development using technologies such as TypeScript, C#, Python, PHP, PostgreSQL",
+          "Building internal data platforms and freight driver apps",
+          "Interacting with other companies using their API services",
+          "Designing APIs for other companies",
+          "Writing Github CI/CD processes for new services",
+          "Writing unit tests",
+          "Taking turns on-call",
+          "Responsible for handling urgent issues and technical support for the company's full platform applications",
+          "Developing and maintaining Android, IOS apps"
+        ],
+        "details": [
+          "全栈开发",
+          "框架使用 React 和 Node.js",
+          "使用 TypeScript，C#，Python，PHP，PostgreSQL 等技术进行软件开发",
+          "搭建公司内部数据平台和货运司机 app",
+          "与其他公司交互使用其 API 服务",
+          "设计 API 供其他公司使用",
+          "为新的服务编写 Github CI/CD 流程",
+          "编写单元测试",
+          "轮流值班",
+          "负责处理公司全平台应用的紧急问题和技术支持",
+          "及 Android, IOS APP 的开发维护"
+        ],
+        "duration_months": 26,
+        "title_zh": "高级软件开发人员",
+        "description_zh": "全栈开发，使用 React 和 Node.js 等框架，使用 TypeScript、C#、Python、PHP、PostgreSQL 等技术进行软件开发，构建内部数据平台和货运司机应用程序，使用其他公司的 API 服务进行交互，为其他公司设计 API，为新服务编写 Github CI/CD 流程，编写单元测试，轮流值班，负责处理紧急问题和公司的全平台应用程序的技术支持，以及开发和维护 Android、IOS 应用程序。",
+        "details_zh": [
+          "全栈开发",
+          "使用像 React 和 Node.js 这样的框架",
+          "使用 TypeScript、C#、Python、PHP、PostgreSQL 等技术进行软件开发",
+          "构建内部数据平台和货运司机应用程序",
+          "使用他们的API服务与其他公司互动",
+          "为其他公司设计API",
+          "为新服务编写Github CI/CD流程",
+          "编写单元测试",
+          "轮流值班",
+          "负责处理公司全平台应用的紧急问题和技术支持",
+          "开发和维护Android、IOS应用程序"
+        ]
+      },
+      {
+        "start": "2023-02",
+        "end": "2023-07",
+        "company": "百度在线网络技术（北京）有限公司",
+        "title_en": "Advertising Algorithm Engineer",
+        "title": "广告算法工程师",
+        "description_en": "Participated in search and advertising algorithm-related projects, performed data analysis using SQL, Mapreduce, Python, participated in the development and updates of Baidu Fengchao advertising system, and worked on AI-Backend development.",
+        "description": "参与搜索和广告算法相关项目，用 SQL, Mapreduce, Python 进行数据分析，参与百度凤巢广告系统开发，更新等需求，使用 Python，C++ 进行开发，以及参与 AI-Backend 的开发工作。",
+        "details_en": [
+          "Participated in search and advertising algorithm-related projects",
+          "Performed data analysis using SQL, Mapreduce, Python",
+          "Participated in the development and updates of Baidu Fengchao advertising system",
+          "Worked on AI-Backend development"
+        ],
+        "details": [
+          "参与搜索和广告算法相关项目",
+          "用 SQL, Mapreduce, Python 进行数据分析",
+          "参与百度凤巢广告系统开发，更新等需求",
+          "使用 Python，C++ 进行开发",
+          "参与 AI-Backend 的开发工作"
+        ],
+        "duration_months": 6,
+        "title_zh": "广告算法工程师",
+        "description_zh": "参与了搜索和广告算法相关的项目，使用SQL、Mapreduce、Python进行了数据分析，参与了百度风巢广告系统的开发和更新，并从事AI-Backend开发。",
+        "details_zh": [
+          "参与了搜索和广告算法相关的项目",
+          "使用SQL、Mapreduce、Python进行数据分析",
+          "参与了百度风巢广告系统的开发和更新",
+          "从事AI后端开发"
+        ]
+      },
+      {
+        "start": "2022-07",
+        "end": "2022-09",
+        "company": "字节跳动有限公司",
+        "title_en": "Legal Intern",
+        "title": "法实习生",
+        "description_en": "Mainly used Pyspark, Pandas, Shell, SQL, Python for big data analysis-related work, participated in recommendation algorithm projects related to Xiaomi Mall and Kuaikan Manhua.",
+        "description": "主要使用 Pyspark, Pandas, Shell, SQL, Python 进行大数据分析相关工作，参与小米商城、快看漫画推荐算法相关项目。",
+        "details_en": [
+          "Mainly used Pyspark, Pandas, Shell, SQL, Python for big data analysis-related work",
+          "Participated in recommendation algorithm projects related to Xiaomi Mall and Kuaikan Manhua"
+        ],
+        "details": [
+          "主要使用 Pyspark, Pandas, Shell, SQL, Python 进行大数据分析相关工作",
+          "参与小米商城、快看漫画推荐算法相关项目"
+        ],
+        "duration_months": 3,
+        "title_zh": "法律实习生",
+        "description_zh": "主要使用Pyspark、Pandas、Shell、SQL、Python进行大数据分析相关工作，参与了与小米商城和快看漫画相关的推荐算法项目。",
+        "details_zh": [
+          "主要使用Pyspark、Pandas、Shell、SQL、Python进行大数据分析相关工作",
+          "参与了与小米商城和快看漫画相关的推荐算法项目"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI前端全栈开发工程师北京周博睿2年.md",
+    "md_mostly_english": false
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "file_name": "AI远程办公SaaS产品经理上海5070K徐卿云4年.md",
+  "parsed_at": "2025-10-21T16:54:38.619953",
+  "result": {
+    "resume_file_id": null,
+    "name": "徐卿云",
+    "email": "qingyun.xu@my.jcu.edu",
+    "phone": "18916706443",
+    "education_degree": null,
+    "education_school": [
+      "詹姆斯库克大学"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "ETH",
+      "EVM",
+      "PR",
+      "defi",
+      "go",
+      "polkadot",
+      "solana",
+      "交易",
+      "产品",
+      "借贷",
+      "增长",
+      "市场",
+      "数据分析",
+      "波卡",
+      "设计",
+      "质押",
+      "运营",
+      "返佣",
+      "钱包"
+    ],
+    "skills": [
+      "产品管理",
+      "Defi",
+      "区块链",
+      "敏捷开发",
+      "Axure",
+      "Figma",
+      "CRM",
+      "在线咨询"
+    ],
+    "work_experience": [
+      "2021.08-2023.05 携程旅游信息技术(上海)有限公司 产品经理\n入职任运营助理,后内部转岗海外OA部门-产品经理,担任日本,新加坡市场的内部CRM,CC产品设计，需求方对接等工作,负责产品模块包含CRM,多渠道接入,在线咨询机器人及部分CC通话业务。\n业绩:\n1.参与了自社海外客服支持平台从0至1的搭建过程,在职期间主要参与主持自社CRM系统,邮件,在线咨询模块的产品设计,部署实施工作。\n2.设计并主持完成了包含Facebook,Whatsapp,twitter,Line在内的多个海外主流社媒的C端接入\n3.调研同业公司/第三方接口提供商产品并形成研报,\n4.负责完成平台本地化及相关翻译(日英)的大部分内容",
+      "Polkadot公链-Acala项目组 产品经理\n负责2款团队主营质押类dapp的设计迭代，及外部项目方，服务提供商对接工作。此外也同时参与团队在波卡生态以外的项目设计及推进工作。\n业绩:\n1.由0至1设计并推动上线了Acala Dapp 2.0，全面翻新UI交互，多端支持的基础上，新增了EVM/Solana钱包支持，Validator投票，Borrow，Transaction history等新功能模块。项目整体历时一年以上，上线后用户社区反应良好。\n2.参与设计并推动上线了支持EVM wallet的质押协议平台Euphrates，支持EVM钱包质押，后续随Jitosol pool上线添加sol钱包支持，平台总TVL最高达25m USD.\n3.设计链上质押策略共享平台 Tardis money 获 ETH Global 黑客松2024新加坡站，Circle service组第一名.\n4.参与Acala 2023大型黑客事件后的紧急处置，及受灾Token aUSD的后续规划，币价稳定工作"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2024.03-2025.03 Acala 2.0 产品经理\n应EVM质押用户增长，对现存Dapp Acala进行UI交互翻新，添加EVM wallet支持。为使用户可从Subatrate账号跨链资产至EVM钱包进行质押借贷等操作，对原有跨链，质押流程进行重新设计。同时，为Dapp新增移动端尺寸，数据图表支持，并设计新增Validator投票，Borrow，Transaction history等新功能模块\n业绩:\n1.主持对现有Dapp进行整体重新设计，业务搬迁。在项目整体工作量大开发周期长，涉及部门及并行项目较多的情况下，对项目进行分段设计及开发交付，在最小人力占用的情况下，在各交付节点实现目标产品的顺利上线。\n2.设计新增Validator投票，borrow，bridge and stake等机制，为Dapp提供更多玩法及收入来源。\n3.上线以来Acala evm transaction总量累计4.6M USD，较旧版本Dapp前一年同期上升 $23.6%",
+      "2024.08-2024.09 Tardis (黑客松项目) 产品经理\n应Circle团队邀请，参加ETHGlobal 2024并设计Defi 质押策略分享平台Tardis，产品支持用户根据预设动作设定一系列复杂质押策略（如拆分资金按比例分别投入不同质押项目，对质押得到的Liquidity token进行进一步操作等），并将策略分享给其他用户以获得返佣奖励。在demo版本中，设计并支持了一系列ETH质押相关的协议及操作，同时适配circle可编程智能钱包，支持一次签名实现流程中全部transaction。项目后续已加入团队正式开发计划。\n业绩:\n1.项目设计及线下presentation，答辩表现获组委会高度认可。项目获ETH Global 黑客松2024新加坡站，Circle service组第一名，产品战略思路在团队内部同样受到认可并作为2025年团队主要计划上线项目之一进入设计开发阶段。\n2.独特的产品创意，市场中尚未存在同类竞品。\n3.支持circle,coinbase智能钱包，合并多笔transaction至一次签名"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-08",
+        "end": "2023-05",
+        "company": "携程旅游信息技术(上海)有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "入职任运营助理,后内部转岗海外OA部门-产品经理,担任日本,新加坡市场的内部CRM,CC产品设计，需求方对接等工作,负责产品模块包含CRM,多渠道接入,在线咨询机器人及部分CC通话业务。",
+        "details_en": null,
+        "details": [
+          "参与了自社海外客服支持平台从0至1的搭建过程,在职期间主要参与主持自社CRM系统,邮件,在线咨询模块的产品设计,部署实施工作。",
+          "设计并主持完成了包含Facebook,Whatsapp,twitter,Line在内的多个海外主流社媒的C端接入",
+          "调研同业公司/第三方接口提供商产品并形成研报,",
+          "负责完成平台本地化及相关翻译(日英)的大部分内容"
+        ],
+        "duration_months": 22
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Polkadot公链-Acala项目组",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "负责2款团队主营质押类dapp的设计迭代，及外部项目方，服务提供商对接工作。此外也同时参与团队在波卡生态以外的项目设计及推进工作。",
+        "details_en": null,
+        "details": [
+          "由0至1设计并推动上线了Acala Dapp 2.0，全面翻新UI交互，多端支持的基础上，新增了EVM/Solana钱包支持，Validator投票，Borrow，Transaction history等新功能模块。项目整体历时一年以上，上线后用户社区反应良好。",
+          "参与设计并推动上线了支持EVM wallet的质押协议平台Euphrates，支持EVM钱包质押，后续随Jitosol pool上线添加sol钱包支持，平台总TVL最高达25m USD.",
+          "设计链上质押策略共享平台 Tardis money 获 ETH Global 黑客松2024新加坡站，Circle service组第一名.",
+          "参与Acala 2023大型黑客事件后的紧急处置，及受灾Token aUSD的后续规划，币价稳定工作"
+        ],
+        "duration_months": null
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2024-03",
+        "end": "2025-03",
+        "company": "Acala 2.0",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "应EVM质押用户增长，对现存Dapp Acala进行UI交互翻新，添加EVM wallet支持。为使用户可从Subatrate账号跨链资产至EVM钱包进行质押借贷等操作，对原有跨链，质押流程进行重新设计。同时，为Dapp新增移动端尺寸，数据图表支持，并设计新增Validator投票，Borrow，Transaction history等新功能模块",
+        "details_en": null,
+        "details": [
+          "主持对现有Dapp进行整体重新设计，业务搬迁。在项目整体工作量大开发周期长，涉及部门及并行项目较多的情况下，对项目进行分段设计及开发交付，在最小人力占用的情况下，在各交付节点实现目标产品的顺利上线。",
+          "设计新增Validator投票，borrow，bridge and stake等机制，为Dapp提供更多玩法及收入来源。",
+          "上线以来Acala evm transaction总量累计4.6M USD，较旧版本Dapp前一年同期上升 $23.6%"
+        ],
+        "duration_months": 13
+      },
+      {
+        "start": "2024-08",
+        "end": "2024-09",
+        "company": "Tardis (黑客松项目",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "应Circle团队邀请，参加ETHGlobal 2024并设计Defi 质押策略分享平台Tardis，产品支持用户根据预设动作设定一系列复杂质押策略（如拆分资金按比例分别投入不同质押项目，对质押得到的Liquidity token进行进一步操作等），并将策略分享给其他用户以获得返佣奖励。在demo版本中，设计并支持了一系列ETH质押相关的协议及操作，同时适配circle可编程智能钱包，支持一次签名实现流程中全部transaction。项目后续已加入团队正式开发计划。",
+        "details_en": null,
+        "details": [
+          "项目设计及线下presentation，答辩表现获组委会高度认可。项目获ETH Global 黑客松2024新加坡站，Circle service组第一名，产品战略思路在团队内部同样受到认可并作为2025年团队主要计划上线项目之一进入设计开发阶段。",
+          "独特的产品创意，市场中尚未存在同类竞品。",
+          "支持circle,coinbase智能钱包，合并多笔transaction至一次签名"
+        ],
+        "duration_months": 2
+      }
+    ],
+    "self_evaluation": "四年产品经理，两年Web3 Defi 类产品经验，曾就职携程,波卡等大型团队。在职期间主要担任海外市场/技术团队对接，担c2f任多款团队主营产品的设计迭代工作。现寻找Web3行业远程工作机会。",
+    "other": "雅思8.0，日语N1，俄语C2",
+    "work_years": 2,
+    "self_evaluation_zh": "四年产品经理，两年Web3 Defi 类产品经验，曾就职携程,波卡等大型团队。在职期间主要担任海外市场/技术团队对接，担c2f任多款团队主营产品的设计迭代工作。现寻找Web3行业远程工作机会。",
+    "other_zh": "雅思8.0，日语N1，俄语C2",
+    "work_experience_zh": [
+      "2021.08-2023.05 携程旅游信息技术(上海)有限公司 产品经理\n入职任运营助理,后内部转岗海外OA部门-产品经理,担任日本,新加坡市场的内部CRM,CC产品设计，需求方对接等工作,负责产品模块包含CRM,多渠道接入,在线咨询机器人及部分CC通话业务。\n业绩:\n1.参与了自社海外客服支持平台从0至1的搭建过程,在职期间主要参与主持自社CRM系统,邮件,在线咨询模块的产品设计,部署实施工作。\n2.设计并主持完成了包含Facebook,Whatsapp,twitter,Line在内的多个海外主流社媒的C端接入\n3.调研同业公司/第三方接口提供商产品并形成研报,\n4.负责完成平台本地化及相关翻译(日英)的大部分内容",
+      "Polkadot公链-Acala项目组 产品经理\n负责2款团队主营质押类dapp的设计迭代，及外部项目方，服务提供商对接工作。此外也同时参与团队在波卡生态以外的项目设计及推进工作。\n业绩:\n1.由0至1设计并推动上线了Acala Dapp 2.0，全面翻新UI交互，多端支持的基础上，新增了EVM/Solana钱包支持，Validator投票，Borrow，Transaction history等新功能模块。项目整体历时一年以上，上线后用户社区反应良好。\n2.参与设计并推动上线了支持EVM wallet的质押协议平台Euphrates，支持EVM钱包质押，后续随Jitosol pool上线添加sol钱包支持，平台总TVL最高达25m USD.\n3.设计链上质押策略共享平台 Tardis money 获 ETH Global 黑客松2024新加坡站，Circle service组第一名.\n4.参与Acala 2023大型黑客事件后的紧急处置，及受灾Token aUSD的后续规划，币价稳定工作"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2024.03-2025.03 Acala 2.0 产品经理\n应EVM质押用户增长，对现存Dapp Acala进行UI交互翻新，添加EVM wallet支持。为使用户可从Subatrate账号跨链资产至EVM钱包进行质押借贷等操作，对原有跨链，质押流程进行重新设计。同时，为Dapp新增移动端尺寸，数据图表支持，并设计新增Validator投票，Borrow，Transaction history等新功能模块\n业绩:\n1.主持对现有Dapp进行整体重新设计，业务搬迁。在项目整体工作量大开发周期长，涉及部门及并行项目较多的情况下，对项目进行分段设计及开发交付，在最小人力占用的情况下，在各交付节点实现目标产品的顺利上线。\n2.设计新增Validator投票，borrow，bridge and stake等机制，为Dapp提供更多玩法及收入来源。\n3.上线以来Acala evm transaction总量累计4.6M USD，较旧版本Dapp前一年同期上升 $23.6%",
+      "2024.08-2024.09 Tardis (黑客松项目) 产品经理\n应Circle团队邀请，参加ETHGlobal 2024并设计Defi 质押策略分享平台Tardis，产品支持用户根据预设动作设定一系列复杂质押策略（如拆分资金按比例分别投入不同质押项目，对质押得到的Liquidity token进行进一步操作等），并将策略分享给其他用户以获得返佣奖励。在demo版本中，设计并支持了一系列ETH质押相关的协议及操作，同时适配circle可编程智能钱包，支持一次签名实现流程中全部transaction。项目后续已加入团队正式开发计划。\n业绩:\n1.项目设计及线下presentation，答辩表现获组委会高度认可。项目获ETH Global 黑客松2024新加坡站，Circle service组第一名，产品战略思路在团队内部同样受到认可并作为2025年团队主要计划上线项目之一进入设计开发阶段。\n2.独特的产品创意，市场中尚未存在同类竞品。\n3.支持circle,coinbase智能钱包，合并多笔transaction至一次签名"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-08",
+        "end": "2023-05",
+        "company": "携程旅游信息技术(上海)有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "入职任运营助理,后内部转岗海外OA部门-产品经理,担任日本,新加坡市场的内部CRM,CC产品设计，需求方对接等工作,负责产品模块包含CRM,多渠道接入,在线咨询机器人及部分CC通话业务。",
+        "details_en": null,
+        "details": [
+          "参与了自社海外客服支持平台从0至1的搭建过程,在职期间主要参与主持自社CRM系统,邮件,在线咨询模块的产品设计,部署实施工作。",
+          "设计并主持完成了包含Facebook,Whatsapp,twitter,Line在内的多个海外主流社媒的C端接入",
+          "调研同业公司/第三方接口提供商产品并形成研报,",
+          "负责完成平台本地化及相关翻译(日英)的大部分内容"
+        ],
+        "duration_months": 22,
+        "title_zh": "产品经理",
+        "description_zh": "入职任运营助理,后内部转岗海外OA部门-产品经理,担任日本,新加坡市场的内部CRM,CC产品设计，需求方对接等工作,负责产品模块包含CRM,多渠道接入,在线咨询机器人及部分CC通话业务。",
+        "details_zh": [
+          "参与了自社海外客服支持平台从0至1的搭建过程,在职期间主要参与主持自社CRM系统,邮件,在线咨询模块的产品设计,部署实施工作。",
+          "设计并主持完成了包含Facebook,Whatsapp,twitter,Line在内的多个海外主流社媒的C端接入",
+          "调研同业公司/第三方接口提供商产品并形成研报,",
+          "负责完成平台本地化及相关翻译(日英)的大部分内容"
+        ]
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Polkadot公链-Acala项目组",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "负责2款团队主营质押类dapp的设计迭代，及外部项目方，服务提供商对接工作。此外也同时参与团队在波卡生态以外的项目设计及推进工作。",
+        "details_en": null,
+        "details": [
+          "由0至1设计并推动上线了Acala Dapp 2.0，全面翻新UI交互，多端支持的基础上，新增了EVM/Solana钱包支持，Validator投票，Borrow，Transaction history等新功能模块。项目整体历时一年以上，上线后用户社区反应良好。",
+          "参与设计并推动上线了支持EVM wallet的质押协议平台Euphrates，支持EVM钱包质押，后续随Jitosol pool上线添加sol钱包支持，平台总TVL最高达25m USD.",
+          "设计链上质押策略共享平台 Tardis money 获 ETH Global 黑客松2024新加坡站，Circle service组第一名.",
+          "参与Acala 2023大型黑客事件后的紧急处置，及受灾Token aUSD的后续规划，币价稳定工作"
+        ],
+        "duration_months": null,
+        "title_zh": "产品经理",
+        "description_zh": "负责2款团队主营质押类dapp的设计迭代，及外部项目方，服务提供商对接工作。此外也同时参与团队在波卡生态以外的项目设计及推进工作。",
+        "details_zh": [
+          "由0至1设计并推动上线了Acala Dapp 2.0，全面翻新UI交互，多端支持的基础上，新增了EVM/Solana钱包支持，Validator投票，Borrow，Transaction history等新功能模块。项目整体历时一年以上，上线后用户社区反应良好。",
+          "参与设计并推动上线了支持EVM wallet的质押协议平台Euphrates，支持EVM钱包质押，后续随Jitosol pool上线添加sol钱包支持，平台总TVL最高达25m USD.",
+          "设计链上质押策略共享平台 Tardis money 获 ETH Global 黑客松2024新加坡站，Circle service组第一名.",
+          "参与Acala 2023大型黑客事件后的紧急处置，及受灾Token aUSD的后续规划，币价稳定工作"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI远程办公SaaS产品经理上海5070K徐卿云4年.md",
+    "md_mostly_english": false
+  }
+}

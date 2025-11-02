@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import subprocess
 from pathlib import Path
+import sys
 import os
 from typing import Optional
 
@@ -49,10 +50,19 @@ class MinerUProcessor:
             if "MINERU_VIRTUAL_VRAM_SIZE" not in env_base:
                 env_base["MINERU_VIRTUAL_VRAM_SIZE"] = "8"
 
+            # 选择 mineru 调用前缀：优先 CLI，不可用则使用 python -m mineru
+            mineru_base = self._get_mineru_cmd_base()
+            try:
+                logger.info(
+                    "mineru 前缀: %s | python=%s | cwd=%s",
+                    " ".join(mineru_base), sys.executable, os.getcwd(),
+                )
+            except Exception:
+                pass
+
             for device in devices_to_try:
                 for method in methods_to_try:
-                    cmd = [
-                        "mineru",
+                    cmd = list(mineru_base) + [
                         "-p", str(pdf_path),
                         "-o", str(output_base_dir),
                         "-d", device,
@@ -67,11 +77,16 @@ class MinerUProcessor:
                     # 打印将要执行的命令与关键环境变量
                     try:
                         logger.info(
-                            "mineru 命令: %s | MINERU_DEVICE=%s MINERU_BACKEND=%s MINERU_VIRTUAL_VRAM_SIZE=%s",
+                            "mineru 命令(list): %s",
+                            repr(cmd),
+                        )
+                        logger.info(
+                            "mineru 命令(str): %s | MINERU_DEVICE=%s MINERU_BACKEND=%s MINERU_VRAM=%s | cwd=%s",
                             " ".join(cmd),
                             env_vars.get("MINERU_DEVICE", ""),
                             backend,
                             env_vars.get("MINERU_VIRTUAL_VRAM_SIZE", ""),
+                            os.getcwd(),
                         )
                     except Exception:
                         pass
@@ -130,11 +145,7 @@ class MinerUProcessor:
                         )
 
             logger.error("所有 MinerU 回退策略均失败: %s", pdf_path)
-            # 终极兜底：尝试纯文本提取（适用于可复制文本的 PDF）
-            fallback_text = self._fallback_extract_text(pdf_path)
-            if fallback_text and fallback_text.strip():
-                logger.warning("使用纯文本提取作为兜底，长度: %d", len(fallback_text))
-                return fallback_text
+            # 不再进行任何兜底策略
             return None
 
         except Exception as e:
@@ -231,8 +242,15 @@ class MinerUProcessor:
 
             device = os.getenv("MINERU_DEVICE", "cuda:0").strip()
             backend = os.getenv("MINERU_BACKEND", "pipeline")
-            cmd = [
-                "mineru",
+            mineru_base = self._get_mineru_cmd_base()
+            try:
+                logger.info(
+                    "mineru 前缀(批处理): %s | python=%s | cwd=%s",
+                    " ".join(mineru_base), sys.executable, os.getcwd(),
+                )
+            except Exception:
+                pass
+            cmd = list(mineru_base) + [
                 "-p", str(batch_dir),
                 "-o", str(output_base_dir),
                 "-d", device,
@@ -247,10 +265,15 @@ class MinerUProcessor:
             # 打印批处理命令
             try:
                 logger.info(
-                    "mineru 批处理命令: %s | MINERU_DEVICE=%s MINERU_BACKEND=%s",
+                    "mineru 批处理命令(list): %s",
+                    repr(cmd),
+                )
+                logger.info(
+                    "mineru 批处理命令: %s | MINERU_DEVICE=%s MINERU_BACKEND=%s | cwd=%s",
                     " ".join(cmd),
                     env_vars.get("MINERU_DEVICE", ""),
                     backend,
+                    os.getcwd(),
                 )
             except Exception:
                 pass
@@ -287,5 +310,23 @@ class MinerUProcessor:
         except Exception as e:
             logger.error(f"批次 OCR 处理异常: {batch_dir}, 错误: {e}")
             return {}
+
+    def _get_mineru_cmd_base(self) -> list[str]:
+        """返回 MinerU 的调用前缀：
+        - 若设置了 MINERU_PYTHON，则强制使用该 Python 执行 `-m mineru`
+        - 否则优先使用系统 CLI `mineru`
+        - 再回退为当前 Python 的模块调用 `python -m mineru`
+        注意：这仍然是使用 MinerU，本质不变，仅为消除 PATH 差异
+        """
+        env_py = os.getenv("MINERU_PYTHON")
+        if env_py:
+            return [env_py, "-m", "mineru"]
+        try:
+            res = subprocess.run(["mineru", "--help"], capture_output=True, text=True, timeout=10, shell=False)
+            if res.returncode == 0:
+                return ["mineru"]
+        except Exception:
+            pass
+        return [sys.executable, "-m", "mineru"]
 
 

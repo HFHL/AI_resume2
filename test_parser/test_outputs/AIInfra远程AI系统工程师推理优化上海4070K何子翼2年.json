@@ -1,0 +1,208 @@
+{
+  "file_name": "AIInfra远程AI系统工程师推理优化上海4070K何子翼2年.md",
+  "parsed_at": "2025-10-21T16:11:22.189326",
+  "result": {
+    "resume_file_id": null,
+    "name": "何子翼",
+    "email": "heziyi0426@163.com",
+    "phone": "19375105613",
+    "education_degree": "本科",
+    "education_school": [
+      "广西大学"
+    ],
+    "education_major": "材料科学与工程",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "python",
+      "产品",
+      "后端",
+      "大模型",
+      "量化"
+    ],
+    "skills": [
+      "Linux",
+      "C",
+      "C++",
+      "网络编程",
+      "套接字",
+      "MySQL",
+      "Crow",
+      "REST API",
+      "机器学习",
+      "深度学习",
+      "SVM",
+      "卷积",
+      "损失函数",
+      "反向传播",
+      "python",
+      "tensorflow2.0",
+      "Transformer",
+      "LLaMA",
+      "DeepSpeed",
+      "KV Cache",
+      "量化",
+      "TensorRT-LLM",
+      "推荐算法",
+      "ItemCF",
+      "UserCF",
+      "BM25",
+      "Wide&DeepFM",
+      "DeepCrossing"
+    ],
+    "work_experience": [
+      "2023-04 ~ 2024-05 深圳龙卷烽科技有限公司开发部门 嵌入式软件开发工程师 深圳 基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。",
+      "2024-05 ~ 至今 华为-外企德科OD项目 计算产品线 软件开发工程师 上海 1.鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。2.灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "基于Deepcrossing的电影推荐系统",
+      "基于协同过滤算法的图书推荐系统",
+      "基于全连接网络的手写数字识别"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-04",
+        "end": "2024-05",
+        "company": "深圳龙卷烽科技有限公司开发部门",
+        "title_en": "Embedded Software Development Engineer",
+        "title": "嵌入式软件开发工程师",
+        "description_en": null,
+        "description": "基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。",
+        "details_en": null,
+        "details": [
+          "基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。"
+        ],
+        "duration_months": 14
+      },
+      {
+        "start": "2024-05",
+        "end": "present",
+        "company": "华为-外企德科OD项目",
+        "title_en": "Software Development Engineer",
+        "title": "软件开发工程师",
+        "description_en": null,
+        "description": "1. 鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。2. 灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环。",
+        "details_en": null,
+        "details": [
+          "鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。",
+          "灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。",
+          "总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。",
+          "作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环。"
+        ],
+        "duration_months": 18
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "基于Deepcrossing的电影推荐系统",
+        "details_en": null,
+        "details": [
+          "基于Deepcrossing的电影推荐系统"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "基于协同过滤算法的图书推荐系统",
+        "details_en": null,
+        "details": [
+          "基于协同过滤算法的图书推荐系统"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "基于全连接网络的手写数字识别",
+        "details_en": null,
+        "details": [
+          "基于全连接网络的手写数字识别"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023-04 ~ 2024-05 深圳龙卷烽科技有限公司开发部门 嵌入式软件开发工程师 深圳 基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。",
+      "2024-05 ~ 至今 华为-外企德科OD项目 计算产品线 软件开发工程师 上海 1.鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。2.灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "基于Deepcrossing的电影推荐系统",
+      "基于协同过滤算法的图书推荐系统",
+      "基于全连接网络的手写数字识别"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-04",
+        "end": "2024-05",
+        "company": "深圳龙卷烽科技有限公司开发部门",
+        "title_en": "Embedded Software Development Engineer",
+        "title": "嵌入式软件开发工程师",
+        "description_en": null,
+        "description": "基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。",
+        "details_en": null,
+        "details": [
+          "基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。"
+        ],
+        "duration_months": 14,
+        "title_zh": "嵌入式软件开发工程师",
+        "description_zh": "基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。",
+        "details_zh": [
+          "基于stm32f103xx系列芯片，按照特定的协议实现与上位机通讯以及对伺服电机/步进电机的驱动。"
+        ]
+      },
+      {
+        "start": "2024-05",
+        "end": "present",
+        "company": "华为-外企德科OD项目",
+        "title_en": "Software Development Engineer",
+        "title": "软件开发工程师",
+        "description_en": null,
+        "description": "1. 鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。2. 灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环。",
+        "details_en": null,
+        "details": [
+          "鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。",
+          "灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。",
+          "总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。",
+          "作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环。"
+        ],
+        "duration_months": 18,
+        "title_zh": "软件开发工程师",
+        "description_zh": "1.\n鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。2.\n灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环。",
+        "details_zh": [
+          "鲲鹏软硬件协同优化项目，针对大模型推理的业务应用场景，进行性能的分析与优化。",
+          "灵渠总线项目的软件仿真验证开发，基于Ksim框架进行体系结构层面的开发从0开始学习Ksim框架的底层逻辑以及使用方法。",
+          "总结整理开发经验汇总成文档，并完成组内串讲分享，提高团队的开发效率。",
+          "作为开发团队内部的commiter，合并分支70余次，检查发现cleancode问题5次，并完成代码check闭环。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIInfra远程AI系统工程师推理优化上海4070K何子翼2年.md",
+    "md_mostly_english": false
+  }
+}

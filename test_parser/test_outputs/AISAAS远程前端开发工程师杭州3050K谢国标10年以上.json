@@ -1,0 +1,292 @@
+{
+  "file_name": "AISAAS远程前端开发工程师杭州3050K谢国标10年以上.md",
+  "parsed_at": "2025-10-21T16:24:19.856267",
+  "result": {
+    "resume_file_id": null,
+    "name": "谢国标",
+    "email": "84651117@qq.com",
+    "phone": "18626894023",
+    "education_degree": "本科",
+    "education_school": [
+      "华南师范大学"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "LangChain",
+      "OP",
+      "PR",
+      "java",
+      "交易",
+      "产品",
+      "全栈",
+      "前端",
+      "后端",
+      "安全",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "HTML5",
+      "CSS",
+      "React",
+      "Redux",
+      "TypeScript",
+      "微前端",
+      "低代码",
+      "AI",
+      "LangChain",
+      "LangGraph",
+      "Webpack",
+      "性能优化",
+      "前端监控",
+      "Hybrid App",
+      "Node",
+      "Java"
+    ],
+    "work_experience": [
+      "2014年毕业至2025年3月在阿里巴巴就职，职级为前端开发专家。",
+      "2022年6月-2025年3月，在企业智能部门主要负责生态用户工作台业务&薪酬福利业务，涉及PC&H5页面的开发，承担部分团队管理的工作，技术上主牵主要是三件事情，一个是微前端的落地，第二个是前端团队监控告警体系的建立，第三个是混合研发、扩展研发新开发模式的探索落地。",
+      "2018年8月-2022年5月，在淘宝技术部主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。",
+      "2014年7月-2018年7月，在集团安全部主要负责相关官网，H5营销活动页面，实名认证系统的开发。"
+    ],
+    "internship_experience": [
+      "2013年6月至9月，在百度实习。"
+    ],
+    "project_experience": [
+      "生态用户工作台（2022年6月-2025年3月），项目简介：阿里集团的外包管理工作台，核心链路包含需求管理、招聘管理、人员管理、结算管理。项目角色：业务技术负责人，技术架构设计。项目成果：完成多个重点项目，同时持续提升生态用户产品的体验，完成前端业务组件沉淀、通用能力沉淀以及业务解决方案的统一，基于微前端的思路，改造前后端老的技术架构，建立工作台的规范。",
+      "MYHR工作台（2023年6月-2025年3月），项目简介：阿里内部的人事系统，核心包含假期、绩效、福利、商保、薪酬、招聘等多个域。项目角色：业务技术负责人，技术架构设计，负责假期系统的开发工作。项目成果：高质量完成业务需求，联同后端重构假期系统，增强配置化能力，提升各应用性能和稳定性。",
+      "商家工作台（2019年3月-2022年5月），项目简介：提供给线下门店商家使用的工作台，核心包含客户域，服务域，设计域，订单域，生产域和履约域。项目角色：门店工作台开发，所有工作台技术架构设计。项目成果：主要是基于微前端的思路，从0到1整合框架、工具和平台能力，构建一套完整的技术体系。",
+      "菲住布渴酒店App（2018年8月-2019年2月），项目简介：菲住布渴酒店APP。项目角色：项目开发人员，Hybrid App页面的开发。项目成果：主要负责线上酒店预订和线下办理入住的页面开发，成功支持菲住布渴酒店的线上和线下运营。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2022-06",
+        "end": "2025-03",
+        "company": "阿里巴巴",
+        "title_en": "Frontend Development Expert",
+        "title": "前端开发专家",
+        "description_en": "Mainly responsible for ecological user workbench business & compensation and benefits business, involving PC & H5 page development, undertaking part of team management work.",
+        "description": "主要负责生态用户工作台业务&薪酬福利业务，涉及PC&H5页面的开发，承担部分团队管理的工作。",
+        "details_en": [
+          "Landing of micro-frontend",
+          "Establishment of frontend team monitoring and alarm system",
+          "Exploration and landing of hybrid R&D and extended R&D new development model"
+        ],
+        "details": [
+          "微前端的落地",
+          "前端团队监控告警体系的建立",
+          "混合研发、扩展研发新开发模式的探索落地"
+        ],
+        "duration_months": 34
+      },
+      {
+        "start": "2018-08",
+        "end": "2022-05",
+        "company": "阿里巴巴",
+        "title_en": null,
+        "title": "开发工程师",
+        "description_en": "Mainly responsible for the development of offline innovation business, including Alibaba hotel business and home decoration business.",
+        "description": "主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。",
+        "details_en": null,
+        "details": [
+          "主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。"
+        ],
+        "duration_months": 46
+      },
+      {
+        "start": "2014-07",
+        "end": "2018-07",
+        "company": "阿里巴巴",
+        "title_en": null,
+        "title": "开发工程师",
+        "description_en": "Mainly responsible for the development of related official websites, H5 marketing activity pages, and real-name authentication systems.",
+        "description": "主要负责相关官网，H5营销活动页面，实名认证系统的开发。",
+        "details_en": null,
+        "details": [
+          "主要负责相关官网，H5营销活动页面，实名认证系统的开发。"
+        ],
+        "duration_months": 49
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2022-06",
+        "end": "2025-03",
+        "company": "阿里集团",
+        "title_en": "Business Technical Lead",
+        "title": "业务技术负责人",
+        "description_en": "Project introduction: Outsourcing management platform of Alibaba Group, core links include demand management, recruitment management, personnel management, and settlement management. Project role: Technical architecture design.",
+        "description": "项目简介：阿里集团的外包管理工作台，核心链路包含需求管理、招聘管理、人员管理、结算管理。项目角色：业务技术负责人，技术架构设计。",
+        "details_en": [
+          "Completed multiple key projects",
+          "Continuously improved the experience of ecological user products",
+          "Completed the sedimentation of front-end business components, general capabilities, and unified business solutions",
+          "Transformed the old technical architecture of front and back ends based on micro-frontend ideas",
+          "Established specifications for the workbench"
+        ],
+        "details": [
+          "完成多个重点项目",
+          "持续提升生态用户产品的体验",
+          "完成前端业务组件沉淀、通用能力沉淀以及业务解决方案的统一",
+          "基于微前端的思路，改造前后端老的技术架构",
+          "建立工作台的规范"
+        ],
+        "duration_months": 34
+      },
+      {
+        "start": "2023-06",
+        "end": "2025-03",
+        "company": "阿里集团",
+        "title_en": "Business Technical Lead",
+        "title": "业务技术负责人",
+        "description_en": "Project introduction: Internal HR system of Alibaba, core includes multiple domains such as vacation, performance, benefits, commercial insurance, salary, and recruitment. Project role: Technical architecture design, responsible for the development of the vacation system.",
+        "description": "项目简介：阿里内部的人事系统，核心包含假期、绩效、福利、商保、薪酬、招聘等多个域。项目角色：业务技术负责人，技术架构设计，负责假期系统的开发工作。",
+        "details_en": [
+          "High-quality completion of business requirements",
+          "Collaborated with the backend to reconstruct the vacation system",
+          "Enhanced configurability",
+          "Improved performance and stability of various applications"
+        ],
+        "details": [
+          "高质量完成业务需求",
+          "联同后端重构假期系统",
+          "增强配置化能力",
+          "提升各应用性能和稳定性"
+        ],
+        "duration_months": 22
+      },
+      {
+        "start": "2019-03",
+        "end": "2022-05",
+        "company": "阿里集团",
+        "title_en": "Store Workbench Developer",
+        "title": "门店工作台开发",
+        "description_en": "Project introduction: Workbench provided for offline store merchants, core includes customer domain, service domain, design domain, order domain, production domain, and fulfillment domain. Project role: Technical architecture design for all workbenches.",
+        "description": "项目简介：提供给线下门店商家使用的工作台，核心包含客户域，服务域，设计域，订单域，生产域和履约域。项目角色：门店工作台开发，所有工作台技术架构设计。",
+        "details_en": [
+          "Integrated framework, tools, and platform capabilities from 0 to 1 based on micro-frontend ideas",
+          "Built a complete technical system"
+        ],
+        "details": [
+          "主要是基于微前端的思路，从0到1整合框架、工具和平台能力",
+          "构建一套完整的技术体系"
+        ],
+        "duration_months": 39
+      },
+      {
+        "start": "2018-08",
+        "end": "2019-02",
+        "company": "菲住布渴酒店",
+        "title_en": "Project Developer",
+        "title": "项目开发人员",
+        "description_en": "Project introduction: 菲住布渴酒店 APP. Project role: Development of Hybrid App pages.",
+        "description": "项目简介：菲住布渴酒店APP。项目角色：项目开发人员，Hybrid App页面的开发。",
+        "details_en": [
+          "Mainly responsible for the development of online hotel booking and offline check-in pages",
+          "Successfully supported the online and offline operations of 菲住布渴酒店"
+        ],
+        "details": [
+          "主要负责线上酒店预订和线下办理入住的页面开发",
+          "成功支持菲住布渴酒店的线上和线下运营"
+        ],
+        "duration_months": 7
+      }
+    ],
+    "self_evaluation": "阿里巴巴前端开发专家，拥有十年全链路前端开发经验，在C端产品开发及复杂中后台系统架构领域拥有深厚积累，具备从0到1架构设计及团队技术攻坚经验。",
+    "other": null,
+    "work_years": 10,
+    "self_evaluation_zh": "阿里巴巴前端开发专家，拥有十年全链路前端开发经验，在C端产品开发及复杂中后台系统架构领域拥有深厚积累，具备从0到1架构设计及团队技术攻坚经验。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2014年毕业至2025年3月在阿里巴巴就职，职级为前端开发专家。",
+      "2022年6月-2025年3月，在企业智能部门主要负责生态用户工作台业务&薪酬福利业务，涉及PC&H5页面的开发，承担部分团队管理的工作，技术上主牵主要是三件事情，一个是微前端的落地，第二个是前端团队监控告警体系的建立，第三个是混合研发、扩展研发新开发模式的探索落地。",
+      "2018年8月-2022年5月，在淘宝技术部主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。",
+      "2014年7月-2018年7月，在集团安全部主要负责相关官网，H5营销活动页面，实名认证系统的开发。"
+    ],
+    "internship_experience_zh": [
+      "2013年6月至9月，在百度实习。"
+    ],
+    "project_experience_zh": [
+      "生态用户工作台（2022年6月-2025年3月），项目简介：阿里集团的外包管理工作台，核心链路包含需求管理、招聘管理、人员管理、结算管理。项目角色：业务技术负责人，技术架构设计。项目成果：完成多个重点项目，同时持续提升生态用户产品的体验，完成前端业务组件沉淀、通用能力沉淀以及业务解决方案的统一，基于微前端的思路，改造前后端老的技术架构，建立工作台的规范。",
+      "MYHR工作台（2023年6月-2025年3月），项目简介：阿里内部的人事系统，核心包含假期、绩效、福利、商保、薪酬、招聘等多个域。项目角色：业务技术负责人，技术架构设计，负责假期系统的开发工作。项目成果：高质量完成业务需求，联同后端重构假期系统，增强配置化能力，提升各应用性能和稳定性。",
+      "商家工作台（2019年3月-2022年5月），项目简介：提供给线下门店商家使用的工作台，核心包含客户域，服务域，设计域，订单域，生产域和履约域。项目角色：门店工作台开发，所有工作台技术架构设计。项目成果：主要是基于微前端的思路，从0到1整合框架、工具和平台能力，构建一套完整的技术体系。",
+      "菲住布渴酒店App（2018年8月-2019年2月），项目简介：菲住布渴酒店APP。项目角色：项目开发人员，Hybrid App页面的开发。项目成果：主要负责线上酒店预订和线下办理入住的页面开发，成功支持菲住布渴酒店的线上和线下运营。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2022-06",
+        "end": "2025-03",
+        "company": "阿里巴巴",
+        "title_en": "Frontend Development Expert",
+        "title": "前端开发专家",
+        "description_en": "Mainly responsible for ecological user workbench business & compensation and benefits business, involving PC & H5 page development, undertaking part of team management work.",
+        "description": "主要负责生态用户工作台业务&薪酬福利业务，涉及PC&H5页面的开发，承担部分团队管理的工作。",
+        "details_en": [
+          "Landing of micro-frontend",
+          "Establishment of frontend team monitoring and alarm system",
+          "Exploration and landing of hybrid R&D and extended R&D new development model"
+        ],
+        "details": [
+          "微前端的落地",
+          "前端团队监控告警体系的建立",
+          "混合研发、扩展研发新开发模式的探索落地"
+        ],
+        "duration_months": 34,
+        "title_zh": "前端开发专家",
+        "description_zh": "主要负责生态用户工作台业务和薪酬福利业务，涉及PC和H5页面开发，承担部分团队管理工作。",
+        "details_zh": [
+          "微前端的落地",
+          "前端团队监控和报警系统的建立",
+          "混合研发和扩展研发新开发模式的探索与落地"
+        ]
+      },
+      {
+        "start": "2018-08",
+        "end": "2022-05",
+        "company": "阿里巴巴",
+        "title_en": null,
+        "title": "开发工程师",
+        "description_en": "Mainly responsible for the development of offline innovation business, including Alibaba hotel business and home decoration business.",
+        "description": "主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。",
+        "details_en": null,
+        "details": [
+          "主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。"
+        ],
+        "duration_months": 46,
+        "title_zh": "开发工程师",
+        "description_zh": "主要负责线下创新业务的开发，包括阿里巴巴酒店业务和家居装饰业务。",
+        "details_zh": [
+          "主要承担线下创新业务的开发工作，分别阿里酒店业务与家装家居业务。"
+        ]
+      },
+      {
+        "start": "2014-07",
+        "end": "2018-07",
+        "company": "阿里巴巴",
+        "title_en": null,
+        "title": "开发工程师",
+        "description_en": "Mainly responsible for the development of related official websites, H5 marketing activity pages, and real-name authentication systems.",
+        "description": "主要负责相关官网，H5营销活动页面，实名认证系统的开发。",
+        "details_en": null,
+        "details": [
+          "主要负责相关官网，H5营销活动页面，实名认证系统的开发。"
+        ],
+        "duration_months": 49,
+        "title_zh": "开发工程师",
+        "description_zh": "主要负责相关官方网站、H5营销活动页面和实名认证系统的开发。",
+        "details_zh": [
+          "主要负责相关官网，H5营销活动页面，实名认证系统的开发。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程前端开发工程师杭州3050K谢国标10年以上.md",
+    "md_mostly_english": false
+  }
+}

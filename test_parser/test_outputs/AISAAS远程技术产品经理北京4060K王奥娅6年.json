@@ -1,0 +1,294 @@
+{
+  "file_name": "AISAAS远程技术产品经理北京4060K王奥娅6年.md",
+  "parsed_at": "2025-10-21T16:30:06.433044",
+  "result": {
+    "resume_file_id": null,
+    "name": "ELEVEN",
+    "email": "butcher.layer@gmail.com",
+    "phone": "15210096290",
+    "education_degree": null,
+    "education_school": [
+      "Chinese Academy of Social Sciences 中国社会科学院",
+      "International Studies University 国际研究大学"
+    ],
+    "education_major": "Public Administration 公共管理",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "DEX",
+      "ETH",
+      "OP",
+      "PR",
+      "RAG",
+      "TON",
+      "ZK",
+      "defi",
+      "ethereum",
+      "go",
+      "iOS",
+      "layer2",
+      "solana",
+      "staking",
+      "交易",
+      "产品",
+      "做市",
+      "区块链开发",
+      "合约",
+      "合规",
+      "增长",
+      "安全",
+      "智能体",
+      "法务",
+      "流动性",
+      "衍生品",
+      "运营",
+      "量化",
+      "量化策略",
+      "钱包",
+      "高净值"
+    ],
+    "skills": [
+      "Product Development",
+      "Go-to-Market Strategy",
+      "Project Management",
+      "Leadership",
+      "Blockchain",
+      "DeFi",
+      "Web3",
+      "wallet integration",
+      "Eigenlayer",
+      "Layer2 tokens",
+      "Jira",
+      "Confluence",
+      "Gitlab",
+      "Figma",
+      "Amplitude",
+      "Posthog"
+    ],
+    "work_experience": [
+      "January 2025 – Present, Galxe, Senior Product Manager: Led Galxe Earndrop project, enabling 10+ project partners to distribute ~100 M tokens. Designed vesting, credentials set, and dashboard features, launching and iterating a seamless end-to-end airdrop system. Spearheaded Galxe Onchain Starboard, conducting in-depth competitive analysis of platforms like Kaito, Cookie3, and Nansen. Negotiated with 20+ projects to distribute 100M value contributor rewards. Enhanced Galxe Plus user experience by optimizing benefits allocation and expanding GG point usage scenarios, driving platform revenue growth. Improved user engagement by launching check-in tasks and designing an on-chain sybil prevention system, increasing authentic user participation and protecting user benefits. Built internal data monitoring dashboard using Posthog, enabling visualized tracking of platform data fluctuations.",
+      "July 2024 – January 2025, Bitget Wallet, Senior Product Manager: Led the redesign of the Staking platform, integrating third-party protocols and expanding POS staking options, increasing average daily staking from $2,500 to $50,000. Managed OTC/P2P integration with 10 third-party channels (e.g., Moonpay, Simplex), improving payment options and order success rates while ensuring accurate transaction fee reconciliation. Redesigned the Discover page, achieving over 20M unique visitors and enabling targeted Dapp issue resolution. Structured the NFT business unit to support Solana and Ton Networks for sending and receiving. Contributed to Bitget Exchange’s strategic objectives through user education and engagement initiatives.",
+      "March 2022 – July 2024, OKX, Product Manager: Spearheaded the launch of X Layer, a ZK-powered Layer 2 network, overseeing conceptualization, infrastructure, and ecosystem development to bridge OKX and Ethereum communities. Designed and delivered Web3 protocol roadmaps, integrating wallets with multiple blockchain networks, ensuring compatibility, and conducting thorough testing. Organized the OKX Hackathon, fostering collaboration with Ventures and the Developer Community. Established a blockchain-based copyright protection platform, enhancing content security. Crafted project proposals for partnerships and new initiatives to drive platform growth.",
+      "September 2019 – March 2022, People Online Network Co., Ltd., Chairman’s Assistant: Assisted the Chairman in managing schedules, organizing critical documents, and coordinating internal/external communications, board meetings, and senior management conferences. Published chain announcements and collaborated with BD/VC teams for external negotiations."
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "OKX X Layer Chain: Designed mainnet launch and ecosystem development for a ZK-powered Layer 2 network.",
+      "OKX OKTC Swap/NFT Market: Oversaw DEX platform development, optimizing user experience based on competitive research (Uniswap, Curve).",
+      "OKX Wallet/AA Wallet/WaaS: Co-developed EOA and AA wallets, integrated B2B WaaS services.",
+      "Bitget Wallet Staking/OTC: Redesigned staking and OTC/P2P functionalities, significantly boosting user engagement and transaction success.",
+      "Galxe Earndrop: Delivered airdrop system with vesting and dashboard for 10+ projects, distributing ~100 M tokens.",
+      "Galxe Onchain Starboard: Led reward distribution strategy for 100M value contributor reward across 20+ projects."
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2025-01",
+        "end": "2025-10",
+        "company": "Galxe, Senior",
+        "title": "产品经理：领导了 Galxe Earndrop 项目",
+        "description": "使10多个项目合作伙伴能够分发-100 M代币。设计了归属、凭证设置和仪表板功能，推出并迭代了一个无缝的端到端空投系统。主导了Galxe Onchain Starboard，深入分析了Kaito、Cookie3和Nansen等平台的竞争情况。与20多个项目谈判，分发100M价值贡献者奖励。通过优化福利分配和扩展GG积分使用场景，提升了Galxe Plus用户体验，推动了平台收入增长。通过推出签到任务和设计链上Sybil防范系统，提高了用户参与度，增加了真实用户参与，保护了用户利益。使用Posthog构建了内部数据监控仪表板，实现了平台数据波动的可视化跟踪。",
+        "duration_months": 10,
+        "title_en": "Product Manager: Led Galxe Earndrop project",
+        "description_en": ", enabling 10+ project partners to distribute -100 M tokens. Designed vesting, credentials set, and dashboard features, launching and iterating a seamless end-to-end airdrop system. Spearheaded Galxe Onchain Starboard, conducting in-depth competitive analysis of platforms like Kaito, Cookie3, and Nansen. Negotiated with 20+ projects to distribute 100M value contributor rewards. Enhanced Galxe Plus user experience by optimizing benefits allocation and expanding GG point usage scenarios, driving platform revenue growth. Improved user engagement by launching check-in tasks and designing an on-chain sybil prevention system, increasing authentic user participation and protecting user benefits. Built internal data monitoring dashboard using Posthog, enabling visualized tracking of platform data fluctuations."
+      },
+      {
+        "start": "2024-07",
+        "end": "2025-01",
+        "company": "Bitget Wallet, Senior",
+        "title": "产品经理：领导了 Staking 平台的重新设计",
+        "description": "整合第三方协议并扩展POS质押选项，将平均每日质押从$2,500增加到$50,000。管理与10个第三方渠道（例如，Moonpay、Simplex）的OTC/P2P集成，改善支付选项和订单成功率，同时确保准确的交易费用对账。重新设计了发现页面，吸引了超过2000万独立访客，并实现了针对Dapp问题的解决。构建了NFT业务单元，以支持Solana和Ton网络的发送和接收。通过用户教育和参与倡议，为Bitget Exchange的战略目标做出了贡献。",
+        "duration_months": 7,
+        "title_en": "Product Manager: Led the redesign of the Staking platform",
+        "description_en": ", integrating third-party protocols and expanding POS staking options, increasing average daily staking from $2,500 to $50,000. Managed OTC/P2P integration with 10 third-party channels (e.g., Moonpay, Simplex), improving payment options and order success rates while ensuring accurate transaction fee reconciliation. Redesigned the Discover page, achieving over 20M unique visitors and enabling targeted Dapp issue resolution. Structured the NFT business unit to support Solana and Ton Networks for sending and receiving. Contributed to Bitget Exchange’s strategic objectives through user education and engagement initiatives."
+      },
+      {
+        "start": "2022-03",
+        "end": "2024-07",
+        "company": "OKX",
+        "title": "产品经理：主导了 X Layer 的发布",
+        "description": "一个基于ZK的Layer 2网络，负责概念化、基础设施和生态系统开发，以连接OKX和以太坊社区。设计并交付Web3协议路线图，将钱包与多个区块链网络集成，确保兼容性，并进行全面测试。组织了OKX黑客马拉松，促进与风险投资和开发者社区的合作。建立了一个基于区块链的版权保护平台，增强了内容安全。撰写了合作伙伴关系和新倡议的项目提案，以推动平台增长。",
+        "duration_months": 29,
+        "title_en": "Product Manager: Spearheaded the launch of X Layer",
+        "description_en": ", a ZK-powered Layer 2 network, overseeing conceptualization, infrastructure, and ecosystem development to bridge OKX and Ethereum communities. Designed and delivered Web3 protocol roadmaps, integrating wallets with multiple blockchain networks, ensuring compatibility, and conducting thorough testing. Organized the OKX Hackathon, fostering collaboration with Ventures and the Developer Community. Established a blockchain-based copyright protection platform, enhancing content security. Crafted project proposals for partnerships and new initiatives to drive platform growth."
+      },
+      {
+        "start": "2019-09",
+        "end": "2022-03",
+        "company": "People Online Network Co., Ltd., Chairman’s Assistant: Assisted the Chairman in managing schedules, organizing critical documents, and coordinating internal/external communications, board meetings, and senior management conferences. Published chain announcements and collaborated with",
+        "title": "BD/VC 团队进行外部谈判。",
+        "description": null,
+        "duration_months": 31,
+        "title_en": "BD/VC teams for external negotiations."
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": "present",
+        "company": "OKX",
+        "title_en": null,
+        "title": null,
+        "description_en": "Designed mainnet launch and ecosystem development for a ZK-powered Layer 2 network.",
+        "description": "为基于ZK的Layer 2网络设计主网启动和生态系统开发。",
+        "details_en": null,
+        "details": [
+          "为基于ZK的Layer 2网络设计主网启动和生态系统开发。"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "OKX",
+        "title_en": null,
+        "title": null,
+        "description_en": "Oversaw DEX platform development, optimizing user experience based on competitive research (Uniswap, Curve).",
+        "description": "监督DEX平台开发，基于竞争研究（Uniswap，Curve）优化用户体验。",
+        "details_en": null,
+        "details": [
+          "监督DEX平台开发",
+          "基于竞争研究（Uniswap，Curve）优化用户体验。"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "OKX",
+        "title_en": null,
+        "title": null,
+        "description_en": "Co-developed EOA and AA wallets, integrated B2B WaaS services.",
+        "description": "共同开发EOA和AA钱包，集成B2B WaaS服务。",
+        "details_en": null,
+        "details": [
+          "共同开发EOA和AA钱包",
+          "集成B2B WaaS服务。"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Bitget",
+        "title_en": null,
+        "title": null,
+        "description_en": "Redesigned staking and OTC/P2P functionalities, significantly boosting user engagement and transaction success.",
+        "description": "重新设计了质押和OTC/P2P功能，显著提升了用户参与度和交易成功率。",
+        "details_en": null,
+        "details": [
+          "重新设计了质押和OTC/P2P功能",
+          "显著提升了用户参与度和交易成功率。"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Galxe",
+        "title_en": null,
+        "title": null,
+        "description_en": "Delivered airdrop system with vesting and dashboard for 10+ projects, distributing ~100 M tokens.",
+        "description": "交付了带有归属和仪表板的空投系统，支持10多个项目，分发约1亿个代币。",
+        "details_en": null,
+        "details": [
+          "交付了带有归属和仪表板的空投系统",
+          "支持10多个项目",
+          "分发约1亿个代币。"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Galxe",
+        "title_en": null,
+        "title": null,
+        "description_en": "Led reward distribution strategy for 100M value contributor reward across 20+ projects.",
+        "description": "领导了针对20多个项目的1亿价值贡献者奖励的分配策略。",
+        "details_en": null,
+        "details": [
+          "领导了针对20多个项目的1亿价值贡献者奖励的分配策略。"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "Innovative and results-oriented Senior Product Manager with deep expertise in blockchain, DeFi, and Web3 product development. Adept at leading cross-functional teams to deliver user-centric solutions, with a strong focus on driving user growth, enhancing user experience, and pioneering product innovation. Seeking a Principal Product Manager (Growth) role to leverage strategic product execution, industry trend insights, and a proven ability to optimize both functional excellence and scalable user engagement.",
+    "other": null,
+    "work_years": 3,
+    "self_evaluation_zh": "具有深厚区块链、DeFi和Web3产品开发专业知识的创新和以结果为导向的高级产品经理。\n擅长领导跨职能团队提供以用户为中心的解决方案，重点推动用户增长、提升用户体验和开创产品创新。\n寻求一个首席产品经理（增长）职位，以利用战略产品执行、行业趋势洞察以及优化功能卓越和可扩展用户参与的证明能力。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2025年1月 – 现在，Galxe，高级产品经理：领导Galxe Earndrop项目，使10多个项目合作伙伴能够分发约1亿个代币。\n设计了归属、凭证设置和仪表板功能，启动并迭代了一个无缝的端到端空投系统。\n主导了 Galxe Onchain Starboard，深入分析了 Kaito、Cookie3 和 Nansen 等平台的竞争情况。\n与20多个项目谈判，分配1亿价值的贡献者奖励。\n通过优化福利分配和扩展GG积分使用场景，提升了Galxe Plus用户体验，推动了平台收入增长。\n通过推出签到任务和设计链上Sybil防范系统，提高了用户参与度，增加了真实用户的参与，保护了用户利益。\n使用Posthog构建内部数据监控仪表板，实现平台数据波动的可视化跟踪。",
+      "2024年7月 – 2025年1月，Bitget Wallet，高级产品经理：领导了Staking平台的重新设计，整合了第三方协议并扩展了POS质押选项，使平均每日质押从$2,500增加到$50,000。\n管理与10个第三方渠道（例如，Moonpay，Simplex）的OTC/P2P集成，改善支付选项和订单成功率，同时确保准确的交易费用对账。\n重新设计了Discover页面，吸引了超过2000万的独立访客，并实现了针对Dapp问题的解决。\n构建了NFT业务部门，以支持Solana和Ton Networks进行发送和接收。\n通过用户教育和参与活动为Bitget Exchange的战略目标做出了贡献。",
+      "2022年3月 – 2024年7月，OKX，产品经理：主导了X Layer的推出，这是一个基于ZK的Layer 2网络，负责概念化、基础设施和生态系统开发，以连接OKX和以太坊社区。\n设计并交付了Web3协议路线图，将钱包与多个区块链网络集成，确保兼容性，并进行全面测试。\n组织了OKX黑客马拉松，促进了与风险投资和开发者社区的合作。\n建立了一个基于区块链的版权保护平台，增强了内容安全性。\n制定了合作伙伴关系和新倡议的项目提案，以推动平台增长。",
+      "2019年9月 – 2022年3月，人民在线网络有限公司，董事长助理：协助董事长管理日程，组织重要文件，协调内部/外部沟通、董事会会议和高层管理会议。\n发布链公告并与BD/VC团队合作进行外部谈判。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "OKX X Layer Chain：为一个基于ZK的Layer 2网络设计主网启动和生态系统发展。",
+      "OKX OKTC 交换/NFT 市场：监督 DEX 平台开发，基于竞争研究（Uniswap，Curve）优化用户体验。",
+      "OKX 钱包/AA 钱包/WaaS：共同开发了 EOA 和 AA 钱包，集成了 B2B WaaS 服务。",
+      "Bitget Wallet Staking/OTC：重新设计的质押和OTC/P2P功能，显著提升了用户参与度和交易成功率。",
+      "Galxe Earndrop：为10多个项目提供了带有归属和仪表板的空投系统，分发了约1亿个代币。",
+      "Galxe Onchain Starboard：领导了价值1亿的贡献者奖励在20多个项目中的分配策略。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2025-01",
+        "end": "2025-10",
+        "company": "Galxe, Senior",
+        "title": "产品经理：领导了 Galxe Earndrop 项目",
+        "description": "使10多个项目合作伙伴能够分发-100 M代币。设计了归属、凭证设置和仪表板功能，推出并迭代了一个无缝的端到端空投系统。主导了Galxe Onchain Starboard，深入分析了Kaito、Cookie3和Nansen等平台的竞争情况。与20多个项目谈判，分发100M价值贡献者奖励。通过优化福利分配和扩展GG积分使用场景，提升了Galxe Plus用户体验，推动了平台收入增长。通过推出签到任务和设计链上Sybil防范系统，提高了用户参与度，增加了真实用户参与，保护了用户利益。使用Posthog构建了内部数据监控仪表板，实现了平台数据波动的可视化跟踪。",
+        "duration_months": 10,
+        "title_en": "Product Manager: Led Galxe Earndrop project",
+        "description_en": ", enabling 10+ project partners to distribute -100 M tokens. Designed vesting, credentials set, and dashboard features, launching and iterating a seamless end-to-end airdrop system. Spearheaded Galxe Onchain Starboard, conducting in-depth competitive analysis of platforms like Kaito, Cookie3, and Nansen. Negotiated with 20+ projects to distribute 100M value contributor rewards. Enhanced Galxe Plus user experience by optimizing benefits allocation and expanding GG point usage scenarios, driving platform revenue growth. Improved user engagement by launching check-in tasks and designing an on-chain sybil prevention system, increasing authentic user participation and protecting user benefits. Built internal data monitoring dashboard using Posthog, enabling visualized tracking of platform data fluctuations.",
+        "title_zh": "产品经理：领导了Galxe Earndrop项目",
+        "description_zh": "，使10多个项目合作伙伴分发-100 M代币。\n设计了归属、凭证设置和仪表板功能，推出并迭代了一个无缝的端到端空投系统。\n主导了 Galxe Onchain Starboard，深入分析了 Kaito、Cookie3 和 Nansen 等平台的竞争情况。\n与20多个项目谈判，分配1亿价值的贡献者奖励。\n通过优化福利分配和扩展GG积分使用场景，提升了Galxe Plus用户体验，推动了平台收入增长。\n通过推出签到任务和设计链上 Sybil 防范系统，提高了用户参与度，增加了真实用户的参与，保护了用户利益。\n使用Posthog构建内部数据监控仪表板，实现平台数据波动的可视化跟踪。"
+      },
+      {
+        "start": "2024-07",
+        "end": "2025-01",
+        "company": "Bitget Wallet, Senior",
+        "title": "产品经理：领导了 Staking 平台的重新设计",
+        "description": "整合第三方协议并扩展POS质押选项，将平均每日质押从$2,500增加到$50,000。管理与10个第三方渠道（例如，Moonpay、Simplex）的OTC/P2P集成，改善支付选项和订单成功率，同时确保准确的交易费用对账。重新设计了发现页面，吸引了超过2000万独立访客，并实现了针对Dapp问题的解决。构建了NFT业务单元，以支持Solana和Ton网络的发送和接收。通过用户教育和参与倡议，为Bitget Exchange的战略目标做出了贡献。",
+        "duration_months": 7,
+        "title_en": "Product Manager: Led the redesign of the Staking platform",
+        "description_en": ", integrating third-party protocols and expanding POS staking options, increasing average daily staking from $2,500 to $50,000. Managed OTC/P2P integration with 10 third-party channels (e.g., Moonpay, Simplex), improving payment options and order success rates while ensuring accurate transaction fee reconciliation. Redesigned the Discover page, achieving over 20M unique visitors and enabling targeted Dapp issue resolution. Structured the NFT business unit to support Solana and Ton Networks for sending and receiving. Contributed to Bitget Exchange’s strategic objectives through user education and engagement initiatives.",
+        "title_zh": "产品经理：领导了Staking平台的重新设计",
+        "description_zh": "，整合第三方协议并扩展POS质押选项，将平均每日质押从$2,500增加到$50,000。\n管理与10个第三方渠道（例如，Moonpay，Simplex）的OTC/P2P集成，改善支付选项和订单成功率，同时确保准确的交易费用对账。\n重新设计了Discover页面，吸引了超过2000万的独立访客，并实现了针对Dapp问题的解决。\n构建了NFT业务部门，以支持Solana和Ton Networks进行发送和接收。\n通过用户教育和参与活动为Bitget Exchange的战略目标做出了贡献。"
+      },
+      {
+        "start": "2022-03",
+        "end": "2024-07",
+        "company": "OKX",
+        "title": "产品经理：主导了 X Layer 的发布",
+        "description": "一个基于ZK的Layer 2网络，负责概念化、基础设施和生态系统开发，以连接OKX和以太坊社区。设计并交付Web3协议路线图，将钱包与多个区块链网络集成，确保兼容性，并进行全面测试。组织了OKX黑客马拉松，促进与风险投资和开发者社区的合作。建立了一个基于区块链的版权保护平台，增强了内容安全。撰写了合作伙伴关系和新倡议的项目提案，以推动平台增长。",
+        "duration_months": 29,
+        "title_en": "Product Manager: Spearheaded the launch of X Layer",
+        "description_en": ", a ZK-powered Layer 2 network, overseeing conceptualization, infrastructure, and ecosystem development to bridge OKX and Ethereum communities. Designed and delivered Web3 protocol roadmaps, integrating wallets with multiple blockchain networks, ensuring compatibility, and conducting thorough testing. Organized the OKX Hackathon, fostering collaboration with Ventures and the Developer Community. Established a blockchain-based copyright protection platform, enhancing content security. Crafted project proposals for partnerships and new initiatives to drive platform growth.",
+        "title_zh": "产品经理：主导了X Layer的发布",
+        "description_zh": "，一个基于ZK的第二层网络，负责概念化、基础设施和生态系统开发，以连接OKX和以太坊社区。\n设计并交付了Web3协议路线图，整合了与多个区块链网络兼容的钱包，并进行了全面测试。\n组织了OKX黑客马拉松，促进了与风险投资和开发者社区的合作。\n建立了一个基于区块链的版权保护平台，提高了内容安全性。\n制定了合作伙伴关系和新倡议的项目提案，以推动平台增长。"
+      },
+      {
+        "start": "2019-09",
+        "end": "2022-03",
+        "company": "People Online Network Co., Ltd., Chairman’s Assistant: Assisted the Chairman in managing schedules, organizing critical documents, and coordinating internal/external communications, board meetings, and senior management conferences. Published chain announcements and collaborated with",
+        "title": "BD/VC 团队进行外部谈判。",
+        "description": null,
+        "duration_months": 31,
+        "title_en": "BD/VC teams for external negotiations.",
+        "title_zh": "BD/VC团队负责外部谈判。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程技术产品经理北京4060K王奥娅6年.md",
+    "md_translated": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs_zh\\AISAAS远程技术产品经理北京4060K王奥娅6年.md",
+    "md_mostly_english": true
+  }
+}

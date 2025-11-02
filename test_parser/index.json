@@ -1,0 +1,582 @@
+{
+  "count": 110,
+  "items": [
+    {
+      "stem": "AGI远程中国区市场拓展与业务发展经理上海4060K安娜2年",
+      "pdf": "/test_parser/test_inputs/AGI远程中国区市场拓展与业务发展经理上海4060K安娜2年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程中国区市场拓展与业务发展经理上海4060K安娜2年.md",
+      "md_zh": "/test_parser/ocr_outputs_zh/AGI远程中国区市场拓展与业务发展经理上海4060K安娜2年.md",
+      "json": "/test_parser/test_outputs/AGI远程中国区市场拓展与业务发展经理上海4060K安娜2年.json"
+    },
+    {
+      "stem": "AGI远程中国区市场拓展与业务发展经理上海4060K熊远萌10年以上",
+      "pdf": "/test_parser/test_inputs/AGI远程中国区市场拓展与业务发展经理上海4060K熊远萌10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程中国区市场拓展与业务发展经理上海4060K熊远萌10年以上.md",
+      "json": "/test_parser/test_outputs/AGI远程中国区市场拓展与业务发展经理上海4060K熊远萌10年以上.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060KGranola4年",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060KGranola4年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060KGranola4年.md",
+      "md_zh": "/test_parser/ocr_outputs_zh/AGI远程社区经理上海3060KGranola4年.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060KGranola4年.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060K张先生9年",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060K张先生9年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060K张先生9年.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060K张先生9年.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060K浦女士4年",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060K浦女士4年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060K浦女士4年.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060K浦女士4年.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060K熊伟7年",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060K熊伟7年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060K熊伟7年.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060K熊伟7年.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060K熊伟7年1",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060K熊伟7年1.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060K熊伟7年1.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060K熊伟7年1.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060K陶先生1年",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060K陶先生1年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060K陶先生1年.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060K陶先生1年.json"
+    },
+    {
+      "stem": "AGI远程社区经理上海3060K马蓓蓓8年",
+      "pdf": "/test_parser/test_inputs/AGI远程社区经理上海3060K马蓓蓓8年.pdf",
+      "md": "/test_parser/ocr_outputs/AGI远程社区经理上海3060K马蓓蓓8年.md",
+      "json": "/test_parser/test_outputs/AGI远程社区经理上海3060K马蓓蓓8年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060KJames4年",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060KJames4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060KJames4年.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060KJames4年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K孙英博5年",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K孙英博5年.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K孙英博5年.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K孙英博5年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K孙英博6年",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K孙英博6年.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K孙英博6年.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K孙英博6年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K康洋10年以上",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K康洋10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K康洋10年以上.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K康洋10年以上.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K杨振华9年",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K杨振华9年.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K杨振华9年.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K杨振华9年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K潘成策10年以上",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K潘成策10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K潘成策10年以上.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K潘成策10年以上.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K苟晓攀3年",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K苟晓攀3年.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K苟晓攀3年.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K苟晓攀3年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K赵伟辰9年",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K赵伟辰9年.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K赵伟辰9年.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K赵伟辰9年.json"
+    },
+    {
+      "stem": "AIAgent应用型大模型工程师深圳4060K郑翊民25年应届生",
+      "pdf": "/test_parser/test_inputs/AIAgent应用型大模型工程师深圳4060K郑翊民25年应届生.pdf",
+      "md": "/test_parser/ocr_outputs/AIAgent应用型大模型工程师深圳4060K郑翊民25年应届生.md",
+      "json": "/test_parser/test_outputs/AIAgent应用型大模型工程师深圳4060K郑翊民25年应届生.json"
+    },
+    {
+      "stem": "AICloudAIagent工程师北京4070K张先生8年",
+      "pdf": "/test_parser/test_inputs/AICloudAIagent工程师北京4070K张先生8年.pdf",
+      "md": "/test_parser/ocr_outputs/AICloudAIagent工程师北京4070K张先生8年.md",
+      "json": "/test_parser/test_outputs/AICloudAIagent工程师北京4070K张先生8年.json"
+    },
+    {
+      "stem": "AICloudAIagent工程师北京4070K朱鑫建4年",
+      "pdf": "/test_parser/test_inputs/AICloudAIagent工程师北京4070K朱鑫建4年.pdf",
+      "md": "/test_parser/ocr_outputs/AICloudAIagent工程师北京4070K朱鑫建4年.md"
+    },
+    {
+      "stem": "AICloudAIagent工程师北京4070K赵雨腾26年应届生",
+      "pdf": "/test_parser/test_inputs/AICloudAIagent工程师北京4070K赵雨腾26年应届生.pdf",
+      "md": "/test_parser/ocr_outputs/AICloudAIagent工程师北京4070K赵雨腾26年应届生.md"
+    },
+    {
+      "stem": "AICrypto远程前端开发工程师上海3050K孟鑫宇4年",
+      "pdf": "/test_parser/test_inputs/AICrypto远程前端开发工程师上海3050K孟鑫宇4年.pdf",
+      "md": "/test_parser/ocr_outputs/AICrypto远程前端开发工程师上海3050K孟鑫宇4年.md"
+    },
+    {
+      "stem": "AICrypto远程前端开发工程师上海3050K李恩泽24年应届生",
+      "pdf": "/test_parser/test_inputs/AICrypto远程前端开发工程师上海3050K李恩泽24年应届生.pdf",
+      "md": "/test_parser/ocr_outputs/AICrypto远程前端开发工程师上海3050K李恩泽24年应届生.md"
+    },
+    {
+      "stem": "AICrypto远程前端开发工程师上海3050K王光宇2年",
+      "pdf": "/test_parser/test_inputs/AICrypto远程前端开发工程师上海3050K王光宇2年.pdf",
+      "md": "/test_parser/ocr_outputs/AICrypto远程前端开发工程师上海3050K王光宇2年.md"
+    },
+    {
+      "stem": "AICrypto远程前端开发工程师上海3050K蔡璐阳9年",
+      "pdf": "/test_parser/test_inputs/AICrypto远程前端开发工程师上海3050K蔡璐阳9年.pdf",
+      "md": "/test_parser/ocr_outputs/AICrypto远程前端开发工程师上海3050K蔡璐阳9年.md"
+    },
+    {
+      "stem": "AICrypto远程前端开发工程师北京3050K杜建东10年",
+      "pdf": "/test_parser/test_inputs/AICrypto远程前端开发工程师北京3050K杜建东10年.pdf",
+      "md": "/test_parser/ocr_outputs/AICrypto远程前端开发工程师北京3050K杜建东10年.md"
+    },
+    {
+      "stem": "AICrypto远程前端开发工程师北京3050K高斌4年",
+      "pdf": "/test_parser/test_inputs/AICrypto远程前端开发工程师北京3050K高斌4年.pdf",
+      "md": "/test_parser/ocr_outputs/AICrypto远程前端开发工程师北京3050K高斌4年.md"
+    },
+    {
+      "stem": "AIDefi产品经理上海3050K宋克强10年",
+      "pdf": "/test_parser/test_inputs/AIDefi产品经理上海3050K宋克强10年.pdf",
+      "md": "/test_parser/ocr_outputs/AIDefi产品经理上海3050K宋克强10年.md"
+    },
+    {
+      "stem": "AIDefi产品经理上海3050K杨帆10年",
+      "pdf": "/test_parser/test_inputs/AIDefi产品经理上海3050K杨帆10年.pdf",
+      "md": "/test_parser/ocr_outputs/AIDefi产品经理上海3050K杨帆10年.md"
+    },
+    {
+      "stem": "AIDefi产品经理上海3050K章宁10年",
+      "pdf": "/test_parser/test_inputs/AIDefi产品经理上海3050K章宁10年.pdf",
+      "md": "/test_parser/ocr_outputs/AIDefi产品经理上海3050K章宁10年.md"
+    },
+    {
+      "stem": "AIDefi产品经理上海3050K章宁10年1",
+      "pdf": "/test_parser/test_inputs/AIDefi产品经理上海3050K章宁10年1.pdf",
+      "md": "/test_parser/ocr_outputs/AIDefi产品经理上海3050K章宁10年1.md"
+    },
+    {
+      "stem": "AIInfra远程AI系统工程师推理优化上海4070K何子翼2年",
+      "pdf": "/test_parser/test_inputs/AIInfra远程AI系统工程师推理优化上海4070K何子翼2年.pdf",
+      "md": "/test_parser/ocr_outputs/AIInfra远程AI系统工程师推理优化上海4070K何子翼2年.md"
+    },
+    {
+      "stem": "AIInfra远程AI系统工程师推理优化上海4070K周子昂2年",
+      "pdf": "/test_parser/test_inputs/AIInfra远程AI系统工程师推理优化上海4070K周子昂2年.pdf",
+      "md": "/test_parser/ocr_outputs/AIInfra远程AI系统工程师推理优化上海4070K周子昂2年.md"
+    },
+    {
+      "stem": "AIInfra远程AI系统工程师推理优化上海4070K周晨扬24年应届生",
+      "pdf": "/test_parser/test_inputs/AIInfra远程AI系统工程师推理优化上海4070K周晨扬24年应届生.pdf",
+      "md": "/test_parser/ocr_outputs/AIInfra远程AI系统工程师推理优化上海4070K周晨扬24年应届生.md"
+    },
+    {
+      "stem": "AIInfra远程AI系统工程师推理优化上海4070K王羽丰10年",
+      "pdf": "/test_parser/test_inputs/AIInfra远程AI系统工程师推理优化上海4070K王羽丰10年.pdf",
+      "md": "/test_parser/ocr_outputs/AIInfra远程AI系统工程师推理优化上海4070K王羽丰10年.md"
+    },
+    {
+      "stem": "AIInfra远程AI系统工程师推理优化上海4070K盛亮倩8年",
+      "pdf": "/test_parser/test_inputs/AIInfra远程AI系统工程师推理优化上海4070K盛亮倩8年.pdf",
+      "md": "/test_parser/ocr_outputs/AIInfra远程AI系统工程师推理优化上海4070K盛亮倩8年.md"
+    },
+    {
+      "stem": "AIInfra远程AI系统工程师推理优化上海4070K程遥2年",
+      "pdf": "/test_parser/test_inputs/AIInfra远程AI系统工程师推理优化上海4070K程遥2年.pdf",
+      "md": "/test_parser/ocr_outputs/AIInfra远程AI系统工程师推理优化上海4070K程遥2年.md"
+    },
+    {
+      "stem": "AISAAS远程产品应用端AI工程师上海5070KHaoJia4年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品应用端AI工程师上海5070KHaoJia4年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品应用端AI工程师上海5070KHaoJia4年.md"
+    },
+    {
+      "stem": "AISAAS远程产品应用端AI工程师上海5070K张润3年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品应用端AI工程师上海5070K张润3年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品应用端AI工程师上海5070K张润3年.md"
+    },
+    {
+      "stem": "AISAAS远程产品应用端AI工程师上海5070K焦洪林9年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品应用端AI工程师上海5070K焦洪林9年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品应用端AI工程师上海5070K焦洪林9年.md"
+    },
+    {
+      "stem": "AISAAS远程产品应用端AI工程师上海5070K王泽宇3年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品应用端AI工程师上海5070K王泽宇3年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品应用端AI工程师上海5070K王泽宇3年.md"
+    },
+    {
+      "stem": "AISAAS远程产品应用端AI工程师上海5070K黄博6年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品应用端AI工程师上海5070K黄博6年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品应用端AI工程师上海5070K黄博6年.md"
+    },
+    {
+      "stem": "AISAAS远程产品经理深圳4060K刘金帅4年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品经理深圳4060K刘金帅4年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品经理深圳4060K刘金帅4年.md"
+    },
+    {
+      "stem": "AISAAS远程产品经理深圳4060K庄耀光9年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品经理深圳4060K庄耀光9年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品经理深圳4060K庄耀光9年.md"
+    },
+    {
+      "stem": "AISAAS远程产品经理深圳4060K胡昊旻3年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程产品经理深圳4060K胡昊旻3年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程产品经理深圳4060K胡昊旻3年.md"
+    },
+    {
+      "stem": "AISAAS远程前端开发工程师杭州3050K谢国标10年以上",
+      "pdf": "/test_parser/test_inputs/AISAAS远程前端开发工程师杭州3050K谢国标10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程前端开发工程师杭州3050K谢国标10年以上.md"
+    },
+    {
+      "stem": "AISAAS远程前端开发工程师杭州3555K李天10年以上",
+      "pdf": "/test_parser/test_inputs/AISAAS远程前端开发工程师杭州3555K李天10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程前端开发工程师杭州3555K李天10年以上.md"
+    },
+    {
+      "stem": "AISAAS远程前端开发工程师杭州3555K杨渝9年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程前端开发工程师杭州3555K杨渝9年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程前端开发工程师杭州3555K杨渝9年.md"
+    },
+    {
+      "stem": "AISAAS远程前端开发工程师杭州3555K胡任斌4年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程前端开发工程师杭州3555K胡任斌4年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程前端开发工程师杭州3555K胡任斌4年.md"
+    },
+    {
+      "stem": "AISAAS远程技术产品经理北京4060KChristina7年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程技术产品经理北京4060KChristina7年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程技术产品经理北京4060KChristina7年.md"
+    },
+    {
+      "stem": "AISAAS远程技术产品经理北京4060K王奥娅6年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程技术产品经理北京4060K王奥娅6年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程技术产品经理北京4060K王奥娅6年.md"
+    },
+    {
+      "stem": "AISAAS远程技术产品经理北京4060K贾宁宇8年",
+      "pdf": "/test_parser/test_inputs/AISAAS远程技术产品经理北京4060K贾宁宇8年.pdf",
+      "md": "/test_parser/ocr_outputs/AISAAS远程技术产品经理北京4060K贾宁宇8年.md"
+    },
+    {
+      "stem": "AIagent产品测试工程师深圳2540K张翰文3年",
+      "pdf": "/test_parser/test_inputs/AIagent产品测试工程师深圳2540K张翰文3年.pdf",
+      "md": "/test_parser/ocr_outputs/AIagent产品测试工程师深圳2540K张翰文3年.md",
+      "json": "/test_parser/test_outputs/AIagent产品测试工程师深圳2540K张翰文3年.json"
+    },
+    {
+      "stem": "AIagent产品测试工程师深圳2540K王进东4年",
+      "pdf": "/test_parser/test_inputs/AIagent产品测试工程师深圳2540K王进东4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIagent产品测试工程师深圳2540K王进东4年.md",
+      "json": "/test_parser/test_outputs/AIagent产品测试工程师深圳2540K王进东4年.json"
+    },
+    {
+      "stem": "AIagent功能测试工程师上海2040K王文俊8年",
+      "pdf": "/test_parser/test_inputs/AIagent功能测试工程师上海2040K王文俊8年.pdf",
+      "md": "/test_parser/ocr_outputs/AIagent功能测试工程师上海2040K王文俊8年.md",
+      "json": "/test_parser/test_outputs/AIagent功能测试工程师上海2040K王文俊8年.json"
+    },
+    {
+      "stem": "AIagent功能测试工程师上海2040K英鸿鹏3年",
+      "pdf": "/test_parser/test_inputs/AIagent功能测试工程师上海2040K英鸿鹏3年.pdf",
+      "md": "/test_parser/ocr_outputs/AIagent功能测试工程师上海2040K英鸿鹏3年.md",
+      "json": "/test_parser/test_outputs/AIagent功能测试工程师上海2040K英鸿鹏3年.json"
+    },
+    {
+      "stem": "AIagent测试工程师上海2040K帅亮8年",
+      "pdf": "/test_parser/test_inputs/AIagent测试工程师上海2040K帅亮8年.pdf",
+      "md": "/test_parser/ocr_outputs/AIagent测试工程师上海2040K帅亮8年.md",
+      "json": "/test_parser/test_outputs/AIagent测试工程师上海2040K帅亮8年.json"
+    },
+    {
+      "stem": "AIagent测试工程师上海2040K郑园10年",
+      "pdf": "/test_parser/test_inputs/AIagent测试工程师上海2040K郑园10年.pdf",
+      "md": "/test_parser/ocr_outputs/AIagent测试工程师上海2040K郑园10年.md",
+      "json": "/test_parser/test_outputs/AIagent测试工程师上海2040K郑园10年.json"
+    },
+    {
+      "stem": "AIinfraAI工程师深圳5070K巫隆诗4年",
+      "pdf": "/test_parser/test_inputs/AIinfraAI工程师深圳5070K巫隆诗4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIinfraAI工程师深圳5070K巫隆诗4年.md"
+    },
+    {
+      "stem": "AIinfraAI工程师深圳5070K李元豪5年",
+      "pdf": "/test_parser/test_inputs/AIinfraAI工程师深圳5070K李元豪5年.pdf",
+      "md": "/test_parser/ocr_outputs/AIinfraAI工程师深圳5070K李元豪5年.md"
+    },
+    {
+      "stem": "AIinfraAI工程师深圳5070K熊红星5年",
+      "pdf": "/test_parser/test_inputs/AIinfraAI工程师深圳5070K熊红星5年.pdf",
+      "md": "/test_parser/ocr_outputs/AIinfraAI工程师深圳5070K熊红星5年.md"
+    },
+    {
+      "stem": "AIinfraAI工程师深圳5070K赵天一4年",
+      "pdf": "/test_parser/test_inputs/AIinfraAI工程师深圳5070K赵天一4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIinfraAI工程师深圳5070K赵天一4年.md"
+    },
+    {
+      "stem": "AIinfraAI工程师深圳5070K陈培鹏3年",
+      "pdf": "/test_parser/test_inputs/AIinfraAI工程师深圳5070K陈培鹏3年.pdf",
+      "md": "/test_parser/ocr_outputs/AIinfraAI工程师深圳5070K陈培鹏3年.md"
+    },
+    {
+      "stem": "AIweb3AIagent应用工程师上海5080K加依旦阿德力江3年",
+      "pdf": "/test_parser/test_inputs/AIweb3AIagent应用工程师上海5080K加依旦阿德力江3年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AIagent应用工程师上海5080K加依旦阿德力江3年.md"
+    },
+    {
+      "stem": "AIweb3AIagent应用工程师上海5080K夏环宇9年",
+      "pdf": "/test_parser/test_inputs/AIweb3AIagent应用工程师上海5080K夏环宇9年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AIagent应用工程师上海5080K夏环宇9年.md"
+    },
+    {
+      "stem": "AIweb3AIagent应用工程师上海5080K崔祥宇6年",
+      "pdf": "/test_parser/test_inputs/AIweb3AIagent应用工程师上海5080K崔祥宇6年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AIagent应用工程师上海5080K崔祥宇6年.md"
+    },
+    {
+      "stem": "AIweb3AIagent应用工程师上海5080K康锴9年",
+      "pdf": "/test_parser/test_inputs/AIweb3AIagent应用工程师上海5080K康锴9年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AIagent应用工程师上海5080K康锴9年.md"
+    },
+    {
+      "stem": "AIweb3AIagent应用工程师上海5080K张拓超龙7年",
+      "pdf": "/test_parser/test_inputs/AIweb3AIagent应用工程师上海5080K张拓超龙7年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AIagent应用工程师上海5080K张拓超龙7年.md"
+    },
+    {
+      "stem": "AIweb3AIagent应用工程师上海5080K肖晗4年",
+      "pdf": "/test_parser/test_inputs/AIweb3AIagent应用工程师上海5080K肖晗4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AIagent应用工程师上海5080K肖晗4年.md"
+    },
+    {
+      "stem": "AIweb3AI应用工程师上海4560K凌抒妍4年",
+      "pdf": "/test_parser/test_inputs/AIweb3AI应用工程师上海4560K凌抒妍4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AI应用工程师上海4560K凌抒妍4年.md"
+    },
+    {
+      "stem": "AIweb3AI应用工程师上海4560K张凯歌4年",
+      "pdf": "/test_parser/test_inputs/AIweb3AI应用工程师上海4560K张凯歌4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AI应用工程师上海4560K张凯歌4年.md"
+    },
+    {
+      "stem": "AIweb3AI应用工程师上海4560K方辉8年",
+      "pdf": "/test_parser/test_inputs/AIweb3AI应用工程师上海4560K方辉8年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AI应用工程师上海4560K方辉8年.md"
+    },
+    {
+      "stem": "AIweb3AI应用工程师上海4560K蒋璐5年",
+      "pdf": "/test_parser/test_inputs/AIweb3AI应用工程师上海4560K蒋璐5年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AI应用工程师上海4560K蒋璐5年.md"
+    },
+    {
+      "stem": "AIweb3AI应用工程师上海4560K陈雪情9年",
+      "pdf": "/test_parser/test_inputs/AIweb3AI应用工程师上海4560K陈雪情9年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3AI应用工程师上海4560K陈雪情9年.md"
+    },
+    {
+      "stem": "AIweb3数据工程师上海3550K刘鹏7年",
+      "pdf": "/test_parser/test_inputs/AIweb3数据工程师上海3550K刘鹏7年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3数据工程师上海3550K刘鹏7年.md"
+    },
+    {
+      "stem": "AIweb3数据工程师上海3550K龙威铭5年",
+      "pdf": "/test_parser/test_inputs/AIweb3数据工程师上海3550K龙威铭5年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3数据工程师上海3550K龙威铭5年.md"
+    },
+    {
+      "stem": "AIweb3远程中国社区运营负责人上海3050KNancyYang9年",
+      "pdf": "/test_parser/test_inputs/AIweb3远程中国社区运营负责人上海3050KNancyYang9年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3远程中国社区运营负责人上海3050KNancyYang9年.md"
+    },
+    {
+      "stem": "AIweb3远程中国社区运营负责人上海3050K贾正则4年",
+      "pdf": "/test_parser/test_inputs/AIweb3远程中国社区运营负责人上海3050K贾正则4年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3远程中国社区运营负责人上海3050K贾正则4年.md"
+    },
+    {
+      "stem": "AIweb3远程办公后端工程师上海4060K赵金乐5年",
+      "pdf": "/test_parser/test_inputs/AIweb3远程办公后端工程师上海4060K赵金乐5年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3远程办公后端工程师上海4060K赵金乐5年.md"
+    },
+    {
+      "stem": "AIweb3远程视觉与创意设计负责人上海3560K朱雨婷6年",
+      "pdf": "/test_parser/test_inputs/AIweb3远程视觉与创意设计负责人上海3560K朱雨婷6年.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3远程视觉与创意设计负责人上海3560K朱雨婷6年.md"
+    },
+    {
+      "stem": "AIweb3远程视觉与创意设计负责人上海3560K阳辉10年以上",
+      "pdf": "/test_parser/test_inputs/AIweb3远程视觉与创意设计负责人上海3560K阳辉10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AIweb3远程视觉与创意设计负责人上海3560K阳辉10年以上.md"
+    },
+    {
+      "stem": "AI前端全栈开发工程师北京周博睿2年",
+      "pdf": "/test_parser/test_inputs/AI前端全栈开发工程师北京周博睿2年.pdf",
+      "md": "/test_parser/ocr_outputs/AI前端全栈开发工程师北京周博睿2年.md"
+    },
+    {
+      "stem": "AI服务端平台remote前端开发工程师深圳2540K卜青云7年",
+      "pdf": "/test_parser/test_inputs/AI服务端平台remote前端开发工程师深圳2540K卜青云7年.pdf",
+      "md": "/test_parser/ocr_outputs/AI服务端平台remote前端开发工程师深圳2540K卜青云7年.md"
+    },
+    {
+      "stem": "AI服务端平台remote前端开发工程师深圳2540K曾煜星8年",
+      "pdf": "/test_parser/test_inputs/AI服务端平台remote前端开发工程师深圳2540K曾煜星8年.pdf",
+      "md": "/test_parser/ocr_outputs/AI服务端平台remote前端开发工程师深圳2540K曾煜星8年.md"
+    },
+    {
+      "stem": "AI服务端平台remote前端开发工程师深圳2540K雷文杨3年",
+      "pdf": "/test_parser/test_inputs/AI服务端平台remote前端开发工程师深圳2540K雷文杨3年.pdf",
+      "md": "/test_parser/ocr_outputs/AI服务端平台remote前端开发工程师深圳2540K雷文杨3年.md"
+    },
+    {
+      "stem": "AI现代像素风视觉创意设计负责人深圳4065K徐婷10年以上",
+      "pdf": "/test_parser/test_inputs/AI现代像素风视觉创意设计负责人深圳4065K徐婷10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AI现代像素风视觉创意设计负责人深圳4065K徐婷10年以上.md"
+    },
+    {
+      "stem": "AI现代像素风视觉创意设计负责人深圳4065K施金成6年",
+      "pdf": "/test_parser/test_inputs/AI现代像素风视觉创意设计负责人深圳4065K施金成6年.pdf",
+      "md": "/test_parser/ocr_outputs/AI现代像素风视觉创意设计负责人深圳4065K施金成6年.md"
+    },
+    {
+      "stem": "AI现代像素风视觉创意设计负责人深圳4065K罗祥茂10年以上",
+      "pdf": "/test_parser/test_inputs/AI现代像素风视觉创意设计负责人深圳4065K罗祥茂10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/AI现代像素风视觉创意设计负责人深圳4065K罗祥茂10年以上.md"
+    },
+    {
+      "stem": "AI现代像素风视觉创意设计负责人深圳4065K齐昱光9年",
+      "pdf": "/test_parser/test_inputs/AI现代像素风视觉创意设计负责人深圳4065K齐昱光9年.pdf",
+      "md": "/test_parser/ocr_outputs/AI现代像素风视觉创意设计负责人深圳4065K齐昱光9年.md"
+    },
+    {
+      "stem": "AI远程办公SaaS产品经理上海5070K南芸9年",
+      "pdf": "/test_parser/test_inputs/AI远程办公SaaS产品经理上海5070K南芸9年.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程办公SaaS产品经理上海5070K南芸9年.md"
+    },
+    {
+      "stem": "AI远程办公SaaS产品经理上海5070K徐卿云4年",
+      "pdf": "/test_parser/test_inputs/AI远程办公SaaS产品经理上海5070K徐卿云4年.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程办公SaaS产品经理上海5070K徐卿云4年.md"
+    },
+    {
+      "stem": "AI远程办公SaaS产品经理上海5070K李泽昊8年",
+      "pdf": "/test_parser/test_inputs/AI远程办公SaaS产品经理上海5070K李泽昊8年.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程办公SaaS产品经理上海5070K李泽昊8年.md"
+    },
+    {
+      "stem": "AI远程办公SaaS产品经理上海5070K邬勐宇8年",
+      "pdf": "/test_parser/test_inputs/AI远程办公SaaS产品经理上海5070K邬勐宇8年.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程办公SaaS产品经理上海5070K邬勐宇8年.md"
+    },
+    {
+      "stem": "AI远程大模型强化学习工程师上海5080K刘帆26年应届生",
+      "pdf": "/test_parser/test_inputs/AI远程大模型强化学习工程师上海5080K刘帆26年应届生.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程大模型强化学习工程师上海5080K刘帆26年应届生.md"
+    },
+    {
+      "stem": "AI远程大模型强化学习工程师深圳5080K施雨婷5年",
+      "pdf": "/test_parser/test_inputs/AI远程大模型强化学习工程师深圳5080K施雨婷5年.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程大模型强化学习工程师深圳5080K施雨婷5年.md"
+    },
+    {
+      "stem": "AI远程大模型强化学习工程师深圳5080K林星宇1年",
+      "pdf": "/test_parser/test_inputs/AI远程大模型强化学习工程师深圳5080K林星宇1年.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程大模型强化学习工程师深圳5080K林星宇1年.md"
+    },
+    {
+      "stem": "AI远程大模型强化学习工程师深圳5080K黄家祺26年应届生",
+      "pdf": "/test_parser/test_inputs/AI远程大模型强化学习工程师深圳5080K黄家祺26年应届生.pdf",
+      "md": "/test_parser/ocr_outputs/AI远程大模型强化学习工程师深圳5080K黄家祺26年应届生.md"
+    },
+    {
+      "stem": "ResumeRyan",
+      "pdf": "/test_parser/test_inputs/ResumeRyan.pdf",
+      "md": "/test_parser/ocr_outputs/ResumeRyan.md"
+    },
+    {
+      "stem": "ResumeRyan1",
+      "pdf": "/test_parser/test_inputs/ResumeRyan1.pdf",
+      "md": "/test_parser/ocr_outputs/ResumeRyan1.md"
+    },
+    {
+      "stem": "Riley吴女士产品运营paymightHTX985无成都",
+      "pdf": "/test_parser/test_inputs/Riley吴女士产品运营paymightHTX985无成都.pdf",
+      "md": "/test_parser/ocr_outputs/Riley吴女士产品运营paymightHTX985无成都.md"
+    },
+    {
+      "stem": "TaylorChoiResume2505MKT",
+      "pdf": "/test_parser/test_inputs/TaylorChoiResume2505MKT.pdf",
+      "md": "/test_parser/ocr_outputs/TaylorChoiResume2505MKT.md"
+    },
+    {
+      "stem": "Web3AI增强高级前端开发工程师上海3550K时博魁10年以上",
+      "pdf": "/test_parser/test_inputs/Web3AI增强高级前端开发工程师上海3550K时博魁10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/Web3AI增强高级前端开发工程师上海3550K时博魁10年以上.md"
+    },
+    {
+      "stem": "温华斌温华斌前端paypal阿里文娱优酷985深圳",
+      "pdf": "/test_parser/test_inputs/温华斌温华斌前端paypal阿里文娱优酷985深圳.pdf",
+      "md": "/test_parser/ocr_outputs/温华斌温华斌前端paypal阿里文娱优酷985深圳.md"
+    },
+    {
+      "stem": "远程办公高级DevOps工程师北京4060K任长庚10年以上",
+      "pdf": "/test_parser/test_inputs/远程办公高级DevOps工程师北京4060K任长庚10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/远程办公高级DevOps工程师北京4060K任长庚10年以上.md"
+    },
+    {
+      "stem": "远程办公高级DevOps工程师杭州4060K周金亮10年以上",
+      "pdf": "/test_parser/test_inputs/远程办公高级DevOps工程师杭州4060K周金亮10年以上.pdf",
+      "md": "/test_parser/ocr_outputs/远程办公高级DevOps工程师杭州4060K周金亮10年以上.md"
+    },
+    {
+      "stem": "远程办公高级DevOps工程师杭州4060K李大强5年",
+      "pdf": "/test_parser/test_inputs/远程办公高级DevOps工程师杭州4060K李大强5年.pdf",
+      "md": "/test_parser/ocr_outputs/远程办公高级DevOps工程师杭州4060K李大强5年.md"
+    },
+    {
+      "stem": "远程办公高级DevOps工程师杭州4060K郭进祥10年",
+      "pdf": "/test_parser/test_inputs/远程办公高级DevOps工程师杭州4060K郭进祥10年.pdf",
+      "md": "/test_parser/ocr_outputs/远程办公高级DevOps工程师杭州4060K郭进祥10年.md"
+    },
+    {
+      "stem": "量化交易加密市场套利与做市策略上海5080K陈鹏8年",
+      "pdf": "/test_parser/test_inputs/量化交易加密市场套利与做市策略上海5080K陈鹏8年.pdf",
+      "md": "/test_parser/ocr_outputs/量化交易加密市场套利与做市策略上海5080K陈鹏8年.md"
+    },
+    {
+      "stem": "量化交易加密市场套利与做市策略深圳5080K梁国起4年",
+      "pdf": "/test_parser/test_inputs/量化交易加密市场套利与做市策略深圳5080K梁国起4年.pdf",
+      "md": "/test_parser/ocr_outputs/量化交易加密市场套利与做市策略深圳5080K梁国起4年.md"
+    },
+    {
+      "stem": "量化交易加密市场套利与做市策略深圳5080K耿茂文8年",
+      "pdf": "/test_parser/test_inputs/量化交易加密市场套利与做市策略深圳5080K耿茂文8年.pdf",
+      "md": "/test_parser/ocr_outputs/量化交易加密市场套利与做市策略深圳5080K耿茂文8年.md"
+    }
+  ]
+}

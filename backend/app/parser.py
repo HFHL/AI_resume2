@@ -160,8 +160,8 @@ def extract_schools(text: str) -> Optional[List[str]]:
 
 
 LLM_JSON_PROMPT = (
-    "任务：从输入的中文/英文简历文本中抽取并返回标准 JSON（仅 JSON，不要输出解释或 markdown）。\n"
-    "输出 JSON schema（键名与类型必须完全一致）：\n"
+    "Task: Extract structured information from the given resume text (Chinese/English) and return STRICT JSON (JSON only, no explanations or markdown).\n"
+    "Output JSON schema (keys and types must match exactly):\n"
     "{\n"
     "  \"name\": string|null,\n"
     "  \"education_school\": string[]|null,\n"
@@ -173,48 +173,50 @@ LLM_JSON_PROMPT = (
     "  \"self_evaluation\": string|null,\n"
     "  \"other\": string|null\n"
     "}\n"
-    "严格规则：\n"
-    "- 仅输出一个 JSON 对象；不要包含任何多余文字、标签或 markdown 代码块。\n"
-    "- 保持键名不变；无法确定的字段填 null。\n"
-    "- education_school 返回一个字符串数组，包含文中出现的学校名称（中英文皆可），不要附加括号注释/排名/QS 文案等，只保留学校主名；去重。\n"
-    "- skills 为去重后的关键词数组（如 Java、Python、SpringBoot、微服务 等），不包含句号或多余符号。\n"
-    "- work_experience / internship_experience / project_experience 均返回字符串数组：\n"
-    "  每个元素是一段完整条目（可多行），建议包含：时间范围、公司/项目名、职位/角色、概述、职责要点或技术栈。\n"
-    "- 对输入中的 HTML 标签进行内容保留与清洗（忽略标签本身），表格内容按行合并为自然语言。\n"
-    "- 合理断句、移除多余空白与无意义分隔符，保持可读性。\n"
-    "- 不要杜撰缺失信息。\n"
-    "- 中英文皆可，保持原文关键信息与时间格式（如 2024.07 - 2024.10）。\n"
-    "- 严禁输出示例标识、解释、markdown、\"```\" 等围栏。\n"
-    "\n"
-    "Few-shot 示例：\n"
-    "示例输入（节选）：\n"
-    "求职意向\n期望从事职业： 后端开发工程师\n\n自我评价\n具备 9 年 Java 开发经验，熟悉微服务与区块链技术。\n\n工作经历\n2024.07 - 2024.10  Bitget交易所  区块链  后端开发工程师\n负责交易平台迭代，解决线上问题，优化性能；参与现货交易与资产管理等模块开发。\n\n项目经历\nBitget 交易所 (2024.07 – 2024.10)\n涉及技术：SpringBoot、Dubbo、Mysql、Nacos\n项目描述：加密货币交易平台。\n责任描述：需求分析、方案设计、问题排查。\n\n专业技能\nJava / SpringBoot / Dubbo / MySQL / Redis / 微服务 / 区块链\n"
-    "示例输出(JSON)：\n"
+    "Rules:\n"
+    "- Output exactly one JSON object; no extra text, no markdown, no code fences.\n"
+    "- Keep the keys unchanged; fill null for unknown fields.\n"
+    "- education_school: array of school names found in text (CN/EN), keep main name only (no brackets/rankings/QS notes), deduplicate.\n"
+    "- skills: deduplicated keyword array (e.g., Java, Python, SpringBoot, Microservices), no punctuation.\n"
+    "- work_experience / internship_experience / project_experience: arrays of string entries; each entry is a complete item (can be multi-line) that preferably includes: time range, company/project, role, overview, bullet points or tech stack.\n"
+    "- Preserve content while cleaning markup: ignore HTML tags, merge tables into natural language.\n"
+    "- Reasonable sentence splitting; remove excessive whitespace/separators; keep readability.\n"
+    "- Do not fabricate missing info.\n"
+    "- Keep original time formats (e.g., 2024.07 - 2024.10).\n"
+)
+
+
+# 工作年限专用提示词：严格 JSON 输出
+WORK_YEARS_JSON_PROMPT = (
+    "任务：根据给定的中文/英文简历全文，计算候选人的工作年限，并严格输出 JSON。\n"
+    "定义：\n"
+    "- 工作年限 = 所有‘正式全职’工作的时间段按月合并去重后的总月数 / 12（向下取整）。\n"
+    "- 允许出现‘至今/present/now’，此时以当前月份计入。\n"
+    "- 不计入：实习/兼职/志愿者/校园项目/培训/教育经历。\n"
+    "- 如信息不足或无法判断，请返回 work_years=null。\n"
+    "\n输出 JSON（键名与类型必须一致）：\n"
     "{\n"
-    "  \"name\": null,\n"
-    "  \"education_school\": null,\n"
-    "  \"education_major\": null,\n"
-    "  \"skills\": [\"Java\", \"SpringBoot\", \"Dubbo\", \"MySQL\", \"Redis\", \"微服务\", \"区块链\"],\n"
-    "  \"work_experience\": [\n"
-    "    \"2024.07 - 2024.10  Bitget交易所  后端开发工程师\\n负责加密货币交易平台迭代与性能优化；参与现货交易、资产管理等核心模块开发。\"\n"
-    "  ],\n"
-    "  \"internship_experience\": null,\n"
-    "  \"project_experience\": [\n"
-    "    \"Bitget 交易所 (2024.07 – 2024.10)\\n技术栈：SpringBoot、Dubbo、Mysql、Nacos\\n项目：加密货币交易平台\\n职责：需求分析、方案设计、问题排查。\"\n"
-    "  ],\n"
-    "  \"self_evaluation\": \"具备 9 年 Java 开发经验，熟悉微服务与区块链技术。\",\n"
-    "  \"other\": null\n"
+    "  \"work_years\": number|null,\n"
+    "  \"periods\": [\n"
+    "    {\"start\": \"YYYY-MM\"|null, \"end\": \"YYYY-MM\"|\"present\"|null, \"type\": \"fulltime|intern|parttime|unknown\"}\n"
+    "  ]\n"
     "}\n"
+    "\n严格规则：\n"
+    "- 仅输出一个 JSON；禁止输出解释、示例、markdown 或 ```。\n"
+    "- periods 仅保留你用于计算 work_years 的条目；只标记 fulltime 的条目进入总时长。\n"
+    "- 如时间有交叠，先合并后计算；计算按月计入，端点月包含。\n"
+    "- 若只有年份，按该年06月处理（例如 2021 -> 2021-06）。\n"
+    "- 若遇到模糊描述（如‘3年经验’）但无明确起止，允许直接据此给出 work_years。\n"
+    "- 切勿杜撰公司或时间。\n"
 )
 
 
 # 学校专用提示词：仅返回 education_school 数组
 SCHOOL_JSON_PROMPT = (
-    "任务：从下面给出的若干上下文片段中，抽取所有出现的学校名称，并返回 JSON（仅 JSON）。\n"
-    "- 只返回学校主名；不要包含括号注释、排名、QS 文案、专业、学位等。\n"
-    "- 中英文学校名都要；去重；保持英文正常书写（Title Case 或正文原样）。\n"
-    "- 仅输出如下结构：\n"
-    "{\n  \"education_school\": string[]\n}\n"
+    "Task: From the following context snippets, extract ALL school names and return JSON (JSON only).\n"
+    "- Return main school names only; exclude bracket notes, rankings, QS info, majors, degrees.\n"
+    "- Include both Chinese and English names; deduplicate; keep English in Title Case or as in text.\n"
+    "- Output exactly: {\n  \"education_school\": string[]\n}\n"
 )
 
 
@@ -561,8 +563,9 @@ def _extract_periods(text: str) -> List[Tuple[date, date]]:
     # 常见分隔符：- – — ~ to 至 …
     sep = r"\s*(?:-|–|—|~|to|至|–|—)\s*"
     # 起止匹配（支持中文/英文月份/仅年），终点可为至今/Present/Now
+    # 修复：添加 \s* 支持年月之间的空格
     pat = re.compile(
-        rf"((?:\d{{4}}(?:[\.\-/]\d{{1,2}})?|\d{{4}}年\d{{1,2}}月|[A-Za-z]{{3,9}}\s+\d{{4}})){sep}((?:\d{{4}}(?:[\.\-/]\d{{1,2}})?|\d{{4}}年\d{{1,2}}月|[A-Za-z]{{3,9}}\s+\d{{4}}|至今|present|now))",
+        rf"((?:\d{{4}}(?:[\.\-/]\d{{1,2}})?|\d{{4}}\s*年\s*\d{{1,2}}\s*月|[A-Za-z]{{3,9}}\s+\d{{4}})){sep}((?:\d{{4}}(?:[\.\-/]\d{{1,2}})?|\d{{4}}\s*年\s*\d{{1,2}}\s*月|[A-Za-z]{{3,9}}\s+\d{{4}}|至今|present|now))",
         re.IGNORECASE,
     )
     for m in pat.finditer(t):
@@ -573,6 +576,22 @@ def _extract_periods(text: str) -> List[Tuple[date, date]]:
             if end < start:
                 continue
             periods.append((start, end))
+        except Exception:
+            continue
+
+    # 新增：简写月份格式（2024年2-7月）
+    simple_month_pat = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*[-–—]\s*(\d{1,2})\s*月")
+    for m in simple_month_pat.finditer(t):
+        try:
+            year = int(m.group(1))
+            start_month = int(m.group(2))
+            end_month = int(m.group(3))
+            
+            start = date(year, max(1, min(12, start_month)), 1)
+            end = date(year, max(1, min(12, end_month)), 1)
+            
+            if end >= start:
+                periods.append((start, end))
         except Exception:
             continue
 
@@ -632,7 +651,27 @@ def _extract_years_from_text(text: str) -> Optional[float]:
 
 
 def extract_work_years(text: str) -> Optional[int]:
-    """纯规则提取工作年限，返回整数年。"""
+    """优先用 LLM 提取；失败则回退到规则法。返回整数年。"""
+    # 1) LLM优先
+    try:
+        llm = LLMClient.from_env_with_model("gpt-4o-mini") or LLMClient.from_env()
+    except Exception:
+        llm = None
+    if llm:
+        try:
+            out = llm.extract(WORK_YEARS_JSON_PROMPT, text, max_tokens=500)
+            if out:
+                obj = _extract_json_object(out)
+                if isinstance(obj, dict):
+                    wy = obj.get("work_years")
+                    # 只接受合理范围内的数字
+                    if isinstance(wy, (int, float)):
+                        wy_val = max(0.0, min(60.0, float(wy)))
+                        return int(wy_val // 1)
+        except Exception:
+            pass
+
+    # 2) 规则回退
     periods = _extract_periods(text)
     merged = _merge_periods(periods)
     total_months = sum(_months_between(s, e) for s, e in merged)
@@ -645,7 +684,6 @@ def extract_work_years(text: str) -> Optional[int]:
 
     years_dec: Optional[float]
     if years_from_periods is not None and years_from_text is not None:
-        # 两者都存在，取更保守的较小值（避免口号夸大）
         years_dec = min(years_from_periods, years_from_text)
     elif years_from_periods is not None:
         years_dec = years_from_periods
@@ -654,7 +692,6 @@ def extract_work_years(text: str) -> Optional[int]:
 
     if years_dec is None:
         return None
-    # 合理边界
     years_dec = max(0.0, min(60.0, years_dec))
     return int(years_dec // 1)
 
@@ -683,9 +720,9 @@ def classify_category_and_tags(text: str) -> tuple[Optional[str], Optional[list[
     category: Optional[str] = None
     if cat_llm:
         cat_prompt = (
-            "请判断以下简历文本属于 '技术类' 还是 '非技术类'，仅输出 JSON：{\"category\": \"技术类|非技术类\"}。不得输出解释或其他内容。\n"
-            "示例1 文本: '5年Java后端开发，微服务，K8s与Docker' -> {\"category\": \"技术类\"}\n"
-            "示例2 文本: '内容策划与品牌运营，活动组织' -> {\"category\": \"非技术类\"}\n"
+            "Classify the resume text as '技术类' (technical) or '非技术类' (non-technical). Output JSON only: {\"category\": \"技术类|非技术类\"}. No explanations.\n"
+            "Example 1: '5年Java后端开发，微服务，K8s与Docker' -> {\"category\": \"技术类\"}\n"
+            "Example 2: '内容策划与品牌运营，活动组织' -> {\"category\": \"非技术类\"}\n"
         )
         cat_content = cat_llm.extract(cat_prompt, text)
         if cat_content:
@@ -709,14 +746,14 @@ def classify_category_and_tags(text: str) -> tuple[Optional[str], Optional[list[
     if tag_llm and remaining:
         candidate_str = "\n".join(f"- {t}" for t in remaining)
         tag_prompt = (
-            "从候选标签中选择与该简历相关但未在文本中直接出现的标签，仅输出 JSON：{\"tags\": string[]}。\n"
-            "要求：\n- 只能从候选集中选择，不得新增；\n- 不要重复；\n- 不要输出解释或其他文本。\n"
-            f"候选标签（仅可从中选择）：\n{candidate_str}\n"
-            "\nFew-shot：\n"
-            "输入: '5年Java/Python后端，负责微服务与API'（已直接命中: Java, Python）\n"
-            "输出: {\"tags\": [\"后端开发\", \"微服务\", \"API\"]}\n"
-            "输入: '内容策划、品牌运营，新媒体运营'（已直接命中: 无）\n"
-            "输出: {\"tags\": [\"内容运营\", \"品牌运营\"]}\n"
+            "From the candidate tag list, select tags relevant to the resume but NOT explicitly present in the text. Output JSON only: {\"tags\": string[]}.\n"
+            "Rules:\n- Choose ONLY from the candidate list; no new tags.\n- No duplicates.\n- No explanations.\n"
+            f"Candidate tags (choose from these only):\n{candidate_str}\n"
+            "\nFew-shot:\n"
+            "Input: '5年Java/Python后端，负责微服务与API' (already hit: Java, Python)\n"
+            "Output: {\"tags\": [\"后端开发\", \"微服务\", \"API\"]}\n"
+            "Input: '内容策划、品牌运营，新媒体运营' (already hit: none)\n"
+            "Output: {\"tags\": [\"内容运营\", \"品牌运营\"]}\n"
         )
         tag_content = tag_llm.extract(tag_prompt, text)
         add_data = None
@@ -762,7 +799,7 @@ def _normalize_text_line(line: str) -> str:
     s = (line or "").strip()
     if not s:
         return s
-    s = re.sub(r"[—–~~]+", "-", s)
+    s = re.sub(r"(?:—|–|~)+", "-", s)
     s = s.replace("至 今", "至今")
     s = re.sub(r"\s+", " ", s)
     return s.strip()
@@ -1043,25 +1080,25 @@ def extract_experience_via_llm(entries: List[str]) -> Optional[List[Dict[str, An
     if not llm:
         return None
     schema = (
-        "请将下面的经历条目解析为结构化 JSON，仅输出 JSON 数组，不要任何解释。\n"
-        "每个元素：{\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title_en\": string|null, \"title\": string|null, \"description_en\": string|null, \"description\": string|null, \"details_en\": string[]|null, \"details\": string[]|null}\n"
-        "规则：\n"
-        "- 起止时间支持 YYYY.MM / YYYY-MM / 中文‘YYYY年MM月’ / 英文月份。\n"
-        "- 若括号中有时间段，如 ‘项目名 (2024.11 - 2025.02)’，抽取为 start/end 并从公司/职位中移除括号时间。\n"
-        "- end 缺省为 'present'。\n"
-        "- company 与 title 不得包含日期或括号时间。\n"
-        "- description / details 要求逐句保留，不要总结，不要省略；details 用于承载具体要点（项目符号/多行）。\n"
-        "- 字段含义：*_en 为原文（通常英文），对应的无 _en 字段为简体中文直译。公司名保持原文。\n"
-        "- 全过程一律用中文返回中文字段内容；但专有名词保持原文（英文即可）。\n"
-        "\nFew-shot 1：\n"
-        "输入：\n"
+        "Parse the following experience entries into a structured JSON array. Output JSON array ONLY, no explanations.\n"
+        "Each element: {\"start\": 'YYYY-MM'|null, \"end\": 'YYYY-MM'|'present'|null, \"company\": string|null, \"title_en\": string|null, \"title\": string|null, \"description_en\": string|null, \"description\": string|null, \"details_en\": string[]|null, \"details\": string[]|null}\n"
+        "Rules:\n"
+        "- Time formats supported: YYYY.MM / YYYY-MM / Chinese 'YYYY年MM月' / English months.\n"
+        "- If a parenthesized range exists (e.g., 'Project (2024.11 - 2025.02)'), extract as start/end and remove it from company/title.\n"
+        "- Default end to 'present' if missing.\n"
+        "- 'company' and 'title' must not contain dates or bracketed times.\n"
+        "- 'description' / 'details': preserve sentences verbatim; no summarization; details are bullet-point lines.\n"
+        "- Field semantics: *_en is original (often English), the non-_en field is Simplified Chinese direct translation. Company stays original.\n"
+        "- Always return Chinese content for non *_en fields; keep proper nouns in original language.\n"
+        "\nFew-shot 1:\n"
+        "Input:\n"
         "2019.05 - 2020.12  ABC Exchange  Product Manager  Built perpetual from 0-1; optimized matching; settlement.\n"
-        "输出：\n"
+        "Output:\n"
         "[{\"start\": \"2019-05\", \"end\": \"2020-12\", \"company\": \"ABC Exchange\", \"title_en\": \"Product Manager\", \"title\": \"产品经理\", \"description_en\": \"Built perpetual from 0-1; optimized matching; settlement\", \"description\": \"从0-1搭建永续；优化撮合；清结算\", \"details_en\": [\"Built perpetual from 0-1\", \"Optimized matching\", \"Settlement\"], \"details\": [\"从0-1搭建永续\", \"优化撮合\", \"清结算\"]}]\n"
-        "\nFew-shot 2：\n"
-        "输入：\n"
+        "\nFew-shot 2:\n"
+        "Input:\n"
         "XT Future 2.0 (2024.11 - 2025.02)  项目负责人  统一账户模型规划与实施。\n"
-        "输出：\n"
+        "Output:\n"
         "[{\"start\": \"2024-11\", \"end\": \"2025-02\", \"company\": \"XT Future 2.0\", \"title_en\": null, \"title\": \"项目负责人\", \"description_en\": null, \"description\": \"统一账户模型规划与实施\", \"details_en\": null, \"details\": [\"统一账户模型规划与实施\"]}]\n"
     )
     content = "\n---\n".join(str(x) for x in entries)

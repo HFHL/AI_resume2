@@ -1,0 +1,188 @@
+{
+  "file_name": "AICloudAIagent工程师北京4070K朱鑫建4年.md",
+  "parsed_at": "2025-10-21T15:55:37.909206",
+  "result": {
+    "resume_file_id": null,
+    "name": "朱鑫建",
+    "email": "1461038845@qq.com",
+    "phone": "13636739976",
+    "education_degree": null,
+    "education_school": [
+      "河北大学工商学院",
+      "Hebei University of Economics and Business 河北经济贸易大学"
+    ],
+    "education_major": "计算机网络",
+    "education_graduation_year": null,
+    "education_tier": "普通本科",
+    "education_tiers": [
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "PR",
+      "RAG",
+      "RPC",
+      "ZK",
+      "java",
+      "python",
+      "产品",
+      "前端",
+      "后端",
+      "大语言模型",
+      "安全",
+      "安卓",
+      "测试"
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "Linux",
+      "git",
+      "Bash",
+      "Mysql",
+      "Redis",
+      "zk",
+      "Vue",
+      "element",
+      "js"
+    ],
+    "work_experience": [
+      "2021.12.14-2025.3.2 小米通讯有限公司（北京） 研发工程师，负责小米 IoT 开发者平台 AI 智能助理，解锁刷机安全，米家“人车家”的互联互通等项目的开发。荣誉：小米手机部新生培训优秀班主任。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "小米 IoT 开发者平台AI 智能助理 ｜ 模块化负责人 2024.08~2025.03，项目旨在为用户提供高效、准确的技术支持，帮助开发者快速解决 IoT设备开发中的问题。日活3500+，QPS: 平均 2.5/峰值 12.5。开发评估系统，优化 prompt，提升助理回答问题精确度80%，召回率73.5%；调整知识库更新逻辑，方便助理的及时更新；结合公司安全策略，对潜在用户输入问题进行安全拦截输出；采用 mineru 及其他模型实现对知识库非 pdf 的拆分和读取。",
+      "小米米家智能场景迭代工具 ｜ 项目负责人，研发负责人 2024.08~2025.03，项目实现“人车家”的智能联动，搭建可视化联动场景输入操作系统，将页面数据转化为满足米家数据库的数据模式，提升用户体验。",
+      "小米 tob 酒店项目 ｜ 项目负责人 2024.02~2024.07，项目为多家智能酒店中的智能设备提供小爱唤醒服务，日活酒店数5000+，对接白帽子封堵200+个安全漏洞，系统安全性提升一个等级，项目上线 bug 率降低30%。",
+      "小米解锁刷机imei 服务 | 项目负责人 2022.03~2024.01，负责全球所有工厂的刷机解锁权限控制，配合工厂处理各类相关问题，联合外部打击黑产，预防黑产，降低损失5000万+。",
+      "小米log 解密服务 | 项目负责人，研发负责人 2022.08~2024.01，负责小米手机的 log 解密，搭建服务平台，降低解密时间。",
+      "小米谷歌安全补丁 | 项目负责人，研发负责人 2022.08~2024.01，负责安卓高通安全补丁修复，搭建服务平台，减少人力投入2人/月。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-12",
+        "end": "2025-03",
+        "company": "小米通讯有限公司（北京",
+        "title_en": "R&D Engineer",
+        "title": "研发工程师",
+        "description_en": "Responsible for Xiaomi IoT Developer Platform AI Smart Assistant, unlocking flashing security, and the development of projects such as the interconnection of Mijia 'People, Vehicles, and Home'. Honors: Excellent class teacher in Xiaomi Mobile Department's new employee training.",
+        "description": "负责小米 IoT 开发者平台 AI 智能助理，解锁刷机安全，米家“人车家”的互联互通等项目的开发。荣誉：小米手机部新生培训优秀班主任。",
+        "details_en": [
+          "Responsible for Xiaomi IoT Developer Platform AI Smart Assistant",
+          "Unlocking flashing security",
+          "Development of projects such as the interconnection of Mijia 'People, Vehicles, and Home'",
+          "Honors: Excellent class teacher in Xiaomi Mobile Department's new employee training"
+        ],
+        "details": [
+          "负责小米 IoT 开发者平台 AI 智能助理",
+          "解锁刷机安全",
+          "米家“人车家”的互联互通等项目的开发",
+          "荣誉：小米手机部新生培训优秀班主任"
+        ],
+        "duration_months": 40
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "小米 IoT",
+        "title": "开发者平台AI 智能助理 ｜ 模块化负责人 2024.08-2025.03",
+        "description": "，项目旨在为用户提供高效、准确的技术支持，帮助开发者快速解决 IoT设备开发中的问题。日活3500+，QPS: 平均 2.5/峰值 12.5。开发评估系统，优化 prompt，提升助理回答问题精确度80%，召回率73.5%；调整知识库更新逻辑，方便助理的及时更新；结合公司安全策略，对潜在用户输入问题进行安全拦截输出；采用 mineru 及其他模型实现对知识库非 pdf 的拆分和读取。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "小米米家智能场景迭代工具 ｜ 项目",
+        "title": "负责人",
+        "description": "，研发负责人 2024.08-2025.03，项目实现“人车家”的智能联动，搭建可视化联动场景输入操作系统，将页面数据转化为满足米家数据库的数据模式，提升用户体验。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "小米 tob 酒店项目 ｜ 项目",
+        "title": "负责人 2024.02-2024.07",
+        "description": "，项目为多家智能酒店中的智能设备提供小爱唤醒服务，日活酒店数5000+，对接白帽子封堵200+个安全漏洞，系统安全性提升一个等级，项目上线 bug 率降低30%。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "小米解锁刷机imei 服务 | 项目",
+        "title": "负责人 2022.03-2024.01",
+        "description": "，负责全球所有工厂的刷机解锁权限控制，配合工厂处理各类相关问题，联合外部打击黑产，预防黑产，降低损失5000万+。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "小米log 解密服务 | 项目",
+        "title": "负责人",
+        "description": "，研发负责人 2022.08-2024.01，负责小米手机的 log 解密，搭建服务平台，降低解密时间。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "小米谷歌安全补丁 | 项目",
+        "title": "负责人",
+        "description": "，研发负责人 2022.08-2024.01，负责安卓高通安全补丁修复，搭建服务平台，减少人力投入2人/月。",
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "本人积极乐观，善于沟通，在校期间成绩优异，自驱力强，喜欢健身，具有良好的沟通能力和团队合作意识，可推动项目的高质量交付。有三年 Linux 使用经验，较为丰富的前后端开发经验。",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "本人积极乐观，善于沟通，在校期间成绩优异，自驱力强，喜欢健身，具有良好的沟通能力和团队合作意识，可推动项目的高质量交付。有三年 Linux 使用经验，较为丰富的前后端开发经验。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.12.14-2025.3.2 小米通讯有限公司（北京） 研发工程师，负责小米 IoT 开发者平台 AI 智能助理，解锁刷机安全，米家“人车家”的互联互通等项目的开发。荣誉：小米手机部新生培训优秀班主任。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "小米 IoT 开发者平台AI 智能助理 ｜ 模块化负责人 2024.08~2025.03，项目旨在为用户提供高效、准确的技术支持，帮助开发者快速解决 IoT设备开发中的问题。日活3500+，QPS: 平均 2.5/峰值 12.5。开发评估系统，优化 prompt，提升助理回答问题精确度80%，召回率73.5%；调整知识库更新逻辑，方便助理的及时更新；结合公司安全策略，对潜在用户输入问题进行安全拦截输出；采用 mineru 及其他模型实现对知识库非 pdf 的拆分和读取。",
+      "小米米家智能场景迭代工具 ｜ 项目负责人，研发负责人 2024.08~2025.03，项目实现“人车家”的智能联动，搭建可视化联动场景输入操作系统，将页面数据转化为满足米家数据库的数据模式，提升用户体验。",
+      "小米 tob 酒店项目 ｜ 项目负责人 2024.02~2024.07，项目为多家智能酒店中的智能设备提供小爱唤醒服务，日活酒店数5000+，对接白帽子封堵200+个安全漏洞，系统安全性提升一个等级，项目上线 bug 率降低30%。",
+      "小米解锁刷机imei 服务 | 项目负责人 2022.03~2024.01，负责全球所有工厂的刷机解锁权限控制，配合工厂处理各类相关问题，联合外部打击黑产，预防黑产，降低损失5000万+。",
+      "小米log 解密服务 | 项目负责人，研发负责人 2022.08~2024.01，负责小米手机的 log 解密，搭建服务平台，降低解密时间。",
+      "小米谷歌安全补丁 | 项目负责人，研发负责人 2022.08~2024.01，负责安卓高通安全补丁修复，搭建服务平台，减少人力投入2人/月。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-12",
+        "end": "2025-03",
+        "company": "小米通讯有限公司（北京",
+        "title_en": "R&D Engineer",
+        "title": "研发工程师",
+        "description_en": "Responsible for Xiaomi IoT Developer Platform AI Smart Assistant, unlocking flashing security, and the development of projects such as the interconnection of Mijia 'People, Vehicles, and Home'. Honors: Excellent class teacher in Xiaomi Mobile Department's new employee training.",
+        "description": "负责小米 IoT 开发者平台 AI 智能助理，解锁刷机安全，米家“人车家”的互联互通等项目的开发。荣誉：小米手机部新生培训优秀班主任。",
+        "details_en": [
+          "Responsible for Xiaomi IoT Developer Platform AI Smart Assistant",
+          "Unlocking flashing security",
+          "Development of projects such as the interconnection of Mijia 'People, Vehicles, and Home'",
+          "Honors: Excellent class teacher in Xiaomi Mobile Department's new employee training"
+        ],
+        "details": [
+          "负责小米 IoT 开发者平台 AI 智能助理",
+          "解锁刷机安全",
+          "米家“人车家”的互联互通等项目的开发",
+          "荣誉：小米手机部新生培训优秀班主任"
+        ],
+        "duration_months": 40,
+        "title_zh": "研发工程师",
+        "description_zh": "负责小米物联网开发平台AI智能助手，解锁闪光安全，以及米家“人、车、家”的互联项目的开发。\n荣誉：小米手机部门新员工培训优秀班主任。",
+        "details_zh": [
+          "负责小米物联网开发平台AI智能助手",
+          "解锁闪烁的安全",
+          "米家“人、车、家”互联项目的开发",
+          "荣誉：小米手机部门新员工培训优秀班主任"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AICloudAIagent工程师北京4070K朱鑫建4年.md",
+    "md_mostly_english": false
+  }
+}

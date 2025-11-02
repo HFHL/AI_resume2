@@ -1,0 +1,190 @@
+{
+  "file_name": "Riley吴女士产品运营paymightHTX985无成都.md",
+  "parsed_at": "2025-10-21T17:05:45.089678",
+  "result": {
+    "resume_file_id": null,
+    "name": "Riley",
+    "email": "yew9556@gmail.comtelephone",
+    "phone": "15092140686",
+    "education_degree": null,
+    "education_school": [
+      "China West University 中国西部大学"
+    ],
+    "education_major": "Computer Science and Technology 计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "普通本科",
+    "education_tiers": [
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AMM",
+      "CTO",
+      "DBA",
+      "OP",
+      "PR",
+      "RAG",
+      "defi",
+      "go",
+      "iOS",
+      "java",
+      "python",
+      "交易",
+      "产品",
+      "增长",
+      "安全",
+      "市场",
+      "支付",
+      "数据分析",
+      "期货",
+      "法币",
+      "测试",
+      "现货",
+      "理财",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "A/B testing",
+      "Figma",
+      "Axure"
+    ],
+    "work_experience": [
+      "2024.07-2025.07 Paymight Senior Product Manager Independently led user demand research and product planning, took charge of the functional design and optimization of a Web3 payment platform, and successfully launched multiple core functional modules including On/Off Ramp, Earn, and Visa Card, effectively enhancing the user transaction experience and platform smoothness. Promoted cross-departmental collaboration, coordinating the product, R&D, and design teams. Drive cross-departmental collaboration, coordinate the product, development, design, and operations teams to ensure the new features are delivered on schedule, in line with user needs and market trends. Adjust product strategies promptly based on market changes and user feedback to ensure the platform's user growth and the achievement of commercial goals.",
+      "2022.01-2023.12 HTX Senior Product Operations Manager Independently took charge of the 0-to-1 development of product business lines and the launch of operational activities. Successfully designed and optimized key functions for multiple business lines, such as the full process of fiat currency deposit/withdrawal via banks, Visa card services, and the '1-cent purchase' campaign for P2P. Through in-depth data analysis and A/B testing, continuously improved user experience and conversion rates, and drove the on-schedule launch of new features. Coordinated cross-departmental teams, managed user relationships, monitored industry trends, and adjusted strategies flexibly to ensure the platform's rapid user growth and the achievement of business goals.",
+      "2019.3-2022.1 Youka Information Technology Product Director Responsible for market analysis and product analysis in the Indian market, and led product planning. Managed the product team, allocated product tasks, conducted review and analysis of conversion data, and hosted project meetings."
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "Paymight Senior Product Manager In the realm of asset circulation and management, PayMight has built a closed-loop service system through three core functions: First, relying on the On/Off Ramp (deposit and withdrawal channel), it enables efficient two-way exchange between digital currencies and cryptocurrencies, seamlessly connecting digital assets with traditional payment scenarios; Second, via the Earn (wealth management function), it provides users with a variety of cryptocurrency wealth management options to facilitate the steady appreciation of assets; Third, by virtue of the Visa card, it allows users to conveniently use digital assets for daily consumption, further expanding the application scenarios of digital assets and fully covering users' 'exchange - wealth management - consumption' needs.",
+      "OTC(HTX) Senior Product Operations Manager HTX 的场外交易（OTC）系统包含法币出入金功能，该功能通过银行转账渠道为用户提供安全便捷的出入金服务；其点对点交易（P2P）板块则借助活动运营策略（如用户激励、场景化活动等），有效引导用户使用产品，进而提升整体入金率"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2024-07",
+        "end": "2025-07",
+        "company": "Paymight Senior",
+        "title": "产品经理 独立领导用户需求研究和产品规划",
+        "description": "负责Web3支付平台的功能设计和优化，成功推出多个核心功能模块，包括On/Off Ramp、Earn和Visa Card，有效提升了用户交易体验和平台流畅度。促进跨部门协作，协调产品、研发和设计团队。推动跨部门协作，协调产品、开发、设计和运营团队，确保新功能按时交付，符合用户需求和市场趋势。根据市场变化和用户反馈及时调整产品策略，以确保平台用户增长和商业目标的实现。",
+        "duration_months": 13,
+        "title_en": "Product Manager Independently led user demand research and product planning",
+        "description_en": ", took charge of the functional design and optimization of a Web3 payment platform, and successfully launched multiple core functional modules including On/Off Ramp, Earn, and Visa Card, effectively enhancing the user transaction experience and platform smoothness. Promoted cross-departmental collaboration, coordinating the product, R&D, and design teams. Drive cross-departmental collaboration, coordinate the product, development, design, and operations teams to ensure the new features are delivered on schedule, in line with user needs and market trends. Adjust product strategies promptly based on market changes and user feedback to ensure the platform's user growth and the achievement of commercial goals."
+      },
+      {
+        "start": "2022-01",
+        "end": "2023-12",
+        "company": "HTX Senior",
+        "title": "产品运营经理 独立负责产品业务线的0到1开发和运营活动的启动。成功设计和优化多个业务线的关键功能",
+        "description": "例如，通过银行进行法币存取款的全流程、Visa卡服务以及P2P的'1分钱购买'活动。通过深入的数据分析和A/B测试，持续改善用户体验和转化率，并推动新功能的按时上线。协调跨部门团队，管理用户关系，监测行业趋势，灵活调整策略，以确保平台的快速用户增长和商业目标的实现。",
+        "duration_months": 24,
+        "title_en": "Product Operations Manager Independently took charge of the 0-to-1 development of product business lines and the launch of operational activities. Successfully designed and optimized key functions for multiple business lines",
+        "description_en": ", such as the full process of fiat currency deposit/withdrawal via banks, Visa card services, and the '1-cent purchase' campaign for P2P. Through in-depth data analysis and A/B testing, continuously improved user experience and conversion rates, and drove the on-schedule launch of new features. Coordinated cross-departmental teams, managed user relationships, monitored industry trends, and adjusted strategies flexibly to ensure the platform's rapid user growth and the achievement of business goals."
+      },
+      {
+        "start": "2019-03",
+        "end": "2022-01",
+        "company": "Youka Information Technology",
+        "title": "产品总监 负责印度市场的市场分析和产品分析",
+        "description": "并领导产品规划。管理产品团队，分配产品任务，进行转化数据的审查和分析，并主持项目会议。",
+        "duration_months": 35,
+        "title_en": "Product Director Responsible for market analysis and product analysis in the Indian market",
+        "description_en": ", and led product planning. Managed the product team, allocated product tasks, conducted review and analysis of conversion data, and hosted project meetings."
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": "present",
+        "company": "Paymight",
+        "title_en": "Senior Product Manager",
+        "title": "高级产品经理",
+        "description_en": "In the realm of asset circulation and management, PayMight has built a closed-loop service system through three core functions: First, relying on the On/Off Ramp (deposit and withdrawal channel), it enables efficient two-way exchange between digital currencies and cryptocurrencies, seamlessly connecting digital assets with traditional payment scenarios; Second, via the Earn (wealth management function), it provides users with a variety of cryptocurrency wealth management options to facilitate the steady appreciation of assets; Third, by virtue of the Visa card, it allows users to conveniently use digital assets for daily consumption, further expanding the application scenarios of digital assets and fully covering users' 'exchange - wealth management - consumption' needs.",
+        "description": "在资产流通和管理领域，PayMight通过三个核心功能构建了一个闭环服务系统：首先，依靠On/Off Ramp（存取款通道），实现数字货币与加密货币之间的高效双向兑换，顺畅连接数字资产与传统支付场景；其次，通过Earn（财富管理功能），为用户提供多种加密货币财富管理选项，促进资产的稳步增值；第三，凭借Visa卡，用户可以方便地使用数字资产进行日常消费，进一步扩展数字资产的应用场景，全面覆盖用户的“兑换 - 财富管理 - 消费”需求。",
+        "details_en": [
+          "Built a closed-loop service system through three core functions",
+          "Enabled efficient two-way exchange between digital currencies and cryptocurrencies",
+          "Provided users with a variety of cryptocurrency wealth management options",
+          "Allowed users to conveniently use digital assets for daily consumption"
+        ],
+        "details": [
+          "通过三个核心功能构建了一个闭环服务系统",
+          "实现数字货币与加密货币之间的高效双向兑换",
+          "为用户提供多种加密货币财富管理选项",
+          "允许用户方便地使用数字资产进行日常消费"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "OTC(HTX",
+        "title_en": "Senior Product Operations Manager",
+        "title": "高级产品运营经理",
+        "description_en": "HTX's OTC system includes fiat deposit and withdrawal functions, which provide users with safe and convenient deposit and withdrawal services through bank transfer channels; its peer-to-peer trading (P2P) section effectively guides users to use the product through operational strategies (such as user incentives, scenario-based activities, etc.), thereby improving the overall deposit rate.",
+        "description": "HTX 的场外交易（OTC）系统包含法币出入金功能，该功能通过银行转账渠道为用户提供安全便捷的出入金服务；其点对点交易（P2P）板块则借助活动运营策略（如用户激励、场景化活动等），有效引导用户使用产品，进而提升整体入金率。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "Collaborated with overseas teams; proficient in using English for product presentations and daily communication. Data-sensitive with clear logical thinking and strong adaptability to unexpected situations.",
+    "other": null,
+    "work_years": 8,
+    "self_evaluation_zh": "与海外团队合作；熟练使用英语进行产品演示和日常沟通。\n数据敏感，逻辑思维清晰，能够强适应意外情况。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024.07-2025.07 Paymight 高级产品经理 独立领导用户需求研究和产品规划，负责 Web3 支付平台的功能设计和优化，成功推出多个核心功能模块，包括 On/Off Ramp、Earn 和 Visa Card，有效提升了用户交易体验和平台流畅度。\n促进跨部门协作，协调产品、研发和设计团队。\n推动跨部门协作，协调产品、开发、设计和运营团队，以确保新功能按时交付，符合用户需求和市场趋势。\n根据市场变化和用户反馈及时调整产品策略，以确保平台的用户增长和商业目标的实现。",
+      "2022.01-2023.12 HTX 高级产品运营经理 独立负责产品业务线的0到1开发和运营活动的启动。\n成功设计和优化了多个业务线的关键功能，例如通过银行进行法币存取款的完整流程、Visa卡服务以及P2P的“1分钱购买”活动。\n通过深入的数据分析和A/B测试，不断改善用户体验和转化率，并推动新功能按计划上线。\n协调跨部门团队，管理用户关系，监测行业趋势，并灵活调整策略，以确保平台的快速用户增长和业务目标的实现。",
+      "2019.3-2022.1 Youka信息技术产品总监 负责印度市场的市场分析和产品分析，并主导产品规划。\n管理产品团队，分配产品任务，进行转化数据的审查和分析，并主持项目会议。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "Paymight高级产品经理在资产流通和管理领域，PayMight通过三个核心功能构建了一个闭环服务系统：首先，依靠On/Off Ramp（存取款通道），实现数字货币和加密货币之间的高效双向兑换，顺畅连接数字资产与传统支付场景；其次，通过Earn（财富管理功能），为用户提供多种加密货币财富管理选项，以促进资产的稳步增值；第三，凭借Visa卡，允许用户方便地使用数字资产进行日常消费，进一步扩展数字资产的应用场景，全面覆盖用户的“兑换 - 财富管理 - 消费”需求。",
+      "OTC(HTX) Senior Product Operations Manager HTX 的场外交易（OTC）系统包含法币出入金功能，该功能通过银行转账渠道为用户提供安全便捷的出入金服务；其点对点交易（P2P）板块则借助活动运营策略（如用户激励、场景化活动等），有效引导用户使用产品，进而提升整体入金率"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-07",
+        "end": "2025-07",
+        "company": "Paymight Senior",
+        "title": "产品经理 独立领导用户需求研究和产品规划",
+        "description": "负责Web3支付平台的功能设计和优化，成功推出多个核心功能模块，包括On/Off Ramp、Earn和Visa Card，有效提升了用户交易体验和平台流畅度。促进跨部门协作，协调产品、研发和设计团队。推动跨部门协作，协调产品、开发、设计和运营团队，确保新功能按时交付，符合用户需求和市场趋势。根据市场变化和用户反馈及时调整产品策略，以确保平台用户增长和商业目标的实现。",
+        "duration_months": 13,
+        "title_en": "Product Manager Independently led user demand research and product planning",
+        "description_en": ", took charge of the functional design and optimization of a Web3 payment platform, and successfully launched multiple core functional modules including On/Off Ramp, Earn, and Visa Card, effectively enhancing the user transaction experience and platform smoothness. Promoted cross-departmental collaboration, coordinating the product, R&D, and design teams. Drive cross-departmental collaboration, coordinate the product, development, design, and operations teams to ensure the new features are delivered on schedule, in line with user needs and market trends. Adjust product strategies promptly based on market changes and user feedback to ensure the platform's user growth and the achievement of commercial goals.",
+        "title_zh": "产品经理 独立领导用户需求研究和产品规划",
+        "description_zh": "负责一个Web3支付平台的功能设计和优化，并成功推出多个核心功能模块，包括On/Off Ramp、Earn和Visa Card，有效提升了用户交易体验和平台流畅度。\n促进跨部门协作，协调产品、研发和设计团队。\n推动跨部门协作，协调产品、开发、设计和运营团队，以确保新功能按时交付，符合用户需求和市场趋势。\n根据市场变化和用户反馈及时调整产品策略，以确保平台的用户增长和商业目标的实现。"
+      },
+      {
+        "start": "2022-01",
+        "end": "2023-12",
+        "company": "HTX Senior",
+        "title": "产品运营经理 独立负责产品业务线的0到1开发和运营活动的启动。成功设计和优化多个业务线的关键功能",
+        "description": "例如，通过银行进行法币存取款的全流程、Visa卡服务以及P2P的'1分钱购买'活动。通过深入的数据分析和A/B测试，持续改善用户体验和转化率，并推动新功能的按时上线。协调跨部门团队，管理用户关系，监测行业趋势，灵活调整策略，以确保平台的快速用户增长和商业目标的实现。",
+        "duration_months": 24,
+        "title_en": "Product Operations Manager Independently took charge of the 0-to-1 development of product business lines and the launch of operational activities. Successfully designed and optimized key functions for multiple business lines",
+        "description_en": ", such as the full process of fiat currency deposit/withdrawal via banks, Visa card services, and the '1-cent purchase' campaign for P2P. Through in-depth data analysis and A/B testing, continuously improved user experience and conversion rates, and drove the on-schedule launch of new features. Coordinated cross-departmental teams, managed user relationships, monitored industry trends, and adjusted strategies flexibly to ensure the platform's rapid user growth and the achievement of business goals.",
+        "title_zh": "产品运营经理独立负责产品业务线的0到1开发和运营活动的启动。\n成功设计并优化了多个业务线的关键功能",
+        "description_zh": "，例如通过银行进行法定货币存取款的完整流程、Visa卡服务以及P2P的“1分钱购买”活动。\n通过深入的数据分析和A/B测试，不断改善用户体验和转化率，并推动新功能按计划上线。\n协调跨部门团队，管理用户关系，监测行业趋势，并灵活调整策略，以确保平台的快速用户增长和业务目标的实现。"
+      },
+      {
+        "start": "2019-03",
+        "end": "2022-01",
+        "company": "Youka Information Technology",
+        "title": "产品总监 负责印度市场的市场分析和产品分析",
+        "description": "并领导产品规划。管理产品团队，分配产品任务，进行转化数据的审查和分析，并主持项目会议。",
+        "duration_months": 35,
+        "title_en": "Product Director Responsible for market analysis and product analysis in the Indian market",
+        "description_en": ", and led product planning. Managed the product team, allocated product tasks, conducted review and analysis of conversion data, and hosted project meetings.",
+        "title_zh": "产品总监 负责印度市场的市场分析和产品分析",
+        "description_zh": "，并领导产品规划。\n管理产品团队，分配产品任务，进行转化数据的审查和分析，并主持项目会议。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\Riley吴女士产品运营paymightHTX985无成都.md",
+    "md_translated": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs_zh\\Riley吴女士产品运营paymightHTX985无成都.md",
+    "md_mostly_english": true
+  }
+}

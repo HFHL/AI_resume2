@@ -1,0 +1,124 @@
+{
+  "file_name": "AIAgent应用型大模型工程师深圳4060KJames4年.md",
+  "parsed_at": "2025-10-21T15:44:17.114142",
+  "result": {
+    "resume_file_id": null,
+    "name": "James",
+    "email": null,
+    "phone": null,
+    "education_degree": null,
+    "education_school": null,
+    "education_major": null,
+    "education_graduation_year": null,
+    "education_tier": null,
+    "education_tiers": null,
+    "category": "技术类",
+    "tag_names": [
+      "OP",
+      "java",
+      "python",
+      "大模型",
+      "测试",
+      "设计",
+      "量化"
+    ],
+    "skills": [
+      "深度学习",
+      "自然语言处理",
+      "机器学习",
+      "TensorFlow",
+      "PyTorch",
+      "Keras",
+      "Python",
+      "C++",
+      "Java",
+      "文本分类",
+      "情感分析",
+      "机器翻译",
+      "Spark",
+      "Hadoop",
+      "分布式训练",
+      "模型剪枝",
+      "量化"
+    ],
+    "work_experience": [
+      "2021.09-2024.12 成都蓝星纪元科技有限公司 大模型算法\n负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。通过自定义分布式训练框架显著提升了训练效率，最终模型在多个基准测试中取得了SOTA性能。\n团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2021-09",
+        "end": "2024-12",
+        "company": "成都蓝星纪元科技有限公司",
+        "title_en": "Large Model Algorithm",
+        "title": "大模型算法",
+        "description_en": null,
+        "description": "负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。通过自定义分布式训练框架显著提升了训练效率，最终模型在多个基准测试中取得了SOTA性能。团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。",
+        "details_en": [
+          "Designed and implemented a large-scale pre-training model based on Transformer architecture with over 1 billion parameters.",
+          "Significantly improved training efficiency through a custom distributed training framework.",
+          "Achieved SOTA performance in multiple benchmark tests.",
+          "Developed an intelligent customer service system based on deep learning, realizing user intent recognition and dialogue management functions.",
+          "Increased customer satisfaction by 20% and reduced the burden on human customer service by 30% after the system went live."
+        ],
+        "details": [
+          "负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。",
+          "通过自定义分布式训练框架显著提升了训练效率。",
+          "最终模型在多个基准测试中取得了SOTA性能。",
+          "团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。",
+          "系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。"
+        ],
+        "duration_months": 40
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "具备多年算法开发和优化经验的算法专家，擅长机器学习、深度学习和计算机视觉领域。具备扎实的理论基础和丰富的实战经验，能够在高压环境下高效工作，善于团队协作和跨部门沟通。",
+    "other": null,
+    "work_years": 3,
+    "self_evaluation_zh": "具备多年算法开发和优化经验的算法专家，擅长机器学习、深度学习和计算机视觉领域。具备扎实的理论基础和丰富的实战经验，能够在高压环境下高效工作，善于团队协作和跨部门沟通。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.09-2024.12 成都蓝星纪元科技有限公司 大模型算法\n负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。通过自定义分布式训练框架显著提升了训练效率，最终模型在多个基准测试中取得了SOTA性能。\n团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-09",
+        "end": "2024-12",
+        "company": "成都蓝星纪元科技有限公司",
+        "title_en": "Large Model Algorithm",
+        "title": "大模型算法",
+        "description_en": null,
+        "description": "负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。通过自定义分布式训练框架显著提升了训练效率，最终模型在多个基准测试中取得了SOTA性能。团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。",
+        "details_en": [
+          "Designed and implemented a large-scale pre-training model based on Transformer architecture with over 1 billion parameters.",
+          "Significantly improved training efficiency through a custom distributed training framework.",
+          "Achieved SOTA performance in multiple benchmark tests.",
+          "Developed an intelligent customer service system based on deep learning, realizing user intent recognition and dialogue management functions.",
+          "Increased customer satisfaction by 20% and reduced the burden on human customer service by 30% after the system went live."
+        ],
+        "details": [
+          "负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。",
+          "通过自定义分布式训练框架显著提升了训练效率。",
+          "最终模型在多个基准测试中取得了SOTA性能。",
+          "团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。",
+          "系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。"
+        ],
+        "duration_months": 40,
+        "title_zh": "大模型算法",
+        "description_zh": "负责设计并实现了一款基于Transformer架构的超大规模预训练模型，模型参数量超过10亿。通过自定义分布式训练框架显著提升了训练效率，最终模型在多个基准测试中取得了SOTA性能。团队开发了一套基于深度学习的智能客服系统，实现了用户意图识别、对话管理等功能。系统上线后，客户满意度提高了20%，人工客服负担减轻了30%。",
+        "details_zh": [
+          "设计并实现了一个基于Transformer架构的大规模预训练模型，拥有超过10亿个参数。",
+          "通过自定义分布式训练框架显著提高了训练效率。",
+          "在多个基准测试中实现了SOTA性能。",
+          "基于深度学习开发了一个智能客服系统，实现了用户意图识别和对话管理功能。",
+          "系统上线后，客户满意度提高了20%，人力客服的负担减少了30%。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIAgent应用型大模型工程师深圳4060KJames4年.md",
+    "md_mostly_english": false
+  }
+}

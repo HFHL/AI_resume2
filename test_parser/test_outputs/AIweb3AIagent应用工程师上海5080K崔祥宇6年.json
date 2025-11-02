@@ -1,0 +1,239 @@
+{
+  "file_name": "AIweb3AIagent应用工程师上海5080K崔祥宇6年.md",
+  "parsed_at": "2025-10-21T16:34:08.138482",
+  "result": {
+    "resume_file_id": null,
+    "name": "崔祥宇",
+    "email": "xiangyucui@outlook.com",
+    "phone": "18698680522",
+    "education_degree": "硕士",
+    "education_school": [
+      "Northeastern University 东北大学",
+      "University of Nebraska-Lincoln 内布拉斯加大学林肯分校",
+      "Carnegie Mellon University 卡内基梅隆大学",
+      "Sun Yat-sen University 中山大学"
+    ],
+    "education_major": "人工智能",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "DBA",
+      "OP",
+      "PR",
+      "go",
+      "java",
+      "python",
+      "产品",
+      "全栈",
+      "前端",
+      "后端",
+      "安全",
+      "市场",
+      "数据分析",
+      "测试",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "Python",
+      "C语言",
+      "Java",
+      "SQL",
+      "React",
+      "Node.js",
+      "FastAPI",
+      "PostgreSQL",
+      "AWS",
+      "Docker"
+    ],
+    "work_experience": [
+      "2025.01-2025.07 King 7 Club (美国洛杉矶) 算法工程师 开发并部署了一个响应式 Web 应用程序，前端使用 React，后端使用 Node.js + FastAPI 构建模块化架构，支持动态 UI、自定义 JavaScript 逻辑和 CSS 动画。通过 GitHub 托管静态资源，使用 Docker 将全栈应用容器化，并部署到 AWS Lightsail，同时进行了内核优化以减少资源开销并提高运行时稳定性。使用 PostgreSQL 作为后端数据库，安全地管理用户数据，并使用简洁的 JSON 响应结构化 API 进行前端集成。实施了基于 DNS 的智能流量路由，通过 AWS Global Accelerator 为国际用户提供服务，并通过阿里云镜像部署为中国用户提供服务，将跨区域延迟降低了高达 90%。集成了 Google Analytics Reporting API，用于跟踪跨平台（抖音、小红书、YouTube）的用户行为，并通过实时仪表板和自动化洞察将后端运行效率提高了 80%。通过 CDN 和缓存策略提升了后端吞吐量和前端交付，实现了无缝的跨设备性能。部署人工智能驱动的流量分析模块，自动生成有关用户访问、内容性能和参与度趋势的每日和每周报告。",
+      "2024.01-2024.12 CAC Auto Group Inc (美国波士顿) 数据工程师 开发并维护了一个使用AWS无服务器架构的汽车预测定价系统,增强了市场竞争力和运营效率。该系统利用AWS服务如S3、Lambda、DynamoDB、SNS、CloudWatch和Kinesis进行实时数据处理,使用Python和AWS CloudFormation进行基础设施建设。实施了使用AWS Kinesis的实时监控,以跟踪市场数据波动,使系统能自动检测并响应价格偏差。这提高了公司网站上车辆定价的准确性,显著提升了运营效率和实时价格调整能力。设计并管理了一个结构化的AWS数据湖,以便BI团队高效访问数据,通过持续监控(使用AWS Step Functions、GlueData Catalog和Athena)改善了数据处理效率并保持了高数据质量。通过使用AWS CloudFormation实现可复制的基础设施,自动化SNS通知系统警报,并利用Bamboo从Bitbucket建立连续集成工作流,增强了系统可靠性并将开发成本降低了 70%,以简化部署。",
+      "2023.07-2023.08 中科浩博国际教育科技（北京）有限公司 助教 支持主讲教师(美国卡耐基梅隆大学)与副讲师(中国中山大学)记录关键课程内容和流程,组织和辅导讲座中未完全涵盖的主题,以加深学生对跨学科知识和学习框架的理解。完善不同专业的学生对计算机传感器与机器人的理解,帮助不同阶段学生了解课程内容。在课程平台上为每堂课撰写了400字的摘要以帮助学生复习,并在需要额外帮助的学生的课后辅导时间中进行跟进,确保他们的学术成功。",
+      "2022.12-2023.06 AlpaLifeBio Inc (美国波士顿) 软件工程师或数据工程师 开发了一个高容量的AWS流数据管道,自动从多个公共数据库中摄取生物医学数据到Kinesis Data Stream。该强大系统每天处理超过500,000条数据,使用Lambda进行实时数据传输,并利用S3和DynamoDB进行高效、可扩展的存储和检索,降低了延迟和运营成本。配置并优化了一个结构化的SQL数据库,以整合和简化来自多种生物医学来源的数据。实施了一个高效的标签处理系统,将数据检索时间缩短了 80%,显著增强了数据的可访问性和分析效用。应用高级数据匹配算法,包括TF-IDF技术,进行详细的数据比较,成功地以 95% 的准确率识别潜在客户档案。此方法有效地支持了针对性的营销策略,通过精确地定位生物医学领域的高价值客户。通过设置DynamoDB Streams进行实时数据更新通知,并利用Lambda函数通过Amazon SES自动化警报过程,增强了系统的响应能力。这种设置将响应时间提高了 30%,并简化了整个数据更新工作流程。",
+      "2020.10-2022.04 Dutchgo LLC (美国奥马哈) 软件工程师 使用 AWS S3 和 Lambda 开发并部署了一个预测性的随机森林模型,实现了 98% 的准确率,有效地识别出高潜力用户档案,显著提升了营销效果。创建了一个与 AWS Glue 自动化的数据 ETL 框架,将数据整合到 DynamoDB,并使用 SageMaker 回归模型预测收入趋势,准确率达到 85%,支持战略决策。实时监控与用户体验优化:运用人机交互(HCI)原则和 AWS Amplify 快速测试并部署用户友好的原型,同时使用与AWS Kinesis 集成的 Tableau 仪表板进行实时数据监控,加速决策过程,提高了 30% 的决策速度。",
+      "2019.01-2020.09 郑州追光信息科技有限公司 软件产品经理 分析客户需求，绘制活动图并设计初步的UML页面功能场景，启动Web和App端定制化软件的开发工作，确保系统功能贴合客户业务流程。使用高级SQL查询与Python对超过50GB的市场同类产品数据进行分析，挖掘客户使用模式与业务需求。对数值型、类别型与时间序列数据开展探索性数据分析，运用Matplotlib和Seaborn进行可视化；基于120个特征构建多变量时间序列聚类模型，采用DTW（动态时间规整）结合层次聚类进行客户分群与市场细分，并通过DBA（DTW重心平均）描述聚类中心。训练市场需求预测模型，包括孤立森林（Isolation Forest）、稳健主成分分析（Robust PCA）、线性回归模型与随机森林，用于识别与响应客户潜在需求。使用Tableau搭建可视化仪表盘，展示客户使用行为，并为客户提供分析报告与改进建议。拥有与中小型企业合作的软件系统外包开发经验，涵盖需求分析、定制开发、数据分析与可视化全流程。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2023.09-2023.12 基于BERT与GPT-2的亚马逊商品问答机器人建模与性能比较 本项目旨在构建一个面向电商场景的问答系统，基于亚马逊商品评论数据，对比分析了两种主流自然语言处理模型——BERT与GPT-2在商品问答任务中的表现差异。通过对模型的训练、测试、交叉验证及消融实验，评估其在不同问答场景下的适用性，为构建类人客服机器人提供了实证参考。技术栈：Python, PyTorch, Hugging Face Transformers, NLP模型：BERT（Encoder-only）、GPT-2（Decoder-only），训练方法：微调（Fine-tuning）、K折交叉验证、超参数搜索，损失函数与评估指标：CrossEntropy Loss、BLEU Score、Accuracy，硬件支持：NVIDIA 3060Ti / 3090 GPU 加速训练。",
+      "2022.09-2022.12 基于回归的监督学习用于预测薄壁风塔截面焊缝凹陷轮廓 论文目标是通过回归模型预测焊缝凹陷的形状，为设计和制造阶段提供数据支持，从而提升塔筒的可靠性和可持续性。建模方法：设计并比较了三个监督学习模型来拟合焊缝凹陷剖面。评估方法：使用四种评估指标对模型进行训练集与测试集性能评估，结论是：神经网络模型在预测风电塔焊缝凹陷方面表现最佳，具有更强的泛化能力，适合实际应用。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2025-01",
+        "end": "2025-07",
+        "company": "King 7 Club (美国洛杉矶",
+        "title": "算法工程师 开发并部署了一个响应式 Web 应用程序",
+        "description": "，前端使用 React，后端使用 Node.js + FastAPI 构建模块化架构，支持动态 UI、自定义 JavaScript 逻辑和 CSS 动画。通过 GitHub 托管静态资源，使用 Docker 将全栈应用容器化，并部署到 AWS Lightsail，同时进行了内核优化以减少资源开销并提高运行时稳定性。使用 PostgreSQL 作为后端数据库，安全地管理用户数据，并使用简洁的 JSON 响应结构化 API 进行前端集成。实施了基于 DNS 的智能流量路由，通过 AWS Global Accelerator 为国际用户提供服务，并通过阿里云镜像部署为中国用户提供服务，将跨区域延迟降低了高达 90%。集成了 Google Analytics Reporting API，用于跟踪跨平台（抖音、小红书、YouTube）的用户行为，并通过实时仪表板和自动化洞察将后端运行效率提高了 80%。通过 CDN 和缓存策略提升了后端吞吐量和前端交付，实现了无缝的跨设备性能。部署人工智能驱动的流量分析模块，自动生成有关用户访问、内容性能和参与度趋势的每日和每周报告。",
+        "duration_months": 7
+      },
+      {
+        "start": "2024-01",
+        "end": "2024-12",
+        "company": "CAC Auto Group Inc (美国波士顿",
+        "title": "数据工程师 开发并维护了一个使用AWS无服务器架构的汽车预测定价系统",
+        "description": ",增强了市场竞争力和运营效率。该系统利用AWS服务如S3、Lambda、DynamoDB、SNS、CloudWatch和Kinesis进行实时数据处理,使用Python和AWS CloudFormation进行基础设施建设。实施了使用AWS Kinesis的实时监控,以跟踪市场数据波动,使系统能自动检测并响应价格偏差。这提高了公司网站上车辆定价的准确性,显著提升了运营效率和实时价格调整能力。设计并管理了一个结构化的AWS数据湖,以便BI团队高效访问数据,通过持续监控(使用AWS Step Functions、GlueData Catalog和Athena)改善了数据处理效率并保持了高数据质量。通过使用AWS CloudFormation实现可复制的基础设施,自动化SNS通知系统警报,并利用Bamboo从Bitbucket建立连续集成工作流,增强了系统可靠性并将开发成本降低了 70%,以简化部署。",
+        "duration_months": 12
+      },
+      {
+        "start": "2023-07",
+        "end": "2023-08",
+        "company": "中科浩博国际教育科技（北京）有限公司 助教",
+        "title": "支持主讲教师(美国卡耐基梅隆大学)与副讲师(中国中山大学)记录关键课程内容和流程",
+        "description": ",组织和辅导讲座中未完全涵盖的主题,以加深学生对跨学科知识和学习框架的理解。完善不同专业的学生对计算机传感器与机器人的理解,帮助不同阶段学生了解课程内容。在课程平台上为每堂课撰写了400字的摘要以帮助学生复习,并在需要额外帮助的学生的课后辅导时间中进行跟进,确保他们的学术成功。",
+        "duration_months": 2
+      },
+      {
+        "start": "2022-12",
+        "end": "2023-06",
+        "company": "AlpaLifeBio Inc (美国波士顿) 软件",
+        "title": "工程师或数据工程师 开发了一个高容量的AWS流数据管道",
+        "description": ",自动从多个公共数据库中摄取生物医学数据到Kinesis Data Stream。该强大系统每天处理超过500,000条数据,使用Lambda进行实时数据传输,并利用S3和DynamoDB进行高效、可扩展的存储和检索,降低了延迟和运营成本。配置并优化了一个结构化的SQL数据库,以整合和简化来自多种生物医学来源的数据。实施了一个高效的标签处理系统,将数据检索时间缩短了 80%,显著增强了数据的可访问性和分析效用。应用高级数据匹配算法,包括TF-IDF技术,进行详细的数据比较,成功地以 95% 的准确率识别潜在客户档案。此方法有效地支持了针对性的营销策略,通过精确地定位生物医学领域的高价值客户。通过设置DynamoDB Streams进行实时数据更新通知,并利用Lambda函数通过Amazon SES自动化警报过程,增强了系统的响应能力。这种设置将响应时间提高了 30%,并简化了整个数据更新工作流程。",
+        "duration_months": 7
+      },
+      {
+        "start": "2020-10",
+        "end": "2022-04",
+        "company": "Dutchgo LLC (美国奥马哈) 软件",
+        "title": "工程师 使用 AWS S3 和 Lambda 开发并部署了一个预测性的随机森林模型",
+        "description": ",实现了 98% 的准确率,有效地识别出高潜力用户档案,显著提升了营销效果。创建了一个与 AWS Glue 自动化的数据 ETL 框架,将数据整合到 DynamoDB,并使用 SageMaker 回归模型预测收入趋势,准确率达到 85%,支持战略决策。实时监控与用户体验优化:运用人机交互(HCI)原则和 AWS Amplify 快速测试并部署用户友好的原型,同时使用与AWS Kinesis 集成的 Tableau 仪表板进行实时数据监控,加速决策过程,提高了 30% 的决策速度。",
+        "duration_months": 19
+      },
+      {
+        "start": "2019-01",
+        "end": "2020-09",
+        "company": "郑州追光信息科技有限公司 软件",
+        "title": "产品经理 分析客户需求",
+        "description": "，绘制活动图并设计初步的UML页面功能场景，启动Web和App端定制化软件的开发工作，确保系统功能贴合客户业务流程。使用高级SQL查询与Python对超过50GB的市场同类产品数据进行分析，挖掘客户使用模式与业务需求。对数值型、类别型与时间序列数据开展探索性数据分析，运用Matplotlib和Seaborn进行可视化；基于120个特征构建多变量时间序列聚类模型，采用DTW（动态时间规整）结合层次聚类进行客户分群与市场细分，并通过DBA（DTW重心平均）描述聚类中心。训练市场需求预测模型，包括孤立森林（Isolation Forest）、稳健主成分分析（Robust PCA）、线性回归模型与随机森林，用于识别与响应客户潜在需求。使用Tableau搭建可视化仪表盘，展示客户使用行为，并为客户提供分析报告与改进建议。拥有与中小型企业合作的软件系统外包开发经验，涵盖需求分析、定制开发、数据分析与可视化全流程。",
+        "duration_months": 21
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2023-09",
+        "end": "2023-12",
+        "company": "基于BERT与GPT-2的亚马逊商品问答机器人建模与性能比较",
+        "title_en": null,
+        "title": null,
+        "description_en": "This project aims to build a question-answering system for e-commerce scenarios, comparing and analyzing the performance differences of two mainstream natural language processing models—BERT and GPT-2—in product Q&A tasks based on Amazon product review data. Through model training, testing, cross-validation, and ablation experiments, it evaluates their applicability in different Q&A scenarios, providing empirical references for building human-like customer service robots.",
+        "description": "本项目旨在构建一个面向电商场景的问答系统，基于亚马逊商品评论数据，对比分析了两种主流自然语言处理模型——BERT与GPT-2在商品问答任务中的表现差异。通过对模型的训练、测试、交叉验证及消融实验，评估其在不同问答场景下的适用性，为构建类人客服机器人提供了实证参考。",
+        "details_en": [
+          "Technical stack: Python, PyTorch, Hugging Face Transformers",
+          "Training methods: Fine-tuning, K-fold cross-validation, hyperparameter search",
+          "Loss function and evaluation metrics: CrossEntropy Loss, BLEU Score, Accuracy",
+          "Hardware support: NVIDIA 3060Ti / 3090 GPU for accelerated training"
+        ],
+        "details": [
+          "技术栈：Python, PyTorch, Hugging Face Transformers",
+          "NLP模型：BERT（Encoder-only）、GPT-2（Decoder-only）",
+          "训练方法：微调（Fine-tuning）、K折交叉验证、超参数搜索",
+          "损失函数与评估指标：CrossEntropy Loss、BLEU Score、Accuracy",
+          "硬件支持：NVIDIA 3060Ti / 3090 GPU 加速训练"
+        ],
+        "duration_months": 4
+      },
+      {
+        "start": "2022-09",
+        "end": "2022-12",
+        "company": "基于回归的监督学习用于预测薄壁风塔截面焊缝凹陷轮廓",
+        "title_en": null,
+        "title": null,
+        "description_en": "The paper aims to predict the shape of weld seam depressions through regression models, providing data support for the design and manufacturing stages, thereby enhancing the reliability and sustainability of the tower. Modeling method: Designed and compared three supervised learning models to fit the weld seam depression profile. Evaluation method: Used four evaluation metrics to assess the performance of the models on training and testing sets, concluding that the neural network model performs best in predicting weld seam depressions in wind power towers, with stronger generalization ability suitable for practical applications.",
+        "description": "论文目标是通过回归模型预测焊缝凹陷的形状，为设计和制造阶段提供数据支持，从而提升塔筒的可靠性和可持续性。建模方法：设计并比较了三个监督学习模型来拟合焊缝凹陷剖面。评估方法：使用四种评估指标对模型进行训练集与测试集性能评估，结论是：神经网络模型在预测风电塔焊缝凹陷方面表现最佳，具有更强的泛化能力，适合实际应用。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 4
+      }
+    ],
+    "self_evaluation": "全栈开发能力强，架构设计成熟，云计算与无服务器架构实践经验丰富，AI 驱动的数据分析与自动化落地，项目推动力强，沟通能力与协作能力突出且中英文双语流利，跨文化适应性强。",
+    "other": null,
+    "work_years": 5,
+    "self_evaluation_zh": "全栈开发能力强，架构设计成熟，云计算与无服务器架构实践经验丰富，AI 驱动的数据分析与自动化落地，项目推动力强，沟通能力与协作能力突出且中英文双语流利，跨文化适应性强。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2025.01-2025.07 King 7 Club (美国洛杉矶) 算法工程师 开发并部署了一个响应式 Web 应用程序，前端使用 React，后端使用 Node.js + FastAPI 构建模块化架构，支持动态 UI、自定义 JavaScript 逻辑和 CSS 动画。通过 GitHub 托管静态资源，使用 Docker 将全栈应用容器化，并部署到 AWS Lightsail，同时进行了内核优化以减少资源开销并提高运行时稳定性。使用 PostgreSQL 作为后端数据库，安全地管理用户数据，并使用简洁的 JSON 响应结构化 API 进行前端集成。实施了基于 DNS 的智能流量路由，通过 AWS Global Accelerator 为国际用户提供服务，并通过阿里云镜像部署为中国用户提供服务，将跨区域延迟降低了高达 90%。集成了 Google Analytics Reporting API，用于跟踪跨平台（抖音、小红书、YouTube）的用户行为，并通过实时仪表板和自动化洞察将后端运行效率提高了 80%。通过 CDN 和缓存策略提升了后端吞吐量和前端交付，实现了无缝的跨设备性能。部署人工智能驱动的流量分析模块，自动生成有关用户访问、内容性能和参与度趋势的每日和每周报告。",
+      "2024.01-2024.12 CAC Auto Group Inc (美国波士顿) 数据工程师 开发并维护了一个使用AWS无服务器架构的汽车预测定价系统,增强了市场竞争力和运营效率。该系统利用AWS服务如S3、Lambda、DynamoDB、SNS、CloudWatch和Kinesis进行实时数据处理,使用Python和AWS CloudFormation进行基础设施建设。实施了使用AWS Kinesis的实时监控,以跟踪市场数据波动,使系统能自动检测并响应价格偏差。这提高了公司网站上车辆定价的准确性,显著提升了运营效率和实时价格调整能力。设计并管理了一个结构化的AWS数据湖,以便BI团队高效访问数据,通过持续监控(使用AWS Step Functions、GlueData Catalog和Athena)改善了数据处理效率并保持了高数据质量。通过使用AWS CloudFormation实现可复制的基础设施,自动化SNS通知系统警报,并利用Bamboo从Bitbucket建立连续集成工作流,增强了系统可靠性并将开发成本降低了 70%,以简化部署。",
+      "2023.07-2023.08 中科浩博国际教育科技（北京）有限公司 助教 支持主讲教师(美国卡耐基梅隆大学)与副讲师(中国中山大学)记录关键课程内容和流程,组织和辅导讲座中未完全涵盖的主题,以加深学生对跨学科知识和学习框架的理解。完善不同专业的学生对计算机传感器与机器人的理解,帮助不同阶段学生了解课程内容。在课程平台上为每堂课撰写了400字的摘要以帮助学生复习,并在需要额外帮助的学生的课后辅导时间中进行跟进,确保他们的学术成功。",
+      "2022.12-2023.06 AlpaLifeBio Inc (美国波士顿) 软件工程师或数据工程师 开发了一个高容量的AWS流数据管道,自动从多个公共数据库中摄取生物医学数据到Kinesis Data Stream。该强大系统每天处理超过500,000条数据,使用Lambda进行实时数据传输,并利用S3和DynamoDB进行高效、可扩展的存储和检索,降低了延迟和运营成本。配置并优化了一个结构化的SQL数据库,以整合和简化来自多种生物医学来源的数据。实施了一个高效的标签处理系统,将数据检索时间缩短了 80%,显著增强了数据的可访问性和分析效用。应用高级数据匹配算法,包括TF-IDF技术,进行详细的数据比较,成功地以 95% 的准确率识别潜在客户档案。此方法有效地支持了针对性的营销策略,通过精确地定位生物医学领域的高价值客户。通过设置DynamoDB Streams进行实时数据更新通知,并利用Lambda函数通过Amazon SES自动化警报过程,增强了系统的响应能力。这种设置将响应时间提高了 30%,并简化了整个数据更新工作流程。",
+      "2020.10-2022.04 Dutchgo LLC (美国奥马哈) 软件工程师 使用 AWS S3 和 Lambda 开发并部署了一个预测性的随机森林模型,实现了 98% 的准确率,有效地识别出高潜力用户档案,显著提升了营销效果。创建了一个与 AWS Glue 自动化的数据 ETL 框架,将数据整合到 DynamoDB,并使用 SageMaker 回归模型预测收入趋势,准确率达到 85%,支持战略决策。实时监控与用户体验优化:运用人机交互(HCI)原则和 AWS Amplify 快速测试并部署用户友好的原型,同时使用与AWS Kinesis 集成的 Tableau 仪表板进行实时数据监控,加速决策过程,提高了 30% 的决策速度。",
+      "2019.01-2020.09 郑州追光信息科技有限公司 软件产品经理 分析客户需求，绘制活动图并设计初步的UML页面功能场景，启动Web和App端定制化软件的开发工作，确保系统功能贴合客户业务流程。使用高级SQL查询与Python对超过50GB的市场同类产品数据进行分析，挖掘客户使用模式与业务需求。对数值型、类别型与时间序列数据开展探索性数据分析，运用Matplotlib和Seaborn进行可视化；基于120个特征构建多变量时间序列聚类模型，采用DTW（动态时间规整）结合层次聚类进行客户分群与市场细分，并通过DBA（DTW重心平均）描述聚类中心。训练市场需求预测模型，包括孤立森林（Isolation Forest）、稳健主成分分析（Robust PCA）、线性回归模型与随机森林，用于识别与响应客户潜在需求。使用Tableau搭建可视化仪表盘，展示客户使用行为，并为客户提供分析报告与改进建议。拥有与中小型企业合作的软件系统外包开发经验，涵盖需求分析、定制开发、数据分析与可视化全流程。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2023.09-2023.12 基于BERT与GPT-2的亚马逊商品问答机器人建模与性能比较 本项目旨在构建一个面向电商场景的问答系统，基于亚马逊商品评论数据，对比分析了两种主流自然语言处理模型——BERT与GPT-2在商品问答任务中的表现差异。通过对模型的训练、测试、交叉验证及消融实验，评估其在不同问答场景下的适用性，为构建类人客服机器人提供了实证参考。技术栈：Python, PyTorch, Hugging Face Transformers, NLP模型：BERT（Encoder-only）、GPT-2（Decoder-only），训练方法：微调（Fine-tuning）、K折交叉验证、超参数搜索，损失函数与评估指标：CrossEntropy Loss、BLEU Score、Accuracy，硬件支持：NVIDIA 3060Ti / 3090 GPU 加速训练。",
+      "2022.09-2022.12 基于回归的监督学习用于预测薄壁风塔截面焊缝凹陷轮廓 论文目标是通过回归模型预测焊缝凹陷的形状，为设计和制造阶段提供数据支持，从而提升塔筒的可靠性和可持续性。建模方法：设计并比较了三个监督学习模型来拟合焊缝凹陷剖面。评估方法：使用四种评估指标对模型进行训练集与测试集性能评估，结论是：神经网络模型在预测风电塔焊缝凹陷方面表现最佳，具有更强的泛化能力，适合实际应用。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2025-01",
+        "end": "2025-07",
+        "company": "King 7 Club (美国洛杉矶",
+        "title": "算法工程师 开发并部署了一个响应式 Web 应用程序",
+        "description": "，前端使用 React，后端使用 Node.js + FastAPI 构建模块化架构，支持动态 UI、自定义 JavaScript 逻辑和 CSS 动画。通过 GitHub 托管静态资源，使用 Docker 将全栈应用容器化，并部署到 AWS Lightsail，同时进行了内核优化以减少资源开销并提高运行时稳定性。使用 PostgreSQL 作为后端数据库，安全地管理用户数据，并使用简洁的 JSON 响应结构化 API 进行前端集成。实施了基于 DNS 的智能流量路由，通过 AWS Global Accelerator 为国际用户提供服务，并通过阿里云镜像部署为中国用户提供服务，将跨区域延迟降低了高达 90%。集成了 Google Analytics Reporting API，用于跟踪跨平台（抖音、小红书、YouTube）的用户行为，并通过实时仪表板和自动化洞察将后端运行效率提高了 80%。通过 CDN 和缓存策略提升了后端吞吐量和前端交付，实现了无缝的跨设备性能。部署人工智能驱动的流量分析模块，自动生成有关用户访问、内容性能和参与度趋势的每日和每周报告。",
+        "duration_months": 7,
+        "title_zh": "算法工程师 开发并部署了一个响应式 Web 应用程序",
+        "description_zh": "，前端使用 React，后端使用 Node.js + FastAPI 构建模块化架构，支持动态 UI、自定义 JavaScript 逻辑和 CSS 动画。通过 GitHub 托管静态资源，使用 Docker 将全栈应用容器化，并部署到 AWS Lightsail，同时进行了内核优化以减少资源开销并提高运行时稳定性。使用 PostgreSQL 作为后端数据库，安全地管理用户数据，并使用简洁的 JSON 响应结构化 API 进行前端集成。实施了基于 DNS 的智能流量路由，通过 AWS Global Accelerator 为国际用户提供服务，并通过阿里云镜像部署为中国用户提供服务，将跨区域延迟降低了高达 90%。集成了 Google Analytics Reporting API，用于跟踪跨平台（抖音、小红书、YouTube）的用户行为，并通过实时仪表板和自动化洞察将后端运行效率提高了 80%。通过 CDN 和缓存策略提升了后端吞吐量和前端交付，实现了无缝的跨设备性能。部署人工智能驱动的流量分析模块，自动生成有关用户访问、内容性能和参与度趋势的每日和每周报告。"
+      },
+      {
+        "start": "2024-01",
+        "end": "2024-12",
+        "company": "CAC Auto Group Inc (美国波士顿",
+        "title": "数据工程师 开发并维护了一个使用AWS无服务器架构的汽车预测定价系统",
+        "description": ",增强了市场竞争力和运营效率。该系统利用AWS服务如S3、Lambda、DynamoDB、SNS、CloudWatch和Kinesis进行实时数据处理,使用Python和AWS CloudFormation进行基础设施建设。实施了使用AWS Kinesis的实时监控,以跟踪市场数据波动,使系统能自动检测并响应价格偏差。这提高了公司网站上车辆定价的准确性,显著提升了运营效率和实时价格调整能力。设计并管理了一个结构化的AWS数据湖,以便BI团队高效访问数据,通过持续监控(使用AWS Step Functions、GlueData Catalog和Athena)改善了数据处理效率并保持了高数据质量。通过使用AWS CloudFormation实现可复制的基础设施,自动化SNS通知系统警报,并利用Bamboo从Bitbucket建立连续集成工作流,增强了系统可靠性并将开发成本降低了 70%,以简化部署。",
+        "duration_months": 12,
+        "title_zh": "数据工程师 开发并维护了一个使用AWS无服务器架构的汽车预测定价系统",
+        "description_zh": ",增强了市场竞争力和运营效率。该系统利用AWS服务如S3、Lambda、DynamoDB、SNS、CloudWatch和Kinesis进行实时数据处理,使用Python和AWS CloudFormation进行基础设施建设。实施了使用AWS Kinesis的实时监控,以跟踪市场数据波动,使系统能自动检测并响应价格偏差。这提高了公司网站上车辆定价的准确性,显著提升了运营效率和实时价格调整能力。设计并管理了一个结构化的AWS数据湖,以便BI团队高效访问数据,通过持续监控(使用AWS Step Functions、GlueData Catalog和Athena)改善了数据处理效率并保持了高数据质量。通过使用AWS CloudFormation实现可复制的基础设施,自动化SNS通知系统警报,并利用Bamboo从Bitbucket建立连续集成工作流,增强了系统可靠性并将开发成本降低了 70%,以简化部署。"
+      },
+      {
+        "start": "2023-07",
+        "end": "2023-08",
+        "company": "中科浩博国际教育科技（北京）有限公司 助教",
+        "title": "支持主讲教师(美国卡耐基梅隆大学)与副讲师(中国中山大学)记录关键课程内容和流程",
+        "description": ",组织和辅导讲座中未完全涵盖的主题,以加深学生对跨学科知识和学习框架的理解。完善不同专业的学生对计算机传感器与机器人的理解,帮助不同阶段学生了解课程内容。在课程平台上为每堂课撰写了400字的摘要以帮助学生复习,并在需要额外帮助的学生的课后辅导时间中进行跟进,确保他们的学术成功。",
+        "duration_months": 2,
+        "title_zh": "支持主讲教师(美国卡耐基梅隆大学)与副讲师(中国中山大学)记录关键课程内容和流程",
+        "description_zh": ",组织和辅导讲座中未完全涵盖的主题,以加深学生对跨学科知识和学习框架的理解。完善不同专业的学生对计算机传感器与机器人的理解,帮助不同阶段学生了解课程内容。在课程平台上为每堂课撰写了400字的摘要以帮助学生复习,并在需要额外帮助的学生的课后辅导时间中进行跟进,确保他们的学术成功。"
+      },
+      {
+        "start": "2022-12",
+        "end": "2023-06",
+        "company": "AlpaLifeBio Inc (美国波士顿) 软件",
+        "title": "工程师或数据工程师 开发了一个高容量的AWS流数据管道",
+        "description": ",自动从多个公共数据库中摄取生物医学数据到Kinesis Data Stream。该强大系统每天处理超过500,000条数据,使用Lambda进行实时数据传输,并利用S3和DynamoDB进行高效、可扩展的存储和检索,降低了延迟和运营成本。配置并优化了一个结构化的SQL数据库,以整合和简化来自多种生物医学来源的数据。实施了一个高效的标签处理系统,将数据检索时间缩短了 80%,显著增强了数据的可访问性和分析效用。应用高级数据匹配算法,包括TF-IDF技术,进行详细的数据比较,成功地以 95% 的准确率识别潜在客户档案。此方法有效地支持了针对性的营销策略,通过精确地定位生物医学领域的高价值客户。通过设置DynamoDB Streams进行实时数据更新通知,并利用Lambda函数通过Amazon SES自动化警报过程,增强了系统的响应能力。这种设置将响应时间提高了 30%,并简化了整个数据更新工作流程。",
+        "duration_months": 7,
+        "title_zh": "工程师或数据工程师 开发了一个高容量的AWS流数据管道",
+        "description_zh": ",自动从多个公共数据库中摄取生物医学数据到Kinesis Data Stream。该强大系统每天处理超过500,000条数据,使用Lambda进行实时数据传输,并利用S3和DynamoDB进行高效、可扩展的存储和检索,降低了延迟和运营成本。配置并优化了一个结构化的SQL数据库,以整合和简化来自多种生物医学来源的数据。实施了一个高效的标签处理系统,将数据检索时间缩短了 80%,显著增强了数据的可访问性和分析效用。应用高级数据匹配算法,包括TF-IDF技术,进行详细的数据比较,成功地以 95% 的准确率识别潜在客户档案。此方法有效地支持了针对性的营销策略,通过精确地定位生物医学领域的高价值客户。通过设置DynamoDB Streams进行实时数据更新通知,并利用Lambda函数通过Amazon SES自动化警报过程,增强了系统的响应能力。这种设置将响应时间提高了 30%,并简化了整个数据更新工作流程。"
+      },
+      {
+        "start": "2020-10",
+        "end": "2022-04",
+        "company": "Dutchgo LLC (美国奥马哈) 软件",
+        "title": "工程师 使用 AWS S3 和 Lambda 开发并部署了一个预测性的随机森林模型",
+        "description": ",实现了 98% 的准确率,有效地识别出高潜力用户档案,显著提升了营销效果。创建了一个与 AWS Glue 自动化的数据 ETL 框架,将数据整合到 DynamoDB,并使用 SageMaker 回归模型预测收入趋势,准确率达到 85%,支持战略决策。实时监控与用户体验优化:运用人机交互(HCI)原则和 AWS Amplify 快速测试并部署用户友好的原型,同时使用与AWS Kinesis 集成的 Tableau 仪表板进行实时数据监控,加速决策过程,提高了 30% 的决策速度。",
+        "duration_months": 19,
+        "title_zh": "工程师 使用 AWS S3 和 Lambda 开发并部署了一个预测性的随机森林模型",
+        "description_zh": ",实现了 98% 的准确率,有效地识别出高潜力用户档案,显著提升了营销效果。创建了一个与 AWS Glue 自动化的数据 ETL 框架,将数据整合到 DynamoDB,并使用 SageMaker 回归模型预测收入趋势,准确率达到 85%,支持战略决策。实时监控与用户体验优化:运用人机交互(HCI)原则和 AWS Amplify 快速测试并部署用户友好的原型,同时使用与AWS Kinesis 集成的 Tableau 仪表板进行实时数据监控,加速决策过程,提高了 30% 的决策速度。"
+      },
+      {
+        "start": "2019-01",
+        "end": "2020-09",
+        "company": "郑州追光信息科技有限公司 软件",
+        "title": "产品经理 分析客户需求",
+        "description": "，绘制活动图并设计初步的UML页面功能场景，启动Web和App端定制化软件的开发工作，确保系统功能贴合客户业务流程。使用高级SQL查询与Python对超过50GB的市场同类产品数据进行分析，挖掘客户使用模式与业务需求。对数值型、类别型与时间序列数据开展探索性数据分析，运用Matplotlib和Seaborn进行可视化；基于120个特征构建多变量时间序列聚类模型，采用DTW（动态时间规整）结合层次聚类进行客户分群与市场细分，并通过DBA（DTW重心平均）描述聚类中心。训练市场需求预测模型，包括孤立森林（Isolation Forest）、稳健主成分分析（Robust PCA）、线性回归模型与随机森林，用于识别与响应客户潜在需求。使用Tableau搭建可视化仪表盘，展示客户使用行为，并为客户提供分析报告与改进建议。拥有与中小型企业合作的软件系统外包开发经验，涵盖需求分析、定制开发、数据分析与可视化全流程。",
+        "duration_months": 21,
+        "title_zh": "产品经理 分析客户需求",
+        "description_zh": "，绘制活动图并设计初步的UML页面功能场景，启动Web和App端定制化软件的开发工作，确保系统功能贴合客户业务流程。使用高级SQL查询与Python对超过50GB的市场同类产品数据进行分析，挖掘客户使用模式与业务需求。对数值型、类别型与时间序列数据开展探索性数据分析，运用Matplotlib和Seaborn进行可视化；基于120个特征构建多变量时间序列聚类模型，采用DTW（动态时间规整）结合层次聚类进行客户分群与市场细分，并通过DBA（DTW重心平均）描述聚类中心。训练市场需求预测模型，包括孤立森林（Isolation Forest）、稳健主成分分析（Robust PCA）、线性回归模型与随机森林，用于识别与响应客户潜在需求。使用Tableau搭建可视化仪表盘，展示客户使用行为，并为客户提供分析报告与改进建议。拥有与中小型企业合作的软件系统外包开发经验，涵盖需求分析、定制开发、数据分析与可视化全流程。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AIagent应用工程师上海5080K崔祥宇6年.md",
+    "md_mostly_english": false
+  }
+}

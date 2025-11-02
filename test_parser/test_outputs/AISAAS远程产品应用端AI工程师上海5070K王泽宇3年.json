@@ -1,0 +1,231 @@
+{
+  "file_name": "AISAAS远程产品应用端AI工程师上海5070K王泽宇3年.md",
+  "parsed_at": "2025-10-21T16:20:19.268172",
+  "result": {
+    "resume_file_id": null,
+    "name": "Zeyu Wang",
+    "email": null,
+    "phone": null,
+    "education_degree": "PhD",
+    "education_school": [
+      "University of California, Los 加利福尼亚大学，洛杉矶"
+    ],
+    "education_major": "Computer Engineering 计算机工程",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "BD",
+      "DID",
+      "LangChain",
+      "OP",
+      "PR",
+      "RAG",
+      "defi",
+      "iOS",
+      "多模态",
+      "大语言模型",
+      "数据分析"
+    ],
+    "skills": [
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Large Language Model",
+      "Reinforcement Learning",
+      "Data Preprocessing",
+      "Feature Engineering",
+      "Anomaly Detection",
+      "Dynamic Pricing",
+      "Time-Series Forecasting",
+      "Graph Neural Networks"
+    ],
+    "work_experience": [
+      "Machine Learning Engineer, Amazon, Inc\nResearcher of Language Understanding Synthesis Lab of UCLA\n\nAI Agent for Intelligent Risk Detection and Prevention\n● Developed and deployed an AI-powered agent for real-time risk detection and decision automation, integrating LLMs and anomaly detection for enhanced accuracy.\n● Designed and optimized data preprocessing pipelines, feature engineering techniques, and model training workflows, leveraging supervised learning and self-adaptive AI agent strategies.\n● Implemented Function Calling to enable AI agents to dynamically interact with external data sources and APIs, improving real-time adaptability in risk assessment.\n● Deployed the AI agent using AWS (S3 for storage, Lambda for compute, SageMaker for model deployment), ensuring scalability, efficiency, and robust model lifecycle management.\n● Automated agent retraining and self-improvement mechanisms, enabling continuous learning from new patterns and reducing false positives in risk assessments. Collaborated with cross-functional teams to integrate the AI agent into production environments, achieving a 20% improvement in response time and increasing decision accuracy.",
+      "Real-Time AI-Driven Dynamic Pricing and Bidding System\n● Developed a real-time dynamic pricing engine using reinforcement learning and time-series forecasting (LSTM, Transformer) to optimize price adjustments across millions of products.\n● Designed a low-latency bid optimization model for Amazon Advertising, leveraging multi-armed bandits and deep Q-learning to dynamically adjust ad bids, increasing ROI by 12%.\n● Built a millisecond-level competitive pricing system, integrating real-time competitor price tracking and demand forecasting to maximize revenue efficiency.\n● Optimized pricing decision latency using AWS Lambda, Redis caching, and ONNX-accelerated inference, reducing price update delays by 30% while handling millions of requests per second.\n● Developed an anomaly detection system using Graph Neural Networks (GNNs) and Isolation Forests, reducing pricing errors and fraudulent activities by 25%.\n● Deployed the system using AWS SageMaker, Kinesis, and EC2, supporting billions of daily updates with 99.999% uptime and automated scalability."
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "Language Understanding & Synthesis Lab of UCLA\nLLM Causal Reasoning: Developed fundamental causal reasoning evaluation benchmark to assess LLMs causal reasoning capability. (published paper for ACL 2024)\n● Causal Reasoning Benchmark Development: Designed and curated a comprehensive dataset aimed at evaluating the causal reasoning ability of large language models (LLMs).\n● Causal Inference Engine: Developed a Causal Inference Engine to automatically generate causal hypotheses and label pairs based on predefined causal relationships, ensuring high-quality, diverse causal scenarios for testing.\n● Experimental Evaluation Framework: Conducted extensive evaluations across multiple types of causal queries to measure LLM performance, identifying key limitations in current models and setting a new standard for causal reasoning assessment in NLP research.",
+      "AI Agent Development and Fine-Tuning for Intelligent Automation\n● Developed and fine-tuned AI agents for complex decision-making tasks, leveraging large language models (LLMs) and adaptive reasoning techniques to enhance automation capabilities.\n● Implemented Function Calling mechanisms, enabling AI agents to dynamically interact with external tools, APIs, and structured data sources, improving task execution efficiency.\n● Designed a scalable fine-tuning pipeline, optimizing model performance across diverse domains using supervised fine-tuning, reinforcement learning, and prompt engineering.\n● Integrated multi-modal AI capabilities, allowing agents to process and generate text, speech, image, and video outputs, ensuring seamless interoperability across different applications.\n● Built AI-driven evaluation and execution platforms, providing real-time monitoring, benchmarking, and optimization for agent performance in production environments.\n● Deployed AI agents using frameworks such as LangChain and XAgent, implementing modular architectures that allow adaptive behavior, self-learning, and efficient task orchestration.\n● Optimized low-latency inference pipelines, reducing computational overhead by 25% while maintaining high accuracy, ensuring real-time responsiveness in mission-critical applications.",
+      "Multi-Stage Ensemble Architecture for Enhanced Logical Reasoning in LLMs (Accepted)\n● Developed a novel cascade network architecture combining dynamic candidate filtering, adaptive self-attention, and ensemble decision voting to improve LLMs' logical reasoning capabilities.\n● Implemented confidence-based candidate selection and multi-head adaptive attention mechanisms to dynamically adjust attention weights, enabling more precise logical inference and connection identification.\n● Enhanced model performance through an intermediate logical representation layer and ensemble decision strategy, improving accuracy from 81.48% (base model) to 88.86% (full ensemble) while maintaining efficient inference time.\n● Leveraged parallel processing via multiple specialized components: candidate filtering for relevance scoring, adaptive attention for dynamic weighting, and voting mechanisms for robust decision making, resulting in superior performance on complex multi-step reasoning tasks."
+    ],
+    "work_experience_struct": [
+      {
+        "start": null,
+        "end": "present",
+        "company": "Amazon, Inc",
+        "title_en": "Machine Learning Engineer",
+        "title": "机器学习工程师",
+        "description_en": "AI Agent for Intelligent Risk Detection and Prevention",
+        "description": "智能风险检测与预防的AI代理",
+        "details_en": [
+          "Developed and deployed an AI-powered agent for real-time risk detection and decision automation, integrating LLMs and anomaly detection for enhanced accuracy.",
+          "Designed and optimized data preprocessing pipelines, feature engineering techniques, and model training workflows, leveraging supervised learning and self-adaptive AI agent strategies.",
+          "Implemented Function Calling to enable AI agents to dynamically interact with external data sources and APIs, improving real-time adaptability in risk assessment.",
+          "Deployed the AI agent using AWS (S3 for storage, Lambda for compute, SageMaker for model deployment), ensuring scalability, efficiency, and robust model lifecycle management.",
+          "Automated agent retraining and self-improvement mechanisms, enabling continuous learning from new patterns and reducing false positives in risk assessments. Collaborated with cross-functional teams to integrate the AI agent into production environments, achieving a 20% improvement in response time and increasing decision accuracy."
+        ],
+        "details": [
+          "开发并部署了一个AI驱动的代理，用于实时风险检测和决策自动化，集成了LLMs和异常检测以提高准确性。",
+          "设计并优化了数据预处理管道、特征工程技术和模型训练工作流，利用监督学习和自适应AI代理策略。",
+          "实现了函数调用，使AI代理能够动态与外部数据源和API交互，提高了风险评估的实时适应性。",
+          "使用AWS（S3用于存储，Lambda用于计算，SageMaker用于模型部署）部署了AI代理，确保了可扩展性、效率和强大的模型生命周期管理。",
+          "自动化了代理的再训练和自我改进机制，使其能够从新模式中持续学习，并减少风险评估中的误报。与跨职能团队合作，将AI代理集成到生产环境中，实现了响应时间提高20%和决策准确性提升。"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Amazon, Inc",
+        "title_en": null,
+        "title": "实时AI驱动的动态定价和竞标系统",
+        "description_en": null,
+        "description": "实时动态定价引擎的开发，使用强化学习和时间序列预测（LSTM，Transformer）来优化数百万产品的价格调整。",
+        "details_en": [
+          "Developed a real-time dynamic pricing engine using reinforcement learning and time-series forecasting (LSTM, Transformer) to optimize price adjustments across millions of products.",
+          "Designed a low-latency bid optimization model for Amazon Advertising, leveraging multi-armed bandits and deep Q-learning to dynamically adjust ad bids, increasing ROI by 12%.",
+          "Built a millisecond-level competitive pricing system, integrating real-time competitor price tracking and demand forecasting to maximize revenue efficiency.",
+          "Optimized pricing decision latency using AWS Lambda, Redis caching, and ONNX-accelerated inference, reducing price update delays by 30% while handling millions of requests per second.",
+          "Developed an anomaly detection system using Graph Neural Networks (GNNs) and Isolation Forests, reducing pricing errors and fraudulent activities by 25%.",
+          "Deployed the system using AWS SageMaker, Kinesis, and EC2, supporting billions of daily updates with 99.999% uptime and automated scalability."
+        ],
+        "details": [
+          "开发了一个实时动态定价引擎，使用强化学习和时间序列预测（LSTM，Transformer）来优化数百万产品的价格调整。",
+          "为亚马逊广告设计了一个低延迟的竞标优化模型，利用多臂老虎机和深度Q学习动态调整广告竞标，提高了12%的投资回报率。",
+          "构建了一个毫秒级的竞争定价系统，集成了实时竞争对手价格跟踪和需求预测，以最大化收入效率。",
+          "使用AWS Lambda、Redis缓存和ONNX加速推理优化定价决策延迟，将价格更新延迟减少了30%，同时处理数百万个请求每秒。",
+          "开发了一个使用图神经网络（GNNs）和孤立森林的异常检测系统，将定价错误和欺诈活动减少了25%。",
+          "使用AWS SageMaker、Kinesis和EC2部署该系统，支持每天数十亿次更新，99.999%的正常运行时间和自动化可扩展性。"
+        ],
+        "duration_months": null
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Language Understanding & Synthesis Lab of",
+        "title": "加州大学洛杉矶分校",
+        "description": "LLM因果推理：开发了基本的因果推理评估基准，以评估LLM的因果推理能力。（为ACL 2024发表的论文）",
+        "duration_months": null,
+        "title_en": "UCLA",
+        "description_en": "LLM Causal Reasoning: Developed fundamental causal reasoning evaluation benchmark to assess LLMs causal reasoning capability. (published paper for ACL 2024)\n● Causal Reasoning Benchmark Development: Designed and curated a comprehensive dataset aimed at evaluating the causal reasoning ability of large language models (LLMs).\n● Causal Inference Engine: Developed a Causal Inference Engine to automatically generate causal hypotheses and label pairs based on predefined causal relationships, ensuring high-quality, diverse causal scenarios for testing.\n● Experimental Evaluation Framework: Conducted extensive evaluations across multiple types of causal queries to measure LLM performance, identifying key limitations in current models and setting a new standard for causal reasoning assessment in NLP research."
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "AI Agent Development and Fine-Tuning for Intelligent",
+        "title": "自动化",
+        "description": "因果推理基准开发：设计并策划了一个全面的数据集，旨在评估大型语言模型（LLMs）的因果推理能力。",
+        "duration_months": null,
+        "title_en": "Automation",
+        "description_en": "● Developed and fine-tuned AI agents for complex decision-making tasks, leveraging large language models (LLMs) and adaptive reasoning techniques to enhance automation capabilities.\n● Implemented Function Calling mechanisms, enabling AI agents to dynamically interact with external tools, APIs, and structured data sources, improving task execution efficiency.\n● Designed a scalable fine-tuning pipeline, optimizing model performance across diverse domains using supervised fine-tuning, reinforcement learning, and prompt engineering.\n● Integrated multi-modal AI capabilities, allowing agents to process and generate text, speech, image, and video outputs, ensuring seamless interoperability across different applications.\n● Built AI-driven evaluation and execution platforms, providing real-time monitoring, benchmarking, and optimization for agent performance in production environments.\n● Deployed AI agents using frameworks such as LangChain and XAgent, implementing modular architectures that allow adaptive behavior, self-learning, and efficient task orchestration.\n● Optimized low-latency inference pipelines, reducing computational overhead by 25% while maintaining high accuracy, ensuring real-time responsiveness in mission-critical applications."
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Multi-Stage Ensemble",
+        "title": "增强逻辑推理的架构在大型语言模型中（已接受）",
+        "description": "因果推理引擎：开发了一个因果推理引擎，基于预定义的因果关系自动生成因果假设和标签对，确保高质量、多样化的因果场景用于测试。",
+        "duration_months": null,
+        "title_en": "Architecture for Enhanced Logical Reasoning in LLMs (Accepted",
+        "description_en": "● Developed a novel cascade network architecture combining dynamic candidate filtering, adaptive self-attention, and ensemble decision voting to improve LLMs' logical reasoning capabilities.\n● Implemented confidence-based candidate selection and multi-head adaptive attention mechanisms to dynamically adjust attention weights, enabling more precise logical inference and connection identification.\n● Enhanced model performance through an intermediate logical representation layer and ensemble decision strategy, improving accuracy from 81.48% (base model) to 88.86% (full ensemble) while maintaining efficient inference time.\n● Leveraged parallel processing via multiple specialized components: candidate filtering for relevance scoring, adaptive attention for dynamic weighting, and voting mechanisms for robust decision making, resulting in superior performance on complex multi-step reasoning tasks."
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "机器学习工程师，亚马逊公司\n加州大学洛杉矶分校语言理解合成实验室研究员\n智能风险检测与预防的AI代理\n● 开发并部署了一个基于人工智能的代理，用于实时风险检测和决策自动化，集成了大型语言模型和异常检测以提高准确性。\n● 设计和优化数据预处理管道、特征工程技术和模型训练工作流程，利用监督学习和自适应人工智能代理策略。\n● 实现了函数调用，使人工智能代理能够动态地与外部数据源和API交互，提高了风险评估中的实时适应能力。\n● 使用AWS（S3用于存储，Lambda用于计算，SageMaker用于模型部署）部署了AI代理，确保了可扩展性、效率和强大的模型生命周期管理。\n● 自动化代理重训练和自我改进机制，使其能够从新模式中持续学习，并减少风险评估中的误报。\n与跨职能团队合作，将AI代理集成到生产环境中，实现了响应时间提高20%和决策准确性提升。",
+      "实时人工智能驱动的动态定价和竞标系统\n● 使用强化学习和时间序列预测（LSTM，Transformer）开发了一个实时动态定价引擎，以优化数百万种产品的价格调整。\n● 为亚马逊广告设计了一个低延迟的竞价优化模型，利用多臂老虎机和深度Q学习动态调整广告竞价，提高了投资回报率12%。\n● 建立了一个毫秒级的竞争定价系统，整合了实时竞争对手价格跟踪和需求预测，以最大化收入效率。\n● 使用AWS Lambda、Redis缓存和ONNX加速推理优化定价决策延迟，将价格更新延迟减少了30%，同时处理每秒数百万个请求。\n● 使用图神经网络（GNNs）和孤立森林开发了一个异常检测系统，将定价错误和欺诈活动减少了25%。\n● 使用AWS SageMaker、Kinesis和EC2部署系统，支持每天数十亿次更新，99.999%的正常运行时间和自动扩展。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "加州大学洛杉矶分校语言理解与合成实验室\nLLM因果推理：开发了基本的因果推理评估基准，以评估LLM的因果推理能力。\n（为ACL 2024发表的论文）\n● 因果推理基准开发：设计并策划了一个全面的数据集，旨在评估大型语言模型（LLMs）的因果推理能力。\n● 因果推断引擎：开发了一个因果推断引擎，能够根据预定义的因果关系自动生成因果假设和标签对，确保为测试提供高质量、多样化的因果场景。\n● 实验评估框架：对多种类型的因果查询进行了广泛评估，以衡量LLM性能，识别当前模型的关键局限性，并为NLP研究中的因果推理评估设定了新的标准。",
+      "智能自动化的AI代理开发与微调\n● 开发和微调了用于复杂决策任务的人工智能代理，利用大型语言模型（LLMs）和自适应推理技术来增强自动化能力。\n● 实现了函数调用机制，使AI代理能够动态地与外部工具、API和结构化数据源进行交互，提高了任务执行效率。\n● 设计了一个可扩展的微调管道，通过使用监督微调、强化学习和提示工程，优化了模型在不同领域的性能。\n● 集成多模态人工智能能力，使代理能够处理和生成文本、语音、图像和视频输出，确保不同应用之间的无缝互操作性。\n● 构建了基于人工智能的评估和执行平台，为生产环境中的代理性能提供实时监控、基准测试和优化。\n● 使用LangChain和XAgent等框架部署AI代理，实施模块化架构，允许自适应行为、自我学习和高效的任务协调。\n● 优化了低延迟推理管道，减少了25%的计算开销，同时保持高准确性，确保在关键任务应用中的实时响应。",
+      "多阶段集成架构用于增强大型语言模型中的逻辑推理（已接受）\n● 开发了一种新颖的级联网络架构，结合动态候选过滤、自适应自注意力和集成决策投票，以提高大型语言模型的逻辑推理能力。\n● 实施了基于信心的候选人选择和多头自适应注意力机制，以动态调整注意力权重，从而实现更精确的逻辑推理和连接识别。\n● 通过中间逻辑表示层和集成决策策略增强模型性能，将准确率从81.48%（基础模型）提高到88.86%（完整集成），同时保持高效的推理时间。\n● 通过多个专门组件利用并行处理：候选人过滤以进行相关性评分，自适应注意力以进行动态加权，以及投票机制以实现稳健的决策，导致在复杂的多步骤推理任务中表现优越。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": null,
+        "end": "present",
+        "company": "Amazon, Inc",
+        "title_en": "Machine Learning Engineer",
+        "title": "机器学习工程师",
+        "description_en": "AI Agent for Intelligent Risk Detection and Prevention",
+        "description": "智能风险检测与预防的AI代理",
+        "details_en": [
+          "Developed and deployed an AI-powered agent for real-time risk detection and decision automation, integrating LLMs and anomaly detection for enhanced accuracy.",
+          "Designed and optimized data preprocessing pipelines, feature engineering techniques, and model training workflows, leveraging supervised learning and self-adaptive AI agent strategies.",
+          "Implemented Function Calling to enable AI agents to dynamically interact with external data sources and APIs, improving real-time adaptability in risk assessment.",
+          "Deployed the AI agent using AWS (S3 for storage, Lambda for compute, SageMaker for model deployment), ensuring scalability, efficiency, and robust model lifecycle management.",
+          "Automated agent retraining and self-improvement mechanisms, enabling continuous learning from new patterns and reducing false positives in risk assessments. Collaborated with cross-functional teams to integrate the AI agent into production environments, achieving a 20% improvement in response time and increasing decision accuracy."
+        ],
+        "details": [
+          "开发并部署了一个AI驱动的代理，用于实时风险检测和决策自动化，集成了LLMs和异常检测以提高准确性。",
+          "设计并优化了数据预处理管道、特征工程技术和模型训练工作流，利用监督学习和自适应AI代理策略。",
+          "实现了函数调用，使AI代理能够动态与外部数据源和API交互，提高了风险评估的实时适应性。",
+          "使用AWS（S3用于存储，Lambda用于计算，SageMaker用于模型部署）部署了AI代理，确保了可扩展性、效率和强大的模型生命周期管理。",
+          "自动化了代理的再训练和自我改进机制，使其能够从新模式中持续学习，并减少风险评估中的误报。与跨职能团队合作，将AI代理集成到生产环境中，实现了响应时间提高20%和决策准确性提升。"
+        ],
+        "duration_months": null,
+        "title_zh": "机器学习工程师",
+        "description_zh": "智能风险检测与预防的AI代理",
+        "details_zh": [
+          "开发并部署了一个基于人工智能的代理，用于实时风险检测和决策自动化，集成了大型语言模型和异常检测以提高准确性。",
+          "设计和优化数据预处理管道、特征工程技术和模型训练工作流程，利用监督学习和自适应人工智能代理策略。",
+          "实现了函数调用，使AI代理能够动态地与外部数据源和API交互，提高了风险评估中的实时适应能力。",
+          "使用AWS（S3用于存储，Lambda用于计算，SageMaker用于模型部署）部署了AI代理，确保了可扩展性、效率和强大的模型生命周期管理。",
+          "自动化代理再训练和自我改进机制，使其能够从新模式中持续学习，并减少风险评估中的假阳性。\n与跨职能团队合作，将AI代理集成到生产环境中，实现了响应时间提高20%和决策准确性提升。"
+        ]
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Amazon, Inc",
+        "title_en": null,
+        "title": "实时AI驱动的动态定价和竞标系统",
+        "description_en": null,
+        "description": "实时动态定价引擎的开发，使用强化学习和时间序列预测（LSTM，Transformer）来优化数百万产品的价格调整。",
+        "details_en": [
+          "Developed a real-time dynamic pricing engine using reinforcement learning and time-series forecasting (LSTM, Transformer) to optimize price adjustments across millions of products.",
+          "Designed a low-latency bid optimization model for Amazon Advertising, leveraging multi-armed bandits and deep Q-learning to dynamically adjust ad bids, increasing ROI by 12%.",
+          "Built a millisecond-level competitive pricing system, integrating real-time competitor price tracking and demand forecasting to maximize revenue efficiency.",
+          "Optimized pricing decision latency using AWS Lambda, Redis caching, and ONNX-accelerated inference, reducing price update delays by 30% while handling millions of requests per second.",
+          "Developed an anomaly detection system using Graph Neural Networks (GNNs) and Isolation Forests, reducing pricing errors and fraudulent activities by 25%.",
+          "Deployed the system using AWS SageMaker, Kinesis, and EC2, supporting billions of daily updates with 99.999% uptime and automated scalability."
+        ],
+        "details": [
+          "开发了一个实时动态定价引擎，使用强化学习和时间序列预测（LSTM，Transformer）来优化数百万产品的价格调整。",
+          "为亚马逊广告设计了一个低延迟的竞标优化模型，利用多臂老虎机和深度Q学习动态调整广告竞标，提高了12%的投资回报率。",
+          "构建了一个毫秒级的竞争定价系统，集成了实时竞争对手价格跟踪和需求预测，以最大化收入效率。",
+          "使用AWS Lambda、Redis缓存和ONNX加速推理优化定价决策延迟，将价格更新延迟减少了30%，同时处理数百万个请求每秒。",
+          "开发了一个使用图神经网络（GNNs）和孤立森林的异常检测系统，将定价错误和欺诈活动减少了25%。",
+          "使用AWS SageMaker、Kinesis和EC2部署该系统，支持每天数十亿次更新，99.999%的正常运行时间和自动化可扩展性。"
+        ],
+        "duration_months": null,
+        "title_zh": "实时AI驱动的动态定价和竞标系统",
+        "description_zh": "实时动态定价引擎的开发，使用强化学习和时间序列预测（LSTM，Transformer）来优化数百万产品的价格调整。",
+        "details_zh": [
+          "开发了一个实时动态定价引擎，使用强化学习和时间序列预测（LSTM，Transformer）来优化数百万种产品的价格调整。",
+          "为亚马逊广告设计了一个低延迟的出价优化模型，利用多臂老虎机和深度Q学习动态调整广告出价，使投资回报率提高了12%。",
+          "构建了一个毫秒级的竞争定价系统，集成了实时竞争对手价格跟踪和需求预测，以最大化收入效率。",
+          "使用AWS Lambda、Redis缓存和ONNX加速推理优化定价决策延迟，将价格更新延迟减少了30%，同时处理每秒数百万个请求。",
+          "使用图神经网络（GNNs）和孤立森林开发了一个异常检测系统，将定价错误和欺诈活动减少了25%。",
+          "使用AWS SageMaker、Kinesis和EC2部署系统，支持每天数十亿次更新，99.999%的正常运行时间和自动扩展。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程产品应用端AI工程师上海5070K王泽宇3年.md",
+    "md_translated": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs_zh\\AISAAS远程产品应用端AI工程师上海5070K王泽宇3年.md",
+    "md_mostly_english": true
+  }
+}

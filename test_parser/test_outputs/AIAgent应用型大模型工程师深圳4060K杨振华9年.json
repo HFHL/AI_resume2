@@ -1,0 +1,274 @@
+{
+  "file_name": "AIAgent应用型大模型工程师深圳4060K杨振华9年.md",
+  "parsed_at": "2025-10-21T15:47:47.089508",
+  "result": {
+    "resume_file_id": null,
+    "name": "杨振华",
+    "email": "yzh199010@gmail.comd",
+    "phone": "18811714520",
+    "education_degree": "硕士",
+    "education_school": [
+      "北京邮电大学",
+      "兰州大学",
+      "Hong Kong Baptist University 香港浸会大学"
+    ],
+    "education_major": "电子科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "OP",
+      "PR",
+      "RAG",
+      "java",
+      "python",
+      "产品",
+      "全栈",
+      "大语言模型",
+      "数据分析",
+      "智能体",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "Python",
+      "Numpy",
+      "Pandas",
+      "Scikit-learn",
+      "线性回归",
+      "logistic回归",
+      "决策树",
+      "KNN",
+      "SVM",
+      "随机森林",
+      "GBDT",
+      "XGboost",
+      "Adaboost",
+      "NLP",
+      "LLM",
+      "GPT-4",
+      "Claude",
+      "MySQL",
+      "Redis",
+      "Java",
+      "PHP",
+      "C++",
+      "C#",
+      "JavaScript",
+      "微服务架构",
+      "项目管理",
+      "PMP"
+    ],
+    "work_experience": [
+      "2024.02-2025.03 香港浸会大学 NLP研发工程师参与人工智能与循证医学相关研究，负责LLM相关技术调研和系统的研发。",
+      "2022.04-2024.01 广西申能达智能科技有限公司 研发负责人领导研发团队从零开始开发并部署了第一版校园平板软件系统，软件在一所校园成功上线，试点阶段教师和学生平均3门学科每天使用核心功能（如作业提交、智能推题等）。",
+      "2016.07-2022.03 北京飞百培优教育科技有限公司 研发负责人全栈开发：掌握从设计到实现的全流程，从零构建在线教学系统，覆盖30个校区、12000名学生。团队管理：将团队从2人扩展至20人，激发团队潜能，取得优秀成绩，团队获得公司之星称号。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2024.06-2025.03 项目一：报告清单生成系统本系统涵盖30多种典型研究类型的报告清单及扩展内容，包括临床研究、系统综述、实践指南和动物实验等。旨在帮助用户准确识别报告中的不足之处，并提供针对性的改进建议。项目职责：1. 在分析论文时，需要高效的解析不同格式的文档，尤其从pdf中提取文本、表格和图片等内容。目前市面上或者开源的都有识别布局出错，提取表格错误等问题，自主研发了pdf解析系统，支持文档布局解析、图表识别，优化论文数据的自动化处理。2. 为了让LLM识别论文中的报告缺陷，需要匹配论文内容与标准报告清单（如CONSORT、PRISMA、RIGHT）。基于LLM语义理解，集成GPT-4、Claude等大语言模型进行报告清单项的语义匹配。3. 使用openAI Embeddings生成向量，通过问题的向量从FAISS匹配对应的段落，基于Prompt Engineering，使用多轮对话提高LLM生成的准确性。业绩：清单条目的评估准确率提升至92%，远超GPT-4.0的80%基线水平。",
+      "2024.06-2024.09 项目二：生物基因工程自动化分析系统本项目旨在利用大语言模型（LLM）+多Agent技术，构建一个智能化的生物信息学分析平台，使用户能够通过自然语言指令完成复杂的基因工程数据分析任务。该系统自动完成数据导入、格式转换、软件调用、计算分析、结果可视化，减少对生物信息学工具安装与配置的依赖，提升数据分析的效率与准确性。项目职责：1. 系统架构设计：主导LLM+多Agent任务调度框架的设计，构建DAG（有向无环图）任务编排系统，使分析流程自动化。2. 智能任务解析：设计LLM解析模块，实现自然语言到结构化任务的自动转换，动态选择合适的软件组合。3. 多软件联合调用：采用多Agent任务拆分，包括任务解析，软件调用，数据转换，计算执行等多个agent，使多个软件无缝协同工作。4. 容器化环境：采用Docker统一封装RNA-seq、AlphaFold等工具，避免依赖冲突。业绩：该系统实现了基因工程数据分析的全流程自动化，用户使用成本降低，减少了对传统生物信息学软件的学习和操作难度，使非专业用户也能轻松完成数据分析。",
+      "2024.03-2024.06 项目三：构建中医知识图谱三元组负责构建中医知识图谱，通过自然语言处理技术从中医文献中提取实体、关系和事件，构建高质量的三元组数据，为中医智能诊断系统提供知识支持。项目职责：数据预处理：收集和整理中医古籍、临床医案、学术论文等文本数据，将数据处理成标准化格式。数据的每一行包含以下五个字段：文本序列、原始字、字的命名实体标签（NER标签）、关系标签、关系head和tail实体。模型架构：3层双向LSTM（BiLSTM）进行特征提取，并分别作为NER和关系抽取（RE）的输入。多任务学习（Multi-task Learning）：共享特征层，同时用于NER和RE，提高特征表示能力。CRF层：用于优化NER任务，提高实体识别的连续性和准确性。线性映射：在NER和RE任务中，分别接一层全连接神经网络，将特征进行线性变换，并计算损失。业绩：最终效果NER-F1≥90%和RE-F1≥85%，为构建知识图谱做了基础服务。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2024-02",
+        "end": "2025-03",
+        "company": "香港浸会大学",
+        "title_en": "NLP R&D Engineer",
+        "title": "NLP研发工程师",
+        "description_en": "Participated in research related to artificial intelligence and evidence-based medicine, responsible for LLM-related technology research and system development.",
+        "description": "参与人工智能与循证医学相关研究，负责LLM相关技术调研和系统的研发。",
+        "details_en": [
+          "Participated in research related to artificial intelligence and evidence-based medicine",
+          "Responsible for LLM-related technology research and system development"
+        ],
+        "details": [
+          "参与人工智能与循证医学相关研究",
+          "负责LLM相关技术调研和系统的研发"
+        ],
+        "duration_months": 14
+      },
+      {
+        "start": "2022-04",
+        "end": "2024-01",
+        "company": "广西申能达智能科技有限公司",
+        "title_en": "R&D Lead",
+        "title": "研发负责人",
+        "description_en": "Led the R&D team to develop and deploy the first version of the campus tablet software system from scratch, which successfully went live in a campus. During the pilot phase, teachers and students used core functions (such as homework submission, intelligent question recommendation, etc.) an average of 3 subjects per day.",
+        "description": "领导研发团队从零开始开发并部署了第一版校园平板软件系统，软件在一所校园成功上线，试点阶段教师和学生平均3门学科每天使用核心功能（如作业提交、智能推题等）。",
+        "details_en": [
+          "Led the R&D team to develop and deploy the first version of the campus tablet software system from scratch",
+          "Software successfully went live in a campus",
+          "During the pilot phase, teachers and students used core functions an average of 3 subjects per day"
+        ],
+        "details": [
+          "领导研发团队从零开始开发并部署了第一版校园平板软件系统",
+          "软件在一所校园成功上线",
+          "试点阶段教师和学生平均3门学科每天使用核心功能（如作业提交、智能推题等）"
+        ],
+        "duration_months": 22
+      },
+      {
+        "start": "2016-07",
+        "end": "2022-03",
+        "company": "北京飞百培优教育科技有限公司",
+        "title_en": "R&D Lead",
+        "title": "研发负责人",
+        "description_en": "Full-stack development: mastered the entire process from design to implementation, built an online teaching system from scratch, covering 30 campuses and 12,000 students. Team management: expanded the team from 2 to 20 members, inspired team potential, achieved excellent results, and the team was awarded the title of Company Star.",
+        "description": "全栈开发：掌握从设计到实现的全流程，从零构建在线教学系统，覆盖30个校区、12000名学生。团队管理：将团队从2人扩展至20人，激发团队潜能，取得优秀成绩，团队获得公司之星称号。",
+        "details_en": [
+          "Full-stack development: mastered the entire process from design to implementation",
+          "Built an online teaching system from scratch, covering 30 campuses and 12,000 students",
+          "Expanded the team from 2 to 20 members",
+          "Inspired team potential and achieved excellent results",
+          "Team was awarded the title of Company Star"
+        ],
+        "details": [
+          "全栈开发：掌握从设计到实现的全流程",
+          "从零构建在线教学系统，覆盖30个校区、12000名学生",
+          "将团队从2人扩展至20人",
+          "激发团队潜能，取得优秀成绩",
+          "团队获得公司之星称号"
+        ],
+        "duration_months": 69
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2024-06",
+        "end": "2025-03",
+        "company": "项目一：报告清单生成系统本系统涵盖30多种典型研究类型的报告清单及扩展内容，包括临床研究、系统综述、实践指南和动物实验等。旨在帮助用户准确识别报告中的不足之处，并提供针对性的改进建议。项目职责：1. 在分析论文时，需要高效的解析不同格式的文档，尤其从pdf中提取文本、表格和图片等内容。目前市面上或者开源的都有识别布局出错，提取表格错误等问题，自主研发了pdf解析系统",
+        "title": "支持文档布局解析、图表识别",
+        "description": "，优化论文数据的自动化处理。2. 为了让LLM识别论文中的报告缺陷，需要匹配论文内容与标准报告清单（如CONSORT、PRISMA、RIGHT）。基于LLM语义理解，集成GPT-4、Claude等大语言模型进行报告清单项的语义匹配。3. 使用openAI Embeddings生成向量，通过问题的向量从FAISS匹配对应的段落，基于Prompt Engineering，使用多轮对话提高LLM生成的准确性。业绩：清单条目的评估准确率提升至92%，远超GPT-4.0的80%基线水平。",
+        "duration_months": 10
+      },
+      {
+        "start": "2024-06",
+        "end": "2024-09",
+        "company": "项目二：生物基因工程自动化分析系统本项目旨在利用大语言模型（LLM）+多Agent技术，构建一个智能化的生物信息学分析平台，使用户能够通过自然语言指令完成复杂的基因工程",
+        "title": "数据分析任务",
+        "description": "。该系统自动完成数据导入、格式转换、软件调用、计算分析、结果可视化，减少对生物信息学工具安装与配置的依赖，提升数据分析的效率与准确性。项目职责：1. 系统架构设计：主导LLM+多Agent任务调度框架的设计，构建DAG（有向无环图）任务编排系统，使分析流程自动化。2. 智能任务解析：设计LLM解析模块，实现自然语言到结构化任务的自动转换，动态选择合适的软件组合。3. 多软件联合调用：采用多Agent任务拆分，包括任务解析，软件调用，数据转换，计算执行等多个agent，使多个软件无缝协同工作。4. 容器化环境：采用Docker统一封装RNA-seq、AlphaFold等工具，避免依赖冲突。业绩：该系统实现了基因工程数据分析的全流程自动化，用户使用成本降低，减少了对传统生物信息学软件的学习和操作难度，使非专业用户也能轻松完成数据分析。",
+        "duration_months": 4
+      },
+      {
+        "start": "2024-03",
+        "end": "2024-06",
+        "company": "项目三：构建中医知识图谱三元组负责构建中医知识图谱，通过自然语言处理技术从中医文献中提取实体、关系和事件，构建高质量的三元组",
+        "title": "数据",
+        "description": "，为中医智能诊断系统提供知识支持。项目职责：数据预处理：收集和整理中医古籍、临床医案、学术论文等文本数据，将数据处理成标准化格式。数据的每一行包含以下五个字段：文本序列、原始字、字的命名实体标签（NER标签）、关系标签、关系head和tail实体。模型架构：3层双向LSTM（BiLSTM）进行特征提取，并分别作为NER和关系抽取（RE）的输入。多任务学习（Multi-task Learning）：共享特征层，同时用于NER和RE，提高特征表示能力。CRF层：用于优化NER任务，提高实体识别的连续性和准确性。线性映射：在NER和RE任务中，分别接一层全连接神经网络，将特征进行线性变换，并计算损失。业绩：最终效果NER-F1≥90%和RE-F1≥85%，为构建知识图谱做了基础服务。",
+        "duration_months": 4
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 6,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024.02-2025.03 香港浸会大学 NLP研发工程师参与人工智能与循证医学相关研究，负责LLM相关技术调研和系统的研发。",
+      "2022.04-2024.01 广西申能达智能科技有限公司 研发负责人领导研发团队从零开始开发并部署了第一版校园平板软件系统，软件在一所校园成功上线，试点阶段教师和学生平均3门学科每天使用核心功能（如作业提交、智能推题等）。",
+      "2016.07-2022.03 北京飞百培优教育科技有限公司 研发负责人全栈开发：掌握从设计到实现的全流程，从零构建在线教学系统，覆盖30个校区、12000名学生。团队管理：将团队从2人扩展至20人，激发团队潜能，取得优秀成绩，团队获得公司之星称号。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2024.06-2025.03 项目一：报告清单生成系统本系统涵盖30多种典型研究类型的报告清单及扩展内容，包括临床研究、系统综述、实践指南和动物实验等。旨在帮助用户准确识别报告中的不足之处，并提供针对性的改进建议。项目职责：1.\n在分析论文时，需要高效的解析不同格式的文档，尤其从pdf中提取文本、表格和图片等内容。目前市面上或者开源的都有识别布局出错，提取表格错误等问题，自主研发了pdf解析系统，支持文档布局解析、图表识别，优化论文数据的自动化处理。2.\n为了让LLM识别论文中的报告缺陷，需要匹配论文内容与标准报告清单（如CONSORT、PRISMA、RIGHT）。基于LLM语义理解，集成GPT-4、Claude等大语言模型进行报告清单项的语义匹配。3.\n使用openAI Embeddings生成向量，通过问题的向量从FAISS匹配对应的段落，基于Prompt Engineering，使用多轮对话提高LLM生成的准确性。业绩：清单条目的评估准确率提升至92%，远超GPT-4.0的80%基线水平。",
+      "2024.06-2024.09 项目二：生物基因工程自动化分析系统本项目旨在利用大语言模型（LLM）+多Agent技术，构建一个智能化的生物信息学分析平台，使用户能够通过自然语言指令完成复杂的基因工程数据分析任务。该系统自动完成数据导入、格式转换、软件调用、计算分析、结果可视化，减少对生物信息学工具安装与配置的依赖，提升数据分析的效率与准确性。项目职责：1.\n系统架构设计：主导LLM+多Agent任务调度框架的设计，构建DAG（有向无环图）任务编排系统，使分析流程自动化。2.\n智能任务解析：设计LLM解析模块，实现自然语言到结构化任务的自动转换，动态选择合适的软件组合。3.\n多软件联合调用：采用多Agent任务拆分，包括任务解析，软件调用，数据转换，计算执行等多个agent，使多个软件无缝协同工作。4.\n容器化环境：采用Docker统一封装RNA-seq、AlphaFold等工具，避免依赖冲突。业绩：该系统实现了基因工程数据分析的全流程自动化，用户使用成本降低，减少了对传统生物信息学软件的学习和操作难度，使非专业用户也能轻松完成数据分析。",
+      "2024.03-2024.06 项目三：构建中医知识图谱三元组负责构建中医知识图谱，通过自然语言处理技术从中医文献中提取实体、关系和事件，构建高质量的三元组数据，为中医智能诊断系统提供知识支持。项目职责：数据预处理：收集和整理中医古籍、临床医案、学术论文等文本数据，将数据处理成标准化格式。数据的每一行包含以下五个字段：文本序列、原始字、字的命名实体标签（NER标签）、关系标签、关系head和tail实体。模型架构：3层双向LSTM（BiLSTM）进行特征提取，并分别作为NER和关系抽取（RE）的输入。多任务学习（Multi-task Learning）：共享特征层，同时用于NER和RE，提高特征表示能力。CRF层：用于优化NER任务，提高实体识别的连续性和准确性。线性映射：在NER和RE任务中，分别接一层全连接神经网络，将特征进行线性变换，并计算损失。业绩：最终效果NER-F1≥90%和RE-F1≥85%，为构建知识图谱做了基础服务。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-02",
+        "end": "2025-03",
+        "company": "香港浸会大学",
+        "title_en": "NLP R&D Engineer",
+        "title": "NLP研发工程师",
+        "description_en": "Participated in research related to artificial intelligence and evidence-based medicine, responsible for LLM-related technology research and system development.",
+        "description": "参与人工智能与循证医学相关研究，负责LLM相关技术调研和系统的研发。",
+        "details_en": [
+          "Participated in research related to artificial intelligence and evidence-based medicine",
+          "Responsible for LLM-related technology research and system development"
+        ],
+        "details": [
+          "参与人工智能与循证医学相关研究",
+          "负责LLM相关技术调研和系统的研发"
+        ],
+        "duration_months": 14,
+        "title_zh": "自然语言处理研发工程师",
+        "description_zh": "参与了与人工智能和循证医学相关的研究，负责LLM相关技术研究和系统开发。",
+        "details_zh": [
+          "参与了与人工智能和循证医学相关的研究",
+          "负责LLM相关技术研究和系统开发"
+        ]
+      },
+      {
+        "start": "2022-04",
+        "end": "2024-01",
+        "company": "广西申能达智能科技有限公司",
+        "title_en": "R&D Lead",
+        "title": "研发负责人",
+        "description_en": "Led the R&D team to develop and deploy the first version of the campus tablet software system from scratch, which successfully went live in a campus. During the pilot phase, teachers and students used core functions (such as homework submission, intelligent question recommendation, etc.) an average of 3 subjects per day.",
+        "description": "领导研发团队从零开始开发并部署了第一版校园平板软件系统，软件在一所校园成功上线，试点阶段教师和学生平均3门学科每天使用核心功能（如作业提交、智能推题等）。",
+        "details_en": [
+          "Led the R&D team to develop and deploy the first version of the campus tablet software system from scratch",
+          "Software successfully went live in a campus",
+          "During the pilot phase, teachers and students used core functions an average of 3 subjects per day"
+        ],
+        "details": [
+          "领导研发团队从零开始开发并部署了第一版校园平板软件系统",
+          "软件在一所校园成功上线",
+          "试点阶段教师和学生平均3门学科每天使用核心功能（如作业提交、智能推题等）"
+        ],
+        "duration_months": 22,
+        "title_zh": "研发负责人",
+        "description_zh": "领导研发团队从零开始开发和部署校园平板软件系统的第一个版本，该系统成功在一个校园上线。\n在试点阶段，教师和学生平均每天使用核心功能（如作业提交、智能问题推荐等）3个科目。",
+        "details_zh": [
+          "领导研发团队从零开始开发和部署校园平板软件系统的第一个版本",
+          "软件成功在校园上线",
+          "在试点阶段，教师和学生平均每天使用核心功能3个科目。"
+        ]
+      },
+      {
+        "start": "2016-07",
+        "end": "2022-03",
+        "company": "北京飞百培优教育科技有限公司",
+        "title_en": "R&D Lead",
+        "title": "研发负责人",
+        "description_en": "Full-stack development: mastered the entire process from design to implementation, built an online teaching system from scratch, covering 30 campuses and 12,000 students. Team management: expanded the team from 2 to 20 members, inspired team potential, achieved excellent results, and the team was awarded the title of Company Star.",
+        "description": "全栈开发：掌握从设计到实现的全流程，从零构建在线教学系统，覆盖30个校区、12000名学生。团队管理：将团队从2人扩展至20人，激发团队潜能，取得优秀成绩，团队获得公司之星称号。",
+        "details_en": [
+          "Full-stack development: mastered the entire process from design to implementation",
+          "Built an online teaching system from scratch, covering 30 campuses and 12,000 students",
+          "Expanded the team from 2 to 20 members",
+          "Inspired team potential and achieved excellent results",
+          "Team was awarded the title of Company Star"
+        ],
+        "details": [
+          "全栈开发：掌握从设计到实现的全流程",
+          "从零构建在线教学系统，覆盖30个校区、12000名学生",
+          "将团队从2人扩展至20人",
+          "激发团队潜能，取得优秀成绩",
+          "团队获得公司之星称号"
+        ],
+        "duration_months": 69,
+        "title_zh": "研发负责人",
+        "description_zh": "全栈开发：掌握了从设计到实施的整个过程，从零开始构建了一个在线教学系统，覆盖30个校园和12,000名学生。\n团队管理：将团队从2人扩展到20人，激发团队潜力，取得了优异的成绩，团队被授予了公司之星的称号。",
+        "details_zh": [
+          "全栈开发：掌握了从设计到实施的整个过程",
+          "从零开始建立了一个在线教学系统，覆盖30个校园和12,000名学生",
+          "将团队从2名成员扩展到20名成员",
+          "激发团队潜力并取得优异成绩",
+          "团队被授予公司之星的称号"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIAgent应用型大模型工程师深圳4060K杨振华9年.md",
+    "md_mostly_english": false
+  }
+}

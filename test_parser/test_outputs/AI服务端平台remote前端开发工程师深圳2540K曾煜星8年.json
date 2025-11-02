@@ -1,0 +1,184 @@
+{
+  "file_name": "AI服务端平台remote前端开发工程师深圳2540K曾煜星8年.md",
+  "parsed_at": "2025-10-21T16:48:16.411838",
+  "result": {
+    "resume_file_id": null,
+    "name": "曾煜星",
+    "email": "logoweiyi@gmail.com",
+    "phone": "15816545993",
+    "education_degree": null,
+    "education_school": null,
+    "education_major": null,
+    "education_graduation_year": null,
+    "education_tier": null,
+    "education_tiers": null,
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "ETH",
+      "OP",
+      "PR",
+      "go",
+      "java",
+      "rollup",
+      "交易",
+      "前端",
+      "区块链开发",
+      "合约",
+      "后端",
+      "安全",
+      "测试",
+      "财务",
+      "运营"
+    ],
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "HTML",
+      "CSS",
+      "Nodejs",
+      "Vue",
+      "React",
+      "Angular",
+      "Nextjs",
+      "Express",
+      "Web3.js",
+      "Ethers.js",
+      "Viem",
+      "Motion",
+      "Zustand",
+      "Redux",
+      "Vuex",
+      "Pinia",
+      "Element-ui",
+      "Ant Design",
+      "Radix UI",
+      "Webpack",
+      "Vite",
+      "Rollup",
+      "Prettier",
+      "ESLint",
+      "Git"
+    ],
+    "work_experience": [
+      "2023/10 - 2025/03 Fuzzland - 前端开发工程师 Remote 远程工作\nFuzzland 区块链安全服务平台（https://fuzz.land）：负责服务平台及官⽹营销活动等前端开发工作。\n区块链智能合约动/静态分析以及分析数据可视化展示链上攻击/可疑交易的历史交易数据，资金流向以及合约内部调用栈数据可视化. 链上合约实时监控，支持多种社交平台（Telegram, slack, Discord, Lark等）\n技术挑战和收获：1. 深入了解智能合约各种概念（ABI，JSON-PRC，代理合约等等）、智能合约交互以及代币标准 2. 从0到1实现合约代码调用链的可视化",
+      "2021/06 - 2023/04 Narya.ai - 前端开发工程师 Remote 远程工作\nNarya.ai智能合约安全测试平台（https://narya.ai）：主要负责智能合约测试平台及官⽹的前端开发工作和一部分后端开发工作。\n负责平台基于 GitHub OAuth 登录授权模块、用户邀请注册模块. 接入第三方支付平台 Stripe 订阅服务和埋点系统 Mixpanel 的集成【使负责合约代码测试统计数据图表可视化参与将 AWS Serverless 服务迁移到 Next.js, 编写 Jest 单元测试使用 React-table 二次封装高度灵活的表格组件",
+      "2021/06 - 2022/06 深圳兴晨电子商务有限公司 - 前端开发工程师 广州\n负责基于 Shopify电商网站开发，对现有 Shopify主题模板进行二次开发和功能定制熟悉 Storefront API、Admin API，可进行插件集成及定制化开发熟悉 Liquid模板语言，能够独立完成主题定制、优化以及 ShopifyReact前端开发熟悉 Shopify App 鉴权流程，有开发主题插件和嵌入式/非嵌入式 App 经验",
+      "2019/05 - 2021/05 广州梦映动漫网络科技有限公司 - 前端开发工程师 广州\n负责 App内嵌页面 Hybrid混合开发（素材商城、漫画阅读、对话剧及活动页面等），通过与客户端定义的联调方法快速开发 H5页面独立负责公司内部内容审核后台以及日常运营后台的开发迭代，实现权限菜单管理独立负责漫画素材创作平台以及其他内部后台系统开发（财务管理、灰度发布）\n项目经历：1、负责触漫 App 内嵌部分应用的混合开发，使用 Vue 和客户端提供的联调方法开发内置的素材商城以及运营活动页面，解析漫画编辑器生成的 JSON 生成漫画，以及文字阅读形式的对话剧本；2、使用 Ant Design 和 Vue 开发内部一系列后台应用，如内部审核后台（过滤敏感文字、图片、视频等载体）、灰度发布以及触漫运营管理后台；3、使用 psd.js 解析合作画师产出的 PSD 文件素材，管理解析人物骨骼素材（表情、发型、服装、脸型等）。",
+      "亿众骏达网络科技（深圳）有限公司 - 前端开发工程师 深圳\n负责公司官网的改版和日常更新维护及H5活动宣传页开发\n使用 Vue2.x对用户账户中心模块（资金流水、域名管理以及网站管理）进行重构\n使用 Angular1.x 开发 SaaS 电商网站客户端管理后台一系列服务功能（域名设置、图片文件管理，商品SKU管理等）\n项目经历：1、负责友好速达官网改版，使用 JQuery、RubyHaml模板、Less，配合 gulp通过 Fiddler代理静态资源在本地开发和预览；2、使用 Vue 重构以往使用 Ruby 和 jQuery 开发的 Saas 建站服务的子模块（账户中心），主要负责购买网站，资金流水、域名设置等模块开发；3 使用自研的开发工具开发电商网站主题模板；4、使用 Angular1.x 版本维护和迭代 Saas 基础服务，如站内文章管理、SKU管理、优惠券发放、限时折扣、多人与拼团等模块。"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2023-10",
+        "end": "2025-03",
+        "company": "Fuzzland",
+        "title": "前端开发工程师 Remote 远程工作",
+        "description": "Fuzzland 区块链安全服务平台（https://fuzz.land）：负责服务平台及官⽹营销活动等前端开发工作。\n区块链智能合约动/静态分析以及分析数据可视化展示链上攻击/可疑交易的历史交易数据，资金流向以及合约内部调用栈数据可视化. 链上合约实时监控，支持多种社交平台（Telegram, slack, Discord, Lark等）\n技术挑战和收获：1. 深入了解智能合约各种概念（ABI，JSON-PRC，代理合约等等）、智能合约交互以及代币标准 2. 从0到1实现合约代码调用链的可视化",
+        "duration_months": 18
+      },
+      {
+        "start": "2021-06",
+        "end": "2023-04",
+        "company": "Narya.ai",
+        "title": "前端开发工程师 Remote 远程工作",
+        "description": "Narya.ai智能合约安全测试平台（https://narya.ai）：主要负责智能合约测试平台及官⽹的前端开发工作和一部分后端开发工作。\n负责平台基于 GitHub OAuth 登录授权模块、用户邀请注册模块. 接入第三方支付平台 Stripe 订阅服务和埋点系统 Mixpanel 的集成【使负责合约代码测试统计数据图表可视化参与将 AWS Serverless 服务迁移到 Next.js, 编写 Jest 单元测试使用 React-table 二次封装高度灵活的表格组件",
+        "duration_months": 23
+      },
+      {
+        "start": "2021-06",
+        "end": "2022-06",
+        "company": "深圳兴晨电子",
+        "title": "商务有限公司 - 前端开发工程师 广州",
+        "description": "负责基于 Shopify电商网站开发，对现有 Shopify主题模板进行二次开发和功能定制熟悉 Storefront API、Admin API，可进行插件集成及定制化开发熟悉 Liquid模板语言，能够独立完成主题定制、优化以及 ShopifyReact前端开发熟悉 Shopify App 鉴权流程，有开发主题插件和嵌入式/非嵌入式 App 经验",
+        "duration_months": 13
+      },
+      {
+        "start": "2019-05",
+        "end": "2021-05",
+        "company": "广州梦映动漫网络科技有限公司",
+        "title": "前端开发工程师 广州",
+        "description": "负责 App内嵌页面 Hybrid混合开发（素材商城、漫画阅读、对话剧及活动页面等），通过与客户端定义的联调方法快速开发 H5页面独立负责公司内部内容审核后台以及日常运营后台的开发迭代，实现权限菜单管理独立负责漫画素材创作平台以及其他内部后台系统开发（财务管理、灰度发布）\n项目经历：1、负责触漫 App 内嵌部分应用的混合开发，使用 Vue 和客户端提供的联调方法开发内置的素材商城以及运营活动页面，解析漫画编辑器生成的 JSON 生成漫画，以及文字阅读形式的对话剧本；2、使用 Ant Design 和 Vue 开发内部一系列后台应用，如内部审核后台（过滤敏感文字、图片、视频等载体）、灰度发布以及触漫运营管理后台；3、使用 psd.js 解析合作画师产出的 PSD 文件素材，管理解析人物骨骼素材（表情、发型、服装、脸型等）。",
+        "duration_months": 25
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "亿众骏达网络科技（深圳）有限公司",
+        "title": "前端开发工程师 深圳",
+        "description": "负责公司官网的改版和日常更新维护及H5活动宣传页开发\n使用 Vue2.x对用户账户中心模块（资金流水、域名管理以及网站管理）进行重构\n使用 Angular1.x 开发 SaaS 电商网站客户端管理后台一系列服务功能（域名设置、图片文件管理，商品SKU管理等）\n项目经历：1、负责友好速达官网改版，使用 JQuery、RubyHaml模板、Less，配合 gulp通过 Fiddler代理静态资源在本地开发和预览；2、使用 Vue 重构以往使用 Ruby 和 jQuery 开发的 Saas 建站服务的子模块（账户中心），主要负责购买网站，资金流水、域名设置等模块开发；3 使用自研的开发工具开发电商网站主题模板；4、使用 Angular1.x 版本维护和迭代 Saas 基础服务，如站内文章管理、SKU管理、优惠券发放、限时折扣、多人与拼团等模块。",
+        "duration_months": null
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "八年前端开发经验，熟悉 Vue/React前端技术框架及周边生态，拥有丰富的实战经验，注重系统交互细节与用户体验，能快速掌握和应用新技术。具有良好的沟通能力和自驱能力，具备电商和区块链等行业经验。\n熟悉 Shopify Storefont API 和 Admin API，能够独立开发 Shopify App 和主题插件。\n熟悉 Next.js (App router & Page router) 和 TailwindCSS，能够独立在 Vercel 和 Cloudflare 部署应用。",
+    "other": null,
+    "work_years": 4,
+    "self_evaluation_zh": "八年前端开发经验，熟悉 Vue/React前端技术框架及周边生态，拥有丰富的实战经验，注重系统交互细节与用户体验，能快速掌握和应用新技术。具有良好的沟通能力和自驱能力，具备电商和区块链等行业经验。\n熟悉 Shopify Storefont API 和 Admin API，能够独立开发 Shopify App 和主题插件。\n熟悉 Next.js (App router & Page router) 和 TailwindCSS，能够独立在 Vercel 和 Cloudflare 部署应用。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023/10 - 2025/03 Fuzzland - 前端开发工程师 Remote 远程工作\nFuzzland 区块链安全服务平台（https://fuzz.land）：负责服务平台及官⽹营销活动等前端开发工作。\n区块链智能合约动/静态分析以及分析数据可视化展示链上攻击/可疑交易的历史交易数据，资金流向以及合约内部调用栈数据可视化.\n链上合约实时监控，支持多种社交平台（Telegram, slack, Discord, Lark等）\n技术挑战和收获：1.\n深入了解智能合约各种概念（ABI，JSON-PRC，代理合约等等）、智能合约交互以及代币标准 2.\n从0到1实现合约代码调用链的可视化",
+      "2021/06 - 2023/04 Narya.ai - 前端开发工程师 Remote 远程工作\nNarya.ai智能合约安全测试平台（https://narya.ai）：主要负责智能合约测试平台及官⽹的前端开发工作和一部分后端开发工作。\n负责平台基于 GitHub OAuth 登录授权模块、用户邀请注册模块.\n接入第三方支付平台 Stripe 订阅服务和埋点系统 Mixpanel 的集成【使负责合约代码测试统计数据图表可视化参与将 AWS Serverless 服务迁移到 Next.js, 编写 Jest 单元测试使用 React-table 二次封装高度灵活的表格组件",
+      "2021/06 - 2022/06 深圳兴晨电子商务有限公司 - 前端开发工程师 广州\n负责基于 Shopify电商网站开发，对现有 Shopify主题模板进行二次开发和功能定制熟悉 Storefront API、Admin API，可进行插件集成及定制化开发熟悉 Liquid模板语言，能够独立完成主题定制、优化以及 ShopifyReact前端开发熟悉 Shopify App 鉴权流程，有开发主题插件和嵌入式/非嵌入式 App 经验",
+      "2019/05 - 2021/05 广州梦映动漫网络科技有限公司 - 前端开发工程师 广州\n负责 App内嵌页面 Hybrid混合开发（素材商城、漫画阅读、对话剧及活动页面等），通过与客户端定义的联调方法快速开发 H5页面独立负责公司内部内容审核后台以及日常运营后台的开发迭代，实现权限菜单管理独立负责漫画素材创作平台以及其他内部后台系统开发（财务管理、灰度发布）\n项目经历：1、负责触漫 App 内嵌部分应用的混合开发，使用 Vue 和客户端提供的联调方法开发内置的素材商城以及运营活动页面，解析漫画编辑器生成的 JSON 生成漫画，以及文字阅读形式的对话剧本；2、使用 Ant Design 和 Vue 开发内部一系列后台应用，如内部审核后台（过滤敏感文字、图片、视频等载体）、灰度发布以及触漫运营管理后台；3、使用 psd.js 解析合作画师产出的 PSD 文件素材，管理解析人物骨骼素材（表情、发型、服装、脸型等）。",
+      "亿众骏达网络科技（深圳）有限公司 - 前端开发工程师 深圳\n负责公司官网的改版和日常更新维护及H5活动宣传页开发\n使用 Vue2.x对用户账户中心模块（资金流水、域名管理以及网站管理）进行重构\n使用 Angular1.x 开发 SaaS 电商网站客户端管理后台一系列服务功能（域名设置、图片文件管理，商品SKU管理等）\n项目经历：1、负责友好速达官网改版，使用 JQuery、RubyHaml模板、Less，配合 gulp通过 Fiddler代理静态资源在本地开发和预览；2、使用 Vue 重构以往使用 Ruby 和 jQuery 开发的 Saas 建站服务的子模块（账户中心），主要负责购买网站，资金流水、域名设置等模块开发；3 使用自研的开发工具开发电商网站主题模板；4、使用 Angular1.x 版本维护和迭代 Saas 基础服务，如站内文章管理、SKU管理、优惠券发放、限时折扣、多人与拼团等模块。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-10",
+        "end": "2025-03",
+        "company": "Fuzzland",
+        "title": "前端开发工程师 Remote 远程工作",
+        "description": "Fuzzland 区块链安全服务平台（https://fuzz.land）：负责服务平台及官⽹营销活动等前端开发工作。\n区块链智能合约动/静态分析以及分析数据可视化展示链上攻击/可疑交易的历史交易数据，资金流向以及合约内部调用栈数据可视化. 链上合约实时监控，支持多种社交平台（Telegram, slack, Discord, Lark等）\n技术挑战和收获：1. 深入了解智能合约各种概念（ABI，JSON-PRC，代理合约等等）、智能合约交互以及代币标准 2. 从0到1实现合约代码调用链的可视化",
+        "duration_months": 18,
+        "title_zh": "前端开发工程师 Remote 远程工作",
+        "description_zh": "Fuzzland 区块链安全服务平台（https://fuzz.land）：负责服务平台及官⽹营销活动等前端开发工作。\n区块链智能合约动/静态分析以及分析数据可视化展示链上攻击/可疑交易的历史交易数据，资金流向以及合约内部调用栈数据可视化.\n链上合约实时监控，支持多种社交平台（Telegram, slack, Discord, Lark等）\n技术挑战和收获：1.\n深入了解智能合约各种概念（ABI，JSON-PRC，代理合约等等）、智能合约交互以及代币标准 2.\n从0到1实现合约代码调用链的可视化"
+      },
+      {
+        "start": "2021-06",
+        "end": "2023-04",
+        "company": "Narya.ai",
+        "title": "前端开发工程师 Remote 远程工作",
+        "description": "Narya.ai智能合约安全测试平台（https://narya.ai）：主要负责智能合约测试平台及官⽹的前端开发工作和一部分后端开发工作。\n负责平台基于 GitHub OAuth 登录授权模块、用户邀请注册模块. 接入第三方支付平台 Stripe 订阅服务和埋点系统 Mixpanel 的集成【使负责合约代码测试统计数据图表可视化参与将 AWS Serverless 服务迁移到 Next.js, 编写 Jest 单元测试使用 React-table 二次封装高度灵活的表格组件",
+        "duration_months": 23,
+        "title_zh": "前端开发工程师 Remote 远程工作",
+        "description_zh": "Narya.ai智能合约安全测试平台（https://narya.ai）：主要负责智能合约测试平台及官⽹的前端开发工作和一部分后端开发工作。\n负责平台基于 GitHub OAuth 登录授权模块、用户邀请注册模块.\n接入第三方支付平台 Stripe 订阅服务和埋点系统 Mixpanel 的集成【使负责合约代码测试统计数据图表可视化参与将 AWS Serverless 服务迁移到 Next.js, 编写 Jest 单元测试使用 React-table 二次封装高度灵活的表格组件"
+      },
+      {
+        "start": "2021-06",
+        "end": "2022-06",
+        "company": "深圳兴晨电子",
+        "title": "商务有限公司 - 前端开发工程师 广州",
+        "description": "负责基于 Shopify电商网站开发，对现有 Shopify主题模板进行二次开发和功能定制熟悉 Storefront API、Admin API，可进行插件集成及定制化开发熟悉 Liquid模板语言，能够独立完成主题定制、优化以及 ShopifyReact前端开发熟悉 Shopify App 鉴权流程，有开发主题插件和嵌入式/非嵌入式 App 经验",
+        "duration_months": 13,
+        "title_zh": "商务有限公司 - 前端开发工程师 广州",
+        "description_zh": "负责基于 Shopify电商网站开发，对现有 Shopify主题模板进行二次开发和功能定制熟悉 Storefront API、Admin API，可进行插件集成及定制化开发熟悉 Liquid模板语言，能够独立完成主题定制、优化以及 ShopifyReact前端开发熟悉 Shopify App 鉴权流程，有开发主题插件和嵌入式/非嵌入式 App 经验"
+      },
+      {
+        "start": "2019-05",
+        "end": "2021-05",
+        "company": "广州梦映动漫网络科技有限公司",
+        "title": "前端开发工程师 广州",
+        "description": "负责 App内嵌页面 Hybrid混合开发（素材商城、漫画阅读、对话剧及活动页面等），通过与客户端定义的联调方法快速开发 H5页面独立负责公司内部内容审核后台以及日常运营后台的开发迭代，实现权限菜单管理独立负责漫画素材创作平台以及其他内部后台系统开发（财务管理、灰度发布）\n项目经历：1、负责触漫 App 内嵌部分应用的混合开发，使用 Vue 和客户端提供的联调方法开发内置的素材商城以及运营活动页面，解析漫画编辑器生成的 JSON 生成漫画，以及文字阅读形式的对话剧本；2、使用 Ant Design 和 Vue 开发内部一系列后台应用，如内部审核后台（过滤敏感文字、图片、视频等载体）、灰度发布以及触漫运营管理后台；3、使用 psd.js 解析合作画师产出的 PSD 文件素材，管理解析人物骨骼素材（表情、发型、服装、脸型等）。",
+        "duration_months": 25,
+        "title_zh": "前端开发工程师 广州",
+        "description_zh": "负责 App内嵌页面 Hybrid混合开发（素材商城、漫画阅读、对话剧及活动页面等），通过与客户端定义的联调方法快速开发 H5页面独立负责公司内部内容审核后台以及日常运营后台的开发迭代，实现权限菜单管理独立负责漫画素材创作平台以及其他内部后台系统开发（财务管理、灰度发布）\n项目经历：1、负责触漫 App 内嵌部分应用的混合开发，使用 Vue 和客户端提供的联调方法开发内置的素材商城以及运营活动页面，解析漫画编辑器生成的 JSON 生成漫画，以及文字阅读形式的对话剧本；2、使用 Ant Design 和 Vue 开发内部一系列后台应用，如内部审核后台（过滤敏感文字、图片、视频等载体）、灰度发布以及触漫运营管理后台；3、使用 psd.js 解析合作画师产出的 PSD 文件素材，管理解析人物骨骼素材（表情、发型、服装、脸型等）。"
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "亿众骏达网络科技（深圳）有限公司",
+        "title": "前端开发工程师 深圳",
+        "description": "负责公司官网的改版和日常更新维护及H5活动宣传页开发\n使用 Vue2.x对用户账户中心模块（资金流水、域名管理以及网站管理）进行重构\n使用 Angular1.x 开发 SaaS 电商网站客户端管理后台一系列服务功能（域名设置、图片文件管理，商品SKU管理等）\n项目经历：1、负责友好速达官网改版，使用 JQuery、RubyHaml模板、Less，配合 gulp通过 Fiddler代理静态资源在本地开发和预览；2、使用 Vue 重构以往使用 Ruby 和 jQuery 开发的 Saas 建站服务的子模块（账户中心），主要负责购买网站，资金流水、域名设置等模块开发；3 使用自研的开发工具开发电商网站主题模板；4、使用 Angular1.x 版本维护和迭代 Saas 基础服务，如站内文章管理、SKU管理、优惠券发放、限时折扣、多人与拼团等模块。",
+        "duration_months": null,
+        "title_zh": "前端开发工程师 深圳",
+        "description_zh": "负责公司官网的改版和日常更新维护及H5活动宣传页开发\n使用 Vue2.x对用户账户中心模块（资金流水、域名管理以及网站管理）进行重构\n使用 Angular1.x 开发 SaaS 电商网站客户端管理后台一系列服务功能（域名设置、图片文件管理，商品SKU管理等）\n项目经历：1、负责友好速达官网改版，使用 JQuery、RubyHaml模板、Less，配合 gulp通过 Fiddler代理静态资源在本地开发和预览；2、使用 Vue 重构以往使用 Ruby 和 jQuery 开发的 Saas 建站服务的子模块（账户中心），主要负责购买网站，资金流水、域名设置等模块开发；3 使用自研的开发工具开发电商网站主题模板；4、使用 Angular1.x 版本维护和迭代 Saas 基础服务，如站内文章管理、SKU管理、优惠券发放、限时折扣、多人与拼团等模块。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI服务端平台remote前端开发工程师深圳2540K曾煜星8年.md",
+    "md_mostly_english": false
+  }
+}

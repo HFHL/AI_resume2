@@ -1,0 +1,313 @@
+{
+  "file_name": "AISAAS远程技术产品经理北京4060K贾宁宇8年.md",
+  "parsed_at": "2025-10-21T16:31:23.697476",
+  "result": {
+    "resume_file_id": null,
+    "name": "贾宁宇",
+    "email": "ningyujia921@gmail.com",
+    "phone": "17516739393",
+    "education_degree": "硕士",
+    "education_school": [
+      "卡耐基梅隆大学",
+      "Carnegie Mellon University 卡内基梅隆大学",
+      "利物浦大学",
+      "University of Liverpool 利物浦大学"
+    ],
+    "education_major": "商业智能与数据分析",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "DID",
+      "OP",
+      "PR",
+      "go",
+      "python",
+      "产品",
+      "增长",
+      "市场",
+      "数据分析",
+      "测试",
+      "设计",
+      "运营",
+      "销售"
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Numpy",
+      "Pandas",
+      "scikit-learn",
+      "SciPy",
+      "seaborn",
+      "matplotlib",
+      "PyTorch",
+      "Causal inference",
+      "Machine learning",
+      "A/B Testing",
+      "NoSQL",
+      "ETL",
+      "Azure",
+      "AWS",
+      "GCP",
+      "Databricks",
+      "Spark",
+      "Hadoop",
+      "Jira",
+      "Tableau",
+      "Figma",
+      "Asana",
+      "Trello",
+      "Axure"
+    ],
+    "work_experience": [
+      "字节跳动高级产品经理\n深圳，中国\n2024/11 - 至今\n功能设计：负责飞书多维表格高级权限模块的产品规划与功能开发，涵盖 Roadmap 制定、PRD 编写及上线后优化工作。通过功能迭代提升用户体验，实现模块 DAU提升约 8%。\n用户洞察：主动收集不同用户群体的使用痛点，识别并提炼用户需求，并将关键反馈对齐至功能团队进行需求优先级排序，有效推动迭代优化，负面反馈率下降约 18%。\n数据分析：建立并持续跟踪权限模块关键指标，实现用户行为可视化及产品使用效率的持续监控与评估。",
+      "ChangingthePresent.org\n高级产品经理\n匹兹堡，美国\n2023/11 - 2024/10\n功能设计：负责 UGC 产品创作者功能以及数据侧（Azure-Based）功能设计以及需求落地，制定产品 Go-to-market 策略，并建立推广渠道表现的数据评价指标体系，实现上线首季度约 6,000 MAU。\nAI 模型：设计并开发基于 NLP 模型（BERT）的多策略问答 Live agent 功能方案，解决产品客服自动化以及降低运营成本。负责原型模型开发及测试，实现 94%的回答准确率，测试环境提高首次解决率（FCR）约 17%。\n数据分析：定期对产品创作者指标进行数据分析，使用 SQL 对内容发布工具进行漏斗分析，发现并解决影响发布效率的关键问题。通过优化创作者发布界面及流程，功能上线首月发布量增长了 5.6%。",
+      "用友\n高级 SaaS产品经理\n北京，中国\n2022/03 - 2022/08\n产品规划：负责用友云 SaaS BIP 产品项目采购以及项目销售侧的路线图规划以及功能设计。通过深入分析客户需求与市场趋势，提升了采购流程的自动化与销售流程的管理效率。实现了 14%的客户满意度提升。\n销售支持：主导客户接触中的需求分析，深入理解客户在新品推广和整合营销中的核心痛点，结合市场洞察与产品路线图，提供定制化的解决方案支持，成功签订约 220 万元新销售合同。\n数据分析：定期针对产品表现进行根本原因分析（RCA）。发现并优化采购订单创建功能中的搜索功能，使得平均搜索时间减少了 31%，显著提升了用户的搜索效率。",
+      "石化盈科信息技术有限责任公司 (PCITC)\nSaaS 产品负责人/技术顾问\n北京，中国\n2017/03 - 2022/02\n产品规划：组建并领导产品团队面向国企用户，从 0-1 开发基于 SAP 的 SaaS 平台产品，制定并执行产品战略，确保产品路线图与公司整体业务目标一致，产品上线后贡献部门约 30%的当季度收入。\n功能设计：主导产品全生命周期管理，协调部门资源推动产品落地。包括前期业务需求调研、业务流程梳理，系统方案整理、需求文档整理、系统原型设计。最终实现超过 80%的需求转化为了产品功能模型。\n应用：负责库存预测功能的核心业务的业务流程梳理、逻辑规则整理、数据归纳，产出功能需求以及推动功能落地。通过 XGBoost 模型的预测功能，帮助目标客户平均减少目标区块内 18%的项目库存冗余。\n方案设计：参与 ERP（SAP）产品开发规划、设计、以及实施工作。产品上线前，独立设计产品功能测试脚本（UT、BST、UAT），基于业务场景开发数据迁移工具，业务人员培训，以及内部产品宣讲等。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "大规模机器学习音乐推荐模型\n2023/03\n将 280GB的百万歌曲数据集(MSD)转换并存储在 AWS S3中，使用 PySpark以及核函数算法执行详细的数据清理、转换、基于大数据核化的特征工程和可视化，以深入分析音乐趋势，减少了 97%的训练时长。开发和调整机器学习模型以预测歌曲流行度，利用梯度提升树实现了 0.88的测试 AUC，超过了基线逻辑回归模型的 0.75 AUC。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2024-11",
+        "end": "present",
+        "company": "字节跳动",
+        "title_en": "Senior Product Manager",
+        "title": "高级产品经理",
+        "description_en": "Responsible for the product planning and functional development of the advanced permission module of Feishu multi-dimensional table, covering Roadmap formulation, PRD writing, and post-launch optimization work. Improved user experience through functional iteration, achieving approximately 8% increase in module DAU.",
+        "description": "负责飞书多维表格高级权限模块的产品规划与功能开发，涵盖 Roadmap 制定、PRD 编写及上线后优化工作。通过功能迭代提升用户体验，实现模块 DAU提升约 8%。",
+        "details_en": [
+          "Responsible for the product planning and functional development of the advanced permission module of Feishu multi-dimensional table",
+          "Improved user experience through functional iteration",
+          "Achieved approximately 8% increase in module DAU"
+        ],
+        "details": [
+          "负责飞书多维表格高级权限模块的产品规划与功能开发",
+          "通过功能迭代提升用户体验",
+          "实现模块 DAU提升约 8%"
+        ],
+        "duration_months": 12
+      },
+      {
+        "start": "2023-11",
+        "end": "2024-10",
+        "company": "ChangingthePresent.org",
+        "title_en": "Senior Product Manager",
+        "title": "高级产品经理",
+        "description_en": "Responsible for the functional design of UGC product creator features and data side (Azure-Based), formulating product Go-to-market strategies, and establishing data evaluation index systems for promotional channel performance, achieving approximately 6,000 MAU in the first quarter after launch.",
+        "description": "负责 UGC 产品创作者功能以及数据侧（Azure-Based）功能设计以及需求落地，制定产品 Go-to-market 策略，并建立推广渠道表现的数据评价指标体系，实现上线首季度约 6,000 MAU。",
+        "details_en": [
+          "Designed and developed a multi-strategy Q&A Live agent function scheme based on NLP model (BERT)",
+          "Solved product customer service automation and reduced operating costs",
+          "Achieved 94% answer accuracy rate and improved first contact resolution rate by approximately 17%"
+        ],
+        "details": [
+          "设计并开发基于 NLP 模型（BERT）的多策略问答 Live agent 功能方案",
+          "解决产品客服自动化以及降低运营成本",
+          "实现 94%的回答准确率，测试环境提高首次解决率（FCR）约 17%"
+        ],
+        "duration_months": 12
+      },
+      {
+        "start": "2022-03",
+        "end": "2022-08",
+        "company": "用友",
+        "title_en": "Senior SaaS Product Manager",
+        "title": "高级 SaaS产品经理",
+        "description_en": "Responsible for the roadmap planning and functional design of the Yonyou Cloud SaaS BIP product project procurement and project sales side. Improved the automation of the procurement process and the management efficiency of the sales process through in-depth analysis of customer needs and market trends, achieving a 14% increase in customer satisfaction.",
+        "description": "负责用友云 SaaS BIP 产品项目采购以及项目销售侧的路线图规划以及功能设计。通过深入分析客户需求与市场趋势，提升了采购流程的自动化与销售流程的管理效率。实现了 14%的客户满意度提升。",
+        "details_en": [
+          "Led demand analysis during customer engagement",
+          "Provided customized solution support based on market insights and product roadmap",
+          "Successfully signed new sales contracts worth approximately 2.2 million yuan"
+        ],
+        "details": [
+          "主导客户接触中的需求分析",
+          "结合市场洞察与产品路线图，提供定制化的解决方案支持",
+          "成功签订约 220 万元新销售合同"
+        ],
+        "duration_months": 6
+      },
+      {
+        "start": "2017-03",
+        "end": "2022-02",
+        "company": "石化盈科信息技术有限责任公司 (PCITC",
+        "title_en": "SaaS Product Lead/Technical Consultant",
+        "title": "SaaS 产品负责人/技术顾问",
+        "description_en": "Built and led a product team targeting state-owned enterprise users, developed a SAP-based SaaS platform product from 0-1, formulated and executed product strategies, ensuring the product roadmap aligned with the company's overall business goals, contributing approximately 30% of the department's revenue in the quarter after launch.",
+        "description": "组建并领导产品团队面向国企用户，从 0-1 开发基于 SAP 的 SaaS 平台产品，制定并执行产品战略，确保产品路线图与公司整体业务目标一致，产品上线后贡献部门约 30%的当季度收入。",
+        "details_en": [
+          "Led the entire product lifecycle management",
+          "Coordinated departmental resources to promote product implementation",
+          "Achieved over 80% of requirements converted into product functional models"
+        ],
+        "details": [
+          "主导产品全生命周期管理",
+          "协调部门资源推动产品落地",
+          "最终实现超过 80%的需求转化为了产品功能模型"
+        ],
+        "duration_months": 60
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2023-03",
+        "end": "present",
+        "company": null,
+        "title_en": null,
+        "title": null,
+        "description_en": "Converted and stored a 280GB million song dataset (MSD) in AWS S3, performed detailed data cleaning, transformation, feature engineering, and visualization using PySpark and kernel function algorithms to analyze music trends, reducing training time by 97%. Developed and tuned machine learning models to predict song popularity, achieving a test AUC of 0.88 with gradient boosting trees, surpassing the baseline logistic regression model's AUC of 0.75.",
+        "description": "将280GB的百万歌曲数据集(MSD)转换并存储在AWS S3中，使用PySpark以及核函数算法执行详细的数据清理、转换、基于大数据核化的特征工程和可视化，以深入分析音乐趋势，减少了97%的训练时长。开发和调整机器学习模型以预测歌曲流行度，利用梯度提升树实现了0.88的测试AUC，超过了基线逻辑回归模型的0.75 AUC。",
+        "details_en": [
+          "Converted and stored a 280GB million song dataset (MSD) in AWS S3",
+          "Performed detailed data cleaning, transformation, feature engineering, and visualization using PySpark and kernel function algorithms",
+          "Analyzed music trends, reducing training time by 97%",
+          "Developed and tuned machine learning models to predict song popularity",
+          "Achieved a test AUC of 0.88 with gradient boosting trees, surpassing the baseline logistic regression model's AUC of 0.75"
+        ],
+        "details": [
+          "将280GB的百万歌曲数据集(MSD)转换并存储在AWS S3中",
+          "使用PySpark以及核函数算法执行详细的数据清理、转换、基于大数据核化的特征工程和可视化",
+          "深入分析音乐趋势，减少了97%的训练时长",
+          "开发和调整机器学习模型以预测歌曲流行度",
+          "利用梯度提升树实现了0.88的测试AUC，超过了基线逻辑回归模型的0.75 AUC"
+        ],
+        "duration_months": 32
+      }
+    ],
+    "self_evaluation": "具有六年以上产品经验，从“0-1”产品开发项目经验，曾负责 B端SaaS产品以及数据策略产品等开发过程，具有丰富的项目管理经验，在团队内通过设置基线，里程碑以及结合 ERP项目管理功能进行项目全生命周期管理，具有数据驱动精神，在产品开发过程中注重利用 A/B 测试，指标设计，以及数据分析看板等策略驱动产品决策。",
+    "other": null,
+    "work_years": 6,
+    "self_evaluation_zh": "具有六年以上产品经验，从“0-1”产品开发项目经验，曾负责 B端SaaS产品以及数据策略产品等开发过程，具有丰富的项目管理经验，在团队内通过设置基线，里程碑以及结合 ERP项目管理功能进行项目全生命周期管理，具有数据驱动精神，在产品开发过程中注重利用 A/B 测试，指标设计，以及数据分析看板等策略驱动产品决策。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "字节跳动高级产品经理\n深圳，中国\n2024/11 - 至今\n功能设计：负责飞书多维表格高级权限模块的产品规划与功能开发，涵盖 Roadmap 制定、PRD 编写及上线后优化工作。通过功能迭代提升用户体验，实现模块 DAU提升约 8%。\n用户洞察：主动收集不同用户群体的使用痛点，识别并提炼用户需求，并将关键反馈对齐至功能团队进行需求优先级排序，有效推动迭代优化，负面反馈率下降约 18%。\n数据分析：建立并持续跟踪权限模块关键指标，实现用户行为可视化及产品使用效率的持续监控与评估。",
+      "ChangingthePresent.org\n高级产品经理\n匹兹堡，美国\n2023/11 - 2024/10\n功能设计：负责 UGC 产品创作者功能以及数据侧（Azure-Based）功能设计以及需求落地，制定产品 Go-to-market 策略，并建立推广渠道表现的数据评价指标体系，实现上线首季度约 6,000 MAU。\nAI 模型：设计并开发基于 NLP 模型（BERT）的多策略问答 Live agent 功能方案，解决产品客服自动化以及降低运营成本。负责原型模型开发及测试，实现 94%的回答准确率，测试环境提高首次解决率（FCR）约 17%。\n数据分析：定期对产品创作者指标进行数据分析，使用 SQL 对内容发布工具进行漏斗分析，发现并解决影响发布效率的关键问题。通过优化创作者发布界面及流程，功能上线首月发布量增长了 5.6%。",
+      "用友\n高级 SaaS产品经理\n北京，中国\n2022/03 - 2022/08\n产品规划：负责用友云 SaaS BIP 产品项目采购以及项目销售侧的路线图规划以及功能设计。通过深入分析客户需求与市场趋势，提升了采购流程的自动化与销售流程的管理效率。实现了 14%的客户满意度提升。\n销售支持：主导客户接触中的需求分析，深入理解客户在新品推广和整合营销中的核心痛点，结合市场洞察与产品路线图，提供定制化的解决方案支持，成功签订约 220 万元新销售合同。\n数据分析：定期针对产品表现进行根本原因分析（RCA）。发现并优化采购订单创建功能中的搜索功能，使得平均搜索时间减少了 31%，显著提升了用户的搜索效率。",
+      "石化盈科信息技术有限责任公司 (PCITC)\nSaaS 产品负责人/技术顾问\n北京，中国\n2017/03 - 2022/02\n产品规划：组建并领导产品团队面向国企用户，从 0-1 开发基于 SAP 的 SaaS 平台产品，制定并执行产品战略，确保产品路线图与公司整体业务目标一致，产品上线后贡献部门约 30%的当季度收入。\n功能设计：主导产品全生命周期管理，协调部门资源推动产品落地。包括前期业务需求调研、业务流程梳理，系统方案整理、需求文档整理、系统原型设计。最终实现超过 80%的需求转化为了产品功能模型。\n应用：负责库存预测功能的核心业务的业务流程梳理、逻辑规则整理、数据归纳，产出功能需求以及推动功能落地。通过 XGBoost 模型的预测功能，帮助目标客户平均减少目标区块内 18%的项目库存冗余。\n方案设计：参与 ERP（SAP）产品开发规划、设计、以及实施工作。产品上线前，独立设计产品功能测试脚本（UT、BST、UAT），基于业务场景开发数据迁移工具，业务人员培训，以及内部产品宣讲等。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "大规模机器学习音乐推荐模型\n2023/03\n将 280GB的百万歌曲数据集(MSD)转换并存储在 AWS S3中，使用 PySpark以及核函数算法执行详细的数据清理、转换、基于大数据核化的特征工程和可视化，以深入分析音乐趋势，减少了 97%的训练时长。开发和调整机器学习模型以预测歌曲流行度，利用梯度提升树实现了 0.88的测试 AUC，超过了基线逻辑回归模型的 0.75 AUC。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-11",
+        "end": "present",
+        "company": "字节跳动",
+        "title_en": "Senior Product Manager",
+        "title": "高级产品经理",
+        "description_en": "Responsible for the product planning and functional development of the advanced permission module of Feishu multi-dimensional table, covering Roadmap formulation, PRD writing, and post-launch optimization work. Improved user experience through functional iteration, achieving approximately 8% increase in module DAU.",
+        "description": "负责飞书多维表格高级权限模块的产品规划与功能开发，涵盖 Roadmap 制定、PRD 编写及上线后优化工作。通过功能迭代提升用户体验，实现模块 DAU提升约 8%。",
+        "details_en": [
+          "Responsible for the product planning and functional development of the advanced permission module of Feishu multi-dimensional table",
+          "Improved user experience through functional iteration",
+          "Achieved approximately 8% increase in module DAU"
+        ],
+        "details": [
+          "负责飞书多维表格高级权限模块的产品规划与功能开发",
+          "通过功能迭代提升用户体验",
+          "实现模块 DAU提升约 8%"
+        ],
+        "duration_months": 12,
+        "title_zh": "高级产品经理",
+        "description_zh": "负责飞书多维表高级权限模块的产品规划和功能开发，包括路线图制定、PRD撰写和上线后的优化工作。\n通过功能迭代改善用户体验，实现模块DAU约8%的增长。",
+        "details_zh": [
+          "负责飞书多维表的高级权限模块的产品规划和功能开发",
+          "通过功能迭代改善用户体验",
+          "实现了模块DAU约8%的增长"
+        ]
+      },
+      {
+        "start": "2023-11",
+        "end": "2024-10",
+        "company": "ChangingthePresent.org",
+        "title_en": "Senior Product Manager",
+        "title": "高级产品经理",
+        "description_en": "Responsible for the functional design of UGC product creator features and data side (Azure-Based), formulating product Go-to-market strategies, and establishing data evaluation index systems for promotional channel performance, achieving approximately 6,000 MAU in the first quarter after launch.",
+        "description": "负责 UGC 产品创作者功能以及数据侧（Azure-Based）功能设计以及需求落地，制定产品 Go-to-market 策略，并建立推广渠道表现的数据评价指标体系，实现上线首季度约 6,000 MAU。",
+        "details_en": [
+          "Designed and developed a multi-strategy Q&A Live agent function scheme based on NLP model (BERT)",
+          "Solved product customer service automation and reduced operating costs",
+          "Achieved 94% answer accuracy rate and improved first contact resolution rate by approximately 17%"
+        ],
+        "details": [
+          "设计并开发基于 NLP 模型（BERT）的多策略问答 Live agent 功能方案",
+          "解决产品客服自动化以及降低运营成本",
+          "实现 94%的回答准确率，测试环境提高首次解决率（FCR）约 17%"
+        ],
+        "duration_months": 12,
+        "title_zh": "高级产品经理",
+        "description_zh": "负责UGC产品创作者功能设计和数据端（基于Azure），制定产品市场推广策略，并建立推广渠道绩效的数据评估指标体系，在上线后的第一季度实现约6,000的月活跃用户。",
+        "details_zh": [
+          "基于NLP模型（BERT）设计并开发了一个多策略问答直播代理功能方案。",
+          "解决了产品客户服务自动化并降低了运营成本",
+          "实现了94%的回答准确率，并将首次联系解决率提高了约17%"
+        ]
+      },
+      {
+        "start": "2022-03",
+        "end": "2022-08",
+        "company": "用友",
+        "title_en": "Senior SaaS Product Manager",
+        "title": "高级 SaaS产品经理",
+        "description_en": "Responsible for the roadmap planning and functional design of the Yonyou Cloud SaaS BIP product project procurement and project sales side. Improved the automation of the procurement process and the management efficiency of the sales process through in-depth analysis of customer needs and market trends, achieving a 14% increase in customer satisfaction.",
+        "description": "负责用友云 SaaS BIP 产品项目采购以及项目销售侧的路线图规划以及功能设计。通过深入分析客户需求与市场趋势，提升了采购流程的自动化与销售流程的管理效率。实现了 14%的客户满意度提升。",
+        "details_en": [
+          "Led demand analysis during customer engagement",
+          "Provided customized solution support based on market insights and product roadmap",
+          "Successfully signed new sales contracts worth approximately 2.2 million yuan"
+        ],
+        "details": [
+          "主导客户接触中的需求分析",
+          "结合市场洞察与产品路线图，提供定制化的解决方案支持",
+          "成功签订约 220 万元新销售合同"
+        ],
+        "duration_months": 6,
+        "title_zh": "高级SaaS产品经理",
+        "description_zh": "负责用友云SaaS BIP产品项目采购和项目销售方面的路线图规划和功能设计。\n通过对客户需求和市场趋势的深入分析，提高了采购流程的自动化和销售流程的管理效率，实现了客户满意度提高14%。",
+        "details_zh": [
+          "在客户参与期间领导需求分析",
+          "根据市场洞察和产品路线图提供定制化解决方案支持",
+          "成功签署了价值约220万元的新销售合同"
+        ]
+      },
+      {
+        "start": "2017-03",
+        "end": "2022-02",
+        "company": "石化盈科信息技术有限责任公司 (PCITC",
+        "title_en": "SaaS Product Lead/Technical Consultant",
+        "title": "SaaS 产品负责人/技术顾问",
+        "description_en": "Built and led a product team targeting state-owned enterprise users, developed a SAP-based SaaS platform product from 0-1, formulated and executed product strategies, ensuring the product roadmap aligned with the company's overall business goals, contributing approximately 30% of the department's revenue in the quarter after launch.",
+        "description": "组建并领导产品团队面向国企用户，从 0-1 开发基于 SAP 的 SaaS 平台产品，制定并执行产品战略，确保产品路线图与公司整体业务目标一致，产品上线后贡献部门约 30%的当季度收入。",
+        "details_en": [
+          "Led the entire product lifecycle management",
+          "Coordinated departmental resources to promote product implementation",
+          "Achieved over 80% of requirements converted into product functional models"
+        ],
+        "details": [
+          "主导产品全生命周期管理",
+          "协调部门资源推动产品落地",
+          "最终实现超过 80%的需求转化为了产品功能模型"
+        ],
+        "duration_months": 60,
+        "title_zh": "SaaS产品负责人/技术顾问",
+        "description_zh": "建立并领导了一个针对国有企业用户的产品团队，从0到1开发了一个基于SAP的SaaS平台产品，制定并执行了产品战略，确保产品路线图与公司的整体业务目标一致，在上线后的一个季度内为部门贡献了约30%的收入。",
+        "details_zh": [
+          "领导整个产品生命周期管理",
+          "协调部门资源以促进产品实施",
+          "实现了超过80%的需求转化为产品功能模型"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程技术产品经理北京4060K贾宁宇8年.md",
+    "md_mostly_english": false
+  }
+}

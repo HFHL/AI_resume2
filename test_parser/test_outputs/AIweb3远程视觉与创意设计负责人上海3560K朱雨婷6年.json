@@ -1,0 +1,212 @@
+{
+  "file_name": "AIweb3远程视觉与创意设计负责人上海3560K朱雨婷6年.md",
+  "parsed_at": "2025-10-21T16:44:24.047610",
+  "result": {
+    "resume_file_id": null,
+    "name": "朱雨婷",
+    "email": "yz2849@columbia.edu",
+    "phone": "15851513701",
+    "education_degree": "研究生",
+    "education_school": [
+      "南加州建筑学院",
+      "University of Southern California 南加州大学",
+      "哥伦比亚大学",
+      "Columbia University 哥伦比亚大学",
+      "加州大学圣巴巴拉分校",
+      "University of California, Santa Barbara 加利福尼亚大学圣巴巴拉分校",
+      "西安交通大学"
+    ],
+    "education_major": "建筑学研究生(M.Arch I)",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "设计"
+    ],
+    "skills": [
+      "多媒体设计",
+      "新媒体建筑",
+      "三维设计",
+      "动画",
+      "导演"
+    ],
+    "work_experience": [
+      "2021.03-2023.10 上海，中国 小红书 资深多媒体设计师",
+      "2019.05 - 2019.08 上海，中国 查普门泰勒建筑设计咨询(上海)有限公司 建筑师",
+      "洛杉矶，美国 Griffin Enright Architects"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2022.05-2022.08 上海，中国 梅赛德斯奔驰EQE发布会,重塑雕像的权力乐队 制片/场景设计师 (独立设计师)",
+      "2022.11-2022.12 上海，中国 OUTPUT天才计划 元宇宙设计师 (独立设计师)",
+      "2021.03-2021.06 上海，中国 Bosie品牌概念片The Era of Bosie 三维设计师 (独立设计师)",
+      "2020.12-2021.02 上海,中国 “WHATWORLD”视觉动画，深圳莉莉玛莲酒吧 导演/动态设计师 (独立设计师)",
+      "2020.05-2020.08 洛杉矶，美国 “Burberry Monogram World”MV,博柏利,马 导演/动画/跟踪/剪辑(独立设计师)"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-03",
+        "end": "2023-10",
+        "company": "小红书",
+        "title_en": "Senior Multimedia Designer",
+        "title": "资深多媒体设计师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 32
+      },
+      {
+        "start": "2019-05",
+        "end": "2019-08",
+        "company": "查普门泰勒建筑设计咨询(上海)有限公司",
+        "title_en": "Architect",
+        "title": "建筑师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 4
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Griffin Enright Architects",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2022-05",
+        "end": "2022-08",
+        "company": "梅赛德斯奔驰EQE发布会",
+        "title_en": "Producer/Scenic Designer",
+        "title": "制片/场景设计师",
+        "description_en": null,
+        "description": "重塑雕像的权力乐队",
+        "details_en": null,
+        "details": null,
+        "duration_months": 4
+      },
+      {
+        "start": "2022-11",
+        "end": "2022-12",
+        "company": "OUTPUT天才计划",
+        "title_en": "Metaverse Designer",
+        "title": "元宇宙设计师",
+        "description_en": null,
+        "description": "元宇宙设计师",
+        "details_en": null,
+        "details": null,
+        "duration_months": 2
+      },
+      {
+        "start": "2021-03",
+        "end": "2021-06",
+        "company": "Bosie品牌概念片The Era of Bosie",
+        "title_en": "3D Designer",
+        "title": "三维设计师",
+        "description_en": null,
+        "description": "三维设计师",
+        "details_en": null,
+        "details": null,
+        "duration_months": 4
+      },
+      {
+        "start": "2020-12",
+        "end": "2021-02",
+        "company": "“WHATWORLD”视觉动画，深圳莉莉玛莲酒吧",
+        "title_en": "Director/Dynamic Designer",
+        "title": "导演/动态设计师",
+        "description_en": null,
+        "description": "导演/动态设计师",
+        "details_en": null,
+        "details": null,
+        "duration_months": 3
+      },
+      {
+        "start": "2020-05",
+        "end": "2020-08",
+        "company": "“Burberry Monogram World”MV",
+        "title_en": "Director/Animation/Tracking/Editing",
+        "title": "导演/动画/跟踪/剪辑",
+        "description_en": null,
+        "description": "博柏利,马",
+        "details_en": null,
+        "details": null,
+        "duration_months": 4
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.03-2023.10 上海，中国 小红书 资深多媒体设计师",
+      "2019.05 - 2019.08 上海，中国 查普门泰勒建筑设计咨询(上海)有限公司 建筑师",
+      "洛杉矶，美国 Griffin Enright Architects"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2022.05-2022.08 上海，中国 梅赛德斯奔驰EQE发布会,重塑雕像的权力乐队 制片/场景设计师 (独立设计师)",
+      "2022.11-2022.12 上海，中国 OUTPUT天才计划 元宇宙设计师 (独立设计师)",
+      "2021.03-2021.06 上海，中国 Bosie品牌概念片The Era of Bosie 三维设计师 (独立设计师)",
+      "2020.12-2021.02 上海,中国 “WHATWORLD”视觉动画，深圳莉莉玛莲酒吧 导演/动态设计师 (独立设计师)",
+      "2020.05-2020.08 洛杉矶，美国 “Burberry Monogram World”MV,博柏利,马 导演/动画/跟踪/剪辑(独立设计师)"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-03",
+        "end": "2023-10",
+        "company": "小红书",
+        "title_en": "Senior Multimedia Designer",
+        "title": "资深多媒体设计师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 32,
+        "title_zh": "高级多媒体设计师"
+      },
+      {
+        "start": "2019-05",
+        "end": "2019-08",
+        "company": "查普门泰勒建筑设计咨询(上海)有限公司",
+        "title_en": "Architect",
+        "title": "建筑师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 4,
+        "title_zh": "建筑师"
+      },
+      {
+        "start": null,
+        "end": "present",
+        "company": "Griffin Enright Architects",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3远程视觉与创意设计负责人上海3560K朱雨婷6年.md",
+    "md_mostly_english": false
+  }
+}

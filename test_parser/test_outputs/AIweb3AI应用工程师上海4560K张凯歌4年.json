@@ -1,0 +1,275 @@
+{
+  "file_name": "AIweb3AI应用工程师上海4560K张凯歌4年.md",
+  "parsed_at": "2025-10-21T16:38:18.557472",
+  "result": {
+    "resume_file_id": null,
+    "name": "张凯歌",
+    "email": "edith_zhang@outlook.com",
+    "phone": null,
+    "education_degree": null,
+    "education_school": [
+      "工大学",
+      "Computer Science and Technology College 计算机科学与技术学院"
+    ],
+    "education_major": "计算机应用技术",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "OP",
+      "PR",
+      "go",
+      "java",
+      "python",
+      "产品",
+      "前端",
+      "区块链开发",
+      "合约",
+      "后端",
+      "多模态",
+      "大模型",
+      "安全",
+      "数据分析",
+      "智能体",
+      "测试",
+      "生成式AI",
+      "设计",
+      "运营",
+      "量化开发",
+      "项目经理",
+      "高净值"
+    ],
+    "skills": [
+      "Python",
+      "Java",
+      "PyTorch",
+      "SpringBoot",
+      "MyBatis",
+      "Git",
+      "Linux",
+      "Redis"
+    ],
+    "work_experience": [
+      "2023 年 4 月 ~ 2024 年 11 月\n华为 | AI for System研究员（Research & Development）\n参与AI智能调优技术研究，负责技术洞察、方案设计与验证及技术落地；基于约束贝叶斯优化，研发大模型训练多维并行计划求解器Tinker，较暴力搜索仿真轮次削减3-4个数量级，60s内可达理论最优；参与 A + K 算力异构协同技术预研，设计 A + K 算力分发子系统，实现基于黑盒代价模型与智能决策算法的计算图自动分发/映射引擎。",
+      "2021 年 8 月 ~ 2023 年 4 月\n华为 | Java后端开发工程师\n参与MetaCRM Foundation的研发，负责公共数据、企业协同的设计开发和运营；参与MetaCRM架构统一、性能加速重点方案研讨，负责公共数据高性能加速通道方案设计开发；主导MetaCRM公共数据域的重构工作，去除冗余接口21个，减少代码仓4个，降低代码量 2w + ；负责解决产品技术债，包括统一编码规范、提高测试覆盖率、项目架构统一等工作。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2023 年 4 月 ~ 2024 年 11 月\nAI for Systems研究项目\n项目名称：通用计算基础软件智能调优\n项目背景：基础软件如MySQL、Flink、Spark等拥有众多的配置参数，默认的参数配置往往不能发挥出最佳的应用性能。依靠专家经验调整参数值来优化性能，面临参数组合爆炸、人工分析成本高、负载迁移性差等问题。AITuner使用AI驱动的迭代优化方法，以最小的工程代价实现基础软件性能自动优化。\n工作内容/个人职责：利用贝叶斯优化替代专家经验，实现配置参数的自动采样与多层级系统调优，从应用到操作系统实现深度性能优化。开发自动化通用调优引擎，将调优时长从数天降至数小时；在大数据场景（Spark + OmniRuntime、Hive、Flink）下性能提升 14% - 33%，在数据库场景（MySQL + OpenEuler）下性能提升 8% - 18%。",
+      "2023 年 4 月 ~ 2024 年 11 月\n项目名称：Tinker并行策略求解器\n项目背景：大模型已被广泛应用在各个领域，但训练数十亿到万亿的参数是具有挑战性的。面对最大化训练效率的要求，分布式训练是必经之路。为减少工程负担、快速迭代和实验、探索下一代集群架构，湛卢平台衍生出自动并行策略搜索/优化需求。Tinker为并行策略优化模块，用于高效搜索大模型分布式训练任务的最优并行策略，实现集群计算性能的最大化使用。\n工作内容/个人职责：针对高维复杂的并行训练策略参数空间，设计并实现结合约束学习的泛贝叶斯优化方法，大幅减少采样次数至千次级。通过引入专家知识进行白盒空间剪枝，有效配置比例由 10% 提升至 70%；同时结合拉格朗日乘子法构建灰盒约束学习机制，提升搜索器在隐形约束下的收敛效率与精度，实现分钟级高效并行策略优化，显著提升大模型训练性能与稳定性。",
+      "2023 年 4 月 ~ 2024 年 11 月\n项目名称： A + K 异构算力协同\n项目背景：NPU架构对高精度浮点运算，稀疏访存等有性能缺陷。相较于GPU，NPU无法满足日益演进的AI计算类型。面对GPU的技术和商业垄断，AI突围需从NPU卸载范式转向CPU+NPU协同范式。AI框架自动评估模型算子对Kunpeng和Ascend的硬件架构的亲和性，自动分发算子，实现最优架构互补，最大化发挥异构算力。\n工作内容/个人职责：基于 PyTorch 框架构建 K + A 异构算力分发系统，自动评估模型算子对 Kunpeng 与 Ascend 架构的亲和性，实现协同计算。改造 Baechi 的 m-ETF 调度算法以支持 CPU + NPU 异构资源，设计 Execution Simulator 生成分发策略，并通过 wrapper封装方法将策略集成至模型运行流程，实现运行时跨设备 Tensor动态迁移，提升系统整体资源利用率与计算效率。",
+      "2021 年 8 月 ~ 2023 年 4 月\nMetaCRM Foundation\n项目背景：为了满足MetaCRM系统中数据管理、安全隐私、企业协同等共性需求，CRMFoundation作为MetaCRM的公共底座与运行时所依赖的公共服务，为整个系统提供公共数据、公共能力和增值业务能力。涉及技术：Spring Boot、Spring Batch、Mybatis、Redis、MongoDB、领域驱动开发、微服务\n工作内容/个人职责 : 负责MetaCRM公共数据管理面和客户面开发，提供统一的公共数据管理及访问加速；使用消息队列MQS推送源端增量公共数据，实现公共数据实时更新，并且用户无感知；自顶向下梳理公共数据业务场景，设计RedisKey生成规则，生成Key1000万 + ，并使用GaussDB Redis缓存热点数据，将查询响应时间从分钟级降至 < 20 ms ，提升用户体验；作为企业协同模块Owner，负责需求分析和总体架构设计，协调前端同事完成任务管理、通知消息、邮件沟通等模块的开发，构建MetaCRM增值业务；参与MetaCRM架构统一重点方案研讨，基于领域驱动设计和元数据多租驱动的微服务，设计统一的参考架构并推广落地，实现MetaCRM升级重构。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-04",
+        "end": "2024-11",
+        "company": "华为",
+        "title_en": "AI for System Researcher",
+        "title": "AI for System研究员",
+        "description_en": "Participated in AI intelligent tuning technology research, responsible for technical insights, solution design and verification, and technology implementation; developed the multi-dimensional parallel planning solver Tinker for large model training based on constrained Bayesian optimization, reducing the number of simulation rounds by 3-4 orders of magnitude compared to brute force search, achieving theoretical optimal within 60 seconds; participated in the preliminary research of A + K heterogeneous collaborative computing technology, designed the A + K computing distribution subsystem, and realized the automatic distribution/mapping engine of the computation graph based on black-box cost model and intelligent decision-making algorithm.",
+        "description": "参与AI智能调优技术研究，负责技术洞察、方案设计与验证及技术落地；基于约束贝叶斯优化，研发大模型训练多维并行计划求解器Tinker，较暴力搜索仿真轮次削减3-4个数量级，60s内可达理论最优；参与 A + K 算力异构协同技术预研，设计 A + K 算力分发子系统，实现基于黑盒代价模型与智能决策算法的计算图自动分发/映射引擎。",
+        "details_en": [
+          "Participated in AI intelligent tuning technology research",
+          "Responsible for technical insights, solution design and verification, and technology implementation",
+          "Developed the multi-dimensional parallel planning solver Tinker for large model training based on constrained Bayesian optimization",
+          "Reduced the number of simulation rounds by 3-4 orders of magnitude compared to brute force search",
+          "Achieved theoretical optimal within 60 seconds",
+          "Participated in the preliminary research of A + K heterogeneous collaborative computing technology",
+          "Designed the A + K computing distribution subsystem",
+          "Realized the automatic distribution/mapping engine of the computation graph based on black-box cost model and intelligent decision-making algorithm"
+        ],
+        "details": [
+          "参与AI智能调优技术研究",
+          "负责技术洞察、方案设计与验证及技术落地",
+          "基于约束贝叶斯优化，研发大模型训练多维并行计划求解器Tinker",
+          "较暴力搜索仿真轮次削减3-4个数量级",
+          "60s内可达理论最优",
+          "参与 A + K 算力异构协同技术预研",
+          "设计 A + K 算力分发子系统",
+          "实现基于黑盒代价模型与智能决策算法的计算图自动分发/映射引擎"
+        ],
+        "duration_months": 20
+      },
+      {
+        "start": "2021-08",
+        "end": "2023-04",
+        "company": "华为",
+        "title_en": "Java Backend Developer",
+        "title": "Java后端开发工程师",
+        "description_en": "Participated in the development of MetaCRM Foundation, responsible for the design, development, and operation of public data and enterprise collaboration; participated in the discussion of key solutions for MetaCRM architecture unification and performance acceleration, responsible for the design and development of high-performance acceleration channel solutions for public data; led the reconstruction of the public data domain of MetaCRM, removing 21 redundant interfaces, reducing 4 code repositories, and lowering the code volume by over 20,000; responsible for resolving product technical debt, including unifying coding standards, improving test coverage, and unifying project architecture.",
+        "description": "参与MetaCRM Foundation的研发，负责公共数据、企业协同的设计开发和运营；参与MetaCRM架构统一、性能加速重点方案研讨，负责公共数据高性能加速通道方案设计开发；主导MetaCRM公共数据域的重构工作，去除冗余接口21个，减少代码仓4个，降低代码量 2w + ；负责解决产品技术债，包括统一编码规范、提高测试覆盖率、项目架构统一等工作。",
+        "details_en": [
+          "Participated in the development of MetaCRM Foundation",
+          "Responsible for the design, development, and operation of public data and enterprise collaboration",
+          "Participated in the discussion of key solutions for MetaCRM architecture unification and performance acceleration",
+          "Responsible for the design and development of high-performance acceleration channel solutions for public data",
+          "Led the reconstruction of the public data domain of MetaCRM",
+          "Removed 21 redundant interfaces",
+          "Reduced 4 code repositories",
+          "Lowered the code volume by over 20,000",
+          "Responsible for resolving product technical debt, including unifying coding standards, improving test coverage, and unifying project architecture"
+        ],
+        "details": [
+          "参与MetaCRM Foundation的研发",
+          "负责公共数据、企业协同的设计开发和运营",
+          "参与MetaCRM架构统一、性能加速重点方案研讨",
+          "负责公共数据高性能加速通道方案设计开发",
+          "主导MetaCRM公共数据域的重构工作",
+          "去除冗余接口21个",
+          "减少代码仓4个",
+          "降低代码量 2w +",
+          "负责解决产品技术债，包括统一编码规范、提高测试覆盖率、项目架构统一等工作"
+        ],
+        "duration_months": 21
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2023-04",
+        "end": "2024-06",
+        "company": null,
+        "title": null,
+        "description": "AI for Systems研究项目\n项目名称：通用计算基础软件智能调优\n项目背景：基础软件如MySQL、Flink、Spark等拥有众多的配置参数，默认的参数配置往往不能发挥出最佳的应用性能。依靠专家经验调整参数值来优化性能，面临参数组合爆炸、人工分析成本高、负载迁移性差等问题。AITuner使用AI驱动的迭代优化方法，以最小的工程代价实现基础软件性能自动优化。\n工作内容/个人职责：利用贝叶斯优化替代专家经验，实现配置参数的自动采样与多层级系统调优，从应用到操作系统实现深度性能优化。开发自动化通用调优引擎，将调优时长从数天降至数小时；在大数据场景（Spark + OmniRuntime、Hive、Flink）下性能提升 14% - 33%，在数据库场景（MySQL + OpenEuler）下性能提升 8% - 18%。",
+        "duration_months": 15
+      },
+      {
+        "start": "2023-04",
+        "end": "2024-06",
+        "company": null,
+        "title": null,
+        "description": "项目名称：Tinker并行策略求解器\n项目背景：大模型已被广泛应用在各个领域，但训练数十亿到万亿的参数是具有挑战性的。面对最大化训练效率的要求，分布式训练是必经之路。为减少工程负担、快速迭代和实验、探索下一代集群架构，湛卢平台衍生出自动并行策略搜索/优化需求。Tinker为并行策略优化模块，用于高效搜索大模型分布式训练任务的最优并行策略，实现集群计算性能的最大化使用。\n工作内容/个人职责：针对高维复杂的并行训练策略参数空间，设计并实现结合约束学习的泛贝叶斯优化方法，大幅减少采样次数至千次级。通过引入专家知识进行白盒空间剪枝，有效配置比例由 10% 提升至 70%；同时结合拉格朗日乘子法构建灰盒约束学习机制，提升搜索器在隐形约束下的收敛效率与精度，实现分钟级高效并行策略优化，显著提升大模型训练性能与稳定性。",
+        "duration_months": 15
+      },
+      {
+        "start": "2023-04",
+        "end": "2024-06",
+        "company": null,
+        "title": null,
+        "description": "项目名称： A + K 异构算力协同\n项目背景：NPU架构对高精度浮点运算，稀疏访存等有性能缺陷。相较于GPU，NPU无法满足日益演进的AI计算类型。面对GPU的技术和商业垄断，AI突围需从NPU卸载范式转向CPU+NPU协同范式。AI框架自动评估模型算子对Kunpeng和Ascend的硬件架构的亲和性，自动分发算子，实现最优架构互补，最大化发挥异构算力。\n工作内容/个人职责：基于 PyTorch 框架构建 K + A 异构算力分发系统，自动评估模型算子对 Kunpeng 与 Ascend 架构的亲和性，实现协同计算。改造 Baechi 的 m-ETF 调度算法以支持 CPU + NPU 异构资源，设计 Execution Simulator 生成分发策略，并通过 wrapper封装方法将策略集成至模型运行流程，实现运行时跨设备 Tensor动态迁移，提升系统整体资源利用率与计算效率。",
+        "duration_months": 15
+      },
+      {
+        "start": "2021-08",
+        "end": "2023-06",
+        "company": null,
+        "title": null,
+        "description": "MetaCRM Foundation\n项目背景：为了满足MetaCRM系统中数据管理、安全隐私、企业协同等共性需求，CRMFoundation作为MetaCRM的公共底座与运行时所依赖的公共服务，为整个系统提供公共数据、公共能力和增值业务能力。涉及技术：Spring Boot、Spring Batch、Mybatis、Redis、MongoDB、领域驱动开发、微服务\n工作内容/个人职责 : 负责MetaCRM公共数据管理面和客户面开发，提供统一的公共数据管理及访问加速；使用消息队列MQS推送源端增量公共数据，实现公共数据实时更新，并且用户无感知；自顶向下梳理公共数据业务场景，设计RedisKey生成规则，生成Key1000万 + ，并使用GaussDB Redis缓存热点数据，将查询响应时间从分钟级降至 < 20 ms ，提升用户体验；作为企业协同模块Owner，负责需求分析和总体架构设计，协调前端同事完成任务管理、通知消息、邮件沟通等模块的开发，构建MetaCRM增值业务；参与MetaCRM架构统一重点方案研讨，基于领域驱动设计和元数据多租驱动的微服务，设计统一的参考架构并推广落地，实现MetaCRM升级重构。",
+        "duration_months": 23
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023 年 4 月 ~ 2024 年 11 月\n华为 | AI for System研究员（研究与开发）\n参与AI智能调优技术研究，负责技术洞察、方案设计与验证及技术落地；基于约束贝叶斯优化，研发大模型训练多维并行计划求解器Tinker，较暴力搜索仿真轮次削减3-4个数量级，60s内可达理论最优；参与 A + K 算力异构协同技术预研，设计 A + K 算力分发子系统，实现基于黑盒代价模型与智能决策算法的计算图自动分发/映射引擎。",
+      "2021 年 8 月 ~ 2023 年 4 月\n华为 | Java后端开发工程师\n参与MetaCRM Foundation的研发，负责公共数据、企业协同的设计开发和运营；参与MetaCRM架构统一、性能加速重点方案研讨，负责公共数据高性能加速通道方案设计开发；主导MetaCRM公共数据域的重构工作，去除冗余接口21个，减少代码仓4个，降低代码量 2w + ；负责解决产品技术债，包括统一编码规范、提高测试覆盖率、项目架构统一等工作。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2023 年 4 月 ~ 2024 年 11 月\nAI for Systems研究项目\n项目名称：通用计算基础软件智能调优\n项目背景：基础软件如MySQL、Flink、Spark等拥有众多的配置参数，默认的参数配置往往不能发挥出最佳的应用性能。依靠专家经验调整参数值来优化性能，面临参数组合爆炸、人工分析成本高、负载迁移性差等问题。AITuner使用AI驱动的迭代优化方法，以最小的工程代价实现基础软件性能自动优化。\n工作内容/个人职责：利用贝叶斯优化替代专家经验，实现配置参数的自动采样与多层级系统调优，从应用到操作系统实现深度性能优化。开发自动化通用调优引擎，将调优时长从数天降至数小时；在大数据场景（Spark + OmniRuntime、Hive、Flink）下性能提升 14% - 33%，在数据库场景（MySQL + OpenEuler）下性能提升 8% - 18%。",
+      "2023 年 4 月 ~ 2024 年 11 月\n项目名称：Tinker并行策略求解器\n项目背景：大模型已被广泛应用在各个领域，但训练数十亿到万亿的参数是具有挑战性的。面对最大化训练效率的要求，分布式训练是必经之路。为减少工程负担、快速迭代和实验、探索下一代集群架构，湛卢平台衍生出自动并行策略搜索/优化需求。Tinker为并行策略优化模块，用于高效搜索大模型分布式训练任务的最优并行策略，实现集群计算性能的最大化使用。\n工作内容/个人职责：针对高维复杂的并行训练策略参数空间，设计并实现结合约束学习的泛贝叶斯优化方法，大幅减少采样次数至千次级。通过引入专家知识进行白盒空间剪枝，有效配置比例由 10% 提升至 70%；同时结合拉格朗日乘子法构建灰盒约束学习机制，提升搜索器在隐形约束下的收敛效率与精度，实现分钟级高效并行策略优化，显著提升大模型训练性能与稳定性。",
+      "2023 年 4 月 ~ 2024 年 11 月\n项目名称： A + K 异构算力协同\n项目背景：NPU架构对高精度浮点运算，稀疏访存等有性能缺陷。相较于GPU，NPU无法满足日益演进的AI计算类型。面对GPU的技术和商业垄断，AI突围需从NPU卸载范式转向CPU+NPU协同范式。AI框架自动评估模型算子对Kunpeng和Ascend的硬件架构的亲和性，自动分发算子，实现最优架构互补，最大化发挥异构算力。\n工作内容/个人职责：基于 PyTorch 框架构建 K + A 异构算力分发系统，自动评估模型算子对 Kunpeng 与 Ascend 架构的亲和性，实现协同计算。改造 Baechi 的 m-ETF 调度算法以支持 CPU + NPU 异构资源，设计 Execution Simulator 生成分发策略，并通过 wrapper封装方法将策略集成至模型运行流程，实现运行时跨设备 Tensor动态迁移，提升系统整体资源利用率与计算效率。",
+      "2021 年 8 月 ~ 2023 年 4 月\nMetaCRM 基金会\n项目背景：为了满足MetaCRM系统中数据管理、安全隐私、企业协同等共性需求，CRMFoundation作为MetaCRM的公共底座与运行时所依赖的公共服务，为整个系统提供公共数据、公共能力和增值业务能力。涉及技术：Spring Boot、Spring Batch、Mybatis、Redis、MongoDB、领域驱动开发、微服务\n工作内容/个人职责 : 负责MetaCRM公共数据管理面和客户面开发，提供统一的公共数据管理及访问加速；使用消息队列MQS推送源端增量公共数据，实现公共数据实时更新，并且用户无感知；自顶向下梳理公共数据业务场景，设计RedisKey生成规则，生成Key1000万 + ，并使用GaussDB Redis缓存热点数据，将查询响应时间从分钟级降至 < 20 ms ，提升用户体验；作为企业协同模块Owner，负责需求分析和总体架构设计，协调前端同事完成任务管理、通知消息、邮件沟通等模块的开发，构建MetaCRM增值业务；参与MetaCRM架构统一重点方案研讨，基于领域驱动设计和元数据多租驱动的微服务，设计统一的参考架构并推广落地，实现MetaCRM升级重构。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-04",
+        "end": "2024-11",
+        "company": "华为",
+        "title_en": "AI for System Researcher",
+        "title": "AI for System研究员",
+        "description_en": "Participated in AI intelligent tuning technology research, responsible for technical insights, solution design and verification, and technology implementation; developed the multi-dimensional parallel planning solver Tinker for large model training based on constrained Bayesian optimization, reducing the number of simulation rounds by 3-4 orders of magnitude compared to brute force search, achieving theoretical optimal within 60 seconds; participated in the preliminary research of A + K heterogeneous collaborative computing technology, designed the A + K computing distribution subsystem, and realized the automatic distribution/mapping engine of the computation graph based on black-box cost model and intelligent decision-making algorithm.",
+        "description": "参与AI智能调优技术研究，负责技术洞察、方案设计与验证及技术落地；基于约束贝叶斯优化，研发大模型训练多维并行计划求解器Tinker，较暴力搜索仿真轮次削减3-4个数量级，60s内可达理论最优；参与 A + K 算力异构协同技术预研，设计 A + K 算力分发子系统，实现基于黑盒代价模型与智能决策算法的计算图自动分发/映射引擎。",
+        "details_en": [
+          "Participated in AI intelligent tuning technology research",
+          "Responsible for technical insights, solution design and verification, and technology implementation",
+          "Developed the multi-dimensional parallel planning solver Tinker for large model training based on constrained Bayesian optimization",
+          "Reduced the number of simulation rounds by 3-4 orders of magnitude compared to brute force search",
+          "Achieved theoretical optimal within 60 seconds",
+          "Participated in the preliminary research of A + K heterogeneous collaborative computing technology",
+          "Designed the A + K computing distribution subsystem",
+          "Realized the automatic distribution/mapping engine of the computation graph based on black-box cost model and intelligent decision-making algorithm"
+        ],
+        "details": [
+          "参与AI智能调优技术研究",
+          "负责技术洞察、方案设计与验证及技术落地",
+          "基于约束贝叶斯优化，研发大模型训练多维并行计划求解器Tinker",
+          "较暴力搜索仿真轮次削减3-4个数量级",
+          "60s内可达理论最优",
+          "参与 A + K 算力异构协同技术预研",
+          "设计 A + K 算力分发子系统",
+          "实现基于黑盒代价模型与智能决策算法的计算图自动分发/映射引擎"
+        ],
+        "duration_months": 20,
+        "title_zh": "系统研究员的人工智能",
+        "description_zh": "参与了AI智能调优技术研究，负责技术洞察、解决方案设计与验证以及技术实施；基于约束贝叶斯优化开发了多维并行规划求解器Tinker，用于大模型训练，相比于暴力搜索将模拟轮次减少了3-4个数量级，在60秒内实现了理论最优；参与了A + K异构协同计算技术的初步研究，设计了A + K计算分发子系统，并实现了基于黑箱成本模型和智能决策算法的计算图自动分发/映射引擎。",
+        "details_zh": [
+          "参与了AI智能调优技术研究",
+          "负责技术洞察、解决方案设计与验证以及技术实施",
+          "开发了多维并行规划求解器Tinker，用于基于约束贝叶斯优化的大型模型训练",
+          "与暴力搜索相比，减少了模拟轮次3-4个数量级。",
+          "在60秒内达到了理论最优。",
+          "参与了A + K异构协同计算技术的初步研究",
+          "设计了 A + K 计算分发子系统",
+          "基于黑箱成本模型和智能决策算法，实现了计算图的自动分配/映射引擎。"
+        ]
+      },
+      {
+        "start": "2021-08",
+        "end": "2023-04",
+        "company": "华为",
+        "title_en": "Java Backend Developer",
+        "title": "Java后端开发工程师",
+        "description_en": "Participated in the development of MetaCRM Foundation, responsible for the design, development, and operation of public data and enterprise collaboration; participated in the discussion of key solutions for MetaCRM architecture unification and performance acceleration, responsible for the design and development of high-performance acceleration channel solutions for public data; led the reconstruction of the public data domain of MetaCRM, removing 21 redundant interfaces, reducing 4 code repositories, and lowering the code volume by over 20,000; responsible for resolving product technical debt, including unifying coding standards, improving test coverage, and unifying project architecture.",
+        "description": "参与MetaCRM Foundation的研发，负责公共数据、企业协同的设计开发和运营；参与MetaCRM架构统一、性能加速重点方案研讨，负责公共数据高性能加速通道方案设计开发；主导MetaCRM公共数据域的重构工作，去除冗余接口21个，减少代码仓4个，降低代码量 2w + ；负责解决产品技术债，包括统一编码规范、提高测试覆盖率、项目架构统一等工作。",
+        "details_en": [
+          "Participated in the development of MetaCRM Foundation",
+          "Responsible for the design, development, and operation of public data and enterprise collaboration",
+          "Participated in the discussion of key solutions for MetaCRM architecture unification and performance acceleration",
+          "Responsible for the design and development of high-performance acceleration channel solutions for public data",
+          "Led the reconstruction of the public data domain of MetaCRM",
+          "Removed 21 redundant interfaces",
+          "Reduced 4 code repositories",
+          "Lowered the code volume by over 20,000",
+          "Responsible for resolving product technical debt, including unifying coding standards, improving test coverage, and unifying project architecture"
+        ],
+        "details": [
+          "参与MetaCRM Foundation的研发",
+          "负责公共数据、企业协同的设计开发和运营",
+          "参与MetaCRM架构统一、性能加速重点方案研讨",
+          "负责公共数据高性能加速通道方案设计开发",
+          "主导MetaCRM公共数据域的重构工作",
+          "去除冗余接口21个",
+          "减少代码仓4个",
+          "降低代码量 2w +",
+          "负责解决产品技术债，包括统一编码规范、提高测试覆盖率、项目架构统一等工作"
+        ],
+        "duration_months": 21,
+        "title_zh": "Java后端开发人员",
+        "description_zh": "参与了MetaCRM Foundation的开发，负责公共数据和企业协作的设计、开发和运营；参与了MetaCRM架构统一和性能加速的关键解决方案讨论，负责公共数据的高性能加速通道解决方案的设计和开发；主导了MetaCRM公共数据领域的重构，移除了21个冗余接口，减少了4个代码库，降低了代码量超过20,000；负责解决产品技术债务，包括统一编码标准、提高测试覆盖率和统一项目架构。",
+        "details_zh": [
+          "参与了MetaCRM Foundation的开发",
+          "负责公共数据和企业协作的设计、开发和运营",
+          "参与了MetaCRM架构统一和性能加速的关键解决方案讨论",
+          "负责公共数据的高性能加速通道解决方案的设计和开发",
+          "领导了MetaCRM公共数据领域的重建",
+          "删除了21个冗余接口",
+          "减少了4个代码库",
+          "降低了代码量超过20,000",
+          "负责解决产品技术债务，包括统一编码标准、提高测试覆盖率和统一项目架构"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AI应用工程师上海4560K张凯歌4年.md",
+    "md_mostly_english": false
+  }
+}

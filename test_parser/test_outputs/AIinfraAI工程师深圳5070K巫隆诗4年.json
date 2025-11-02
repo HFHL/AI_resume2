@@ -1,0 +1,183 @@
+{
+  "file_name": "AIinfraAI工程师深圳5070K巫隆诗4年.md",
+  "parsed_at": "2025-10-21T16:06:22.602402",
+  "result": {
+    "resume_file_id": null,
+    "name": "巫隆诗",
+    "email": "wendy_7ls@163.com",
+    "phone": "19120332871",
+    "education_degree": "研究生",
+    "education_school": [
+      "Sun Yat-sen University 中山大学",
+      "Dalian University of Technology 大连理工大学"
+    ],
+    "education_major": "计算机技术",
+    "education_graduation_year": null,
+    "education_tier": "普通本科",
+    "education_tiers": [
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "OP",
+      "PR",
+      "java",
+      "python",
+      "产品",
+      "多模态",
+      "设计",
+      "量化"
+    ],
+    "skills": [
+      "OpenVino",
+      "PaddlePaddle",
+      "MindSpore",
+      "OnnxRuntime",
+      "Pytorch",
+      "Python",
+      "C/C++",
+      "JAVA",
+      "HTML",
+      "CSS",
+      "JS"
+    ],
+    "work_experience": [
+      "2021.07 - 至今 海康威视研究院 AI 加速计算工程师\n1. 负责 X86 CPU 端神经网络离线推理加速，支持海康多种算法业务：\n• 包括通用算子和自定义算子的实现和优化、维护。\n• 对 X86 指令集 (SSE,AVX2,AVX512) 有深入探究；\n• 主导实现量化功能实现，支持 Int8 推理；\n2. 负责 X86 iGPU 端神经网络离线推理加速;\n3. 负责 AIPC 新平台（CPU、GPU、NPU）推理库的落地与优化：\n• 集成厂商模型转换流程至自研 AI 编译框架（AIC），实现端到端的高效推理支持。\n• 主导自研模型的适配与推理打通，支持简单模型的分段异构计算，充分发挥多硬件算力优势。\n4. 负责海康类 opencv 的预处理库 CPU 端优化；\n• 实现多种图像处理算法算子，性能超 opencv。\n5. 负责模型转换工具，基础编译组件的业务支持；\n• 维护 AI 编译器组件，支持 caffe 和 onnx 到协议模型的转换。"
+    ],
+    "internship_experience": [
+      "2020.08 – 2020.10 Vivo AI lab 多模态算法实习生\n– 工作内容是图像内容理解，从分类、分割和目标检测的角度对图像进行编码\n– 设计了层级标签来整合不同任务的数据集 (共得约 200w 张图片)，使用 DETR 模型训练目标检测任务\n– 将属性多标签分类任务整合进已有的框架下的工作"
+    ],
+    "project_experience": [
+      "2023.4 - 2023.9 超景深显微镜项目优化\n– 和算法同事协同修改算法逻辑，适配成更适合优化的形式；\n– 使用缓存优化，simd，定点计算，指令集，多线程等方式进行优化，输出底层计算库；\n– 超过竞品性能，已成功产品化。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-07",
+        "end": "present",
+        "company": "海康威视研究院",
+        "title_en": "AI Accelerated Computing Engineer",
+        "title": "AI 加速计算工程师",
+        "description_en": "Responsible for X86 CPU side neural network offline inference acceleration, supporting Hikvision's various algorithm services.",
+        "description": "负责 X86 CPU 端神经网络离线推理加速，支持海康多种算法业务：",
+        "details_en": [
+          "Responsible for X86 CPU side neural network offline inference acceleration, supporting Hikvision's various algorithm services:",
+          "Including the implementation and optimization of general operators and custom operators, maintenance.",
+          "Led the implementation of quantization function, supporting Int8 inference;",
+          "Responsible for X86 iGPU side neural network offline inference acceleration;",
+          "Responsible for the implementation and optimization of AIPC new platform (CPU, GPU, NPU) inference library:",
+          "Integrated vendor model conversion process into self-developed AI compilation framework (AIC), achieving end-to-end efficient inference support.",
+          "Led the adaptation and inference connection of self-developed models, supporting segmented heterogeneous computing for simple models, fully leveraging multi-hardware computing power advantages.",
+          "Responsible for CPU-side optimization of Hikvision's opencv-like preprocessing library;",
+          "Implemented various image processing algorithm operators, performance exceeding opencv.",
+          "Responsible for model conversion tools and basic compilation component business support;",
+          "Maintained AI compiler components, supporting conversion from caffe and onnx to protocol models."
+        ],
+        "details": [
+          "负责 X86 CPU 端神经网络离线推理加速，支持海康多种算法业务：",
+          "包括通用算子和自定义算子的实现和优化、维护。",
+          "对 X86 指令集 (SSE,AVX2,AVX512) 有深入探究；",
+          "主导实现量化功能实现，支持 Int8 推理；",
+          "负责 X86 iGPU 端神经网络离线推理加速;",
+          "负责 AIPC 新平台（CPU、GPU、NPU）推理库的落地与优化：",
+          "集成厂商模型转换流程至自研 AI 编译框架（AIC），实现端到端的高效推理支持。",
+          "主导自研模型的适配与推理打通，支持简单模型的分段异构计算，充分发挥多硬件算力优势。",
+          "负责海康类 opencv 的预处理库 CPU 端优化；",
+          "实现多种图像处理算法算子，性能超 opencv。",
+          "负责模型转换工具，基础编译组件的业务支持；",
+          "维护 AI 编译器组件，支持 caffe 和 onnx 到协议模型的转换。"
+        ],
+        "duration_months": 52
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2023-04",
+        "end": "2023-09",
+        "company": "超景深显微镜项目优化",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "和算法同事协同修改算法逻辑，适配成更适合优化的形式；使用缓存优化，simd，定点计算，指令集，多线程等方式进行优化，输出底层计算库；超过竞品性能，已成功产品化。",
+        "details_en": null,
+        "details": [
+          "和算法同事协同修改算法逻辑，适配成更适合优化的形式",
+          "使用缓存优化，simd，定点计算，指令集，多线程等方式进行优化，输出底层计算库",
+          "超过竞品性能，已成功产品化"
+        ],
+        "duration_months": 6
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.07 - 至今 海康威视研究院 AI 加速计算工程师\n1.\n负责 X86 CPU 端神经网络离线推理加速，支持海康多种算法业务：\n• 包括通用算子和自定义算子的实现和优化、维护。\n• 对 X86 指令集 (SSE,AVX2,AVX512) 有深入探究；\n• 主导实现量化功能实现，支持 Int8 推理；\n2.\n负责 X86 iGPU 端神经网络离线推理加速;\n3.\n负责 AIPC 新平台（CPU、GPU、NPU）推理库的落地与优化：\n• 集成厂商模型转换流程至自研 AI 编译框架（AIC），实现端到端的高效推理支持。\n• 主导自研模型的适配与推理打通，支持简单模型的分段异构计算，充分发挥多硬件算力优势。\n4.\n负责海康类 opencv 的预处理库 CPU 端优化；\n• 实现多种图像处理算法算子，性能超 opencv。\n5.\n负责模型转换工具，基础编译组件的业务支持；\n• 维护 AI 编译器组件，支持 caffe 和 onnx 到协议模型的转换。"
+    ],
+    "internship_experience_zh": [
+      "2020.08 – 2020.10 Vivo AI lab 多模态算法实习生\n– 工作内容是图像内容理解，从分类、分割和目标检测的角度对图像进行编码\n– 设计了层级标签来整合不同任务的数据集 (共得约 200w 张图片)，使用 DETR 模型训练目标检测任务\n– 将属性多标签分类任务整合进已有的框架下的工作"
+    ],
+    "project_experience_zh": [
+      "2023.4 - 2023.9 超景深显微镜项目优化\n– 和算法同事协同修改算法逻辑，适配成更适合优化的形式；\n– 使用缓存优化，simd，定点计算，指令集，多线程等方式进行优化，输出底层计算库；\n– 超过竞品性能，已成功产品化。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-07",
+        "end": "present",
+        "company": "海康威视研究院",
+        "title_en": "AI Accelerated Computing Engineer",
+        "title": "AI 加速计算工程师",
+        "description_en": "Responsible for X86 CPU side neural network offline inference acceleration, supporting Hikvision's various algorithm services.",
+        "description": "负责 X86 CPU 端神经网络离线推理加速，支持海康多种算法业务：",
+        "details_en": [
+          "Responsible for X86 CPU side neural network offline inference acceleration, supporting Hikvision's various algorithm services:",
+          "Including the implementation and optimization of general operators and custom operators, maintenance.",
+          "Led the implementation of quantization function, supporting Int8 inference;",
+          "Responsible for X86 iGPU side neural network offline inference acceleration;",
+          "Responsible for the implementation and optimization of AIPC new platform (CPU, GPU, NPU) inference library:",
+          "Integrated vendor model conversion process into self-developed AI compilation framework (AIC), achieving end-to-end efficient inference support.",
+          "Led the adaptation and inference connection of self-developed models, supporting segmented heterogeneous computing for simple models, fully leveraging multi-hardware computing power advantages.",
+          "Responsible for CPU-side optimization of Hikvision's opencv-like preprocessing library;",
+          "Implemented various image processing algorithm operators, performance exceeding opencv.",
+          "Responsible for model conversion tools and basic compilation component business support;",
+          "Maintained AI compiler components, supporting conversion from caffe and onnx to protocol models."
+        ],
+        "details": [
+          "负责 X86 CPU 端神经网络离线推理加速，支持海康多种算法业务：",
+          "包括通用算子和自定义算子的实现和优化、维护。",
+          "对 X86 指令集 (SSE,AVX2,AVX512) 有深入探究；",
+          "主导实现量化功能实现，支持 Int8 推理；",
+          "负责 X86 iGPU 端神经网络离线推理加速;",
+          "负责 AIPC 新平台（CPU、GPU、NPU）推理库的落地与优化：",
+          "集成厂商模型转换流程至自研 AI 编译框架（AIC），实现端到端的高效推理支持。",
+          "主导自研模型的适配与推理打通，支持简单模型的分段异构计算，充分发挥多硬件算力优势。",
+          "负责海康类 opencv 的预处理库 CPU 端优化；",
+          "实现多种图像处理算法算子，性能超 opencv。",
+          "负责模型转换工具，基础编译组件的业务支持；",
+          "维护 AI 编译器组件，支持 caffe 和 onnx 到协议模型的转换。"
+        ],
+        "duration_months": 52,
+        "title_zh": "人工智能加速计算工程师",
+        "description_zh": "负责X86 CPU端神经网络离线推理加速，支持海康威视的各种算法服务。",
+        "details_zh": [
+          "负责X86 CPU端神经网络离线推理加速，支持海康威视的各种算法服务：",
+          "包括通用运算符和自定义运算符的实现和优化，维护。",
+          "领导了量化功能的实施，支持 Int8 推理；",
+          "负责X86 iGPU侧神经网络离线推理加速；",
+          "负责AIPC新平台（CPU、GPU、NPU）推理库的实施和优化：",
+          "将集成供应商模型转换过程纳入自开发的AI编译框架（AIC），实现端到端高效推理支持。",
+          "领导自开发模型的适配和推理连接，支持简单模型的分段异构计算，充分利用多硬件计算能力的优势。",
+          "负责海康威视的类似opencv的预处理库的CPU端优化；",
+          "实现了各种图像处理算法运算符，性能超过opencv。",
+          "负责模型转换工具和基础编译组件业务支持；",
+          "维护AI编译器组件，支持从caffe和onnx转换为协议模型。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIinfraAI工程师深圳5070K巫隆诗4年.md",
+    "md_mostly_english": false
+  }
+}

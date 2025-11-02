@@ -1,0 +1,190 @@
+{
+  "file_name": "AISAAS远程产品应用端AI工程师上海5070K黄博6年.md",
+  "parsed_at": "2025-10-21T16:21:26.566415",
+  "result": {
+    "resume_file_id": null,
+    "name": "黄博",
+    "email": "h-bo@foxmail.com",
+    "phone": "18217188370",
+    "education_degree": "硕士",
+    "education_school": [
+      "上海交通大学",
+      "Tsinghua University 清华大学",
+      "天津大学"
+    ],
+    "education_major": "计算机科学与技术专业",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科",
+      "双一流"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "CTO",
+      "PR",
+      "RAG",
+      "python",
+      "多模态",
+      "大模型",
+      "安全",
+      "数据分析",
+      "数据开发",
+      "量化",
+      "量化开发"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "PyTorch",
+      "Tensorflow",
+      "vLLM",
+      "LLaMa_Factory",
+      "YOLO",
+      "DETR",
+      "SAM",
+      "CLIP",
+      "Grounding-DINO",
+      "Stable Diffusion",
+      "DiT",
+      "Qwen",
+      "Qwen-VL",
+      "P-Tuning",
+      "LoRA",
+      "DPO",
+      "GRPO",
+      "RLHF",
+      "KV-Cache",
+      "Deepspeed",
+      "Megatron-LM",
+      "RAG"
+    ],
+    "work_experience": [
+      "2020.07-2023.09 弘玑信息(主动离职） 多模态算法工程师\n总体功能：1. 传统 RPA：完成流程的录制与复现。2. UI agent：完成用户用自然语言描述的任务pipeline：\n传统 RPA：1. 流程挖掘：智能/人工挖掘适合自动化的流程 2. 实施人员利用录制器录制流程 3. 执行器执行流程\nUI agent: 1. 流程拆解（大模型&RAG） -> 2. 执行流程\n核心技术：UI 界面的智能解析：Cv与软件联合解析：多模态，多层级的元素树解析与匹配任务",
+      "2019.04-2020.07 依图科技(主动离职） 计算机视觉算法工程师\n安防场景下的行人检索（REID）算法：\n核心算法：行人检索特征提取模型：80%recall@1e-4fa数据 pipeline：（千万图，百万人）\n特征提取 + 算法聚类 + 人工清洗：后期聚类效果强，已无需人工标注\n聚类效果提升：图卷积网络。人体图像姿态，遮挡等变化很大，利用邻居信息可以更好地补全个体的特征，实现更好的聚类。图网络比起简单的重排序等方法更加有效模型优化：cosface，分部位检测与检索。数据增强：多尺度，色彩，翻转。落地优化：l2 蒸馏，量化，扩展检索，检索背景库。模型优化尝试：CycleGAN 数据增强，backbone 更换，self-attention，triplet-loss，pcg/mgn 等学术界 reid 方法，pair-wise reid。",
+      "2023.11-2024.09 小红书(主动离职） 多模态算法工程师（内容安全组）\n业务背景：快速处理特殊时期中图像局部的风险：特殊的书籍，物体，照片等。需要处理剪裁涂抹，旋转，翻拍等变化。最终效果：98%recall@1e-7fa。\n方案：sift 提取图像特征点（平均 1000 点/图） + faiss 向量检索 + 二次校验（点匹配回到图匹配，ransac 几何过滤 + 匹配区图像校验）\n算法改进：1.有效特征点，匹配边筛选 2.增加了匹配区图像校验 3.无效尝试：其他的特征提取算法，边匹配算法。包括传统图像特征和深度学习特征，效果均难以达到要求。\n工程改进：1.换用 faiss-gpu（性价比 faiss-cpu 高 10 倍） 2.换用 CudaSift（比 colmap-gpu 快 1 倍）3.各阶段服务化拆解，以提高资源效率与稳定性。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "金融对话分析系统\n目标：使用对话分析上市公司的年报，提取：直接信息，公式信息，跨公司信息，综合开放信息方案：1. 信息处理：pdf 处理&表格识别，通用信息入数据库（一张宽表以简化 sql）2. 问题预处理：问题分类器(bert/llm)，nl2sql(llm)，关键词提取(llm)3. 问题回答：公式,sql 计算标准信息；rag 提取非标信息（bm25 + bg） + llm 综合回答学习课程：语言模型，图神经网络基础，强化学习基础等。复习了线性代数。",
+      "图像分类系统\n建立迭代整体 pipeline，包括数据自动标注，模型训练，模型上线，指标评价，线上数据捞取等。\n数据自动标注使用 qwen-vl，模型使用 convnext，多模态预训练的 cv backbone 等进行优化。\n基本性能评价获取在不同浓度下的准召率，以便业务使用。",
+      "n1人脸识别性能提升\n使用 stable diffusion 合成卡通 n1 人脸数据。\n优化旧人脸识别 pipeline，包括人脸数目，大小限制等；人脸识别数据增强（小目标，模糊目标，相似目标）等。调研与尝试：开集检测：grounding-dino 等。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2020-07",
+        "end": "2023-09",
+        "company": "弘玑信息(主动离职） 多模态",
+        "title": "算法工程师",
+        "description": "总体功能：1. 传统 RPA：完成流程的录制与复现。2. UI agent：完成用户用自然语言描述的任务pipeline：\n传统 RPA：1. 流程挖掘：智能/人工挖掘适合自动化的流程 2. 实施人员利用录制器录制流程 3. 执行器执行流程\nUI agent: 1. 流程拆解（大模型&RAG） -> 2. 执行流程\n核心技术：UI 界面的智能解析：Cv与软件联合解析：多模态，多层级的元素树解析与匹配任务",
+        "duration_months": 39
+      },
+      {
+        "start": "2019-04",
+        "end": "2020-07",
+        "company": "依图科技(主动离职） 计算机视觉",
+        "title": "算法工程师",
+        "description": "安防场景下的行人检索（REID）算法：\n核心算法：行人检索特征提取模型：80%recall@1e-4fa数据 pipeline：（千万图，百万人）\n特征提取 + 算法聚类 + 人工清洗：后期聚类效果强，已无需人工标注\n聚类效果提升：图卷积网络。人体图像姿态，遮挡等变化很大，利用邻居信息可以更好地补全个体的特征，实现更好的聚类。图网络比起简单的重排序等方法更加有效模型优化：cosface，分部位检测与检索。数据增强：多尺度，色彩，翻转。落地优化：l2 蒸馏，量化，扩展检索，检索背景库。模型优化尝试：CycleGAN 数据增强，backbone 更换，self-attention，triplet-loss，pcg/mgn 等学术界 reid 方法，pair-wise reid。",
+        "duration_months": 16
+      },
+      {
+        "start": "2023-11",
+        "end": "2024-09",
+        "company": "小红书(主动离职） 多模态",
+        "title": "算法工程师（内容安全组",
+        "description": "业务背景：快速处理特殊时期中图像局部的风险：特殊的书籍，物体，照片等。需要处理剪裁涂抹，旋转，翻拍等变化。最终效果：98%recall@1e-7fa。\n方案：sift 提取图像特征点（平均 1000 点/图） + faiss 向量检索 + 二次校验（点匹配回到图匹配，ransac 几何过滤 + 匹配区图像校验）\n算法改进：1.有效特征点，匹配边筛选 2.增加了匹配区图像校验 3.无效尝试：其他的特征提取算法，边匹配算法。包括传统图像特征和深度学习特征，效果均难以达到要求。\n工程改进：1.换用 faiss-gpu（性价比 faiss-cpu 高 10 倍） 2.换用 CudaSift（比 colmap-gpu 快 1 倍）3.各阶段服务化拆解，以提高资源效率与稳定性。",
+        "duration_months": 11
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "金融对话分析系统",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "目标：使用对话分析上市公司的年报，提取：直接信息，公式信息，跨公司信息，综合开放信息方案：1. 信息处理：pdf 处理&表格识别，通用信息入数据库（一张宽表以简化 sql）2. 问题预处理：问题分类器(bert/llm)，nl2sql(llm)，关键词提取(llm)3. 问题回答：公式,sql 计算标准信息；rag 提取非标信息（bm25 + bg） + llm 综合回答学习课程：语言模型，图神经网络基础，强化学习基础等。复习了线性代数。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "图像分类系统",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "建立迭代整体 pipeline，包括数据自动标注，模型训练，模型上线，指标评价，线上数据捞取等。数据自动标注使用 qwen-vl，模型使用 convnext，多模态预训练的 cv backbone 等进行优化。基本性能评价获取在不同浓度下的准召率，以便业务使用。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "n1人脸识别性能提升",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "使用 stable diffusion 合成卡通 n1 人脸数据。优化旧人脸识别 pipeline，包括人脸数目，大小限制等；人脸识别数据增强（小目标，模糊目标，相似目标）等。调研与尝试：开集检测：grounding-dino 等。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 4,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2020.07-2023.09 弘玑信息(主动离职） 多模态算法工程师\n总体功能：1.\n传统 RPA：完成流程的录制与复现。2.\nUI agent：完成用户用自然语言描述的任务pipeline：\n传统 RPA：1.\n流程挖掘：智能/人工挖掘适合自动化的流程 2.\n实施人员利用录制器录制流程 3.\n执行器执行流程\nUI代理：1。\n流程拆解（大模型&RAG） -> 2.\n执行流程\n核心技术：UI 界面的智能解析：Cv与软件联合解析：多模态，多层级的元素树解析与匹配任务",
+      "2019.04-2020.07 依图科技(主动离职） 计算机视觉算法工程师\n安防场景下的行人检索（REID）算法：\n核心算法：行人检索特征提取模型：80%recall@1e-4fa数据 pipeline：（千万图，百万人）\n特征提取 + 算法聚类 + 人工清洗：后期聚类效果强，已无需人工标注\n聚类效果提升：图卷积网络。人体图像姿态，遮挡等变化很大，利用邻居信息可以更好地补全个体的特征，实现更好的聚类。图网络比起简单的重排序等方法更加有效模型优化：cosface，分部位检测与检索。数据增强：多尺度，色彩，翻转。落地优化：l2 蒸馏，量化，扩展检索，检索背景库。模型优化尝试：CycleGAN 数据增强，backbone 更换，self-attention，triplet-loss，pcg/mgn 等学术界 reid 方法，pair-wise reid。",
+      "2023.11-2024.09 小红书(主动离职） 多模态算法工程师（内容安全组）\n业务背景：快速处理特殊时期中图像局部的风险：特殊的书籍，物体，照片等。需要处理剪裁涂抹，旋转，翻拍等变化。最终效果：98%recall@1e-7fa。\n方案：sift 提取图像特征点（平均 1000 点/图） + faiss 向量检索 + 二次校验（点匹配回到图匹配，ransac 几何过滤 + 匹配区图像校验）\n算法改进：1.有效特征点，匹配边筛选 2.增加了匹配区图像校验 3.无效尝试：其他的特征提取算法，边匹配算法。包括传统图像特征和深度学习特征，效果均难以达到要求。\n工程改进：1.换用 faiss-gpu（性价比 faiss-cpu 高 10 倍） 2.换用 CudaSift（比 colmap-gpu 快 1 倍）3.各阶段服务化拆解，以提高资源效率与稳定性。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "金融对话分析系统\n目标：使用对话分析上市公司的年报，提取：直接信息，公式信息，跨公司信息，综合开放信息方案：1.\n信息处理：pdf 处理&表格识别，通用信息入数据库（一张宽表以简化 sql）2.\n问题预处理：问题分类器(bert/llm)，nl2sql(llm)，关键词提取(llm)3.\n问题回答：公式,sql 计算标准信息；rag 提取非标信息（bm25 + bg） + llm 综合回答学习课程：语言模型，图神经网络基础，强化学习基础等。复习了线性代数。",
+      "图像分类系统\n建立迭代整体 pipeline，包括数据自动标注，模型训练，模型上线，指标评价，线上数据捞取等。\n数据自动标注使用 qwen-vl，模型使用 convnext，多模态预训练的 cv backbone 等进行优化。\n基本性能评价获取在不同浓度下的准召率，以便业务使用。",
+      "n1人脸识别性能提升\n使用 stable diffusion 合成卡通 n1 人脸数据。\n优化旧人脸识别 pipeline，包括人脸数目，大小限制等；人脸识别数据增强（小目标，模糊目标，相似目标）等。调研与尝试：开集检测：grounding-dino 等。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2020-07",
+        "end": "2023-09",
+        "company": "弘玑信息(主动离职） 多模态",
+        "title": "算法工程师",
+        "description": "总体功能：1. 传统 RPA：完成流程的录制与复现。2. UI agent：完成用户用自然语言描述的任务pipeline：\n传统 RPA：1. 流程挖掘：智能/人工挖掘适合自动化的流程 2. 实施人员利用录制器录制流程 3. 执行器执行流程\nUI agent: 1. 流程拆解（大模型&RAG） -> 2. 执行流程\n核心技术：UI 界面的智能解析：Cv与软件联合解析：多模态，多层级的元素树解析与匹配任务",
+        "duration_months": 39,
+        "title_zh": "算法工程师",
+        "description_zh": "总体功能：1.\n传统 RPA：完成流程的录制与复现。2.\nUI agent：完成用户用自然语言描述的任务pipeline：\n传统 RPA：1.\n流程挖掘：智能/人工挖掘适合自动化的流程 2.\n实施人员利用录制器录制流程 3.\n执行器执行流程\nUI代理：1。\n流程拆解（大模型&RAG） -> 2.\n执行流程\n核心技术：UI 界面的智能解析：Cv与软件联合解析：多模态，多层级的元素树解析与匹配任务"
+      },
+      {
+        "start": "2019-04",
+        "end": "2020-07",
+        "company": "依图科技(主动离职） 计算机视觉",
+        "title": "算法工程师",
+        "description": "安防场景下的行人检索（REID）算法：\n核心算法：行人检索特征提取模型：80%recall@1e-4fa数据 pipeline：（千万图，百万人）\n特征提取 + 算法聚类 + 人工清洗：后期聚类效果强，已无需人工标注\n聚类效果提升：图卷积网络。人体图像姿态，遮挡等变化很大，利用邻居信息可以更好地补全个体的特征，实现更好的聚类。图网络比起简单的重排序等方法更加有效模型优化：cosface，分部位检测与检索。数据增强：多尺度，色彩，翻转。落地优化：l2 蒸馏，量化，扩展检索，检索背景库。模型优化尝试：CycleGAN 数据增强，backbone 更换，self-attention，triplet-loss，pcg/mgn 等学术界 reid 方法，pair-wise reid。",
+        "duration_months": 16,
+        "title_zh": "算法工程师",
+        "description_zh": "安防场景下的行人检索（REID）算法：\n核心算法：行人检索特征提取模型：80%recall@1e-4fa数据 pipeline：（千万图，百万人）\n特征提取 + 算法聚类 + 人工清洗：后期聚类效果强，已无需人工标注\n聚类效果提升：图卷积网络。人体图像姿态，遮挡等变化很大，利用邻居信息可以更好地补全个体的特征，实现更好的聚类。图网络比起简单的重排序等方法更加有效模型优化：cosface，分部位检测与检索。数据增强：多尺度，色彩，翻转。落地优化：l2 蒸馏，量化，扩展检索，检索背景库。模型优化尝试：CycleGAN 数据增强，backbone 更换，self-attention，triplet-loss，pcg/mgn 等学术界 reid 方法，pair-wise reid。"
+      },
+      {
+        "start": "2023-11",
+        "end": "2024-09",
+        "company": "小红书(主动离职） 多模态",
+        "title": "算法工程师（内容安全组",
+        "description": "业务背景：快速处理特殊时期中图像局部的风险：特殊的书籍，物体，照片等。需要处理剪裁涂抹，旋转，翻拍等变化。最终效果：98%recall@1e-7fa。\n方案：sift 提取图像特征点（平均 1000 点/图） + faiss 向量检索 + 二次校验（点匹配回到图匹配，ransac 几何过滤 + 匹配区图像校验）\n算法改进：1.有效特征点，匹配边筛选 2.增加了匹配区图像校验 3.无效尝试：其他的特征提取算法，边匹配算法。包括传统图像特征和深度学习特征，效果均难以达到要求。\n工程改进：1.换用 faiss-gpu（性价比 faiss-cpu 高 10 倍） 2.换用 CudaSift（比 colmap-gpu 快 1 倍）3.各阶段服务化拆解，以提高资源效率与稳定性。",
+        "duration_months": 11,
+        "title_zh": "算法工程师（内容安全组",
+        "description_zh": "业务背景：快速处理特殊时期中图像局部的风险：特殊的书籍，物体，照片等。需要处理剪裁涂抹，旋转，翻拍等变化。最终效果：98%recall@1e-7fa。\n方案：sift 提取图像特征点（平均 1000 点/图） + faiss 向量检索 + 二次校验（点匹配回到图匹配，ransac 几何过滤 + 匹配区图像校验）\n算法改进：1.有效特征点，匹配边筛选 2.增加了匹配区图像校验 3.无效尝试：其他的特征提取算法，边匹配算法。包括传统图像特征和深度学习特征，效果均难以达到要求。\n工程改进：1.换用 faiss-gpu（性价比 faiss-cpu 高 10 倍） 2.换用 CudaSift（比 colmap-gpu 快 1 倍）3.各阶段服务化拆解，以提高资源效率与稳定性。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程产品应用端AI工程师上海5070K黄博6年.md",
+    "md_mostly_english": false
+  }
+}

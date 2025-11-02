@@ -1,0 +1,162 @@
+{
+  "file_name": "AIweb3AIagent应用工程师上海5080K张拓超龙7年.md",
+  "parsed_at": "2025-10-21T16:35:28.006634",
+  "result": {
+    "resume_file_id": null,
+    "name": "张拓超龙",
+    "email": "neozhang9233@gmail.com",
+    "phone": null,
+    "education_degree": null,
+    "education_school": [
+      "韦诗敦大学",
+      "Western University 西方大学"
+    ],
+    "education_major": "计算机科学荣誉专业学士",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "AMM",
+      "C++",
+      "DEX",
+      "OP",
+      "PR",
+      "RAG",
+      "android",
+      "flutter",
+      "go",
+      "iOS",
+      "java",
+      "python",
+      "产品",
+      "全栈",
+      "前端",
+      "区块链开发",
+      "大客户",
+      "大模型",
+      "大语言模型",
+      "安全",
+      "安卓",
+      "市场",
+      "数据分析",
+      "智能体",
+      "测试",
+      "生成式AI",
+      "设计",
+      "运维",
+      "运营",
+      "项目经理",
+      "高净值"
+    ],
+    "skills": [
+      "Java",
+      "Kotlin",
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Golang",
+      "C",
+      "C++",
+      "LLM",
+      "上下文工程",
+      "RAG",
+      "Agent",
+      "Android",
+      "iOS",
+      "开发",
+      "React",
+      "ReactNative",
+      "Flutter",
+      "Linux",
+      "Docker",
+      "Azure",
+      "AWS",
+      "GCP",
+      "云平台"
+    ],
+    "work_experience": [
+      "2024 - 至今\n金山办公 | 大语言模型专家\n主导开发多语言智能拼写检查引擎，将多语言召回率提升至85%以上，远超业界标杆Grammarly约20%的水平，同时将冗余率控制在10%以下，服务月活文档编辑用户逾1000万\n设计并落地多信源RAG+多智能体的AI Library系统，与研究者协同工作，将万字且含精确引用的深度研究论文交付周期压缩至30分钟以内，内测用户好评率超过90%\n确立测试驱动的上下文工程开发流程，搭建promptfoo自动评估流水线，将提示词回归测试周期由1天缩短至2小时；作为上下文工程师统筹前端、产品、运营与人类专家，成功发布AI Pal、WPS AIGC等多款大模型产品，累计触达活跃用户逾8000万\n开发了包括客服智能字段插件、AI新闻追踪系统等在内的多款内部提效工具，并整合多模型API网关，有效提升跨部门团队工作效率。\n受邀在2024亚马逊峰会发表“基于AmazonBedrock的Claude3提示词工程实践指南”主题演讲，显著提升公司在企业级LLM解决方案市场的影响力",
+      "2019 — 2023\nMicrosoft | 软件开发工程师\n参与商业化大语言模型（LLM）项目研发，使用React搭建性能监测平台，帮助研究员一键部署、测试并实时追踪模型效果\n搭建跨平台视频智能检索网站Videx（Flutter），整合内部知识库与语义检索，为上万名员工提供AI驱动的内容搜索与交互体验\n全面参与Outlook安卓端「Play My Emails」的开发维护：整合语音合成、自然语言理解与情感反馈，扩展至AndroidAuto无触控语音交互，并完成葡萄牙/法国本地化，上线后活跃度提升30%\n在EdgeMobile项目中作为核心安卓开发并持续优化前端性能，运用AndroidProfiler将冷启动时间从1秒降至100毫秒，同时确保多屏设备与无障碍场景兼容",
+      "2018 年 - 2019 年\nIBM | 软件DevOps工程师\n主导排查并修复Watson与Cloud关键故障，服务300+外部客户，累计减少停机600小时，节约约30万美元\n通过持续的性能调优与维护，将系统稳定性由95%提升至99.9%"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2024-06",
+        "end": "2025-10",
+        "company": null,
+        "title": null,
+        "description": "金山办公 | 大语言模型专家\n主导开发多语言智能拼写检查引擎，将多语言召回率提升至85%以上，远超业界标杆Grammarly约20%的水平，同时将冗余率控制在10%以下，服务月活文档编辑用户逾1000万\n设计并落地多信源RAG+多智能体的AI Library系统，与研究者协同工作，将万字且含精确引用的深度研究论文交付周期压缩至30分钟以内，内测用户好评率超过90%\n确立测试驱动的上下文工程开发流程，搭建promptfoo自动评估流水线，将提示词回归测试周期由1天缩短至2小时；作为上下文工程师统筹前端、产品、运营与人类专家，成功发布AI Pal、WPS AIGC等多款大模型产品，累计触达活跃用户逾8000万\n开发了包括客服智能字段插件、AI新闻追踪系统等在内的多款内部提效工具，并整合多模型API网关，有效提升跨部门团队工作效率。\n受邀在2024亚马逊峰会发表“基于AmazonBedrock的Claude3提示词工程实践指南”主题演讲，显著提升公司在企业级LLM解决方案市场的影响力",
+        "duration_months": 17
+      },
+      {
+        "start": "2019-06",
+        "end": "2023-06",
+        "company": null,
+        "title": null,
+        "description": "Microsoft | 软件开发工程师\n参与商业化大语言模型（LLM）项目研发，使用React搭建性能监测平台，帮助研究员一键部署、测试并实时追踪模型效果\n搭建跨平台视频智能检索网站Videx（Flutter），整合内部知识库与语义检索，为上万名员工提供AI驱动的内容搜索与交互体验\n全面参与Outlook安卓端「Play My Emails」的开发维护：整合语音合成、自然语言理解与情感反馈，扩展至AndroidAuto无触控语音交互，并完成葡萄牙/法国本地化，上线后活跃度提升30%\n在EdgeMobile项目中作为核心安卓开发并持续优化前端性能，运用AndroidProfiler将冷启动时间从1秒降至100毫秒，同时确保多屏设备与无障碍场景兼容",
+        "duration_months": 49
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "2018 年 - 2019",
+        "title": "年",
+        "description": "IBM | 软件DevOps工程师\n主导排查并修复Watson与Cloud关键故障，服务300+外部客户，累计减少停机600小时，节约约30万美元\n通过持续的性能调优与维护，将系统稳定性由95%提升至99.9%",
+        "duration_months": null
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 5,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024 - 至今\n金山办公 | 大语言模型专家\n主导开发多语言智能拼写检查引擎，将多语言召回率提升至85%以上，远超业界标杆Grammarly约20%的水平，同时将冗余率控制在10%以下，服务月活文档编辑用户逾1000万\n设计并落地多信源RAG+多智能体的AI Library系统，与研究者协同工作，将万字且含精确引用的深度研究论文交付周期压缩至30分钟以内，内测用户好评率超过90%\n确立测试驱动的上下文工程开发流程，搭建promptfoo自动评估流水线，将提示词回归测试周期由1天缩短至2小时；作为上下文工程师统筹前端、产品、运营与人类专家，成功发布AI Pal、WPS AIGC等多款大模型产品，累计触达活跃用户逾8000万\n开发了包括客服智能字段插件、AI新闻追踪系统等在内的多款内部提效工具，并整合多模型API网关，有效提升跨部门团队工作效率。\n受邀在2024亚马逊峰会发表“基于AmazonBedrock的Claude3提示词工程实践指南”主题演讲，显著提升公司在企业级LLM解决方案市场的影响力",
+      "2019 — 2023\nMicrosoft | 软件开发工程师\n参与商业化大语言模型（LLM）项目研发，使用React搭建性能监测平台，帮助研究员一键部署、测试并实时追踪模型效果\n搭建跨平台视频智能检索网站Videx（Flutter），整合内部知识库与语义检索，为上万名员工提供AI驱动的内容搜索与交互体验\n全面参与Outlook安卓端「Play My Emails」的开发维护：整合语音合成、自然语言理解与情感反馈，扩展至AndroidAuto无触控语音交互，并完成葡萄牙/法国本地化，上线后活跃度提升30%\n在EdgeMobile项目中作为核心安卓开发并持续优化前端性能，运用AndroidProfiler将冷启动时间从1秒降至100毫秒，同时确保多屏设备与无障碍场景兼容",
+      "2018 年 - 2019 年\nIBM | 软件DevOps工程师\n主导排查并修复Watson与Cloud关键故障，服务300+外部客户，累计减少停机600小时，节约约30万美元\n通过持续的性能调优与维护，将系统稳定性由95%提升至99.9%"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-06",
+        "end": "2025-10",
+        "company": null,
+        "title": null,
+        "description": "金山办公 | 大语言模型专家\n主导开发多语言智能拼写检查引擎，将多语言召回率提升至85%以上，远超业界标杆Grammarly约20%的水平，同时将冗余率控制在10%以下，服务月活文档编辑用户逾1000万\n设计并落地多信源RAG+多智能体的AI Library系统，与研究者协同工作，将万字且含精确引用的深度研究论文交付周期压缩至30分钟以内，内测用户好评率超过90%\n确立测试驱动的上下文工程开发流程，搭建promptfoo自动评估流水线，将提示词回归测试周期由1天缩短至2小时；作为上下文工程师统筹前端、产品、运营与人类专家，成功发布AI Pal、WPS AIGC等多款大模型产品，累计触达活跃用户逾8000万\n开发了包括客服智能字段插件、AI新闻追踪系统等在内的多款内部提效工具，并整合多模型API网关，有效提升跨部门团队工作效率。\n受邀在2024亚马逊峰会发表“基于AmazonBedrock的Claude3提示词工程实践指南”主题演讲，显著提升公司在企业级LLM解决方案市场的影响力",
+        "duration_months": 17,
+        "description_zh": "金山办公 | 大语言模型专家\n主导开发多语言智能拼写检查引擎，将多语言召回率提升至85%以上，远超业界标杆Grammarly约20%的水平，同时将冗余率控制在10%以下，服务月活文档编辑用户逾1000万\n设计并落地多信源RAG+多智能体的AI Library系统，与研究者协同工作，将万字且含精确引用的深度研究论文交付周期压缩至30分钟以内，内测用户好评率超过90%\n确立测试驱动的上下文工程开发流程，搭建promptfoo自动评估流水线，将提示词回归测试周期由1天缩短至2小时；作为上下文工程师统筹前端、产品、运营与人类专家，成功发布AI Pal、WPS AIGC等多款大模型产品，累计触达活跃用户逾8000万\n开发了包括客服智能字段插件、AI新闻追踪系统等在内的多款内部提效工具，并整合多模型API网关，有效提升跨部门团队工作效率。\n受邀在2024亚马逊峰会发表“基于AmazonBedrock的Claude3提示词工程实践指南”主题演讲，显著提升公司在企业级LLM解决方案市场的影响力"
+      },
+      {
+        "start": "2019-06",
+        "end": "2023-06",
+        "company": null,
+        "title": null,
+        "description": "Microsoft | 软件开发工程师\n参与商业化大语言模型（LLM）项目研发，使用React搭建性能监测平台，帮助研究员一键部署、测试并实时追踪模型效果\n搭建跨平台视频智能检索网站Videx（Flutter），整合内部知识库与语义检索，为上万名员工提供AI驱动的内容搜索与交互体验\n全面参与Outlook安卓端「Play My Emails」的开发维护：整合语音合成、自然语言理解与情感反馈，扩展至AndroidAuto无触控语音交互，并完成葡萄牙/法国本地化，上线后活跃度提升30%\n在EdgeMobile项目中作为核心安卓开发并持续优化前端性能，运用AndroidProfiler将冷启动时间从1秒降至100毫秒，同时确保多屏设备与无障碍场景兼容",
+        "duration_months": 49,
+        "description_zh": "Microsoft | 软件开发工程师\n参与商业化大语言模型（LLM）项目研发，使用React搭建性能监测平台，帮助研究员一键部署、测试并实时追踪模型效果\n搭建跨平台视频智能检索网站Videx（Flutter），整合内部知识库与语义检索，为上万名员工提供AI驱动的内容搜索与交互体验\n全面参与Outlook安卓端「Play My Emails」的开发维护：整合语音合成、自然语言理解与情感反馈，扩展至AndroidAuto无触控语音交互，并完成葡萄牙/法国本地化，上线后活跃度提升30%\n在EdgeMobile项目中作为核心安卓开发并持续优化前端性能，运用AndroidProfiler将冷启动时间从1秒降至100毫秒，同时确保多屏设备与无障碍场景兼容"
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "2018 年 - 2019",
+        "title": "年",
+        "description": "IBM | 软件DevOps工程师\n主导排查并修复Watson与Cloud关键故障，服务300+外部客户，累计减少停机600小时，节约约30万美元\n通过持续的性能调优与维护，将系统稳定性由95%提升至99.9%",
+        "duration_months": null,
+        "title_zh": "年",
+        "description_zh": "IBM | 软件DevOps工程师\n主导排查并修复Watson与Cloud关键故障，服务300+外部客户，累计减少停机600小时，节约约30万美元\n通过持续的性能调优与维护，将系统稳定性由95%提升至99.9%"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AIagent应用工程师上海5080K张拓超龙7年.md",
+    "md_mostly_english": false
+  }
+}

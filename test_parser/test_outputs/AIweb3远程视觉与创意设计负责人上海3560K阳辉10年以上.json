@@ -1,0 +1,284 @@
+{
+  "file_name": "AIweb3远程视觉与创意设计负责人上海3560K阳辉10年以上.md",
+  "parsed_at": "2025-10-21T16:44:56.485419",
+  "result": {
+    "resume_file_id": null,
+    "name": "阳辉",
+    "email": null,
+    "phone": "13161663093",
+    "education_degree": "本科",
+    "education_school": [
+      "四川文化艺术大学"
+    ],
+    "education_major": "视觉设计，品牌设计，平面设计",
+    "education_graduation_year": null,
+    "education_tier": "普通本科",
+    "education_tiers": [
+      "普通本科"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "AI",
+      "OP",
+      "go",
+      "增长",
+      "市场",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "Photoshop",
+      "c4d",
+      "Ai",
+      "figma",
+      "Al绘图"
+    ],
+    "work_experience": [
+      "2021.07-2024.05 字节跳动-抖音主端: 主要负责公司抖音大型活动,大促活动，运营活动，品牌升级。",
+      "2018.10-2021.06 美团点评集团: 担任美团平台主设计，负责电商活动主R，运营活动等。",
+      "2016.01-2017.01 小米科技有限公司: 主负责新品发布各类设计，新品海报，PPT设计及品宣海报。",
+      "2016之前 各类广告（FA)公司: 担任资深美术指导，负责奔驰，宝马，英特尔等项目负责人。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "字节世界杯抖音/头条设计负责人，抖音世界杯项目观看人数最高达 7062万用户，同步冬奥在线人数高 200%。目标数据增长0.6亿，用户留存最高增长12%。",
+      "负责抖音房产统筹和管理视觉工作，编制设计部设计流程和实施细则各工作，并结合品牌人群定位及价值，建立业务品牌VI、SI及应用体系；包含线及线下视觉体系，周期性带领团队进行项目复盘，并对团队进行考核。",
+      "参与美团点评大改版，并输出品牌视觉规范(LOGO应用体系、IP形象探索、线上规范门店应用规范、周边材料等），推动项目落地。双旦大促项目期间拉动单量增长超过新高，GMV增长60%。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-07",
+        "end": "2024-05",
+        "company": "字节跳动-抖音主端",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "主要负责公司抖音大型活动,大促活动，运营活动，品牌升级。",
+        "details_en": null,
+        "details": [
+          "主要负责公司抖音大型活动",
+          "大促活动",
+          "运营活动",
+          "品牌升级"
+        ],
+        "duration_months": 35
+      },
+      {
+        "start": "2018-10",
+        "end": "2021-06",
+        "company": "美团点评集团",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "担任美团平台主设计，负责电商活动主R，运营活动等。",
+        "details_en": null,
+        "details": [
+          "担任美团平台主设计",
+          "负责电商活动主R",
+          "运营活动等"
+        ],
+        "duration_months": 33
+      },
+      {
+        "start": "2016-01",
+        "end": "2017-01",
+        "company": "小米科技有限公司",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "主负责新品发布各类设计，新品海报，PPT设计及品宣海报。",
+        "details_en": null,
+        "details": [
+          "主负责新品发布各类设计",
+          "新品海报",
+          "PPT设计及品宣海报"
+        ],
+        "duration_months": 13
+      },
+      {
+        "start": null,
+        "end": "2016之前",
+        "company": "各类广告（FA)公司",
+        "title_en": null,
+        "title": "资深美术指导",
+        "description_en": null,
+        "description": "负责奔驰，宝马，英特尔等项目负责人。",
+        "details_en": null,
+        "details": [
+          "负责奔驰",
+          "宝马",
+          "英特尔等项目负责人"
+        ],
+        "duration_months": null
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "字节",
+        "title_en": "Design Lead",
+        "title": "设计负责人",
+        "description_en": null,
+        "description": "抖音世界杯项目观看人数最高达 7062万用户，同步冬奥在线人数高 200%。目标数据增长0.6亿，用户留存最高增长12%。",
+        "details_en": null,
+        "details": [
+          "抖音世界杯项目观看人数最高达 7062万用户",
+          "同步冬奥在线人数高 200%",
+          "目标数据增长0.6亿",
+          "用户留存最高增长12%"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "字节",
+        "title_en": null,
+        "title": "房产视觉统筹和管理",
+        "description_en": null,
+        "description": "负责抖音房产统筹和管理视觉工作，编制设计部设计流程和实施细则各工作，并结合品牌人群定位及价值，建立业务品牌VI、SI及应用体系；包含线及线下视觉体系，周期性带领团队进行项目复盘，并对团队进行考核。",
+        "details_en": null,
+        "details": [
+          "负责抖音房产统筹和管理视觉工作",
+          "编制设计部设计流程和实施细则各工作",
+          "结合品牌人群定位及价值，建立业务品牌VI、SI及应用体系",
+          "包含线及线下视觉体系",
+          "周期性带领团队进行项目复盘",
+          "对团队进行考核"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "美团点评",
+        "title_en": null,
+        "title": "品牌视觉规范参与者",
+        "description_en": null,
+        "description": "参与美团点评大改版，并输出品牌视觉规范(LOGO应用体系、IP形象探索、线上规范门店应用规范、周边材料等），推动项目落地。双旦大促项目期间拉动单量增长超过新高，GMV增长60%。",
+        "details_en": null,
+        "details": [
+          "参与美团点评大改版",
+          "输出品牌视觉规范(LOGO应用体系、IP形象探索、线上规范门店应用规范、周边材料等）",
+          "推动项目落地",
+          "双旦大促项目期间拉动单量增长超过新高",
+          "GMV增长60%"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 5,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.07-2024.05 字节跳动-抖音主端: 主要负责公司抖音大型活动,大促活动，运营活动，品牌升级。",
+      "2018.10-2021.06 美团点评集团: 担任美团平台主设计，负责电商活动主R，运营活动等。",
+      "2016.01-2017.01 小米科技有限公司: 主负责新品发布各类设计，新品海报，PPT设计及品宣海报。",
+      "2016之前 各类广告（FA)公司: 担任资深美术指导，负责奔驰，宝马，英特尔等项目负责人。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "字节世界杯抖音/头条设计负责人，抖音世界杯项目观看人数最高达 7062万用户，同步冬奥在线人数高 200%。目标数据增长0.6亿，用户留存最高增长12%。",
+      "负责抖音房产统筹和管理视觉工作，编制设计部设计流程和实施细则各工作，并结合品牌人群定位及价值，建立业务品牌VI、SI及应用体系；包含线及线下视觉体系，周期性带领团队进行项目复盘，并对团队进行考核。",
+      "参与美团点评大改版，并输出品牌视觉规范(LOGO应用体系、IP形象探索、线上规范门店应用规范、周边材料等），推动项目落地。双旦大促项目期间拉动单量增长超过新高，GMV增长60%。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-07",
+        "end": "2024-05",
+        "company": "字节跳动-抖音主端",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "主要负责公司抖音大型活动,大促活动，运营活动，品牌升级。",
+        "details_en": null,
+        "details": [
+          "主要负责公司抖音大型活动",
+          "大促活动",
+          "运营活动",
+          "品牌升级"
+        ],
+        "duration_months": 35,
+        "description_zh": "主要负责公司抖音大型活动,大促活动，运营活动，品牌升级。",
+        "details_zh": [
+          "主要负责公司抖音大型活动",
+          "大促活动",
+          "运营活动",
+          "品牌升级"
+        ]
+      },
+      {
+        "start": "2018-10",
+        "end": "2021-06",
+        "company": "美团点评集团",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "担任美团平台主设计，负责电商活动主R，运营活动等。",
+        "details_en": null,
+        "details": [
+          "担任美团平台主设计",
+          "负责电商活动主R",
+          "运营活动等"
+        ],
+        "duration_months": 33,
+        "description_zh": "担任美团平台主设计，负责电商活动主R，运营活动等。",
+        "details_zh": [
+          "担任美团平台主设计",
+          "负责电商活动主R",
+          "运营活动等"
+        ]
+      },
+      {
+        "start": "2016-01",
+        "end": "2017-01",
+        "company": "小米科技有限公司",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "主负责新品发布各类设计，新品海报，PPT设计及品宣海报。",
+        "details_en": null,
+        "details": [
+          "主负责新品发布各类设计",
+          "新品海报",
+          "PPT设计及品宣海报"
+        ],
+        "duration_months": 13,
+        "description_zh": "主负责新品发布各类设计，新品海报，PPT设计及品宣海报。",
+        "details_zh": [
+          "主负责新品发布各类设计",
+          "新品海报",
+          "PPT设计及品宣海报"
+        ]
+      },
+      {
+        "start": null,
+        "end": "2016之前",
+        "company": "各类广告（FA)公司",
+        "title_en": null,
+        "title": "资深美术指导",
+        "description_en": null,
+        "description": "负责奔驰，宝马，英特尔等项目负责人。",
+        "details_en": null,
+        "details": [
+          "负责奔驰",
+          "宝马",
+          "英特尔等项目负责人"
+        ],
+        "duration_months": null,
+        "title_zh": "资深美术指导",
+        "description_zh": "负责奔驰，宝马，英特尔等项目负责人。",
+        "details_zh": [
+          "负责奔驰",
+          "宝马",
+          "英特尔等项目负责人"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3远程视觉与创意设计负责人上海3560K阳辉10年以上.md",
+    "md_mostly_english": false
+  }
+}

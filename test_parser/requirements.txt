@@ -1,0 +1,15 @@
+# 简历解析测试环境依赖
+
+# OCR 处理
+# MinerU 相关依赖已经在主项目中安装
+
+# 文本提取备用方案
+PyMuPDF>=1.23.0
+pdfminer.six>=20221105
+
+# LLM
+openai>=1.0.0
+
+# 工具库
+python-dotenv>=1.0.0
+

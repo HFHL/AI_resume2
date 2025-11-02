@@ -1,0 +1,254 @@
+{
+  "file_name": "温华斌温华斌前端paypal阿里文娱优酷985深圳.md",
+  "parsed_at": "2025-10-21T17:12:57.793205",
+  "result": {
+    "resume_file_id": null,
+    "name": "温华斌",
+    "email": "huabinwen@gmail.com",
+    "phone": null,
+    "education_degree": "硕士",
+    "education_school": [
+      "哈尔滨工业大学"
+    ],
+    "education_major": "计算机技术",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "OP",
+      "PR",
+      "go",
+      "java",
+      "前端",
+      "合规",
+      "后端",
+      "安全",
+      "支付",
+      "测试",
+      "设计",
+      "风控"
+    ],
+    "skills": [
+      "HTML",
+      "Javascript",
+      "Typescript",
+      "CSS",
+      "SASS",
+      "LESS",
+      "Webpack",
+      "React",
+      "Vue",
+      "微信小程序",
+      "PWA",
+      "Mocha",
+      "Jest",
+      "Cypress",
+      "NodeJS",
+      "Express",
+      "Kraken",
+      "Koa",
+      "Egg"
+    ],
+    "work_experience": [
+      "2020.03-2023.04 PayPal MTS1 Sofeware Engineer\n项目：平台商家管理系统\n1、Project Lead:负责功能的技术设计 (SDD)、US 拆分和评估、开发／Demo／交付\n2、系统UT 框架迁移（Mocha $- >$ Jest)",
+      "2021.04-2022.04 GoPay /PayPal MTS1 Sofeware Engineer\nScrumLead：前端组负责人，负责整体开发规划、跟进和交付，跨 Scrum 沟通和协调\n1、GoPay合规平台前端2次大规模功能开发/交付\n2、基于PayPal技术栈的风控平台新建、开发和部署\n3、PayPal技术文档站点中国区本地化开发、迭代和部署\n4、GoPay老系统更新和优化",
+      "2020.03-2021.03 GoPay/PayPal Sofeware Engineer 3\n1、人民币回款项目：Express (Kraken)／React (SSR)，独自负责项目的所有沟通协调、开发、测试和上线\n2、GoPay 合规平台前端技术栈更新 (JSP->React)",
+      "2018.05-2020.03 阿里文娱优酷 高级前端开发工程师\n项目：优酷会员业务\n1、PC 支付 SDK（jQuery）重构和迭代；数据驱动、模块化设计；接口、控制和业务逻辑分离、支持调试和通用事件\n2、PC会员主站（React)改版页面适配、开发、部署、调试、埋点、监控和安全等架构方案设计、开发和迭代\n3、收银台和会员主站Node中间层开发，连接中台；基于配置分发实现后端接口的快速对接；通过注入方式实现权限校验、数据（参数／数据）Mock、数据解析封装\n4、通过Node层日志、前端埋点／日志上报，解决数据统计、性能分析优化、应用监控等问题",
+      "2017.04-2018.04 蔚来汽车 前端开发工程师\n项目：车辆信息管理系统\n完成前端选型、初始搭建和工程化；负责相关功能（数据可视化）开发，百度地图集成和定制单点登录系统：Spring／JSP／Query／SASS；独立负责前端部分的搭建、开发、移动端适配、打包和优化",
+      "2015.08-2016.11 小熊快跑 前端开发工程师\n项目：健身房ERP 管理系统\n前后端分离/SPA；Flask/React技术栈(react-router/redux)/ES6；参与项目的初期构建、功能开发\n包月健身项目：Flask／jQuery／LESS／REM，负责管理后台、商家后台等页面和微信相关页面的开发"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "Teddy 项目：基于 Express 开发和部署的个人主页和API https://wenhuabin.com",
+      "React Demo: https://react.wenhuabin.com",
+      "Vue Demo: https://vue.wenhuabin.com"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2020-03",
+        "end": "2023-04",
+        "company": "PayPal MTS1 Sofeware",
+        "title": "工程师",
+        "description": "项目：平台商家管理系统\n1、Project Lead:负责功能的技术设计 (SDD)、US 拆分和评估、开发／Demo／交付\n2、系统UT 框架迁移（Mocha $- >$ Jest)",
+        "duration_months": 38,
+        "title_en": "Engineer"
+      },
+      {
+        "start": "2021-04",
+        "end": "2022-04",
+        "company": "GoPay /PayPal MTS1 Sofeware",
+        "title": "工程师",
+        "description": "ScrumLead：前端组负责人，负责整体开发规划、跟进和交付，跨 Scrum 沟通和协调\n1、GoPay合规平台前端2次大规模功能开发/交付\n2、基于PayPal技术栈的风控平台新建、开发和部署\n3、PayPal技术文档站点中国区本地化开发、迭代和部署\n4、GoPay老系统更新和优化",
+        "duration_months": 13,
+        "title_en": "Engineer"
+      },
+      {
+        "start": "2020-03",
+        "end": "2021-03",
+        "company": "GoPay/PayPal Sofeware",
+        "title": "工程师 3",
+        "description": "1、人民币回款项目：Express (Kraken)／React (SSR)，独自负责项目的所有沟通协调、开发、测试和上线\n2、GoPay 合规平台前端技术栈更新 (JSP->React)",
+        "duration_months": 13,
+        "title_en": "Engineer 3"
+      },
+      {
+        "start": "2018-05",
+        "end": "2020-03",
+        "company": "阿里文娱优酷 高级",
+        "title": "前端开发工程师",
+        "description": "项目：优酷会员业务\n1、PC 支付 SDK（jQuery）重构和迭代；数据驱动、模块化设计；接口、控制和业务逻辑分离、支持调试和通用事件\n2、PC会员主站（React)改版页面适配、开发、部署、调试、埋点、监控和安全等架构方案设计、开发和迭代\n3、收银台和会员主站Node中间层开发，连接中台；基于配置分发实现后端接口的快速对接；通过注入方式实现权限校验、数据（参数／数据）Mock、数据解析封装\n4、通过Node层日志、前端埋点／日志上报，解决数据统计、性能分析优化、应用监控等问题",
+        "duration_months": 23
+      },
+      {
+        "start": "2017-04",
+        "end": "2018-04",
+        "company": "蔚来汽车",
+        "title": "前端开发工程师",
+        "description": "项目：车辆信息管理系统\n完成前端选型、初始搭建和工程化；负责相关功能（数据可视化）开发，百度地图集成和定制单点登录系统：Spring／JSP／Query／SASS；独立负责前端部分的搭建、开发、移动端适配、打包和优化",
+        "duration_months": 13
+      },
+      {
+        "start": "2015-08",
+        "end": "2016-11",
+        "company": "小熊快跑",
+        "title": "前端开发工程师",
+        "description": "项目：健身房ERP 管理系统\n前后端分离/SPA；Flask/React技术栈(react-router/redux)/ES6；参与项目的初期构建、功能开发\n包月健身项目：Flask／jQuery／LESS／REM，负责管理后台、商家后台等页面和微信相关页面的开发",
+        "duration_months": 16
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Teddy",
+        "title_en": null,
+        "title": "项目",
+        "description_en": null,
+        "description": "基于 Express 开发和部署的个人主页和API",
+        "details_en": null,
+        "details": [
+          "https://wenhuabin.com"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Teddy",
+        "title_en": null,
+        "title": "项目",
+        "description_en": "React Demo",
+        "description": "React 演示",
+        "details_en": null,
+        "details": [
+          "https://react.wenhuabin.com"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Teddy",
+        "title_en": null,
+        "title": "项目",
+        "description_en": "Vue Demo",
+        "description": "Vue 演示",
+        "details_en": null,
+        "details": [
+          "https://vue.wenhuabin.com"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 5,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2020.03-2023.04 PayPal MTS1 软件工程师\n项目：平台商家管理系统\n1、Project Lead:负责功能的技术设计 (SDD)、US 拆分和评估、开发／Demo／交付\n2、系统UT 框架迁移（Mocha $- >$ Jest)",
+      "2021.04-2022.04 GoPay /PayPal MTS1 软件工程师\nScrumLead：前端组负责人，负责整体开发规划、跟进和交付，跨 Scrum 沟通和协调\n1、GoPay合规平台前端2次大规模功能开发/交付\n2、基于PayPal技术栈的风控平台新建、开发和部署\n3、PayPal技术文档站点中国区本地化开发、迭代和部署\n4、GoPay老系统更新和优化",
+      "2020.03-2021.03 GoPay/PayPal 软件工程师 3\n1、人民币回款项目：Express (Kraken)／React (SSR)，独自负责项目的所有沟通协调、开发、测试和上线\n2、GoPay 合规平台前端技术栈更新 (JSP->React)",
+      "2018.05-2020.03 阿里文娱优酷 高级前端开发工程师\n项目：优酷会员业务\n1、PC 支付 SDK（jQuery）重构和迭代；数据驱动、模块化设计；接口、控制和业务逻辑分离、支持调试和通用事件\n2、PC会员主站（React)改版页面适配、开发、部署、调试、埋点、监控和安全等架构方案设计、开发和迭代\n3、收银台和会员主站Node中间层开发，连接中台；基于配置分发实现后端接口的快速对接；通过注入方式实现权限校验、数据（参数／数据）Mock、数据解析封装\n4、通过Node层日志、前端埋点／日志上报，解决数据统计、性能分析优化、应用监控等问题",
+      "2017.04-2018.04 蔚来汽车 前端开发工程师\n项目：车辆信息管理系统\n完成前端选型、初始搭建和工程化；负责相关功能（数据可视化）开发，百度地图集成和定制单点登录系统：Spring／JSP／Query／SASS；独立负责前端部分的搭建、开发、移动端适配、打包和优化",
+      "2015.08-2016.11 小熊快跑 前端开发工程师\n项目：健身房ERP 管理系统\n前后端分离/SPA；Flask/React技术栈(react-router/redux)/ES6；参与项目的初期构建、功能开发\n包月健身项目：Flask／jQuery／LESS／REM，负责管理后台、商家后台等页面和微信相关页面的开发"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "Teddy 项目：基于 Express 开发和部署的个人主页和API https://wenhuabin.com",
+      "React 演示： https://react.wenhuabin.com",
+      "Vue演示： https://vue.wenhuabin.com"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2020-03",
+        "end": "2023-04",
+        "company": "PayPal MTS1 Sofeware",
+        "title": "工程师",
+        "description": "项目：平台商家管理系统\n1、Project Lead:负责功能的技术设计 (SDD)、US 拆分和评估、开发／Demo／交付\n2、系统UT 框架迁移（Mocha $- >$ Jest)",
+        "duration_months": 38,
+        "title_en": "Engineer",
+        "title_zh": "工程师",
+        "description_zh": "项目：平台商家管理系统\n1、Project Lead:负责功能的技术设计 (SDD)、US 拆分和评估、开发／Demo／交付\n2、系统UT 框架迁移（Mocha $- >$ Jest)"
+      },
+      {
+        "start": "2021-04",
+        "end": "2022-04",
+        "company": "GoPay /PayPal MTS1 Sofeware",
+        "title": "工程师",
+        "description": "ScrumLead：前端组负责人，负责整体开发规划、跟进和交付，跨 Scrum 沟通和协调\n1、GoPay合规平台前端2次大规模功能开发/交付\n2、基于PayPal技术栈的风控平台新建、开发和部署\n3、PayPal技术文档站点中国区本地化开发、迭代和部署\n4、GoPay老系统更新和优化",
+        "duration_months": 13,
+        "title_en": "Engineer",
+        "title_zh": "工程师",
+        "description_zh": "ScrumLead：前端组负责人，负责整体开发规划、跟进和交付，跨 Scrum 沟通和协调\n1、GoPay合规平台前端2次大规模功能开发/交付\n2、基于PayPal技术栈的风控平台新建、开发和部署\n3、PayPal技术文档站点中国区本地化开发、迭代和部署\n4、GoPay老系统更新和优化"
+      },
+      {
+        "start": "2020-03",
+        "end": "2021-03",
+        "company": "GoPay/PayPal Sofeware",
+        "title": "工程师 3",
+        "description": "1、人民币回款项目：Express (Kraken)／React (SSR)，独自负责项目的所有沟通协调、开发、测试和上线\n2、GoPay 合规平台前端技术栈更新 (JSP->React)",
+        "duration_months": 13,
+        "title_en": "Engineer 3",
+        "title_zh": "工程师 3",
+        "description_zh": "1、人民币回款项目：Express (Kraken)／React (SSR)，独自负责项目的所有沟通协调、开发、测试和上线\n2、GoPay 合规平台前端技术栈更新 (JSP->React)"
+      },
+      {
+        "start": "2018-05",
+        "end": "2020-03",
+        "company": "阿里文娱优酷 高级",
+        "title": "前端开发工程师",
+        "description": "项目：优酷会员业务\n1、PC 支付 SDK（jQuery）重构和迭代；数据驱动、模块化设计；接口、控制和业务逻辑分离、支持调试和通用事件\n2、PC会员主站（React)改版页面适配、开发、部署、调试、埋点、监控和安全等架构方案设计、开发和迭代\n3、收银台和会员主站Node中间层开发，连接中台；基于配置分发实现后端接口的快速对接；通过注入方式实现权限校验、数据（参数／数据）Mock、数据解析封装\n4、通过Node层日志、前端埋点／日志上报，解决数据统计、性能分析优化、应用监控等问题",
+        "duration_months": 23,
+        "title_zh": "前端开发工程师",
+        "description_zh": "项目：优酷会员业务\n1、PC 支付 SDK（jQuery）重构和迭代；数据驱动、模块化设计；接口、控制和业务逻辑分离、支持调试和通用事件\n2、PC会员主站（React)改版页面适配、开发、部署、调试、埋点、监控和安全等架构方案设计、开发和迭代\n3、收银台和会员主站Node中间层开发，连接中台；基于配置分发实现后端接口的快速对接；通过注入方式实现权限校验、数据（参数／数据）Mock、数据解析封装\n4、通过Node层日志、前端埋点／日志上报，解决数据统计、性能分析优化、应用监控等问题"
+      },
+      {
+        "start": "2017-04",
+        "end": "2018-04",
+        "company": "蔚来汽车",
+        "title": "前端开发工程师",
+        "description": "项目：车辆信息管理系统\n完成前端选型、初始搭建和工程化；负责相关功能（数据可视化）开发，百度地图集成和定制单点登录系统：Spring／JSP／Query／SASS；独立负责前端部分的搭建、开发、移动端适配、打包和优化",
+        "duration_months": 13,
+        "title_zh": "前端开发工程师",
+        "description_zh": "项目：车辆信息管理系统\n完成前端选型、初始搭建和工程化；负责相关功能（数据可视化）开发，百度地图集成和定制单点登录系统：Spring／JSP／Query／SASS；独立负责前端部分的搭建、开发、移动端适配、打包和优化"
+      },
+      {
+        "start": "2015-08",
+        "end": "2016-11",
+        "company": "小熊快跑",
+        "title": "前端开发工程师",
+        "description": "项目：健身房ERP 管理系统\n前后端分离/SPA；Flask/React技术栈(react-router/redux)/ES6；参与项目的初期构建、功能开发\n包月健身项目：Flask／jQuery／LESS／REM，负责管理后台、商家后台等页面和微信相关页面的开发",
+        "duration_months": 16,
+        "title_zh": "前端开发工程师",
+        "description_zh": "项目：健身房ERP 管理系统\n前后端分离/SPA；Flask/React技术栈(react-router/redux)/ES6；参与项目的初期构建、功能开发\n包月健身项目：Flask／jQuery／LESS／REM，负责管理后台、商家后台等页面和微信相关页面的开发"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\温华斌温华斌前端paypal阿里文娱优酷985深圳.md",
+    "md_mostly_english": false
+  }
+}

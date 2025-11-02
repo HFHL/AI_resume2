@@ -1,0 +1,373 @@
+{
+  "file_name": "AIagent测试工程师上海2040K帅亮8年.md",
+  "parsed_at": "2025-10-21T15:52:59.302056",
+  "result": {
+    "resume_file_id": null,
+    "name": "帅亮",
+    "email": "18761807702@163.com",
+    "phone": "18761807702",
+    "education_degree": "本科",
+    "education_school": [
+      "南京审计大学",
+      "Nanjing Audit University 南京审计大学"
+    ],
+    "education_major": "金融学",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "DEX",
+      "python",
+      "交易",
+      "产品",
+      "借贷",
+      "合约",
+      "安全",
+      "投资",
+      "机构",
+      "测试",
+      "现货",
+      "设计",
+      "量化",
+      "钱包",
+      "项目经理",
+      "风控"
+    ],
+    "skills": [
+      "软件测试",
+      "IPD",
+      "Linux",
+      "Jenkins",
+      "功能测试",
+      "SQL",
+      "Mysql",
+      "Oracle",
+      "hive",
+      "PLSQL",
+      "Navicat",
+      "HTTP",
+      "TCP",
+      "GET",
+      "POST",
+      "禅道",
+      "QC",
+      "Jira",
+      "TestLink",
+      "SVN",
+      "Git",
+      "jmeter",
+      "阿里云",
+      "postman",
+      "SoapUI",
+      "Apipost",
+      "fiddler",
+      "wireshark",
+      "Python",
+      "Requests",
+      "Pytest",
+      "可靠性测试"
+    ],
+    "work_experience": [
+      "2017.07-2020.06 恒生云融网络科技有限公司 软件测试工程师",
+      "2020.06-2021.06 税友软件集团股份有限公司 软件测试工程师",
+      "2021.06-2022.09 Bitmart数字货币交易所 软件测试工程师",
+      "2022.09-2024.12 恒生电子股份有限公司 E-4测试工程师",
+      "2024.12-至今 Aibit数字货币交易所 测试主管"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "Aibit数字货币交易所 blockowl钱包项目 负责交易所钱包项目，带领测试团队进行包括区块链充值转账，内部充值转账，区块链资产管理，移动端钱包测试以及对接DEX交易所测试钱包集成功能。",
+      "机构投资服务交易系统收益互换项目 该项目是恒生电子2022年新成立项目，主要服务于券商机构客户做收益互换交易，包含低频交易，高频低延时交易，柜台交易，极速风控，簿记对接，资金管理，报表管理。",
+      "机构投资收益互换融券项目 该项目是恒生电子2023年新成立战略项目，职责是项目测试负责人，主要服务于券商机构客户做融券交易，包含券源维护，行情维护，合约管理，报表查询，融券买入卖出交易。",
+      "机构投资LDP极速交易风控量化投顾项目 该项目是恒生电子2024年新成立战略项目，职责是项目测试负责人，主要服务于券商机构客户做量化投顾审批，包含对接LDP极速交易系统，对接LDP极速风控，审批管理，账户管理。",
+      "BITmart数字货币交易所 负责CEX交易所新上合约、现货交易测试，以及交易所平台开放给个人融资借贷测试。",
+      "国家税务总局电子税务局项目 该项目是在税务总局指导下的各个省市建设的电子税务局平台，主要负责上海、宁波、新疆、甘肃地区发票业务测试、社保业务测试。",
+      "威海商业银行消费金融项目 该项目是威海商业银行消费金融产品合集，包含银行自营产品“税E贷”“房E贷”，合作渠道产品“网商贷”“360信贷”“房速贷”，以及网贷管理平台。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2017-07",
+        "end": "2020-06",
+        "company": "恒生云融网络科技有限公司",
+        "title_en": "Software Test Engineer",
+        "title": "软件测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 36
+      },
+      {
+        "start": "2020-06",
+        "end": "2021-06",
+        "company": "税友软件集团股份有限公司",
+        "title_en": "Software Test Engineer",
+        "title": "软件测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 13
+      },
+      {
+        "start": "2021-06",
+        "end": "2022-09",
+        "company": "Bitmart数字货币交易所",
+        "title_en": "Software Test Engineer",
+        "title": "软件测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 16
+      },
+      {
+        "start": "2022-09",
+        "end": "2024-12",
+        "company": "恒生电子股份有限公司",
+        "title_en": "E-4 Test Engineer",
+        "title": "E-4测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 28
+      },
+      {
+        "start": "2024-12",
+        "end": "present",
+        "company": "Aibit数字货币交易所",
+        "title_en": "Test Supervisor",
+        "title": "测试主管",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 11
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Aibit数字货币交易所",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "负责交易所钱包项目，带领测试团队进行包括区块链充值转账，内部充值转账，区块链资产管理，移动端钱包测试以及对接DEX交易所测试钱包集成功能。",
+        "details_en": null,
+        "details": [
+          "负责交易所钱包项目",
+          "带领测试团队进行包括区块链充值转账",
+          "内部充值转账",
+          "区块链资产管理",
+          "移动端钱包测试",
+          "对接DEX交易所测试钱包集成功能"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "恒生电子",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "该项目是恒生电子2022年新成立项目，主要服务于券商机构客户做收益互换交易，包含低频交易，高频低延时交易，柜台交易，极速风控，簿记对接，资金管理，报表管理。",
+        "details_en": null,
+        "details": [
+          "主要服务于券商机构客户做收益互换交易",
+          "包含低频交易",
+          "高频低延时交易",
+          "柜台交易",
+          "极速风控",
+          "簿记对接",
+          "资金管理",
+          "报表管理"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "恒生电子",
+        "title_en": null,
+        "title": "项目测试负责人",
+        "description_en": null,
+        "description": "该项目是恒生电子2023年新成立战略项目，职责是项目测试负责人，主要服务于券商机构客户做融券交易，包含券源维护，行情维护，合约管理，报表查询，融券买入卖出交易。",
+        "details_en": null,
+        "details": [
+          "职责是项目测试负责人",
+          "主要服务于券商机构客户做融券交易",
+          "包含券源维护",
+          "行情维护",
+          "合约管理",
+          "报表查询",
+          "融券买入卖出交易"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "恒生电子",
+        "title_en": null,
+        "title": "项目测试负责人",
+        "description_en": null,
+        "description": "该项目是恒生电子2024年新成立战略项目，职责是项目测试负责人，主要服务于券商机构客户做量化投顾审批，包含对接LDP极速交易系统，对接LDP极速风控，审批管理，账户管理。",
+        "details_en": null,
+        "details": [
+          "职责是项目测试负责人",
+          "主要服务于券商机构客户做量化投顾审批",
+          "包含对接LDP极速交易系统",
+          "对接LDP极速风控",
+          "审批管理",
+          "账户管理"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "BITmart数字货币交易所",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "负责CEX交易所新上合约、现货交易测试，以及交易所平台开放给个人融资借贷测试。",
+        "details_en": null,
+        "details": [
+          "负责CEX交易所新上合约、现货交易测试",
+          "交易所平台开放给个人融资借贷测试"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "国家税务总局",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "该项目是在税务总局指导下的各个省市建设的电子税务局平台，主要负责上海、宁波、新疆、甘肃地区发票业务测试、社保业务测试。",
+        "details_en": null,
+        "details": [
+          "主要负责上海、宁波、新疆、甘肃地区发票业务测试",
+          "社保业务测试"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "威海商业银行",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "该项目是威海商业银行消费金融产品合集，包含银行自营产品“税E贷”“房E贷”，合作渠道产品“网商贷”“360信贷”“房速贷”，以及网贷管理平台。",
+        "details_en": null,
+        "details": [
+          "包含银行自营产品“税E贷”“房E贷”",
+          "合作渠道产品“网商贷”“360信贷”“房速贷”",
+          "网贷管理平台"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "在从事软件测试的工作期间，学习了很多测试方面的领先技术，同时提高了自身的技术水准，以下是自身对于软件测试的一些项目心得。善于怀疑，有发散思维，对业务场景有自己独特的见解；考虑问题要全面，尽量从客户的角度去考虑实际的场景；明确项目的需求是软件测试中的重要环节，正确的了解需求才能避免返工，提高工作的质量。本人性格开朗、稳重、随和、待人热情、真诚。工作认真负责，积极主动，能吃苦耐劳。",
+    "other": "有较强的学习能力、实际动手能力和团队协作精神，能迅速适应各种环境，并融入其中。具有亲和力，平易近人，善于与人沟通。时间观念强，能有效的完成自己的工作。",
+    "work_years": 7,
+    "self_evaluation_zh": "在从事软件测试的工作期间，学习了很多测试方面的领先技术，同时提高了自身的技术水准，以下是自身对于软件测试的一些项目心得。善于怀疑，有发散思维，对业务场景有自己独特的见解；考虑问题要全面，尽量从客户的角度去考虑实际的场景；明确项目的需求是软件测试中的重要环节，正确的了解需求才能避免返工，提高工作的质量。本人性格开朗、稳重、随和、待人热情、真诚。工作认真负责，积极主动，能吃苦耐劳。",
+    "other_zh": "有较强的学习能力、实际动手能力和团队协作精神，能迅速适应各种环境，并融入其中。具有亲和力，平易近人，善于与人沟通。时间观念强，能有效的完成自己的工作。",
+    "work_experience_zh": [
+      "2017.07-2020.06 恒生云融网络科技有限公司 软件测试工程师",
+      "2020.06-2021.06 税友软件集团股份有限公司 软件测试工程师",
+      "2021.06-2022.09 Bitmart数字货币交易所 软件测试工程师",
+      "2022.09-2024.12 恒生电子股份有限公司 E-4测试工程师",
+      "2024.12-至今 Aibit数字货币交易所 测试主管"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "Aibit数字货币交易所 blockowl钱包项目 负责交易所钱包项目，带领测试团队进行包括区块链充值转账，内部充值转账，区块链资产管理，移动端钱包测试以及对接DEX交易所测试钱包集成功能。",
+      "机构投资服务交易系统收益互换项目 该项目是恒生电子2022年新成立项目，主要服务于券商机构客户做收益互换交易，包含低频交易，高频低延时交易，柜台交易，极速风控，簿记对接，资金管理，报表管理。",
+      "机构投资收益互换融券项目 该项目是恒生电子2023年新成立战略项目，职责是项目测试负责人，主要服务于券商机构客户做融券交易，包含券源维护，行情维护，合约管理，报表查询，融券买入卖出交易。",
+      "机构投资LDP极速交易风控量化投顾项目 该项目是恒生电子2024年新成立战略项目，职责是项目测试负责人，主要服务于券商机构客户做量化投顾审批，包含对接LDP极速交易系统，对接LDP极速风控，审批管理，账户管理。",
+      "BITmart数字货币交易所 负责CEX交易所新上合约、现货交易测试，以及交易所平台开放给个人融资借贷测试。",
+      "国家税务总局电子税务局项目 该项目是在税务总局指导下的各个省市建设的电子税务局平台，主要负责上海、宁波、新疆、甘肃地区发票业务测试、社保业务测试。",
+      "威海商业银行消费金融项目 该项目是威海商业银行消费金融产品合集，包含银行自营产品“税E贷”“房E贷”，合作渠道产品“网商贷”“360信贷”“房速贷”，以及网贷管理平台。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2017-07",
+        "end": "2020-06",
+        "company": "恒生云融网络科技有限公司",
+        "title_en": "Software Test Engineer",
+        "title": "软件测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 36,
+        "title_zh": "软件测试工程师"
+      },
+      {
+        "start": "2020-06",
+        "end": "2021-06",
+        "company": "税友软件集团股份有限公司",
+        "title_en": "Software Test Engineer",
+        "title": "软件测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 13,
+        "title_zh": "软件测试工程师"
+      },
+      {
+        "start": "2021-06",
+        "end": "2022-09",
+        "company": "Bitmart数字货币交易所",
+        "title_en": "Software Test Engineer",
+        "title": "软件测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 16,
+        "title_zh": "软件测试工程师"
+      },
+      {
+        "start": "2022-09",
+        "end": "2024-12",
+        "company": "恒生电子股份有限公司",
+        "title_en": "E-4 Test Engineer",
+        "title": "E-4测试工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 28,
+        "title_zh": "E-4 测试工程师"
+      },
+      {
+        "start": "2024-12",
+        "end": "present",
+        "company": "Aibit数字货币交易所",
+        "title_en": "Test Supervisor",
+        "title": "测试主管",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 11,
+        "title_zh": "测试主管"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIagent测试工程师上海2040K帅亮8年.md",
+    "md_mostly_english": false
+  }
+}

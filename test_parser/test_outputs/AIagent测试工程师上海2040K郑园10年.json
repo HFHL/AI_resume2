@@ -1,0 +1,195 @@
+{
+  "file_name": "AIagent测试工程师上海2040K郑园10年.md",
+  "parsed_at": "2025-10-21T15:53:47.632763",
+  "result": {
+    "resume_file_id": null,
+    "name": "郑园",
+    "email": "821937671@qq.com",
+    "phone": "17621067513",
+    "education_degree": "本科",
+    "education_school": [
+      "Qingdao University of Science and Technology 青岛科技大学"
+    ],
+    "education_major": "软件工程 (Java方向)",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "PR",
+      "RAG",
+      "RPC",
+      "java",
+      "python",
+      "产品",
+      "前端",
+      "数据分析",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "AI",
+      "Prompt Engineering",
+      "RAG",
+      "MCP",
+      "Agent",
+      "UI自动化测试",
+      "Selenium",
+      "Python",
+      "接口自动化测试",
+      "Request",
+      "APP UI自动化",
+      "Appium",
+      "Junit4",
+      "Testng",
+      "Powermock",
+      "Jenkins",
+      "GitLab",
+      "Jacoco",
+      "JavaSE",
+      "性能测试",
+      "LoadRunner",
+      "Jmeter",
+      "Soapui",
+      "Postman",
+      "Jira",
+      "SVN",
+      "Git",
+      "Oracle",
+      "MySQL",
+      "SQL",
+      "HTML",
+      "CSS",
+      "Javascript",
+      "Jquery",
+      "Bootstrap",
+      "TypeScript",
+      "Charles"
+    ],
+    "work_experience": [
+      "2020.11 ~ 至今 字节跳动｜测试开发工程师\n• 全流程业务质量管理\n• 维护前端核心场景UI自动化-TypeScript\n• 维护API（RPC/HTTP）自动化-Python\n• 编写Native UI自动化\n• 探索AI自动化测试，Midscene.js 实现自然语言驱动\n• 构建LLM评测音视频质量平台",
+      "2020.11 ~ 2024.04 TikTok Music\n• 负责 TikTok Music 推荐逻辑、数据质量保障\n• 协助DA将埋点方案高质量落地和数据回收\n• 负责核心指标监控，发版灰度监控\n• 异常数据、指标的发现和调研\n• 沟通协调产研各方，优化合作流程\n• 沟通落地AB实验设计、埋点设计、上线规范\n• 编写自动校验工具，提升验收效率和质量\n• 维护核心埋点自动化-Python",
+      "2017.10 ~ 2020.10 中智关爱通｜高级测试工程师\n• 负责APP测试团队的日常管理工作，制定测试策略，协调资源\n• 参与需求、交互、设计评审，积极讨论并给出自己的见解\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Appium对APP进行UI级自动化测试\n• 使用Jmeter对接口进行测试及回归，对特定接口进行性能测试\n• 使用Charles抓包、Mock数据、弱网协助测试\n• 使用Jenkins+GitLab+Jacoco分析开发提交的代码，实现精准灰盒测试\n• 结合日志及代码分析定位Bug和线上问题\n• 对公司现有测试框架进行插件开发，提高效率和产出",
+      "2017.4 ~ 2017.9 同程金服｜中级测试工程师\n• 独立负责大数据模块的接口、管理后台测试\n• 参与需求评审、设计评审，积极讨论并给出建议\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Selenium关键字驱动框架，对后台进行UI自动化测试\n• 使用Jmeter对特定接口进行性能测试，并以此为标准进行评估并出报告\n• 使用Redmine进行项目管理；使用Jenkins进行持续集成测试；使用Testlink管理用例\n• 使用Jenkins+GitLab+Jacoco分析功能测试的代码覆盖率情况，并查缺补漏",
+      "2015.8 ~ 2017.3 青岛炎煌信息｜测试工程师\n• 参与需求分析与设计评审，制定测试计划\n• 编写测试用例，并拉相关方评审\n• 执行测试用例，用Jira工具提交Bug，并跟踪其状态\n• 通过监控Linux服务器日志辅助定位问题\n• 使用Powermock+Junit4+Hamcrest+Java写单元测试TestCase\n• 参与接口测试，使用Soapui进行测试\n• 负责用Jmeter进行特定场景和接口的压力测试\n• 对核心模块使用Selenium+TestNG+Java+Maven进行UI自动化测试"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2020-11",
+        "end": "2025-10",
+        "company": "字节跳动｜",
+        "title": "测试开发工程师",
+        "description": "• 全流程业务质量管理\n• 维护前端核心场景UI自动化-TypeScript\n• 维护API（RPC/HTTP）自动化-Python\n• 编写Native UI自动化\n• 探索AI自动化测试，Midscene.js 实现自然语言驱动\n• 构建LLM评测音视频质量平台",
+        "duration_months": 60
+      },
+      {
+        "start": "2020-11",
+        "end": "2024-04",
+        "company": "TikTok",
+        "title": "音乐",
+        "description": "• 负责 TikTok Music 推荐逻辑、数据质量保障\n• 协助DA将埋点方案高质量落地和数据回收\n• 负责核心指标监控，发版灰度监控\n• 异常数据、指标的发现和调研\n• 沟通协调产研各方，优化合作流程\n• 沟通落地AB实验设计、埋点设计、上线规范\n• 编写自动校验工具，提升验收效率和质量\n• 维护核心埋点自动化-Python",
+        "duration_months": 42,
+        "title_en": "Music"
+      },
+      {
+        "start": "2017-10",
+        "end": "2020-10",
+        "company": "中智关爱通｜高级",
+        "title": "测试工程师",
+        "description": "• 负责APP测试团队的日常管理工作，制定测试策略，协调资源\n• 参与需求、交互、设计评审，积极讨论并给出自己的见解\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Appium对APP进行UI级自动化测试\n• 使用Jmeter对接口进行测试及回归，对特定接口进行性能测试\n• 使用Charles抓包、Mock数据、弱网协助测试\n• 使用Jenkins+GitLab+Jacoco分析开发提交的代码，实现精准灰盒测试\n• 结合日志及代码分析定位Bug和线上问题\n• 对公司现有测试框架进行插件开发，提高效率和产出",
+        "duration_months": 37
+      },
+      {
+        "start": "2017-04",
+        "end": "2017-09",
+        "company": "同程金服｜中级",
+        "title": "测试工程师",
+        "description": "• 独立负责大数据模块的接口、管理后台测试\n• 参与需求评审、设计评审，积极讨论并给出建议\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Selenium关键字驱动框架，对后台进行UI自动化测试\n• 使用Jmeter对特定接口进行性能测试，并以此为标准进行评估并出报告\n• 使用Redmine进行项目管理；使用Jenkins进行持续集成测试；使用Testlink管理用例\n• 使用Jenkins+GitLab+Jacoco分析功能测试的代码覆盖率情况，并查缺补漏",
+        "duration_months": 6
+      },
+      {
+        "start": "2015-08",
+        "end": "2017-03",
+        "company": "青岛炎煌信息｜",
+        "title": "测试工程师",
+        "description": "• 参与需求分析与设计评审，制定测试计划\n• 编写测试用例，并拉相关方评审\n• 执行测试用例，用Jira工具提交Bug，并跟踪其状态\n• 通过监控Linux服务器日志辅助定位问题\n• 使用Powermock+Junit4+Hamcrest+Java写单元测试TestCase\n• 参与接口测试，使用Soapui进行测试\n• 负责用Jmeter进行特定场景和接口的压力测试\n• 对核心模块使用Selenium+TestNG+Java+Maven进行UI自动化测试",
+        "duration_months": 20
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 7,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2020.11 ~ 至今 字节跳动｜测试开发工程师\n• 全流程业务质量管理\n• 维护前端核心场景UI自动化-TypeScript\n• 维护API（RPC/HTTP）自动化-Python\n• 编写Native UI自动化\n• 探索AI自动化测试，Midscene.js 实现自然语言驱动\n• 构建LLM评测音视频质量平台",
+      "2020.11 ~ 2024.04 TikTok Music\n• 负责 TikTok Music 推荐逻辑、数据质量保障\n• 协助DA将埋点方案高质量落地和数据回收\n• 负责核心指标监控，发版灰度监控\n• 异常数据、指标的发现和调研\n• 沟通协调产研各方，优化合作流程\n• 沟通落地AB实验设计、埋点设计、上线规范\n• 编写自动校验工具，提升验收效率和质量\n• 维护核心埋点自动化-Python",
+      "2017.10 ~ 2020.10 中智关爱通｜高级测试工程师\n• 负责APP测试团队的日常管理工作，制定测试策略，协调资源\n• 参与需求、交互、设计评审，积极讨论并给出自己的见解\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Appium对APP进行UI级自动化测试\n• 使用Jmeter对接口进行测试及回归，对特定接口进行性能测试\n• 使用Charles抓包、Mock数据、弱网协助测试\n• 使用Jenkins+GitLab+Jacoco分析开发提交的代码，实现精准灰盒测试\n• 结合日志及代码分析定位Bug和线上问题\n• 对公司现有测试框架进行插件开发，提高效率和产出",
+      "2017.4 ~ 2017.9 同程金服｜中级测试工程师\n• 独立负责大数据模块的接口、管理后台测试\n• 参与需求评审、设计评审，积极讨论并给出建议\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Selenium关键字驱动框架，对后台进行UI自动化测试\n• 使用Jmeter对特定接口进行性能测试，并以此为标准进行评估并出报告\n• 使用Redmine进行项目管理；使用Jenkins进行持续集成测试；使用Testlink管理用例\n• 使用Jenkins+GitLab+Jacoco分析功能测试的代码覆盖率情况，并查缺补漏",
+      "2015.8 ~ 2017.3 青岛炎煌信息｜测试工程师\n• 参与需求分析与设计评审，制定测试计划\n• 编写测试用例，并拉相关方评审\n• 执行测试用例，用Jira工具提交Bug，并跟踪其状态\n• 通过监控Linux服务器日志辅助定位问题\n• 使用Powermock+Junit4+Hamcrest+Java写单元测试TestCase\n• 参与接口测试，使用Soapui进行测试\n• 负责用Jmeter进行特定场景和接口的压力测试\n• 对核心模块使用Selenium+TestNG+Java+Maven进行UI自动化测试"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2020-11",
+        "end": "2025-10",
+        "company": "字节跳动｜",
+        "title": "测试开发工程师",
+        "description": "• 全流程业务质量管理\n• 维护前端核心场景UI自动化-TypeScript\n• 维护API（RPC/HTTP）自动化-Python\n• 编写Native UI自动化\n• 探索AI自动化测试，Midscene.js 实现自然语言驱动\n• 构建LLM评测音视频质量平台",
+        "duration_months": 60,
+        "title_zh": "测试开发工程师",
+        "description_zh": "• 全流程业务质量管理\n• 维护前端核心场景UI自动化-TypeScript\n• 维护API（RPC/HTTP）自动化-Python\n• 编写Native UI自动化\n• 探索AI自动化测试，Midscene.js 实现自然语言驱动\n• 构建LLM评测音视频质量平台"
+      },
+      {
+        "start": "2020-11",
+        "end": "2024-04",
+        "company": "TikTok",
+        "title": "音乐",
+        "description": "• 负责 TikTok Music 推荐逻辑、数据质量保障\n• 协助DA将埋点方案高质量落地和数据回收\n• 负责核心指标监控，发版灰度监控\n• 异常数据、指标的发现和调研\n• 沟通协调产研各方，优化合作流程\n• 沟通落地AB实验设计、埋点设计、上线规范\n• 编写自动校验工具，提升验收效率和质量\n• 维护核心埋点自动化-Python",
+        "duration_months": 42,
+        "title_en": "Music",
+        "title_zh": "音乐",
+        "description_zh": "• 负责 TikTok Music 推荐逻辑、数据质量保障\n• 协助DA将埋点方案高质量落地和数据回收\n• 负责核心指标监控，发版灰度监控\n• 异常数据、指标的发现和调研\n• 沟通协调产研各方，优化合作流程\n• 沟通落地AB实验设计、埋点设计、上线规范\n• 编写自动校验工具，提升验收效率和质量\n• 维护核心埋点自动化-Python"
+      },
+      {
+        "start": "2017-10",
+        "end": "2020-10",
+        "company": "中智关爱通｜高级",
+        "title": "测试工程师",
+        "description": "• 负责APP测试团队的日常管理工作，制定测试策略，协调资源\n• 参与需求、交互、设计评审，积极讨论并给出自己的见解\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Appium对APP进行UI级自动化测试\n• 使用Jmeter对接口进行测试及回归，对特定接口进行性能测试\n• 使用Charles抓包、Mock数据、弱网协助测试\n• 使用Jenkins+GitLab+Jacoco分析开发提交的代码，实现精准灰盒测试\n• 结合日志及代码分析定位Bug和线上问题\n• 对公司现有测试框架进行插件开发，提高效率和产出",
+        "duration_months": 37,
+        "title_zh": "测试工程师",
+        "description_zh": "• 负责APP测试团队的日常管理工作，制定测试策略，协调资源\n• 参与需求、交互、设计评审，积极讨论并给出自己的见解\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Appium对APP进行UI级自动化测试\n• 使用Jmeter对接口进行测试及回归，对特定接口进行性能测试\n• 使用Charles抓包、Mock数据、弱网协助测试\n• 使用Jenkins+GitLab+Jacoco分析开发提交的代码，实现精准灰盒测试\n• 结合日志及代码分析定位Bug和线上问题\n• 对公司现有测试框架进行插件开发，提高效率和产出"
+      },
+      {
+        "start": "2017-04",
+        "end": "2017-09",
+        "company": "同程金服｜中级",
+        "title": "测试工程师",
+        "description": "• 独立负责大数据模块的接口、管理后台测试\n• 参与需求评审、设计评审，积极讨论并给出建议\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Selenium关键字驱动框架，对后台进行UI自动化测试\n• 使用Jmeter对特定接口进行性能测试，并以此为标准进行评估并出报告\n• 使用Redmine进行项目管理；使用Jenkins进行持续集成测试；使用Testlink管理用例\n• 使用Jenkins+GitLab+Jacoco分析功能测试的代码覆盖率情况，并查缺补漏",
+        "duration_months": 6,
+        "title_zh": "测试工程师",
+        "description_zh": "• 独立负责大数据模块的接口、管理后台测试\n• 参与需求评审、设计评审，积极讨论并给出建议\n• 主导用例评审，吸纳各方意见并完善测试场景\n• 使用Python+Selenium关键字驱动框架，对后台进行UI自动化测试\n• 使用Jmeter对特定接口进行性能测试，并以此为标准进行评估并出报告\n• 使用Redmine进行项目管理；使用Jenkins进行持续集成测试；使用Testlink管理用例\n• 使用Jenkins+GitLab+Jacoco分析功能测试的代码覆盖率情况，并查缺补漏"
+      },
+      {
+        "start": "2015-08",
+        "end": "2017-03",
+        "company": "青岛炎煌信息｜",
+        "title": "测试工程师",
+        "description": "• 参与需求分析与设计评审，制定测试计划\n• 编写测试用例，并拉相关方评审\n• 执行测试用例，用Jira工具提交Bug，并跟踪其状态\n• 通过监控Linux服务器日志辅助定位问题\n• 使用Powermock+Junit4+Hamcrest+Java写单元测试TestCase\n• 参与接口测试，使用Soapui进行测试\n• 负责用Jmeter进行特定场景和接口的压力测试\n• 对核心模块使用Selenium+TestNG+Java+Maven进行UI自动化测试",
+        "duration_months": 20,
+        "title_zh": "测试工程师",
+        "description_zh": "• 参与需求分析与设计评审，制定测试计划\n• 编写测试用例，并拉相关方评审\n• 执行测试用例，用Jira工具提交Bug，并跟踪其状态\n• 通过监控Linux服务器日志辅助定位问题\n• 使用Powermock+Junit4+Hamcrest+Java写单元测试TestCase\n• 参与接口测试，使用Soapui进行测试\n• 负责用Jmeter进行特定场景和接口的压力测试\n• 对核心模块使用Selenium+TestNG+Java+Maven进行UI自动化测试"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIagent测试工程师上海2040K郑园10年.md",
+    "md_mostly_english": false
+  }
+}

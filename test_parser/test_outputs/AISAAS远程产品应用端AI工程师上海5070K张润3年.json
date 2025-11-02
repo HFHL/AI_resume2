@@ -1,0 +1,131 @@
+{
+  "file_name": "AISAAS远程产品应用端AI工程师上海5070K张润3年.md",
+  "parsed_at": "2025-10-21T16:16:29.176547",
+  "result": {
+    "resume_file_id": null,
+    "name": "张润",
+    "email": "rz0110@outlook.com",
+    "phone": "18217345170",
+    "education_degree": "硕士",
+    "education_school": [
+      "University of Toronto 多伦多大学",
+      "麦克马斯特大学"
+    ],
+    "education_major": "数据分析",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "BD",
+      "RAG",
+      "上币",
+      "交易",
+      "区块链开发",
+      "合规",
+      "安全",
+      "市场",
+      "投资",
+      "数据分析",
+      "数据开发",
+      "智能体",
+      "风控"
+    ],
+    "skills": [
+      "数据分析",
+      "机器学习",
+      "数据科学",
+      "人工智能",
+      "深度学习",
+      "自然语言处理",
+      "Transformer",
+      "卷积神经网络",
+      "Kafka",
+      "AWS Lambda",
+      "n8n",
+      "Slack",
+      "GraphRAG",
+      "大型语言模型"
+    ],
+    "work_experience": [
+      "2023 – 2025 coins.ph\nAI Lead\n基于 Transformer 模型和卷积神经网络（CNN），利用它们在处理序列数据和提取局部特征方面的优势，开发分析时间序列的模型。结合 crewai 的 agent 分析用户近期的行为特征，给当下行为进行打分，后续用Kafka与风控开发进行交互，简易风控审核流程。\n为客服部门构建了两类智能化 Chatbot，分别面向客户与内部员工，显著提升了服务效率：客户支持Chatbot：基于 RAG ，将 FAQ 文档作为知识库，部署于 AWS Lambda，有效自动化处理常见问题，显著降低了客服工单量。内部支持 Chatbot：以 Confluence 为知识源，利用 n8n 搭建智能体工作流，并与公司内部的 Slack 系统集成，帮助员工更高效地获取信息、解决问题，全面提升工作效率\n上币审核自动化：基于链上数据（如价格、成交量、用户活跃变化、大户持仓等），结合市场情绪（社交媒体表现）、项目方背书等维度，利用 CrewAI 构建多智能体系统，并接入Elliptic 风控服务，实现对币种的多角度评分与自动化审核，加速上币流程的同时确保安全合规。币种下架监控：定期扫描已上线币种，通过 CrewAI 创建的智能体，结合链上与平台内交易数据，自动化识别异常表现，辅助判断是否需要启动下架流程，及时防范潜在风险。\n营销活动（Campaign）的流程自动化：构建多个数据 Agent 负责根据自然语言生成 SQL 语句，自动查询数据库中的相关营销数据; 整合查询结果，生成符合业务目标的 Campaign 文案，语言风格可灵活调整以匹配不同渠道;根据文案内容与活动主题，自动生成高质量的 Banner 图片，实现图文一致。",
+      "2021 – 2022\nRoyal Bank of Canada, Capital Market\n数据分析师\n为风控系统开发基于Transformer的异常检测模型,以检测交易系统的异常.为不同气候变化情景下的企业违约风险做评估. 为处于不同地理位置的投资财产做自然灾害风险评估.利用大型语言模型（LLM）技术，推进客服系统的自动化、AI化和智能化，提高客服效率和用户满意度"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "LLM结合生物医学知识图谱\n旨在通过结合大型语言模型（LLM）和GraphRAG技术，在生物医学垂直领域构建一个全面、准确、上下文感知的生物医学知识图谱。该知识图谱将利用LLM的语义理解能力来补充和扩展现有知识，并结合GraphRAG的图数据检索方法，尝试多种图检索方法，为LLM提供更丰富的信息检索功能。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-06",
+        "end": "2025-06",
+        "company": null,
+        "title": "coins.ph",
+        "description": "AI Lead\n基于 Transformer 模型和卷积神经网络（CNN），利用它们在处理序列数据和提取局部特征方面的优势，开发分析时间序列的模型。结合 crewai 的 agent 分析用户近期的行为特征，给当下行为进行打分，后续用Kafka与风控开发进行交互，简易风控审核流程。\n为客服部门构建了两类智能化 Chatbot，分别面向客户与内部员工，显著提升了服务效率：客户支持Chatbot：基于 RAG ，将 FAQ 文档作为知识库，部署于 AWS Lambda，有效自动化处理常见问题，显著降低了客服工单量。内部支持 Chatbot：以 Confluence 为知识源，利用 n8n 搭建智能体工作流，并与公司内部的 Slack 系统集成，帮助员工更高效地获取信息、解决问题，全面提升工作效率\n上币审核自动化：基于链上数据（如价格、成交量、用户活跃变化、大户持仓等），结合市场情绪（社交媒体表现）、项目方背书等维度，利用 CrewAI 构建多智能体系统，并接入Elliptic 风控服务，实现对币种的多角度评分与自动化审核，加速上币流程的同时确保安全合规。币种下架监控：定期扫描已上线币种，通过 CrewAI 创建的智能体，结合链上与平台内交易数据，自动化识别异常表现，辅助判断是否需要启动下架流程，及时防范潜在风险。\n营销活动（Campaign）的流程自动化：构建多个数据 Agent 负责根据自然语言生成 SQL 语句，自动查询数据库中的相关营销数据; 整合查询结果，生成符合业务目标的 Campaign 文案，语言风格可灵活调整以匹配不同渠道;根据文案内容与活动主题，自动生成高质量的 Banner 图片，实现图文一致。",
+        "duration_months": 25
+      },
+      {
+        "start": "2021-06",
+        "end": "2022-06",
+        "company": null,
+        "title": null,
+        "description": "Royal Bank of Canada, Capital Market\n数据分析师\n为风控系统开发基于Transformer的异常检测模型,以检测交易系统的异常.为不同气候变化情景下的企业违约风险做评估. 为处于不同地理位置的投资财产做自然灾害风险评估.利用大型语言模型（LLM）技术，推进客服系统的自动化、AI化和智能化，提高客服效率和用户满意度",
+        "duration_months": 13
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": null,
+        "description_en": "Aiming to build a comprehensive, accurate, and context-aware biomedical knowledge graph by combining large language models (LLM) and GraphRAG technology in the biomedical vertical field. This knowledge graph will leverage the semantic understanding capabilities of LLM to supplement and expand existing knowledge, and combine GraphRAG's graph data retrieval methods to explore various graph retrieval methods, providing richer information retrieval capabilities for LLM.",
+        "description": "旨在通过结合大型语言模型（LLM）和GraphRAG技术，在生物医学垂直领域构建一个全面、准确、上下文感知的生物医学知识图谱。该知识图谱将利用LLM的语义理解能力来补充和扩展现有知识，并结合GraphRAG的图数据检索方法，尝试多种图检索方法，为LLM提供更丰富的信息检索功能。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023 – 2025 coins.ph\nAI 负责人\n基于 Transformer 模型和卷积神经网络（CNN），利用它们在处理序列数据和提取局部特征方面的优势，开发分析时间序列的模型。结合 crewai 的 agent 分析用户近期的行为特征，给当下行为进行打分，后续用Kafka与风控开发进行交互，简易风控审核流程。\n为客服部门构建了两类智能化 Chatbot，分别面向客户与内部员工，显著提升了服务效率：客户支持Chatbot：基于 RAG ，将 FAQ 文档作为知识库，部署于 AWS Lambda，有效自动化处理常见问题，显著降低了客服工单量。内部支持 Chatbot：以 Confluence 为知识源，利用 n8n 搭建智能体工作流，并与公司内部的 Slack 系统集成，帮助员工更高效地获取信息、解决问题，全面提升工作效率\n上币审核自动化：基于链上数据（如价格、成交量、用户活跃变化、大户持仓等），结合市场情绪（社交媒体表现）、项目方背书等维度，利用 CrewAI 构建多智能体系统，并接入Elliptic 风控服务，实现对币种的多角度评分与自动化审核，加速上币流程的同时确保安全合规。币种下架监控：定期扫描已上线币种，通过 CrewAI 创建的智能体，结合链上与平台内交易数据，自动化识别异常表现，辅助判断是否需要启动下架流程，及时防范潜在风险。\n营销活动（Campaign）的流程自动化：构建多个数据 Agent 负责根据自然语言生成 SQL 语句，自动查询数据库中的相关营销数据; 整合查询结果，生成符合业务目标的 Campaign 文案，语言风格可灵活调整以匹配不同渠道;根据文案内容与活动主题，自动生成高质量的 Banner 图片，实现图文一致。",
+      "2021 – 2022\n加拿大皇家银行，资本市场\n数据分析师\n为风控系统开发基于Transformer的异常检测模型,以检测交易系统的异常.为不同气候变化情景下的企业违约风险做评估.\n为处于不同地理位置的投资财产做自然灾害风险评估.利用大型语言模型（LLM）技术，推进客服系统的自动化、AI化和智能化，提高客服效率和用户满意度"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "LLM结合生物医学知识图谱\n旨在通过结合大型语言模型（LLM）和GraphRAG技术，在生物医学垂直领域构建一个全面、准确、上下文感知的生物医学知识图谱。该知识图谱将利用LLM的语义理解能力来补充和扩展现有知识，并结合GraphRAG的图数据检索方法，尝试多种图检索方法，为LLM提供更丰富的信息检索功能。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-06",
+        "end": "2025-06",
+        "company": null,
+        "title": "coins.ph",
+        "description": "AI Lead\n基于 Transformer 模型和卷积神经网络（CNN），利用它们在处理序列数据和提取局部特征方面的优势，开发分析时间序列的模型。结合 crewai 的 agent 分析用户近期的行为特征，给当下行为进行打分，后续用Kafka与风控开发进行交互，简易风控审核流程。\n为客服部门构建了两类智能化 Chatbot，分别面向客户与内部员工，显著提升了服务效率：客户支持Chatbot：基于 RAG ，将 FAQ 文档作为知识库，部署于 AWS Lambda，有效自动化处理常见问题，显著降低了客服工单量。内部支持 Chatbot：以 Confluence 为知识源，利用 n8n 搭建智能体工作流，并与公司内部的 Slack 系统集成，帮助员工更高效地获取信息、解决问题，全面提升工作效率\n上币审核自动化：基于链上数据（如价格、成交量、用户活跃变化、大户持仓等），结合市场情绪（社交媒体表现）、项目方背书等维度，利用 CrewAI 构建多智能体系统，并接入Elliptic 风控服务，实现对币种的多角度评分与自动化审核，加速上币流程的同时确保安全合规。币种下架监控：定期扫描已上线币种，通过 CrewAI 创建的智能体，结合链上与平台内交易数据，自动化识别异常表现，辅助判断是否需要启动下架流程，及时防范潜在风险。\n营销活动（Campaign）的流程自动化：构建多个数据 Agent 负责根据自然语言生成 SQL 语句，自动查询数据库中的相关营销数据; 整合查询结果，生成符合业务目标的 Campaign 文案，语言风格可灵活调整以匹配不同渠道;根据文案内容与活动主题，自动生成高质量的 Banner 图片，实现图文一致。",
+        "duration_months": 25,
+        "title_zh": "coins.ph",
+        "description_zh": "AI 负责人\n基于 Transformer 模型和卷积神经网络（CNN），利用它们在处理序列数据和提取局部特征方面的优势，开发分析时间序列的模型。结合 crewai 的 agent 分析用户近期的行为特征，给当下行为进行打分，后续用Kafka与风控开发进行交互，简易风控审核流程。\n为客服部门构建了两类智能化 Chatbot，分别面向客户与内部员工，显著提升了服务效率：客户支持Chatbot：基于 RAG ，将 FAQ 文档作为知识库，部署于 AWS Lambda，有效自动化处理常见问题，显著降低了客服工单量。内部支持 Chatbot：以 Confluence 为知识源，利用 n8n 搭建智能体工作流，并与公司内部的 Slack 系统集成，帮助员工更高效地获取信息、解决问题，全面提升工作效率\n上币审核自动化：基于链上数据（如价格、成交量、用户活跃变化、大户持仓等），结合市场情绪（社交媒体表现）、项目方背书等维度，利用 CrewAI 构建多智能体系统，并接入Elliptic 风控服务，实现对币种的多角度评分与自动化审核，加速上币流程的同时确保安全合规。币种下架监控：定期扫描已上线币种，通过 CrewAI 创建的智能体，结合链上与平台内交易数据，自动化识别异常表现，辅助判断是否需要启动下架流程，及时防范潜在风险。\n营销活动（Campaign）的流程自动化：构建多个数据 Agent 负责根据自然语言生成 SQL 语句，自动查询数据库中的相关营销数据; 整合查询结果，生成符合业务目标的 Campaign 文案，语言风格可灵活调整以匹配不同渠道;根据文案内容与活动主题，自动生成高质量的 Banner 图片，实现图文一致。"
+      },
+      {
+        "start": "2021-06",
+        "end": "2022-06",
+        "company": null,
+        "title": null,
+        "description": "Royal Bank of Canada, Capital Market\n数据分析师\n为风控系统开发基于Transformer的异常检测模型,以检测交易系统的异常.为不同气候变化情景下的企业违约风险做评估. 为处于不同地理位置的投资财产做自然灾害风险评估.利用大型语言模型（LLM）技术，推进客服系统的自动化、AI化和智能化，提高客服效率和用户满意度",
+        "duration_months": 13,
+        "description_zh": "加拿大皇家银行，资本市场\n数据分析师\n为风控系统开发基于Transformer的异常检测模型,以检测交易系统的异常.为不同气候变化情景下的企业违约风险做评估.\n为处于不同地理位置的投资财产做自然灾害风险评估.利用大型语言模型（LLM）技术，推进客服系统的自动化、AI化和智能化，提高客服效率和用户满意度"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程产品应用端AI工程师上海5070K张润3年.md",
+    "md_mostly_english": false
+  }
+}

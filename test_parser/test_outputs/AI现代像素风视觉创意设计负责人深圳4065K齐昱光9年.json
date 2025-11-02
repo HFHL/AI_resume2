@@ -1,0 +1,267 @@
+{
+  "file_name": "AI现代像素风视觉创意设计负责人深圳4065K齐昱光9年.md",
+  "parsed_at": "2025-10-21T16:53:06.533479",
+  "result": {
+    "resume_file_id": null,
+    "name": "齐昱光 Arian",
+    "email": null,
+    "phone": "17600351320",
+    "education_degree": null,
+    "education_school": [
+      "广州美术学院"
+    ],
+    "education_major": "壁画综合绘画专业，辅修雕塑学位",
+    "education_graduation_year": null,
+    "education_tier": "普通本科",
+    "education_tiers": [
+      "普通本科"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "C2C",
+      "DBA",
+      "OP",
+      "PR",
+      "产品",
+      "多模态",
+      "市场",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "品牌设计",
+      "平面设计",
+      "插画",
+      "AIGC设计",
+      "模型训练"
+    ],
+    "work_experience": [
+      "2017 - 2023 任职于字节跳动-抖音品牌设计中心 ｜资深品牌设计师 参与抖音初期 0到1的品牌建设，参与TikTok 冷启动，日韩东南亚欧美的前期品牌视觉搭建，22年晋升3-1职级，带领团队 抖音品牌搭建、市场活动、主端场景搭建",
+      "2023 - 2024 任职于 百度 ｜资深品牌设计师 品牌ip搭建，内部工具品牌搭建，aigc设计",
+      "2024 - 2025 任职于 数美万物 ｜资深品牌设计师 新品牌搭建，电商项目全局搭建，aigc设计 模型训练集调优",
+      "2025.6 - 至今 任职于 liblibai ｜全链路设计师 资深品牌设计师 新AI品牌搭建，liblib升级，aigc设计"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2017-01",
+        "end": "2023-12",
+        "company": "字节跳动-抖音品牌设计中心",
+        "title_en": "Senior Brand Designer",
+        "title": "资深品牌设计师",
+        "description_en": "Participated in the early brand building of Douyin from 0 to 1, involved in the cold start of TikTok, and the early brand visual construction in Japan, South Korea, Southeast Asia, and Europe and America. Promoted to level 3-1 in 2022, led the team in Douyin brand building, market activities, and main scene construction.",
+        "description": "参与抖音初期0到1的品牌建设，参与TikTok冷启动，日韩东南亚欧美的前期品牌视觉搭建，22年晋升3-1职级，带领团队抖音品牌搭建、市场活动、主端场景搭建",
+        "details_en": [
+          "Participated in the early brand building of Douyin from 0 to 1",
+          "Involved in the cold start of TikTok",
+          "Early brand visual construction in Japan, South Korea, Southeast Asia, and Europe and America",
+          "Led the team in Douyin brand building, market activities, and main scene construction"
+        ],
+        "details": [
+          "参与抖音初期0到1的品牌建设",
+          "参与TikTok冷启动",
+          "日韩东南亚欧美的前期品牌视觉搭建",
+          "22年晋升3-1职级",
+          "带领团队抖音品牌搭建、市场活动、主端场景搭建"
+        ],
+        "duration_months": 84
+      },
+      {
+        "start": "2023-01",
+        "end": "2024-12",
+        "company": "百度",
+        "title_en": "Senior Brand Designer",
+        "title": "资深品牌设计师",
+        "description_en": "Brand IP construction, internal tool brand construction, AIGC design.",
+        "description": "品牌ip搭建，内部工具品牌搭建，aigc设计",
+        "details_en": [
+          "Brand IP construction",
+          "Internal tool brand construction",
+          "AIGC design"
+        ],
+        "details": [
+          "品牌ip搭建",
+          "内部工具品牌搭建",
+          "aigc设计"
+        ],
+        "duration_months": 24
+      },
+      {
+        "start": "2024-01",
+        "end": "2025-12",
+        "company": "数美万物",
+        "title_en": "Senior Brand Designer",
+        "title": "资深品牌设计师",
+        "description_en": "New brand construction, overall construction of e-commerce projects, AIGC design, model training set optimization.",
+        "description": "新品牌搭建，电商项目全局搭建，aigc设计模型训练集调优",
+        "details_en": [
+          "New brand construction",
+          "Overall construction of e-commerce projects",
+          "AIGC design",
+          "Model training set optimization"
+        ],
+        "details": [
+          "新品牌搭建",
+          "电商项目全局搭建",
+          "aigc设计模型训练集调优"
+        ],
+        "duration_months": 24
+      },
+      {
+        "start": "2025-06",
+        "end": "present",
+        "company": "liblibai",
+        "title_en": "Full-Chain Designer",
+        "title": "全链路设计师",
+        "description_en": "New AI brand construction, liblib upgrade, AIGC design.",
+        "description": "新AI品牌搭建，liblib升级，aigc设计",
+        "details_en": [
+          "New AI brand construction",
+          "Liblib upgrade",
+          "AIGC design"
+        ],
+        "details": [
+          "新AI品牌搭建",
+          "liblib升级",
+          "aigc设计"
+        ],
+        "duration_months": 5
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "品牌设计师、平面设计师、插画师美学赋予产品生命力",
+    "other": null,
+    "work_years": 11,
+    "self_evaluation_zh": "品牌设计师、平面设计师、插画师美学赋予产品生命力",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2017 - 2023 任职于字节跳动-抖音品牌设计中心 ｜资深品牌设计师 参与抖音初期 0到1的品牌建设，参与TikTok 冷启动，日韩东南亚欧美的前期品牌视觉搭建，22年晋升3-1职级，带领团队 抖音品牌搭建、市场活动、主端场景搭建",
+      "2023 - 2024 任职于 百度 ｜资深品牌设计师 品牌ip搭建，内部工具品牌搭建，aigc设计",
+      "2024 - 2025 任职于 数美万物 ｜资深品牌设计师 新品牌搭建，电商项目全局搭建，aigc设计 模型训练集调优",
+      "2025.6 - 至今 任职于 liblibai ｜全链路设计师 资深品牌设计师 新AI品牌搭建，liblib升级，aigc设计"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2017-01",
+        "end": "2023-12",
+        "company": "字节跳动-抖音品牌设计中心",
+        "title_en": "Senior Brand Designer",
+        "title": "资深品牌设计师",
+        "description_en": "Participated in the early brand building of Douyin from 0 to 1, involved in the cold start of TikTok, and the early brand visual construction in Japan, South Korea, Southeast Asia, and Europe and America. Promoted to level 3-1 in 2022, led the team in Douyin brand building, market activities, and main scene construction.",
+        "description": "参与抖音初期0到1的品牌建设，参与TikTok冷启动，日韩东南亚欧美的前期品牌视觉搭建，22年晋升3-1职级，带领团队抖音品牌搭建、市场活动、主端场景搭建",
+        "details_en": [
+          "Participated in the early brand building of Douyin from 0 to 1",
+          "Involved in the cold start of TikTok",
+          "Early brand visual construction in Japan, South Korea, Southeast Asia, and Europe and America",
+          "Led the team in Douyin brand building, market activities, and main scene construction"
+        ],
+        "details": [
+          "参与抖音初期0到1的品牌建设",
+          "参与TikTok冷启动",
+          "日韩东南亚欧美的前期品牌视觉搭建",
+          "22年晋升3-1职级",
+          "带领团队抖音品牌搭建、市场活动、主端场景搭建"
+        ],
+        "duration_months": 84,
+        "title_zh": "高级品牌设计师",
+        "description_zh": "参与了抖音从0到1的早期品牌建设，参与了TikTok的冷启动，以及在日本、韩国、东南亚和欧美的早期品牌视觉构建。\n2022年晋升为3-1级，领导团队进行抖音品牌建设、市场活动和主要场景构建。",
+        "details_zh": [
+          "参与了抖音从0到1的早期品牌建设",
+          "参与了 TikTok 的冷启动",
+          "日本、韩国、东南亚以及欧美的早期品牌视觉构建",
+          "领导团队进行抖音品牌建设、市场活动和主要场景构建"
+        ]
+      },
+      {
+        "start": "2023-01",
+        "end": "2024-12",
+        "company": "百度",
+        "title_en": "Senior Brand Designer",
+        "title": "资深品牌设计师",
+        "description_en": "Brand IP construction, internal tool brand construction, AIGC design.",
+        "description": "品牌ip搭建，内部工具品牌搭建，aigc设计",
+        "details_en": [
+          "Brand IP construction",
+          "Internal tool brand construction",
+          "AIGC design"
+        ],
+        "details": [
+          "品牌ip搭建",
+          "内部工具品牌搭建",
+          "aigc设计"
+        ],
+        "duration_months": 24,
+        "title_zh": "高级品牌设计师",
+        "description_zh": "品牌IP建设，内部工具品牌建设，AIGC设计。",
+        "details_zh": [
+          "品牌IP建设",
+          "内部工具品牌建设",
+          "AIGC设计"
+        ]
+      },
+      {
+        "start": "2024-01",
+        "end": "2025-12",
+        "company": "数美万物",
+        "title_en": "Senior Brand Designer",
+        "title": "资深品牌设计师",
+        "description_en": "New brand construction, overall construction of e-commerce projects, AIGC design, model training set optimization.",
+        "description": "新品牌搭建，电商项目全局搭建，aigc设计模型训练集调优",
+        "details_en": [
+          "New brand construction",
+          "Overall construction of e-commerce projects",
+          "AIGC design",
+          "Model training set optimization"
+        ],
+        "details": [
+          "新品牌搭建",
+          "电商项目全局搭建",
+          "aigc设计模型训练集调优"
+        ],
+        "duration_months": 24,
+        "title_zh": "高级品牌设计师",
+        "description_zh": "新品牌建设，电子商务项目的整体建设，AIGC设计，模型训练集优化。",
+        "details_zh": [
+          "新品牌建设",
+          "电子商务项目的整体建设",
+          "AIGC设计",
+          "模型训练集优化"
+        ]
+      },
+      {
+        "start": "2025-06",
+        "end": "present",
+        "company": "liblibai",
+        "title_en": "Full-Chain Designer",
+        "title": "全链路设计师",
+        "description_en": "New AI brand construction, liblib upgrade, AIGC design.",
+        "description": "新AI品牌搭建，liblib升级，aigc设计",
+        "details_en": [
+          "New AI brand construction",
+          "Liblib upgrade",
+          "AIGC design"
+        ],
+        "details": [
+          "新AI品牌搭建",
+          "liblib升级",
+          "aigc设计"
+        ],
+        "duration_months": 5,
+        "title_zh": "全链设计师",
+        "description_zh": "新的人工智能品牌建设，liblib升级，AIGC设计。",
+        "details_zh": [
+          "新的人工智能品牌建设",
+          "Liblib升级",
+          "AIGC设计"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI现代像素风视觉创意设计负责人深圳4065K齐昱光9年.md",
+    "md_mostly_english": false
+  }
+}

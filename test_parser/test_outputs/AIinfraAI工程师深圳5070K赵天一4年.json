@@ -1,0 +1,224 @@
+{
+  "file_name": "AIinfraAI工程师深圳5070K赵天一4年.md",
+  "parsed_at": "2025-10-21T16:10:32.796875",
+  "result": {
+    "resume_file_id": null,
+    "name": "赵天一",
+    "email": "307587809@qq.com",
+    "phone": "15026421912",
+    "education_degree": "硕士",
+    "education_school": [
+      "New York University 纽约大学",
+      "Tandon School of Engineering 坦登工程学院",
+      "上海交通大学",
+      "UM-SJTU Joint Institute UM-SJTU联合学院"
+    ],
+    "education_major": "计算机科学",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "PR",
+      "python",
+      "后端",
+      "大模型",
+      "设计"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "CUDA",
+      "MLIR",
+      "TVM",
+      "Tensorflow",
+      "Pytorch"
+    ],
+    "work_experience": [
+      "2022 年 11 月 - 至今\n上海燧原科技有限公司，软件工程师\n燧原 2代、3代、4 代 AI芯片软件栈开发，涉及算子开发调优、框架开发、分布式部署等。支持天津智算、中移动、腾讯、美图、B 站等客户AI 应用落地。业务包括：\n大模型推理：大模型在一体机、推理集群上的分布式推理部署；自有大模型推理部署框架研发；\n大模型训练：自有训练框架研发、第三方训练框架适配、TransformerEngine等 GPU加速库迁移；\n传统模型推理：各级缓存算子融合优化；燧原GCU 算子功能开发与性能优化；图优化 pass开发；模型业务层面性能瓶颈分析等。",
+      "2021 年 8 月 – 2022 年 11 月\n华为技术有限公司-海思图灵解决方案开发部，算法工程师\n昇腾 AI 芯片编译软件栈算法开发，包括图优化算法、算子性能优化、芯片带宽优化算法等。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "大模型分布式推理部署，燧原科技\n1. 基于燧原 3 代、4 代 AI 芯片，落地 DeepSeek V3 等热点大模型分布式推理方案。分别根据一体机和推理集群特性，定制分布式以及模型部署策略。\n2. 设计并使能 CUDA Graph、MoE 定制化通信、通信计算并行等性能优化手段。\n3. 开发适配 sglang、vllm 等主流推理框架；根据燧原 GCU 特性，优化算法层代码；设计算子极致融合方案，在 4 代芯片上实现部分算子，并接入框架。\n4. 基于 Dynamo、Mooncake 等思想，实现 PD 分离、智能路由、分布式 kvcache 管理等推理集群优化特性。",
+      "大模型训练框架研发，燧原科技\n1. 根据 Megatron、DeepSpeed等主流框架使用痛点，研发燧原自有大模型训练框架，支持 5D 分布式并行训练、通信计算隐藏、FP8训练、零冗余显存优化等特性，并适配燧原 4 代训练芯片，达到高性能集群训练目标。\n2. 迁移并适配 TransformerEngine，FlashAttention 等 GPU 底层加速库，开发燧原 4 代 GCU 高性能算子。",
+      "传统模型算子自动融合与图优化，燧原科技\n1. 在燧原 2 代、3 代推理芯片，开发分别基于静态、动态图计算的 L2 级缓存算子融合引擎（Auto Fusion Engine / Dynamic AutoFusion Engine），并在此基础上持续开发常数预取（constant prefetch）、自动图切分（auto tensor split）、DMA 搬运融合等相关优化特性，达成泛化的传统模型性能提升。\n2. 开发燧原 GCU 硬件强相关的图优化 pass，如 weight 重排 pass 以提升 DMA 效率、tensor dtype 自动转换 pass 等。",
+      "推理性能瓶颈分析及业务优化落地，燧原科技\n2024 年 2 - 7 月\n1. 在燧原 3 代推理芯片，对多种业务模型进行端到端的性能瓶颈分析，对模型和算子理论 cost 分析优化点，由上至下包含：算法等价性优化，host cpu 逻辑优化，H2D、D2H 通信与计算隐藏，显存占用优化，runtime 算子下发，各级缓存算子融合，DMA 搬运效率，算子 kernel 计算效率，cache miss 优化等。建模理论性能目标并制定相应优化方案。\n2. 开发并优化业务需求重点算子，主要是 2D 类（matmul，conv 等）、softmax、attention 等。支持多种形态 AI 应用落地，如 SD 文生图、Dit 文生视频、搜广推、CV 目标检测识别、OCR 文本总结等。",
+      "自有大模型推理框架研发，燧原科技\n2023 年 8 月 – 2024 年 3 月\n研发适配燧原 GCU 的轻量级大模型推理部署框架，支持 Llama2、Baichuan、ChatGLM2、HunyuanDit、BloomZ 等多种开源大模型。配合算子团队分析并优化大模推理性能，达成互联网业务落地。",
+      "动态 shape 自动融合发现和融合算子优化，华为海思\n为解决图融合模板泛化性和动态 shape 算子性能问题，开发动态 shape 算子自动融合整体方案并在昇腾平台验证。基于图级细粒度算子切分信息和算子 DSL制定融合划分策略；采用 PolyHedral 多面体技术进行融合算子 IR循环优化和调度优化，搜索最优 tile策略；适配后端 IR优化 pass。自动生成融合算子kernel从而优化动态模型性能。",
+      "算子粒度芯片 QoS 带宽自动调优，华为海思\n2022 年 2 - 5 月\n针对 QoS芯片带宽分配瓶颈问题，分别开发硬件模块粒度和算子粒度的调优方案。应用支配树等图算法减小搜索空间，移植并应用 TPE 等贝叶斯优化算法进行黑盒调优，在真实模型业务上验证。",
+      "基于 Taso 的数学等价子图变换项目，华为海思\n基于 Taso论文思想开发模型子图等价变换生成，Z3求解器验证等功能。通过子图匹配替换搜索，达成减少图级数学计算量、使能高效指令、图融合模板泛化等优化目标。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2022-11",
+        "end": "present",
+        "company": "上海燧原科技有限公司",
+        "title_en": "Software Engineer",
+        "title": "软件工程师",
+        "description_en": "Development of software stack for Suirian 2nd, 3rd, and 4th generation AI chips, involving operator development and optimization, framework development, distributed deployment, etc. Supporting AI application implementation for clients such as Tianjin Zhikuan, China Mobile, Tencent, Meitu, Bilibili, etc. Business includes:",
+        "description": "燧原 2代、3代、4 代 AI芯片软件栈开发，涉及算子开发调优、框架开发、分布式部署等。支持天津智算、中移动、腾讯、美图、B 站等客户AI 应用落地。业务包括：",
+        "details_en": [
+          "Large model inference: distributed inference deployment of large models on integrated machines and inference clusters; development of proprietary large model inference deployment framework.",
+          "Large model training: development of proprietary training framework, adaptation of third-party training frameworks, migration of GPU acceleration libraries such as TransformerEngine.",
+          "Traditional model inference: fusion optimization of caching operators at all levels; development and performance optimization of Suirian GCU operator functions; development of graph optimization passes; analysis of performance bottlenecks at the model business layer, etc."
+        ],
+        "details": [
+          "大模型推理：大模型在一体机、推理集群上的分布式推理部署；自有大模型推理部署框架研发；",
+          "大模型训练：自有训练框架研发、第三方训练框架适配、TransformerEngine等 GPU加速库迁移；",
+          "传统模型推理：各级缓存算子融合优化；燧原GCU 算子功能开发与性能优化；图优化 pass开发；模型业务层面性能瓶颈分析等。"
+        ],
+        "duration_months": 36
+      },
+      {
+        "start": "2021-08",
+        "end": "2022-11",
+        "company": "华为技术有限公司-海思图灵解决方案开发部",
+        "title_en": "Algorithm Engineer",
+        "title": "算法工程师",
+        "description_en": "Development of algorithms for Ascend AI chip compilation software stack, including graph optimization algorithms, operator performance optimization, chip bandwidth optimization algorithms, etc.",
+        "description": "昇腾 AI 芯片编译软件栈算法开发，包括图优化算法、算子性能优化、芯片带宽优化算法等。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 16
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title": "大模型分布式推理部署，燧原科技",
+        "description": "1. 基于燧原 3 代、4 代 AI 芯片，落地 DeepSeek V3 等热点大模型分布式推理方案。分别根据一体机和推理集群特性，定制分布式以及模型部署策略。\n2. 设计并使能 CUDA Graph、MoE 定制化通信、通信计算并行等性能优化手段。\n3. 开发适配 sglang、vllm 等主流推理框架；根据燧原 GCU 特性，优化算法层代码；设计算子极致融合方案，在 4 代芯片上实现部分算子，并接入框架。\n4. 基于 Dynamo、Mooncake 等思想，实现 PD 分离、智能路由、分布式 kvcache 管理等推理集群优化特性。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title": "大模型训练框架研发，燧原科技",
+        "description": "1. 根据 Megatron、DeepSpeed等主流框架使用痛点，研发燧原自有大模型训练框架，支持 5D 分布式并行训练、通信计算隐藏、FP8训练、零冗余显存优化等特性，并适配燧原 4 代训练芯片，达到高性能集群训练目标。\n2. 迁移并适配 TransformerEngine，FlashAttention 等 GPU 底层加速库，开发燧原 4 代 GCU 高性能算子。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title": "传统模型算子自动融合与图优化，燧原科技",
+        "description": "1. 在燧原 2 代、3 代推理芯片，开发分别基于静态、动态图计算的 L2 级缓存算子融合引擎（Auto Fusion Engine / Dynamic AutoFusion Engine），并在此基础上持续开发常数预取（constant prefetch）、自动图切分（auto tensor split）、DMA 搬运融合等相关优化特性，达成泛化的传统模型性能提升。\n2. 开发燧原 GCU 硬件强相关的图优化 pass，如 weight 重排 pass 以提升 DMA 效率、tensor dtype 自动转换 pass 等。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title": "推理性能瓶颈分析及业务优化落地，燧原科技",
+        "description": "2024 年 2 - 7 月\n1. 在燧原 3 代推理芯片，对多种业务模型进行端到端的性能瓶颈分析，对模型和算子理论 cost 分析优化点，由上至下包含：算法等价性优化，host cpu 逻辑优化，H2D、D2H 通信与计算隐藏，显存占用优化，runtime 算子下发，各级缓存算子融合，DMA 搬运效率，算子 kernel 计算效率，cache miss 优化等。建模理论性能目标并制定相应优化方案。\n2. 开发并优化业务需求重点算子，主要是 2D 类（matmul，conv 等）、softmax、attention 等。支持多种形态 AI 应用落地，如 SD 文生图、Dit 文生视频、搜广推、CV 目标检测识别、OCR 文本总结等。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title": "自有大模型推理框架研发，燧原科技",
+        "description": "2023 年 8 月 – 2024 年 3 月\n研发适配燧原 GCU 的轻量级大模型推理部署框架，支持 Llama2、Baichuan、ChatGLM2、HunyuanDit、BloomZ 等多种开源大模型。配合算子团队分析并优化大模推理性能，达成互联网业务落地。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "动态 shape",
+        "title": "自动融合发现和融合算子优化，华为海思",
+        "description": "为解决图融合模板泛化性和动态 shape 算子性能问题，开发动态 shape 算子自动融合整体方案并在昇腾平台验证。基于图级细粒度算子切分信息和算子 DSL制定融合划分策略；采用 PolyHedral 多面体技术进行融合算子 IR循环优化和调度优化，搜索最优 tile策略；适配后端 IR优化 pass。自动生成融合算子kernel从而优化动态模型性能。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "算子粒度芯片 QoS",
+        "title": "带宽自动调优，华为海思",
+        "description": "2022 年 2 - 5 月\n针对 QoS芯片带宽分配瓶颈问题，分别开发硬件模块粒度和算子粒度的调优方案。应用支配树等图算法减小搜索空间，移植并应用 TPE 等贝叶斯优化算法进行黑盒调优，在真实模型业务上验证。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "基于 Taso",
+        "title": "的数学等价子图变换项目，华为海思",
+        "description": "基于 Taso论文思想开发模型子图等价变换生成，Z3求解器验证等功能。通过子图匹配替换搜索，达成减少图级数学计算量、使能高效指令、图融合模板泛化等优化目标。",
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "编程语言：Python，C++\n工具应用：CUDA，MLIR，TVM，Tensorflow，Pytorch\n职业方向：软件开发，AI Infra，AI 编译器等",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "编程语言：Python，C++\n工具应用：CUDA，MLIR，TVM，Tensorflow，Pytorch\n职业方向：软件开发，AI Infra，AI 编译器等",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2022 年 11 月 - 至今\n上海燧原科技有限公司，软件工程师\n燧原 2代、3代、4 代 AI芯片软件栈开发，涉及算子开发调优、框架开发、分布式部署等。支持天津智算、中移动、腾讯、美图、B 站等客户AI 应用落地。业务包括：\n大模型推理：大模型在一体机、推理集群上的分布式推理部署；自有大模型推理部署框架研发；\n大模型训练：自有训练框架研发、第三方训练框架适配、TransformerEngine等 GPU加速库迁移；\n传统模型推理：各级缓存算子融合优化；燧原GCU 算子功能开发与性能优化；图优化 pass开发；模型业务层面性能瓶颈分析等。",
+      "2021 年 8 月 – 2022 年 11 月\n华为技术有限公司-海思图灵解决方案开发部，算法工程师\n昇腾 AI 芯片编译软件栈算法开发，包括图优化算法、算子性能优化、芯片带宽优化算法等。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "大模型分布式推理部署，燧原科技\n1.\n基于燧原 3 代、4 代 AI 芯片，落地 DeepSeek V3 等热点大模型分布式推理方案。分别根据一体机和推理集群特性，定制分布式以及模型部署策略。\n2.\n设计并使能 CUDA Graph、MoE 定制化通信、通信计算并行等性能优化手段。\n3.\n开发适配 sglang、vllm 等主流推理框架；根据燧原 GCU 特性，优化算法层代码；设计算子极致融合方案，在 4 代芯片上实现部分算子，并接入框架。\n4.\n基于 Dynamo、Mooncake 等思想，实现 PD 分离、智能路由、分布式 kvcache 管理等推理集群优化特性。",
+      "大模型训练框架研发，燧原科技\n1.\n根据 Megatron、DeepSpeed等主流框架使用痛点，研发燧原自有大模型训练框架，支持 5D 分布式并行训练、通信计算隐藏、FP8训练、零冗余显存优化等特性，并适配燧原 4 代训练芯片，达到高性能集群训练目标。\n2.\n迁移并适配 TransformerEngine，FlashAttention 等 GPU 底层加速库，开发燧原 4 代 GCU 高性能算子。",
+      "传统模型算子自动融合与图优化，燧原科技\n1.\n在燧原 2 代、3 代推理芯片，开发分别基于静态、动态图计算的 L2 级缓存算子融合引擎（Auto Fusion Engine / Dynamic AutoFusion Engine），并在此基础上持续开发常数预取（constant prefetch）、自动图切分（auto tensor split）、DMA 搬运融合等相关优化特性，达成泛化的传统模型性能提升。\n2.\n开发燧原 GCU 硬件强相关的图优化 pass，如 weight 重排 pass 以提升 DMA 效率、tensor dtype 自动转换 pass 等。",
+      "推理性能瓶颈分析及业务优化落地，燧原科技\n2024 年 2 - 7 月\n1.\n在燧原 3 代推理芯片，对多种业务模型进行端到端的性能瓶颈分析，对模型和算子理论 cost 分析优化点，由上至下包含：算法等价性优化，host cpu 逻辑优化，H2D、D2H 通信与计算隐藏，显存占用优化，runtime 算子下发，各级缓存算子融合，DMA 搬运效率，算子 kernel 计算效率，cache miss 优化等。建模理论性能目标并制定相应优化方案。\n2.\n开发并优化业务需求重点算子，主要是 2D 类（matmul，conv 等）、softmax、attention 等。支持多种形态 AI 应用落地，如 SD 文生图、Dit 文生视频、搜广推、CV 目标检测识别、OCR 文本总结等。",
+      "自有大模型推理框架研发，燧原科技\n2023 年 8 月 – 2024 年 3 月\n研发适配燧原 GCU 的轻量级大模型推理部署框架，支持 Llama2、Baichuan、ChatGLM2、HunyuanDit、BloomZ 等多种开源大模型。配合算子团队分析并优化大模推理性能，达成互联网业务落地。",
+      "动态 shape 自动融合发现和融合算子优化，华为海思\n为解决图融合模板泛化性和动态 shape 算子性能问题，开发动态 shape 算子自动融合整体方案并在昇腾平台验证。基于图级细粒度算子切分信息和算子 DSL制定融合划分策略；采用 PolyHedral 多面体技术进行融合算子 IR循环优化和调度优化，搜索最优 tile策略；适配后端 IR优化 pass。自动生成融合算子kernel从而优化动态模型性能。",
+      "算子粒度芯片 QoS 带宽自动调优，华为海思\n2022 年 2 - 5 月\n针对 QoS芯片带宽分配瓶颈问题，分别开发硬件模块粒度和算子粒度的调优方案。应用支配树等图算法减小搜索空间，移植并应用 TPE 等贝叶斯优化算法进行黑盒调优，在真实模型业务上验证。",
+      "基于 Taso 的数学等价子图变换项目，华为海思\n基于 Taso论文思想开发模型子图等价变换生成，Z3求解器验证等功能。通过子图匹配替换搜索，达成减少图级数学计算量、使能高效指令、图融合模板泛化等优化目标。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2022-11",
+        "end": "present",
+        "company": "上海燧原科技有限公司",
+        "title_en": "Software Engineer",
+        "title": "软件工程师",
+        "description_en": "Development of software stack for Suirian 2nd, 3rd, and 4th generation AI chips, involving operator development and optimization, framework development, distributed deployment, etc. Supporting AI application implementation for clients such as Tianjin Zhikuan, China Mobile, Tencent, Meitu, Bilibili, etc. Business includes:",
+        "description": "燧原 2代、3代、4 代 AI芯片软件栈开发，涉及算子开发调优、框架开发、分布式部署等。支持天津智算、中移动、腾讯、美图、B 站等客户AI 应用落地。业务包括：",
+        "details_en": [
+          "Large model inference: distributed inference deployment of large models on integrated machines and inference clusters; development of proprietary large model inference deployment framework.",
+          "Large model training: development of proprietary training framework, adaptation of third-party training frameworks, migration of GPU acceleration libraries such as TransformerEngine.",
+          "Traditional model inference: fusion optimization of caching operators at all levels; development and performance optimization of Suirian GCU operator functions; development of graph optimization passes; analysis of performance bottlenecks at the model business layer, etc."
+        ],
+        "details": [
+          "大模型推理：大模型在一体机、推理集群上的分布式推理部署；自有大模型推理部署框架研发；",
+          "大模型训练：自有训练框架研发、第三方训练框架适配、TransformerEngine等 GPU加速库迁移；",
+          "传统模型推理：各级缓存算子融合优化；燧原GCU 算子功能开发与性能优化；图优化 pass开发；模型业务层面性能瓶颈分析等。"
+        ],
+        "duration_months": 36,
+        "title_zh": "软件工程师",
+        "description_zh": "为Suirian第二、第三和第四代AI芯片开发软件堆栈，包括操作符开发和优化、框架开发、分布式部署等。\n支持为客户实施人工智能应用，如天津智宽、中国移动、腾讯、美图、哔哩哔哩等。\n业务包括：",
+        "details_zh": [
+          "大模型推理：在集成机器和推理集群上分布式推理部署大模型；开发专有的大模型推理部署框架。",
+          "大模型训练：开发专有训练框架，适配第三方训练框架，迁移GPU加速库，如TransformerEngine。",
+          "传统模型推理：各级缓存操作符的融合优化；Suirian GCU 操作符功能的开发和性能优化；图优化通道的开发；模型业务层性能瓶颈的分析等。"
+        ]
+      },
+      {
+        "start": "2021-08",
+        "end": "2022-11",
+        "company": "华为技术有限公司-海思图灵解决方案开发部",
+        "title_en": "Algorithm Engineer",
+        "title": "算法工程师",
+        "description_en": "Development of algorithms for Ascend AI chip compilation software stack, including graph optimization algorithms, operator performance optimization, chip bandwidth optimization algorithms, etc.",
+        "description": "昇腾 AI 芯片编译软件栈算法开发，包括图优化算法、算子性能优化、芯片带宽优化算法等。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 16,
+        "title_zh": "算法工程师",
+        "description_zh": "Ascend AI芯片编译软件栈的算法开发，包括图优化算法、操作符性能优化、芯片带宽优化算法等。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIinfraAI工程师深圳5070K赵天一4年.md",
+    "md_mostly_english": false
+  }
+}

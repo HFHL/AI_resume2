@@ -1,0 +1,54 @@
+{
+  "file_name": "AGI远程社区经理上海3060K熊伟7年.md",
+  "parsed_at": "2025-10-21T15:38:38.794068",
+  "result": {
+    "resume_file_id": null,
+    "name": "杜伦大学",
+    "email": "13541280989@163.com",
+    "phone": "13541280989",
+    "education_degree": "硕士",
+    "education_school": [
+      "Durham University 达勒姆大学",
+      "四川大学",
+      "Duke University 杜克大学",
+      "UCL 伦敦大学学院",
+      "新加坡国立大学",
+      "香港科技大学"
+    ],
+    "education_major": null,
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211",
+      "普通本科"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "OP",
+      "PR",
+      "产品",
+      "增长",
+      "市场",
+      "数据分析",
+      "设计",
+      "运营"
+    ],
+    "skills": null,
+    "work_experience": null,
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": null,
+    "project_experience_struct": null,
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": null,
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AGI远程社区经理上海3060K熊伟7年.md",
+    "md_mostly_english": false
+  }
+}

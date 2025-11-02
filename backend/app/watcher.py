@@ -17,8 +17,8 @@ import certifi
 from . import UPLOAD_DIRS, build_r2_public_url, build_supabase_public_url
 from .db import get_supabase_client
 from .ocr import MinerUProcessor
-from .parser import parse_resume
 from .config import get_app_settings
+from datetime import datetime, timezone
 
 import mimetypes
 import unicodedata
@@ -141,7 +141,7 @@ class UploadDirEventHandler(FileSystemEventHandler):
             except Exception as re:
                 logger.warning(f"[watcher] 重命名失败，继续使用原名: {original_name}, error={re}")
 
-        # 仅处理来源于数据库/远程拉取的文件：要求 resume_files 已存在
+        # 处理文件：若数据库中不存在对应记录，则自动创建一条 resume_files
         client = get_supabase_client()
         rf_id: int | None = None
         try:
@@ -168,16 +168,42 @@ class UploadDirEventHandler(FileSystemEventHandler):
                         rf_id = data2[0]["id"]
                         client.table("resume_files").update({"status": "处理中"}).eq("id", rf_id).execute()
                     else:
-                        logger.warning(f"[watcher] 跳过本地孤立文件（无对应 resume_files 记录）: {path.name}")
-                        return
+                        # 自动创建一条记录
+                        created = client.table("resume_files").insert({
+                            "file_name": path.name,
+                            "uploaded_by": "watcher",
+                            "status": "处理中",
+                            "parse_status": "pending",
+                            "file_path": ""
+                        }).execute()
+                        rows = getattr(created, "data", []) or []
+                        if rows:
+                            rf_id = rows[0]["id"]
+                            logger.info(f"[watcher] 自动创建 resume_files 记录: rf_id={rf_id}, file_name={path.name}")
+                        else:
+                            logger.warning(f"[watcher] 自动创建 resume_files 失败: {path.name}")
+                            return
                 else:
-                    logger.warning(f"[watcher] 跳过本地孤立文件（无对应 resume_files 记录）: {path.name}")
-                    return
+                    # 自动创建一条记录
+                    created = client.table("resume_files").insert({
+                        "file_name": path.name,
+                        "uploaded_by": "watcher",
+                        "status": "处理中",
+                        "parse_status": "pending",
+                        "file_path": ""
+                    }).execute()
+                    rows = getattr(created, "data", []) or []
+                    if rows:
+                        rf_id = rows[0]["id"]
+                        logger.info(f"[watcher] 自动创建 resume_files 记录: rf_id={rf_id}, file_name={path.name}")
+                    else:
+                        logger.warning(f"[watcher] 自动创建 resume_files 失败: {path.name}")
+                        return
             logger.info(f"[watcher] 标记处理中: file={path.name}, rf_id={rf_id}")
         except Exception as e:
             logger.error(f"[watcher] 标记/创建处理中失败: file={path.name}, error={e}")
 
-        # OCR 提取 → 解析 → 上传存储 → 写库
+        # OCR 提取 → 写入 OCR 原文到 resume_files（不做 LLM 解析） → 上传存储/归档
         try:
             # 若上面未成功拿到 rf_id，这里再兜底查一次
             if rf_id is None:
@@ -205,12 +231,36 @@ class UploadDirEventHandler(FileSystemEventHandler):
                     pass
                 return
 
-            # 2) 结构化解析
-            logger.info(f"[watcher] 解析完成，准备上传并写入: file={path.name}, resume_file_id={rf_id}")
-            parsed = parse_resume(text_content, rf_id, file_name=path.name)
-            row = parsed.to_row()
+            # 2) 写入 OCR 原文到 resume_files
+            logger.info(f"[watcher] OCR 完成，写入 resume_files.ocr_md: file={path.name}, resume_file_id={rf_id}")
+            def _detect_lang(s: str) -> str:
+                try:
+                    letters = sum(1 for ch in s if ('A' <= ch <= 'Z') or ('a' <= ch <= 'z'))
+                    total = len([ch for ch in s if ch.strip()])
+                    if total > 0 and (letters / total) > 0.6:
+                        return 'en'
+                except Exception:
+                    pass
+                return 'zh'
 
-            # 3) 先上传，再写简历
+            now_iso = datetime.now(timezone.utc).isoformat()
+            update_ocr = {
+                "ocr_md": text_content,
+                "ocr_lang": _detect_lang(text_content or ""),
+                "ocr_engine": "mineru",
+                "ocr_at": now_iso,
+                "parse_status": "ocr_done",
+            }
+            try:
+                if rf_id is not None:
+                    client.table("resume_files").update(update_ocr).eq("id", rf_id).execute()
+                else:
+                    client.table("resume_files").update(update_ocr).eq("file_name", path.name).execute()
+                logger.info(f"[watcher] 已写入 OCR 原文并标记 ocr_done: file={path.name}")
+            except Exception as ue:
+                logger.error(f"[watcher] 写入 OCR 原文失败: file={path.name}: {ue}")
+
+            # 3) 上传/归档文件（与解析解耦，保留原逻辑方便追溯）
 
             # 上传到 Supabase Storage（仅当配置了桶名）
             settings = get_app_settings()
@@ -250,7 +300,6 @@ class UploadDirEventHandler(FileSystemEventHandler):
             except Exception:
                 target_path = path
 
-            # 不论上传是否成功，只要解析成功都要写入 resumes。
             # files 表统一记录：status 置为已处理，file_path 写入 URL 或空串。
             update_payload = {"status": "已处理", "file_path": uploaded_url or ""}
             if rf_id is not None and target_path.name != path.name:
@@ -261,19 +310,6 @@ class UploadDirEventHandler(FileSystemEventHandler):
             else:
                 client.table("resume_files").update(update_payload).eq("file_name", path.name).execute()
             logger.info(f"[watcher] 更新 resume_files 成功: file={path.name}, url={uploaded_url or ''}")
-
-            # 4) 写入 resumes（若已存在则不重复写入）
-            try:
-                if rf_id is not None:
-                    exists = client.table("resumes").select("id").eq("resume_file_id", rf_id).limit(1).execute()
-                    if not (getattr(exists, "data", []) or []):
-                        client.table("resumes").insert(row).execute()
-                        logger.info(f"[watcher] 写入 resumes 成功: file={path.name}")
-                else:
-                    client.table("resumes").insert(row).execute()
-                    logger.info(f"[watcher] 写入 resumes 成功(无rf_id): file={path.name}")
-            except Exception as ie:
-                logger.error(f"[watcher] 写入 resumes 失败: {path.name}: {ie}")
         except Exception as e:
             logger.error(f"[watcher] 处理失败: file={path.name}, error={e}")
             try:

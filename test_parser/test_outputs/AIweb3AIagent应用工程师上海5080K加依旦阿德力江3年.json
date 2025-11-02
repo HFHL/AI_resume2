@@ -1,0 +1,142 @@
+{
+  "file_name": "AIweb3AIagent应用工程师上海5080K加依旦阿德力江3年.md",
+  "parsed_at": "2025-10-21T16:31:51.063321",
+  "result": {
+    "resume_file_id": null,
+    "name": "加依",
+    "email": null,
+    "phone": null,
+    "education_degree": "本科",
+    "education_school": [
+      "新疆大学"
+    ],
+    "education_major": "软件工程",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "java",
+      "python",
+      "市场",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Linux",
+      "Jmeter",
+      "Postman",
+      "SSM",
+      "Unittest",
+      "pytest"
+    ],
+    "work_experience": [
+      "2024.10-至今 中软国际 测试华为鸿蒙设备手机端应用市场的模块测试以及生态治理 负责该项目的功能测试，自动化用例编写及测试，DFX性能测试工作负责编写测试用例，参与需求规格评审，开发设计文档评审执行测试用例，定位测试中遇到的问题并使用DTS缺陷管理工具提问题单，直至bug修复进行回归测试，冒烟测试。版本发布后，持续集成自动化用例，分析整改自动化用例",
+      "2023.07-2024.10 柏睿数据科技有限公司 基于web的数据库迁移系统，提供各种数据库或者数据湖的数据迁移功能，包括实时数据迁移和批量数据迁移 负责该项目的功能测试，接口自动化以及性能测试工作 编写测试计划，规划详细测试方案 执行测试工作，提交测试报告。包括编写用于测试的自动化测试脚本，完整记录测试结果，编写完整的测试报告等相关技术文档 使用工具及技术：postman，SVN，DTS缺陷管理工具，python，jmeter，linux",
+      "2022.07-2023.06 柏睿数据科技有限公司 基于web的数据库路由系统，为访问数据库提供路由和连接管理功能，实现数据库高可用和负载均衡 负责 SQLrouter 项目组负责功能测试，接口测试工作。根据需求设计测试用例，参与用例评审，根据用例搭建测试相关环境执行用例，发现bug提交并协助开发定位bug，及时的跟踪，了解修复情况使用postman，编写接口自动化用例并执行 jmeter测试系统并发性能，确保大并发情况下的健壮性"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2024-10",
+        "end": "present",
+        "company": "中软国际",
+        "title_en": null,
+        "title": "测试华为鸿蒙设备手机端应用市场的模块测试以及生态治理",
+        "description_en": null,
+        "description": "负责该项目的功能测试，自动化用例编写及测试，DFX性能测试工作负责编写测试用例，参与需求规格评审，开发设计文档评审执行测试用例，定位测试中遇到的问题并使用DTS缺陷管理工具提问题单，直至bug修复进行回归测试，冒烟测试。版本发布后，持续集成自动化用例，分析整改自动化用例",
+        "details_en": null,
+        "details": null,
+        "duration_months": 13
+      },
+      {
+        "start": "2023-07",
+        "end": "2024-10",
+        "company": "柏睿数据科技有限公司",
+        "title_en": null,
+        "title": "基于web的数据库迁移系统，提供各种数据库或者数据湖的数据迁移功能，包括实时数据迁移和批量数据迁移",
+        "description_en": null,
+        "description": "负责该项目的功能测试，接口自动化以及性能测试工作编写测试计划，规划详细测试方案执行测试工作，提交测试报告。包括编写用于测试的自动化测试脚本，完整记录测试结果，编写完整的测试报告等相关技术文档使用工具及技术：postman，SVN，DTS缺陷管理工具，python，jmeter，linux",
+        "details_en": null,
+        "details": null,
+        "duration_months": 16
+      },
+      {
+        "start": "2022-07",
+        "end": "2023-06",
+        "company": "柏睿数据科技有限公司",
+        "title_en": null,
+        "title": "基于web的数据库路由系统，为访问数据库提供路由和连接管理功能，实现数据库高可用和负载均衡",
+        "description_en": null,
+        "description": "负责 SQLrouter 项目组负责功能测试，接口测试工作。根据需求设计测试用例，参与用例评审，根据用例搭建测试相关环境执行用例，发现bug提交并协助开发定位bug，及时的跟踪，了解修复情况使用postman，编写接口自动化用例并执行 jmeter测试系统并发性能，确保大并发情况下的健壮性",
+        "details_en": null,
+        "details": null,
+        "duration_months": 12
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "做事认真，乐于学习，有积极的工作态度，又有团队精神。具有良好的文化素质，在未来的工作中，我将以充沛的精力，努力工作，不断提高自己的工作能力和专业知识技能",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "做事认真，乐于学习，有积极的工作态度，又有团队精神。具有良好的文化素质，在未来的工作中，我将以充沛的精力，努力工作，不断提高自己的工作能力和专业知识技能",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024.10-至今 中软国际 测试华为鸿蒙设备手机端应用市场的模块测试以及生态治理 负责该项目的功能测试，自动化用例编写及测试，DFX性能测试工作负责编写测试用例，参与需求规格评审，开发设计文档评审执行测试用例，定位测试中遇到的问题并使用DTS缺陷管理工具提问题单，直至bug修复进行回归测试，冒烟测试。版本发布后，持续集成自动化用例，分析整改自动化用例",
+      "2023.07-2024.10 柏睿数据科技有限公司 基于web的数据库迁移系统，提供各种数据库或者数据湖的数据迁移功能，包括实时数据迁移和批量数据迁移 负责该项目的功能测试，接口自动化以及性能测试工作 编写测试计划，规划详细测试方案 执行测试工作，提交测试报告。包括编写用于测试的自动化测试脚本，完整记录测试结果，编写完整的测试报告等相关技术文档 使用工具及技术：postman，SVN，DTS缺陷管理工具，python，jmeter，linux",
+      "2022.07-2023.06 柏睿数据科技有限公司 基于web的数据库路由系统，为访问数据库提供路由和连接管理功能，实现数据库高可用和负载均衡 负责 SQLrouter 项目组负责功能测试，接口测试工作。根据需求设计测试用例，参与用例评审，根据用例搭建测试相关环境执行用例，发现bug提交并协助开发定位bug，及时的跟踪，了解修复情况使用postman，编写接口自动化用例并执行 jmeter测试系统并发性能，确保大并发情况下的健壮性"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-10",
+        "end": "present",
+        "company": "中软国际",
+        "title_en": null,
+        "title": "测试华为鸿蒙设备手机端应用市场的模块测试以及生态治理",
+        "description_en": null,
+        "description": "负责该项目的功能测试，自动化用例编写及测试，DFX性能测试工作负责编写测试用例，参与需求规格评审，开发设计文档评审执行测试用例，定位测试中遇到的问题并使用DTS缺陷管理工具提问题单，直至bug修复进行回归测试，冒烟测试。版本发布后，持续集成自动化用例，分析整改自动化用例",
+        "details_en": null,
+        "details": null,
+        "duration_months": 13,
+        "title_zh": "测试华为鸿蒙设备手机端应用市场的模块测试以及生态治理",
+        "description_zh": "负责该项目的功能测试，自动化用例编写及测试，DFX性能测试工作负责编写测试用例，参与需求规格评审，开发设计文档评审执行测试用例，定位测试中遇到的问题并使用DTS缺陷管理工具提问题单，直至bug修复进行回归测试，冒烟测试。版本发布后，持续集成自动化用例，分析整改自动化用例"
+      },
+      {
+        "start": "2023-07",
+        "end": "2024-10",
+        "company": "柏睿数据科技有限公司",
+        "title_en": null,
+        "title": "基于web的数据库迁移系统，提供各种数据库或者数据湖的数据迁移功能，包括实时数据迁移和批量数据迁移",
+        "description_en": null,
+        "description": "负责该项目的功能测试，接口自动化以及性能测试工作编写测试计划，规划详细测试方案执行测试工作，提交测试报告。包括编写用于测试的自动化测试脚本，完整记录测试结果，编写完整的测试报告等相关技术文档使用工具及技术：postman，SVN，DTS缺陷管理工具，python，jmeter，linux",
+        "details_en": null,
+        "details": null,
+        "duration_months": 16,
+        "title_zh": "基于web的数据库迁移系统，提供各种数据库或者数据湖的数据迁移功能，包括实时数据迁移和批量数据迁移",
+        "description_zh": "负责该项目的功能测试，接口自动化以及性能测试工作编写测试计划，规划详细测试方案执行测试工作，提交测试报告。包括编写用于测试的自动化测试脚本，完整记录测试结果，编写完整的测试报告等相关技术文档使用工具及技术：postman，SVN，DTS缺陷管理工具，python，jmeter，linux"
+      },
+      {
+        "start": "2022-07",
+        "end": "2023-06",
+        "company": "柏睿数据科技有限公司",
+        "title_en": null,
+        "title": "基于web的数据库路由系统，为访问数据库提供路由和连接管理功能，实现数据库高可用和负载均衡",
+        "description_en": null,
+        "description": "负责 SQLrouter 项目组负责功能测试，接口测试工作。根据需求设计测试用例，参与用例评审，根据用例搭建测试相关环境执行用例，发现bug提交并协助开发定位bug，及时的跟踪，了解修复情况使用postman，编写接口自动化用例并执行 jmeter测试系统并发性能，确保大并发情况下的健壮性",
+        "details_en": null,
+        "details": null,
+        "duration_months": 12,
+        "title_zh": "基于web的数据库路由系统，为访问数据库提供路由和连接管理功能，实现数据库高可用和负载均衡",
+        "description_zh": "负责 SQLrouter 项目组负责功能测试，接口测试工作。根据需求设计测试用例，参与用例评审，根据用例搭建测试相关环境执行用例，发现bug提交并协助开发定位bug，及时的跟踪，了解修复情况使用postman，编写接口自动化用例并执行 jmeter测试系统并发性能，确保大并发情况下的健壮性"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AIagent应用工程师上海5080K加依旦阿德力江3年.md",
+    "md_mostly_english": false
+  }
+}

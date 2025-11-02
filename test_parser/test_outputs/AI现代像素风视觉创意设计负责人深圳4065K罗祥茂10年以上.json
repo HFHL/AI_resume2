@@ -1,0 +1,372 @@
+{
+  "file_name": "AI现代像素风视觉创意设计负责人深圳4065K罗祥茂10年以上.md",
+  "parsed_at": "2025-10-21T16:52:09.789238",
+  "result": {
+    "resume_file_id": null,
+    "name": "罗祥茂",
+    "email": "416701125@qq.com",
+    "phone": "13751767357",
+    "education_degree": null,
+    "education_school": [
+      "重庆邮电大学",
+      "Chongqing University of Posts and Telecommunications 重庆邮电大学"
+    ],
+    "education_major": "艺术设计",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "BTC",
+      "DBA",
+      "ETH",
+      "OP",
+      "PR",
+      "TON",
+      "defi",
+      "go",
+      "交易",
+      "产品",
+      "合约",
+      "增长",
+      "数据分析",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "品牌设计",
+      "视觉设计",
+      "体验设计",
+      "UI设计",
+      "UX设计",
+      "团队管理"
+    ],
+    "work_experience": [
+      "2022.8-Now, NXG Labs, 视觉设计师, 负责出海业务，Web3交易所、AI、SocialFi、MINI App等相关产品的品牌视觉设计与体验设计，从0-1团队建设与管理。",
+      "2019.10-2022.5, 腾讯科技, 设计师, 负责腾讯出海音乐项目，JOOX品牌的更新的迭代，多国家与区域大型运营活动的创意提案与执行的工作；QQ浏览器的增长设计。",
+      "2018.5-2019.10, 字节跳动, 设计师, 负责社交与工具产品的品牌&视觉设计与体验设计。",
+      "2015.10-2018.5, 美图公司, 设计师, 负责社交与工具产品的品牌&视觉设计与体验设计。",
+      "2013.3-2015.5, 欢聚时代, 设计师, 负责直播产品相关的运营设计，UI设计等工作。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "剪映, FACEU, 脸拍, Web3+",
+      "Tradeopt, Lumive, NUWA"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2022-08",
+        "end": "present",
+        "company": "NXG Labs",
+        "title_en": "Visual Designer",
+        "title": "视觉设计师",
+        "description_en": "Responsible for overseas business, brand visual design and experience design for Web3 exchanges, AI, SocialFi, MINI App and other related products, team building and management from 0-1.",
+        "description": "负责出海业务，Web3交易所、AI、SocialFi、MINI App等相关产品的品牌视觉设计与体验设计，从0-1团队建设与管理。",
+        "details_en": [
+          "Responsible for overseas business",
+          "Brand visual design and experience design for Web3 exchanges, AI, SocialFi, MINI App and other related products",
+          "Team building and management from 0-1"
+        ],
+        "details": [
+          "负责出海业务",
+          "Web3交易所、AI、SocialFi、MINI App等相关产品的品牌视觉设计与体验设计",
+          "从0-1团队建设与管理"
+        ],
+        "duration_months": 39
+      },
+      {
+        "start": "2019-10",
+        "end": "2022-05",
+        "company": "腾讯科技",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for Tencent's overseas music project, iteration of JOOX brand, creative proposals and execution for large-scale operational activities in multiple countries and regions; growth design for QQ Browser.",
+        "description": "负责腾讯出海音乐项目，JOOX品牌的更新的迭代，多国家与区域大型运营活动的创意提案与执行的工作；QQ浏览器的增长设计。",
+        "details_en": [
+          "Responsible for Tencent's overseas music project",
+          "Iteration of JOOX brand",
+          "Creative proposals and execution for large-scale operational activities in multiple countries and regions",
+          "Growth design for QQ Browser"
+        ],
+        "details": [
+          "负责腾讯出海音乐项目",
+          "JOOX品牌的更新的迭代",
+          "多国家与区域大型运营活动的创意提案与执行的工作",
+          "QQ浏览器的增长设计"
+        ],
+        "duration_months": 32
+      },
+      {
+        "start": "2018-05",
+        "end": "2019-10",
+        "company": "字节跳动",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for brand & visual design and experience design for social and tool products.",
+        "description": "负责社交与工具产品的品牌&视觉设计与体验设计。",
+        "details_en": null,
+        "details": [
+          "负责社交与工具产品的品牌&视觉设计与体验设计"
+        ],
+        "duration_months": 18
+      },
+      {
+        "start": "2015-10",
+        "end": "2018-05",
+        "company": "美图公司",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for brand & visual design and experience design for social and tool products.",
+        "description": "负责社交与工具产品的品牌&视觉设计与体验设计。",
+        "details_en": null,
+        "details": [
+          "负责社交与工具产品的品牌&视觉设计与体验设计"
+        ],
+        "duration_months": 32
+      },
+      {
+        "start": "2013-03",
+        "end": "2015-05",
+        "company": "欢聚时代",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for operational design related to live broadcast products, UI design and other work.",
+        "description": "负责直播产品相关的运营设计，UI设计等工作。",
+        "details_en": null,
+        "details": [
+          "负责直播产品相关的运营设计",
+          "UI设计等工作"
+        ],
+        "duration_months": 27
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "剪映",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "FACEU",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "脸拍",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Web3+",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Tradeopt",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Lumive",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "NUWA",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "不断探索,不断的寻找解决方案！做好品牌语言的渗透，字体能最轻松地传达出品牌希望带给人的直观感受，影响人们对品牌的感性认知。在当前这个时代，字体比任何时候，都更可能统一人们关于品牌的体验，并在各个渠道和载体上都实现无缝连接。",
+    "other": "文章撰写、设计课程、发明专利、人才培养",
+    "work_years": 9,
+    "self_evaluation_zh": "不断探索,不断的寻找解决方案！做好品牌语言的渗透，字体能最轻松地传达出品牌希望带给人的直观感受，影响人们对品牌的感性认知。在当前这个时代，字体比任何时候，都更可能统一人们关于品牌的体验，并在各个渠道和载体上都实现无缝连接。",
+    "other_zh": "文章撰写、设计课程、发明专利、人才培养",
+    "work_experience_zh": [
+      "2022.8-Now, NXG Labs, 视觉设计师, 负责出海业务，Web3交易所、AI、SocialFi、MINI App等相关产品的品牌视觉设计与体验设计，从0-1团队建设与管理。",
+      "2019.10-2022.5, 腾讯科技, 设计师, 负责腾讯出海音乐项目，JOOX品牌的更新的迭代，多国家与区域大型运营活动的创意提案与执行的工作；QQ浏览器的增长设计。",
+      "2018.5-2019.10, 字节跳动, 设计师, 负责社交与工具产品的品牌&视觉设计与体验设计。",
+      "2015.10-2018.5, 美图公司, 设计师, 负责社交与工具产品的品牌&视觉设计与体验设计。",
+      "2013.3-2015.5, 欢聚时代, 设计师, 负责直播产品相关的运营设计，UI设计等工作。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "剪映, FACEU, 脸拍, Web3+",
+      "Tradeopt, Lumive, NUWA"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2022-08",
+        "end": "present",
+        "company": "NXG Labs",
+        "title_en": "Visual Designer",
+        "title": "视觉设计师",
+        "description_en": "Responsible for overseas business, brand visual design and experience design for Web3 exchanges, AI, SocialFi, MINI App and other related products, team building and management from 0-1.",
+        "description": "负责出海业务，Web3交易所、AI、SocialFi、MINI App等相关产品的品牌视觉设计与体验设计，从0-1团队建设与管理。",
+        "details_en": [
+          "Responsible for overseas business",
+          "Brand visual design and experience design for Web3 exchanges, AI, SocialFi, MINI App and other related products",
+          "Team building and management from 0-1"
+        ],
+        "details": [
+          "负责出海业务",
+          "Web3交易所、AI、SocialFi、MINI App等相关产品的品牌视觉设计与体验设计",
+          "从0-1团队建设与管理"
+        ],
+        "duration_months": 39,
+        "title_zh": "视觉设计师",
+        "description_zh": "负责海外业务、Web3交易所、人工智能、SocialFi、MINI App及其他相关产品的品牌视觉设计和体验设计，从0到1的团队建设和管理。",
+        "details_zh": [
+          "负责海外业务",
+          "Web3 交易所、人工智能、SocialFi、MINI 应用及其他相关产品的品牌视觉设计和体验设计",
+          "从0到1的团队建设和管理"
+        ]
+      },
+      {
+        "start": "2019-10",
+        "end": "2022-05",
+        "company": "腾讯科技",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for Tencent's overseas music project, iteration of JOOX brand, creative proposals and execution for large-scale operational activities in multiple countries and regions; growth design for QQ Browser.",
+        "description": "负责腾讯出海音乐项目，JOOX品牌的更新的迭代，多国家与区域大型运营活动的创意提案与执行的工作；QQ浏览器的增长设计。",
+        "details_en": [
+          "Responsible for Tencent's overseas music project",
+          "Iteration of JOOX brand",
+          "Creative proposals and execution for large-scale operational activities in multiple countries and regions",
+          "Growth design for QQ Browser"
+        ],
+        "details": [
+          "负责腾讯出海音乐项目",
+          "JOOX品牌的更新的迭代",
+          "多国家与区域大型运营活动的创意提案与执行的工作",
+          "QQ浏览器的增长设计"
+        ],
+        "duration_months": 32,
+        "title_zh": "设计师",
+        "description_zh": "负责腾讯的海外音乐项目，JOOX品牌的迭代，多个国家和地区的大型运营活动的创意提案和执行；QQ浏览器的增长设计。",
+        "details_zh": [
+          "负责腾讯的海外音乐项目",
+          "JOOX品牌的迭代",
+          "在多个国家和地区进行大规模运营活动的创意提案和执行",
+          "QQ浏览器的增长设计"
+        ]
+      },
+      {
+        "start": "2018-05",
+        "end": "2019-10",
+        "company": "字节跳动",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for brand & visual design and experience design for social and tool products.",
+        "description": "负责社交与工具产品的品牌&视觉设计与体验设计。",
+        "details_en": null,
+        "details": [
+          "负责社交与工具产品的品牌&视觉设计与体验设计"
+        ],
+        "duration_months": 18,
+        "title_zh": "设计师",
+        "description_zh": "负责社交和工具产品的品牌与视觉设计以及体验设计。",
+        "details_zh": [
+          "负责社交与工具产品的品牌&视觉设计与体验设计"
+        ]
+      },
+      {
+        "start": "2015-10",
+        "end": "2018-05",
+        "company": "美图公司",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for brand & visual design and experience design for social and tool products.",
+        "description": "负责社交与工具产品的品牌&视觉设计与体验设计。",
+        "details_en": null,
+        "details": [
+          "负责社交与工具产品的品牌&视觉设计与体验设计"
+        ],
+        "duration_months": 32,
+        "title_zh": "设计师",
+        "description_zh": "负责社交和工具产品的品牌与视觉设计以及体验设计。",
+        "details_zh": [
+          "负责社交与工具产品的品牌&视觉设计与体验设计"
+        ]
+      },
+      {
+        "start": "2013-03",
+        "end": "2015-05",
+        "company": "欢聚时代",
+        "title_en": "Designer",
+        "title": "设计师",
+        "description_en": "Responsible for operational design related to live broadcast products, UI design and other work.",
+        "description": "负责直播产品相关的运营设计，UI设计等工作。",
+        "details_en": null,
+        "details": [
+          "负责直播产品相关的运营设计",
+          "UI设计等工作"
+        ],
+        "duration_months": 27,
+        "title_zh": "设计师",
+        "description_zh": "负责与直播产品相关的运营设计、UI设计及其他工作。",
+        "details_zh": [
+          "负责直播产品相关的运营设计",
+          "UI设计等工作"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI现代像素风视觉创意设计负责人深圳4065K罗祥茂10年以上.md",
+    "md_mostly_english": false
+  }
+}

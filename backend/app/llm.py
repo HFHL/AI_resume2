@@ -51,7 +51,13 @@ class LLMClient:
             logger.warning(f"初始化 LLM 指定模型失败：{e}")
             return None
 
-    def extract(self, prompt: str, text: str, max_tokens: Optional[int] = None) -> Optional[str]:
+    def extract(
+        self,
+        prompt: str,
+        text: str,
+        max_tokens: Optional[int] = None,
+        system_prompt: Optional[str] = None,
+    ) -> Optional[str]:
         try:
             kwargs = {}
             if max_tokens is not None:
@@ -59,8 +65,16 @@ class LLMClient:
             completion = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "你是简历信息抽取助手，只能输出严格 JSON。禁止输出说明、示例、Markdown 或 ``` 代码块。所有阶段一律使用中文输出字段内容；但专有名词（公司/机构/学校/产品/技术/代币/公链/人名等）保持原文，英文就好，不要翻译。"},
-                    {"role": "user", "content": prompt + "\n\n<文本开始>\n" + text + "\n<文本结束>"},
+                    {
+                        "role": "system",
+                        "content": system_prompt
+                        or (
+                            "You are a resume information extraction assistant. You MUST output STRICT JSON only. "
+                            "No explanations, no markdown, no code fences. For non-* _en fields, use Simplified Chinese; "
+                            "keep proper nouns (company/institution/school/product/technology/token/chain/person etc.) in the original language."
+                        ),
+                    },
+                    {"role": "user", "content": prompt + "\n\n<BEGIN_TEXT>\n" + text + "\n<END_TEXT>"},
                 ],
                 temperature=0.0,
                 **kwargs,

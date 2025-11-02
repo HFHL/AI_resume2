@@ -1,0 +1,243 @@
+{
+  "file_name": "AIAgent应用型大模型工程师深圳4060K郑翊民25年应届生.md",
+  "parsed_at": "2025-10-21T15:52:21.514670",
+  "result": {
+    "resume_file_id": null,
+    "name": "郑翊民",
+    "email": "yzhengbs@connect.ust.hk",
+    "phone": "19129451156",
+    "education_degree": "博士",
+    "education_school": [
+      "香港科技大学",
+      "University of Utah 犹他大学"
+    ],
+    "education_major": "大数据技术",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "PR",
+      "RAG",
+      "python",
+      "产品",
+      "全栈",
+      "前端",
+      "后端",
+      "向量数据库",
+      "增长",
+      "大语言模型",
+      "测试",
+      "设计",
+      "运维",
+      "量化",
+      "量化策略",
+      "项目经理"
+    ],
+    "skills": [
+      "Python",
+      "MATLAB",
+      "C++",
+      "深度学习",
+      "语言模型微调",
+      "多目标优化",
+      "基于云平台",
+      "Linux",
+      "WSL",
+      "PyTorch",
+      "数据结构与算法",
+      "分布式计算",
+      "开源开发"
+    ],
+    "work_experience": [
+      "2020.09 - 2023.02 华为诺亚实验室与香港科技大学 语音语义部 联培博士生\n在校期间完成博士课程并参与郭天佑教授实验室项目，获得华为博士奖学金（2020-2022，高于常规博士生 25% 津贴）。华为实习期间，担任AI实习工程师，推动语言模型高效微调与黑盒优化结合。调研了前沿参数高效微调算法，验证了Prompt Tuning等向量提示词微调在垂直领域任务的参数效率优势，探索了针对语言模型的向量提示词黑盒搜索方法。",
+      "2021.02 - 2022.06 香港科技大学 计算机科学与工程 教学助理\n提供机器学习、数据挖掘、金融数据挖掘等本科及研究生的实验课，累计全英授课15节，共10小时。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2024.06 - 2025.02 香港科技大学 文本增强混合线性专家的时序预测模型\n该论文提出并实现了语言模型增强的混合线性专家模型，引入双模态信息融合机制，解决传统模型信息利用不充分的问题。同时，通过设计多尺度线性专家模块，显著提升了模型在长时间序列预测任务中的准确率，MSE 降低 15%。在项目代码实现阶段，参与语言模型整合与代码逻辑重构，统一测试标准，实现模型公平比较。完成专家数量影响、组件分析、效率等实验的代码和论文，经多次实验验证模型有效性，为项目提供可靠数据支持。",
+      "2024.10 - 2024.12 改进检索增强生成（RAG）问答系统\n该项目改进了RAG问答系统的生成过程，利用Llama-2和提示模板进行检索文档的二次过滤，以提升回答准确率，从基线0.287提高至0.354。并实验验证了系统在处理目标文档位置和干扰文档数量变化等多样化检索场景下的鲁棒性。实现RAG生成的二次筛选，设计Llama-2提示模板和评分机制，剔除干扰文档，提升检索质量。",
+      "2021.03 - 2022.05 香港科技大学 基于最大值熵搜索的并行多目标贝叶斯优化\n该项目提出用于多目标黑盒优化的并行最大熵搜索方法，利用高斯过程实现黑盒的并行评估，通过最大化批量评估点整体在输出空间帕累托前沿的信息增益来优化，实现高质量平行测试黑盒能力。适用于方案设计和资源分配的决策优化。在郭天佑教授指导下深度参与项目，承担核心算法研发工作。在优化函数的推导过程中，投入大量精力攻坚克难，独立完成了截断多元正态分布的统计学特性等数学推导工作，为算法的准确构建和高效运行奠定了坚实基础。",
+      "2017.11 - 2018.08 犹他大学 Probabilistic Streaming Tensor Decomposition (ICDM'2018)\n该ICDM'2018论文提出一种基于CP分解的流式概率张量分解算法，可处理任意顺序的输入数据，实现在线嵌入更新和预测，并提供确定性量化，支持各张量模式的动态增长。相较传统方法在动态数据场景下表现出更强的灵活性和预测性能。成功通过矢量化编程将论文算法的MATLAB代码执行效率提高25倍，为团队节省了400小时计算时间。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2020-09",
+        "end": "2023-02",
+        "company": "华为诺亚实验室与香港科技大学",
+        "title_en": "PhD Student",
+        "title": "联培博士生",
+        "description_en": "Completed PhD courses and participated in projects in Professor Guo Tianyou's lab, received Huawei PhD scholarship (2020-2022, 25% higher than regular PhD stipend). During internship at Huawei, served as AI intern engineer, promoting efficient fine-tuning of language models combined with black-box optimization. Researched cutting-edge parameter-efficient fine-tuning algorithms, validated the parameter efficiency advantages of Prompt Tuning and other vector prompt fine-tuning in vertical domain tasks, explored vector prompt black-box search methods for language models.",
+        "description": "在校期间完成博士课程并参与郭天佑教授实验室项目，获得华为博士奖学金（2020-2022，高于常规博士生 25% 津贴）。华为实习期间，担任AI实习工程师，推动语言模型高效微调与黑盒优化结合。调研了前沿参数高效微调算法，验证了Prompt Tuning等向量提示词微调在垂直领域任务的参数效率优势，探索了针对语言模型的向量提示词黑盒搜索方法。",
+        "details_en": [
+          "Completed PhD courses",
+          "Participated in projects in Professor Guo Tianyou's lab",
+          "Served as AI intern engineer at Huawei",
+          "Promoted efficient fine-tuning of language models combined with black-box optimization",
+          "Researched cutting-edge parameter-efficient fine-tuning algorithms",
+          "Validated the parameter efficiency advantages of Prompt Tuning and other vector prompt fine-tuning in vertical domain tasks",
+          "Explored vector prompt black-box search methods for language models"
+        ],
+        "details": [
+          "在校期间完成博士课程",
+          "参与郭天佑教授实验室项目",
+          "获得华为博士奖学金（2020-2022，高于常规博士生 25% 津贴）",
+          "华为实习期间，担任AI实习工程师",
+          "推动语言模型高效微调与黑盒优化结合",
+          "调研了前沿参数高效微调算法",
+          "验证了Prompt Tuning等向量提示词微调在垂直领域任务的参数效率优势",
+          "探索了针对语言模型的向量提示词黑盒搜索方法"
+        ],
+        "duration_months": 30
+      },
+      {
+        "start": "2021-02",
+        "end": "2022-06",
+        "company": "香港科技大学",
+        "title_en": "Teaching Assistant",
+        "title": "教学助理",
+        "description_en": "Provided lab sessions for undergraduate and graduate courses in machine learning, data mining, and financial data mining, totaling 15 sessions in English, for a total of 10 hours.",
+        "description": "提供机器学习、数据挖掘、金融数据挖掘等本科及研究生的实验课，累计全英授课15节，共10小时。",
+        "details_en": [
+          "Provided lab sessions for undergraduate and graduate courses",
+          "Courses included machine learning, data mining, and financial data mining",
+          "Totaled 15 sessions in English",
+          "Total of 10 hours"
+        ],
+        "details": [
+          "提供机器学习、数据挖掘、金融数据挖掘等本科及研究生的实验课",
+          "累计全英授课15节",
+          "共10小时"
+        ],
+        "duration_months": 17
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2024-06",
+        "end": "2025-02",
+        "company": "香港科技大学 文本增强混合线性",
+        "title": "专家的时序预测模型",
+        "description": "该论文提出并实现了语言模型增强的混合线性专家模型，引入双模态信息融合机制，解决传统模型信息利用不充分的问题。同时，通过设计多尺度线性专家模块，显著提升了模型在长时间序列预测任务中的准确率，MSE 降低 15%。在项目代码实现阶段，参与语言模型整合与代码逻辑重构，统一测试标准，实现模型公平比较。完成专家数量影响、组件分析、效率等实验的代码和论文，经多次实验验证模型有效性，为项目提供可靠数据支持。",
+        "duration_months": 9
+      },
+      {
+        "start": "2024-10",
+        "end": "2024-12",
+        "company": null,
+        "title": "改进检索增强生成（RAG）问答系统",
+        "description": "该项目改进了RAG问答系统的生成过程，利用Llama-2和提示模板进行检索文档的二次过滤，以提升回答准确率，从基线0.287提高至0.354。并实验验证了系统在处理目标文档位置和干扰文档数量变化等多样化检索场景下的鲁棒性。实现RAG生成的二次筛选，设计Llama-2提示模板和评分机制，剔除干扰文档，提升检索质量。",
+        "duration_months": 3
+      },
+      {
+        "start": "2021-03",
+        "end": "2022-05",
+        "company": "香港科技大学",
+        "title": "基于最大值熵搜索的并行多目标贝叶斯优化",
+        "description": "该项目提出用于多目标黑盒优化的并行最大熵搜索方法，利用高斯过程实现黑盒的并行评估，通过最大化批量评估点整体在输出空间帕累托前沿的信息增益来优化，实现高质量平行测试黑盒能力。适用于方案设计和资源分配的决策优化。在郭天佑教授指导下深度参与项目，承担核心算法研发工作。在优化函数的推导过程中，投入大量精力攻坚克难，独立完成了截断多元正态分布的统计学特性等数学推导工作，为算法的准确构建和高效运行奠定了坚实基础。",
+        "duration_months": 15
+      },
+      {
+        "start": "2017-11",
+        "end": "2018-08",
+        "company": "犹他大学 Probabilistic Streaming Tensor Decomposition",
+        "title": "ICDM'2018",
+        "description": "该ICDM'2018论文提出一种基于CP分解的流式概率张量分解算法，可处理任意顺序的输入数据，实现在线嵌入更新和预测，并提供确定性量化，支持各张量模式的动态增长。相较传统方法在动态数据场景下表现出更强的灵活性和预测性能。成功通过矢量化编程将论文算法的MATLAB代码执行效率提高25倍，为团队节省了400小时计算时间。",
+        "duration_months": 10
+      }
+    ],
+    "self_evaluation": "在博士生联培期间，我深入了解到基础理论研究与行业实践的差异。综合疫情对个人规划的影响，意识到将科研成果转化为应用是我更偏好的职业选择。因此，我选择从博士生转为香港科技大学硕士，以更专注于实用性。",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "在博士生联培期间，我深入了解到基础理论研究与行业实践的差异。综合疫情对个人规划的影响，意识到将科研成果转化为应用是我更偏好的职业选择。因此，我选择从博士生转为香港科技大学硕士，以更专注于实用性。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2020.09 - 2023.02 华为诺亚实验室与香港科技大学 语音语义部 联培博士生\n在校期间完成博士课程并参与郭天佑教授实验室项目，获得华为博士奖学金（2020-2022，高于常规博士生 25% 津贴）。华为实习期间，担任AI实习工程师，推动语言模型高效微调与黑盒优化结合。调研了前沿参数高效微调算法，验证了Prompt Tuning等向量提示词微调在垂直领域任务的参数效率优势，探索了针对语言模型的向量提示词黑盒搜索方法。",
+      "2021.02 - 2022.06 香港科技大学 计算机科学与工程 教学助理\n提供机器学习、数据挖掘、金融数据挖掘等本科及研究生的实验课，累计全英授课15节，共10小时。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2024.06 - 2025.02 香港科技大学 文本增强混合线性专家的时序预测模型\n该论文提出并实现了语言模型增强的混合线性专家模型，引入双模态信息融合机制，解决传统模型信息利用不充分的问题。同时，通过设计多尺度线性专家模块，显著提升了模型在长时间序列预测任务中的准确率，MSE 降低 15%。在项目代码实现阶段，参与语言模型整合与代码逻辑重构，统一测试标准，实现模型公平比较。完成专家数量影响、组件分析、效率等实验的代码和论文，经多次实验验证模型有效性，为项目提供可靠数据支持。",
+      "2024.10 - 2024.12 改进检索增强生成（RAG）问答系统\n该项目改进了RAG问答系统的生成过程，利用Llama-2和提示模板进行检索文档的二次过滤，以提升回答准确率，从基线0.287提高至0.354。并实验验证了系统在处理目标文档位置和干扰文档数量变化等多样化检索场景下的鲁棒性。实现RAG生成的二次筛选，设计Llama-2提示模板和评分机制，剔除干扰文档，提升检索质量。",
+      "2021.03 - 2022.05 香港科技大学 基于最大值熵搜索的并行多目标贝叶斯优化\n该项目提出用于多目标黑盒优化的并行最大熵搜索方法，利用高斯过程实现黑盒的并行评估，通过最大化批量评估点整体在输出空间帕累托前沿的信息增益来优化，实现高质量平行测试黑盒能力。适用于方案设计和资源分配的决策优化。在郭天佑教授指导下深度参与项目，承担核心算法研发工作。在优化函数的推导过程中，投入大量精力攻坚克难，独立完成了截断多元正态分布的统计学特性等数学推导工作，为算法的准确构建和高效运行奠定了坚实基础。",
+      "2017.11 - 2018.08 犹他大学 概率流张量分解 (ICDM'2018)\n该ICDM'2018论文提出一种基于CP分解的流式概率张量分解算法，可处理任意顺序的输入数据，实现在线嵌入更新和预测，并提供确定性量化，支持各张量模式的动态增长。相较传统方法在动态数据场景下表现出更强的灵活性和预测性能。成功通过矢量化编程将论文算法的MATLAB代码执行效率提高25倍，为团队节省了400小时计算时间。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2020-09",
+        "end": "2023-02",
+        "company": "华为诺亚实验室与香港科技大学",
+        "title_en": "PhD Student",
+        "title": "联培博士生",
+        "description_en": "Completed PhD courses and participated in projects in Professor Guo Tianyou's lab, received Huawei PhD scholarship (2020-2022, 25% higher than regular PhD stipend). During internship at Huawei, served as AI intern engineer, promoting efficient fine-tuning of language models combined with black-box optimization. Researched cutting-edge parameter-efficient fine-tuning algorithms, validated the parameter efficiency advantages of Prompt Tuning and other vector prompt fine-tuning in vertical domain tasks, explored vector prompt black-box search methods for language models.",
+        "description": "在校期间完成博士课程并参与郭天佑教授实验室项目，获得华为博士奖学金（2020-2022，高于常规博士生 25% 津贴）。华为实习期间，担任AI实习工程师，推动语言模型高效微调与黑盒优化结合。调研了前沿参数高效微调算法，验证了Prompt Tuning等向量提示词微调在垂直领域任务的参数效率优势，探索了针对语言模型的向量提示词黑盒搜索方法。",
+        "details_en": [
+          "Completed PhD courses",
+          "Participated in projects in Professor Guo Tianyou's lab",
+          "Served as AI intern engineer at Huawei",
+          "Promoted efficient fine-tuning of language models combined with black-box optimization",
+          "Researched cutting-edge parameter-efficient fine-tuning algorithms",
+          "Validated the parameter efficiency advantages of Prompt Tuning and other vector prompt fine-tuning in vertical domain tasks",
+          "Explored vector prompt black-box search methods for language models"
+        ],
+        "details": [
+          "在校期间完成博士课程",
+          "参与郭天佑教授实验室项目",
+          "获得华为博士奖学金（2020-2022，高于常规博士生 25% 津贴）",
+          "华为实习期间，担任AI实习工程师",
+          "推动语言模型高效微调与黑盒优化结合",
+          "调研了前沿参数高效微调算法",
+          "验证了Prompt Tuning等向量提示词微调在垂直领域任务的参数效率优势",
+          "探索了针对语言模型的向量提示词黑盒搜索方法"
+        ],
+        "duration_months": 30,
+        "title_zh": "博士生",
+        "description_zh": "完成了博士课程，并参与了郭天佑教授实验室的项目，获得了华为博士奖学金（2020-2022年，比常规博士津贴高25%）。\n在华为实习期间，担任AI实习工程师，促进语言模型与黑箱优化相结合的高效微调。\n研究了前沿的参数高效微调算法，验证了Prompt Tuning和其他向量提示微调在垂直领域任务中的参数效率优势，探索了语言模型的向量提示黑箱搜索方法。",
+        "details_zh": [
+          "完成博士课程",
+          "参与了郭天佑教授实验室的项目",
+          "在华为担任AI实习工程师",
+          "促进了语言模型的高效微调与黑箱优化相结合",
+          "研究了前沿的参数高效微调算法",
+          "验证了Prompt Tuning和其他向量提示微调在垂直领域任务中的参数效率优势",
+          "探索了语言模型的向量提示黑箱搜索方法"
+        ]
+      },
+      {
+        "start": "2021-02",
+        "end": "2022-06",
+        "company": "香港科技大学",
+        "title_en": "Teaching Assistant",
+        "title": "教学助理",
+        "description_en": "Provided lab sessions for undergraduate and graduate courses in machine learning, data mining, and financial data mining, totaling 15 sessions in English, for a total of 10 hours.",
+        "description": "提供机器学习、数据挖掘、金融数据挖掘等本科及研究生的实验课，累计全英授课15节，共10小时。",
+        "details_en": [
+          "Provided lab sessions for undergraduate and graduate courses",
+          "Courses included machine learning, data mining, and financial data mining",
+          "Totaled 15 sessions in English",
+          "Total of 10 hours"
+        ],
+        "details": [
+          "提供机器学习、数据挖掘、金融数据挖掘等本科及研究生的实验课",
+          "累计全英授课15节",
+          "共10小时"
+        ],
+        "duration_months": 17,
+        "title_zh": "教学助理",
+        "description_zh": "为本科生和研究生的机器学习、数据挖掘和金融数据挖掘课程提供了15节实验课，使用英语，总计10小时。",
+        "details_zh": [
+          "为本科和研究生课程提供实验课。",
+          "课程包括机器学习、数据挖掘和金融数据挖掘",
+          "总共进行了15节英语课程",
+          "总共10小时"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIAgent应用型大模型工程师深圳4060K郑翊民25年应届生.md",
+    "md_mostly_english": false
+  }
+}

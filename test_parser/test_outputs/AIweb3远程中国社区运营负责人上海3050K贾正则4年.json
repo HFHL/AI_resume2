@@ -1,0 +1,209 @@
+{
+  "file_name": "AIweb3远程中国社区运营负责人上海3050K贾正则4年.md",
+  "parsed_at": "2025-10-21T16:43:25.562800",
+  "result": {
+    "resume_file_id": null,
+    "name": "贾正则",
+    "email": "neiljzzzzzz@gmail.com",
+    "phone": "18372156687",
+    "education_degree": "硕士",
+    "education_school": [
+      "纽约视觉艺术学院",
+      "Iowa State University 爱荷华州立大学"
+    ],
+    "education_major": "创新设计工程",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "Tokenomics",
+      "defi",
+      "go",
+      "交易",
+      "产品",
+      "合约",
+      "增长",
+      "多模态",
+      "市场",
+      "投资",
+      "数据分析",
+      "机构",
+      "测试",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "Web3",
+      "DeFi",
+      "NFT",
+      "DAO",
+      "稳定币机制",
+      "社群运营",
+      "Tokenomics设计",
+      "链上治理模型",
+      "智能合约交互流程",
+      "DApp用户体验",
+      "X/Discord社群增长",
+      "需求分析",
+      "市场调研",
+      "产品规划",
+      "用户增长",
+      "竞品分析",
+      "数据驱动优化",
+      "Figma",
+      "Notion",
+      "Sketch",
+      "Adobe Creative Suite",
+      "原型设计"
+    ],
+    "work_experience": [
+      "JoJoWorld 联合创始人/纽约\n2023.01-至今\n负责平台产品规划，涵盖创作工具、链上确权、NFT/Token交易与社区互动功能。策划并主导与Binance等头部机构联合AMA，单场活动覆盖超$8,000+$用户，显著提升社区曝光与用户转化。推动融资与战略合作，完成200万美元种子轮，获得NVIDIA、微软、BNB Chain、Monad等支持。通过用户行为与社群数据（活跃度、留存率、转化率）分析驱动迭代，设计内容日历与活动策划、用户激励机制设计引入前沿4D高斯溅射技术应用于Web3场景，降低普通用户的创作与参与门槛。",
+      "AAAAH CULTURE 社群负责人/纽约\n2022.06-2023.01\n制定并执行UX/UI策略，提升中华艺术数字化传播的用户体验。搭建模块化设计体系，提升跨平台一致性与开发效率，使用户参与度提升25%。结合Web3展览场景探索NFT艺术资产的展示与应用。构建用户行为分析框架，为产品迭代与信息架构优化提供依据，浏览深度提升37%。"
+    ],
+    "internship_experience": [
+      "腾讯科技（深圳）有限公司 产品经理/北京\n2021.04-2021.09\n主导ABC Mouse趣味问答模块设计，儿童课程完课率提升20%。独立完成50+套高保真原型设计，兼顾趣味性与可用性。协调跨部门团队，确保产品快速迭代与上线，提升团队交付效率。"
+    ],
+    "project_experience": [
+      "JoJo Creator Hub | 创作者工具与激励设计\n项目内容：设计创作者上传工具与3D预览流程，降低创作者门槛。搭建内容质量评估与积分激励机制，月均处理上万模型，效率提升40%。推动To B合作，与AI模型公司建立数据合作机制，验证商业化路径。举办纽约本地3D数字化工作坊，推动KOL/创作者社群合作, 带动$40,000+$创作者入驻, 促进创作者增长与转化。平台累计收集100万+3D模型，入选Nvidia全球加速器, Microsoft Founder's Hub, 币安MVB9孵化器。业绩：对接Google Cloud投资, 入选NVIDIA全球加速器项目, Mircosoft Founder's Hub, 币安MVB9."
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-01",
+        "end": "present",
+        "company": "JoJoWorld",
+        "title_en": "Co-founder",
+        "title": "联合创始人",
+        "description_en": "Responsible for platform product planning, covering creation tools, on-chain rights confirmation, NFT/Token trading, and community interaction features.",
+        "description": "负责平台产品规划，涵盖创作工具、链上确权、NFT/Token交易与社区互动功能。",
+        "details_en": [
+          "Planned and led joint AMAs with top institutions like Binance, covering over $8,000+ users per event, significantly enhancing community exposure and user conversion.",
+          "Promoted financing and strategic cooperation, completing a $2 million seed round, supported by NVIDIA, Microsoft, BNB Chain, Monad, etc.",
+          "Driven iterations through analysis of user behavior and community data (activity, retention, conversion rates), designed content calendars and event planning, and user incentive mechanisms.",
+          "Introduced cutting-edge 4D Gaussian splashing technology applications in Web3 scenarios, lowering the creation and participation threshold for ordinary users."
+        ],
+        "details": [
+          "策划并主导与Binance等头部机构联合AMA，单场活动覆盖超$8,000+$用户，显著提升社区曝光与用户转化。",
+          "推动融资与战略合作，完成200万美元种子轮，获得NVIDIA、微软、BNB Chain、Monad等支持。",
+          "通过用户行为与社群数据（活跃度、留存率、转化率）分析驱动迭代，设计内容日历与活动策划、用户激励机制设计。",
+          "引入前沿4D高斯溅射技术应用于Web3场景，降低普通用户的创作与参与门槛。"
+        ],
+        "duration_months": 34
+      },
+      {
+        "start": "2022-06",
+        "end": "2023-01",
+        "company": "AAAAH CULTURE",
+        "title_en": "Community Lead",
+        "title": "社群负责人",
+        "description_en": "Developed and executed UX/UI strategies to enhance the user experience of digital dissemination of Chinese art.",
+        "description": "制定并执行UX/UI策略，提升中华艺术数字化传播的用户体验。",
+        "details_en": [
+          "Built a modular design system to enhance cross-platform consistency and development efficiency, increasing user engagement by 25%.",
+          "Explored the display and application of NFT art assets in Web3 exhibition scenarios.",
+          "Constructed a user behavior analysis framework to provide a basis for product iteration and information architecture optimization, increasing browsing depth by 37%."
+        ],
+        "details": [
+          "搭建模块化设计体系，提升跨平台一致性与开发效率，使用户参与度提升25%。",
+          "结合Web3展览场景探索NFT艺术资产的展示与应用。",
+          "构建用户行为分析框架，为产品迭代与信息架构优化提供依据，浏览深度提升37%。"
+        ],
+        "duration_months": 8
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "JoJo Creator Hub",
+        "title_en": null,
+        "title": "创作者工具与激励设计",
+        "description_en": null,
+        "description": "项目内容：设计创作者上传工具与3D预览流程，降低创作者门槛。搭建内容质量评估与积分激励机制，月均处理上万模型，效率提升40%。推动To B合作，与AI模型公司建立数据合作机制，验证商业化路径。举办纽约本地3D数字化工作坊，推动KOL/创作者社群合作, 带动$40,000+$创作者入驻, 促进创作者增长与转化。平台累计收集100万+3D模型，入选Nvidia全球加速器, Microsoft Founder's Hub, 币安MVB9孵化器。业绩：对接Google Cloud投资, 入选NVIDIA全球加速器项目, Mircosoft Founder's Hub, 币安MVB9.",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "具备从需求调研、产品规划、Token激励机制设计到上线迭代的完整经验，能将产品战略快速落地。中英文无障碍沟通，具备跨国团队协作与路演经验，成功对接NVIDIA、微软、BNB Chain等国际资源。",
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": "具备从需求调研、产品规划、Token激励机制设计到上线迭代的完整经验，能将产品战略快速落地。中英文无障碍沟通，具备跨国团队协作与路演经验，成功对接NVIDIA、微软、BNB Chain等国际资源。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "JoJoWorld 联合创始人/纽约\n2023.01-至今\n负责平台产品规划，涵盖创作工具、链上确权、NFT/Token交易与社区互动功能。策划并主导与Binance等头部机构联合AMA，单场活动覆盖超$8,000+$用户，显著提升社区曝光与用户转化。推动融资与战略合作，完成200万美元种子轮，获得NVIDIA、微软、BNB Chain、Monad等支持。通过用户行为与社群数据（活跃度、留存率、转化率）分析驱动迭代，设计内容日历与活动策划、用户激励机制设计引入前沿4D高斯溅射技术应用于Web3场景，降低普通用户的创作与参与门槛。",
+      "AAAAH CULTURE 社群负责人/纽约\n2022.06-2023.01\n制定并执行UX/UI策略，提升中华艺术数字化传播的用户体验。搭建模块化设计体系，提升跨平台一致性与开发效率，使用户参与度提升25%。结合Web3展览场景探索NFT艺术资产的展示与应用。构建用户行为分析框架，为产品迭代与信息架构优化提供依据，浏览深度提升37%。"
+    ],
+    "internship_experience_zh": [
+      "腾讯科技（深圳）有限公司 产品经理/北京\n2021.04-2021.09\n主导ABC Mouse趣味问答模块设计，儿童课程完课率提升20%。独立完成50+套高保真原型设计，兼顾趣味性与可用性。协调跨部门团队，确保产品快速迭代与上线，提升团队交付效率。"
+    ],
+    "project_experience_zh": [
+      "JoJo Creator Hub | 创作者工具与激励设计\n项目内容：设计创作者上传工具与3D预览流程，降低创作者门槛。搭建内容质量评估与积分激励机制，月均处理上万模型，效率提升40%。推动To B合作，与AI模型公司建立数据合作机制，验证商业化路径。举办纽约本地3D数字化工作坊，推动KOL/创作者社群合作, 带动$40,000+$创作者入驻, 促进创作者增长与转化。平台累计收集100万+3D模型，入选Nvidia全球加速器, Microsoft Founder's Hub, 币安MVB9孵化器。业绩：对接Google Cloud投资, 入选NVIDIA全球加速器项目, Mircosoft Founder's Hub, 币安MVB9."
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-01",
+        "end": "present",
+        "company": "JoJoWorld",
+        "title_en": "Co-founder",
+        "title": "联合创始人",
+        "description_en": "Responsible for platform product planning, covering creation tools, on-chain rights confirmation, NFT/Token trading, and community interaction features.",
+        "description": "负责平台产品规划，涵盖创作工具、链上确权、NFT/Token交易与社区互动功能。",
+        "details_en": [
+          "Planned and led joint AMAs with top institutions like Binance, covering over $8,000+ users per event, significantly enhancing community exposure and user conversion.",
+          "Promoted financing and strategic cooperation, completing a $2 million seed round, supported by NVIDIA, Microsoft, BNB Chain, Monad, etc.",
+          "Driven iterations through analysis of user behavior and community data (activity, retention, conversion rates), designed content calendars and event planning, and user incentive mechanisms.",
+          "Introduced cutting-edge 4D Gaussian splashing technology applications in Web3 scenarios, lowering the creation and participation threshold for ordinary users."
+        ],
+        "details": [
+          "策划并主导与Binance等头部机构联合AMA，单场活动覆盖超$8,000+$用户，显著提升社区曝光与用户转化。",
+          "推动融资与战略合作，完成200万美元种子轮，获得NVIDIA、微软、BNB Chain、Monad等支持。",
+          "通过用户行为与社群数据（活跃度、留存率、转化率）分析驱动迭代，设计内容日历与活动策划、用户激励机制设计。",
+          "引入前沿4D高斯溅射技术应用于Web3场景，降低普通用户的创作与参与门槛。"
+        ],
+        "duration_months": 34,
+        "title_zh": "联合创始人",
+        "description_zh": "负责平台产品规划，包括创作工具、链上权益确认、NFT/Token交易和社区互动功能。",
+        "details_zh": [
+          "计划并主导了与顶级机构如Binance的联合AMA，每次活动覆盖超过8,000名用户，显著提升了社区曝光率和用户转化率。",
+          "推动融资和战略合作，完成了200万美元的种子轮融资，得到了NVIDIA、Microsoft、BNB Chain、Monad等的支持。",
+          "通过分析用户行为和社区数据（活动、留存、转化率）推动迭代，设计内容日历和活动规划，以及用户激励机制。",
+          "在Web3场景中引入了尖端的4D高斯溅射技术应用，降低了普通用户的创作和参与门槛。"
+        ]
+      },
+      {
+        "start": "2022-06",
+        "end": "2023-01",
+        "company": "AAAAH CULTURE",
+        "title_en": "Community Lead",
+        "title": "社群负责人",
+        "description_en": "Developed and executed UX/UI strategies to enhance the user experience of digital dissemination of Chinese art.",
+        "description": "制定并执行UX/UI策略，提升中华艺术数字化传播的用户体验。",
+        "details_en": [
+          "Built a modular design system to enhance cross-platform consistency and development efficiency, increasing user engagement by 25%.",
+          "Explored the display and application of NFT art assets in Web3 exhibition scenarios.",
+          "Constructed a user behavior analysis framework to provide a basis for product iteration and information architecture optimization, increasing browsing depth by 37%."
+        ],
+        "details": [
+          "搭建模块化设计体系，提升跨平台一致性与开发效率，使用户参与度提升25%。",
+          "结合Web3展览场景探索NFT艺术资产的展示与应用。",
+          "构建用户行为分析框架，为产品迭代与信息架构优化提供依据，浏览深度提升37%。"
+        ],
+        "duration_months": 8,
+        "title_zh": "社区负责人",
+        "description_zh": "开发并执行了用户体验/用户界面策略，以增强中国艺术数字传播的用户体验。",
+        "details_zh": [
+          "建立了一个模块化设计系统，以增强跨平台的一致性和开发效率，提高了用户参与度25%。",
+          "探索了NFT艺术资产在Web3展览场景中的展示和应用。",
+          "构建了一个用户行为分析框架，为产品迭代和信息架构优化提供基础，使浏览深度增加了37%。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3远程中国社区运营负责人上海3050K贾正则4年.md",
+    "md_mostly_english": false
+  }
+}

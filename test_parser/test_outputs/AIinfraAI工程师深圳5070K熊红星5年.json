@@ -1,0 +1,249 @@
+{
+  "file_name": "AIinfraAI工程师深圳5070K熊红星5年.md",
+  "parsed_at": "2025-10-21T16:08:44.502826",
+  "result": {
+    "resume_file_id": null,
+    "name": "熊红星",
+    "email": "esingxiong@gmail.com",
+    "phone": null,
+    "education_degree": "本科",
+    "education_school": [
+      "武汉轻工大学",
+      "Wuhan University of Technology 武汉科技大学"
+    ],
+    "education_major": "计算机数字媒体技术",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "OP",
+      "java",
+      "python",
+      "交易",
+      "产品",
+      "区块链开发",
+      "大模型",
+      "市场",
+      "投资",
+      "数据分析",
+      "数据开发",
+      "测试",
+      "设计",
+      "风控"
+    ],
+    "skills": [
+      "SQL",
+      "HQL",
+      "Hadoop",
+      "Hive",
+      "Spark",
+      "Flink",
+      "Kafka",
+      "Python",
+      "NumPy",
+      "Pandas",
+      "Scipy",
+      "Java",
+      "Linux",
+      "ElasticSearch",
+      "ClickHouse",
+      "TensorFlow",
+      "PyTorch",
+      "scikit-learn"
+    ],
+    "work_experience": [
+      "2023.8~至, 深圳前海微众银行股份有限公司-武汉研发中心, 数据工程师, 牵头4人团队，负责信贷领域的数仓模型建设、风控机器学习模型训练、数据工具研发及优化",
+      "2021.8~2023.5, 恒生电子股份有限公司-数据中台, 数据工程师, 负责信托领域的数据底座建设、数据质量监控、监管报表、数据开发规范制定及推广"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2023.8~至今, 贷款科技-信用风险数据工程, 微众银行推出“微粒贷”、“微车贷”等信贷产品，业务流程涵盖反欺诈、授信审批、贷中监控和贷后催收。风控数据工程的核心在于构建数据平台和数据流程，完成海量业务系统数据的离线与实时加工，为风险模型训练、引擎决策和业务分析提供数据支撑。技术架构：基于DCN(data center node)、三地多中心的分布式架构，常用工具：Python、Java、Tdsql、Hive、Flink等。我的职责：数仓与指标体系建设，主导贷前授信业务域的数仓建设，包括设计开发、人力评估、分工组织；负责设计并开发常规离线和实时指标，包括用户行为、信用分层、风险评分、营销指标等；风险模型训练，负责贷前授信模型训练，个人贷款违约预测（贷款能力评估）、信用评分建模（信用风险评估）等；性能优化、工具开发，主导开发基于 AI 的 Dify 工作流，实现现有模型自动解析、模板化设计与代码生成。负责Hive大数据任务优化改造。核心成果：完成海外（印尼、马来西亚）风险贷前数仓通用DWD底座建设，实现一套代码多部署；完成3+套风险模型线上训练与实时评分，反欺诈识别率提升15%，审批通过率提升10%；Dify工作流推广后，数据设计周期缩短至1人/月，模型与数据开发效率提升3人/月（科室内统计得出）；通过Hive大数据任务优化，人行二代CMSS洗数流程从8天缩减到3天，并避免了链路产生bad job。",
+      "2022.1~2023.1, 恒生财富信托统一数据中心, 恒生信托数据中心旨在构建可弹性伸缩的统一数据平台，支撑信托业务的高并发数据访问与计算。其整合了内外部多源数据，贯通采集、治理、建模、存储与服务的全流程数据体系，为监管报送、风险模型、投资分析提供高质量特征与实时洞察。技术架构：分布式存储、多节点部署，常用工具：Python、Java、Oracle、Hive、Spark、ES等。我的职责：数仓建设与可视化，负责整合估值、资管、合同等多源业务数据，构建信托数仓底座；负责常规指标建设，如资产负债，交易对手资产；负责全要素2021监管报表加工；性能优化、开发规范制定，负责准实时特征平台的Spark回溯优化，解决处理指标加工流水和留痕数据时，造成的内存压力问题；制定并推广研发规范，如Json加工规范、SQL语法规范、参数规范、监控规范、数据清洗规范等。核心成果：从0到1搭建信托数仓，覆盖亿级数据存储与处理，并在12家信托公司成功部署；特征平台，通过参数优化、Hive查询、全局排序，使指标生成效率提高50%，并避免了内存溢出；推行大数据研发规范，测试bug率降低20%，线上任务运行时效提升30%."
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-08",
+        "end": "present",
+        "company": "深圳前海微众银行股份有限公司-武汉研发中心",
+        "title_en": "Data Engineer",
+        "title": "数据工程师",
+        "description_en": null,
+        "description": "牵头4人团队，负责信贷领域的数仓模型建设、风控机器学习模型训练、数据工具研发及优化",
+        "details_en": null,
+        "details": [
+          "牵头4人团队",
+          "负责信贷领域的数仓模型建设",
+          "风控机器学习模型训练",
+          "数据工具研发及优化"
+        ],
+        "duration_months": 27
+      },
+      {
+        "start": "2021-08",
+        "end": "2023-05",
+        "company": "恒生电子股份有限公司-数据中台",
+        "title_en": "Data Engineer",
+        "title": "数据工程师",
+        "description_en": null,
+        "description": "负责信托领域的数据底座建设、数据质量监控、监管报表、数据开发规范制定及推广",
+        "details_en": null,
+        "details": [
+          "负责信托领域的数据底座建设",
+          "数据质量监控",
+          "监管报表",
+          "数据开发规范制定及推广"
+        ],
+        "duration_months": 22
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2023-08",
+        "end": "present",
+        "company": "微众银行",
+        "title_en": "Credit Risk Data Engineer",
+        "title": "信用风险数据工程",
+        "description_en": "Launched credit products such as 'Weilidai' and 'Weicheidai', covering anti-fraud, credit approval, loan monitoring, and post-loan collection.",
+        "description": "推出“微粒贷”、“微车贷”等信贷产品，业务流程涵盖反欺诈、授信审批、贷中监控和贷后催收。",
+        "details_en": [
+          "Core of risk control data engineering is to build data platforms and processes.",
+          "Completed offline and real-time processing of massive business system data.",
+          "Provided data support for risk model training, engine decision-making, and business analysis.",
+          "Technical architecture: based on DCN (data center node), distributed architecture with multiple centers.",
+          "Common tools: Python, Java, Tdsql, Hive, Flink, etc.",
+          "Responsibilities: Data warehouse and indicator system construction.",
+          "Led the data warehouse construction for pre-loan credit business domain.",
+          "Responsible for designing and developing regular offline and real-time indicators.",
+          "Risk model training, responsible for pre-loan credit model training.",
+          "Performance optimization and tool development.",
+          "Led the development of AI-based Dify workflow.",
+          "Optimized Hive big data tasks."
+        ],
+        "details": [
+          "风控数据工程的核心在于构建数据平台和数据流程。",
+          "完成海量业务系统数据的离线与实时加工。",
+          "为风险模型训练、引擎决策和业务分析提供数据支撑。",
+          "技术架构：基于DCN(data center node)、三地多中心的分布式架构。",
+          "常用工具：Python、Java、Tdsql、Hive、Flink等。",
+          "我的职责：数仓与指标体系建设。",
+          "主导贷前授信业务域的数仓建设。",
+          "负责设计并开发常规离线和实时指标。",
+          "风险模型训练，负责贷前授信模型训练。",
+          "性能优化、工具开发。",
+          "主导开发基于 AI 的 Dify 工作流。",
+          "负责Hive大数据任务优化改造。"
+        ],
+        "duration_months": 27
+      },
+      {
+        "start": "2022-01",
+        "end": "2023-01",
+        "company": "恒生财富信托统一数据中心",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": "The data center aims to build a scalable unified data platform to support high-concurrency data access and computation for trust business.",
+        "description": "恒生信托数据中心旨在构建可弹性伸缩的统一数据平台，支撑信托业务的高并发数据访问与计算。",
+        "details_en": [
+          "Integrated internal and external multi-source data.",
+          "Covered the entire data system from collection, governance, modeling, storage to service.",
+          "Provided high-quality features and real-time insights for regulatory reporting, risk models, and investment analysis.",
+          "Technical architecture: distributed storage, multi-node deployment.",
+          "Common tools: Python, Java, Oracle, Hive, Spark, ES, etc.",
+          "Responsibilities: Data warehouse construction and visualization.",
+          "Responsible for integrating multi-source business data.",
+          "Responsible for regular indicator construction.",
+          "Responsible for processing regulatory reports.",
+          "Performance optimization and development specification formulation.",
+          "Promoted development specifications."
+        ],
+        "details": [
+          "整合了内外部多源数据。",
+          "贯通采集、治理、建模、存储与服务的全流程数据体系。",
+          "为监管报送、风险模型、投资分析提供高质量特征与实时洞察。",
+          "技术架构：分布式存储、多节点部署。",
+          "常用工具：Python、Java、Oracle、Hive、Spark、ES等。",
+          "我的职责：数仓建设与可视化。",
+          "负责整合估值、资管、合同等多源业务数据。",
+          "负责常规指标建设，如资产负债，交易对手资产。",
+          "负责全要素2021监管报表加工。",
+          "性能优化、开发规范制定。",
+          "推行大数据研发规范。"
+        ],
+        "duration_months": 13
+      }
+    ],
+    "self_evaluation": "自驱力强，拥有多年金融业数据工程与风控模型经验，能够高效支持复杂业务场景下的数据应用需求。热爱二级交易市场，经历过大额交易亏损，仍坚定信念、直面失败并持续成长。立志投身于金融数据行业，通过数据与技术创造长期可持续的价值。",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "自驱力强，拥有多年金融业数据工程与风控模型经验，能够高效支持复杂业务场景下的数据应用需求。热爱二级交易市场，经历过大额交易亏损，仍坚定信念、直面失败并持续成长。立志投身于金融数据行业，通过数据与技术创造长期可持续的价值。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.8~至, 深圳前海微众银行股份有限公司-武汉研发中心, 数据工程师, 牵头4人团队，负责信贷领域的数仓模型建设、风控机器学习模型训练、数据工具研发及优化",
+      "2021.8~2023.5, 恒生电子股份有限公司-数据中台, 数据工程师, 负责信托领域的数据底座建设、数据质量监控、监管报表、数据开发规范制定及推广"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2023.8~至今, 贷款科技-信用风险数据工程, 微众银行推出“微粒贷”、“微车贷”等信贷产品，业务流程涵盖反欺诈、授信审批、贷中监控和贷后催收。风控数据工程的核心在于构建数据平台和数据流程，完成海量业务系统数据的离线与实时加工，为风险模型训练、引擎决策和业务分析提供数据支撑。技术架构：基于DCN(data center node)、三地多中心的分布式架构，常用工具：Python、Java、Tdsql、Hive、Flink等。我的职责：数仓与指标体系建设，主导贷前授信业务域的数仓建设，包括设计开发、人力评估、分工组织；负责设计并开发常规离线和实时指标，包括用户行为、信用分层、风险评分、营销指标等；风险模型训练，负责贷前授信模型训练，个人贷款违约预测（贷款能力评估）、信用评分建模（信用风险评估）等；性能优化、工具开发，主导开发基于 AI 的 Dify 工作流，实现现有模型自动解析、模板化设计与代码生成。负责Hive大数据任务优化改造。核心成果：完成海外（印尼、马来西亚）风险贷前数仓通用DWD底座建设，实现一套代码多部署；完成3+套风险模型线上训练与实时评分，反欺诈识别率提升15%，审批通过率提升10%；Dify工作流推广后，数据设计周期缩短至1人/月，模型与数据开发效率提升3人/月（科室内统计得出）；通过Hive大数据任务优化，人行二代CMSS洗数流程从8天缩减到3天，并避免了链路产生bad job。",
+      "2022.1~2023.1, 恒生财富信托统一数据中心, 恒生信托数据中心旨在构建可弹性伸缩的统一数据平台，支撑信托业务的高并发数据访问与计算。其整合了内外部多源数据，贯通采集、治理、建模、存储与服务的全流程数据体系，为监管报送、风险模型、投资分析提供高质量特征与实时洞察。技术架构：分布式存储、多节点部署，常用工具：Python、Java、Oracle、Hive、Spark、ES等。我的职责：数仓建设与可视化，负责整合估值、资管、合同等多源业务数据，构建信托数仓底座；负责常规指标建设，如资产负债，交易对手资产；负责全要素2021监管报表加工；性能优化、开发规范制定，负责准实时特征平台的Spark回溯优化，解决处理指标加工流水和留痕数据时，造成的内存压力问题；制定并推广研发规范，如Json加工规范、SQL语法规范、参数规范、监控规范、数据清洗规范等。核心成果：从0到1搭建信托数仓，覆盖亿级数据存储与处理，并在12家信托公司成功部署；特征平台，通过参数优化、Hive查询、全局排序，使指标生成效率提高50%，并避免了内存溢出；推行大数据研发规范，测试bug率降低20%，线上任务运行时效提升30%."
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-08",
+        "end": "present",
+        "company": "深圳前海微众银行股份有限公司-武汉研发中心",
+        "title_en": "Data Engineer",
+        "title": "数据工程师",
+        "description_en": null,
+        "description": "牵头4人团队，负责信贷领域的数仓模型建设、风控机器学习模型训练、数据工具研发及优化",
+        "details_en": null,
+        "details": [
+          "牵头4人团队",
+          "负责信贷领域的数仓模型建设",
+          "风控机器学习模型训练",
+          "数据工具研发及优化"
+        ],
+        "duration_months": 27,
+        "title_zh": "数据工程师",
+        "description_zh": "牵头4人团队，负责信贷领域的数仓模型建设、风控机器学习模型训练、数据工具研发及优化",
+        "details_zh": [
+          "牵头4人团队",
+          "负责信贷领域的数仓模型建设",
+          "风控机器学习模型训练",
+          "数据工具研发及优化"
+        ]
+      },
+      {
+        "start": "2021-08",
+        "end": "2023-05",
+        "company": "恒生电子股份有限公司-数据中台",
+        "title_en": "Data Engineer",
+        "title": "数据工程师",
+        "description_en": null,
+        "description": "负责信托领域的数据底座建设、数据质量监控、监管报表、数据开发规范制定及推广",
+        "details_en": null,
+        "details": [
+          "负责信托领域的数据底座建设",
+          "数据质量监控",
+          "监管报表",
+          "数据开发规范制定及推广"
+        ],
+        "duration_months": 22,
+        "title_zh": "数据工程师",
+        "description_zh": "负责信托领域的数据底座建设、数据质量监控、监管报表、数据开发规范制定及推广",
+        "details_zh": [
+          "负责信托领域的数据底座建设",
+          "数据质量监控",
+          "监管报表",
+          "数据开发规范制定及推广"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIinfraAI工程师深圳5070K熊红星5年.md",
+    "md_mostly_english": false
+  }
+}

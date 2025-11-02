@@ -1,0 +1,286 @@
+{
+  "file_name": "AIInfra远程AI系统工程师推理优化上海4070K周晨扬24年应届生.md",
+  "parsed_at": "2025-10-21T16:13:14.093437",
+  "result": {
+    "resume_file_id": null,
+    "name": "周晨扬",
+    "email": "1178574011@qq.com",
+    "phone": "18868024184",
+    "education_degree": "研究生",
+    "education_school": [
+      "上海大学",
+      "中国计量大学"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "ETH",
+      "OP",
+      "PR",
+      "RAG",
+      "go",
+      "java",
+      "python",
+      "产品",
+      "全栈",
+      "前端",
+      "区块链开发",
+      "后端",
+      "向量数据库",
+      "多模态",
+      "大模型",
+      "家办",
+      "数据分析",
+      "测试",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "Python",
+      "Pytorch",
+      "FastAPI",
+      "Docker",
+      "K8s",
+      "Grafana",
+      "Prometheus",
+      "Scala",
+      "MyBatis",
+      "MySql",
+      "Vue",
+      "Spring Boot"
+    ],
+    "work_experience": [
+      "2023-09 ~ 2024-09 Decoda.ai (Google 初创团队) 大模型算法工程师 负责从0到1的构建产品，核心参与了产品的开发生命周期，从需求分析、系统设计、实际开发和部署以及部分运营，具有宝贵的产品经验；搭建推动团队 CI/CD 的建设，熟悉技术工作流程，负责协调各项开发工作安排。技术栈：next.js、tailwind css、react、python、chromadb、fastapi、postgresql、github、docker",
+      "2024-10 ~ 至今 MagikCompute.ai(魔形智能) 大模型推理优化工程师 1. 大模型推理优化与部署工作，优化DeepSeek-R1性能，支持专家并行策略，吞吐量提升 30%；设计自动性能测试的workflow。2. 基于K8s多集群搭建弹性推理引擎，集成LWS的动态扩缩容，根据实时业务量，实现自动扩缩容。3. 构建Prometheus + Grafana监控体系，管理GPU集群，实现服务的告警机制和自愈能力。4. 基于fastapi框架算力平台后端实现功能，主要负责登陆注册、用量统计、模型部署功能；产品页面设计，基于figma的原型设计。核心能力：大模型推理优化（PyTorch/Vllm）｜云原生（K8s/LWS/Helm）｜监控（Grafana/Prometheus）后端开发：FastAPI/PostgreSQL 工程协作：Figma/Docker/CI-CD"
+    ],
+    "internship_experience": [
+      "2023-05 ~ 2023-08 软通动力有限公司（外派阿里云） 大模型推理优化实习生（大模型方向）—算法 参与阿里云震旦异构平台相关推理性能优化、编译优化等高性能开发工作；了解Megatron、FastTransformer等框架；参与大模型的推理优化与加速，部署分布式环境、进行分布式推理；调研和整理目前大模型推理优化前沿论文；参与模型编译优化算子的生成与验证，参与引擎优化工作，包括算子、计算图优化等工作。",
+      "2021-06 ~ 2021-08 嘉兴市南湖实验室 大数据操作系统开发员—后端 协助湖仓一体数据湖洞察系统开发、设计对象存储接口与 delta lake 的相互传输；实现数据湖存储管理和系统监控功能，支持多元异构数据；通过spark和flink不同计算引擎流入湖，统一访问湖内数据。"
+    ],
+    "project_experience": [
+      "2021-10 ~ 2022-01 宝山区消防作战辅助决策系统 项目工程师—前端 该项目主要提高消防队作战效率，案情发生时，通过web端发送案情指挥，协调作战。主要实现了用户管理模块、预案推送模块，消息显示与匹配模块等微服务模块；使用Vue + Element UI框架开发项目前端界面，用户登录，预案信息的多重展示，预案信息的匹配和推送等功能。",
+      "2022-02 ~ 至今 科技部国家重点研发计划项目（涉密） 技术开发人员—算法 研究网络的匿名性和传输机理，设计抗溯源跨境网络应用平台项目职责：因项目涉及相关国家利益，需要对项目开发内容和开发流程进行保密。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-09",
+        "end": "2024-09",
+        "company": "Decoda.ai (Google 初创团队",
+        "title_en": "Large Model Algorithm Engineer",
+        "title": "大模型算法工程师",
+        "description_en": "Responsible for building products from 0 to 1, core participation in the product development lifecycle, including requirement analysis, system design, actual development and deployment, as well as some operations, with valuable product experience; built and promoted the CI/CD construction of the team, familiar with technical workflows, responsible for coordinating various development work arrangements.",
+        "description": "负责从0到1的构建产品，核心参与了产品的开发生命周期，从需求分析、系统设计、实际开发和部署以及部分运营，具有宝贵的产品经验；搭建推动团队 CI/CD 的建设，熟悉技术工作流程，负责协调各项开发工作安排。",
+        "details_en": [
+          "Responsible for building products from 0 to 1",
+          "Core participation in the product development lifecycle",
+          "Requirement analysis, system design, actual development and deployment",
+          "Some operations, with valuable product experience",
+          "Built and promoted the CI/CD construction of the team",
+          "Familiar with technical workflows",
+          "Responsible for coordinating various development work arrangements"
+        ],
+        "details": [
+          "负责从0到1的构建产品",
+          "核心参与了产品的开发生命周期",
+          "需求分析、系统设计、实际开发和部署",
+          "部分运营，具有宝贵的产品经验",
+          "搭建推动团队 CI/CD 的建设",
+          "熟悉技术工作流程",
+          "负责协调各项开发工作安排"
+        ],
+        "duration_months": 13
+      },
+      {
+        "start": "2024-10",
+        "end": "present",
+        "company": "MagikCompute.ai(魔形智能",
+        "title_en": "Large Model Inference Optimization Engineer",
+        "title": "大模型推理优化工程师",
+        "description_en": "1. Large model inference optimization and deployment work, optimized DeepSeek-R1 performance, supporting expert parallel strategy, throughput increased by 30%; designed workflow for automatic performance testing. 2. Built elastic inference engine based on K8s multi-cluster, integrated LWS dynamic scaling, achieving automatic scaling based on real-time business volume. 3. Built Prometheus + Grafana monitoring system, managed GPU cluster, realized service alarm mechanism and self-healing capability. 4. Implemented backend functionality for computing power platform based on fastapi framework, mainly responsible for login registration, usage statistics, model deployment functions; product page design, based on Figma prototype design.",
+        "description": "1. 大模型推理优化与部署工作，优化DeepSeek-R1性能，支持专家并行策略，吞吐量提升 30%；设计自动性能测试的workflow。2. 基于K8s多集群搭建弹性推理引擎，集成LWS的动态扩缩容，根据实时业务量，实现自动扩缩容。3. 构建Prometheus + Grafana监控体系，管理GPU集群，实现服务的告警机制和自愈能力。4. 基于fastapi框架算力平台后端实现功能，主要负责登陆注册、用量统计、模型部署功能；产品页面设计，基于figma的原型设计。",
+        "details_en": [
+          "Large model inference optimization and deployment work",
+          "Optimized DeepSeek-R1 performance, supporting expert parallel strategy, throughput increased by 30%",
+          "Designed workflow for automatic performance testing",
+          "Built elastic inference engine based on K8s multi-cluster",
+          "Integrated LWS dynamic scaling, achieving automatic scaling based on real-time business volume",
+          "Built Prometheus + Grafana monitoring system",
+          "Managed GPU cluster, realized service alarm mechanism and self-healing capability",
+          "Implemented backend functionality for computing power platform based on fastapi framework",
+          "Mainly responsible for login registration, usage statistics, model deployment functions",
+          "Product page design, based on Figma prototype design"
+        ],
+        "details": [
+          "大模型推理优化与部署工作",
+          "优化DeepSeek-R1性能，支持专家并行策略，吞吐量提升 30%",
+          "设计自动性能测试的workflow",
+          "基于K8s多集群搭建弹性推理引擎",
+          "集成LWS的动态扩缩容，根据实时业务量，实现自动扩缩容",
+          "构建Prometheus + Grafana监控体系",
+          "管理GPU集群，实现服务的告警机制和自愈能力",
+          "基于fastapi框架算力平台后端实现功能",
+          "主要负责登陆注册、用量统计、模型部署功能",
+          "产品页面设计，基于figma的原型设计"
+        ],
+        "duration_months": 13
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2021-10",
+        "end": "2022-01",
+        "company": "宝山区消防作战辅助决策系统",
+        "title_en": "Project Engineer - Frontend",
+        "title": "项目工程师—前端",
+        "description_en": null,
+        "description": "该项目主要提高消防队作战效率，案情发生时，通过web端发送案情指挥，协调作战。主要实现了用户管理模块、预案推送模块，消息显示与匹配模块等微服务模块；使用Vue + Element UI框架开发项目前端界面，用户登录，预案信息的多重展示，预案信息的匹配和推送等功能。",
+        "details_en": null,
+        "details": [
+          "提高消防队作战效率",
+          "通过web端发送案情指挥",
+          "协调作战",
+          "实现用户管理模块",
+          "实现预案推送模块",
+          "实现消息显示与匹配模块",
+          "使用Vue + Element UI框架开发前端界面",
+          "用户登录",
+          "预案信息的多重展示",
+          "预案信息的匹配和推送"
+        ],
+        "duration_months": 4
+      },
+      {
+        "start": "2022-02",
+        "end": "present",
+        "company": "科技部国家重点研发计划项目（涉密",
+        "title_en": "Technical Developer - Algorithm",
+        "title": "技术开发人员—算法",
+        "description_en": null,
+        "description": "研究网络的匿名性和传输机理，设计抗溯源跨境网络应用平台项目职责：因项目涉及相关国家利益，需要对项目开发内容和开发流程进行保密。",
+        "details_en": null,
+        "details": [
+          "研究网络的匿名性和传输机理",
+          "设计抗溯源跨境网络应用平台",
+          "项目开发内容和开发流程进行保密"
+        ],
+        "duration_months": 45
+      }
+    ],
+    "self_evaluation": "爱好：健身、篮球、摄影师、旅游徒步、动漫、八段锦。性格：踏实：工作和学习之中只有认真踏实做事，才能做好；学习能力：有一定的学习新事物能力，才能不被淘汰。热情：对于自己感兴趣的事，有着无限动力去实现；生活上积极向上，开朗阳光，能够快速融入工作和学习环境。",
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": "爱好：健身、篮球、摄影师、旅游徒步、动漫、八段锦。性格：踏实：工作和学习之中只有认真踏实做事，才能做好；学习能力：有一定的学习新事物能力，才能不被淘汰。热情：对于自己感兴趣的事，有着无限动力去实现；生活上积极向上，开朗阳光，能够快速融入工作和学习环境。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023-09 ~ 2024-09 Decoda.ai (Google 初创团队) 大模型算法工程师 负责从0到1的构建产品，核心参与了产品的开发生命周期，从需求分析、系统设计、实际开发和部署以及部分运营，具有宝贵的产品经验；搭建推动团队 CI/CD 的建设，熟悉技术工作流程，负责协调各项开发工作安排。技术栈：next.js、tailwind css、react、python、chromadb、fastapi、postgresql、github、docker",
+      "2024-10 ~ 至今 MagikCompute.ai(魔形智能) 大模型推理优化工程师 1.\n大模型推理优化与部署工作，优化DeepSeek-R1性能，支持专家并行策略，吞吐量提升 30%；设计自动性能测试的workflow。2.\n基于K8s多集群搭建弹性推理引擎，集成LWS的动态扩缩容，根据实时业务量，实现自动扩缩容。3.\n构建Prometheus + Grafana监控体系，管理GPU集群，实现服务的告警机制和自愈能力。4.\n基于fastapi框架算力平台后端实现功能，主要负责登陆注册、用量统计、模型部署功能；产品页面设计，基于figma的原型设计。核心能力：大模型推理优化（PyTorch/Vllm）｜云原生（K8s/LWS/Helm）｜监控（Grafana/Prometheus）后端开发：FastAPI/PostgreSQL 工程协作：Figma/Docker/CI-CD"
+    ],
+    "internship_experience_zh": [
+      "2023-05 ~ 2023-08 软通动力有限公司（外派阿里云） 大模型推理优化实习生（大模型方向）—算法 参与阿里云震旦异构平台相关推理性能优化、编译优化等高性能开发工作；了解Megatron、FastTransformer等框架；参与大模型的推理优化与加速，部署分布式环境、进行分布式推理；调研和整理目前大模型推理优化前沿论文；参与模型编译优化算子的生成与验证，参与引擎优化工作，包括算子、计算图优化等工作。",
+      "2021-06 ~ 2021-08 嘉兴市南湖实验室 大数据操作系统开发员—后端 协助湖仓一体数据湖洞察系统开发、设计对象存储接口与 delta lake 的相互传输；实现数据湖存储管理和系统监控功能，支持多元异构数据；通过spark和flink不同计算引擎流入湖，统一访问湖内数据。"
+    ],
+    "project_experience_zh": [
+      "2021-10 ~ 2022-01 宝山区消防作战辅助决策系统 项目工程师—前端 该项目主要提高消防队作战效率，案情发生时，通过web端发送案情指挥，协调作战。主要实现了用户管理模块、预案推送模块，消息显示与匹配模块等微服务模块；使用Vue + Element UI框架开发项目前端界面，用户登录，预案信息的多重展示，预案信息的匹配和推送等功能。",
+      "2022-02 ~ 至今 科技部国家重点研发计划项目（涉密） 技术开发人员—算法 研究网络的匿名性和传输机理，设计抗溯源跨境网络应用平台项目职责：因项目涉及相关国家利益，需要对项目开发内容和开发流程进行保密。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-09",
+        "end": "2024-09",
+        "company": "Decoda.ai (Google 初创团队",
+        "title_en": "Large Model Algorithm Engineer",
+        "title": "大模型算法工程师",
+        "description_en": "Responsible for building products from 0 to 1, core participation in the product development lifecycle, including requirement analysis, system design, actual development and deployment, as well as some operations, with valuable product experience; built and promoted the CI/CD construction of the team, familiar with technical workflows, responsible for coordinating various development work arrangements.",
+        "description": "负责从0到1的构建产品，核心参与了产品的开发生命周期，从需求分析、系统设计、实际开发和部署以及部分运营，具有宝贵的产品经验；搭建推动团队 CI/CD 的建设，熟悉技术工作流程，负责协调各项开发工作安排。",
+        "details_en": [
+          "Responsible for building products from 0 to 1",
+          "Core participation in the product development lifecycle",
+          "Requirement analysis, system design, actual development and deployment",
+          "Some operations, with valuable product experience",
+          "Built and promoted the CI/CD construction of the team",
+          "Familiar with technical workflows",
+          "Responsible for coordinating various development work arrangements"
+        ],
+        "details": [
+          "负责从0到1的构建产品",
+          "核心参与了产品的开发生命周期",
+          "需求分析、系统设计、实际开发和部署",
+          "部分运营，具有宝贵的产品经验",
+          "搭建推动团队 CI/CD 的建设",
+          "熟悉技术工作流程",
+          "负责协调各项开发工作安排"
+        ],
+        "duration_months": 13,
+        "title_zh": "大模型算法工程师",
+        "description_zh": "负责从0到1构建产品，核心参与产品开发生命周期，包括需求分析、系统设计、实际开发和部署，以及一些运营，拥有宝贵的产品经验；构建并推动团队的CI/CD建设，熟悉技术工作流程，负责协调各种开发工作安排。",
+        "details_zh": [
+          "负责从0到1构建产品",
+          "核心参与产品开发生命周期",
+          "需求分析、系统设计、实际开发和部署",
+          "一些操作，具有宝贵的产品经验",
+          "建立并推动了团队的CI/CD建设",
+          "熟悉技术工作流程",
+          "负责协调各种开发工作安排"
+        ]
+      },
+      {
+        "start": "2024-10",
+        "end": "present",
+        "company": "MagikCompute.ai(魔形智能",
+        "title_en": "Large Model Inference Optimization Engineer",
+        "title": "大模型推理优化工程师",
+        "description_en": "1. Large model inference optimization and deployment work, optimized DeepSeek-R1 performance, supporting expert parallel strategy, throughput increased by 30%; designed workflow for automatic performance testing. 2. Built elastic inference engine based on K8s multi-cluster, integrated LWS dynamic scaling, achieving automatic scaling based on real-time business volume. 3. Built Prometheus + Grafana monitoring system, managed GPU cluster, realized service alarm mechanism and self-healing capability. 4. Implemented backend functionality for computing power platform based on fastapi framework, mainly responsible for login registration, usage statistics, model deployment functions; product page design, based on Figma prototype design.",
+        "description": "1. 大模型推理优化与部署工作，优化DeepSeek-R1性能，支持专家并行策略，吞吐量提升 30%；设计自动性能测试的workflow。2. 基于K8s多集群搭建弹性推理引擎，集成LWS的动态扩缩容，根据实时业务量，实现自动扩缩容。3. 构建Prometheus + Grafana监控体系，管理GPU集群，实现服务的告警机制和自愈能力。4. 基于fastapi框架算力平台后端实现功能，主要负责登陆注册、用量统计、模型部署功能；产品页面设计，基于figma的原型设计。",
+        "details_en": [
+          "Large model inference optimization and deployment work",
+          "Optimized DeepSeek-R1 performance, supporting expert parallel strategy, throughput increased by 30%",
+          "Designed workflow for automatic performance testing",
+          "Built elastic inference engine based on K8s multi-cluster",
+          "Integrated LWS dynamic scaling, achieving automatic scaling based on real-time business volume",
+          "Built Prometheus + Grafana monitoring system",
+          "Managed GPU cluster, realized service alarm mechanism and self-healing capability",
+          "Implemented backend functionality for computing power platform based on fastapi framework",
+          "Mainly responsible for login registration, usage statistics, model deployment functions",
+          "Product page design, based on Figma prototype design"
+        ],
+        "details": [
+          "大模型推理优化与部署工作",
+          "优化DeepSeek-R1性能，支持专家并行策略，吞吐量提升 30%",
+          "设计自动性能测试的workflow",
+          "基于K8s多集群搭建弹性推理引擎",
+          "集成LWS的动态扩缩容，根据实时业务量，实现自动扩缩容",
+          "构建Prometheus + Grafana监控体系",
+          "管理GPU集群，实现服务的告警机制和自愈能力",
+          "基于fastapi框架算力平台后端实现功能",
+          "主要负责登陆注册、用量统计、模型部署功能",
+          "产品页面设计，基于figma的原型设计"
+        ],
+        "duration_months": 13,
+        "title_zh": "大模型推理优化工程师",
+        "description_zh": "1.\n大型模型推理优化和部署工作，优化了DeepSeek-R1性能，支持专家并行策略，吞吐量提高了30%；设计了自动性能测试的工作流程。\n2.\n基于K8s多集群构建弹性推理引擎，集成LWS动态扩展，实现基于实时业务量的自动扩展。\n3.\n构建了 Prometheus + Grafana 监控系统，管理了 GPU 集群，实现了服务报警机制和自愈能力。\n4.\n基于fastapi框架实现了计算力平台的后端功能，主要负责登录注册、使用统计、模型部署功能；产品页面设计，基于Figma原型设计。",
+        "details_zh": [
+          "大模型推理优化和部署工作",
+          "优化了DeepSeek-R1性能，支持专家并行策略，吞吐量提高了30%",
+          "设计了自动性能测试的工作流程",
+          "基于K8s多集群构建弹性推理引擎",
+          "集成LWS动态扩展，实现基于实时业务量的自动扩展",
+          "构建了 Prometheus + Grafana 监控系统",
+          "管理GPU集群，实现服务报警机制和自愈能力",
+          "基于fastapi框架实现了计算能力平台的后端功能",
+          "主要负责登录注册、使用统计、模型部署功能",
+          "产品页面设计，基于Figma原型设计"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIInfra远程AI系统工程师推理优化上海4070K周晨扬24年应届生.md",
+    "md_mostly_english": false
+  }
+}

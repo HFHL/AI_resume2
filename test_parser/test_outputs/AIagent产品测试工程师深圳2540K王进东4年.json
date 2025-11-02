@@ -1,0 +1,182 @@
+{
+  "file_name": "AIagent产品测试工程师深圳2540K王进东4年.md",
+  "parsed_at": "2025-10-21T15:41:46.932897",
+  "result": {
+    "resume_file_id": null,
+    "name": "王进东",
+    "email": "1098231684@qq.com",
+    "phone": "18038147672",
+    "education_degree": "硕士",
+    "education_school": [
+      "Shenzhen University 深圳大学",
+      "西北民族大学"
+    ],
+    "education_major": "信息与通信工程",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "产品",
+      "前端",
+      "合规",
+      "后端",
+      "大模型",
+      "安全",
+      "测试"
+    ],
+    "skills": [
+      "安全测试",
+      "稳定性测试",
+      "性能测试",
+      "大模型评测",
+      "接口测试",
+      "功能测试",
+      "压力测试",
+      "兼容性测试",
+      "自动化测试",
+      "用例自动化",
+      "前端开发",
+      "后端开发"
+    ],
+    "work_experience": [
+      "2023.03-2025.01 字节跳动 测试开发工程师\n支持飞书 UI 自动化建设，支持 DevInfraMNT 自动化建设\n支持公司豆包等 AI 产品稳定性测试、性能测试、大模型效果评测\n帮助飞书日历业务线建设自动化测试用例，帮助 DevInfra MNT 自动化测试，提升测试效率\n支持公司 AI 类产品做稳定性测试、性能测试、大模型评测，无相关问题逃逸和事故",
+      "2021.05-2023.03 字节跳动 测试开发工程师\n安全质量保障：保障头条及其矩阵产品安全合规，确保不被监管通报甚至下架；确保头条及矩阵产品正常在厂商上架，避免据审；确保无安全合规舆情风险\n自动化建设 ：负责头条移动端 UI 自动化，维护和更新自动化测试用例，主动和自动触发自动化任务，分析自动化测试结果；负责建设头条安全测试能力，包括巡检，自动化等\n业务质量保障：保障头条基础业务需求\n在负责头条业务安全保障工作期间，头条及其矩阵产品未出现监管下架和通报，未出现过厂商下架，未出现过网络安全舆情\n在负责自动化建设期间，常态化自动化任务正常执行，未出现漏放漏测造成的逃逸\n在负责基础业务需求保障工作，期间无 QA 侧需求 delay ，无漏测逃逸。"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2023-03",
+        "end": "2025-01",
+        "company": "字节跳动",
+        "title_en": "Test Development Engineer",
+        "title": "测试开发工程师",
+        "description_en": "Supported Feishu UI automation construction, supported DevInfraMNT automation construction.",
+        "description": "支持飞书 UI 自动化建设，支持 DevInfraMNT 自动化建设",
+        "details_en": [
+          "Supported stability testing, performance testing, and large model effect evaluation for company AI products such as Doubao.",
+          "Helped Feishu Calendar business line build automated test cases, helped DevInfra MNT automated testing, improving testing efficiency.",
+          "Supported stability testing, performance testing, and large model evaluation for company AI products, with no related issues escaping or incidents."
+        ],
+        "details": [
+          "支持公司豆包等 AI 产品稳定性测试、性能测试、大模型效果评测",
+          "帮助飞书日历业务线建设自动化测试用例，帮助 DevInfra MNT 自动化测试，提升测试效率",
+          "支持公司 AI 类产品做稳定性测试、性能测试、大模型评测，无相关问题逃逸和事故"
+        ],
+        "duration_months": 23
+      },
+      {
+        "start": "2021-05",
+        "end": "2023-03",
+        "company": "字节跳动",
+        "title_en": "Test Development Engineer",
+        "title": "测试开发工程师",
+        "description_en": "Safety quality assurance: Ensured safety compliance of Toutiao and its matrix products, preventing regulatory notifications or removals.",
+        "description": "安全质量保障：保障头条及其矩阵产品安全合规，确保不被监管通报甚至下架",
+        "details_en": [
+          "Ensured Toutiao and matrix products were normally listed on vendors, avoiding audits.",
+          "Ensured no safety compliance public opinion risks.",
+          "Automation construction: Responsible for UI automation of Toutiao mobile end, maintaining and updating automated test cases, proactively and automatically triggering automation tasks, analyzing automation test results.",
+          "Responsible for building Toutiao's security testing capabilities, including inspections and automation.",
+          "Business quality assurance: Ensured basic business requirements of Toutiao."
+        ],
+        "details": [
+          "确保头条及矩阵产品正常在厂商上架，避免据审",
+          "确保无安全合规舆情风险",
+          "自动化建设 ：负责头条移动端 UI 自动化，维护和更新自动化测试用例，主动和自动触发自动化任务，分析自动化测试结果",
+          "负责建设头条安全测试能力，包括巡检，自动化等",
+          "业务质量保障：保障头条基础业务需求",
+          "在负责头条业务安全保障工作期间，头条及其矩阵产品未出现监管下架和通报，未出现过厂商下架，未出现过网络安全舆情",
+          "在负责自动化建设期间，常态化自动化任务正常执行，未出现漏放漏测造成的逃逸",
+          "在负责基础业务需求保障工作，期间无 QA 侧需求 delay ，无漏测逃逸"
+        ],
+        "duration_months": 23
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "测试开发、安全测试、大模型测试、稳定性测试",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "测试开发、安全测试、大模型测试、稳定性测试",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.03-2025.01 字节跳动 测试开发工程师\n支持飞书 UI 自动化建设，支持 DevInfraMNT 自动化建设\n支持公司豆包等 AI 产品稳定性测试、性能测试、大模型效果评测\n帮助飞书日历业务线建设自动化测试用例，帮助 DevInfra MNT 自动化测试，提升测试效率\n支持公司 AI 类产品做稳定性测试、性能测试、大模型评测，无相关问题逃逸和事故",
+      "2021.05-2023.03 字节跳动 测试开发工程师\n安全质量保障：保障头条及其矩阵产品安全合规，确保不被监管通报甚至下架；确保头条及矩阵产品正常在厂商上架，避免据审；确保无安全合规舆情风险\n自动化建设 ：负责头条移动端 UI 自动化，维护和更新自动化测试用例，主动和自动触发自动化任务，分析自动化测试结果；负责建设头条安全测试能力，包括巡检，自动化等\n业务质量保障：保障头条基础业务需求\n在负责头条业务安全保障工作期间，头条及其矩阵产品未出现监管下架和通报，未出现过厂商下架，未出现过网络安全舆情\n在负责自动化建设期间，常态化自动化任务正常执行，未出现漏放漏测造成的逃逸\n在负责基础业务需求保障工作，期间无 QA 侧需求 delay ，无漏测逃逸。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-03",
+        "end": "2025-01",
+        "company": "字节跳动",
+        "title_en": "Test Development Engineer",
+        "title": "测试开发工程师",
+        "description_en": "Supported Feishu UI automation construction, supported DevInfraMNT automation construction.",
+        "description": "支持飞书 UI 自动化建设，支持 DevInfraMNT 自动化建设",
+        "details_en": [
+          "Supported stability testing, performance testing, and large model effect evaluation for company AI products such as Doubao.",
+          "Helped Feishu Calendar business line build automated test cases, helped DevInfra MNT automated testing, improving testing efficiency.",
+          "Supported stability testing, performance testing, and large model evaluation for company AI products, with no related issues escaping or incidents."
+        ],
+        "details": [
+          "支持公司豆包等 AI 产品稳定性测试、性能测试、大模型效果评测",
+          "帮助飞书日历业务线建设自动化测试用例，帮助 DevInfra MNT 自动化测试，提升测试效率",
+          "支持公司 AI 类产品做稳定性测试、性能测试、大模型评测，无相关问题逃逸和事故"
+        ],
+        "duration_months": 23,
+        "title_zh": "测试开发工程师",
+        "description_zh": "支持飞书UI自动化构建，支持DevInfraMNT自动化构建。",
+        "details_zh": [
+          "支持了公司AI产品如Doubao的稳定性测试、性能测试和大模型效果评估。",
+          "帮助飞书日历业务线构建自动化测试用例，帮助DevInfra MNT自动化测试，提高测试效率。",
+          "支持公司AI产品的稳定性测试、性能测试和大模型评估，没有相关问题遗漏或事件发生。"
+        ]
+      },
+      {
+        "start": "2021-05",
+        "end": "2023-03",
+        "company": "字节跳动",
+        "title_en": "Test Development Engineer",
+        "title": "测试开发工程师",
+        "description_en": "Safety quality assurance: Ensured safety compliance of Toutiao and its matrix products, preventing regulatory notifications or removals.",
+        "description": "安全质量保障：保障头条及其矩阵产品安全合规，确保不被监管通报甚至下架",
+        "details_en": [
+          "Ensured Toutiao and matrix products were normally listed on vendors, avoiding audits.",
+          "Ensured no safety compliance public opinion risks.",
+          "Automation construction: Responsible for UI automation of Toutiao mobile end, maintaining and updating automated test cases, proactively and automatically triggering automation tasks, analyzing automation test results.",
+          "Responsible for building Toutiao's security testing capabilities, including inspections and automation.",
+          "Business quality assurance: Ensured basic business requirements of Toutiao."
+        ],
+        "details": [
+          "确保头条及矩阵产品正常在厂商上架，避免据审",
+          "确保无安全合规舆情风险",
+          "自动化建设 ：负责头条移动端 UI 自动化，维护和更新自动化测试用例，主动和自动触发自动化任务，分析自动化测试结果",
+          "负责建设头条安全测试能力，包括巡检，自动化等",
+          "业务质量保障：保障头条基础业务需求",
+          "在负责头条业务安全保障工作期间，头条及其矩阵产品未出现监管下架和通报，未出现过厂商下架，未出现过网络安全舆情",
+          "在负责自动化建设期间，常态化自动化任务正常执行，未出现漏放漏测造成的逃逸",
+          "在负责基础业务需求保障工作，期间无 QA 侧需求 delay ，无漏测逃逸"
+        ],
+        "duration_months": 23,
+        "title_zh": "测试开发工程师",
+        "description_zh": "安全质量保证：确保了今日头条及其矩阵产品的安全合规，防止了监管通知或下架。",
+        "details_zh": [
+          "确保今日头条和矩阵产品在供应商上正常上市，避免审计。",
+          "确保没有安全合规的舆论风险。",
+          "自动化建设：负责今日头条移动端的UI自动化，维护和更新自动化测试用例，主动和自动触发自动化任务，分析自动化测试结果。",
+          "负责建立今日头条的安全测试能力，包括检查和自动化。",
+          "业务质量保证：确保了今日头条的基本业务需求。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIagent产品测试工程师深圳2540K王进东4年.md",
+    "md_mostly_english": false
+  }
+}

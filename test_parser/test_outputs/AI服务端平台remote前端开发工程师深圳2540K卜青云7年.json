@@ -1,0 +1,272 @@
+{
+  "file_name": "AI服务端平台remote前端开发工程师深圳2540K卜青云7年.md",
+  "parsed_at": "2025-10-21T16:47:09.604226",
+  "result": {
+    "resume_file_id": null,
+    "name": "卜青云",
+    "email": "18224017933@163.com",
+    "phone": "18224017933",
+    "education_degree": "本科",
+    "education_school": [
+      "四川大学",
+      "Sichuan University 四川大学"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "BD",
+      "DEX",
+      "ETH",
+      "OP",
+      "PR",
+      "RAG",
+      "RPC",
+      "go",
+      "java",
+      "python",
+      "产品",
+      "前端",
+      "后端",
+      "安全",
+      "测试",
+      "行政",
+      "设计",
+      "运维"
+    ],
+    "skills": [
+      "Vue",
+      "React",
+      "Angular",
+      "NuxtJS",
+      "NextJS",
+      "NestJS",
+      "Go",
+      "C++",
+      "C",
+      "Python",
+      "Git",
+      "Nginx",
+      "Jenkins",
+      "Makefile",
+      "Docker",
+      "Linux",
+      "BitTorrent",
+      "WebTorrent",
+      "WebSocket",
+      "WebCodecs",
+      "FFmpeg",
+      "WebAssembly",
+      "LLMs",
+      "Agent",
+      "RAG",
+      "MCP"
+    ],
+    "work_experience": [
+      "2023.03 - 至今 | Bittorrent | 前端工程师 | 基于 WebTorrent (底层 WebRTC) 开发浏览器端流媒体播放客户端，实现与 BitTorrent 协议层互通。参与维护 JavaScript 版本的 BitTorrent 实现，扩展底层激励机制算法。开发 WebAssembly 视频处理引擎。剪裁 FFmpeg 核心功能 [libavformat, libavcodec]，通过 Emscripten 编译为 WebAssembly 模块，实现无服务端的视频处理。集成 WebCodecs API 提升原生环境下的视频编解码效率。采用 Web Workers 多线程架构，优化 IndexedDB 与 OPFS 混合存储方案。完成多端适配与测试，支持移动端、平板等设备。",
+      "2022.04 - 2022.07 | 字节跳动 | 抖音开放平台 | 前端工程师 | 主导 UI 规范设计，独立完成抖音小程序第三方平台重构，技术栈从 Vue+Go 升级为 React+Gulu (类 Koa 框架)。BFF 层 HTTP 服务接入 Thrift 协议，实现高效 RPC 调用。采用 Monorepo 管理，基于 Garfish 实现微前端微应用架构。项目获得抖音 56 双月优秀项目奖。",
+      "2021.07 - 2022.04 | 深圳虾皮信息科技有限公司 | 工程架构-监控平台组 | 前端工程师 | 负责 Promethus 云原生监控平台的服务接入与告警业务开发。参与维护 Storybook 组件库，管理前端依赖。自主研发基于 JSON Schema 的动态表单系统，主导组件物料库和表单渲染引擎的设计与开发，采用 DAG 管理字段依赖关系，解决字段循环依赖等复杂逻辑问题，显著提升告警规则配置的易用性和灵活性。",
+      "2020.04 - 2021.06 | 华为技术有限公司 | 云核心网-云通信服务组 | 前端工程师 | 担任前端代码 Committer，负责代码 (Angular / React) 上线及仓库分支管理。主导核心服务的前端重构，制定团队代码提交、UI 交互及部署等规范。承担新人培训及技术分享任务，提升团队整体技术能力与协作效率。",
+      "2018.07 - 2019.07 | 恒大地产集团有限公司 | 应用系统工程师 | 参与基于 BPM 流程的审批流模块设计与实现，支持流程编排及 XML 配置的动态更新，提升流程灵活性。负责内部行政人事系统及 SAP 系统维护，组织用户培训。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "PocketFlow (Agent Framework) | 轻量级 Agent Framework，支持多种 Agent 范式，Workflow，Rag，MultiAgent，MapReduce 等，参与 TypeScript 版本的相关维护，优化重构 CLI 支持管理模板和包管理工具，提升开发体验，探索实践更多 Agent 应用。",
+      "Agentic Wiki（VSC Extension） | 独立开发的 VS Code Extension，基于 PocketFlow 的 Agent Workflow 能力，自动为代码库生成全面的文档。构建智能代码库分析系统，识别关键概念并组织文档结构。实现可配置的 UI 面板，用于管理参数（代码路径、输出目标、过滤器、缓存等）。基于 VSC GlobalState 开发持久化配置系统，实现跨 WorkSpace 同步。集成 OPENAI SDK 和 OpenRouter API，优先考虑免费模型以提高可访问性。利用 VSC Secret Storage 开发安全的凭证管理系统，用于存储 API 密钥。构建高效缓存架构，支持增量更新和强制重新生成选项。设计直观的用户体验，通过 VSC Progress API 实现实时进度可视化。",
+      "KoaJS | 参与 koa-cors、koa-session、koa-jwt、koa-logger 等模块的维护更新计划，参与 Koa 支持 Deno、Bun 等多平台的重构。",
+      "文档翻译 | 参与 Webpack/React 等官方文档翻译及维护。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-03",
+        "end": "2025-10",
+        "company": "| Bittorrent |",
+        "title": "前端工程师 | 基于 WebTorrent (底层 WebRTC) 开发浏览器端流媒体播放客户端",
+        "description": "，实现与 BitTorrent 协议层互通。参与维护 JavaScript 版本的 BitTorrent 实现，扩展底层激励机制算法。开发 WebAssembly 视频处理引擎。剪裁 FFmpeg 核心功能 [libavformat, libavcodec]，通过 Emscripten 编译为 WebAssembly 模块，实现无服务端的视频处理。集成 WebCodecs API 提升原生环境下的视频编解码效率。采用 Web Workers 多线程架构，优化 IndexedDB 与 OPFS 混合存储方案。完成多端适配与测试，支持移动端、平板等设备。",
+        "duration_months": 32
+      },
+      {
+        "start": "2022-04",
+        "end": "2022-07",
+        "company": "| 字节跳动 | 抖音开放平台 |",
+        "title": "前端工程师 | 主导 UI 规范设计",
+        "description": "，独立完成抖音小程序第三方平台重构，技术栈从 Vue+Go 升级为 React+Gulu (类 Koa 框架)。BFF 层 HTTP 服务接入 Thrift 协议，实现高效 RPC 调用。采用 Monorepo 管理，基于 Garfish 实现微前端微应用架构。项目获得抖音 56 双月优秀项目奖。",
+        "duration_months": 4
+      },
+      {
+        "start": "2021-07",
+        "end": "2022-04",
+        "company": "| 深圳虾皮信息科技有限公司 | 工程架构-监控平台组 |",
+        "title": "前端工程师 | 负责 Promethus 云原生监控平台的服务接入与告警业务开发",
+        "description": "。参与维护 Storybook 组件库，管理前端依赖。自主研发基于 JSON Schema 的动态表单系统，主导组件物料库和表单渲染引擎的设计与开发，采用 DAG 管理字段依赖关系，解决字段循环依赖等复杂逻辑问题，显著提升告警规则配置的易用性和灵活性。",
+        "duration_months": 10
+      },
+      {
+        "start": "2020-04",
+        "end": "2021-06",
+        "company": "| 华为技术有限公司 | 云核心网-云通信服务组 |",
+        "title": "前端工程师 | 担任前端代码 Committer",
+        "description": "，负责代码 (Angular / React) 上线及仓库分支管理。主导核心服务的前端重构，制定团队代码提交、UI 交互及部署等规范。承担新人培训及技术分享任务，提升团队整体技术能力与协作效率。",
+        "duration_months": 15
+      },
+      {
+        "start": "2018-07",
+        "end": "2019-07",
+        "company": "| 恒大地产集团有限公司 | 应用系统",
+        "title": "工程师 | 参与基于 BPM 流程的审批流模块设计与实现",
+        "description": "，支持流程编排及 XML 配置的动态更新，提升流程灵活性。负责内部行政人事系统及 SAP 系统维护，组织用户培训。",
+        "duration_months": 13
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "PocketFlow (Agent Framework",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "轻量级 Agent Framework，支持多种 Agent 范式，Workflow，Rag，MultiAgent，MapReduce 等，参与 TypeScript 版本的相关维护，优化重构 CLI 支持管理模板和包管理工具，提升开发体验，探索实践更多 Agent 应用。",
+        "details_en": null,
+        "details": [
+          "轻量级 Agent Framework，支持多种 Agent 范式，Workflow，Rag，MultiAgent，MapReduce 等",
+          "参与 TypeScript 版本的相关维护",
+          "优化重构 CLI 支持管理模板和包管理工具",
+          "提升开发体验",
+          "探索实践更多 Agent 应用"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Agentic Wiki（VSC Extension",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "独立开发的 VS Code Extension，基于 PocketFlow 的 Agent Workflow 能力，自动为代码库生成全面的文档。构建智能代码库分析系统，识别关键概念并组织文档结构。实现可配置的 UI 面板，用于管理参数（代码路径、输出目标、过滤器、缓存等）。基于 VSC GlobalState 开发持久化配置系统，实现跨 WorkSpace 同步。集成 OPENAI SDK 和 OpenRouter API，优先考虑免费模型以提高可访问性。利用 VSC Secret Storage 开发安全的凭证管理系统，用于存储 API 密钥。构建高效缓存架构，支持增量更新和强制重新生成选项。设计直观的用户体验，通过 VSC Progress API 实现实时进度可视化。",
+        "details_en": null,
+        "details": [
+          "独立开发的 VS Code Extension，基于 PocketFlow 的 Agent Workflow 能力，自动为代码库生成全面的文档",
+          "构建智能代码库分析系统，识别关键概念并组织文档结构",
+          "实现可配置的 UI 面板，用于管理参数（代码路径、输出目标、过滤器、缓存等）",
+          "基于 VSC GlobalState 开发持久化配置系统，实现跨 WorkSpace 同步",
+          "集成 OPENAI SDK 和 OpenRouter API，优先考虑免费模型以提高可访问性",
+          "利用 VSC Secret Storage 开发安全的凭证管理系统，用于存储 API 密钥",
+          "构建高效缓存架构，支持增量更新和强制重新生成选项",
+          "设计直观的用户体验，通过 VSC Progress API 实现实时进度可视化"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "KoaJS",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "参与 koa-cors、koa-session、koa-jwt、koa-logger 等模块的维护更新计划，参与 Koa 支持 Deno、Bun 等多平台的重构。",
+        "details_en": null,
+        "details": [
+          "参与 koa-cors、koa-session、koa-jwt、koa-logger 等模块的维护更新计划",
+          "参与 Koa 支持 Deno、Bun 等多平台的重构"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "文档翻译",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "参与 Webpack/React 等官方文档翻译及维护。",
+        "details_en": null,
+        "details": [
+          "参与 Webpack/React 等官方文档翻译及维护"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "英语四级，听说读写能力良好，阅读/翻译英文文档。对 AI Agent 领域充满热情，了解 LLMs、Agent、RAG、MCP 等前沿技术，关注 HuggingFace、OpenAI 等生态与社区。",
+    "other": null,
+    "work_years": 4,
+    "self_evaluation_zh": "英语四级，听说读写能力良好，阅读/翻译英文文档。对 AI Agent 领域充满热情，了解 LLMs、Agent、RAG、MCP 等前沿技术，关注 HuggingFace、OpenAI 等生态与社区。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.03 - 至今 | Bittorrent | 前端工程师 | 基于 WebTorrent (底层 WebRTC) 开发浏览器端流媒体播放客户端，实现与 BitTorrent 协议层互通。参与维护 JavaScript 版本的 BitTorrent 实现，扩展底层激励机制算法。开发 WebAssembly 视频处理引擎。剪裁 FFmpeg 核心功能 [libavformat, libavcodec]，通过 Emscripten 编译为 WebAssembly 模块，实现无服务端的视频处理。集成 WebCodecs API 提升原生环境下的视频编解码效率。采用 Web Workers 多线程架构，优化 IndexedDB 与 OPFS 混合存储方案。完成多端适配与测试，支持移动端、平板等设备。",
+      "2022.04 - 2022.07 | 字节跳动 | 抖音开放平台 | 前端工程师 | 主导 UI 规范设计，独立完成抖音小程序第三方平台重构，技术栈从 Vue+Go 升级为 React+Gulu (类 Koa 框架)。BFF 层 HTTP 服务接入 Thrift 协议，实现高效 RPC 调用。采用 Monorepo 管理，基于 Garfish 实现微前端微应用架构。项目获得抖音 56 双月优秀项目奖。",
+      "2021.07 - 2022.04 | 深圳虾皮信息科技有限公司 | 工程架构-监控平台组 | 前端工程师 | 负责 Promethus 云原生监控平台的服务接入与告警业务开发。参与维护 Storybook 组件库，管理前端依赖。自主研发基于 JSON Schema 的动态表单系统，主导组件物料库和表单渲染引擎的设计与开发，采用 DAG 管理字段依赖关系，解决字段循环依赖等复杂逻辑问题，显著提升告警规则配置的易用性和灵活性。",
+      "2020.04 - 2021.06 | 华为技术有限公司 | 云核心网-云通信服务组 | 前端工程师 | 担任前端代码 Committer，负责代码 (Angular / React) 上线及仓库分支管理。主导核心服务的前端重构，制定团队代码提交、UI 交互及部署等规范。承担新人培训及技术分享任务，提升团队整体技术能力与协作效率。",
+      "2018.07 - 2019.07 | 恒大地产集团有限公司 | 应用系统工程师 | 参与基于 BPM 流程的审批流模块设计与实现，支持流程编排及 XML 配置的动态更新，提升流程灵活性。负责内部行政人事系统及 SAP 系统维护，组织用户培训。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "PocketFlow (Agent Framework) | 轻量级 Agent Framework，支持多种 Agent 范式，Workflow，Rag，MultiAgent，MapReduce 等，参与 TypeScript 版本的相关维护，优化重构 CLI 支持管理模板和包管理工具，提升开发体验，探索实践更多 Agent 应用。",
+      "Agentic Wiki（VSC Extension） | 独立开发的 VS Code Extension，基于 PocketFlow 的 Agent Workflow 能力，自动为代码库生成全面的文档。构建智能代码库分析系统，识别关键概念并组织文档结构。实现可配置的 UI 面板，用于管理参数（代码路径、输出目标、过滤器、缓存等）。基于 VSC GlobalState 开发持久化配置系统，实现跨 WorkSpace 同步。集成 OPENAI SDK 和 OpenRouter API，优先考虑免费模型以提高可访问性。利用 VSC Secret Storage 开发安全的凭证管理系统，用于存储 API 密钥。构建高效缓存架构，支持增量更新和强制重新生成选项。设计直观的用户体验，通过 VSC Progress API 实现实时进度可视化。",
+      "KoaJS | 参与 koa-cors、koa-session、koa-jwt、koa-logger 等模块的维护更新计划，参与 Koa 支持 Deno、Bun 等多平台的重构。",
+      "文档翻译 | 参与 Webpack/React 等官方文档翻译及维护。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-03",
+        "end": "2025-10",
+        "company": "| Bittorrent |",
+        "title": "前端工程师 | 基于 WebTorrent (底层 WebRTC) 开发浏览器端流媒体播放客户端",
+        "description": "，实现与 BitTorrent 协议层互通。参与维护 JavaScript 版本的 BitTorrent 实现，扩展底层激励机制算法。开发 WebAssembly 视频处理引擎。剪裁 FFmpeg 核心功能 [libavformat, libavcodec]，通过 Emscripten 编译为 WebAssembly 模块，实现无服务端的视频处理。集成 WebCodecs API 提升原生环境下的视频编解码效率。采用 Web Workers 多线程架构，优化 IndexedDB 与 OPFS 混合存储方案。完成多端适配与测试，支持移动端、平板等设备。",
+        "duration_months": 32,
+        "title_zh": "前端工程师 | 基于 WebTorrent (底层 WebRTC) 开发浏览器端流媒体播放客户端",
+        "description_zh": "，实现与 BitTorrent 协议层互通。参与维护 JavaScript 版本的 BitTorrent 实现，扩展底层激励机制算法。开发 WebAssembly 视频处理引擎。剪裁 FFmpeg 核心功能 [libavformat, libavcodec]，通过 Emscripten 编译为 WebAssembly 模块，实现无服务端的视频处理。集成 WebCodecs API 提升原生环境下的视频编解码效率。采用 Web Workers 多线程架构，优化 IndexedDB 与 OPFS 混合存储方案。完成多端适配与测试，支持移动端、平板等设备。"
+      },
+      {
+        "start": "2022-04",
+        "end": "2022-07",
+        "company": "| 字节跳动 | 抖音开放平台 |",
+        "title": "前端工程师 | 主导 UI 规范设计",
+        "description": "，独立完成抖音小程序第三方平台重构，技术栈从 Vue+Go 升级为 React+Gulu (类 Koa 框架)。BFF 层 HTTP 服务接入 Thrift 协议，实现高效 RPC 调用。采用 Monorepo 管理，基于 Garfish 实现微前端微应用架构。项目获得抖音 56 双月优秀项目奖。",
+        "duration_months": 4,
+        "title_zh": "前端工程师 | 主导 UI 规范设计",
+        "description_zh": "，独立完成抖音小程序第三方平台重构，技术栈从 Vue+Go 升级为 React+Gulu (类 Koa 框架)。BFF 层 HTTP 服务接入 Thrift 协议，实现高效 RPC 调用。采用 Monorepo 管理，基于 Garfish 实现微前端微应用架构。项目获得抖音 56 双月优秀项目奖。"
+      },
+      {
+        "start": "2021-07",
+        "end": "2022-04",
+        "company": "| 深圳虾皮信息科技有限公司 | 工程架构-监控平台组 |",
+        "title": "前端工程师 | 负责 Promethus 云原生监控平台的服务接入与告警业务开发",
+        "description": "。参与维护 Storybook 组件库，管理前端依赖。自主研发基于 JSON Schema 的动态表单系统，主导组件物料库和表单渲染引擎的设计与开发，采用 DAG 管理字段依赖关系，解决字段循环依赖等复杂逻辑问题，显著提升告警规则配置的易用性和灵活性。",
+        "duration_months": 10,
+        "title_zh": "前端工程师 | 负责 Promethus 云原生监控平台的服务接入与告警业务开发",
+        "description_zh": "。参与维护 Storybook 组件库，管理前端依赖。自主研发基于 JSON Schema 的动态表单系统，主导组件物料库和表单渲染引擎的设计与开发，采用 DAG 管理字段依赖关系，解决字段循环依赖等复杂逻辑问题，显著提升告警规则配置的易用性和灵活性。"
+      },
+      {
+        "start": "2020-04",
+        "end": "2021-06",
+        "company": "| 华为技术有限公司 | 云核心网-云通信服务组 |",
+        "title": "前端工程师 | 担任前端代码 Committer",
+        "description": "，负责代码 (Angular / React) 上线及仓库分支管理。主导核心服务的前端重构，制定团队代码提交、UI 交互及部署等规范。承担新人培训及技术分享任务，提升团队整体技术能力与协作效率。",
+        "duration_months": 15,
+        "title_zh": "前端工程师 | 担任前端代码 Committer",
+        "description_zh": "，负责代码 (Angular / React) 上线及仓库分支管理。主导核心服务的前端重构，制定团队代码提交、UI 交互及部署等规范。承担新人培训及技术分享任务，提升团队整体技术能力与协作效率。"
+      },
+      {
+        "start": "2018-07",
+        "end": "2019-07",
+        "company": "| 恒大地产集团有限公司 | 应用系统",
+        "title": "工程师 | 参与基于 BPM 流程的审批流模块设计与实现",
+        "description": "，支持流程编排及 XML 配置的动态更新，提升流程灵活性。负责内部行政人事系统及 SAP 系统维护，组织用户培训。",
+        "duration_months": 13,
+        "title_zh": "工程师 | 参与基于 BPM 流程的审批流模块设计与实现",
+        "description_zh": "，支持流程编排及 XML 配置的动态更新，提升流程灵活性。负责内部行政人事系统及 SAP 系统维护，组织用户培训。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI服务端平台remote前端开发工程师深圳2540K卜青云7年.md",
+    "md_mostly_english": false
+  }
+}

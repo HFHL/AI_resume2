@@ -1,0 +1,186 @@
+{
+  "file_name": "AIweb3数据工程师上海3550K龙威铭5年.md",
+  "parsed_at": "2025-10-21T16:41:52.805179",
+  "result": {
+    "resume_file_id": null,
+    "name": "龙威铭",
+    "email": "weiming.long@outlook.com",
+    "phone": null,
+    "education_degree": null,
+    "education_school": [
+      "George Washington University 乔治·华盛顿大学",
+      "乔治华盛顿大学"
+    ],
+    "education_major": "计算机科学－辅修工商管理",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "LangChain",
+      "OP",
+      "PR",
+      "go",
+      "java",
+      "python",
+      "交易",
+      "产品",
+      "借贷",
+      "做市",
+      "区块链开发",
+      "合约",
+      "合规",
+      "向量数据库",
+      "回测",
+      "市场",
+      "数据分析",
+      "数据开发",
+      "智能体",
+      "期权",
+      "期货",
+      "流动性",
+      "衍生品",
+      "设计",
+      "运营",
+      "量化",
+      "量化开发",
+      "量化策略",
+      "项目经理",
+      "高净值"
+    ],
+    "skills": [
+      "Python",
+      "SQL",
+      "Java",
+      "Trading Strategy Concepts",
+      "Financial Markets",
+      "LLMs",
+      "AI Agent",
+      "Prompt Engineering",
+      "Hadoop",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Milvus",
+      "Clickhouse"
+    ],
+    "work_experience": [
+      "2021.05 – 2024.08 飞未云科 Flywheel Digital 数据工程师 – 东南亚电商业务线 在 Hadoop 框架下开发并优化大规模基于 Spark 的 ETL 工作流，处理来自 10+ 个国家的每日数亿条爬虫数据，助力复杂的下游分析，并确保电商市场情报的及时数据可用性。从零开始构建 13+ 个东南亚市场份额解决方案的核心数据基础设施（包括管道、仓储和 Airflow 自动化），使用 Python 和 AWS 服务，为数据高质量交付奠定基础，支持客户群体的显著扩张（两年内从 1 个增至 13 个客户）。在内部技术团队与东南亚外部客户团队之间架起桥梁，有效沟通以确保项目范围和数据解决方案的一致理解。",
+      "2024.08 – 2025.05 Trademind AI 联合创始人 共同创立 Trademind AI（一款面向加密货币/股票的交易策略生成及回测平台），在战略愿景和产品定义方面作出重要贡献，并将这些概念转化为初期的技术路线图和系统架构。主导 MVP 的技术设计与开发，整合 AI Agent 框架、大型语言模型（LLMs）、向量数据库、数据 API、回测框架以及 AWS 服务，构建核心交易策略生成、回测、数据收集及市场分析功能。积极支持初期融资工作，利用技术专长协助制作路演资料，并参与向中国大陆、香港及美国的风投公司和加速器项目进行展示。"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2021-05",
+        "end": "2024-08",
+        "company": "飞未云科 Flywheel Digital",
+        "title_en": "Data Engineer",
+        "title": "数据工程师",
+        "description_en": "Developed and optimized large-scale Spark-based ETL workflows under the Hadoop framework, processing hundreds of millions of crawler data daily from over 10 countries, aiding complex downstream analysis and ensuring timely data availability for e-commerce market intelligence.",
+        "description": "在 Hadoop 框架下开发并优化大规模基于 Spark 的 ETL 工作流，处理来自 10+ 个国家的每日数亿条爬虫数据，助力复杂的下游分析，并确保电商市场情报的及时数据可用性。",
+        "details_en": [
+          "Built core data infrastructure for 13+ Southeast Asian market share solutions from scratch (including pipelines, warehousing, and Airflow automation)",
+          "Used Python and AWS services to lay the foundation for high-quality data delivery, supporting significant expansion of the customer base (from 1 to 13 customers in two years)",
+          "Acted as a bridge between internal tech teams and external customer teams in Southeast Asia, effectively communicating to ensure a consistent understanding of project scope and data solutions"
+        ],
+        "details": [
+          "从零开始构建 13+ 个东南亚市场份额解决方案的核心数据基础设施（包括管道、仓储和 Airflow 自动化）",
+          "使用 Python 和 AWS 服务，为数据高质量交付奠定基础，支持客户群体的显著扩张（两年内从 1 个增至 13 个客户）",
+          "在内部技术团队与东南亚外部客户团队之间架起桥梁，有效沟通以确保项目范围和数据解决方案的一致理解"
+        ],
+        "duration_months": 40
+      },
+      {
+        "start": "2024-08",
+        "end": "2025-05",
+        "company": "Trademind AI",
+        "title_en": "Co-founder",
+        "title": "联合创始人",
+        "description_en": "Co-founded Trademind AI, a trading strategy generation and backtesting platform for cryptocurrencies/stocks, making significant contributions to strategic vision and product definition, and translating these concepts into an initial technical roadmap and system architecture.",
+        "description": "共同创立 Trademind AI（一款面向加密货币/股票的交易策略生成及回测平台），在战略愿景和产品定义方面作出重要贡献，并将这些概念转化为初期的技术路线图和系统架构。",
+        "details_en": [
+          "Led the technical design and development of the MVP, integrating AI Agent frameworks, large language models (LLMs), vector databases, data APIs, backtesting frameworks, and AWS services to build core trading strategy generation, backtesting, data collection, and market analysis functionalities",
+          "Actively supported early-stage fundraising efforts, leveraging technical expertise to assist in creating pitch materials and participated in presentations to venture capital firms and accelerator programs in mainland China, Hong Kong, and the United States"
+        ],
+        "details": [
+          "主导 MVP 的技术设计与开发，整合 AI Agent 框架、大型语言模型（LLMs）、向量数据库、数据 API、回测框架以及 AWS 服务，构建核心交易策略生成、回测、数据收集及市场分析功能",
+          "积极支持初期融资工作，利用技术专长协助制作路演资料，并参与向中国大陆、香港及美国的风投公司和加速器项目进行展示"
+        ],
+        "duration_months": 10
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 3,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.05 – 2024.08 飞未云科 Flywheel Digital 数据工程师 – 东南亚电商业务线 在 Hadoop 框架下开发并优化大规模基于 Spark 的 ETL 工作流，处理来自 10+ 个国家的每日数亿条爬虫数据，助力复杂的下游分析，并确保电商市场情报的及时数据可用性。从零开始构建 13+ 个东南亚市场份额解决方案的核心数据基础设施（包括管道、仓储和 Airflow 自动化），使用 Python 和 AWS 服务，为数据高质量交付奠定基础，支持客户群体的显著扩张（两年内从 1 个增至 13 个客户）。在内部技术团队与东南亚外部客户团队之间架起桥梁，有效沟通以确保项目范围和数据解决方案的一致理解。",
+      "2024.08 – 2025.05 Trademind AI 联合创始人 共同创立 Trademind AI（一款面向加密货币/股票的交易策略生成及回测平台），在战略愿景和产品定义方面作出重要贡献，并将这些概念转化为初期的技术路线图和系统架构。主导 MVP 的技术设计与开发，整合 AI Agent 框架、大型语言模型（LLMs）、向量数据库、数据 API、回测框架以及 AWS 服务，构建核心交易策略生成、回测、数据收集及市场分析功能。积极支持初期融资工作，利用技术专长协助制作路演资料，并参与向中国大陆、香港及美国的风投公司和加速器项目进行展示。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-05",
+        "end": "2024-08",
+        "company": "飞未云科 Flywheel Digital",
+        "title_en": "Data Engineer",
+        "title": "数据工程师",
+        "description_en": "Developed and optimized large-scale Spark-based ETL workflows under the Hadoop framework, processing hundreds of millions of crawler data daily from over 10 countries, aiding complex downstream analysis and ensuring timely data availability for e-commerce market intelligence.",
+        "description": "在 Hadoop 框架下开发并优化大规模基于 Spark 的 ETL 工作流，处理来自 10+ 个国家的每日数亿条爬虫数据，助力复杂的下游分析，并确保电商市场情报的及时数据可用性。",
+        "details_en": [
+          "Built core data infrastructure for 13+ Southeast Asian market share solutions from scratch (including pipelines, warehousing, and Airflow automation)",
+          "Used Python and AWS services to lay the foundation for high-quality data delivery, supporting significant expansion of the customer base (from 1 to 13 customers in two years)",
+          "Acted as a bridge between internal tech teams and external customer teams in Southeast Asia, effectively communicating to ensure a consistent understanding of project scope and data solutions"
+        ],
+        "details": [
+          "从零开始构建 13+ 个东南亚市场份额解决方案的核心数据基础设施（包括管道、仓储和 Airflow 自动化）",
+          "使用 Python 和 AWS 服务，为数据高质量交付奠定基础，支持客户群体的显著扩张（两年内从 1 个增至 13 个客户）",
+          "在内部技术团队与东南亚外部客户团队之间架起桥梁，有效沟通以确保项目范围和数据解决方案的一致理解"
+        ],
+        "duration_months": 40,
+        "title_zh": "数据工程师",
+        "description_zh": "在Hadoop框架下开发和优化基于Spark的大规模ETL工作流，每天处理来自10多个国家的数亿条爬虫数据，帮助复杂的下游分析，并确保电子商务市场情报的及时数据可用性。",
+        "details_zh": [
+          "从零开始为13个以上东南亚市场份额解决方案构建核心数据基础设施（包括管道、仓储和Airflow自动化）",
+          "使用Python和AWS服务为高质量数据交付奠定基础，支持客户基础的显著扩展（在两年内从1个客户扩展到13个客户）",
+          "充当东南亚内部技术团队和外部客户团队之间的桥梁，有效沟通以确保对项目范围和数据解决方案的一致理解。"
+        ]
+      },
+      {
+        "start": "2024-08",
+        "end": "2025-05",
+        "company": "Trademind AI",
+        "title_en": "Co-founder",
+        "title": "联合创始人",
+        "description_en": "Co-founded Trademind AI, a trading strategy generation and backtesting platform for cryptocurrencies/stocks, making significant contributions to strategic vision and product definition, and translating these concepts into an initial technical roadmap and system architecture.",
+        "description": "共同创立 Trademind AI（一款面向加密货币/股票的交易策略生成及回测平台），在战略愿景和产品定义方面作出重要贡献，并将这些概念转化为初期的技术路线图和系统架构。",
+        "details_en": [
+          "Led the technical design and development of the MVP, integrating AI Agent frameworks, large language models (LLMs), vector databases, data APIs, backtesting frameworks, and AWS services to build core trading strategy generation, backtesting, data collection, and market analysis functionalities",
+          "Actively supported early-stage fundraising efforts, leveraging technical expertise to assist in creating pitch materials and participated in presentations to venture capital firms and accelerator programs in mainland China, Hong Kong, and the United States"
+        ],
+        "details": [
+          "主导 MVP 的技术设计与开发，整合 AI Agent 框架、大型语言模型（LLMs）、向量数据库、数据 API、回测框架以及 AWS 服务，构建核心交易策略生成、回测、数据收集及市场分析功能",
+          "积极支持初期融资工作，利用技术专长协助制作路演资料，并参与向中国大陆、香港及美国的风投公司和加速器项目进行展示"
+        ],
+        "duration_months": 10,
+        "title_zh": "联合创始人",
+        "description_zh": "共同创立了Trademind AI，这是一个用于加密货币/股票的交易策略生成和回测平台，为战略愿景和产品定义做出了重要贡献，并将这些概念转化为初步的技术路线图和系统架构。",
+        "details_zh": [
+          "领导了MVP的技术设计和开发，整合了AI Agent框架、大型语言模型（LLMs）、向量数据库、数据API、回测框架和AWS服务，以构建核心交易策略生成、回测、数据收集和市场分析功能。",
+          "积极支持早期筹款工作，利用技术专长协助制作推介材料，并参与向中国大陆、香港和美国的风险投资公司及加速器项目的演示。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3数据工程师上海3550K龙威铭5年.md",
+    "md_mostly_english": false
+  }
+}

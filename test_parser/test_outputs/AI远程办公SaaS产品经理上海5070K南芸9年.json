@@ -1,0 +1,58 @@
+{
+  "file_name": "AI远程办公SaaS产品经理上海5070K南芸9年.md",
+  "parsed_at": "2025-10-21T16:53:34.559364",
+  "result": {
+    "resume_file_id": null,
+    "name": "未知",
+    "email": "nanyunnju@163.com",
+    "phone": "15905198608",
+    "education_degree": "硕士",
+    "education_school": [
+      "香港大学",
+      "The University of Hong Kong 香港大学",
+      "南京大学",
+      "Nanjing University 南京大学"
+    ],
+    "education_major": null,
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "PR",
+      "RAG",
+      "python",
+      "产品",
+      "增长",
+      "大模型",
+      "市场",
+      "数据分析",
+      "智能体",
+      "机构",
+      "测试",
+      "设计",
+      "运营",
+      "风控"
+    ],
+    "skills": null,
+    "work_experience": null,
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": null,
+    "project_experience_struct": null,
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 6,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": null,
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI远程办公SaaS产品经理上海5070K南芸9年.md",
+    "md_mostly_english": false
+  }
+}

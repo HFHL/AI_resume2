@@ -1,0 +1,221 @@
+{
+  "file_name": "AGI远程社区经理上海3060K陶先生1年.md",
+  "parsed_at": "2025-10-21T15:40:10.395286",
+  "result": {
+    "resume_file_id": null,
+    "name": "陶 晨",
+    "email": "sleabc123456@163.com",
+    "phone": "18302188505",
+    "education_degree": "研究生",
+    "education_school": [
+      "上海财经大学"
+    ],
+    "education_major": "国际商务",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "BD",
+      "PR",
+      "产品",
+      "增长",
+      "市场",
+      "投资",
+      "数据分析",
+      "法务",
+      "测试",
+      "设计",
+      "财务",
+      "运营",
+      "销售"
+    ],
+    "skills": [
+      "国际经济与贸易",
+      "财务分析",
+      "法律合规",
+      "项目管理",
+      "用户调查",
+      "数据分析"
+    ],
+    "work_experience": [
+      "2023.11-至今 南方基金上海分公司 银行渠道岗 负责上海（部分）、厦门区域的银行分支行的开拓与维护工作；牵头华夏银行，对接维护工行、招行、中信、中行、邮储、交行、广发等辖内支行，破冰工行闵行、巩固挖掘中信、中行等非传统强势行、修复招行、邮储、交行等渠道合作关系，今年以来中信银行南方津享稳健添利债券与南方智信混合持营每月完成率稳居上海前二，首批浮动费率南方瑞享混合排名上海第一，中国银行南方 A500 指数增强完成率超 200%；独立设计并组织实施面向代销合作伙伴的培训体系与课程，累计开展培训 50+场，覆盖超 500 人次，有效提升了代销合作伙伴的业务推动能力和产品认知；牵头组织公司第二十五届中国国际投资贸易洽谈会项目，统筹协调内外部资源，全面负责公司活动策划、现场宣讲与落地执行，确保活动效果与公司品牌曝光最大化"
+    ],
+    "internship_experience": [
+      "2023.6-2023.10 海通证券投行 TMT 组 股权承做岗 深度参与某芯片设计上市公司再融资项目各项工作，财务条线：制作并核对了公司三年一期 200余份银行账户函证与客户供应商函证，并独立撰写项目立项报告中财务分析的部分；法务条线：制作了 16 份董监高调查表，梳理了公司目前存在的所有关联方，并独立撰写项目立项报告、尽调报告与募集说明书中公司基本情况、历史沿革、法律处罚、关联方情况及董监高情况部分；业务条线：陪同参与了 7次与公司负责人的募投计划会议，详细制作了会议纪要，并撰写了立项报告中本次发行方案的部分",
+      "2023.3-2023.6 中信建投投行部 股权承做岗 参与某北京工程行业 IPO项目前期尽调工作，主要负责整理北交所同行业公司反馈回复，板块定位梳理与可比公司确定，协助查找项目前期尽调案例，包括组织架构不全导致的舞弊问题、GP 与 LP 关于股息红利的税率研究等；参与某上海可转债项目底稿制作与注册制下平移工作，包括更新财务数据，独立撰写新增产能合理性的反馈回复等；其余支持性工作：制作全面注册制下对股权资本市场理解的 PPT，独立制作某电影发行与放映企业再融资项目 pitchbook 等",
+      "2022.9-2023.2 海通证券投行部 股权承做岗 深度参与国内某工业软件企业的科创板 IPO 项目，该项目现已上市；主要跟进项目答反馈阶段，负责财务条线：通过整理包括合同、中标通知书、培训签到单、验收单等 2000 余份凭证，完成对部分收入的细节测试、截止性测试等实质性测试；通过整理总结合同内容、财务报表等资料分析发行人持续经营能力等情况，完成招股书中风险章节部分内容的撰写；业务条线：深入研究国内外同行业可比公司相关产品技术情况，讨论国内外可比公司同一细分领域下的产品功能、求解算法、应用领域等情况，分析发行人在该领域的技术先进性及我国该行业的发展历程，完成反馈中相关问题的撰写；独立完成 10 份案例研究，包括募投资金用于营销网络建设的必要性、可比公司即征即退情况等",
+      "2021.1-2021.4 国泰君安投行部 股权承做岗 深度参与国内某汽车零部件制造企业的科创板上市项目，研究汽车零部件企业有关收入确认的审核关注点；完成专题案例的整理，包括部分一致行动协议人确定为实际控制人的情况、公司发行估值与 Pre-IPO 轮融资",
+      "2020.6-2020.8 英德知市场咨询 助理研究员 协助团队设计尤妮佳品牌旗下化妆棉的用户调查问卷，了解受访用户的使用满意度，并撰写消费者偏好调研报告"
+    ],
+    "project_experience": [
+      "2020 年上海市大学生社会实践项目大赛 组 长 围绕国际前沿的公共交通“三因素”理论，自主设计问卷，利用 R 语言分析 405 份样本数据，研究总结了疫情期间上海轨道交通客流的影响因素并提出了有关疫情期间优化轨道交通常规服务和落实基础防疫工作的运营对策与建议；项目成果被上财青年、公共管制学教研园地等多个社会组织公众号转发，并获得上海市三等奖",
+      "上海财经大学 18 级国际经济与贸易班班长 领导班委组织了数十次班级活动，包括团日活动、阅读经典等文体活动、实习招聘发布工作等；班级在2019-2020 学年被评为校级文明班级"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-11",
+        "end": "present",
+        "company": "南方基金上海分公司",
+        "title_en": "Bank Channel Position",
+        "title": "银行渠道岗",
+        "description_en": "Responsible for the development and maintenance of bank branches in Shanghai (partially) and Xiamen; led the cooperation with Huaxia Bank, coordinated with ICBC, CMB, CITIC, BOC, PSBC, BOCOM, and GF in the region, broke the ice with ICBC Minhang, consolidated and explored non-traditional strong banks like CITIC and BOC, repaired the cooperative relationships with CMB, PSBC, and BOCOM; this year, the completion rate of CITIC Bank's Southern Jinxiang Stable Profit Bond and Southern Zhixin Mixed Fund has consistently ranked among the top two in Shanghai, the first batch of floating rate Southern Ruixiang Mixed Fund ranked first in Shanghai, and the completion rate of Bank of China Southern A500 Index Enhancement exceeded 200%; independently designed and organized a training system and courses for distribution partners, conducted over 50 training sessions covering more than 500 participants, effectively enhancing the business promotion capabilities and product awareness of distribution partners; led the organization of the 25th China International Investment and Trade Fair project, coordinated internal and external resources, fully responsible for the planning, on-site presentation, and execution of the company's activities, ensuring maximum activity effectiveness and brand exposure.",
+        "description": "负责上海（部分）、厦门区域的银行分支行的开拓与维护工作；牵头华夏银行，对接维护工行、招行、中信、中行、邮储、交行、广发等辖内支行，破冰工行闵行、巩固挖掘中信、中行等非传统强势行、修复招行、邮储、交行等渠道合作关系；今年以来中信银行南方津享稳健添利债券与南方智信混合持营每月完成率稳居上海前二，首批浮动费率南方瑞享混合排名上海第一，中国银行南方 A500 指数增强完成率超 200%；独立设计并组织实施面向代销合作伙伴的培训体系与课程，累计开展培训 50+场，覆盖超 500 人次，有效提升了代销合作伙伴的业务推动能力和产品认知；牵头组织公司第二十五届中国国际投资贸易洽谈会项目，统筹协调内外部资源，全面负责公司活动策划、现场宣讲与落地执行，确保活动效果与公司品牌曝光最大化",
+        "details_en": [
+          "Responsible for the development and maintenance of bank branches in Shanghai (partially) and Xiamen",
+          "Led the cooperation with Huaxia Bank",
+          "Coordinated with ICBC, CMB, CITIC, BOC, PSBC, BOCOM, and GF in the region",
+          "Broke the ice with ICBC Minhang",
+          "Consolidated and explored non-traditional strong banks like CITIC and BOC",
+          "Repaired the cooperative relationships with CMB, PSBC, and BOCOM",
+          "This year, the completion rate of CITIC Bank's Southern Jinxiang Stable Profit Bond and Southern Zhixin Mixed Fund has consistently ranked among the top two in Shanghai",
+          "The first batch of floating rate Southern Ruixiang Mixed Fund ranked first in Shanghai",
+          "The completion rate of Bank of China Southern A500 Index Enhancement exceeded 200%",
+          "Independently designed and organized a training system and courses for distribution partners",
+          "Conducted over 50 training sessions covering more than 500 participants",
+          "Effectively enhancing the business promotion capabilities and product awareness of distribution partners",
+          "Led the organization of the 25th China International Investment and Trade Fair project",
+          "Coordinated internal and external resources",
+          "Fully responsible for the planning, on-site presentation, and execution of the company's activities",
+          "Ensured maximum activity effectiveness and brand exposure."
+        ],
+        "details": [
+          "负责上海（部分）、厦门区域的银行分支行的开拓与维护工作",
+          "牵头华夏银行",
+          "对接维护工行、招行、中信、中行、邮储、交行、广发等辖内支行",
+          "破冰工行闵行",
+          "巩固挖掘中信、中行等非传统强势行",
+          "修复招行、邮储、交行等渠道合作关系",
+          "今年以来中信银行南方津享稳健添利债券与南方智信混合持营每月完成率稳居上海前二",
+          "首批浮动费率南方瑞享混合排名上海第一",
+          "中国银行南方 A500 指数增强完成率超 200%",
+          "独立设计并组织实施面向代销合作伙伴的培训体系与课程",
+          "累计开展培训 50+场，覆盖超 500 人次",
+          "有效提升了代销合作伙伴的业务推动能力和产品认知",
+          "牵头组织公司第二十五届中国国际投资贸易洽谈会项目",
+          "统筹协调内外部资源",
+          "全面负责公司活动策划、现场宣讲与落地执行",
+          "确保活动效果与公司品牌曝光最大化"
+        ],
+        "duration_months": 24
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "2020 年上海市大学生社会实践项目大赛",
+        "title_en": "Team Leader",
+        "title": "组 长",
+        "description_en": null,
+        "description": "围绕国际前沿的公共交通“三因素”理论，自主设计问卷，利用 R 语言分析 405 份样本数据，研究总结了疫情期间上海轨道交通客流的影响因素并提出了有关疫情期间优化轨道交通常规服务和落实基础防疫工作的运营对策与建议；项目成果被上财青年、公共管制学教研园地等多个社会组织公众号转发，并获得上海市三等奖",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "上海财经大学",
+        "title_en": "Class Leader",
+        "title": "班长",
+        "description_en": null,
+        "description": "领导班委组织了数十次班级活动，包括团日活动、阅读经典等文体活动、实习招聘发布工作等；班级在2019-2020 学年被评为校级文明班级",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.11-至今 南方基金上海分公司 银行渠道岗 负责上海（部分）、厦门区域的银行分支行的开拓与维护工作；牵头华夏银行，对接维护工行、招行、中信、中行、邮储、交行、广发等辖内支行，破冰工行闵行、巩固挖掘中信、中行等非传统强势行、修复招行、邮储、交行等渠道合作关系，今年以来中信银行南方津享稳健添利债券与南方智信混合持营每月完成率稳居上海前二，首批浮动费率南方瑞享混合排名上海第一，中国银行南方 A500 指数增强完成率超 200%；独立设计并组织实施面向代销合作伙伴的培训体系与课程，累计开展培训 50+场，覆盖超 500 人次，有效提升了代销合作伙伴的业务推动能力和产品认知；牵头组织公司第二十五届中国国际投资贸易洽谈会项目，统筹协调内外部资源，全面负责公司活动策划、现场宣讲与落地执行，确保活动效果与公司品牌曝光最大化"
+    ],
+    "internship_experience_zh": [
+      "2023.6-2023.10 海通证券投行 TMT 组 股权承做岗 深度参与某芯片设计上市公司再融资项目各项工作，财务条线：制作并核对了公司三年一期 200余份银行账户函证与客户供应商函证，并独立撰写项目立项报告中财务分析的部分；法务条线：制作了 16 份董监高调查表，梳理了公司目前存在的所有关联方，并独立撰写项目立项报告、尽调报告与募集说明书中公司基本情况、历史沿革、法律处罚、关联方情况及董监高情况部分；业务条线：陪同参与了 7次与公司负责人的募投计划会议，详细制作了会议纪要，并撰写了立项报告中本次发行方案的部分",
+      "2023.3-2023.6 中信建投投行部 股权承做岗 参与某北京工程行业 IPO项目前期尽调工作，主要负责整理北交所同行业公司反馈回复，板块定位梳理与可比公司确定，协助查找项目前期尽调案例，包括组织架构不全导致的舞弊问题、GP 与 LP 关于股息红利的税率研究等；参与某上海可转债项目底稿制作与注册制下平移工作，包括更新财务数据，独立撰写新增产能合理性的反馈回复等；其余支持性工作：制作全面注册制下对股权资本市场理解的 PPT，独立制作某电影发行与放映企业再融资项目 pitchbook 等",
+      "2022.9-2023.2 海通证券投行部 股权承做岗 深度参与国内某工业软件企业的科创板 IPO 项目，该项目现已上市；主要跟进项目答反馈阶段，负责财务条线：通过整理包括合同、中标通知书、培训签到单、验收单等 2000 余份凭证，完成对部分收入的细节测试、截止性测试等实质性测试；通过整理总结合同内容、财务报表等资料分析发行人持续经营能力等情况，完成招股书中风险章节部分内容的撰写；业务条线：深入研究国内外同行业可比公司相关产品技术情况，讨论国内外可比公司同一细分领域下的产品功能、求解算法、应用领域等情况，分析发行人在该领域的技术先进性及我国该行业的发展历程，完成反馈中相关问题的撰写；独立完成 10 份案例研究，包括募投资金用于营销网络建设的必要性、可比公司即征即退情况等",
+      "2021.1-2021.4 国泰君安投行部 股权承做岗 深度参与国内某汽车零部件制造企业的科创板上市项目，研究汽车零部件企业有关收入确认的审核关注点；完成专题案例的整理，包括部分一致行动协议人确定为实际控制人的情况、公司发行估值与 Pre-IPO 轮融资",
+      "2020.6-2020.8 英德知市场咨询 助理研究员 协助团队设计尤妮佳品牌旗下化妆棉的用户调查问卷，了解受访用户的使用满意度，并撰写消费者偏好调研报告"
+    ],
+    "project_experience_zh": [
+      "2020 年上海市大学生社会实践项目大赛 组 长 围绕国际前沿的公共交通“三因素”理论，自主设计问卷，利用 R 语言分析 405 份样本数据，研究总结了疫情期间上海轨道交通客流的影响因素并提出了有关疫情期间优化轨道交通常规服务和落实基础防疫工作的运营对策与建议；项目成果被上财青年、公共管制学教研园地等多个社会组织公众号转发，并获得上海市三等奖",
+      "上海财经大学 18 级国际经济与贸易班班长 领导班委组织了数十次班级活动，包括团日活动、阅读经典等文体活动、实习招聘发布工作等；班级在2019-2020 学年被评为校级文明班级"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-11",
+        "end": "present",
+        "company": "南方基金上海分公司",
+        "title_en": "Bank Channel Position",
+        "title": "银行渠道岗",
+        "description_en": "Responsible for the development and maintenance of bank branches in Shanghai (partially) and Xiamen; led the cooperation with Huaxia Bank, coordinated with ICBC, CMB, CITIC, BOC, PSBC, BOCOM, and GF in the region, broke the ice with ICBC Minhang, consolidated and explored non-traditional strong banks like CITIC and BOC, repaired the cooperative relationships with CMB, PSBC, and BOCOM; this year, the completion rate of CITIC Bank's Southern Jinxiang Stable Profit Bond and Southern Zhixin Mixed Fund has consistently ranked among the top two in Shanghai, the first batch of floating rate Southern Ruixiang Mixed Fund ranked first in Shanghai, and the completion rate of Bank of China Southern A500 Index Enhancement exceeded 200%; independently designed and organized a training system and courses for distribution partners, conducted over 50 training sessions covering more than 500 participants, effectively enhancing the business promotion capabilities and product awareness of distribution partners; led the organization of the 25th China International Investment and Trade Fair project, coordinated internal and external resources, fully responsible for the planning, on-site presentation, and execution of the company's activities, ensuring maximum activity effectiveness and brand exposure.",
+        "description": "负责上海（部分）、厦门区域的银行分支行的开拓与维护工作；牵头华夏银行，对接维护工行、招行、中信、中行、邮储、交行、广发等辖内支行，破冰工行闵行、巩固挖掘中信、中行等非传统强势行、修复招行、邮储、交行等渠道合作关系；今年以来中信银行南方津享稳健添利债券与南方智信混合持营每月完成率稳居上海前二，首批浮动费率南方瑞享混合排名上海第一，中国银行南方 A500 指数增强完成率超 200%；独立设计并组织实施面向代销合作伙伴的培训体系与课程，累计开展培训 50+场，覆盖超 500 人次，有效提升了代销合作伙伴的业务推动能力和产品认知；牵头组织公司第二十五届中国国际投资贸易洽谈会项目，统筹协调内外部资源，全面负责公司活动策划、现场宣讲与落地执行，确保活动效果与公司品牌曝光最大化",
+        "details_en": [
+          "Responsible for the development and maintenance of bank branches in Shanghai (partially) and Xiamen",
+          "Led the cooperation with Huaxia Bank",
+          "Coordinated with ICBC, CMB, CITIC, BOC, PSBC, BOCOM, and GF in the region",
+          "Broke the ice with ICBC Minhang",
+          "Consolidated and explored non-traditional strong banks like CITIC and BOC",
+          "Repaired the cooperative relationships with CMB, PSBC, and BOCOM",
+          "This year, the completion rate of CITIC Bank's Southern Jinxiang Stable Profit Bond and Southern Zhixin Mixed Fund has consistently ranked among the top two in Shanghai",
+          "The first batch of floating rate Southern Ruixiang Mixed Fund ranked first in Shanghai",
+          "The completion rate of Bank of China Southern A500 Index Enhancement exceeded 200%",
+          "Independently designed and organized a training system and courses for distribution partners",
+          "Conducted over 50 training sessions covering more than 500 participants",
+          "Effectively enhancing the business promotion capabilities and product awareness of distribution partners",
+          "Led the organization of the 25th China International Investment and Trade Fair project",
+          "Coordinated internal and external resources",
+          "Fully responsible for the planning, on-site presentation, and execution of the company's activities",
+          "Ensured maximum activity effectiveness and brand exposure."
+        ],
+        "details": [
+          "负责上海（部分）、厦门区域的银行分支行的开拓与维护工作",
+          "牵头华夏银行",
+          "对接维护工行、招行、中信、中行、邮储、交行、广发等辖内支行",
+          "破冰工行闵行",
+          "巩固挖掘中信、中行等非传统强势行",
+          "修复招行、邮储、交行等渠道合作关系",
+          "今年以来中信银行南方津享稳健添利债券与南方智信混合持营每月完成率稳居上海前二",
+          "首批浮动费率南方瑞享混合排名上海第一",
+          "中国银行南方 A500 指数增强完成率超 200%",
+          "独立设计并组织实施面向代销合作伙伴的培训体系与课程",
+          "累计开展培训 50+场，覆盖超 500 人次",
+          "有效提升了代销合作伙伴的业务推动能力和产品认知",
+          "牵头组织公司第二十五届中国国际投资贸易洽谈会项目",
+          "统筹协调内外部资源",
+          "全面负责公司活动策划、现场宣讲与落地执行",
+          "确保活动效果与公司品牌曝光最大化"
+        ],
+        "duration_months": 24,
+        "title_zh": "银行渠道职位",
+        "description_zh": "负责上海（部分）和厦门银行分行的开发和维护；主导与华夏银行的合作，协调与工商银行、招商银行、中信银行、中国银行、邮储银行、交通银行和国泰君安的区域合作，打破与工商银行闵行的僵局，巩固并探索中信银行和中国银行等非传统强行，修复与招商银行、邮储银行和交通银行的合作关系；今年，中信银行南方金祥稳利债券和南方智信混合基金的完成率持续位居上海前两名，首批浮动利率南方瑞祥混合基金在上海排名第一，中国银行南方A500指数增强的完成率超过200%；独立设计并组织了分销合作伙伴的培训体系和课程，进行了超过50场培训，覆盖500多名参与者，有效提升了分销合作伙伴的业务推广能力和产品认知；主导组织了第25届中国国际投资贸易洽谈会项目，协调内外部资源，全面负责公司的活动策划、现场展示和执行，确保活动效果最大化和品牌曝光。",
+        "details_zh": [
+          "负责上海（部分）和厦门的银行分支机构的开发和维护",
+          "领导与华夏银行的合作",
+          "与中国工商银行、中国建设银行、中信银行、中国银行、邮储银行、交通银行和国泰君安在该地区协调。",
+          "与工商银行闵行打破僵局",
+          "整合并探索了非传统的强大银行，如中信银行和中国银行",
+          "修复了与招商银行、邮储银行和交通银行的合作关系",
+          "今年，中信银行的南方金享稳利债券和南方智信混合基金的完成率始终位居上海前两名。",
+          "首批浮动利率南方瑞祥混合基金在上海排名第一",
+          "中国银行南方A500指数增强的完成率超过200%",
+          "独立设计并组织了一个培训系统和课程，供分销合作伙伴使用。",
+          "进行了超过50场培训，涵盖了500多名参与者",
+          "有效提升分销合作伙伴的业务推广能力和产品认知度",
+          "主导了第25届中国国际投资贸易洽谈会项目的组织。",
+          "协调内部和外部资源",
+          "全面负责公司的活动的规划、现场展示和执行",
+          "确保最大活动效果和品牌曝光。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AGI远程社区经理上海3060K陶先生1年.md",
+    "md_mostly_english": false
+  }
+}

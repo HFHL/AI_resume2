@@ -1,0 +1,88 @@
+{
+  "file_name": "AI远程大模型强化学习工程师深圳5080K林星宇1年.md",
+  "parsed_at": "2025-10-21T16:59:15.966619",
+  "result": {
+    "resume_file_id": null,
+    "name": "林星宇",
+    "email": "203143439@qq.com",
+    "phone": "18894891501",
+    "education_degree": "研究生",
+    "education_school": [
+      "吉林大学",
+      "Jilin University 吉林大学"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "OP",
+      "PR",
+      "python",
+      "全栈",
+      "大模型",
+      "大语言模型",
+      "安全",
+      "智能体",
+      "设计"
+    ],
+    "skills": [
+      "强化学习",
+      "NLP",
+      "Python",
+      "Docker",
+      "CUDA",
+      "DeepSpeed",
+      "Linux"
+    ],
+    "work_experience": null,
+    "internship_experience": [
+      "百度 AI 安全组//技术中台群组-安全能力部-安全算法组 北京 2024.03.20 - 2024.07.31\n潮汐计算资源远程调用全栈：设计并实现了一套完整的基于潮汐计算资源远程调用的docker镜像：\n• 远程交互与控制：通过 postman 实时追踪任务状态、资源占用及性能指标。\n• 高性能训练环境: 构建支持远程调用多节点计算资源，实现弹性扩缩容的高性能训练环境。基于Docker 构建高性能深度学习镜像，构建环境为 NVIDIA CUDA 11.7 与 PyTorch 2.0.1 + cul17 的镜像，支持大模型训练推理。\n• 云端协同架构: 将模型 checkpoints、训练日志及评估结果回传至云服务器，确保数据完整性。"
+    ],
+    "project_experience": [
+      "大语言模型深度优化 (并且完成论文著述)\n• 多阶段模型调优：包括全参数微调（SFT）和基于强化学习的安全性评分提升（DPO）。测评体系涵盖准确率（accuracy）、精确率（precision）以及人工评估。在线与离线联合实验：1、离线训练：完成 Baichuan-7B 和 Qwen-7B 等模型在安全领域的微调结果对比分析。2、在线持续训练：基于文心一言 API 和 Ziya-LLaMA-7B-Reward 实现持续学习的 Pipeline。",
+      "百度 AI 安全组/技术中台群组-安全能力部-安全算法组撰写基于 GRPO/DAPO 框架的 token 级别熵机制论文\n北京 2025.05.26 - 至今"
+    ],
+    "work_experience_struct": null,
+    "project_experience_struct": [
+      {
+        "start": "2025-05",
+        "end": "present",
+        "company": "百度",
+        "title_en": null,
+        "title": "技术中台群组-安全能力部-安全算法组",
+        "description_en": null,
+        "description": "撰写基于 GRPO/DAPO 框架的 token 级别熵机制论文",
+        "details_en": null,
+        "details": [
+          "多阶段模型调优：包括全参数微调（SFT）和基于强化学习的安全性评分提升（DPO）",
+          "测评体系涵盖准确率（accuracy）、精确率（precision）以及人工评估",
+          "在线与离线联合实验：1、离线训练：完成 Baichuan-7B 和 Qwen-7B 等模型在安全领域的微调结果对比分析",
+          "2、在线持续训练：基于文心一言 API 和 Ziya-LLaMA-7B-Reward 实现持续学习的 Pipeline"
+        ],
+        "duration_months": 6
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 0,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": null,
+    "internship_experience_zh": [
+      "百度 AI 安全组//技术中台群组-安全能力部-安全算法组 北京 2024.03.20 - 2024.07.31\n潮汐计算资源远程调用全栈：设计并实现了一套完整的基于潮汐计算资源远程调用的docker镜像：\n• 远程交互与控制：通过 postman 实时追踪任务状态、资源占用及性能指标。\n• 高性能训练环境: 构建支持远程调用多节点计算资源，实现弹性扩缩容的高性能训练环境。基于Docker 构建高性能深度学习镜像，构建环境为 NVIDIA CUDA 11.7 与 PyTorch 2.0.1 + cul17 的镜像，支持大模型训练推理。\n• 云端协同架构: 将模型 checkpoints、训练日志及评估结果回传至云服务器，确保数据完整性。"
+    ],
+    "project_experience_zh": [
+      "大语言模型深度优化 (并且完成论文著述)\n• 多阶段模型调优：包括全参数微调（SFT）和基于强化学习的安全性评分提升（DPO）。测评体系涵盖准确率（accuracy）、精确率（precision）以及人工评估。在线与离线联合实验：1、离线训练：完成 Baichuan-7B 和 Qwen-7B 等模型在安全领域的微调结果对比分析。2、在线持续训练：基于文心一言 API 和 Ziya-LLaMA-7B-Reward 实现持续学习的 Pipeline。",
+      "百度 AI 安全组/技术中台群组-安全能力部-安全算法组撰写基于 GRPO/DAPO 框架的 token 级别熵机制论文\n北京 2025.05.26 - 至今"
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI远程大模型强化学习工程师深圳5080K林星宇1年.md",
+    "md_mostly_english": false
+  }
+}

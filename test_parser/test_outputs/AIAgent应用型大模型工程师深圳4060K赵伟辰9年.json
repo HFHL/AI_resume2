@@ -1,0 +1,188 @@
+{
+  "file_name": "AIAgent应用型大模型工程师深圳4060K赵伟辰9年.md",
+  "parsed_at": "2025-10-21T15:50:43.882243",
+  "result": {
+    "resume_file_id": null,
+    "name": "赵伟辰",
+    "email": "zhaoweichen.c@gmail.comQQ",
+    "phone": null,
+    "education_degree": "本科",
+    "education_school": [
+      "大理大学"
+    ],
+    "education_major": null,
+    "education_graduation_year": null,
+    "education_tier": "双一流",
+    "education_tiers": [
+      "双一流"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "ETH",
+      "OP",
+      "PR",
+      "RAG",
+      "RPC",
+      "go",
+      "java",
+      "python",
+      "全栈",
+      "后端",
+      "大模型",
+      "大语言模型",
+      "数据分析",
+      "智能体",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "Python",
+      "Java",
+      "Go",
+      "Kubernetes",
+      "Prometheus",
+      "Kafka",
+      "Elasticsearch",
+      "Golang",
+      "Gin",
+      "gRPC",
+      "Redis"
+    ],
+    "work_experience": [
+      "2023.10-至今 蚂蚁集团 高级AI开发工程师",
+      "2020.11-2023.10 字节跳动 资深后端工程师",
+      "2017.03-2020.11 海康威视 测试开发经理"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "智能评测系统 | 蚂蚁集团（2023.10‑至今）\n技术架构：LangGraph多智能体编排/RAG/React/FastAPI\n首创多智能体评测架构，设计评测生成器、分析器、报告生成器等5个Agent模块，实现评测流程自动化，评测效率提升 $100 \\%$ ，人力成本降低 $70 \\%$ 。运用RAG技术构建行业知识库，结合GPT-4进行动态评估，评测覆盖率从 $65 \\%$ 提升至 $95 \\%$ 。开发Prompt优化工具，通过自动迭代使评估准确率提升 $22 \\%$ （F1 Score $0.78 \\substack { } 0.95$ ）。搭建模型评估框架，支持GPT/Claude/文心等8种大模型横向对比，标注成本降低 $70 \\%$ 。攻克高并发场景：优化服务响应链路，单节点支撑10万QPS，平均响应时间 ${ \\le } 1.5 { \\le }$ （原系统3.2s）。",
+      "容器服务、云原生可观测平台 | 字节跳动（2020.11‑2023.10）\n技术架构：Go/Kubernetes/Prometheus/Kafka/Elasticsearch\n主导建设千万级指标监控系统，设计分布式采集架构，支持每日50亿 $^ +$ 指标处理。基于Kubernetes Operator模式开发自定义控制器，实现自动化扩缩容、灰度发布等核心功能，部署效率提升$70 \\%$ 。实现智能告警收敛算法，误报率降低 $60 \\%$ ，MTTR从15分钟降至3分钟。构建全链路压测体系，发现并修复 $^ { 20 + }$ 性能瓶颈，系统P99延迟优化至200ms内。推动CI/CD流程改造，自动化测试覆盖率从 $40 \\%$ 提升至 $85 \\%$ ，版本发布周期缩短 $50 \\%$ 。",
+      "开源电商系统 | 个人项目（2021.6‑2021.10）\n技术架构：Golang/Gin/gRPC/Consul/Redis\n分布式锁设计高可用微服务架构，日均承载百万级交易，支持横向扩展至 $^ { 100 + }$ 节点。创新实现\"预扣库存 $^ +$ MQ重试\"方案，解决分布式事务难题，订单创建成功率 $99.99 \\%$ 。开发商品搜索服务，结合ES实现多维度检索，响应时间 $< 100 \\mathsf { ms }$ （10万商品级）。集成Kong网关+Nacos配置中心，构建灰度发布能力，故障率降低 $90 \\%$ 。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-10",
+        "end": "present",
+        "company": "蚂蚁集团",
+        "title_en": "Senior AI Development Engineer",
+        "title": "高级AI开发工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 25
+      },
+      {
+        "start": "2020-11",
+        "end": "2023-10",
+        "company": "字节跳动",
+        "title_en": "Senior Backend Engineer",
+        "title": "资深后端工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 36
+      },
+      {
+        "start": "2017-03",
+        "end": "2020-11",
+        "company": "海康威视",
+        "title_en": "Test Development Manager",
+        "title": "测试开发经理",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 45
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "智能评测系统 |",
+        "title": "蚂蚁集团（2023.10‑至今",
+        "description": "技术架构：LangGraph多智能体编排/RAG/React/FastAPI\n首创多智能体评测架构，设计评测生成器、分析器、报告生成器等5个Agent模块，实现评测流程自动化，评测效率提升 $100 \\%$ ，人力成本降低 $70 \\%$ 。运用RAG技术构建行业知识库，结合GPT-4进行动态评估，评测覆盖率从 $65 \\%$ 提升至 $95 \\%$ 。开发Prompt优化工具，通过自动迭代使评估准确率提升 $22 \\%$ （F1 Score $0.78 \\substack { } 0.95$ ）。搭建模型评估框架，支持GPT/Claude/文心等8种大模型横向对比，标注成本降低 $70 \\%$ 。攻克高并发场景：优化服务响应链路，单节点支撑10万QPS，平均响应时间 ${ \\le } 1.5 { \\le }$ （原系统3.2s）。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "容器服务、云原生可观测平台 |",
+        "title": "字节跳动（2020.11‑2023.10",
+        "description": "技术架构：Go/Kubernetes/Prometheus/Kafka/Elasticsearch\n主导建设千万级指标监控系统，设计分布式采集架构，支持每日50亿 $^ +$ 指标处理。基于Kubernetes Operator模式开发自定义控制器，实现自动化扩缩容、灰度发布等核心功能，部署效率提升$70 \\%$ 。实现智能告警收敛算法，误报率降低 $60 \\%$ ，MTTR从15分钟降至3分钟。构建全链路压测体系，发现并修复 $^ { 20 + }$ 性能瓶颈，系统P99延迟优化至200ms内。推动CI/CD流程改造，自动化测试覆盖率从 $40 \\%$ 提升至 $85 \\%$ ，版本发布周期缩短 $50 \\%$ 。",
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "开源电商系统 |",
+        "title": "个人项目（2021.6‑2021.10",
+        "description": "技术架构：Golang/Gin/gRPC/Consul/Redis\n分布式锁设计高可用微服务架构，日均承载百万级交易，支持横向扩展至 $^ { 100 + }$ 节点。创新实现\"预扣库存 $^ +$ MQ重试\"方案，解决分布式事务难题，订单创建成功率 $99.99 \\%$ 。开发商品搜索服务，结合ES实现多维度检索，响应时间 $< 100 \\mathsf { ms }$ （10万商品级）。集成Kong网关+Nacos配置中心，构建灰度发布能力，故障率降低 $90 \\%$ 。",
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "AI工程化专家：精通大语言模型应用开发全流程，主导过智能评测系统从0到1建设，评测效率提升 $100 \\%$ 。全栈架构能力：掌握Python/Java/Go技术栈，具备高并发分布式架构设计经验（日均百万级交易系统）。技术管理复合：4年团队管理经验，带出3名高级工程师，流程优化使项目交付周期缩短 $30 \\%$ 。",
+    "other": "发明专利：基于多智能体的大模型动态评估方法。专业认证：系统架构设计师证书。",
+    "work_years": 8,
+    "self_evaluation_zh": "AI工程化专家：精通大语言模型应用开发全流程，主导过智能评测系统从0到1建设，评测效率提升 $100 \\%$ 。全栈架构能力：掌握Python/Java/Go技术栈，具备高并发分布式架构设计经验（日均百万级交易系统）。技术管理复合：4年团队管理经验，带出3名高级工程师，流程优化使项目交付周期缩短 $30 \\%$ 。",
+    "other_zh": "发明专利：基于多智能体的大模型动态评估方法。专业认证：系统架构设计师证书。",
+    "work_experience_zh": [
+      "2023.10-至今 蚂蚁集团 高级AI开发工程师",
+      "2020.11-2023.10 字节跳动 资深后端工程师",
+      "2017.03-2020.11 海康威视 测试开发经理"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "智能评测系统 | 蚂蚁集团（2023.10‑至今）\n技术架构：LangGraph多智能体编排/RAG/React/FastAPI\n首创多智能体评测架构，设计评测生成器、分析器、报告生成器等5个Agent模块，实现评测流程自动化，评测效率提升 $100 \\%$ ，人力成本降低 $70 \\%$ 。运用RAG技术构建行业知识库，结合GPT-4进行动态评估，评测覆盖率从 $65 \\%$ 提升至 $95 \\%$ 。开发Prompt优化工具，通过自动迭代使评估准确率提升 $22 \\%$ （F1 Score $0.78 \\substack { } 0.95$ ）。搭建模型评估框架，支持GPT/Claude/文心等8种大模型横向对比，标注成本降低 $70 \\%$ 。攻克高并发场景：优化服务响应链路，单节点支撑10万QPS，平均响应时间 ${ \\le } 1.5 { \\le }$ （原系统3.2s）。",
+      "容器服务、云原生可观测平台 | 字节跳动（2020.11‑2023.10）\n技术架构：Go/Kubernetes/Prometheus/Kafka/Elasticsearch\n主导建设千万级指标监控系统，设计分布式采集架构，支持每日50亿 $^ +$ 指标处理。基于Kubernetes Operator模式开发自定义控制器，实现自动化扩缩容、灰度发布等核心功能，部署效率提升$70 \\%$ 。实现智能告警收敛算法，误报率降低 $60 \\%$ ，MTTR从15分钟降至3分钟。构建全链路压测体系，发现并修复 $^ { 20 + }$ 性能瓶颈，系统P99延迟优化至200ms内。推动CI/CD流程改造，自动化测试覆盖率从 $40 \\%$ 提升至 $85 \\%$ ，版本发布周期缩短 $50 \\%$ 。",
+      "开源电商系统 | 个人项目（2021.6‑2021.10）\n技术架构：Golang/Gin/gRPC/Consul/Redis\n分布式锁设计高可用微服务架构，日均承载百万级交易，支持横向扩展至 $^ { 100 + }$ 节点。创新实现\"预扣库存 $^ +$ MQ重试\"方案，解决分布式事务难题，订单创建成功率 $99.99 \\%$ 。开发商品搜索服务，结合ES实现多维度检索，响应时间 $< 100 \\mathsf { ms }$ （10万商品级）。集成Kong网关+Nacos配置中心，构建灰度发布能力，故障率降低 $90 \\%$ 。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-10",
+        "end": "present",
+        "company": "蚂蚁集团",
+        "title_en": "Senior AI Development Engineer",
+        "title": "高级AI开发工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 25,
+        "title_zh": "高级人工智能开发工程师"
+      },
+      {
+        "start": "2020-11",
+        "end": "2023-10",
+        "company": "字节跳动",
+        "title_en": "Senior Backend Engineer",
+        "title": "资深后端工程师",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 36,
+        "title_zh": "高级后端工程师"
+      },
+      {
+        "start": "2017-03",
+        "end": "2020-11",
+        "company": "海康威视",
+        "title_en": "Test Development Manager",
+        "title": "测试开发经理",
+        "description_en": null,
+        "description": null,
+        "details_en": null,
+        "details": null,
+        "duration_months": 45,
+        "title_zh": "测试开发经理"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIAgent应用型大模型工程师深圳4060K赵伟辰9年.md",
+    "md_mostly_english": false
+  }
+}

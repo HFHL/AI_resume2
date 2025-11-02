@@ -1,0 +1,285 @@
+{
+  "file_name": "AI现代像素风视觉创意设计负责人深圳4065K徐婷10年以上.md",
+  "parsed_at": "2025-10-21T16:50:25.396672",
+  "result": {
+    "resume_file_id": null,
+    "name": "徐婷",
+    "email": null,
+    "phone": "13430893077",
+    "education_degree": "本科",
+    "education_school": [
+      "武汉理工大学"
+    ],
+    "education_major": "动画",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "产品",
+      "前端",
+      "后端",
+      "数据分析",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "3D游戏",
+      "美术工业化",
+      "AI",
+      "CPI",
+      "点击率",
+      "转化率",
+      "ROI",
+      "留存",
+      "破冰付费率",
+      "ARUP",
+      "Unity"
+    ],
+    "work_experience": [
+      "2021.12-至今 深圳市九九互动科技有限公司 主美\n负责招聘并培养团队成员。从立项到上线，对中重度，休闲品类（国内/海外）均有研发主导经验，对多种题材风格有方法论的沉淀。对游戏前端（CPI/点击率/转化率/ROI等）后端（留存/破冰付费率/ARUP等）数据以及买量思路有方法论沉淀，并辅助发行部门。布局公司美术工业化全流程有掌控的能力，协同效能布局AI美术全流程并辅助项目提升人效。",
+      "2019.04-2021.09 腾讯 原画\n负责保密项目宣传图绘制。",
+      "2017.03-2019.01 维京人 原画师\n负责金币类游戏场景设计，负责与3D组沟通建模等，负责游戏内UI设计。",
+      "2016.08-2017.03 尚游游戏 原画师\n负责s计划中手机游戏所有美术部分，UI，场景，人设，熟练Unity的使用，能较高的完成工作需求。",
+      "2012.02-2016.05 第七大道 原画师\n弹弹堂项目场景原画。"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2021-12",
+        "end": "present",
+        "company": "深圳市九九互动科技有限公司",
+        "title_en": "Art Director",
+        "title": "主美",
+        "description_en": "Responsible for recruiting and training team members. From project initiation to launch, have R&D leadership experience in both medium-heavy and casual categories (domestic/overseas) with methodological accumulation in various themes and styles. Have methodological accumulation in game front-end (CPI/click-through rate/conversion rate/ROI, etc.) and back-end (retention/break-even payment rate/ARUP, etc.) data as well as buying strategies, and assist the publishing department. Have the ability to control the entire process of the company's art industrialization and collaborate on AI art processes to enhance project efficiency.",
+        "description": "负责招聘并培养团队成员。从立项到上线，对中重度，休闲品类（国内/海外）均有研发主导经验，对多种题材风格有方法论的沉淀。对游戏前端（CPI/点击率/转化率/ROI等）后端（留存/破冰付费率/ARUP等）数据以及买量思路有方法论沉淀，并辅助发行部门。布局公司美术工业化全流程有掌控的能力，协同效能布局AI美术全流程并辅助项目提升人效。",
+        "details_en": [
+          "Responsible for recruiting and training team members",
+          "From project initiation to launch, have R&D leadership experience in both medium-heavy and casual categories (domestic/overseas)",
+          "Have methodological accumulation in various themes and styles",
+          "Have methodological accumulation in game front-end and back-end data as well as buying strategies",
+          "Assist the publishing department",
+          "Have the ability to control the entire process of the company's art industrialization",
+          "Collaborate on AI art processes to enhance project efficiency"
+        ],
+        "details": [
+          "负责招聘并培养团队成员",
+          "从立项到上线，对中重度，休闲品类（国内/海外）均有研发主导经验",
+          "对多种题材风格有方法论的沉淀",
+          "对游戏前端和后端数据以及买量思路有方法论沉淀",
+          "辅助发行部门",
+          "布局公司美术工业化全流程有掌控的能力",
+          "协同效能布局AI美术全流程并辅助项目提升人效"
+        ],
+        "duration_months": 47
+      },
+      {
+        "start": "2019-04",
+        "end": "2021-09",
+        "company": "腾讯",
+        "title_en": "Concept Artist",
+        "title": "原画",
+        "description_en": "Responsible for the drawing of promotional images for confidential projects.",
+        "description": "负责保密项目宣传图绘制。",
+        "details_en": null,
+        "details": [
+          "负责保密项目宣传图绘制。"
+        ],
+        "duration_months": 30
+      },
+      {
+        "start": "2017-03",
+        "end": "2019-01",
+        "company": "维京人",
+        "title_en": "Concept Artist",
+        "title": "原画师",
+        "description_en": "Responsible for scene design of coin-based games, communication with the 3D team for modeling, and UI design within the game.",
+        "description": "负责金币类游戏场景设计，负责与3D组沟通建模等，负责游戏内UI设计。",
+        "details_en": null,
+        "details": [
+          "负责金币类游戏场景设计",
+          "负责与3D组沟通建模等",
+          "负责游戏内UI设计。"
+        ],
+        "duration_months": 23
+      },
+      {
+        "start": "2016-08",
+        "end": "2017-03",
+        "company": "尚游游戏",
+        "title_en": "Concept Artist",
+        "title": "原画师",
+        "description_en": "Responsible for all art parts of the mobile game in the S plan, including UI, scenes, and character design, proficient in Unity usage, able to meet work requirements at a high level.",
+        "description": "负责s计划中手机游戏所有美术部分，UI，场景，人设，熟练Unity的使用，能较高的完成工作需求。",
+        "details_en": null,
+        "details": [
+          "负责s计划中手机游戏所有美术部分",
+          "UI，场景，人设",
+          "熟练Unity的使用，能较高的完成工作需求。"
+        ],
+        "duration_months": 8
+      },
+      {
+        "start": "2012-02",
+        "end": "2016-05",
+        "company": "第七大道",
+        "title_en": "Concept Artist",
+        "title": "原画师",
+        "description_en": "Scene concept art for the弹弹堂 project.",
+        "description": "弹弹堂项目场景原画。",
+        "details_en": null,
+        "details": [
+          "弹弹堂项目场景原画。"
+        ],
+        "duration_months": 52
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "从业11年，有完整的2/3D游戏主美经验，熟悉研发全流程，能对接所有合作部门。对中重度，休闲品类均有研发主导经验，对多种题材风格有方法论的沉淀。对美术工业化全流程有掌控的能力，能布局公司AI全流程并辅助项目提升人效。",
+    "other": null,
+    "work_years": 10,
+    "self_evaluation_zh": "从业11年，有完整的2/3D游戏主美经验，熟悉研发全流程，能对接所有合作部门。对中重度，休闲品类均有研发主导经验，对多种题材风格有方法论的沉淀。对美术工业化全流程有掌控的能力，能布局公司AI全流程并辅助项目提升人效。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.12-至今 深圳市九九互动科技有限公司 主美\n负责招聘并培养团队成员。从立项到上线，对中重度，休闲品类（国内/海外）均有研发主导经验，对多种题材风格有方法论的沉淀。对游戏前端（CPI/点击率/转化率/ROI等）后端（留存/破冰付费率/ARUP等）数据以及买量思路有方法论沉淀，并辅助发行部门。布局公司美术工业化全流程有掌控的能力，协同效能布局AI美术全流程并辅助项目提升人效。",
+      "2019.04-2021.09 腾讯 原画\n负责保密项目宣传图绘制。",
+      "2017.03-2019.01 维京人 原画师\n负责金币类游戏场景设计，负责与3D组沟通建模等，负责游戏内UI设计。",
+      "2016.08-2017.03 尚游游戏 原画师\n负责s计划中手机游戏所有美术部分，UI，场景，人设，熟练Unity的使用，能较高的完成工作需求。",
+      "2012.02-2016.05 第七大道 原画师\n弹弹堂项目场景原画。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-12",
+        "end": "present",
+        "company": "深圳市九九互动科技有限公司",
+        "title_en": "Art Director",
+        "title": "主美",
+        "description_en": "Responsible for recruiting and training team members. From project initiation to launch, have R&D leadership experience in both medium-heavy and casual categories (domestic/overseas) with methodological accumulation in various themes and styles. Have methodological accumulation in game front-end (CPI/click-through rate/conversion rate/ROI, etc.) and back-end (retention/break-even payment rate/ARUP, etc.) data as well as buying strategies, and assist the publishing department. Have the ability to control the entire process of the company's art industrialization and collaborate on AI art processes to enhance project efficiency.",
+        "description": "负责招聘并培养团队成员。从立项到上线，对中重度，休闲品类（国内/海外）均有研发主导经验，对多种题材风格有方法论的沉淀。对游戏前端（CPI/点击率/转化率/ROI等）后端（留存/破冰付费率/ARUP等）数据以及买量思路有方法论沉淀，并辅助发行部门。布局公司美术工业化全流程有掌控的能力，协同效能布局AI美术全流程并辅助项目提升人效。",
+        "details_en": [
+          "Responsible for recruiting and training team members",
+          "From project initiation to launch, have R&D leadership experience in both medium-heavy and casual categories (domestic/overseas)",
+          "Have methodological accumulation in various themes and styles",
+          "Have methodological accumulation in game front-end and back-end data as well as buying strategies",
+          "Assist the publishing department",
+          "Have the ability to control the entire process of the company's art industrialization",
+          "Collaborate on AI art processes to enhance project efficiency"
+        ],
+        "details": [
+          "负责招聘并培养团队成员",
+          "从立项到上线，对中重度，休闲品类（国内/海外）均有研发主导经验",
+          "对多种题材风格有方法论的沉淀",
+          "对游戏前端和后端数据以及买量思路有方法论沉淀",
+          "辅助发行部门",
+          "布局公司美术工业化全流程有掌控的能力",
+          "协同效能布局AI美术全流程并辅助项目提升人效"
+        ],
+        "duration_months": 47,
+        "title_zh": "艺术总监",
+        "description_zh": "负责招聘和培训团队成员。\n从项目启动到发布，在中重型和休闲类别（国内/海外）拥有研发领导经验，并在各种主题和风格中积累了方法论。\n在游戏前端（CPI/点击率/转化率/投资回报率等）和后端（留存/盈亏平衡支付率/ARUP等）数据以及购买策略方面具有方法论积累，并协助出版部门。\n具备控制公司艺术工业化整个过程的能力，并在人工智能艺术流程中协作，以提高项目效率。",
+        "details_zh": [
+          "负责招聘和培训团队成员",
+          "从项目启动到发布，在中重型和休闲类别（国内/海外）拥有研发领导经验。",
+          "在各种主题和风格上有方法论的积累",
+          "在游戏前端和后端数据以及购买策略方面有方法论积累",
+          "协助出版部门",
+          "具备控制公司艺术工业化整个过程的能力",
+          "协作进行人工智能艺术流程以提高项目效率"
+        ]
+      },
+      {
+        "start": "2019-04",
+        "end": "2021-09",
+        "company": "腾讯",
+        "title_en": "Concept Artist",
+        "title": "原画",
+        "description_en": "Responsible for the drawing of promotional images for confidential projects.",
+        "description": "负责保密项目宣传图绘制。",
+        "details_en": null,
+        "details": [
+          "负责保密项目宣传图绘制。"
+        ],
+        "duration_months": 30,
+        "title_zh": "概念艺术家",
+        "description_zh": "负责机密项目的宣传图像绘制。",
+        "details_zh": [
+          "负责保密项目宣传图绘制。"
+        ]
+      },
+      {
+        "start": "2017-03",
+        "end": "2019-01",
+        "company": "维京人",
+        "title_en": "Concept Artist",
+        "title": "原画师",
+        "description_en": "Responsible for scene design of coin-based games, communication with the 3D team for modeling, and UI design within the game.",
+        "description": "负责金币类游戏场景设计，负责与3D组沟通建模等，负责游戏内UI设计。",
+        "details_en": null,
+        "details": [
+          "负责金币类游戏场景设计",
+          "负责与3D组沟通建模等",
+          "负责游戏内UI设计。"
+        ],
+        "duration_months": 23,
+        "title_zh": "概念艺术家",
+        "description_zh": "负责基于硬币的游戏场景设计，与3D团队沟通建模，以及游戏内的UI设计。",
+        "details_zh": [
+          "负责金币类游戏场景设计",
+          "负责与3D组沟通建模等",
+          "负责游戏内UI设计。"
+        ]
+      },
+      {
+        "start": "2016-08",
+        "end": "2017-03",
+        "company": "尚游游戏",
+        "title_en": "Concept Artist",
+        "title": "原画师",
+        "description_en": "Responsible for all art parts of the mobile game in the S plan, including UI, scenes, and character design, proficient in Unity usage, able to meet work requirements at a high level.",
+        "description": "负责s计划中手机游戏所有美术部分，UI，场景，人设，熟练Unity的使用，能较高的完成工作需求。",
+        "details_en": null,
+        "details": [
+          "负责s计划中手机游戏所有美术部分",
+          "UI，场景，人设",
+          "熟练Unity的使用，能较高的完成工作需求。"
+        ],
+        "duration_months": 8,
+        "title_zh": "概念艺术家",
+        "description_zh": "负责S计划中移动游戏的所有艺术部分，包括UI、场景和角色设计，精通Unity使用，能够高水平地满足工作要求。",
+        "details_zh": [
+          "负责s计划中手机游戏所有美术部分",
+          "UI，场景，人设",
+          "熟练Unity的使用，能较高的完成工作需求。"
+        ]
+      },
+      {
+        "start": "2012-02",
+        "end": "2016-05",
+        "company": "第七大道",
+        "title_en": "Concept Artist",
+        "title": "原画师",
+        "description_en": "Scene concept art for the弹弹堂 project.",
+        "description": "弹弹堂项目场景原画。",
+        "details_en": null,
+        "details": [
+          "弹弹堂项目场景原画。"
+        ],
+        "duration_months": 52,
+        "title_zh": "概念艺术家",
+        "description_zh": "弹弹堂项目的场景概念艺术。",
+        "details_zh": [
+          "弹弹堂项目场景原画。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AI现代像素风视觉创意设计负责人深圳4065K徐婷10年以上.md",
+    "md_mostly_english": false
+  }
+}

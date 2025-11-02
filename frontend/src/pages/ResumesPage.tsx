@@ -8,6 +8,7 @@ type ResumeItem = {
   name: string
   tags: string[] // 等同于 tag_names，用于渲染与筛选
   tag_names: string[]
+  resume_file_id?: number | null
   work_years: number | null
   degree: '' | '专科' | '本科' | '硕士' | '博士'
   tiers: Array<'985' | '211' | '双一流' | '海外留学' | '专科'>
@@ -25,6 +26,14 @@ type Tag = {
   id: number
   tag_name: string
   category: string
+}
+
+function prioritizeByResumeFile(list: ResumeItem[]): ResumeItem[] {
+  return [...list].sort((a, b) => {
+    const aHas = Number(Boolean(a.resume_file_id))
+    const bHas = Number(Boolean(b.resume_file_id))
+    return bHas - aHas
+  })
 }
 
 export default function ResumesPage() {
@@ -168,6 +177,7 @@ export default function ResumesPage() {
             name: r.name || '未知',
             tags: tagNames,
             tag_names: tagNames,
+            resume_file_id: (r as any).resume_file_id ?? null,
             work_years: r.work_years,
             degree: deg,
             tiers: trs,
@@ -182,8 +192,9 @@ export default function ResumesPage() {
           }
         })
         
-        console.log('[ResumesPage] mapped first3:', mapped.slice(0, 3))
-        setItems(mapped)
+        const prioritized = prioritizeByResumeFile(mapped)
+        console.log('[ResumesPage] mapped first3:', prioritized.slice(0, 3))
+        setItems(prioritized)
       })
       .catch(() => setItems([]))
       .finally(() => setLoading(false))
@@ -378,7 +389,7 @@ export default function ResumesPage() {
   }, [positionQuery, selectedPosition])
 
   function mapRows(
-    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null; project_experience_struct?: any[] | null }>,
+    rows: Array<{ id:number; name:string|null; tag_names?:string[]|null; education_degree:string|null; education_tiers:string[]|null; education_school?: string[] | null; resume_file_id?: number | null; work_years:number|null; created_at?: string | null; work_experience?: string[] | null; work_experience_struct?: any[] | null; project_experience_struct?: any[] | null }>,
     tagMap?: Map<number, string[]>,
     allTagsArr?: Tag[],
   ): ResumeItem[] {
@@ -398,7 +409,7 @@ export default function ResumesPage() {
       return Array.from(new Set(mapped)) as ResumeItem['tiers']
     }
 
-    return rows.map(r => {
+    const mapped = rows.map(r => {
       const externalTags = tagMap?.get(r.id) || []
       const fallbackTags = (r.tag_names || []).map(s => s.trim()).filter(Boolean)
       const tagNames = externalTags.length ? externalTags : fallbackTags
@@ -410,6 +421,7 @@ export default function ResumesPage() {
         name: r.name || '未知',
         tags: tagNames,
         tag_names: tagNames,
+        resume_file_id: (r as any).resume_file_id ?? null,
         work_years: r.work_years,
         degree: normalizeDegree(r.education_degree),
         tiers: normalizeTiers(r.education_tiers),
@@ -421,6 +433,8 @@ export default function ResumesPage() {
         project_experience_struct: Array.isArray(pxs) ? pxs : undefined,
       }
     })
+
+    return prioritizeByResumeFile(mapped)
   }
 
   // 应用到列表的筛选（按"应用筛选"按钮后生效）

@@ -1,0 +1,163 @@
+{
+  "file_name": "ResumeRyan.md",
+  "parsed_at": "2025-10-21T17:01:22.426547",
+  "result": {
+    "resume_file_id": null,
+    "name": "RYAN.KRYAN. K",
+    "email": "ryanksh822@gmail.com",
+    "phone": null,
+    "education_degree": "Master",
+    "education_school": [
+      "Taylor's University Taylor's University",
+      "特aylor's University 特aylor's University",
+      "Chartered Management Institute 特许管理学院"
+    ],
+    "education_major": "International Business Management 国际商务管理",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "OP",
+      "PR",
+      "VIP",
+      "go",
+      "交易"
+    ],
+    "skills": [
+      "Blockchain",
+      "Business Development",
+      "Market Analysis",
+      "Sales Strategies",
+      "KOL Management"
+    ],
+    "work_experience": [
+      "JAN 2024 - MAY 2025, XT.Com, Senior Buisness Development Manager: Onboard and maintain a good relationships with quality KOLs and VIP traders and Projects. Create and Implement campaigns with quality KOLs to promote exchange and boost their trading volume such as Copy Trade, FTT & FTD, Lauchpools with tasks, Seasonal limited Reward and etc. Monitor KOLs and Affiliate Partners overall result in a good condition with their set KPIs. Conduct market analysis to identify growth opportunities on KOLs performances such as deposit, earn, future trading, trading volume etc.",
+      "MAR 2022 - DEC 2023, BingX, Buisness Development Manager: Develop and implement sales strategies to achieve regional revenue and profitability goals. Plan, negotiate, and build a long-lasting relationship with KOLs, VIPs trader, Affiliate Partners and etc. Host offline and online events with KOLs and their community to build brand visibility and credibility."
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2024-01",
+        "end": "2025-05",
+        "company": "XT.Com",
+        "title_en": "Senior Business Development Manager",
+        "title": "高级商务发展经理",
+        "description_en": "Onboard and maintain a good relationships with quality KOLs and VIP traders and Projects. Create and Implement campaigns with quality KOLs to promote exchange and boost their trading volume such as Copy Trade, FTT & FTD, Lauchpools with tasks, Seasonal limited Reward and etc. Monitor KOLs and Affiliate Partners overall result in a good condition with their set KPIs. Conduct market analysis to identify growth opportunities on KOLs performances such as deposit, earn, future trading, trading volume etc.",
+        "description": "与优质KOL和VIP交易者及项目建立并维护良好关系。与优质KOL创建和实施活动以促进交易所并提升他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等。监控KOL和联盟合作伙伴的整体结果，确保其达到设定的KPI。进行市场分析以识别KOL表现的增长机会，例如存款、收益、期货交易、交易量等。",
+        "details_en": [
+          "Onboard and maintain a good relationships with quality KOLs and VIP traders and Projects",
+          "Create and Implement campaigns with quality KOLs to promote exchange and boost their trading volume such as Copy Trade, FTT & FTD, Lauchpools with tasks, Seasonal limited Reward and etc.",
+          "Monitor KOLs and Affiliate Partners overall result in a good condition with their set KPIs",
+          "Conduct market analysis to identify growth opportunities on KOLs performances such as deposit, earn, future trading, trading volume etc."
+        ],
+        "details": [
+          "与优质KOL和VIP交易者及项目建立并维护良好关系",
+          "与优质KOL创建和实施活动以促进交易所并提升他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等",
+          "监控KOL和联盟合作伙伴的整体结果，确保其达到设定的KPI",
+          "进行市场分析以识别KOL表现的增长机会，例如存款、收益、期货交易、交易量等"
+        ],
+        "duration_months": 17
+      },
+      {
+        "start": "2022-03",
+        "end": "2023-12",
+        "company": "BingX",
+        "title_en": "Business Development Manager",
+        "title": "商务发展经理",
+        "description_en": "Develop and implement sales strategies to achieve regional revenue and profitability goals. Plan, negotiate, and build a long-lasting relationship with KOLs, VIPs trader, Affiliate Partners and etc. Host offline and online events with KOLs and their community to build brand visibility and credibility.",
+        "description": "制定和实施销售策略以实现区域收入和盈利目标。规划、谈判并与KOL、VIP交易者、联盟合作伙伴等建立长期关系。与KOL及其社区举办线下和线上活动，以提升品牌知名度和信誉。",
+        "details_en": [
+          "Develop and implement sales strategies to achieve regional revenue and profitability goals",
+          "Plan, negotiate, and build a long-lasting relationship with KOLs, VIPs trader, Affiliate Partners and etc.",
+          "Host offline and online events with KOLs and their community to build brand visibility and credibility"
+        ],
+        "details": [
+          "制定和实施销售策略以实现区域收入和盈利目标",
+          "规划、谈判并与KOL、VIP交易者、联盟合作伙伴等建立长期关系",
+          "与KOL及其社区举办线下和线上活动，以提升品牌知名度和信誉"
+        ],
+        "duration_months": 22
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "Ryan has been in the financial market since 2022. With extensive experience, Ryan has led stakeholders in Web3 in significant directions within this ecosystem.",
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": "瑞安自2022年以来一直在金融市场工作。\n凭借丰富的经验，Ryan在这个生态系统中引导了Web3的利益相关者朝着重要方向发展。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024年1月 - 2025年5月，XT.Com，高级业务发展经理：与优质KOL、VIP交易者和项目建立并维护良好关系。\n创建和实施与优质KOL的活动，以促进交易所并提高他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等。\n监控 KOL 和联盟合作伙伴在其设定的 KPI 下的整体结果良好。\n进行市场分析，以识别KOL表现（如存款、收益、期货交易、交易量等）的增长机会。",
+      "2022年3月 - 2023年12月，BingX，业务发展经理：制定和实施销售策略，以实现区域收入和盈利目标。\n计划、谈判并与KOL、VIP交易员、联盟合作伙伴等建立持久的关系。\n与KOL及其社区举办线下和线上活动，以建立品牌知名度和信誉。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-01",
+        "end": "2025-05",
+        "company": "XT.Com",
+        "title_en": "Senior Business Development Manager",
+        "title": "高级商务发展经理",
+        "description_en": "Onboard and maintain a good relationships with quality KOLs and VIP traders and Projects. Create and Implement campaigns with quality KOLs to promote exchange and boost their trading volume such as Copy Trade, FTT & FTD, Lauchpools with tasks, Seasonal limited Reward and etc. Monitor KOLs and Affiliate Partners overall result in a good condition with their set KPIs. Conduct market analysis to identify growth opportunities on KOLs performances such as deposit, earn, future trading, trading volume etc.",
+        "description": "与优质KOL和VIP交易者及项目建立并维护良好关系。与优质KOL创建和实施活动以促进交易所并提升他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等。监控KOL和联盟合作伙伴的整体结果，确保其达到设定的KPI。进行市场分析以识别KOL表现的增长机会，例如存款、收益、期货交易、交易量等。",
+        "details_en": [
+          "Onboard and maintain a good relationships with quality KOLs and VIP traders and Projects",
+          "Create and Implement campaigns with quality KOLs to promote exchange and boost their trading volume such as Copy Trade, FTT & FTD, Lauchpools with tasks, Seasonal limited Reward and etc.",
+          "Monitor KOLs and Affiliate Partners overall result in a good condition with their set KPIs",
+          "Conduct market analysis to identify growth opportunities on KOLs performances such as deposit, earn, future trading, trading volume etc."
+        ],
+        "details": [
+          "与优质KOL和VIP交易者及项目建立并维护良好关系",
+          "与优质KOL创建和实施活动以促进交易所并提升他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等",
+          "监控KOL和联盟合作伙伴的整体结果，确保其达到设定的KPI",
+          "进行市场分析以识别KOL表现的增长机会，例如存款、收益、期货交易、交易量等"
+        ],
+        "duration_months": 17,
+        "title_zh": "高级业务发展经理",
+        "description_zh": "与优质KOL、VIP交易员和项目建立并维护良好的关系。\n创建和实施与优质KOL的活动，以促进交易所并提高他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等。\n监控KOL和联盟合作伙伴在其设定的KPI下整体结果良好。\n进行市场分析，以识别KOL表现（如存款、收益、期货交易、交易量等）的增长机会。",
+        "details_zh": [
+          "与优质KOL、VIP交易者和项目建立并维护良好的关系",
+          "创建和实施与优质KOL的活动，以促进交易所并提高他们的交易量，例如复制交易、FTT和FTD、带任务的Lauchpools、季节性限量奖励等。",
+          "监控KOL和联盟合作伙伴在其设定的KPI下整体结果良好。",
+          "进行市场分析，以识别KOL表现（如存款、收益、期货交易、交易量等）的增长机会。"
+        ]
+      },
+      {
+        "start": "2022-03",
+        "end": "2023-12",
+        "company": "BingX",
+        "title_en": "Business Development Manager",
+        "title": "商务发展经理",
+        "description_en": "Develop and implement sales strategies to achieve regional revenue and profitability goals. Plan, negotiate, and build a long-lasting relationship with KOLs, VIPs trader, Affiliate Partners and etc. Host offline and online events with KOLs and their community to build brand visibility and credibility.",
+        "description": "制定和实施销售策略以实现区域收入和盈利目标。规划、谈判并与KOL、VIP交易者、联盟合作伙伴等建立长期关系。与KOL及其社区举办线下和线上活动，以提升品牌知名度和信誉。",
+        "details_en": [
+          "Develop and implement sales strategies to achieve regional revenue and profitability goals",
+          "Plan, negotiate, and build a long-lasting relationship with KOLs, VIPs trader, Affiliate Partners and etc.",
+          "Host offline and online events with KOLs and their community to build brand visibility and credibility"
+        ],
+        "details": [
+          "制定和实施销售策略以实现区域收入和盈利目标",
+          "规划、谈判并与KOL、VIP交易者、联盟合作伙伴等建立长期关系",
+          "与KOL及其社区举办线下和线上活动，以提升品牌知名度和信誉"
+        ],
+        "duration_months": 22,
+        "title_zh": "商务发展经理",
+        "description_zh": "制定并实施销售策略，以实现区域收入和盈利目标。\n计划、谈判并与KOL、VIP交易员、合作伙伴等建立持久的关系。\n与KOL及其社区举办线下和线上活动，以建立品牌知名度和信誉。",
+        "details_zh": [
+          "制定并实施销售策略，以实现区域收入和盈利目标",
+          "计划、谈判并与KOL、VIP交易员、合作伙伴等建立持久的关系。",
+          "与KOL及其社区举办线下和线上活动，以提升品牌知名度和可信度"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\ResumeRyan.md",
+    "md_translated": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs_zh\\ResumeRyan.md",
+    "md_mostly_english": true
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "file_name": "AIInfra远程AI系统工程师推理优化上海4070K周子昂2年.md",
+  "parsed_at": "2025-10-21T16:12:00.785417",
+  "result": {
+    "resume_file_id": null,
+    "name": "周子昂",
+    "email": "13917199355@163.com",
+    "phone": "13917199355",
+    "education_degree": "硕士",
+    "education_school": [
+      "上智大学",
+      "Sophia University 上智大学",
+      "加州大学尔湾分校",
+      "University of California, Irvine 加利福尼亚大学，欧文分校"
+    ],
+    "education_major": "人工智能方向计算机科学",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "OP",
+      "PR",
+      "RAG",
+      "go",
+      "java",
+      "python",
+      "区块链开发",
+      "大模型",
+      "大语言模型",
+      "数据分析",
+      "数据开发",
+      "智能体",
+      "测试",
+      "生成式AI",
+      "设计",
+      "运营",
+      "项目经理"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "Java",
+      "TensorFlow",
+      "PyTorch",
+      "Django",
+      "MySQL"
+    ],
+    "work_experience": [
+      "2023.06-2024.10 赛轮思通讯科技（上海）有限公司 NLU算法工程师\n工作职责1---- CRF中文分词模型：主导分词模型的训练与算法的编写，工作包括：清理语料，整理语料，新增语料，训练模型，修改训练参数，修改输出算法，增加DAT字典功能，编写接口等。主体代码为 C++，编写接口为C接口，以便C类语言都可以顺利使用。分词模型代码已进入实机运用，奔驰、奥迪等中文项目都有实车使用。\n工作职责2---- NLU模型日常维护及更新：主导负责日常粤语模型维护及更新，主导过奥迪、奔驰、比亚迪、吉利等项目的英语NLU模型维护及更新。使用 jsgf、gazetteer、bnf、fieldannotatedstring，精通了解 jsgf 语法，gaz/bnf 添加方法以及fieldannotatedstring 语法，并了解使用 regexrule。\n工作职责3---- 基于 Prompt 与 RAG 的大模型优化：结合 Prompt Engineering 设计动态模板，引导模型生成符合车载场景的结构化回答（如导航指令、车辆控制）。基于RAG技术，构建汽车领域知识库，通过语义检索增强模型上下文理解能力。使用 PyTorch 与 Hugging Face Transformers 库微调 Llama 模型，优化解码策略以减少响应延迟。"
+    ],
+    "internship_experience": [
+      "2020.07-2020.11 安正时尚集团\n工作概述：在集团电商运营平台中，参与会话式AI助手的开发工作，涉及算法的讨论、搜索模型的选择、服装行业问题数据归集等工作，以期达成及时响应客户咨询，提高客服的工作效率。"
+    ],
+    "project_experience": [
+      "2021.09-2022.06 不同NLP技术搭建的聊天机器人分析\n项目描述：运用 TensorFlow 深度学习框架，设计模型自动问答机器人，对机器人聊天内容进行分析测评。\n项目职责：机器人设计：运用 TensorFlow 深度学习框架、numpy 等技术进行语义分析，设计基于不同RNN的Seq2Seq模型自动问答机器人，并在其中加入不同的Attention机制，使之能够更加紧密的根据前文生成答案；模型搭建训练：构建 LSTM with Luong attention、GRU with Luong attention、LSTM with Bahdanau attention、GRU with Bahdanau attention 四个模型，对这些模型进行训练比较，确定最优模型；评分系统设计：运用fuzzy function对机器人生成的回答多维度打分，生成回答质量分数，对机器人进行评估；项目开发测试：从0到1使用python语言完成整个系统的代码框架搭建，功能模块实现和调试，以及问题解决。\n项目业绩：从0到1，完成整个项目的设计、开发、调试。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-06",
+        "end": "2024-10",
+        "company": "赛轮思通讯科技（上海）有限公司",
+        "title_en": "NLU Algorithm Engineer",
+        "title": "NLU算法工程师",
+        "description_en": null,
+        "description": "工作职责1---- CRF中文分词模型：主导分词模型的训练与算法的编写，工作包括：清理语料，整理语料，新增语料，训练模型，修改训练参数，修改输出算法，增加DAT字典功能，编写接口等。主体代码为 C++，编写接口为C接口，以便C类语言都可以顺利使用。分词模型代码已进入实机运用，奔驰、奥迪等中文项目都有实车使用。工作职责2---- NLU模型日常维护及更新：主导负责日常粤语模型维护及更新，主导过奥迪、奔驰、比亚迪、吉利等项目的英语NLU模型维护及更新。使用 jsgf、gazetteer、bnf、fieldannotatedstring，精通了解 jsgf 语法，gaz/bnf 添加方法以及fieldannotatedstring 语法，并了解使用 regexrule。工作职责3---- 基于 Prompt 与 RAG 的大模型优化：结合 Prompt Engineering 设计动态模板，引导模型生成符合车载场景的结构化回答（如导航指令、车辆控制）。基于RAG技术，构建汽车领域知识库，通过语义检索增强模型上下文理解能力。使用 PyTorch 与 Hugging Face Transformers 库微调 Llama 模型，优化解码策略以减少响应延迟。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 17
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2021-09",
+        "end": "2022-06",
+        "company": "不同NLP技术搭建的聊天机器人分析",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "运用 TensorFlow 深度学习框架，设计模型自动问答机器人，对机器人聊天内容进行分析测评。",
+        "details_en": null,
+        "details": [
+          "机器人设计：运用 TensorFlow 深度学习框架、numpy 等技术进行语义分析，设计基于不同RNN的Seq2Seq模型自动问答机器人，并在其中加入不同的Attention机制，使之能够更加紧密的根据前文生成答案",
+          "模型搭建训练：构建 LSTM with Luong attention、GRU with Luong attention、LSTM with Bahdanau attention、GRU with Bahdanau attention 四个模型，对这些模型进行训练比较，确定最优模型",
+          "评分系统设计：运用fuzzy function对机器人生成的回答多维度打分，生成回答质量分数，对机器人进行评估",
+          "项目开发测试：从0到1使用python语言完成整个系统的代码框架搭建，功能模块实现和调试，以及问题解决"
+        ],
+        "duration_months": 10
+      }
+    ],
+    "self_evaluation": "有经历近2年车载人工智能开发经历，6年本硕海外留学经历，英语流畅，可以胜任纯英语工作环境，具有从0到1独立完成项目设计开发经验，以及团队协作开发经验。硬实力掌握编程语言：Python（精通）、C++（熟练）、Java（基础） | 框架：TensorFlow（项目主导）、PyTorch（微调经验），熟悉传统NLP领域的机器学习算法以及结构，如Seq2Seq、attention、transformer、BERT等，熟悉新的大模型相关技术以及模型如RAG、Prompt、微调、Llama、Deepseek等，熟悉Django框架、MySQL数据库，能根据项目需求，独立完成相关功能模块开发，使用github进行DevOps研发管理。软技能学习能力和沟通表达能力出色，热爱技术，动手能力强，具有团队协作精神，以及独立解决问题能力。",
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": "有经历近2年车载人工智能开发经历，6年本硕海外留学经历，英语流畅，可以胜任纯英语工作环境，具有从0到1独立完成项目设计开发经验，以及团队协作开发经验。硬实力掌握编程语言：Python（精通）、C++（熟练）、Java（基础） | 框架：TensorFlow（项目主导）、PyTorch（微调经验），熟悉传统NLP领域的机器学习算法以及结构，如Seq2Seq、attention、transformer、BERT等，熟悉新的大模型相关技术以及模型如RAG、Prompt、微调、Llama、Deepseek等，熟悉Django框架、MySQL数据库，能根据项目需求，独立完成相关功能模块开发，使用github进行DevOps研发管理。软技能学习能力和沟通表达能力出色，热爱技术，动手能力强，具有团队协作精神，以及独立解决问题能力。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.06-2024.10 赛轮思通讯科技（上海）有限公司 NLU算法工程师\n工作职责1---- CRF中文分词模型：主导分词模型的训练与算法的编写，工作包括：清理语料，整理语料，新增语料，训练模型，修改训练参数，修改输出算法，增加DAT字典功能，编写接口等。主体代码为 C++，编写接口为C接口，以便C类语言都可以顺利使用。分词模型代码已进入实机运用，奔驰、奥迪等中文项目都有实车使用。\n工作职责2---- NLU模型日常维护及更新：主导负责日常粤语模型维护及更新，主导过奥迪、奔驰、比亚迪、吉利等项目的英语NLU模型维护及更新。使用 jsgf、gazetteer、bnf、fieldannotatedstring，精通了解 jsgf 语法，gaz/bnf 添加方法以及fieldannotatedstring 语法，并了解使用 regexrule。\n工作职责3---- 基于 Prompt 与 RAG 的大模型优化：结合 Prompt Engineering 设计动态模板，引导模型生成符合车载场景的结构化回答（如导航指令、车辆控制）。基于RAG技术，构建汽车领域知识库，通过语义检索增强模型上下文理解能力。使用 PyTorch 与 Hugging Face Transformers 库微调 Llama 模型，优化解码策略以减少响应延迟。"
+    ],
+    "internship_experience_zh": [
+      "2020.07-2020.11 安正时尚集团\n工作概述：在集团电商运营平台中，参与会话式AI助手的开发工作，涉及算法的讨论、搜索模型的选择、服装行业问题数据归集等工作，以期达成及时响应客户咨询，提高客服的工作效率。"
+    ],
+    "project_experience_zh": [
+      "2021.09-2022.06 不同NLP技术搭建的聊天机器人分析\n项目描述：运用 TensorFlow 深度学习框架，设计模型自动问答机器人，对机器人聊天内容进行分析测评。\n项目职责：机器人设计：运用 TensorFlow 深度学习框架、numpy 等技术进行语义分析，设计基于不同RNN的Seq2Seq模型自动问答机器人，并在其中加入不同的Attention机制，使之能够更加紧密的根据前文生成答案；模型搭建训练：构建 LSTM with Luong attention、GRU with Luong attention、LSTM with Bahdanau attention、GRU with Bahdanau attention 四个模型，对这些模型进行训练比较，确定最优模型；评分系统设计：运用fuzzy function对机器人生成的回答多维度打分，生成回答质量分数，对机器人进行评估；项目开发测试：从0到1使用python语言完成整个系统的代码框架搭建，功能模块实现和调试，以及问题解决。\n项目业绩：从0到1，完成整个项目的设计、开发、调试。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-06",
+        "end": "2024-10",
+        "company": "赛轮思通讯科技（上海）有限公司",
+        "title_en": "NLU Algorithm Engineer",
+        "title": "NLU算法工程师",
+        "description_en": null,
+        "description": "工作职责1---- CRF中文分词模型：主导分词模型的训练与算法的编写，工作包括：清理语料，整理语料，新增语料，训练模型，修改训练参数，修改输出算法，增加DAT字典功能，编写接口等。主体代码为 C++，编写接口为C接口，以便C类语言都可以顺利使用。分词模型代码已进入实机运用，奔驰、奥迪等中文项目都有实车使用。工作职责2---- NLU模型日常维护及更新：主导负责日常粤语模型维护及更新，主导过奥迪、奔驰、比亚迪、吉利等项目的英语NLU模型维护及更新。使用 jsgf、gazetteer、bnf、fieldannotatedstring，精通了解 jsgf 语法，gaz/bnf 添加方法以及fieldannotatedstring 语法，并了解使用 regexrule。工作职责3---- 基于 Prompt 与 RAG 的大模型优化：结合 Prompt Engineering 设计动态模板，引导模型生成符合车载场景的结构化回答（如导航指令、车辆控制）。基于RAG技术，构建汽车领域知识库，通过语义检索增强模型上下文理解能力。使用 PyTorch 与 Hugging Face Transformers 库微调 Llama 模型，优化解码策略以减少响应延迟。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 17,
+        "title_zh": "自然语言理解算法工程师",
+        "description_zh": "工作职责1---- CRF中文分词模型：主导分词模型的训练与算法的编写，工作包括：清理语料，整理语料，新增语料，训练模型，修改训练参数，修改输出算法，增加DAT字典功能，编写接口等。主体代码为 C++，编写接口为C接口，以便C类语言都可以顺利使用。分词模型代码已进入实机运用，奔驰、奥迪等中文项目都有实车使用。工作职责2---- NLU模型日常维护及更新：主导负责日常粤语模型维护及更新，主导过奥迪、奔驰、比亚迪、吉利等项目的英语NLU模型维护及更新。使用 jsgf、gazetteer、bnf、fieldannotatedstring，精通了解 jsgf 语法，gaz/bnf 添加方法以及fieldannotatedstring 语法，并了解使用 regexrule。工作职责3---- 基于 Prompt 与 RAG 的大模型优化：结合 Prompt Engineering 设计动态模板，引导模型生成符合车载场景的结构化回答（如导航指令、车辆控制）。基于RAG技术，构建汽车领域知识库，通过语义检索增强模型上下文理解能力。使用 PyTorch 与 Hugging Face Transformers 库微调 Llama 模型，优化解码策略以减少响应延迟。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIInfra远程AI系统工程师推理优化上海4070K周子昂2年.md",
+    "md_mostly_english": false
+  }
+}

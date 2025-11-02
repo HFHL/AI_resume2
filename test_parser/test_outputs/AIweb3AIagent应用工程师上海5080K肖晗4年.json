@@ -1,0 +1,215 @@
+{
+  "file_name": "AIweb3AIagent应用工程师上海5080K肖晗4年.md",
+  "parsed_at": "2025-10-21T16:36:19.673647",
+  "result": {
+    "resume_file_id": null,
+    "name": "肖晗",
+    "email": "Xh544023@outlook.com",
+    "phone": "17356509786",
+    "education_degree": "本科",
+    "education_school": [
+      "哈尔滨工业大学",
+      "Harbin Institute of Technology 哈尔滨工业大学"
+    ],
+    "education_major": "经济学",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "DEX",
+      "ETH",
+      "LangChain",
+      "OP",
+      "PR",
+      "RAG",
+      "go",
+      "python",
+      "全栈",
+      "后端",
+      "向量数据库",
+      "多模态",
+      "大模型",
+      "大语言模型",
+      "数据分析",
+      "设计",
+      "量化",
+      "量化开发"
+    ],
+    "skills": [
+      "Python",
+      "FastAPI",
+      "Expressjs",
+      "SQL",
+      "Node.js",
+      "SQLAlchemy",
+      "C++",
+      "Llama",
+      "Mistral",
+      "Gemini",
+      "NLLB-200",
+      "LangChain",
+      "Llamalndex",
+      "HanLP",
+      "NetworkX",
+      "vLLM",
+      "TensorRT-LLM",
+      "TGI",
+      "BitsandBytes",
+      "AutoGPTQ",
+      "GGUF",
+      "OCR",
+      "VLM",
+      "ModelScope",
+      "ComfyUI",
+      "FFmpeg",
+      "FunASR",
+      "Whisper",
+      "TTS",
+      "Wav2Lip",
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "asyncio.Queue",
+      "Milvus",
+      "Faiss",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitLabCI",
+      "LinuxShell",
+      "Prometheus",
+      "Grafana",
+      "SkyWalking"
+    ],
+    "work_experience": [
+      "2024年05月-2025年06月\n广州蜗牛保险经纪有限公司-AI算法工程师AI中台与创新应用部\n主导公司AI应用服务化生态的从0到1建设，围绕大语言模型和多模态技术，设计并开发了十余个核心AI微服务，为多个业务线提供了标准化、高可用的AI能力。\n负责AI原生应用的全链路开发，从需求分析、技术选型、架构设计，到模型集成与优化、后端开发、容器化部署及线上维护，积累了丰富的端到端项目落地经验。\n攻克多项技术难题，如超长文本的高效处理、复杂文档的结构化信息提取、第三方Web应用的自动化控制等，通过创新的技术方案，显著提升了数据处理效率和业务自动化水平。",
+      "2021年07月-2024年03月\n北京东方国信科技股份有限公司-算法工程师数据挖掘中心\n参与核心电信AI算法平台研发，负责用户流失预测、智能推荐等场景的算法建模与工程化，通过特征工程与模型调优，累计提升核心业务指标25%。\n主导开发向导式自动化建模功能，利用PyTorch(LSTM，NeuralProphet)实现时序预测，将模型部署周期缩短70%，并率先引入RAG技术奠定团队大模型应用基础。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2025年03月-至今\n端到端Al知识视频生成系统(Al-Video-Generator)-Al全栈\n为解决传统视频制作流程繁琐、成本高昂的问题，主导设计并实现了从主题到成片的全自动化AI视频生成器。利用GoogleGeminiAPI和提示词工程生成结构化脚本，集成AzureTTS合成配音，并创新性地采用Playwright自动化操作第三方Web应用生成视觉PPT。最终通过FFmpeg精准合成音画，将视频制作周期从数天缩短至45分钟以内。",
+      "2025年07月-2024年12月\n多模态内容理解与信息提取系统(multimodal2text)-Al算法工程师Al中台与创新应用部\n为解决业务中异构数据处理难题，从0到1主导设计并研发了公司级多模态内容处理中台。将服务解耦为同步、异步、ASR三个微服务，并基于LangChain与VLM开发了针对音视频、文档的核心处理器，创新性地引入语义路由机制。通过精细的资源控制与熔断设计，保障了服务高可用性(99.5%)，将新业务的AI能力接入成本降低40%。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2024-05",
+        "end": "2025-06",
+        "company": "广州蜗牛保险经纪有限公司",
+        "title_en": "AI Algorithm Engineer",
+        "title": "AI算法工程师",
+        "description_en": null,
+        "description": "主导公司AI应用服务化生态的从0到1建设，围绕大语言模型和多模态技术，设计并开发了十余个核心AI微服务，为多个业务线提供了标准化、高可用的AI能力。",
+        "details_en": null,
+        "details": [
+          "负责AI原生应用的全链路开发，从需求分析、技术选型、架构设计，到模型集成与优化、后端开发、容器化部署及线上维护，积累了丰富的端到端项目落地经验。",
+          "攻克多项技术难题，如超长文本的高效处理、复杂文档的结构化信息提取、第三方Web应用的自动化控制等，通过创新的技术方案，显著提升了数据处理效率和业务自动化水平。"
+        ],
+        "duration_months": 14
+      },
+      {
+        "start": "2021-07",
+        "end": "2024-03",
+        "company": "北京东方国信科技股份有限公司",
+        "title_en": "Algorithm Engineer",
+        "title": "算法工程师",
+        "description_en": null,
+        "description": "参与核心电信AI算法平台研发，负责用户流失预测、智能推荐等场景的算法建模与工程化，通过特征工程与模型调优，累计提升核心业务指标25%。",
+        "details_en": null,
+        "details": [
+          "主导开发向导式自动化建模功能，利用PyTorch(LSTM，NeuralProphet)实现时序预测，将模型部署周期缩短70%，并率先引入RAG技术奠定团队大模型应用基础。"
+        ],
+        "duration_months": 33
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2025-03",
+        "end": "present",
+        "company": "端到端Al知识视频生成系统(Al-Video-Generator)-Al全栈",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "为解决传统视频制作流程繁琐、成本高昂的问题，主导设计并实现了从主题到成片的全自动化AI视频生成器。利用GoogleGeminiAPI和提示词工程生成结构化脚本，集成AzureTTS合成配音，并创新性地采用Playwright自动化操作第三方Web应用生成视觉PPT。最终通过FFmpeg精准合成音画，将视频制作周期从数天缩短至45分钟以内。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 8
+      },
+      {
+        "start": "2025-07",
+        "end": "2024-12",
+        "company": "多模态内容理解与信息提取系统(multimodal2text)-Al算法工程师Al中台与创新应用部",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "为解决业务中异构数据处理难题，从0到1主导设计并研发了公司级多模态内容处理中台。将服务解耦为同步、异步、ASR三个微服务，并基于LangChain与VLM开发了针对音视频、文档的核心处理器，创新性地引入语义路由机制。通过精细的资源控制与熔断设计，保障了服务高可用性(99.5%)，将新业务的AI能力接入成本降低40%。",
+        "details_en": null,
+        "details": null,
+        "duration_months": -6
+      }
+    ],
+    "self_evaluation": "近三年AI应用全栈开发经验，主导和核心参与了公司从0到1的AI服务生态构建，具备独立负责AI原生应用的架构设计、开发、部署与维护的全链路能力。\n精通以LLM/VLM为核心的应用开发，在RAG、Agent、多模态内容理解、知识图谱构建等方向有丰富的实战经验和深刻的技术洞见。\n具备扎实的后端工程能力，熟练运用Python、FastAPI、Docker、Kubernetes等技术构建高可用、可扩展的微服务架构，并精通Prometheus、SkyWalking等监控与可观测性工具。\n对AI应用性能优化有深入理解，熟悉vLLM、模型量化(GGUF/GPTQ)、异步任务队列(Celery/Redis)等技术，擅长在资源与性能间寻求最优解。\n技术热情驱动，具备出色的问题分析与解决能力，能快速响应业务需求，将前沿AI技术落地为高价值的商业应用。",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "近三年AI应用全栈开发经验，主导和核心参与了公司从0到1的AI服务生态构建，具备独立负责AI原生应用的架构设计、开发、部署与维护的全链路能力。\n精通以LLM/VLM为核心的应用开发，在RAG、Agent、多模态内容理解、知识图谱构建等方向有丰富的实战经验和深刻的技术洞见。\n具备扎实的后端工程能力，熟练运用Python、FastAPI、Docker、Kubernetes等技术构建高可用、可扩展的微服务架构，并精通Prometheus、SkyWalking等监控与可观测性工具。\n对AI应用性能优化有深入理解，熟悉vLLM、模型量化(GGUF/GPTQ)、异步任务队列(Celery/Redis)等技术，擅长在资源与性能间寻求最优解。\n技术热情驱动，具备出色的问题分析与解决能力，能快速响应业务需求，将前沿AI技术落地为高价值的商业应用。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024年05月-2025年06月\n广州蜗牛保险经纪有限公司-AI算法工程师AI中台与创新应用部\n主导公司AI应用服务化生态的从0到1建设，围绕大语言模型和多模态技术，设计并开发了十余个核心AI微服务，为多个业务线提供了标准化、高可用的AI能力。\n负责AI原生应用的全链路开发，从需求分析、技术选型、架构设计，到模型集成与优化、后端开发、容器化部署及线上维护，积累了丰富的端到端项目落地经验。\n攻克多项技术难题，如超长文本的高效处理、复杂文档的结构化信息提取、第三方Web应用的自动化控制等，通过创新的技术方案，显著提升了数据处理效率和业务自动化水平。",
+      "2021年07月-2024年03月\n北京东方国信科技股份有限公司-算法工程师数据挖掘中心\n参与核心电信AI算法平台研发，负责用户流失预测、智能推荐等场景的算法建模与工程化，通过特征工程与模型调优，累计提升核心业务指标25%。\n主导开发向导式自动化建模功能，利用PyTorch(LSTM，NeuralProphet)实现时序预测，将模型部署周期缩短70%，并率先引入RAG技术奠定团队大模型应用基础。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2025年03月-至今\n端到端Al知识视频生成系统(Al-Video-Generator)-Al全栈\n为解决传统视频制作流程繁琐、成本高昂的问题，主导设计并实现了从主题到成片的全自动化AI视频生成器。利用GoogleGeminiAPI和提示词工程生成结构化脚本，集成AzureTTS合成配音，并创新性地采用Playwright自动化操作第三方Web应用生成视觉PPT。最终通过FFmpeg精准合成音画，将视频制作周期从数天缩短至45分钟以内。",
+      "2025年07月-2024年12月\n多模态内容理解与信息提取系统(multimodal2text)-Al算法工程师Al中台与创新应用部\n为解决业务中异构数据处理难题，从0到1主导设计并研发了公司级多模态内容处理中台。将服务解耦为同步、异步、ASR三个微服务，并基于LangChain与VLM开发了针对音视频、文档的核心处理器，创新性地引入语义路由机制。通过精细的资源控制与熔断设计，保障了服务高可用性(99.5%)，将新业务的AI能力接入成本降低40%。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-05",
+        "end": "2025-06",
+        "company": "广州蜗牛保险经纪有限公司",
+        "title_en": "AI Algorithm Engineer",
+        "title": "AI算法工程师",
+        "description_en": null,
+        "description": "主导公司AI应用服务化生态的从0到1建设，围绕大语言模型和多模态技术，设计并开发了十余个核心AI微服务，为多个业务线提供了标准化、高可用的AI能力。",
+        "details_en": null,
+        "details": [
+          "负责AI原生应用的全链路开发，从需求分析、技术选型、架构设计，到模型集成与优化、后端开发、容器化部署及线上维护，积累了丰富的端到端项目落地经验。",
+          "攻克多项技术难题，如超长文本的高效处理、复杂文档的结构化信息提取、第三方Web应用的自动化控制等，通过创新的技术方案，显著提升了数据处理效率和业务自动化水平。"
+        ],
+        "duration_months": 14,
+        "title_zh": "人工智能算法工程师",
+        "description_zh": "主导公司AI应用服务化生态的从0到1建设，围绕大语言模型和多模态技术，设计并开发了十余个核心AI微服务，为多个业务线提供了标准化、高可用的AI能力。",
+        "details_zh": [
+          "负责AI原生应用的全链路开发，从需求分析、技术选型、架构设计，到模型集成与优化、后端开发、容器化部署及线上维护，积累了丰富的端到端项目落地经验。",
+          "攻克多项技术难题，如超长文本的高效处理、复杂文档的结构化信息提取、第三方Web应用的自动化控制等，通过创新的技术方案，显著提升了数据处理效率和业务自动化水平。"
+        ]
+      },
+      {
+        "start": "2021-07",
+        "end": "2024-03",
+        "company": "北京东方国信科技股份有限公司",
+        "title_en": "Algorithm Engineer",
+        "title": "算法工程师",
+        "description_en": null,
+        "description": "参与核心电信AI算法平台研发，负责用户流失预测、智能推荐等场景的算法建模与工程化，通过特征工程与模型调优，累计提升核心业务指标25%。",
+        "details_en": null,
+        "details": [
+          "主导开发向导式自动化建模功能，利用PyTorch(LSTM，NeuralProphet)实现时序预测，将模型部署周期缩短70%，并率先引入RAG技术奠定团队大模型应用基础。"
+        ],
+        "duration_months": 33,
+        "title_zh": "算法工程师",
+        "description_zh": "参与核心电信AI算法平台研发，负责用户流失预测、智能推荐等场景的算法建模与工程化，通过特征工程与模型调优，累计提升核心业务指标25%。",
+        "details_zh": [
+          "主导开发向导式自动化建模功能，利用PyTorch(LSTM，NeuralProphet)实现时序预测，将模型部署周期缩短70%，并率先引入RAG技术奠定团队大模型应用基础。"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AIagent应用工程师上海5080K肖晗4年.md",
+    "md_mostly_english": false
+  }
+}

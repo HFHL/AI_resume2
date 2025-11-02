@@ -2,19 +2,22 @@
 # -*- coding: utf-8 -*-
 
 import os
+from pathlib import Path
 import time
 import uuid
 import logging
 from typing import List, Literal
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Query, Path, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, Query, Path as ApiPath, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from supabase import Client, create_client
 
 from .config import get_app_settings
 from . import UPLOAD_DIRS, build_r2_public_url
 from .watcher import start_watcher_in_background
+from .translator import ResumeTranslator
 import boto3
 from botocore.client import Config as _BotoConfig
 import certifi
@@ -26,6 +29,24 @@ _observer = None
 
 # 创建 FastAPI 应用
 app = FastAPI(title="AI简历匹配系统 API", version="0.1.0")
+# 项目根与测试目录
+ROOT_DIR = Path(__file__).resolve().parents[2]
+TEST_PARSER_DIR = ROOT_DIR / "test_parser"
+
+# 挂载 test_parser 静态目录，便于通过 8000 端口访问测试页面与文件
+if TEST_PARSER_DIR.exists():
+    app.mount("/test_parser", StaticFiles(directory=str(TEST_PARSER_DIR)), name="test_parser")
+else:
+    logger.warning(f"test_parser 目录不存在: {TEST_PARSER_DIR}")
+
+# 单例翻译器
+_translator: ResumeTranslator | None = None
+
+def get_translator() -> ResumeTranslator | None:
+    global _translator
+    if _translator is None:
+        _translator = ResumeTranslator(model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
+    return _translator
 logger = logging.getLogger("api")
 if not logger.handlers:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
@@ -405,7 +426,7 @@ def search_resumes(q: str | None = Query(None, description="模糊搜索关键�
 
 
 @app.get("/resumes/{resume_id}")
-def get_resume(resume_id: int = Path(...)) -> dict:
+def get_resume(resume_id: int = ApiPath(...)) -> dict:
     client = get_supabase_client()
     try:
         res = (
@@ -427,7 +448,7 @@ def get_resume(resume_id: int = Path(...)) -> dict:
 
 @app.get("/positions/{position_id}/match")
 def match_resumes_for_position(
-    position_id: int = Path(...),
+    position_id: int = ApiPath(...),
     limit: int = Query(2000, ge=1, le=10000),
     offset: int = Query(0, ge=0),
 ) -> dict:
@@ -536,7 +557,7 @@ def list_positions(limit: int = Query(100, ge=1, le=500), offset: int = Query(0,
 
 
 @app.get("/positions/{position_id}")
-def get_position(position_id: int = Path(...)) -> dict:
+def get_position(position_id: int = ApiPath(...)) -> dict:
     """获取单个职位详情"""
     client = get_supabase_client()
     try:
@@ -611,3 +632,80 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+
+
+# ==================== Test Parser Translation APIs ====================
+
+class TranslateBody(BaseModel):
+    text: str
+    file_name: str | None = None
+
+
+class TranslateFileBody(BaseModel):
+    file_path: str
+
+
+@app.post("/test_parser/translate")
+@app.post("/api/test_parser/translate")
+def translate_text(body: TranslateBody) -> dict:
+    tr = get_translator()
+    if not tr or not tr.is_available():
+        raise HTTPException(status_code=500, detail="LLM 客户端未初始化，请检查 OPENAI_API_KEY")
+    try:
+        translated = tr.translate_markdown(body.text)
+        sections = tr.split_by_headings(body.text)
+        return {
+            "success": True,
+            "translated_text": translated,
+            "sections_count": len(sections),
+            "original_length": len(body.text),
+            "translated_length": len(translated),
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/test_parser/translate_file")
+@app.post("/api/test_parser/translate_file")
+def translate_file_api(body: TranslateFileBody) -> dict:
+    """将 test_parser 下的 Markdown 文件翻译并保存到 ocr_outputs_zh/ 下。
+    兼容传入路径以 "/test_parser/" 开头或不带前缀两种形式。
+    """
+    raw_path = (body.file_path or "").strip()
+    if not raw_path:
+        raise HTTPException(status_code=400, detail="缺少 file_path")
+
+    # 归一化路径
+    norm = raw_path.lstrip("/").replace("\\", "/")
+    if norm.startswith("test_parser/"):
+        rel = norm[len("test_parser/"):]
+    else:
+        rel = norm
+
+    input_path = TEST_PARSER_DIR / rel
+    if not input_path.exists():
+        raise HTTPException(status_code=404, detail=f"文件不存在: {raw_path}")
+    if input_path.suffix.lower() != ".md":
+        raise HTTPException(status_code=400, detail="仅支持 .md 文件翻译")
+
+    tr = get_translator()
+    if not tr or not tr.is_available():
+        raise HTTPException(status_code=500, detail="LLM 客户端未初始化，请检查 OPENAI_API_KEY")
+
+    try:
+        text = input_path.read_text(encoding="utf-8")
+        translated = tr.translate_markdown(text)
+        out_dir = TEST_PARSER_DIR / "ocr_outputs_zh"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / input_path.name
+        out_path.write_text(translated, encoding="utf-8")
+        sections = tr.split_by_headings(text)
+        return {
+            "success": True,
+            "output_path": f"test_parser/ocr_outputs_zh/{input_path.name}",
+            "sections_count": len(sections),
+        }
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))

@@ -1,0 +1,318 @@
+{
+  "file_name": "AIDefi产品经理上海3050K杨帆10年.md",
+  "parsed_at": "2025-10-21T16:03:37.506429",
+  "result": {
+    "resume_file_id": null,
+    "name": "杨帆",
+    "email": "yangfan19910310@163.com",
+    "phone": "18900129055",
+    "education_degree": "本科",
+    "education_school": [
+      "Vrije Universiteit Amsterdam 阿姆斯特丹自由大学",
+      "武汉大学"
+    ],
+    "education_major": "AI人工智能专业",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "PR",
+      "交易",
+      "产品",
+      "增长",
+      "多模态",
+      "大模型",
+      "数据分析",
+      "测试",
+      "现货",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "AI",
+      "NLP",
+      "transformer",
+      "算法",
+      "用户画像",
+      "推荐系统",
+      "内容分发",
+      "数据分析"
+    ],
+    "work_experience": [
+      "2023.7-2024.3 阿里巴巴集团飞猪旅行(飞猪) 用户及平台业务中心\n独立负责飞猪度假业务搜索域GMV，制定query拆词策略，建设同义词表，优化特征工程和排序因子，实现GMV增长。",
+      "2021.12-2022.9 上海识装信息科技有限公司(得物（前名称：毒app）) 交易技术部 推荐产品\n主导算法社区电商增长项目，提升dpv 15%，探索首页Feeds流增长，提升全站uv价值2%。",
+      "2018.10-2021.8 维沃移动通信有限公司（VIVO） 游戏事业部&AI研究院\n主导I视频推荐项目，提升分发效率10%，用户人均时长提升2%。",
+      "2016.6-2018.9 北京玫瑰视界科技有限公司(电商) 产品部 推荐搜索产品\n独立负责首页推荐项目，提升首页ctr对比baseline 60%，商详ctr提升20%。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "为基于Magic Eden的NFT项目做AI增长赋能，利用AI做故事叙事宣传，通过twitter社群链路维护用户，设计tap-earn游戏。",
+      "淘宝端AI大模型搜索项目，设计问答和自然对话结合的chatbot，提升度假业务在AI新场景中的份额。",
+      "双11大促活动，负责飞猪度假业务促销目标，设计搜索需求监控，快速补货。",
+      "游戏中心用户增长项目，提升用户留存35%，独立发起项目，完成产品内容化转型和技术方案升级。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-07",
+        "end": "2024-03",
+        "company": "阿里巴巴集团飞猪旅行(飞猪",
+        "title_en": null,
+        "title": "用户及平台业务中心",
+        "description_en": null,
+        "description": "独立负责飞猪度假业务搜索域GMV，制定query拆词策略，建设同义词表，优化特征工程和排序因子，实现GMV增长。",
+        "details_en": null,
+        "details": [
+          "独立负责飞猪度假业务搜索域GMV",
+          "制定query拆词策略",
+          "建设同义词表",
+          "优化特征工程和排序因子",
+          "实现GMV增长"
+        ],
+        "duration_months": 9
+      },
+      {
+        "start": "2021-12",
+        "end": "2022-09",
+        "company": "上海识装信息科技有限公司(得物（前名称：毒app",
+        "title_en": null,
+        "title": "推荐产品",
+        "description_en": null,
+        "description": "主导算法社区电商增长项目，提升dpv 15%，探索首页Feeds流增长，提升全站uv价值2%。",
+        "details_en": null,
+        "details": [
+          "主导算法社区电商增长项目",
+          "提升dpv 15%",
+          "探索首页Feeds流增长",
+          "提升全站uv价值2%"
+        ],
+        "duration_months": 10
+      },
+      {
+        "start": "2018-10",
+        "end": "2021-08",
+        "company": "维沃移动通信有限公司（VIVO",
+        "title_en": null,
+        "title": "游戏事业部&AI研究院",
+        "description_en": null,
+        "description": "主导I视频推荐项目，提升分发效率10%，用户人均时长提升2%。",
+        "details_en": null,
+        "details": [
+          "主导I视频推荐项目",
+          "提升分发效率10%",
+          "用户人均时长提升2%"
+        ],
+        "duration_months": 35
+      },
+      {
+        "start": "2016-06",
+        "end": "2018-09",
+        "company": "北京玫瑰视界科技有限公司(电商",
+        "title_en": null,
+        "title": "推荐搜索产品",
+        "description_en": null,
+        "description": "独立负责首页推荐项目，提升首页ctr对比baseline 60%，商详ctr提升20%。",
+        "details_en": null,
+        "details": [
+          "独立负责首页推荐项目",
+          "提升首页ctr对比baseline 60%",
+          "商详ctr提升20%"
+        ],
+        "duration_months": 28
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Magic Eden",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "为基于Magic Eden的NFT项目做AI增长赋能，利用AI做故事叙事宣传，通过twitter社群链路维护用户，设计tap-earn游戏。",
+        "details_en": null,
+        "details": [
+          "为基于Magic Eden的NFT项目做AI增长赋能",
+          "利用AI做故事叙事宣传",
+          "通过twitter社群链路维护用户",
+          "设计tap-earn游戏"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "淘宝",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "淘宝端AI大模型搜索项目，设计问答和自然对话结合的chatbot，提升度假业务在AI新场景中的份额。",
+        "details_en": null,
+        "details": [
+          "淘宝端AI大模型搜索项目",
+          "设计问答和自然对话结合的chatbot",
+          "提升度假业务在AI新场景中的份额"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "飞猪",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "双11大促活动，负责飞猪度假业务促销目标，设计搜索需求监控，快速补货。",
+        "details_en": null,
+        "details": [
+          "双11大促活动",
+          "负责飞猪度假业务促销目标",
+          "设计搜索需求监控",
+          "快速补货"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "游戏中心",
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "游戏中心用户增长项目，提升用户留存35%，独立发起项目，完成产品内容化转型和技术方案升级。",
+        "details_en": null,
+        "details": [
+          "游戏中心用户增长项目",
+          "提升用户留存35%",
+          "独立发起项目",
+          "完成产品内容化转型和技术方案升级"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "8年策略算法AI产品经理，熟悉游戏、内容、电商，擅长采用算法AI手段做产品用户增长。",
+    "other": null,
+    "work_years": 6,
+    "self_evaluation_zh": "8年策略算法AI产品经理，熟悉游戏、内容、电商，擅长采用算法AI手段做产品用户增长。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023.7-2024.3 阿里巴巴集团飞猪旅行(飞猪) 用户及平台业务中心\n独立负责飞猪度假业务搜索域GMV，制定query拆词策略，建设同义词表，优化特征工程和排序因子，实现GMV增长。",
+      "2021.12-2022.9 上海识装信息科技有限公司(得物（前名称：毒app）) 交易技术部 推荐产品\n主导算法社区电商增长项目，提升dpv 15%，探索首页Feeds流增长，提升全站uv价值2%。",
+      "2018.10-2021.8 维沃移动通信有限公司（VIVO） 游戏事业部&AI研究院\n主导I视频推荐项目，提升分发效率10%，用户人均时长提升2%。",
+      "2016.6-2018.9 北京玫瑰视界科技有限公司(电商) 产品部 推荐搜索产品\n独立负责首页推荐项目，提升首页ctr对比baseline 60%，商详ctr提升20%。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "为基于Magic Eden的NFT项目做AI增长赋能，利用AI做故事叙事宣传，通过twitter社群链路维护用户，设计tap-earn游戏。",
+      "淘宝端AI大模型搜索项目，设计问答和自然对话结合的chatbot，提升度假业务在AI新场景中的份额。",
+      "双11大促活动，负责飞猪度假业务促销目标，设计搜索需求监控，快速补货。",
+      "游戏中心用户增长项目，提升用户留存35%，独立发起项目，完成产品内容化转型和技术方案升级。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-07",
+        "end": "2024-03",
+        "company": "阿里巴巴集团飞猪旅行(飞猪",
+        "title_en": null,
+        "title": "用户及平台业务中心",
+        "description_en": null,
+        "description": "独立负责飞猪度假业务搜索域GMV，制定query拆词策略，建设同义词表，优化特征工程和排序因子，实现GMV增长。",
+        "details_en": null,
+        "details": [
+          "独立负责飞猪度假业务搜索域GMV",
+          "制定query拆词策略",
+          "建设同义词表",
+          "优化特征工程和排序因子",
+          "实现GMV增长"
+        ],
+        "duration_months": 9,
+        "title_zh": "用户及平台业务中心",
+        "description_zh": "独立负责飞猪度假业务搜索域GMV，制定query拆词策略，建设同义词表，优化特征工程和排序因子，实现GMV增长。",
+        "details_zh": [
+          "独立负责飞猪度假业务搜索域GMV",
+          "制定query拆词策略",
+          "建设同义词表",
+          "优化特征工程和排序因子",
+          "实现GMV增长"
+        ]
+      },
+      {
+        "start": "2021-12",
+        "end": "2022-09",
+        "company": "上海识装信息科技有限公司(得物（前名称：毒app",
+        "title_en": null,
+        "title": "推荐产品",
+        "description_en": null,
+        "description": "主导算法社区电商增长项目，提升dpv 15%，探索首页Feeds流增长，提升全站uv价值2%。",
+        "details_en": null,
+        "details": [
+          "主导算法社区电商增长项目",
+          "提升dpv 15%",
+          "探索首页Feeds流增长",
+          "提升全站uv价值2%"
+        ],
+        "duration_months": 10,
+        "title_zh": "推荐产品",
+        "description_zh": "主导算法社区电商增长项目，提升dpv 15%，探索首页Feeds流增长，提升全站uv价值2%。",
+        "details_zh": [
+          "主导算法社区电商增长项目",
+          "提升dpv 15%",
+          "探索首页Feeds流增长",
+          "提升全站uv价值2%"
+        ]
+      },
+      {
+        "start": "2018-10",
+        "end": "2021-08",
+        "company": "维沃移动通信有限公司（VIVO",
+        "title_en": null,
+        "title": "游戏事业部&AI研究院",
+        "description_en": null,
+        "description": "主导I视频推荐项目，提升分发效率10%，用户人均时长提升2%。",
+        "details_en": null,
+        "details": [
+          "主导I视频推荐项目",
+          "提升分发效率10%",
+          "用户人均时长提升2%"
+        ],
+        "duration_months": 35,
+        "title_zh": "游戏事业部&AI研究院",
+        "description_zh": "主导I视频推荐项目，提升分发效率10%，用户人均时长提升2%。",
+        "details_zh": [
+          "主导I视频推荐项目",
+          "提升分发效率10%",
+          "用户人均时长提升2%"
+        ]
+      },
+      {
+        "start": "2016-06",
+        "end": "2018-09",
+        "company": "北京玫瑰视界科技有限公司(电商",
+        "title_en": null,
+        "title": "推荐搜索产品",
+        "description_en": null,
+        "description": "独立负责首页推荐项目，提升首页ctr对比baseline 60%，商详ctr提升20%。",
+        "details_en": null,
+        "details": [
+          "独立负责首页推荐项目",
+          "提升首页ctr对比baseline 60%",
+          "商详ctr提升20%"
+        ],
+        "duration_months": 28,
+        "title_zh": "推荐搜索产品",
+        "description_zh": "独立负责首页推荐项目，提升首页ctr对比baseline 60%，商详ctr提升20%。",
+        "details_zh": [
+          "独立负责首页推荐项目",
+          "提升首页ctr对比baseline 60%",
+          "商详ctr提升20%"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIDefi产品经理上海3050K杨帆10年.md",
+    "md_mostly_english": false
+  }
+}

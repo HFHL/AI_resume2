@@ -1,0 +1,316 @@
+{
+  "file_name": "AISAAS远程产品经理深圳4060K庄耀光9年.md",
+  "parsed_at": "2025-10-21T16:22:44.090520",
+  "result": {
+    "resume_file_id": null,
+    "name": "庄耀光",
+    "email": "623396172@qq.com",
+    "phone": "18518090300",
+    "education_degree": "本科",
+    "education_school": [
+      "西安电子科技大学"
+    ],
+    "education_major": "通信工程",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "OP",
+      "go",
+      "产品",
+      "前端",
+      "增长",
+      "大模型",
+      "安全",
+      "测试",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "产品经理",
+      "DevOps",
+      "AI",
+      "研发流程",
+      "项目管理",
+      "用户体验",
+      "技术评审"
+    ],
+    "work_experience": [
+      "2020.12-至今 北京字节跳动科技有限公司 产品经理\n工作职责：字节客户端/服务端/前端 DevOps 研发流程平台的产品经理。主要负责开发测试、集成相关的产品工作。\n业绩：从 0 建设服务端/前端研发流程，推动项目顺利落地，目前已有一半开发者在该平台上进行日常开发工作。",
+      "2020.06-2020.12 北京达佳互联信息技术有限公司 产品经理\n职责业绩:负责服务端前端研发流程的产品工作,主要负责代码管理相关工作。",
+      "2019.06-2020.06 北京百度网讯科技有限公司 产品经理\n主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作，提升项目的用户体验和产品影响力。",
+      "2018.02-2019.06 北京百度网讯科技有限公司 产品经理\n负责百度应用性能监控平台的产品相关工作，促使平台最终覆盖了百度内部 80% 的重点产品线。",
+      "2016.07-2018.02 北京蓝汛通信技术有限责任公司 产品专员/助理\n负责管理后台和业务的处理逻辑日常产品管理工作，包括需求挖掘、产品设计、用户调研等。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2023.04-至今 服务端/前端研发流程平台建设 产品经理\n作为字节跳动内部研发流程平台，旨在为全集团研发团队提供全链路工具支持，解决协作效率低、发布质量不稳定等痛点。",
+      "2022.03-至今 大型 App 研发团队研发流程升级 产品经理\n制定了 monorepo + TBD + Small MR 的新式研发流程，解决公司内大业务的合码瓶颈。",
+      "2020.10-至今 大型客户端研发流程平台 产品经理\n覆盖率：800+个应用接入，Top 50 移动端 App 全量覆盖，提升了用户口碑和研发效率。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2020-12",
+        "end": "present",
+        "company": "北京字节跳动科技有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "工作职责：字节客户端/服务端/前端 DevOps 研发流程平台的产品经理。主要负责开发测试、集成相关的产品工作。",
+        "details_en": null,
+        "details": [
+          "从 0 建设服务端/前端研发流程",
+          "推动项目顺利落地",
+          "目前已有一半开发者在该平台上进行日常开发工作"
+        ],
+        "duration_months": 59
+      },
+      {
+        "start": "2020-06",
+        "end": "2020-12",
+        "company": "北京达佳互联信息技术有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "职责业绩:负责服务端前端研发流程的产品工作,主要负责代码管理相关工作。",
+        "details_en": null,
+        "details": [
+          "负责服务端前端研发流程的产品工作",
+          "主要负责代码管理相关工作"
+        ],
+        "duration_months": 7
+      },
+      {
+        "start": "2019-06",
+        "end": "2020-06",
+        "company": "北京百度网讯科技有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作，提升项目的用户体验和产品影响力。",
+        "details_en": null,
+        "details": [
+          "主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作",
+          "提升项目的用户体验和产品影响力"
+        ],
+        "duration_months": 13
+      },
+      {
+        "start": "2018-02",
+        "end": "2019-06",
+        "company": "北京百度网讯科技有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "负责百度应用性能监控平台的产品相关工作，促使平台最终覆盖了百度内部 80% 的重点产品线。",
+        "details_en": null,
+        "details": [
+          "负责百度应用性能监控平台的产品相关工作",
+          "促使平台最终覆盖了百度内部 80% 的重点产品线"
+        ],
+        "duration_months": 17
+      },
+      {
+        "start": "2016-07",
+        "end": "2018-02",
+        "company": "北京蓝汛通信技术有限责任公司",
+        "title_en": "Product Specialist/Assistant",
+        "title": "产品专员/助理",
+        "description_en": null,
+        "description": "负责管理后台和业务的处理逻辑日常产品管理工作，包括需求挖掘、产品设计、用户调研等。",
+        "details_en": null,
+        "details": [
+          "负责管理后台和业务的处理逻辑日常产品管理工作",
+          "包括需求挖掘",
+          "产品设计",
+          "用户调研等"
+        ],
+        "duration_months": 20
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2023-04",
+        "end": "present",
+        "company": "字节跳动",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "作为字节跳动内部研发流程平台，旨在为全集团研发团队提供全链路工具支持，解决协作效率低、发布质量不稳定等痛点。",
+        "details_en": null,
+        "details": [
+          "作为字节跳动内部研发流程平台，旨在为全集团研发团队提供全链路工具支持，解决协作效率低、发布质量不稳定等痛点。"
+        ],
+        "duration_months": 31
+      },
+      {
+        "start": "2022-03",
+        "end": "present",
+        "company": "字节跳动",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "制定了 monorepo + TBD + Small MR 的新式研发流程，解决公司内大业务的合码瓶颈。",
+        "details_en": null,
+        "details": [
+          "制定了 monorepo + TBD + Small MR 的新式研发流程，解决公司内大业务的合码瓶颈。"
+        ],
+        "duration_months": 44
+      },
+      {
+        "start": "2020-10",
+        "end": "present",
+        "company": "字节跳动",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "覆盖率：800+个应用接入，Top 50 移动端 App 全量覆盖，提升了用户口碑和研发效率。",
+        "details_en": null,
+        "details": [
+          "覆盖率：800+个应用接入",
+          "Top 50 移动端 App 全量覆盖",
+          "提升了用户口碑和研发效率。"
+        ],
+        "duration_months": 61
+      }
+    ],
+    "self_evaluation": "资深 B 端、Saas 产品经理，具备超大型研发团队的支持经验，具备 0-1 平台建设经验，具有支撑多个亿级用户产品升级的经验。",
+    "other": null,
+    "work_years": 5,
+    "self_evaluation_zh": "资深 B 端、Saas 产品经理，具备超大型研发团队的支持经验，具备 0-1 平台建设经验，具有支撑多个亿级用户产品升级的经验。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2020.12-至今 北京字节跳动科技有限公司 产品经理\n工作职责：字节客户端/服务端/前端 DevOps 研发流程平台的产品经理。主要负责开发测试、集成相关的产品工作。\n业绩：从 0 建设服务端/前端研发流程，推动项目顺利落地，目前已有一半开发者在该平台上进行日常开发工作。",
+      "2020.06-2020.12 北京达佳互联信息技术有限公司 产品经理\n职责业绩:负责服务端前端研发流程的产品工作,主要负责代码管理相关工作。",
+      "2019.06-2020.06 北京百度网讯科技有限公司 产品经理\n主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作，提升项目的用户体验和产品影响力。",
+      "2018.02-2019.06 北京百度网讯科技有限公司 产品经理\n负责百度应用性能监控平台的产品相关工作，促使平台最终覆盖了百度内部 80% 的重点产品线。",
+      "2016.07-2018.02 北京蓝汛通信技术有限责任公司 产品专员/助理\n负责管理后台和业务的处理逻辑日常产品管理工作，包括需求挖掘、产品设计、用户调研等。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2023.04-至今 服务端/前端研发流程平台建设 产品经理\n作为字节跳动内部研发流程平台，旨在为全集团研发团队提供全链路工具支持，解决协作效率低、发布质量不稳定等痛点。",
+      "2022.03-至今 大型 App 研发团队研发流程升级 产品经理\n制定了 monorepo + TBD + Small MR 的新式研发流程，解决公司内大业务的合码瓶颈。",
+      "2020.10-至今 大型客户端研发流程平台 产品经理\n覆盖率：800+个应用接入，Top 50 移动端 App 全量覆盖，提升了用户口碑和研发效率。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2020-12",
+        "end": "present",
+        "company": "北京字节跳动科技有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "工作职责：字节客户端/服务端/前端 DevOps 研发流程平台的产品经理。主要负责开发测试、集成相关的产品工作。",
+        "details_en": null,
+        "details": [
+          "从 0 建设服务端/前端研发流程",
+          "推动项目顺利落地",
+          "目前已有一半开发者在该平台上进行日常开发工作"
+        ],
+        "duration_months": 59,
+        "title_zh": "产品经理",
+        "description_zh": "工作职责：字节客户端/服务端/前端 DevOps 研发流程平台的产品经理。主要负责开发测试、集成相关的产品工作。",
+        "details_zh": [
+          "从 0 建设服务端/前端研发流程",
+          "推动项目顺利落地",
+          "目前已有一半开发者在该平台上进行日常开发工作"
+        ]
+      },
+      {
+        "start": "2020-06",
+        "end": "2020-12",
+        "company": "北京达佳互联信息技术有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "职责业绩:负责服务端前端研发流程的产品工作,主要负责代码管理相关工作。",
+        "details_en": null,
+        "details": [
+          "负责服务端前端研发流程的产品工作",
+          "主要负责代码管理相关工作"
+        ],
+        "duration_months": 7,
+        "title_zh": "产品经理",
+        "description_zh": "职责业绩:负责服务端前端研发流程的产品工作,主要负责代码管理相关工作。",
+        "details_zh": [
+          "负责服务端前端研发流程的产品工作",
+          "主要负责代码管理相关工作"
+        ]
+      },
+      {
+        "start": "2019-06",
+        "end": "2020-06",
+        "company": "北京百度网讯科技有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作，提升项目的用户体验和产品影响力。",
+        "details_en": null,
+        "details": [
+          "主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作",
+          "提升项目的用户体验和产品影响力"
+        ],
+        "duration_months": 13,
+        "title_zh": "产品经理",
+        "description_zh": "主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作，提升项目的用户体验和产品影响力。",
+        "details_zh": [
+          "主要负责内部研发工具链中的“研发集成开发环境（IDE）”产品的产品工作",
+          "提升项目的用户体验和产品影响力"
+        ]
+      },
+      {
+        "start": "2018-02",
+        "end": "2019-06",
+        "company": "北京百度网讯科技有限公司",
+        "title_en": "Product Manager",
+        "title": "产品经理",
+        "description_en": null,
+        "description": "负责百度应用性能监控平台的产品相关工作，促使平台最终覆盖了百度内部 80% 的重点产品线。",
+        "details_en": null,
+        "details": [
+          "负责百度应用性能监控平台的产品相关工作",
+          "促使平台最终覆盖了百度内部 80% 的重点产品线"
+        ],
+        "duration_months": 17,
+        "title_zh": "产品经理",
+        "description_zh": "负责百度应用性能监控平台的产品相关工作，促使平台最终覆盖了百度内部 80% 的重点产品线。",
+        "details_zh": [
+          "负责百度应用性能监控平台的产品相关工作",
+          "促使平台最终覆盖了百度内部 80% 的重点产品线"
+        ]
+      },
+      {
+        "start": "2016-07",
+        "end": "2018-02",
+        "company": "北京蓝汛通信技术有限责任公司",
+        "title_en": "Product Specialist/Assistant",
+        "title": "产品专员/助理",
+        "description_en": null,
+        "description": "负责管理后台和业务的处理逻辑日常产品管理工作，包括需求挖掘、产品设计、用户调研等。",
+        "details_en": null,
+        "details": [
+          "负责管理后台和业务的处理逻辑日常产品管理工作",
+          "包括需求挖掘",
+          "产品设计",
+          "用户调研等"
+        ],
+        "duration_months": 20,
+        "title_zh": "产品专员/助理",
+        "description_zh": "负责管理后台和业务的处理逻辑日常产品管理工作，包括需求挖掘、产品设计、用户调研等。",
+        "details_zh": [
+          "负责管理后台和业务的处理逻辑日常产品管理工作",
+          "包括需求挖掘",
+          "产品设计",
+          "用户调研等"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程产品经理深圳4060K庄耀光9年.md",
+    "md_mostly_english": false
+  }
+}

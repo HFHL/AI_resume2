@@ -1,0 +1,104 @@
+{
+  "file_name": "TaylorChoiResume2505MKT.md",
+  "parsed_at": "2025-10-21T17:09:07.356234",
+  "result": {
+    "resume_file_id": null,
+    "name": "Choi, Heeyoon (Taylor)",
+    "email": "heeyoon96@gmail.com",
+    "phone": null,
+    "education_degree": null,
+    "education_school": [
+      "Hong Kong University of Science and Tech 香港科技大学",
+      "ordia International School Shanghai 上海国际学校"
+    ],
+    "education_major": "Double Major in Marketing and Information Systems 市场营销与信息系统双专业",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "非技术类",
+    "tag_names": [
+      "AI",
+      "BD",
+      "OP",
+      "PR",
+      "go",
+      "iOS",
+      "增长",
+      "数据分析"
+    ],
+    "skills": [
+      "SQL",
+      "Google Analytics 4",
+      "Google ads",
+      "Twitter ads management"
+    ],
+    "work_experience": [
+      "Feb. 2024~ Present\nMapleStory Universe, Nexon Universe\nBusiness Development & Partnerships Manager\nMapleStory Universe (MSU) is the flagship Web3 initiative from Nexon, a top global game publisher, building an NFT-based ecosystem around the iconic MapleStory IP.\n\nMajor Achievements\n▪ Spearheaded partnership campaigns with OpenSea, Galxe, and Kaito, acquiring $600K+ users and generating $45M+ community engagements.\n▪ Managed and executed 35+ co-marketing and IP partnerships with brands including Samsung Wallet, Bandai Namco, Azuki, and Pudgy Penguin.\n▪ Negotiated GTM plans and partnership terms with infra providers such as Avalanche and Chainlink, accelerating deployment readiness by 25%.\n▪ Led 40+ 160L activations across Twitter, Telegram, and YouTube, generating 2M+ impressions and boosting campaign ROI by 3x.\n▪ Led CRM workflows and community activations that contributed to 480K+ user acquisition, reduced CAC by 22%, and improved engagement.\n▪ Designed onboarding, referral, and rewards programs, increasing Web2 to Web3 conversion by 32% and 7-day retention by 35%.\n▪ Collaborated cross-functionally with product, marketing, and legal teams on co-marketing agreements and IP usage rights, reducing time-to-launch by 25%.\n▪ Represented the project at 15+ AMAs and offline events, generating 200K+ impressions and sustaining visibility across key partners.",
+      "Jul. 2022~ Jan.2024\nLambda256, Dunamu\nGrowth Team Lead\nLambda256 is the Web3 infrastructure arm of Dunamu (Upbit), and one of Korea’s largest providers of STO and SaaS-based blockchain infrastructure.\n\nMajor Achievements\n▪ Led GTM and growth for Nodit, a Web3 infrastructure platform (API/SDK), securing 12+ trial customers and generating 7,000+ MQLs with a 35% conversion rate across Korea, Japan, and SEA.\n▪ Closed 20+ strategic partnerships, including Universal Studios and Woori Bank, and managed technical onboarding to support their first Web3 service launches.\n▪ Delivered SDK/API onboarding for strategic partners, ensuring long-term product adoption and technical scalability.\n▪ Designed and launched 8 grant and referral programs across APAC, accelerating developer and SMB partner acquisition by 42%.\n▪ Coordinated 30+ offline initiatives including hackathons, workshops, and meetups, generating 7,000+ qualified leads and expanding the partner base by 38%.\n▪ Built and scaled a Web3 ambassador program that onboarded 50 advocates to localize content and grow developer communities across key markets.\n▪ Optimized user funnel using Google Analytics and CRM tools (HubSpot/ActiveCampaign), increasing user retention by 28% and MAU by 24%.\n▪ Produced SEO-driven content and product storytelling, increasing site traffic by 20% and generated 1,000+ SDK signups from organic channels."
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Feb. 2024-",
+        "title": "Present",
+        "description": "MapleStory Universe, Nexon Universe",
+        "duration_months": null,
+        "description_en": "MapleStory Universe, Nexon Universe\nBusiness Development & Partnerships Manager\nMapleStory Universe (MSU) is the flagship Web3 initiative from Nexon, a top global game publisher, building an NFT-based ecosystem around the iconic MapleStory IP.\n\nMajor Achievements\n▪ Spearheaded partnership campaigns with OpenSea, Galxe, and Kaito, acquiring $600K+ users and generating $45M+ community engagements.\n▪ Managed and executed 35+ co-marketing and IP partnerships with brands including Samsung Wallet, Bandai Namco, Azuki, and Pudgy Penguin.\n▪ Negotiated GTM plans and partnership terms with infra providers such as Avalanche and Chainlink, accelerating deployment readiness by 25%.\n▪ Led 40+ 160L activations across Twitter, Telegram, and YouTube, generating 2M+ impressions and boosting campaign ROI by 3x.\n▪ Led CRM workflows and community activations that contributed to 480K+ user acquisition, reduced CAC by 22%, and improved engagement.\n▪ Designed onboarding, referral, and rewards programs, increasing Web2 to Web3 conversion by 32% and 7-day retention by 35%.\n▪ Collaborated cross-functionally with product, marketing, and legal teams on co-marketing agreements and IP usage rights, reducing time-to-launch by 25%.\n▪ Represented the project at 15+ AMAs and offline events, generating 200K+ impressions and sustaining visibility across key partners."
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Jul. 2022-",
+        "title": "Jan.2024",
+        "description": "业务发展与合作经理",
+        "duration_months": null,
+        "description_en": "Lambda256, Dunamu\nGrowth Team Lead\nLambda256 is the Web3 infrastructure arm of Dunamu (Upbit), and one of Korea’s largest providers of STO and SaaS-based blockchain infrastructure.\n\nMajor Achievements\n▪ Led GTM and growth for Nodit, a Web3 infrastructure platform (API/SDK), securing 12+ trial customers and generating 7,000+ MQLs with a 35% conversion rate across Korea, Japan, and SEA.\n▪ Closed 20+ strategic partnerships, including Universal Studios and Woori Bank, and managed technical onboarding to support their first Web3 service launches.\n▪ Delivered SDK/API onboarding for strategic partners, ensuring long-term product adoption and technical scalability.\n▪ Designed and launched 8 grant and referral programs across APAC, accelerating developer and SMB partner acquisition by 42%.\n▪ Coordinated 30+ offline initiatives including hackathons, workshops, and meetups, generating 7,000+ qualified leads and expanding the partner base by 38%.\n▪ Built and scaled a Web3 ambassador program that onboarded 50 advocates to localize content and grow developer communities across key markets.\n▪ Optimized user funnel using Google Analytics and CRM tools (HubSpot/ActiveCampaign), increasing user retention by 28% and MAU by 24%.\n▪ Produced SEO-driven content and product storytelling, increasing site traffic by 20% and generated 1,000+ SDK signups from organic channels."
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": null,
+    "other": "Fluent in English and Korean, Advanced in Chinese and Japanese",
+    "work_years": 2,
+    "self_evaluation_zh": null,
+    "other_zh": "流利的英语和韩语，中文和日语高级。",
+    "work_experience_zh": [
+      "二月\n2024~ Present\n枫之谷宇宙，Nexon宇宙\n商务发展与合作经理\nMapleStory Universe (MSU) 是来自全球顶级游戏发行商 Nexon 的旗舰 Web3 计划，围绕标志性的 MapleStory IP 构建一个基于 NFT 的生态系统。\n主要成就\n▪ 主导与OpenSea、Galxe和Kaito的合作活动，获得超过60万美元的用户并产生超过4500万美元的社区参与。\n▪ 管理和执行了35个以上与品牌的联合营销和知识产权合作，包括Samsung Wallet、Bandai Namco、Azuki和Pudgy Penguin。\n▪ 与基础设施提供商如Avalanche和Chainlink谈判GTM计划和合作条款，使部署准备时间加快了25%。\n▪ 在Twitter、Telegram和YouTube上领导了40多个160L活动，产生了超过200万的印象，并将活动投资回报率提高了3倍。\n▪ 领导了CRM工作流程和社区激活，促成了超过48万用户的获取，降低了22%的客户获取成本，并提高了参与度。\n▪ 设计了入职、推荐和奖励计划，使Web2到Web3的转化率提高了32%，7天留存率提高了35%。\n▪ 与产品、市场和法律团队跨职能合作，制定联合营销协议和知识产权使用权，缩短上市时间25%。\n▪ 在15个以上的AMA和线下活动中代表该项目，产生超过20万的印象，并在关键合作伙伴中保持可见性。",
+      "七月\n2022~ Jan.2024\nLambda256，Dunamu\n增长团队负责人\nLambda256是Dunamu（Upbit）的Web3基础设施部门，也是韩国最大的STO和基于SaaS的区块链基础设施提供商之一。\n主要成就\n▪ 领导Nodit的市场推广和增长，这是一个Web3基础设施平台（API/SDK），在韩国、日本和东南亚获得了12个以上的试用客户，并生成了7000多个MQL，转化率为35%。\n▪ 签署了20多个战略合作伙伴关系，包括环球影业和友利银行，并管理技术入驻以支持他们的首个Web3服务启动。\n▪ 为战略合作伙伴提供SDK/API入门指导，确保长期产品采用和技术可扩展性。\n▪ 在亚太地区设计并推出了8个补助和推荐项目，使开发者和中小企业合作伙伴的获取速度提高了42%。\n协调了30多个线下活动，包括黑客马拉松、研讨会和聚会，产生了7000多个合格的潜在客户，并将合作伙伴基础扩大了38%。\n▪ 建立并扩展了一个Web3大使计划，招募了50名倡导者以本地化内容并在关键市场中发展开发者社区。\n▪ 使用Google Analytics和CRM工具（HubSpot/ActiveCampaign）优化用户漏斗，用户留存率提高了28%，月活跃用户（MAU）增加了24%。\n▪ 制作了以SEO为驱动的内容和产品故事，网站流量增加了20%，并从自然渠道生成了1000多个SDK注册。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": null,
+        "end": null,
+        "company": "Feb. 2024-",
+        "title": "Present",
+        "description": "MapleStory Universe, Nexon Universe",
+        "duration_months": null,
+        "description_en": "MapleStory Universe, Nexon Universe\nBusiness Development & Partnerships Manager\nMapleStory Universe (MSU) is the flagship Web3 initiative from Nexon, a top global game publisher, building an NFT-based ecosystem around the iconic MapleStory IP.\n\nMajor Achievements\n▪ Spearheaded partnership campaigns with OpenSea, Galxe, and Kaito, acquiring $600K+ users and generating $45M+ community engagements.\n▪ Managed and executed 35+ co-marketing and IP partnerships with brands including Samsung Wallet, Bandai Namco, Azuki, and Pudgy Penguin.\n▪ Negotiated GTM plans and partnership terms with infra providers such as Avalanche and Chainlink, accelerating deployment readiness by 25%.\n▪ Led 40+ 160L activations across Twitter, Telegram, and YouTube, generating 2M+ impressions and boosting campaign ROI by 3x.\n▪ Led CRM workflows and community activations that contributed to 480K+ user acquisition, reduced CAC by 22%, and improved engagement.\n▪ Designed onboarding, referral, and rewards programs, increasing Web2 to Web3 conversion by 32% and 7-day retention by 35%.\n▪ Collaborated cross-functionally with product, marketing, and legal teams on co-marketing agreements and IP usage rights, reducing time-to-launch by 25%.\n▪ Represented the project at 15+ AMAs and offline events, generating 200K+ impressions and sustaining visibility across key partners.",
+        "title_zh": "现在",
+        "description_zh": "枫之谷宇宙，Nexon宇宙\n商务发展与合作经理\nMapleStory Universe (MSU) 是来自全球顶级游戏发行商 Nexon 的旗舰 Web3 计划，围绕标志性的 MapleStory IP 构建一个基于 NFT 的生态系统。\n主要成就\n▪ 主导与 OpenSea、Galxe 和 Kaito 的合作活动，获得超过 60 万用户，并产生超过 4500 万的社区互动。\n▪ 管理并执行了与包括Samsung Wallet、Bandai Namco、Azuki和Pudgy Penguin在内的品牌的35个以上的联合营销和知识产权合作。\n▪ 与基础设施提供商如 Avalanche 和 Chainlink 协商了市场推广计划和合作条款，使部署准备时间加快了 25%。\n▪ 在Twitter、Telegram和YouTube上领导了40多个160L活动，产生了超过200万的印象，并将活动投资回报率提高了3倍。\n▪ 领导了CRM工作流程和社区活动，促成了超过48万用户的获取，降低了22%的客户获取成本，并提高了参与度。\n▪ 设计了入职、推荐和奖励计划，使Web2到Web3的转化率提高了32%，7天留存率提高了35%。\n▪ 与产品、市场和法律团队跨部门合作，制定联合营销协议和知识产权使用权，缩短上市时间25%。\n▪ 在15个以上的AMA和线下活动中代表该项目，产生超过20万的印象，并在关键合作伙伴中保持可见性。"
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": "Jul. 2022-",
+        "title": "Jan.2024",
+        "description": "业务发展与合作经理",
+        "duration_months": null,
+        "description_en": "Lambda256, Dunamu\nGrowth Team Lead\nLambda256 is the Web3 infrastructure arm of Dunamu (Upbit), and one of Korea’s largest providers of STO and SaaS-based blockchain infrastructure.\n\nMajor Achievements\n▪ Led GTM and growth for Nodit, a Web3 infrastructure platform (API/SDK), securing 12+ trial customers and generating 7,000+ MQLs with a 35% conversion rate across Korea, Japan, and SEA.\n▪ Closed 20+ strategic partnerships, including Universal Studios and Woori Bank, and managed technical onboarding to support their first Web3 service launches.\n▪ Delivered SDK/API onboarding for strategic partners, ensuring long-term product adoption and technical scalability.\n▪ Designed and launched 8 grant and referral programs across APAC, accelerating developer and SMB partner acquisition by 42%.\n▪ Coordinated 30+ offline initiatives including hackathons, workshops, and meetups, generating 7,000+ qualified leads and expanding the partner base by 38%.\n▪ Built and scaled a Web3 ambassador program that onboarded 50 advocates to localize content and grow developer communities across key markets.\n▪ Optimized user funnel using Google Analytics and CRM tools (HubSpot/ActiveCampaign), increasing user retention by 28% and MAU by 24%.\n▪ Produced SEO-driven content and product storytelling, increasing site traffic by 20% and generated 1,000+ SDK signups from organic channels.",
+        "title_zh": "Jan.2024",
+        "description_zh": "Lambda256, Dunamu\n增长团队负责人\nLambda256是Dunamu（Upbit）的Web3基础设施部门，也是韩国最大的STO和基于SaaS的区块链基础设施提供商之一。\n主要成就\n▪ 领导Nodit的市场推广和增长，这是一个Web3基础设施平台（API/SDK），在韩国、日本和东南亚获得了12个以上的试用客户，并生成了7000多个MQL，转化率为35%。\n▪ 签署了20多个战略合作伙伴关系，包括环球影城和友利银行，并管理技术入驻以支持他们的首个Web3服务启动。\n▪ 为战略合作伙伴提供SDK/API入门指导，确保长期产品采用和技术可扩展性。\n▪ 在亚太地区设计并推出了8个补助和推荐项目，使开发者和中小企业合作伙伴的获取速度提高了42%。\n协调了30多个线下活动，包括黑客马拉松、研讨会和聚会，产生了7000多个合格的潜在客户，并将合作伙伴基础扩大了38%。\n▪ 建立并扩展了一个Web3大使计划，招募了50名倡导者以本地化内容并在关键市场中发展开发者社区。\n▪ 使用Google Analytics和CRM工具（HubSpot/ActiveCampaign）优化用户漏斗，用户留存率提高了28%，月活跃用户（MAU）增加了24%。\n▪ 制作了以SEO为驱动的内容和产品故事，网站流量增加了20%，并从自然渠道生成了1000多个SDK注册。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\TaylorChoiResume2505MKT.md",
+    "md_translated": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs_zh\\TaylorChoiResume2505MKT.md",
+    "md_mostly_english": true
+  }
+}

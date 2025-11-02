@@ -1,0 +1,166 @@
+{
+  "file_name": "AICrypto远程前端开发工程师上海3050K孟鑫宇4年.md",
+  "parsed_at": "2025-10-21T15:56:50.195316",
+  "result": {
+    "resume_file_id": null,
+    "name": "孟鑫宇",
+    "email": null,
+    "phone": null,
+    "education_degree": "本科",
+    "education_school": [
+      "Ohio State University 俄亥俄州立大学",
+      "俄亥俄州立大学"
+    ],
+    "education_major": "计算机",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "RPC",
+      "go",
+      "交易",
+      "全栈",
+      "后端",
+      "安全",
+      "市场",
+      "数据分析",
+      "设计"
+    ],
+    "skills": [
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "Redis",
+      "MySQL",
+      "Web3",
+      "Vue"
+    ],
+    "work_experience": [
+      "2025.02-2025.06 Orby AI 全栈工程师\n在美国企业远程办公期间，负责运用TypeScript和Node.js进行后端系统的gRPC服务开发，确保系统的高效性和稳定性。使用mongodb搭配redis进行数据存取，完成业务逻辑。负责和维护自己平台的Chrome插件，同时进行新功能的开发，以提升用户体验和插件性能。将Google云服务集成到系统中，包括云存储和云日志记录，优化数据存储和访问，提高系统安全性。",
+      "2022.05-2024.02 Integtal node后端开发\n美国企业远程办公，使用typescript/node.js对后端系统维护和开发，使用mysql数据库和web3接口，统计和分析用户行为，生成供研习报告。将自己平台API接口引入聚合平台，平台网站的vue/typescript的前后端维护和新功能实现。",
+      "2021.09-2022.05 岩火科技（杭州）有限公司 node后端开发\n根据实际需求，设计和开发网页后端接口,主要使用 node.js/typescript。Linux 环境下部署 docker 服务器，完成技术文档的编写，参与设计过 mongodb/mysql 数据库，并实现应用对数据库的增删查改，接入钉钉和微信 API ，完成在钉钉和微信上部署小程序。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "1. 资金池监控系统\n使用typescript搭建后端的子程序，通过web3接口，实时获取资金池交易情况。将数据保存至redis进行快速查询，并且对可疑交易（多次取消交易、超大额交易、频繁小额交易等）和资金池异常情况（过于倾斜、存款过低等）进行预警，记录至mysql数据库的同时，并发送至工作频道提醒工作人员。",
+      "2. 数据周报月报\n在云服务器配置node.js环境和定时器，部署周报月报生成器。通过调取自家平台的mysql数据（用户交易、资金池情况、问卷调查等），按照营销部、市场部等需求提炼数据，生成xls表格，定期发布在工作频道。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2025-02",
+        "end": "2025-06",
+        "company": "Orby AI",
+        "title": "全栈工程师",
+        "description": "在美国企业远程办公期间，负责运用TypeScript和Node.js进行后端系统的gRPC服务开发，确保系统的高效性和稳定性。使用mongodb搭配redis进行数据存取，完成业务逻辑。负责和维护自己平台的Chrome插件，同时进行新功能的开发，以提升用户体验和插件性能。将Google云服务集成到系统中，包括云存储和云日志记录，优化数据存储和访问，提高系统安全性。",
+        "duration_months": 5
+      },
+      {
+        "start": "2022-05",
+        "end": "2024-02",
+        "company": "Integtal node",
+        "title": "后端开发",
+        "description": "美国企业远程办公，使用typescript/node.js对后端系统维护和开发，使用mysql数据库和web3接口，统计和分析用户行为，生成供研习报告。将自己平台API接口引入聚合平台，平台网站的vue/typescript的前后端维护和新功能实现。",
+        "duration_months": 22
+      },
+      {
+        "start": "2021-09",
+        "end": "2022-05",
+        "company": "岩火科技（杭州）有限公司 node",
+        "title": "后端开发",
+        "description": "根据实际需求，设计和开发网页后端接口,主要使用 node.js/typescript。Linux 环境下部署 docker 服务器，完成技术文档的编写，参与设计过 mongodb/mysql 数据库，并实现应用对数据库的增删查改，接入钉钉和微信 API ，完成在钉钉和微信上部署小程序。",
+        "duration_months": 9
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": "资金池监控系统",
+        "description_en": null,
+        "description": "使用typescript搭建后端的子程序，通过web3接口，实时获取资金池交易情况。将数据保存至redis进行快速查询，并且对可疑交易（多次取消交易、超大额交易、频繁小额交易等）和资金池异常情况（过于倾斜、存款过低等）进行预警，记录至mysql数据库的同时，并发送至工作频道提醒工作人员。",
+        "details_en": null,
+        "details": [
+          "使用typescript搭建后端的子程序",
+          "通过web3接口，实时获取资金池交易情况",
+          "将数据保存至redis进行快速查询",
+          "对可疑交易进行预警",
+          "记录至mysql数据库并发送至工作频道提醒工作人员"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": "数据周报月报",
+        "description_en": null,
+        "description": "在云服务器配置node.js环境和定时器，部署周报月报生成器。通过调取自家平台的mysql数据（用户交易、资金池情况、问卷调查等），按照营销部、市场部等需求提炼数据，生成xls表格，定期发布在工作频道。",
+        "details_en": null,
+        "details": [
+          "在云服务器配置node.js环境和定时器",
+          "部署周报月报生成器",
+          "调取自家平台的mysql数据",
+          "按照需求提炼数据",
+          "生成xls表格，定期发布在工作频道"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "个性开朗能很快融入团队，基础知识扎实能够很快上手项目。精通业务逻辑，代码编写规范规范。",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "个性开朗能很快融入团队，基础知识扎实能够很快上手项目。精通业务逻辑，代码编写规范规范。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2025.02-2025.06 Orby AI 全栈工程师\n在美国企业远程办公期间，负责运用TypeScript和Node.js进行后端系统的gRPC服务开发，确保系统的高效性和稳定性。使用mongodb搭配redis进行数据存取，完成业务逻辑。负责和维护自己平台的Chrome插件，同时进行新功能的开发，以提升用户体验和插件性能。将Google云服务集成到系统中，包括云存储和云日志记录，优化数据存储和访问，提高系统安全性。",
+      "2022.05-2024.02 Integtal node后端开发\n美国企业远程办公，使用typescript/node.js对后端系统维护和开发，使用mysql数据库和web3接口，统计和分析用户行为，生成供研习报告。将自己平台API接口引入聚合平台，平台网站的vue/typescript的前后端维护和新功能实现。",
+      "2021.09-2022.05 岩火科技（杭州）有限公司 node后端开发\n根据实际需求，设计和开发网页后端接口,主要使用 node.js/typescript。Linux 环境下部署 docker 服务器，完成技术文档的编写，参与设计过 mongodb/mysql 数据库，并实现应用对数据库的增删查改，接入钉钉和微信 API ，完成在钉钉和微信上部署小程序。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "1.\n资金池监控系统\n使用typescript搭建后端的子程序，通过web3接口，实时获取资金池交易情况。将数据保存至redis进行快速查询，并且对可疑交易（多次取消交易、超大额交易、频繁小额交易等）和资金池异常情况（过于倾斜、存款过低等）进行预警，记录至mysql数据库的同时，并发送至工作频道提醒工作人员。",
+      "2.\n数据周报月报\n在云服务器配置node.js环境和定时器，部署周报月报生成器。通过调取自家平台的mysql数据（用户交易、资金池情况、问卷调查等），按照营销部、市场部等需求提炼数据，生成xls表格，定期发布在工作频道。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2025-02",
+        "end": "2025-06",
+        "company": "Orby AI",
+        "title": "全栈工程师",
+        "description": "在美国企业远程办公期间，负责运用TypeScript和Node.js进行后端系统的gRPC服务开发，确保系统的高效性和稳定性。使用mongodb搭配redis进行数据存取，完成业务逻辑。负责和维护自己平台的Chrome插件，同时进行新功能的开发，以提升用户体验和插件性能。将Google云服务集成到系统中，包括云存储和云日志记录，优化数据存储和访问，提高系统安全性。",
+        "duration_months": 5,
+        "title_zh": "全栈工程师",
+        "description_zh": "在美国企业远程办公期间，负责运用TypeScript和Node.js进行后端系统的gRPC服务开发，确保系统的高效性和稳定性。使用mongodb搭配redis进行数据存取，完成业务逻辑。负责和维护自己平台的Chrome插件，同时进行新功能的开发，以提升用户体验和插件性能。将Google云服务集成到系统中，包括云存储和云日志记录，优化数据存储和访问，提高系统安全性。"
+      },
+      {
+        "start": "2022-05",
+        "end": "2024-02",
+        "company": "Integtal node",
+        "title": "后端开发",
+        "description": "美国企业远程办公，使用typescript/node.js对后端系统维护和开发，使用mysql数据库和web3接口，统计和分析用户行为，生成供研习报告。将自己平台API接口引入聚合平台，平台网站的vue/typescript的前后端维护和新功能实现。",
+        "duration_months": 22,
+        "title_zh": "后端开发",
+        "description_zh": "美国企业远程办公，使用typescript/node.js对后端系统维护和开发，使用mysql数据库和web3接口，统计和分析用户行为，生成供研习报告。将自己平台API接口引入聚合平台，平台网站的vue/typescript的前后端维护和新功能实现。"
+      },
+      {
+        "start": "2021-09",
+        "end": "2022-05",
+        "company": "岩火科技（杭州）有限公司 node",
+        "title": "后端开发",
+        "description": "根据实际需求，设计和开发网页后端接口,主要使用 node.js/typescript。Linux 环境下部署 docker 服务器，完成技术文档的编写，参与设计过 mongodb/mysql 数据库，并实现应用对数据库的增删查改，接入钉钉和微信 API ，完成在钉钉和微信上部署小程序。",
+        "duration_months": 9,
+        "title_zh": "后端开发",
+        "description_zh": "根据实际需求，设计和开发网页后端接口,主要使用 node.js/typescript。Linux 环境下部署 docker 服务器，完成技术文档的编写，参与设计过 mongodb/mysql 数据库，并实现应用对数据库的增删查改，接入钉钉和微信 API ，完成在钉钉和微信上部署小程序。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AICrypto远程前端开发工程师上海3050K孟鑫宇4年.md",
+    "md_mostly_english": false
+  }
+}

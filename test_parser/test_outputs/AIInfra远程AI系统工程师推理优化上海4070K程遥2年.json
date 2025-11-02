@@ -1,0 +1,173 @@
+{
+  "file_name": "AIInfra远程AI系统工程师推理优化上海4070K程遥2年.md",
+  "parsed_at": "2025-10-21T16:15:04.971099",
+  "result": {
+    "resume_file_id": null,
+    "name": "程遥",
+    "email": "1647560307@qq.com",
+    "phone": "19371841904",
+    "education_degree": "研究生",
+    "education_school": [
+      "南京航空航天大学"
+    ],
+    "education_major": "控制科学与工程",
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "OP",
+      "java",
+      "python",
+      "设计",
+      "运营",
+      "风控"
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "C++",
+      "torch",
+      "TensorRT",
+      "OpenVINO",
+      "ONNX",
+      "Polygraphy",
+      "Nsight",
+      "FlashAttention",
+      "PagedAttention",
+      "KV Cache",
+      "Linux"
+    ],
+    "work_experience": [
+      "2023年12月 - 2025年04月 上海寻梦信息技术有限公司 服务端开发工程师 研发部-平台治理 负责亿级商品治理策略平台的开发和维护，支持实时增量检测与批量存量计算，日均处理1亿+商品数据，策略任务并行计算量达1万+/日。实现运营配置-计算-处罚自动化，替代50%+人工审核，平台处罚、打标量超平台治理总量50%；",
+      "2023年05月 - 2023年12月 上海寻梦信息技术有限公司 服务端开发工程师（AI推理方向） 研发部-平台治理 负责BERT等模型推理优化，基于TensorRT（GPU）与OpenVINO（CPU+GPU）构建部署方案，适应不同硬件资源的场景，模型刷库速度提高30%；设计通用化推理框架，封装数据加载、预处理、多阶段模型推理、后处理流程，标准化算法团队开发接口，降低模型部署成本，提高资源利用率；结合Nsight定位计算瓶颈，使用FasterTransformer封装decoder层，单卡LLAMA推理提速15%。"
+    ],
+    "internship_experience": null,
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2023-12",
+        "end": "2025-04",
+        "company": "上海寻梦信息技术有限公司",
+        "title_en": "Server Development Engineer",
+        "title": "服务端开发工程师",
+        "description_en": "Responsible for the development and maintenance of a governance strategy platform for hundreds of millions of products, supporting real-time incremental detection and batch stock calculation, processing over 100 million product data daily, with a parallel computing volume of strategy tasks exceeding 10,000 per day. Achieved automation of operation configuration, calculation, and penalties, replacing over 50% of manual reviews, with the platform's penalty and labeling volume exceeding 50% of the total governance volume.",
+        "description": "负责亿级商品治理策略平台的开发和维护，支持实时增量检测与批量存量计算，日均处理1亿+商品数据，策略任务并行计算量达1万+/日。实现运营配置-计算-处罚自动化，替代50%+人工审核，平台处罚、打标量超平台治理总量50%；",
+        "details_en": [
+          "Responsible for the development and maintenance of a governance strategy platform for hundreds of millions of products",
+          "Supported real-time incremental detection and batch stock calculation",
+          "Processed over 100 million product data daily",
+          "Achieved automation of operation configuration, calculation, and penalties"
+        ],
+        "details": [
+          "负责亿级商品治理策略平台的开发和维护",
+          "支持实时增量检测与批量存量计算",
+          "日均处理1亿+商品数据",
+          "实现运营配置-计算-处罚自动化"
+        ],
+        "duration_months": 17
+      },
+      {
+        "start": "2023-05",
+        "end": "2023-12",
+        "company": "上海寻梦信息技术有限公司",
+        "title_en": "Server Development Engineer (AI Inference Direction",
+        "title": "服务端开发工程师（AI推理方向",
+        "description_en": "Responsible for optimizing inference of models such as BERT, constructing deployment solutions based on TensorRT (GPU) and OpenVINO (CPU+GPU) to adapt to different hardware resource scenarios, improving model library refresh speed by 30%; designed a generalized inference framework, encapsulating data loading, preprocessing, multi-stage model inference, and post-processing processes, standardizing algorithm team development interfaces, reducing model deployment costs, and improving resource utilization; combined Nsight to locate computational bottlenecks, used FasterTransformer to encapsulate the decoder layer, achieving a 15% speedup in single-card LLAMA inference.",
+        "description": "负责BERT等模型推理优化，基于TensorRT（GPU）与OpenVINO（CPU+GPU）构建部署方案，适应不同硬件资源的场景，模型刷库速度提高30%；设计通用化推理框架，封装数据加载、预处理、多阶段模型推理、后处理流程，标准化算法团队开发接口，降低模型部署成本，提高资源利用率；结合Nsight定位计算瓶颈，使用FasterTransformer封装decoder层，单卡LLAMA推理提速15%。",
+        "details_en": [
+          "Responsible for optimizing inference of models such as BERT",
+          "Constructed deployment solutions based on TensorRT (GPU) and OpenVINO (CPU+GPU)",
+          "Improved model library refresh speed by 30%",
+          "Designed a generalized inference framework"
+        ],
+        "details": [
+          "负责BERT等模型推理优化",
+          "基于TensorRT（GPU）与OpenVINO（CPU+GPU）构建部署方案",
+          "模型刷库速度提高30%",
+          "设计通用化推理框架"
+        ],
+        "duration_months": 8
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "逻辑严谨，能快速定位复杂系统问题。愿意了解业务，需求开发中能够结合具体业务特点设计方案。关注技术发展，乐于学习新技术。",
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": "逻辑严谨，能快速定位复杂系统问题。愿意了解业务，需求开发中能够结合具体业务特点设计方案。关注技术发展，乐于学习新技术。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2023年12月 - 2025年04月 上海寻梦信息技术有限公司 服务端开发工程师 研发部-平台治理 负责亿级商品治理策略平台的开发和维护，支持实时增量检测与批量存量计算，日均处理1亿+商品数据，策略任务并行计算量达1万+/日。实现运营配置-计算-处罚自动化，替代50%+人工审核，平台处罚、打标量超平台治理总量50%；",
+      "2023年05月 - 2023年12月 上海寻梦信息技术有限公司 服务端开发工程师（AI推理方向） 研发部-平台治理 负责BERT等模型推理优化，基于TensorRT（GPU）与OpenVINO（CPU+GPU）构建部署方案，适应不同硬件资源的场景，模型刷库速度提高30%；设计通用化推理框架，封装数据加载、预处理、多阶段模型推理、后处理流程，标准化算法团队开发接口，降低模型部署成本，提高资源利用率；结合Nsight定位计算瓶颈，使用FasterTransformer封装decoder层，单卡LLAMA推理提速15%。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-12",
+        "end": "2025-04",
+        "company": "上海寻梦信息技术有限公司",
+        "title_en": "Server Development Engineer",
+        "title": "服务端开发工程师",
+        "description_en": "Responsible for the development and maintenance of a governance strategy platform for hundreds of millions of products, supporting real-time incremental detection and batch stock calculation, processing over 100 million product data daily, with a parallel computing volume of strategy tasks exceeding 10,000 per day. Achieved automation of operation configuration, calculation, and penalties, replacing over 50% of manual reviews, with the platform's penalty and labeling volume exceeding 50% of the total governance volume.",
+        "description": "负责亿级商品治理策略平台的开发和维护，支持实时增量检测与批量存量计算，日均处理1亿+商品数据，策略任务并行计算量达1万+/日。实现运营配置-计算-处罚自动化，替代50%+人工审核，平台处罚、打标量超平台治理总量50%；",
+        "details_en": [
+          "Responsible for the development and maintenance of a governance strategy platform for hundreds of millions of products",
+          "Supported real-time incremental detection and batch stock calculation",
+          "Processed over 100 million product data daily",
+          "Achieved automation of operation configuration, calculation, and penalties"
+        ],
+        "details": [
+          "负责亿级商品治理策略平台的开发和维护",
+          "支持实时增量检测与批量存量计算",
+          "日均处理1亿+商品数据",
+          "实现运营配置-计算-处罚自动化"
+        ],
+        "duration_months": 17,
+        "title_zh": "服务器开发工程师",
+        "description_zh": "负责数亿产品的治理策略平台的开发和维护，支持实时增量检测和批量库存计算，每天处理超过1亿条产品数据，策略任务的并行计算量超过每天10,000个。\n实现了操作配置、计算和处罚的自动化，取代了超过50%的人工审核，平台的处罚和标记量超过总治理量的50%。",
+        "details_zh": [
+          "负责数亿产品的治理策略平台的开发和维护",
+          "支持实时增量检测和批量库存计算",
+          "每天处理超过一亿条产品数据",
+          "实现了操作配置、计算和处罚的自动化"
+        ]
+      },
+      {
+        "start": "2023-05",
+        "end": "2023-12",
+        "company": "上海寻梦信息技术有限公司",
+        "title_en": "Server Development Engineer (AI Inference Direction",
+        "title": "服务端开发工程师（AI推理方向",
+        "description_en": "Responsible for optimizing inference of models such as BERT, constructing deployment solutions based on TensorRT (GPU) and OpenVINO (CPU+GPU) to adapt to different hardware resource scenarios, improving model library refresh speed by 30%; designed a generalized inference framework, encapsulating data loading, preprocessing, multi-stage model inference, and post-processing processes, standardizing algorithm team development interfaces, reducing model deployment costs, and improving resource utilization; combined Nsight to locate computational bottlenecks, used FasterTransformer to encapsulate the decoder layer, achieving a 15% speedup in single-card LLAMA inference.",
+        "description": "负责BERT等模型推理优化，基于TensorRT（GPU）与OpenVINO（CPU+GPU）构建部署方案，适应不同硬件资源的场景，模型刷库速度提高30%；设计通用化推理框架，封装数据加载、预处理、多阶段模型推理、后处理流程，标准化算法团队开发接口，降低模型部署成本，提高资源利用率；结合Nsight定位计算瓶颈，使用FasterTransformer封装decoder层，单卡LLAMA推理提速15%。",
+        "details_en": [
+          "Responsible for optimizing inference of models such as BERT",
+          "Constructed deployment solutions based on TensorRT (GPU) and OpenVINO (CPU+GPU)",
+          "Improved model library refresh speed by 30%",
+          "Designed a generalized inference framework"
+        ],
+        "details": [
+          "负责BERT等模型推理优化",
+          "基于TensorRT（GPU）与OpenVINO（CPU+GPU）构建部署方案",
+          "模型刷库速度提高30%",
+          "设计通用化推理框架"
+        ],
+        "duration_months": 8,
+        "title_zh": "服务器开发工程师（AI推理方向）",
+        "description_zh": "负责优化模型的推理，如BERT，基于TensorRT（GPU）和OpenVINO（CPU+GPU）构建部署解决方案，以适应不同的硬件资源场景，提高模型库刷新速度30%；设计了一个通用的推理框架，封装数据加载、预处理、多阶段模型推理和后处理过程，标准化算法团队开发接口，降低模型部署成本，提高资源利用率；结合Nsight定位计算瓶颈，使用FasterTransformer封装解码器层，实现单卡LLAMA推理速度提升15%。",
+        "details_zh": [
+          "负责优化模型的推理，例如BERT",
+          "基于TensorRT（GPU）和OpenVINO（CPU+GPU）构建部署解决方案。",
+          "将模型库刷新速度提高了30%",
+          "设计了一个通用推理框架"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIInfra远程AI系统工程师推理优化上海4070K程遥2年.md",
+    "md_mostly_english": false
+  }
+}

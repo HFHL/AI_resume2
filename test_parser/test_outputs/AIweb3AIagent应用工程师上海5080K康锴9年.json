@@ -1,0 +1,258 @@
+{
+  "file_name": "AIweb3AIagent应用工程师上海5080K康锴9年.md",
+  "parsed_at": "2025-10-21T16:34:52.881184",
+  "result": {
+    "resume_file_id": null,
+    "name": "康 锴",
+    "email": "kaikaikangkang@gmail.comOi",
+    "phone": "16619742928",
+    "education_degree": "硕士",
+    "education_school": [
+      "Rutgers University 罗格斯大学",
+      "北京科技大学",
+      "台湾大学"
+    ],
+    "education_major": "计算机工程",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "OP",
+      "PR",
+      "java",
+      "前端",
+      "区块链开发",
+      "多模态",
+      "设计"
+    ],
+    "skills": [
+      "Angular",
+      "RxJS",
+      "Ant Design",
+      "React",
+      "Java",
+      "GPT"
+    ],
+    "work_experience": [
+      "2021.11 - 2025.03 Parami Foundation｜技术负责人 北京｜负责技术团队的管理与项目开发，涉及多个链上项目的技术实现与架构设计。",
+      "2018.11 - 2021.10 猿辅导｜前端开发 北京｜主导多个大型 B 端后台系统的前端开发，使用 Angular + RxJS 构建响应式状态流与高性能表单系统，主导巨石应用拆解，调研并评估技术方案，最终落地 MPA 架构，负责模块划分和团队协作流程设计，基于 Ant Design 封装内部组件库，提升开发一致性与复用效率。",
+      "2016.08 - 2018.08 IXL Learning｜前端开发 旧金山｜使用 React 开发交互式题型模块，支持响应式页面 + WebView 嵌入，实现桌面与移动端一致体验，设计并封装拖拽引擎与碰撞检测库，形成跨题型复用的通用交互组件，使用 Java 开发题目数据生成器，在规则约束下生成具备挑战性与可解性的随机组合。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2024.1 On Mars｜AI 游戏｜独立开发｜构建基于 GPT 的多玩家文字冒险沙盒游戏，玩家行为会改变共享的世界状态，已上线 GPTs 商店，独立设计玩法机制与系统逻辑，实现 AI 生成与玩法规则结合的游戏体验。",
+      "2023.04 浪浪岛｜AI 驱动的情感互动应用｜通过 AI 生成明信片，让用户与已故宠物进行「虚拟通信」，探索情绪反馈与交互疗愈机制，带领 5 人团队入选即刻 AI Hack 黑客马拉松 Top 9 (共 400 + 项目)。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-11",
+        "end": "2025-03",
+        "company": "Parami Foundation",
+        "title_en": "Technical Lead",
+        "title": "技术负责人",
+        "description_en": "Responsible for managing the technical team and project development, involving the technical implementation and architecture design of multiple on-chain projects.",
+        "description": "负责技术团队的管理与项目开发，涉及多个链上项目的技术实现与架构设计。",
+        "details_en": null,
+        "details": [
+          "负责技术团队的管理与项目开发",
+          "涉及多个链上项目的技术实现与架构设计"
+        ],
+        "duration_months": 41
+      },
+      {
+        "start": "2018-11",
+        "end": "2021-10",
+        "company": "猿辅导",
+        "title_en": "Frontend Developer",
+        "title": "前端开发",
+        "description_en": "Led the frontend development of multiple large-scale B-end backend systems, using Angular + RxJS to build responsive state streams and high-performance form systems, led the disassembly of the giant application, researched and evaluated technical solutions, ultimately landing on MPA architecture, responsible for module division and team collaboration process design, encapsulated internal component library based on Ant Design to improve development consistency and reuse efficiency.",
+        "description": "主导多个大型 B 端后台系统的前端开发，使用 Angular + RxJS 构建响应式状态流与高性能表单系统，主导巨石应用拆解，调研并评估技术方案，最终落地 MPA 架构，负责模块划分和团队协作流程设计，基于 Ant Design 封装内部组件库，提升开发一致性与复用效率。",
+        "details_en": null,
+        "details": [
+          "主导多个大型 B 端后台系统的前端开发",
+          "使用 Angular + RxJS 构建响应式状态流与高性能表单系统",
+          "主导巨石应用拆解",
+          "调研并评估技术方案",
+          "最终落地 MPA 架构",
+          "负责模块划分和团队协作流程设计",
+          "基于 Ant Design 封装内部组件库",
+          "提升开发一致性与复用效率"
+        ],
+        "duration_months": 36
+      },
+      {
+        "start": "2016-08",
+        "end": "2018-08",
+        "company": "IXL Learning",
+        "title_en": "Frontend Developer",
+        "title": "前端开发",
+        "description_en": "Developed interactive question modules using React, supporting responsive pages + WebView embedding, achieving a consistent experience on desktop and mobile, designed and encapsulated a drag-and-drop engine and collision detection library, forming a general interactive component that can be reused across question types, developed a question data generator using Java to generate challenging and solvable random combinations under rule constraints.",
+        "description": "使用 React 开发交互式题型模块，支持响应式页面 + WebView 嵌入，实现桌面与移动端一致体验，设计并封装拖拽引擎与碰撞检测库，形成跨题型复用的通用交互组件，使用 Java 开发题目数据生成器，在规则约束下生成具备挑战性与可解性的随机组合。",
+        "details_en": null,
+        "details": [
+          "使用 React 开发交互式题型模块",
+          "支持响应式页面 + WebView 嵌入",
+          "实现桌面与移动端一致体验",
+          "设计并封装拖拽引擎与碰撞检测库",
+          "形成跨题型复用的通用交互组件",
+          "使用 Java 开发题目数据生成器",
+          "在规则约束下生成具备挑战性与可解性的随机组合"
+        ],
+        "duration_months": 25
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2024-01",
+        "end": "present",
+        "company": "On Mars",
+        "title_en": "Independent Developer",
+        "title": "独立开发",
+        "description_en": "Built a multiplayer text adventure sandbox game based on GPT, where player actions change the shared world state, launched in the GPTs store, independently designed gameplay mechanics and system logic, achieving a game experience that combines AI generation and gameplay rules.",
+        "description": "构建基于 GPT 的多玩家文字冒险沙盒游戏，玩家行为会改变共享的世界状态，已上线 GPTs 商店，独立设计玩法机制与系统逻辑，实现 AI 生成与玩法规则结合的游戏体验。",
+        "details_en": [
+          "Built a multiplayer text adventure sandbox game based on GPT",
+          "Player actions change the shared world state",
+          "Launched in the GPTs store",
+          "Independently designed gameplay mechanics and system logic",
+          "Achieved a game experience that combines AI generation and gameplay rules"
+        ],
+        "details": [
+          "构建基于 GPT 的多玩家文字冒险沙盒游戏",
+          "玩家行为会改变共享的世界状态",
+          "已上线 GPTs 商店",
+          "独立设计玩法机制与系统逻辑",
+          "实现 AI 生成与玩法规则结合的游戏体验"
+        ],
+        "duration_months": 22
+      },
+      {
+        "start": "2023-04",
+        "end": "present",
+        "company": "浪浪岛",
+        "title_en": null,
+        "title": "AI 驱动的情感互动应用",
+        "description_en": "Generated postcards through AI, allowing users to 'virtually communicate' with deceased pets, exploring emotional feedback and interactive healing mechanisms, led a team of 5 to be selected as Top 9 in the 即刻 AI Hack hackathon (out of over 400 projects).",
+        "description": "通过 AI 生成明信片，让用户与已故宠物进行「虚拟通信」，探索情绪反馈与交互疗愈机制，带领 5 人团队入选即刻 AI Hack 黑客马拉松 Top 9 (共 400 + 项目)。",
+        "details_en": null,
+        "details": [
+          "通过 AI 生成明信片，让用户与已故宠物进行「虚拟通信」",
+          "探索情绪反馈与交互疗愈机制",
+          "带领 5 人团队入选即刻 AI Hack 黑客马拉松 Top 9 (共 400 + 项目)"
+        ],
+        "duration_months": 31
+      }
+    ],
+    "self_evaluation": null,
+    "other": null,
+    "work_years": 6,
+    "self_evaluation_zh": null,
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.11 - 2025.03 Parami Foundation｜技术负责人 北京｜负责技术团队的管理与项目开发，涉及多个链上项目的技术实现与架构设计。",
+      "2018.11 - 2021.10 猿辅导｜前端开发 北京｜主导多个大型 B 端后台系统的前端开发，使用 Angular + RxJS 构建响应式状态流与高性能表单系统，主导巨石应用拆解，调研并评估技术方案，最终落地 MPA 架构，负责模块划分和团队协作流程设计，基于 Ant Design 封装内部组件库，提升开发一致性与复用效率。",
+      "2016.08 - 2018.08 IXL Learning｜前端开发 旧金山｜使用 React 开发交互式题型模块，支持响应式页面 + WebView 嵌入，实现桌面与移动端一致体验，设计并封装拖拽引擎与碰撞检测库，形成跨题型复用的通用交互组件，使用 Java 开发题目数据生成器，在规则约束下生成具备挑战性与可解性的随机组合。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2024.1 On Mars｜AI 游戏｜独立开发｜构建基于 GPT 的多玩家文字冒险沙盒游戏，玩家行为会改变共享的世界状态，已上线 GPTs 商店，独立设计玩法机制与系统逻辑，实现 AI 生成与玩法规则结合的游戏体验。",
+      "2023.04 浪浪岛｜AI 驱动的情感互动应用｜通过 AI 生成明信片，让用户与已故宠物进行「虚拟通信」，探索情绪反馈与交互疗愈机制，带领 5 人团队入选即刻 AI Hack 黑客马拉松 Top 9 (共 400 + 项目)。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-11",
+        "end": "2025-03",
+        "company": "Parami Foundation",
+        "title_en": "Technical Lead",
+        "title": "技术负责人",
+        "description_en": "Responsible for managing the technical team and project development, involving the technical implementation and architecture design of multiple on-chain projects.",
+        "description": "负责技术团队的管理与项目开发，涉及多个链上项目的技术实现与架构设计。",
+        "details_en": null,
+        "details": [
+          "负责技术团队的管理与项目开发",
+          "涉及多个链上项目的技术实现与架构设计"
+        ],
+        "duration_months": 41,
+        "title_zh": "技术负责人",
+        "description_zh": "负责管理技术团队和项目开发，涉及多个链上项目的技术实施和架构设计。",
+        "details_zh": [
+          "负责技术团队的管理与项目开发",
+          "涉及多个链上项目的技术实现与架构设计"
+        ]
+      },
+      {
+        "start": "2018-11",
+        "end": "2021-10",
+        "company": "猿辅导",
+        "title_en": "Frontend Developer",
+        "title": "前端开发",
+        "description_en": "Led the frontend development of multiple large-scale B-end backend systems, using Angular + RxJS to build responsive state streams and high-performance form systems, led the disassembly of the giant application, researched and evaluated technical solutions, ultimately landing on MPA architecture, responsible for module division and team collaboration process design, encapsulated internal component library based on Ant Design to improve development consistency and reuse efficiency.",
+        "description": "主导多个大型 B 端后台系统的前端开发，使用 Angular + RxJS 构建响应式状态流与高性能表单系统，主导巨石应用拆解，调研并评估技术方案，最终落地 MPA 架构，负责模块划分和团队协作流程设计，基于 Ant Design 封装内部组件库，提升开发一致性与复用效率。",
+        "details_en": null,
+        "details": [
+          "主导多个大型 B 端后台系统的前端开发",
+          "使用 Angular + RxJS 构建响应式状态流与高性能表单系统",
+          "主导巨石应用拆解",
+          "调研并评估技术方案",
+          "最终落地 MPA 架构",
+          "负责模块划分和团队协作流程设计",
+          "基于 Ant Design 封装内部组件库",
+          "提升开发一致性与复用效率"
+        ],
+        "duration_months": 36,
+        "title_zh": "前端开发者",
+        "description_zh": "领导多个大型B端后台系统的前端开发，使用Angular + RxJS构建响应式状态流和高性能表单系统，主导了大型应用的拆解，研究和评估技术解决方案，最终确定了MPA架构，负责模块划分和团队协作流程设计，基于Ant Design封装内部组件库，以提高开发一致性和重用效率。",
+        "details_zh": [
+          "主导多个大型 B 端后台系统的前端开发",
+          "使用 Angular + RxJS 构建响应式状态流与高性能表单系统",
+          "主导巨石应用拆解",
+          "调研并评估技术方案",
+          "最终落地 MPA 架构",
+          "负责模块划分和团队协作流程设计",
+          "基于 Ant Design 封装内部组件库",
+          "提升开发一致性与复用效率"
+        ]
+      },
+      {
+        "start": "2016-08",
+        "end": "2018-08",
+        "company": "IXL Learning",
+        "title_en": "Frontend Developer",
+        "title": "前端开发",
+        "description_en": "Developed interactive question modules using React, supporting responsive pages + WebView embedding, achieving a consistent experience on desktop and mobile, designed and encapsulated a drag-and-drop engine and collision detection library, forming a general interactive component that can be reused across question types, developed a question data generator using Java to generate challenging and solvable random combinations under rule constraints.",
+        "description": "使用 React 开发交互式题型模块，支持响应式页面 + WebView 嵌入，实现桌面与移动端一致体验，设计并封装拖拽引擎与碰撞检测库，形成跨题型复用的通用交互组件，使用 Java 开发题目数据生成器，在规则约束下生成具备挑战性与可解性的随机组合。",
+        "details_en": null,
+        "details": [
+          "使用 React 开发交互式题型模块",
+          "支持响应式页面 + WebView 嵌入",
+          "实现桌面与移动端一致体验",
+          "设计并封装拖拽引擎与碰撞检测库",
+          "形成跨题型复用的通用交互组件",
+          "使用 Java 开发题目数据生成器",
+          "在规则约束下生成具备挑战性与可解性的随机组合"
+        ],
+        "duration_months": 25,
+        "title_zh": "前端开发者",
+        "description_zh": "使用React开发了交互式问题模块，支持响应式页面和WebView嵌入，实现了桌面和移动设备上的一致体验，设计并封装了一个拖放引擎和碰撞检测库，形成了一个可以在不同问题类型中重复使用的一般交互组件，使用Java开发了一个问题数据生成器，在规则约束下生成具有挑战性和可解的随机组合。",
+        "details_zh": [
+          "使用 React 开发交互式题型模块",
+          "支持响应式页面 + WebView 嵌入",
+          "实现桌面与移动端一致体验",
+          "设计并封装拖拽引擎与碰撞检测库",
+          "形成跨题型复用的通用交互组件",
+          "使用 Java 开发题目数据生成器",
+          "在规则约束下生成具备挑战性与可解性的随机组合"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AIagent应用工程师上海5080K康锴9年.md",
+    "md_mostly_english": false
+  }
+}

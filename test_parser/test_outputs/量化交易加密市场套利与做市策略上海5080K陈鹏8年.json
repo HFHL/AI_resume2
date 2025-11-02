@@ -1,0 +1,321 @@
+{
+  "file_name": "量化交易加密市场套利与做市策略上海5080K陈鹏8年.md",
+  "parsed_at": "2025-10-21T17:19:10.228822",
+  "result": {
+    "resume_file_id": null,
+    "name": "陈鹏",
+    "email": null,
+    "phone": null,
+    "education_degree": "硕士",
+    "education_school": [
+      "瑞典皇家理工学院",
+      "浙江大学"
+    ],
+    "education_major": "金融数学数学与应用数学",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "双一流"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "DEX",
+      "ETH",
+      "defi",
+      "python",
+      "solidity",
+      "交易",
+      "做市",
+      "套利",
+      "市场",
+      "投资",
+      "期权",
+      "期货",
+      "流动性",
+      "测试",
+      "量化",
+      "量化开发"
+    ],
+    "skills": [
+      "Python",
+      "Solidity",
+      "Hardhat",
+      "Foundry",
+      "eth-brownie"
+    ],
+    "work_experience": [
+      "2023.03 - 今 杭州探景网络科技有限公司 Defi量化交易 - CEX和DEX价差套利,百万级别usdt,年化超过 30 %,0回撤- 各L2链的DEX之间的价差套利,0本金投入,闪电贷套利",
+      "2020.08 - 2023.01 Bitmart交易所 量化开发工程师 - 流动性做市策略研究, 对冲策略开发(Python)- Dex和中心化交易所（binance,okex）套利策略和交易系统开发(Python)",
+      "2018.05 - 2020.08 abcc交易所 量化开发工程师 - 流动性做市策略研究,为交易所提供流动性- 量化交易系统开发(python), 各交易所http和websocket接口python实现",
+      "2017.02 – 2018.05 浙商期货有限公司 量化与期权研究员 - 日常商品期权研究，商品期权隐含波动率计算 (基于 crr 和 baw 模型)，撰写期权研究报告- 商品期货做市商交易员，期货做市策略研究， Python 做市程序开发测试 (基于 vnpy)"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "流动性做市对冲策略和交易系统 – 封装大交易所API接口，实现统一的Python接口，用于获取市场行情数据、报单撤单 - 根据自身仓位,市场行情和交易对手信息, 进行对冲订单 - 将交易订单存储在数据库中, 分析并生成盈亏报告"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2023-03",
+        "end": "present",
+        "company": "杭州探景网络科技有限公司",
+        "title_en": "Defi Quantitative Trading",
+        "title": "Defi量化交易",
+        "description_en": "CEX and DEX arbitrage with a million-level USDT, annualized over 30%, zero drawdown - arbitrage between DEXs on various L2 chains, zero capital input, flash loan arbitrage",
+        "description": "CEX和DEX价差套利,百万级别usdt,年化超过 30 %,0回撤- 各L2链的DEX之间的价差套利,0本金投入,闪电贷套利",
+        "details_en": [
+          "CEX and DEX arbitrage with a million-level USDT",
+          "Annualized over 30%",
+          "Zero drawdown",
+          "Arbitrage between DEXs on various L2 chains",
+          "Zero capital input",
+          "Flash loan arbitrage"
+        ],
+        "details": [
+          "CEX和DEX价差套利,百万级别usdt",
+          "年化超过 30 %",
+          "0回撤",
+          "各L2链的DEX之间的价差套利",
+          "0本金投入",
+          "闪电贷套利"
+        ],
+        "duration_months": 32
+      },
+      {
+        "start": "2020-08",
+        "end": "2023-01",
+        "company": "Bitmart交易所",
+        "title_en": "Quantitative Developer",
+        "title": "量化开发工程师",
+        "description_en": "Liquidity market making strategy research, hedging strategy development (Python) - Dex and centralized exchange (Binance, OKEx) arbitrage strategy and trading system development (Python)",
+        "description": "流动性做市策略研究, 对冲策略开发(Python)- Dex和中心化交易所（binance,okex）套利策略和交易系统开发(Python)",
+        "details_en": [
+          "Liquidity market making strategy research",
+          "Hedging strategy development (Python)",
+          "Dex and centralized exchange (Binance, OKEx) arbitrage strategy and trading system development (Python)"
+        ],
+        "details": [
+          "流动性做市策略研究",
+          "对冲策略开发(Python)",
+          "Dex和中心化交易所（binance,okex）套利策略和交易系统开发(Python)"
+        ],
+        "duration_months": 30
+      },
+      {
+        "start": "2018-05",
+        "end": "2020-08",
+        "company": "abcc交易所",
+        "title_en": "Quantitative Developer",
+        "title": "量化开发工程师",
+        "description_en": "Liquidity market making strategy research, providing liquidity for the exchange - quantitative trading system development (Python), HTTP and WebSocket interface implementation in Python for various exchanges",
+        "description": "流动性做市策略研究,为交易所提供流动性- 量化交易系统开发(python), 各交易所http和websocket接口python实现",
+        "details_en": [
+          "Liquidity market making strategy research",
+          "Providing liquidity for the exchange",
+          "Quantitative trading system development (Python)",
+          "HTTP and WebSocket interface implementation in Python for various exchanges"
+        ],
+        "details": [
+          "流动性做市策略研究",
+          "为交易所提供流动性",
+          "量化交易系统开发(python)",
+          "各交易所http和websocket接口python实现"
+        ],
+        "duration_months": 28
+      },
+      {
+        "start": "2017-02",
+        "end": "2018-05",
+        "company": "浙商期货有限公司",
+        "title_en": "Quantitative and Options Researcher",
+        "title": "量化与期权研究员",
+        "description_en": "Daily commodity options research, calculation of implied volatility of commodity options (based on CRR and BAW models), writing options research reports - commodity futures market maker trader, futures market making strategy research, Python market making program development and testing (based on VNpy)",
+        "description": "日常商品期权研究，商品期权隐含波动率计算 (基于 crr 和 baw 模型)，撰写期权研究报告- 商品期货做市商交易员，期货做市策略研究， Python 做市程序开发测试 (基于 vnpy)",
+        "details_en": [
+          "Daily commodity options research",
+          "Calculation of implied volatility of commodity options (based on CRR and BAW models)",
+          "Writing options research reports",
+          "Commodity futures market maker trader",
+          "Futures market making strategy research",
+          "Python market making program development and testing (based on VNpy)"
+        ],
+        "details": [
+          "日常商品期权研究",
+          "商品期权隐含波动率计算 (基于 crr 和 baw 模型)",
+          "撰写期权研究报告",
+          "商品期货做市商交易员",
+          "期货做市策略研究",
+          "Python 做市程序开发测试 (基于 vnpy)"
+        ],
+        "duration_months": 16
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": null,
+        "title": null,
+        "description_en": null,
+        "description": "流动性做市对冲策略和交易系统 – 封装大交易所API接口，实现统一的Python接口，用于获取市场行情数据、报单撤单 - 根据自身仓位,市场行情和交易对手信息, 进行对冲订单 - 将交易订单存储在数据库中, 分析并生成盈亏报告",
+        "details_en": null,
+        "details": [
+          "流动性做市对冲策略和交易系统",
+          "封装大交易所API接口，实现统一的Python接口，用于获取市场行情数据、报单撤单",
+          "根据自身仓位,市场行情和交易对手信息, 进行对冲订单",
+          "将交易订单存储在数据库中, 分析并生成盈亏报告"
+        ],
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": null,
+    "other": "通过 CFA 第一级考试，证券从业资格，基金从业资格，期货从业资格，期货投资咨询; 精通英语听说读写",
+    "work_years": 5,
+    "self_evaluation_zh": null,
+    "other_zh": "通过 CFA 第一级考试，证券从业资格，基金从业资格，期货从业资格，期货投资咨询; 精通英语听说读写",
+    "work_experience_zh": [
+      "2023.03 - 今 杭州探景网络科技有限公司 Defi量化交易 - CEX和DEX价差套利,百万级别usdt,年化超过 30 %,0回撤- 各L2链的DEX之间的价差套利,0本金投入,闪电贷套利",
+      "2020.08 - 2023.01 Bitmart交易所 量化开发工程师 - 流动性做市策略研究, 对冲策略开发(Python)- Dex和中心化交易所（binance,okex）套利策略和交易系统开发(Python)",
+      "2018.05 - 2020.08 abcc交易所 量化开发工程师 - 流动性做市策略研究,为交易所提供流动性- 量化交易系统开发(python), 各交易所http和websocket接口python实现",
+      "2017.02 – 2018.05 浙商期货有限公司 量化与期权研究员 - 日常商品期权研究，商品期权隐含波动率计算 (基于 crr 和 baw 模型)，撰写期权研究报告- 商品期货做市商交易员，期货做市策略研究， Python 做市程序开发测试 (基于 vnpy)"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "流动性做市对冲策略和交易系统 – 封装大交易所API接口，实现统一的Python接口，用于获取市场行情数据、报单撤单 - 根据自身仓位,市场行情和交易对手信息, 进行对冲订单 - 将交易订单存储在数据库中, 分析并生成盈亏报告"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2023-03",
+        "end": "present",
+        "company": "杭州探景网络科技有限公司",
+        "title_en": "Defi Quantitative Trading",
+        "title": "Defi量化交易",
+        "description_en": "CEX and DEX arbitrage with a million-level USDT, annualized over 30%, zero drawdown - arbitrage between DEXs on various L2 chains, zero capital input, flash loan arbitrage",
+        "description": "CEX和DEX价差套利,百万级别usdt,年化超过 30 %,0回撤- 各L2链的DEX之间的价差套利,0本金投入,闪电贷套利",
+        "details_en": [
+          "CEX and DEX arbitrage with a million-level USDT",
+          "Annualized over 30%",
+          "Zero drawdown",
+          "Arbitrage between DEXs on various L2 chains",
+          "Zero capital input",
+          "Flash loan arbitrage"
+        ],
+        "details": [
+          "CEX和DEX价差套利,百万级别usdt",
+          "年化超过 30 %",
+          "0回撤",
+          "各L2链的DEX之间的价差套利",
+          "0本金投入",
+          "闪电贷套利"
+        ],
+        "duration_months": 32,
+        "title_zh": "去中心化金融量化交易",
+        "description_zh": "CEX和DEX套利，百万级USDT，年化超过30%，零回撤 - 在各种L2链上的DEX之间套利，零资本投入，闪电贷套利",
+        "details_zh": [
+          "CEX和DEX套利，使用百万级USDT",
+          "年化超过30%",
+          "零回撤",
+          "在各种 L2 链上的 DEX 之间进行套利",
+          "零资本投入",
+          "闪电贷套利"
+        ]
+      },
+      {
+        "start": "2020-08",
+        "end": "2023-01",
+        "company": "Bitmart交易所",
+        "title_en": "Quantitative Developer",
+        "title": "量化开发工程师",
+        "description_en": "Liquidity market making strategy research, hedging strategy development (Python) - Dex and centralized exchange (Binance, OKEx) arbitrage strategy and trading system development (Python)",
+        "description": "流动性做市策略研究, 对冲策略开发(Python)- Dex和中心化交易所（binance,okex）套利策略和交易系统开发(Python)",
+        "details_en": [
+          "Liquidity market making strategy research",
+          "Hedging strategy development (Python)",
+          "Dex and centralized exchange (Binance, OKEx) arbitrage strategy and trading system development (Python)"
+        ],
+        "details": [
+          "流动性做市策略研究",
+          "对冲策略开发(Python)",
+          "Dex和中心化交易所（binance,okex）套利策略和交易系统开发(Python)"
+        ],
+        "duration_months": 30,
+        "title_zh": "量化开发者",
+        "description_zh": "流动性市场做市策略研究，对冲策略开发（Python） - 去中心化和中心化交易所（Binance，OKEx）套利策略和交易系统开发（Python）",
+        "details_zh": [
+          "流动性市场做市策略研究",
+          "对冲策略开发（Python）",
+          "Dex和中心化交易所（Binance，OKEx）套利策略和交易系统开发（Python）"
+        ]
+      },
+      {
+        "start": "2018-05",
+        "end": "2020-08",
+        "company": "abcc交易所",
+        "title_en": "Quantitative Developer",
+        "title": "量化开发工程师",
+        "description_en": "Liquidity market making strategy research, providing liquidity for the exchange - quantitative trading system development (Python), HTTP and WebSocket interface implementation in Python for various exchanges",
+        "description": "流动性做市策略研究,为交易所提供流动性- 量化交易系统开发(python), 各交易所http和websocket接口python实现",
+        "details_en": [
+          "Liquidity market making strategy research",
+          "Providing liquidity for the exchange",
+          "Quantitative trading system development (Python)",
+          "HTTP and WebSocket interface implementation in Python for various exchanges"
+        ],
+        "details": [
+          "流动性做市策略研究",
+          "为交易所提供流动性",
+          "量化交易系统开发(python)",
+          "各交易所http和websocket接口python实现"
+        ],
+        "duration_months": 28,
+        "title_zh": "量化开发者",
+        "description_zh": "流动性市场做市策略研究，为交易所提供流动性 - 量化交易系统开发（Python），为各种交易所实现Python中的HTTP和WebSocket接口",
+        "details_zh": [
+          "流动性市场做市策略研究",
+          "为交易所提供流动性",
+          "量化交易系统开发（Python）",
+          "在Python中为各种交易所实现HTTP和WebSocket接口"
+        ]
+      },
+      {
+        "start": "2017-02",
+        "end": "2018-05",
+        "company": "浙商期货有限公司",
+        "title_en": "Quantitative and Options Researcher",
+        "title": "量化与期权研究员",
+        "description_en": "Daily commodity options research, calculation of implied volatility of commodity options (based on CRR and BAW models), writing options research reports - commodity futures market maker trader, futures market making strategy research, Python market making program development and testing (based on VNpy)",
+        "description": "日常商品期权研究，商品期权隐含波动率计算 (基于 crr 和 baw 模型)，撰写期权研究报告- 商品期货做市商交易员，期货做市策略研究， Python 做市程序开发测试 (基于 vnpy)",
+        "details_en": [
+          "Daily commodity options research",
+          "Calculation of implied volatility of commodity options (based on CRR and BAW models)",
+          "Writing options research reports",
+          "Commodity futures market maker trader",
+          "Futures market making strategy research",
+          "Python market making program development and testing (based on VNpy)"
+        ],
+        "details": [
+          "日常商品期权研究",
+          "商品期权隐含波动率计算 (基于 crr 和 baw 模型)",
+          "撰写期权研究报告",
+          "商品期货做市商交易员",
+          "期货做市策略研究",
+          "Python 做市程序开发测试 (基于 vnpy)"
+        ],
+        "duration_months": 16,
+        "title_zh": "量化与期权研究员",
+        "description_zh": "每日商品期权研究，商品期权隐含波动率计算（基于CRR和BAW模型），撰写期权研究报告 - 商品期货做市商交易员，期货做市策略研究，Python做市程序开发和测试（基于VNpy）",
+        "details_zh": [
+          "每日商品期权研究",
+          "商品期权隐含波动率的计算（基于CRR和BAW模型）",
+          "撰写期权研究报告",
+          "商品期货市场做市商交易员",
+          "期货市场做市策略研究",
+          "基于VNpy的Python市场做市程序开发和测试"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\量化交易加密市场套利与做市策略上海5080K陈鹏8年.md",
+    "md_mostly_english": false
+  }
+}

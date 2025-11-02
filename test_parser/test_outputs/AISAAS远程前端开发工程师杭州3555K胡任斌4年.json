@@ -1,0 +1,193 @@
+{
+  "file_name": "AISAAS远程前端开发工程师杭州3555K胡任斌4年.md",
+  "parsed_at": "2025-10-21T16:26:36.166003",
+  "result": {
+    "resume_file_id": null,
+    "name": "胡任斌",
+    "email": "hu_renbin@qq.com",
+    "phone": "13786813703",
+    "education_degree": "本科",
+    "education_school": [
+      "华中科技大学",
+      "Huazhong University of Science and Technology 华中科技大学"
+    ],
+    "education_major": null,
+    "education_graduation_year": null,
+    "education_tier": "211",
+    "education_tiers": [
+      "211",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "OP",
+      "rollup",
+      "rust",
+      "产品",
+      "前端",
+      "大模型",
+      "支付",
+      "测试",
+      "设计",
+      "运营"
+    ],
+    "skills": [
+      "Vite",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "SWC",
+      "Babel",
+      "Rollup",
+      "浏览器扩展开发",
+      "前端性能优化",
+      "SSE流式输出",
+      "图像视觉模型训练",
+      "Storybook",
+      "node.js",
+      "three.js",
+      "CanvasKit",
+      "Rust"
+    ],
+    "work_experience": [
+      "2021.07-2022.01 蚂蚁集团-支付宝体验技术部-前端开发实习生 负责IoT支付机具上广告页，以及设备管理中后台网页的开发。参与支付宝App端内的营销活动，如小荷包七夕合花、2022五福AR写福等。",
+      "2022.07-2023.08 蚂蚁集团 - 支付宝体验技术部 - 初级前端开发工程师 IoT运营中心重构：主导中后台系统升级，基于Formily搭建可视化表单平台，模板配置效率提升5倍。2023五福摇一摇分会场：设计SDK支持商家发卡类型，DAU2000w+，故障率0。支付宝红包3.0升级开发：重构实现首屏加载提速50%+，开发Babel插件减少重复代码90%。",
+      "2023.08-至今 杭州Vibe昼光科技有限公司 - 中级前端开发工程师 负责Bot会议助手硬件项目的整个前端系统，基于ChromiumOS，实现AI加持的一站式中小型会议室解决方案：使用Vite(React+TS)开发BotOS所需的Native Chrome App和Extension，以及会议相关的上下游网页。了解前端接入AI大模型的最佳实践，帮助PD快速为产品AI相关功能搭建demo预研效果。从0到1搭建BotOS的前端CI/CD系统，实现了可热更新、可监控、可回滚。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2022.12-2023.2 支付宝2023五福摇一摇H5 编写摇一摇发卡SDK，承接来自商家/五福主会场发卡种类和业务逻辑，支撑五福的对外开放生态。使用蚂蚁内部Galacean动画引擎，添加摇卡动画效果，并根据不同机型性能做降级，最大程度保证设计动画实现。适配了200+移动端机型，并接受了五福期间2000w+DAU的考验，0故障0舆情保证业务平稳落地。",
+      "2023.04-2023.07 支付宝红包3.0升级 从0到1实现全新的红包小程序3.0UI，基于SRP进行模块拆分，并引入CSSNano和懒加载提升首屏加载速度40%+。编写babel插件，直接从红包H5代码生成相同业务逻辑的小程序代码，解决之前需要写「一式两份」代码的困境。优化端内发红包SDK的业务逻辑，统一使用顶层webview遮罩进行红包组件弹出，消除冗余代码1k+行。",
+      "2024.02-2024.10 Bot Video Conference AI Helper System 使用Vite+React技术栈，编写Controller App，提供控制会议功能的GUI；并编写Extension，hack会议网页，通过图像视觉模型辅助判断当前会议的进程和事件，并接收和执行来自于Controller的指令。编写AI功能配套的会议上下游响应式网页：1. AI Deck，使用SSE流式输入的方式，回答参会人员提出的问题并适时主动输出对会议topic的总结；2. AI Summary，基于完整会议音频生成对应的总结和action list，构建内部知识库。",
+      "2023.09-2024.01 BotOS端基础建设 引入changeset、lint-staged等工具，完善GitHub Actions，打造规范的CI/CD流程。建立Design Token对应的Tailwind配置库，并引入Storybook打造组件粒度的开发、测试和交付体验。使用backtrace工具，设计了完备的监控和埋点上报系统，编写可复用的Error Boundary统一处理各个App的异常。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-07",
+        "end": "2022-01",
+        "company": "蚂蚁集团-支付宝体验技术部",
+        "title": "前端开发实习生 负责IoT支付机具上广告页",
+        "description": "，以及设备管理中后台网页的开发。参与支付宝App端内的营销活动，如小荷包七夕合花、2022五福AR写福等。",
+        "duration_months": 7
+      },
+      {
+        "start": "2022-07",
+        "end": "2023-08",
+        "company": "蚂蚁集团 - 支付宝体验技术部 - 初级",
+        "title": "前端开发工程师 IoT运营中心重构：主导中后台系统升级",
+        "description": "，基于Formily搭建可视化表单平台，模板配置效率提升5倍。2023五福摇一摇分会场：设计SDK支持商家发卡类型，DAU2000w+，故障率0。支付宝红包3.0升级开发：重构实现首屏加载提速50%+，开发Babel插件减少重复代码90%。",
+        "duration_months": 14
+      },
+      {
+        "start": "2023-08",
+        "end": "2025-10",
+        "company": "杭州Vibe昼光科技有限公司 - 中级",
+        "title": "前端开发工程师 负责Bot会议助手硬件项目的整个前端系统",
+        "description": "，基于ChromiumOS，实现AI加持的一站式中小型会议室解决方案：使用Vite(React+TS)开发BotOS所需的Native Chrome App和Extension，以及会议相关的上下游网页。了解前端接入AI大模型的最佳实践，帮助PD快速为产品AI相关功能搭建demo预研效果。从0到1搭建BotOS的前端CI/CD系统，实现了可热更新、可监控、可回滚。",
+        "duration_months": 27
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2022-12",
+        "end": "2023-02",
+        "company": "支付宝2023五福摇一摇H5",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "编写摇一摇发卡SDK，承接来自商家/五福主会场发卡种类和业务逻辑，支撑五福的对外开放生态。使用蚂蚁内部Galacean动画引擎，添加摇卡动画效果，并根据不同机型性能做降级，最大程度保证设计动画实现。适配了200+移动端机型，并接受了五福期间2000w+DAU的考验，0故障0舆情保证业务平稳落地。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 3
+      },
+      {
+        "start": "2023-04",
+        "end": "2023-07",
+        "company": "支付宝红包3.0升级",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "从0到1实现全新的红包小程序3.0UI，基于SRP进行模块拆分，并引入CSSNano和懒加载提升首屏加载速度40%+。编写babel插件，直接从红包H5代码生成相同业务逻辑的小程序代码，解决之前需要写「一式两份」代码的困境。优化端内发红包SDK的业务逻辑，统一使用顶层webview遮罩进行红包组件弹出，消除冗余代码1k+行。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 4
+      },
+      {
+        "start": "2024-02",
+        "end": "2024-10",
+        "company": "Bot Video Conference AI Helper System",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "使用Vite+React技术栈，编写Controller App，提供控制会议功能的GUI；并编写Extension，hack会议网页，通过图像视觉模型辅助判断当前会议的进程和事件，并接收和执行来自于Controller的指令。编写AI功能配套的会议上下游响应式网页：1. AI Deck，使用SSE流式输入的方式，回答参会人员提出的问题并适时主动输出对会议topic的总结；2. AI Summary，基于完整会议音频生成对应的总结和action list，构建内部知识库。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 9
+      },
+      {
+        "start": "2023-09",
+        "end": "2024-01",
+        "company": "BotOS端基础建设",
+        "title_en": null,
+        "title": "项目负责人",
+        "description_en": null,
+        "description": "引入changeset、lint-staged等工具，完善GitHub Actions，打造规范的CI/CD流程。建立Design Token对应的Tailwind配置库，并引入Storybook打造组件粒度的开发、测试和交付体验。使用backtrace工具，设计了完备的监控和埋点上报系统，编写可复用的Error Boundary统一处理各个App的异常。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 5
+      }
+    ],
+    "self_evaluation": "有产品Owner意识，沟通能力强，会主动和团队其他成员沟通，为产品的优化提出自己的意见和建议。学习能力强并且对工作相关的前沿技术有探索欲，能够根据工作需求在短时间内熟悉新的框架体系甚至语言，并给出解决方案。",
+    "other": null,
+    "work_years": 1,
+    "self_evaluation_zh": "有产品Owner意识，沟通能力强，会主动和团队其他成员沟通，为产品的优化提出自己的意见和建议。学习能力强并且对工作相关的前沿技术有探索欲，能够根据工作需求在短时间内熟悉新的框架体系甚至语言，并给出解决方案。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.07-2022.01 蚂蚁集团-支付宝体验技术部-前端开发实习生 负责IoT支付机具上广告页，以及设备管理中后台网页的开发。参与支付宝App端内的营销活动，如小荷包七夕合花、2022五福AR写福等。",
+      "2022.07-2023.08 蚂蚁集团 - 支付宝体验技术部 - 初级前端开发工程师 IoT运营中心重构：主导中后台系统升级，基于Formily搭建可视化表单平台，模板配置效率提升5倍。2023五福摇一摇分会场：设计SDK支持商家发卡类型，DAU2000w+，故障率0。支付宝红包3.0升级开发：重构实现首屏加载提速50%+，开发Babel插件减少重复代码90%。",
+      "2023.08-至今 杭州Vibe昼光科技有限公司 - 中级前端开发工程师 负责Bot会议助手硬件项目的整个前端系统，基于ChromiumOS，实现AI加持的一站式中小型会议室解决方案：使用Vite(React+TS)开发BotOS所需的Native Chrome App和Extension，以及会议相关的上下游网页。了解前端接入AI大模型的最佳实践，帮助PD快速为产品AI相关功能搭建demo预研效果。从0到1搭建BotOS的前端CI/CD系统，实现了可热更新、可监控、可回滚。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2022.12-2023.2 支付宝2023五福摇一摇H5 编写摇一摇发卡SDK，承接来自商家/五福主会场发卡种类和业务逻辑，支撑五福的对外开放生态。使用蚂蚁内部Galacean动画引擎，添加摇卡动画效果，并根据不同机型性能做降级，最大程度保证设计动画实现。适配了200+移动端机型，并接受了五福期间2000w+DAU的考验，0故障0舆情保证业务平稳落地。",
+      "2023.04-2023.07 支付宝红包3.0升级 从0到1实现全新的红包小程序3.0UI，基于SRP进行模块拆分，并引入CSSNano和懒加载提升首屏加载速度40%+。编写babel插件，直接从红包H5代码生成相同业务逻辑的小程序代码，解决之前需要写「一式两份」代码的困境。优化端内发红包SDK的业务逻辑，统一使用顶层webview遮罩进行红包组件弹出，消除冗余代码1k+行。",
+      "2024.02-2024.10 Bot Video Conference AI Helper System 使用Vite+React技术栈，编写Controller App，提供控制会议功能的GUI；并编写Extension，hack会议网页，通过图像视觉模型辅助判断当前会议的进程和事件，并接收和执行来自于Controller的指令。编写AI功能配套的会议上下游响应式网页：1.\nAI Deck，使用SSE流式输入的方式，回答参会人员提出的问题并适时主动输出对会议topic的总结；2.\nAI Summary，基于完整会议音频生成对应的总结和action list，构建内部知识库。",
+      "2023.09-2024.01 BotOS端基础建设 引入changeset、lint-staged等工具，完善GitHub Actions，打造规范的CI/CD流程。建立Design Token对应的Tailwind配置库，并引入Storybook打造组件粒度的开发、测试和交付体验。使用backtrace工具，设计了完备的监控和埋点上报系统，编写可复用的Error Boundary统一处理各个App的异常。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-07",
+        "end": "2022-01",
+        "company": "蚂蚁集团-支付宝体验技术部",
+        "title": "前端开发实习生 负责IoT支付机具上广告页",
+        "description": "，以及设备管理中后台网页的开发。参与支付宝App端内的营销活动，如小荷包七夕合花、2022五福AR写福等。",
+        "duration_months": 7,
+        "title_zh": "前端开发实习生 负责IoT支付机具上广告页",
+        "description_zh": "，以及设备管理中后台网页的开发。参与支付宝App端内的营销活动，如小荷包七夕合花、2022五福AR写福等。"
+      },
+      {
+        "start": "2022-07",
+        "end": "2023-08",
+        "company": "蚂蚁集团 - 支付宝体验技术部 - 初级",
+        "title": "前端开发工程师 IoT运营中心重构：主导中后台系统升级",
+        "description": "，基于Formily搭建可视化表单平台，模板配置效率提升5倍。2023五福摇一摇分会场：设计SDK支持商家发卡类型，DAU2000w+，故障率0。支付宝红包3.0升级开发：重构实现首屏加载提速50%+，开发Babel插件减少重复代码90%。",
+        "duration_months": 14,
+        "title_zh": "前端开发工程师 IoT运营中心重构：主导中后台系统升级",
+        "description_zh": "，基于Formily搭建可视化表单平台，模板配置效率提升5倍。2023五福摇一摇分会场：设计SDK支持商家发卡类型，DAU2000w+，故障率0。支付宝红包3.0升级开发：重构实现首屏加载提速50%+，开发Babel插件减少重复代码90%。"
+      },
+      {
+        "start": "2023-08",
+        "end": "2025-10",
+        "company": "杭州Vibe昼光科技有限公司 - 中级",
+        "title": "前端开发工程师 负责Bot会议助手硬件项目的整个前端系统",
+        "description": "，基于ChromiumOS，实现AI加持的一站式中小型会议室解决方案：使用Vite(React+TS)开发BotOS所需的Native Chrome App和Extension，以及会议相关的上下游网页。了解前端接入AI大模型的最佳实践，帮助PD快速为产品AI相关功能搭建demo预研效果。从0到1搭建BotOS的前端CI/CD系统，实现了可热更新、可监控、可回滚。",
+        "duration_months": 27,
+        "title_zh": "前端开发工程师 负责Bot会议助手硬件项目的整个前端系统",
+        "description_zh": "，基于ChromiumOS，实现AI加持的一站式中小型会议室解决方案：使用Vite(React+TS)开发BotOS所需的Native Chrome App和Extension，以及会议相关的上下游网页。了解前端接入AI大模型的最佳实践，帮助PD快速为产品AI相关功能搭建demo预研效果。从0到1搭建BotOS的前端CI/CD系统，实现了可热更新、可监控、可回滚。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程前端开发工程师杭州3555K胡任斌4年.md",
+    "md_mostly_english": false
+  }
+}

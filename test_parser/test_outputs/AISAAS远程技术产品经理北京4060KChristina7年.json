@@ -1,0 +1,271 @@
+{
+  "file_name": "AISAAS远程技术产品经理北京4060KChristina7年.md",
+  "parsed_at": "2025-10-21T16:27:26.347617",
+  "result": {
+    "resume_file_id": null,
+    "name": "Christina",
+    "email": "2443946591@qq.com",
+    "phone": "18842667296",
+    "education_degree": "研究生",
+    "education_school": [
+      "University of Limerick 利默里克大学",
+      "利默里克大学"
+    ],
+    "education_major": "信息网络安全",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "AI agent",
+      "ETH",
+      "LangChain",
+      "OP",
+      "PR",
+      "RAG",
+      "SRE",
+      "go",
+      "java",
+      "python",
+      "产品",
+      "全栈",
+      "合规",
+      "大客户",
+      "大模型",
+      "大语言模型",
+      "安全",
+      "市场",
+      "数据分析",
+      "测试",
+      "设计",
+      "运维",
+      "运营",
+      "量化",
+      "项目经理",
+      "高净值"
+    ],
+    "skills": [
+      "Kubernetes",
+      "OpenShift",
+      "Prometheus",
+      "Ansible",
+      "RHEL8",
+      "Linux",
+      "Containerized",
+      "Docker",
+      "Fluentd",
+      "Bugzilla",
+      "JIRA",
+      "AWS",
+      "自动化运维",
+      "SRE",
+      "故障排查",
+      "CI/CD",
+      "基础设施即代码",
+      "Python",
+      "C++",
+      "C",
+      "C#",
+      "Go",
+      "敏捷方法论",
+      "项目管理",
+      "产品管理",
+      "市场研究",
+      "产品开发",
+      "跨职能协作",
+      "技术架构思维与平台构建能力",
+      "技术战略规划与决策支持",
+      "模型服务可观测性与 AI 运维集成",
+      "探索式工程能力与技术验证实践",
+      "技术文档撰写与标准化输出",
+      "团队知识沉淀与赋能",
+      "领导力",
+      "客户关系管理",
+      "问题解决能力",
+      "跨文化沟通",
+      "适应能力"
+    ],
+    "work_experience": [
+      "2021.09-至今 Red Hat（IBM） 高级技术产品经理\n负责协调支持工程、研发与产品团队之间的合作，推动 OpenShift Observability 相关产品的发展。通过定期收集客户反馈，并在季度业务回顾会上向利益相关方汇报，持续推进产品优化。主导功能验证、代码审阅和文档完善，识别用户痛点并通过技术博客等形式提升产品理解度与使用体验，确保产品功能与市场需求高度匹配。",
+      "2021.09-至今 Red Hat（IBM） 高级云计算工程师\n负责定位并解决集群不可用、节点 NotReady、控制面组件异常等重大故障，保障核心服务持续运行。针对客户反馈的高 CPU/内存使用、监控组件资源占用异常等问题，提供资源配置优化与组件调优建议。",
+      "2019.09-2021.09 红帽（IBM） IT咨询顾问\n协助资深顾问为客户部署 OpenShift 平台，支持从环境准备到集群上线的全过程，提升客户对云原生平台的理解与应用能力。",
+      "2018.06-2019.08 通用汽车 软件开发\n负责 IBM Sterling Order Management 系统的定制开发与维护，基于客户业务需求进行流程建模、服务配置与 API 集成，确保订单处理系统高效稳定运行。",
+      "2016.09-2016.12 日本softusing 助理开发工程师\n协助资深工程师进行系统开发、测试与文档编写，参与项目全流程，在实际业务中提升了工程实操与协作能力。"
+    ],
+    "internship_experience": [
+      "2013.01-2014.01 OPPO 市场调研\n负责将 OPPO 品牌推广至大学生群体，通过校园活动、社群运营及线上线下联动方式，提升品牌在年轻用户中的认知度与好感度。"
+    ],
+    "project_experience": [
+      "搭建本地大语言模型与可观测性监控平台 总设计师及执行人\n在本地环境中部署开源大语言模型，构建可复用的推理平台，并结合 Prometheus 实现资源监控与链路追踪，提升模型行为与运行状态的可观测性。",
+      "本地化大模型知识问答系统（RAG + VS Code 助手） 项目发起人 & 全栈开发者\n为了提升技术工程师在脱离网络情况下对 OpenShift 源码与官方文档的理解效率，我独立构建了一个本地智能知识问答系统，完整实现从文档加载、语义切分、向量嵌入、检索增强生成（RAG），到大模型回答与 VS Code 弹窗输入界面，打通了AI 产品从数据到交互的全流程链路。",
+      "Kubernetes 集群稳定性排障与部署可靠性优化 云工程师\n独立开展本地多节点 Kubernetes/OpenShift 集群部署项目，聚焦提升部署成功率与平台运行稳定性。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2021-09",
+        "end": "2025-10",
+        "company": "Red Hat（IBM） 高级技术",
+        "title": "产品经理",
+        "description": "负责协调支持工程、研发与产品团队之间的合作，推动 OpenShift Observability 相关产品的发展。通过定期收集客户反馈，并在季度业务回顾会上向利益相关方汇报，持续推进产品优化。主导功能验证、代码审阅和文档完善，识别用户痛点并通过技术博客等形式提升产品理解度与使用体验，确保产品功能与市场需求高度匹配。",
+        "duration_months": 50
+      },
+      {
+        "start": "2021-09",
+        "end": "2025-10",
+        "company": "Red Hat（IBM） 高级云计算",
+        "title": "工程师",
+        "description": "负责定位并解决集群不可用、节点 NotReady、控制面组件异常等重大故障，保障核心服务持续运行。针对客户反馈的高 CPU/内存使用、监控组件资源占用异常等问题，提供资源配置优化与组件调优建议。",
+        "duration_months": 50
+      },
+      {
+        "start": "2019-09",
+        "end": "2021-09",
+        "company": "红帽（IBM",
+        "title": "IT咨询顾问",
+        "description": "协助资深顾问为客户部署 OpenShift 平台，支持从环境准备到集群上线的全过程，提升客户对云原生平台的理解与应用能力。",
+        "duration_months": 25
+      },
+      {
+        "start": "2018-06",
+        "end": "2019-08",
+        "company": "通用汽车 软件",
+        "title": "开发",
+        "description": "负责 IBM Sterling Order Management 系统的定制开发与维护，基于客户业务需求进行流程建模、服务配置与 API 集成，确保订单处理系统高效稳定运行。",
+        "duration_months": 15
+      },
+      {
+        "start": "2016-09",
+        "end": "2016-12",
+        "company": "日本softusing 助理",
+        "title": "开发工程师",
+        "description": "协助资深工程师进行系统开发、测试与文档编写，参与项目全流程，在实际业务中提升了工程实操与协作能力。",
+        "duration_months": 4
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": "Chief Designer and Executor",
+        "title": "总设计师及执行人",
+        "description_en": "Deployed open-source large language models in a local environment, built a reusable inference platform, and implemented resource monitoring and link tracing with Prometheus to enhance the observability of model behavior and operational status.",
+        "description": "在本地环境中部署开源大语言模型，构建可复用的推理平台，并结合 Prometheus 实现资源监控与链路追踪，提升模型行为与运行状态的可观测性。",
+        "details_en": [
+          "Deployed open-source large language models in a local environment",
+          "Built a reusable inference platform",
+          "Implemented resource monitoring and link tracing with Prometheus",
+          "Enhanced the observability of model behavior and operational status"
+        ],
+        "details": [
+          "在本地环境中部署开源大语言模型",
+          "构建可复用的推理平台",
+          "结合 Prometheus 实现资源监控与链路追踪",
+          "提升模型行为与运行状态的可观测性"
+        ],
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": "Project Initiator & Full Stack Developer",
+        "title": "项目发起人 & 全栈开发者",
+        "description_en": "To enhance the understanding efficiency of technical engineers on OpenShift source code and official documentation in offline scenarios, I independently built a local intelligent Q&A system, fully implementing the entire process from document loading, semantic segmentation, vector embedding, retrieval-augmented generation (RAG), to large model responses and VS Code pop-up input interface, bridging the entire process from data to interaction for AI products.",
+        "description": "为了提升技术工程师在脱离网络情况下对 OpenShift 源码与官方文档的理解效率，我独立构建了一个本地智能知识问答系统，完整实现从文档加载、语义切分、向量嵌入、检索增强生成（RAG），到大模型回答与 VS Code 弹窗输入界面，打通了AI 产品从数据到交互的全流程链路。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      },
+      {
+        "start": null,
+        "end": null,
+        "company": null,
+        "title_en": "Cloud Engineer",
+        "title": "云工程师",
+        "description_en": "Independently carried out a local multi-node Kubernetes/OpenShift cluster deployment project, focusing on improving deployment success rates and platform operational stability.",
+        "description": "独立开展本地多节点 Kubernetes/OpenShift 集群部署项目，聚焦提升部署成功率与平台运行稳定性。",
+        "details_en": null,
+        "details": null,
+        "duration_months": null
+      }
+    ],
+    "self_evaluation": "我是一个注重成长的IT专业人士，拥有网络安全方向的研究生学位及7年欧美地区工作经验，具备丰富的跨国项目实践与跨文化沟通能力。技术背景扎实，精通 Kubernetes 及云原生架构，擅长云平台部署、自动化运维、本地大语言模型的部署与监控，能够在技术与战略之间高效切换，从多个维度分析需求、平衡优先级，确保项目按时交付并契合市场需求。",
+    "other": null,
+    "work_years": 5,
+    "self_evaluation_zh": "我是一个注重成长的IT专业人士，拥有网络安全方向的研究生学位及7年欧美地区工作经验，具备丰富的跨国项目实践与跨文化沟通能力。技术背景扎实，精通 Kubernetes 及云原生架构，擅长云平台部署、自动化运维、本地大语言模型的部署与监控，能够在技术与战略之间高效切换，从多个维度分析需求、平衡优先级，确保项目按时交付并契合市场需求。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2021.09-至今 Red Hat（IBM） 高级技术产品经理\n负责协调支持工程、研发与产品团队之间的合作，推动 OpenShift Observability 相关产品的发展。通过定期收集客户反馈，并在季度业务回顾会上向利益相关方汇报，持续推进产品优化。主导功能验证、代码审阅和文档完善，识别用户痛点并通过技术博客等形式提升产品理解度与使用体验，确保产品功能与市场需求高度匹配。",
+      "2021.09-至今 Red Hat（IBM） 高级云计算工程师\n负责定位并解决集群不可用、节点 NotReady、控制面组件异常等重大故障，保障核心服务持续运行。针对客户反馈的高 CPU/内存使用、监控组件资源占用异常等问题，提供资源配置优化与组件调优建议。",
+      "2019.09-2021.09 红帽（IBM） IT咨询顾问\n协助资深顾问为客户部署 OpenShift 平台，支持从环境准备到集群上线的全过程，提升客户对云原生平台的理解与应用能力。",
+      "2018.06-2019.08 通用汽车 软件开发\n负责 IBM Sterling Order Management 系统的定制开发与维护，基于客户业务需求进行流程建模、服务配置与 API 集成，确保订单处理系统高效稳定运行。",
+      "2016.09-2016.12 日本softusing 助理开发工程师\n协助资深工程师进行系统开发、测试与文档编写，参与项目全流程，在实际业务中提升了工程实操与协作能力。"
+    ],
+    "internship_experience_zh": [
+      "2013.01-2014.01 OPPO 市场调研\n负责将 OPPO 品牌推广至大学生群体，通过校园活动、社群运营及线上线下联动方式，提升品牌在年轻用户中的认知度与好感度。"
+    ],
+    "project_experience_zh": [
+      "搭建本地大语言模型与可观测性监控平台 总设计师及执行人\n在本地环境中部署开源大语言模型，构建可复用的推理平台，并结合 Prometheus 实现资源监控与链路追踪，提升模型行为与运行状态的可观测性。",
+      "本地化大模型知识问答系统（RAG + VS Code 助手） 项目发起人 & 全栈开发者\n为了提升技术工程师在脱离网络情况下对 OpenShift 源码与官方文档的理解效率，我独立构建了一个本地智能知识问答系统，完整实现从文档加载、语义切分、向量嵌入、检索增强生成（RAG），到大模型回答与 VS Code 弹窗输入界面，打通了AI 产品从数据到交互的全流程链路。",
+      "Kubernetes 集群稳定性排障与部署可靠性优化 云工程师\n独立开展本地多节点 Kubernetes/OpenShift 集群部署项目，聚焦提升部署成功率与平台运行稳定性。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2021-09",
+        "end": "2025-10",
+        "company": "Red Hat（IBM） 高级技术",
+        "title": "产品经理",
+        "description": "负责协调支持工程、研发与产品团队之间的合作，推动 OpenShift Observability 相关产品的发展。通过定期收集客户反馈，并在季度业务回顾会上向利益相关方汇报，持续推进产品优化。主导功能验证、代码审阅和文档完善，识别用户痛点并通过技术博客等形式提升产品理解度与使用体验，确保产品功能与市场需求高度匹配。",
+        "duration_months": 50,
+        "title_zh": "产品经理",
+        "description_zh": "负责协调支持工程、研发与产品团队之间的合作，推动 OpenShift Observability 相关产品的发展。通过定期收集客户反馈，并在季度业务回顾会上向利益相关方汇报，持续推进产品优化。主导功能验证、代码审阅和文档完善，识别用户痛点并通过技术博客等形式提升产品理解度与使用体验，确保产品功能与市场需求高度匹配。"
+      },
+      {
+        "start": "2021-09",
+        "end": "2025-10",
+        "company": "Red Hat（IBM） 高级云计算",
+        "title": "工程师",
+        "description": "负责定位并解决集群不可用、节点 NotReady、控制面组件异常等重大故障，保障核心服务持续运行。针对客户反馈的高 CPU/内存使用、监控组件资源占用异常等问题，提供资源配置优化与组件调优建议。",
+        "duration_months": 50,
+        "title_zh": "工程师",
+        "description_zh": "负责定位并解决集群不可用、节点 NotReady、控制面组件异常等重大故障，保障核心服务持续运行。针对客户反馈的高 CPU/内存使用、监控组件资源占用异常等问题，提供资源配置优化与组件调优建议。"
+      },
+      {
+        "start": "2019-09",
+        "end": "2021-09",
+        "company": "红帽（IBM",
+        "title": "IT咨询顾问",
+        "description": "协助资深顾问为客户部署 OpenShift 平台，支持从环境准备到集群上线的全过程，提升客户对云原生平台的理解与应用能力。",
+        "duration_months": 25,
+        "title_zh": "IT咨询顾问",
+        "description_zh": "协助资深顾问为客户部署 OpenShift 平台，支持从环境准备到集群上线的全过程，提升客户对云原生平台的理解与应用能力。"
+      },
+      {
+        "start": "2018-06",
+        "end": "2019-08",
+        "company": "通用汽车 软件",
+        "title": "开发",
+        "description": "负责 IBM Sterling Order Management 系统的定制开发与维护，基于客户业务需求进行流程建模、服务配置与 API 集成，确保订单处理系统高效稳定运行。",
+        "duration_months": 15,
+        "title_zh": "开发",
+        "description_zh": "负责 IBM Sterling Order Management 系统的定制开发与维护，基于客户业务需求进行流程建模、服务配置与 API 集成，确保订单处理系统高效稳定运行。"
+      },
+      {
+        "start": "2016-09",
+        "end": "2016-12",
+        "company": "日本softusing 助理",
+        "title": "开发工程师",
+        "description": "协助资深工程师进行系统开发、测试与文档编写，参与项目全流程，在实际业务中提升了工程实操与协作能力。",
+        "duration_months": 4,
+        "title_zh": "开发工程师",
+        "description_zh": "协助资深工程师进行系统开发、测试与文档编写，参与项目全流程，在实际业务中提升了工程实操与协作能力。"
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AISAAS远程技术产品经理北京4060KChristina7年.md",
+    "md_mostly_english": false
+  }
+}

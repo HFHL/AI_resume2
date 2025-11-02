@@ -1,0 +1,224 @@
+{
+  "file_name": "AIweb3AI应用工程师上海4560K蒋璐5年.md",
+  "parsed_at": "2025-10-21T16:39:39.657741",
+  "result": {
+    "resume_file_id": null,
+    "name": "蒋璐 Lucas",
+    "email": "Ijiang1995@outlook.com",
+    "phone": "18912300705",
+    "education_degree": "硕士",
+    "education_school": [
+      "瑞典皇家工学院",
+      "Shanghai Jiao Tong University 上海交通大学"
+    ],
+    "education_major": "信息与网络工程",
+    "education_graduation_year": null,
+    "education_tier": "海外",
+    "education_tiers": [
+      "海外",
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "go",
+      "前端",
+      "后端",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "Golang",
+      "Erlang",
+      "RESTful API",
+      "PostgreSQL",
+      "MQTT",
+      "Redis",
+      "Kafka",
+      "Kubernetes",
+      "分布式架构",
+      "微服务",
+      "5G 协议",
+      "Al编程",
+      "强化学习",
+      "敏捷开发",
+      "Scrum Master",
+      "F-Model",
+      "Jira",
+      "Confluence"
+    ],
+    "work_experience": [
+      "2025.4-至今\n上海微亿智造科技有限公司\n后端开发工程师|人工智能\n担任WEB应用后端开发，对接前端和算力网关，共同开发算法测试平台。",
+      "2020.3-2024.6\n爱立信（中国）通信有限公司\n后端开发工程师|通信/网络设备\n担任核心网后端开发，分析需求，设计系统架构，编写代码，测试并交付。担任ScrumMaster，管理和指导敏捷团队的开发流程，推进项目顺利进行。"
+    ],
+    "internship_experience": null,
+    "project_experience": [
+      "2025.4-至今\n算法测试平台开发\n微亿智造-WEB后端开发\n担任 Golang 后端程序员，使用GIN 框架和 PostgreSQL、MQTT、Redis 等中间件，为前端提供HTTP接口，同时调用基于云平台的算力网关和仿真系统，完成算法镜像包的部署和测试。",
+      "2020.4-2024.6\n5G核心网服务开发\n爱立信－后端开发&系统设计\n基于 Erlang/OTP提供的框架，开发5G核心网中的AMF 微服务，实现新功能以满足客户需求。参与到AMF微服务的架构设计，优化子系统与代码结构，实现高并发和高可用的分布式服务。"
+    ],
+    "work_experience_struct": [
+      {
+        "start": "2025-04",
+        "end": "present",
+        "company": "上海微亿智造科技有限公司",
+        "title_en": "Backend Developer",
+        "title": "后端开发工程师",
+        "description_en": "Responsible for backend development of WEB applications, interfacing with frontend and computing power gateway, collaboratively developing algorithm testing platform.",
+        "description": "担任WEB应用后端开发，对接前端和算力网关，共同开发算法测试平台。",
+        "details_en": [
+          "Responsible for backend development of WEB applications",
+          "Interfacing with frontend and computing power gateway",
+          "Collaboratively developing algorithm testing platform"
+        ],
+        "details": [
+          "担任WEB应用后端开发",
+          "对接前端和算力网关",
+          "共同开发算法测试平台"
+        ],
+        "duration_months": 7
+      },
+      {
+        "start": "2020-03",
+        "end": "2024-06",
+        "company": "爱立信（中国）通信有限公司",
+        "title_en": "Backend Developer",
+        "title": "后端开发工程师",
+        "description_en": "Responsible for core network backend development, analyzing requirements, designing system architecture, writing code, testing and delivering. Served as Scrum Master, managing and guiding the agile team's development process to ensure project progress.",
+        "description": "担任核心网后端开发，分析需求，设计系统架构，编写代码，测试并交付。担任ScrumMaster，管理和指导敏捷团队的开发流程，推进项目顺利进行。",
+        "details_en": [
+          "Responsible for core network backend development",
+          "Analyzing requirements",
+          "Designing system architecture",
+          "Writing code",
+          "Testing and delivering",
+          "Served as Scrum Master",
+          "Managing and guiding the agile team's development process",
+          "Ensuring project progress"
+        ],
+        "details": [
+          "担任核心网后端开发",
+          "分析需求",
+          "设计系统架构",
+          "编写代码",
+          "测试并交付",
+          "担任ScrumMaster",
+          "管理和指导敏捷团队的开发流程",
+          "推进项目顺利进行"
+        ],
+        "duration_months": 52
+      }
+    ],
+    "project_experience_struct": [
+      {
+        "start": "2025-04",
+        "end": "present",
+        "company": "微亿智造",
+        "title_en": "Backend Developer",
+        "title": "WEB后端开发",
+        "description_en": null,
+        "description": "担任 Golang 后端程序员，使用GIN 框架和 PostgreSQL、MQTT、Redis 等中间件，为前端提供HTTP接口，同时调用基于云平台的算力网关和仿真系统，完成算法镜像包的部署和测试。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 7
+      },
+      {
+        "start": "2020-04",
+        "end": "2024-06",
+        "company": "爱立信",
+        "title_en": "Backend Developer & System Designer",
+        "title": "后端开发&系统设计",
+        "description_en": null,
+        "description": "基于 Erlang/OTP提供的框架，开发5G核心网中的AMF 微服务，实现新功能以满足客户需求。参与到AMF微服务的架构设计，优化子系统与代码结构，实现高并发和高可用的分布式服务。",
+        "details_en": null,
+        "details": null,
+        "duration_months": 51
+      }
+    ],
+    "self_evaluation": "学习能力强，擅长逻辑思考，乐于学习新技术。抽象能力和整体性思维较好，能快速理解业务和架构。拥有良好的沟通和表达能力，可以快速抓住重点，清晰传达想法。有一些项目和团队管理经验，善于协调与决策，推进项目顺利进行。",
+    "other": null,
+    "work_years": 4,
+    "self_evaluation_zh": "学习能力强，擅长逻辑思考，乐于学习新技术。抽象能力和整体性思维较好，能快速理解业务和架构。拥有良好的沟通和表达能力，可以快速抓住重点，清晰传达想法。有一些项目和团队管理经验，善于协调与决策，推进项目顺利进行。",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2025.4-至今\n上海微亿智造科技有限公司\n后端开发工程师|人工智能\n担任WEB应用后端开发，对接前端和算力网关，共同开发算法测试平台。",
+      "2020.3-2024.6\n爱立信（中国）通信有限公司\n后端开发工程师|通信/网络设备\n担任核心网后端开发，分析需求，设计系统架构，编写代码，测试并交付。担任ScrumMaster，管理和指导敏捷团队的开发流程，推进项目顺利进行。"
+    ],
+    "internship_experience_zh": null,
+    "project_experience_zh": [
+      "2025.4-至今\n算法测试平台开发\n微亿智造-WEB后端开发\n担任 Golang 后端程序员，使用GIN 框架和 PostgreSQL、MQTT、Redis 等中间件，为前端提供HTTP接口，同时调用基于云平台的算力网关和仿真系统，完成算法镜像包的部署和测试。",
+      "2020.4-2024.6\n5G核心网服务开发\n爱立信－后端开发&系统设计\n基于 Erlang/OTP提供的框架，开发5G核心网中的AMF 微服务，实现新功能以满足客户需求。参与到AMF微服务的架构设计，优化子系统与代码结构，实现高并发和高可用的分布式服务。"
+    ],
+    "work_experience_struct_translated": [
+      {
+        "start": "2025-04",
+        "end": "present",
+        "company": "上海微亿智造科技有限公司",
+        "title_en": "Backend Developer",
+        "title": "后端开发工程师",
+        "description_en": "Responsible for backend development of WEB applications, interfacing with frontend and computing power gateway, collaboratively developing algorithm testing platform.",
+        "description": "担任WEB应用后端开发，对接前端和算力网关，共同开发算法测试平台。",
+        "details_en": [
+          "Responsible for backend development of WEB applications",
+          "Interfacing with frontend and computing power gateway",
+          "Collaboratively developing algorithm testing platform"
+        ],
+        "details": [
+          "担任WEB应用后端开发",
+          "对接前端和算力网关",
+          "共同开发算法测试平台"
+        ],
+        "duration_months": 7,
+        "title_zh": "后端开发人员",
+        "description_zh": "负责WEB应用的后端开发，与前端和计算能力网关接口，协作开发算法测试平台。",
+        "details_zh": [
+          "负责WEB应用程序的后端开发",
+          "与前端和计算能力网关接口",
+          "协作开发算法测试平台"
+        ]
+      },
+      {
+        "start": "2020-03",
+        "end": "2024-06",
+        "company": "爱立信（中国）通信有限公司",
+        "title_en": "Backend Developer",
+        "title": "后端开发工程师",
+        "description_en": "Responsible for core network backend development, analyzing requirements, designing system architecture, writing code, testing and delivering. Served as Scrum Master, managing and guiding the agile team's development process to ensure project progress.",
+        "description": "担任核心网后端开发，分析需求，设计系统架构，编写代码，测试并交付。担任ScrumMaster，管理和指导敏捷团队的开发流程，推进项目顺利进行。",
+        "details_en": [
+          "Responsible for core network backend development",
+          "Analyzing requirements",
+          "Designing system architecture",
+          "Writing code",
+          "Testing and delivering",
+          "Served as Scrum Master",
+          "Managing and guiding the agile team's development process",
+          "Ensuring project progress"
+        ],
+        "details": [
+          "担任核心网后端开发",
+          "分析需求",
+          "设计系统架构",
+          "编写代码",
+          "测试并交付",
+          "担任ScrumMaster",
+          "管理和指导敏捷团队的开发流程",
+          "推进项目顺利进行"
+        ],
+        "duration_months": 52,
+        "title_zh": "后端开发人员",
+        "description_zh": "负责核心网络后端开发，分析需求，设计系统架构，编写代码，测试和交付。\n担任Scrum Master，管理和指导敏捷团队的开发过程，以确保项目进展。",
+        "details_zh": [
+          "负责核心网络后端开发",
+          "分析需求",
+          "设计系统架构",
+          "编写代码",
+          "测试和交付",
+          "担任Scrum Master",
+          "管理和指导敏捷团队的开发过程",
+          "确保项目进展"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIweb3AI应用工程师上海4560K蒋璐5年.md",
+    "md_mostly_english": false
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "file_name": "AIagent产品测试工程师深圳2540K张翰文3年.md",
+  "parsed_at": "2025-10-21T15:41:10.136569",
+  "result": {
+    "resume_file_id": null,
+    "name": "张翰文",
+    "email": "834474716@qq.com",
+    "phone": "15634393905",
+    "education_degree": "博士",
+    "education_school": [
+      "哈尔滨工业大学(威海)"
+    ],
+    "education_major": "计算机科学与技术",
+    "education_graduation_year": null,
+    "education_tier": "普通本科",
+    "education_tiers": [
+      "普通本科"
+    ],
+    "category": "技术类",
+    "tag_names": [
+      "AI",
+      "OP",
+      "PR",
+      "python",
+      "安全",
+      "数据分析",
+      "测试",
+      "设计"
+    ],
+    "skills": [
+      "Python",
+      "自动化测试",
+      "功能测试",
+      "安全测试"
+    ],
+    "work_experience": [
+      "2024.09-至今 华为技术有限公司杭州研究所 软件测试\n软件测试工程师自动化测试与质量保障\n-主导AI推理的SR需求全周期质量保障,完成从测试策略制定、用例设计到Python+Uniautos自动化测试框架开发的全流程交付与对应需求算子精度验证，独立完成该功能测试的全流程打通\n-参与昇腾Atlas系列硬件兼容性专项测试,参与多OS(CentOS/Ubuntu/Kylin/OpenEuler/Euler)多环境（物理机/docker/虚拟机）Ascend HDK包的全量适配工作\n-参与部门版本过点安全测试，负责接口测试/安全接口函数自动化开发、白盒代码检视、TOPN问题排查等安全测试/自动化开发等活动",
+      "2022.05-2024.06 行迪医院管理咨询有限公司 测试开发工程师\n负责部分脚本开发; 负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作； 负责相关架构文档、手册、流程的编写和整理。"
+    ],
+    "internship_experience": [
+      "2018.06-2019.09 威海天之卫网络空间安全科技有限公司（实习） 网络安全\n●负责对不同软件的网络流量包进行抓取和分析; ●帮助进行编写部分脚本指令和软件代码。"
+    ],
+    "project_experience": null,
+    "work_experience_struct": [
+      {
+        "start": "2024-09",
+        "end": "present",
+        "company": "华为技术有限公司杭州研究所",
+        "title_en": "Software Testing Engineer",
+        "title": "软件测试工程师",
+        "description_en": "Automated testing and quality assurance",
+        "description": "自动化测试与质量保障",
+        "details_en": [
+          "Led the full-cycle quality assurance of AI inference SR requirements, completing the entire process from test strategy formulation, test case design to Python+Uniautos automated testing framework development and corresponding requirement operator accuracy verification, independently completing the full process of testing for this functionality.",
+          "Participated in the Ascend Atlas series hardware compatibility special testing, involved in the full adaptation work of multi-OS (CentOS/Ubuntu/Kylin/OpenEuler/Euler) multi-environment (physical machine/docker/virtual machine) Ascend HDK package.",
+          "Participated in the department's version security testing, responsible for interface testing/security interface function automation development, white-box code review, TOPN issue troubleshooting, and other security testing/automation development activities."
+        ],
+        "details": [
+          "主导AI推理的SR需求全周期质量保障,完成从测试策略制定、用例设计到Python+Uniautos自动化测试框架开发的全流程交付与对应需求算子精度验证，独立完成该功能测试的全流程打通",
+          "参与昇腾Atlas系列硬件兼容性专项测试,参与多OS(CentOS/Ubuntu/Kylin/OpenEuler/Euler)多环境（物理机/docker/虚拟机）Ascend HDK包的全量适配工作",
+          "参与部门版本过点安全测试，负责接口测试/安全接口函数自动化开发、白盒代码检视、TOPN问题排查等安全测试/自动化开发等活动"
+        ],
+        "duration_months": 14
+      },
+      {
+        "start": "2022-05",
+        "end": "2024-06",
+        "company": "行迪医院管理咨询有限公司",
+        "title_en": "Test Development Engineer",
+        "title": "测试开发工程师",
+        "description_en": null,
+        "description": "负责部分脚本开发; 负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作； 负责相关架构文档、手册、流程的编写和整理。",
+        "details_en": null,
+        "details": [
+          "负责部分脚本开发",
+          "负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作",
+          "负责相关架构文档、手册、流程的编写和整理"
+        ],
+        "duration_months": 26
+      }
+    ],
+    "project_experience_struct": null,
+    "self_evaluation": "3年工作经验 | 测试工程师 | 期望薪资：20-28K | 期望城市：杭州",
+    "other": null,
+    "work_years": 2,
+    "self_evaluation_zh": "3年工作经验 | 测试工程师 | 期望薪资：20-28K | 期望城市：杭州",
+    "other_zh": null,
+    "work_experience_zh": [
+      "2024.09-至今 华为技术有限公司杭州研究所 软件测试\n软件测试工程师自动化测试与质量保障\n-主导AI推理的SR需求全周期质量保障,完成从测试策略制定、用例设计到Python+Uniautos自动化测试框架开发的全流程交付与对应需求算子精度验证，独立完成该功能测试的全流程打通\n-参与昇腾Atlas系列硬件兼容性专项测试,参与多OS(CentOS/Ubuntu/Kylin/OpenEuler/Euler)多环境（物理机/docker/虚拟机）Ascend HDK包的全量适配工作\n-参与部门版本过点安全测试，负责接口测试/安全接口函数自动化开发、白盒代码检视、TOPN问题排查等安全测试/自动化开发等活动",
+      "2022.05-2024.06 行迪医院管理咨询有限公司 测试开发工程师\n负责部分脚本开发; 负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作； 负责相关架构文档、手册、流程的编写和整理。"
+    ],
+    "internship_experience_zh": [
+      "2018.06-2019.09 威海天之卫网络空间安全科技有限公司（实习） 网络安全\n●负责对不同软件的网络流量包进行抓取和分析; ●帮助进行编写部分脚本指令和软件代码。"
+    ],
+    "project_experience_zh": null,
+    "work_experience_struct_translated": [
+      {
+        "start": "2024-09",
+        "end": "present",
+        "company": "华为技术有限公司杭州研究所",
+        "title_en": "Software Testing Engineer",
+        "title": "软件测试工程师",
+        "description_en": "Automated testing and quality assurance",
+        "description": "自动化测试与质量保障",
+        "details_en": [
+          "Led the full-cycle quality assurance of AI inference SR requirements, completing the entire process from test strategy formulation, test case design to Python+Uniautos automated testing framework development and corresponding requirement operator accuracy verification, independently completing the full process of testing for this functionality.",
+          "Participated in the Ascend Atlas series hardware compatibility special testing, involved in the full adaptation work of multi-OS (CentOS/Ubuntu/Kylin/OpenEuler/Euler) multi-environment (physical machine/docker/virtual machine) Ascend HDK package.",
+          "Participated in the department's version security testing, responsible for interface testing/security interface function automation development, white-box code review, TOPN issue troubleshooting, and other security testing/automation development activities."
+        ],
+        "details": [
+          "主导AI推理的SR需求全周期质量保障,完成从测试策略制定、用例设计到Python+Uniautos自动化测试框架开发的全流程交付与对应需求算子精度验证，独立完成该功能测试的全流程打通",
+          "参与昇腾Atlas系列硬件兼容性专项测试,参与多OS(CentOS/Ubuntu/Kylin/OpenEuler/Euler)多环境（物理机/docker/虚拟机）Ascend HDK包的全量适配工作",
+          "参与部门版本过点安全测试，负责接口测试/安全接口函数自动化开发、白盒代码检视、TOPN问题排查等安全测试/自动化开发等活动"
+        ],
+        "duration_months": 14,
+        "title_zh": "软件测试工程师",
+        "description_zh": "自动化测试和质量保证",
+        "details_zh": [
+          "主导了AI推理SR需求的全周期质量保证，完成了从测试策略制定、测试用例设计到Python+Uniautos自动化测试框架开发及相应需求操作员准确性验证的整个过程，独立完成了该功能的全流程测试。",
+          "参与了Ascend Atlas系列硬件兼容性专项测试，涉及多操作系统（CentOS/Ubuntu/Kylin/OpenEuler/Euler）多环境（物理机/docker/虚拟机）Ascend HDK包的全面适配工作。",
+          "参与了部门的版本安全测试，负责接口测试/安全接口功能自动化开发、白盒代码审查、TOPN问题排查以及其他安全测试/自动化开发活动。"
+        ]
+      },
+      {
+        "start": "2022-05",
+        "end": "2024-06",
+        "company": "行迪医院管理咨询有限公司",
+        "title_en": "Test Development Engineer",
+        "title": "测试开发工程师",
+        "description_en": null,
+        "description": "负责部分脚本开发; 负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作； 负责相关架构文档、手册、流程的编写和整理。",
+        "details_en": null,
+        "details": [
+          "负责部分脚本开发",
+          "负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作",
+          "负责相关架构文档、手册、流程的编写和整理"
+        ],
+        "duration_months": 26,
+        "title_zh": "测试开发工程师",
+        "description_zh": "负责部分脚本开发; 负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作； 负责相关架构文档、手册、流程的编写和整理。",
+        "details_zh": [
+          "负责部分脚本开发",
+          "负责公司测试用例设计、代码编写，承接部分自动化代码、日常冒烟流水线看护工作",
+          "负责相关架构文档、手册、流程的编写和整理"
+        ]
+      }
+    ],
+    "md_original": "D:\\FeiYuzi\\project\\AI_resume2\\test_parser\\ocr_outputs\\AIagent产品测试工程师深圳2540K张翰文3年.md",
+    "md_mostly_english": false
+  }
+}
