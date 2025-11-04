@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import { api } from '../api'
 import Pagination from '../components/Pagination'
+import { COMPANY_CATEGORIES, resumeHasCompanyCategory } from '../data/companyCategories'
 
 type ResumeItem = {
   id: number
@@ -92,6 +93,8 @@ export default function ResumesPage() {
   const [vendorOnly, setVendorOnly] = useState(false)
   const [vendorList, setVendorList] = useState<string[]>([])
   const [geoCompanyOnly, setGeoCompanyOnly] = useState(false)
+  // 公司类别筛选状态
+  const [selectedCompanyCategories, setSelectedCompanyCategories] = useState<string[]>([])
   const geoKeywords = useMemo(() => {
     return [
       // 直辖市
@@ -522,6 +525,16 @@ export default function ResumesPage() {
     setUiDegree('')
     setUiTiers([])
     setUiMinTenureYears('')
+    setSelectedCompanyCategories([])
+  }
+
+  // 公司类别选择函数
+  function toggleCompanyCategory(category: string) {
+    setSelectedCompanyCategories(prev => 
+      prev.includes(category) 
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    )
   }
 
   function applyFilters() {
@@ -690,9 +703,17 @@ export default function ResumesPage() {
         if (!hasAllWords) return false
       }
       
+      // 公司类别筛选
+      if (selectedCompanyCategories.length > 0) {
+        const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
+        const workExp = Array.isArray(r.work_experience) ? r.work_experience : []
+        const hasCategory = resumeHasCompanyCategory(workExp, wxs, selectedCompanyCategories)
+        if (!hasCategory) return false
+      }
+      
       return true
     })
-  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords, onlyPhoneEmpty, companyQuery])
+  }, [items, idToTags, degree, tiers, yearsBand, selectedTags, minTenureYears, tenureById, vendorOnly, vendorList, geoCompanyOnly, geoKeywords, onlyPhoneEmpty, companyQuery, selectedCompanyCategories])
 
   const total = filtered.length
   const totalPages = Math.max(1, Math.ceil(total / pageSize))
@@ -876,8 +897,10 @@ export default function ResumesPage() {
         </div>
 
         <div>
-          <div className="bar" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
             <span>标签（按类别分组，点击可多选；点击"应用筛选"生效）</span>
+          </div>
+          <div style={{ marginTop: 8 }}>
             <button className="ghost" type="button" onClick={() => setTagsExpanded(v => !v)}>
               {tagsExpanded ? '收起标签筛选' : '展开标签筛选'}
             </button>
@@ -929,6 +952,26 @@ export default function ResumesPage() {
             <input type="checkbox" checked={onlyPhoneEmpty} onChange={e => setOnlyPhoneEmpty(e.target.checked)} />
             <span>仅电话为空</span>
           </label>
+        </div>
+
+        {/* 公司类别筛选 */}
+        <div className="bar" style={{ flexWrap: 'wrap', gap: 8 }}>
+          <span style={{ fontWeight: 'bold', color: '#666' }}>公司类别：</span>
+          {Object.keys(COMPANY_CATEGORIES).map(category => (
+            <label key={category} style={{ display: 'flex', alignItems: 'center', gap: 6 }} title={`筛选${category}相关公司的简历`}>
+              <input 
+                type="checkbox" 
+                checked={selectedCompanyCategories.includes(category)} 
+                onChange={() => toggleCompanyCategory(category)} 
+              />
+              <span>{category}</span>
+            </label>
+          ))}
+          {selectedCompanyCategories.length > 0 && (
+            <span style={{ color: '#999', fontSize: '14px' }}>
+              已选择 {selectedCompanyCategories.length} 个类别
+            </span>
+          )}
         </div>
       </div>
 
