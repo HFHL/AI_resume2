@@ -120,6 +120,31 @@ export default async function handler(req: Request): Promise<Response> {
     })
   }
 
+  // 按姓名去重：只要重名就视为同一个人，只保留最新的一条记录
+  // 管理员可通过 ?include_name_duplicates=true 查看所有重名记录
+  const _includeNameDuplicates = (url.searchParams.get('include_name_duplicates') || '').toLowerCase() === 'true'
+  
+  if (items.length > 0 && !(_isAdmin && _includeNameDuplicates)) {
+    const nameMap = new Map<string, any>()
+    
+    // 按ID降序排列确保最新记录优先
+    const sortedItems = [...items].sort((a, b) => (b.id || 0) - (a.id || 0))
+    
+    for (const item of sortedItems) {
+      const name = (item.name || '').trim()
+      if (name && !nameMap.has(name)) {
+        nameMap.set(name, item)
+      }
+    }
+    
+    // 保持原始顺序，但去除重名记录
+    items = items.filter(item => {
+      const name = (item.name || '').trim()
+      if (!name) return true // 保留无名字的记录
+      return nameMap.get(name) === item
+    })
+  }
+
   // 合并 uploaded_by（通过 resume_file_id 关联 resume_files 表）
   try {
     const rfIds = Array.from(new Set((items || []).map((r: any) => r.resume_file_id).filter((x: any) => typeof x === 'number' && x > 0))) as number[]
