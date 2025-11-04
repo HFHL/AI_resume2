@@ -17,10 +17,36 @@ export default async function handler(req: Request): Promise<Response> {
   const limit = unlimited ? 1000000 : Math.min(parseInt(limitParam, 10) || 200, 1000000)
   const offset = Math.max(parseInt(url.searchParams.get('offset') || '0', 10), 0)
 
+  // 权限检查
+  const _isAdmin = (url.searchParams.get('admin') || '').toLowerCase() === 'true' || (url.searchParams.get('x-admin') || '').toLowerCase() === 'true'
+  const _includeDeleted = (url.searchParams.get('include_deleted') || '').toLowerCase() === 'true'
+  const _onlyDeleted = (url.searchParams.get('only_deleted') || '').toLowerCase() === 'true'
+  const _includeHidden = (url.searchParams.get('include_hidden') || '').toLowerCase() === 'true'
+  const _onlyHidden = (url.searchParams.get('only_hidden') || '').toLowerCase() === 'true'
+
   let query = supabase
     .from('resumes')
     .select('id, resume_file_id, name, email, phone, is_deleted, deleted_at, is_dedup_hidden, canonical_id, skills, tag_names, work_years, education_degree, education_tiers, education_school, created_at, work_experience, internship_experience, project_experience, work_experience_struct, project_experience_struct')
     .order('id', { ascending: false })
+
+  // 软删除过滤：默认排除；管理员可通过参数控制
+  if (_isAdmin) {
+    if (_onlyDeleted) {
+      query = query.eq('is_deleted', true)
+    } else if (!_includeDeleted) {
+      query = query.eq('is_deleted', false)
+    }
+    
+    // 去重隐藏过滤：管理员可通过参数控制
+    if (_onlyHidden) {
+      query = query.eq('is_dedup_hidden', true)
+    } else if (!_includeHidden) {
+      query = query.eq('is_dedup_hidden', false)
+    }
+  } else {
+    // 非管理员：默认排除已删除和已隐藏的记录
+    query = query.eq('is_deleted', false).eq('is_dedup_hidden', false)
+  }
 
   // 如果有搜索词，进行模糊搜索
   if (searchQuery) {
@@ -35,20 +61,6 @@ export default async function handler(req: Request): Promise<Response> {
       `project_experience.cs.{${searchQuery}},` +
       `self_evaluation.ilike.%${searchQuery}%`
     )
-  }
-
-  // 软删除过滤：默认排除；管理员可通过 ?include_deleted / ?only_deleted 控制
-  const _isAdmin = (url.searchParams.get('admin') || '').toLowerCase() === 'true' || (url.searchParams.get('x-admin') || '').toLowerCase() === 'true'
-  const _includeDeleted = (url.searchParams.get('include_deleted') || '').toLowerCase() === 'true'
-  const _onlyDeleted = (url.searchParams.get('only_deleted') || '').toLowerCase() === 'true'
-  if (_isAdmin) {
-    if (_onlyDeleted) {
-      query = query.eq('is_deleted', true)
-    } else if (!_includeDeleted) {
-      query = query.eq('is_deleted', false)
-    }
-  } else {
-    query = query.eq('is_deleted', false)
   }
 
   let data: any[] = []
@@ -80,22 +92,7 @@ export default async function handler(req: Request): Promise<Response> {
     return new Response(JSON.stringify({ detail: e?.message || 'Query failed' }), { status: 400 })
   }
 
-  // 软删除与去重隐藏过滤
-  const __isAdmin = (url.searchParams.get('admin') || '').toLowerCase() === 'true' || (url.searchParams.get('x-admin') || '').toLowerCase() === 'true'
-  const __includeDeleted = (url.searchParams.get('include_deleted') || '').toLowerCase() === 'true'
-  const __onlyDeleted = (url.searchParams.get('only_deleted') || '').toLowerCase() === 'true'
-  const __includeHidden = (url.searchParams.get('include_hidden') || '').toLowerCase() === 'true'
-  const __onlyHidden = (url.searchParams.get('only_hidden') || '').toLowerCase() === 'true'
-
-  if (__isAdmin) {
-    if (__onlyDeleted) query = query.eq('is_deleted', true)
-    else if (!__includeDeleted) query = query.eq('is_deleted', false)
-
-    if (__onlyHidden) query = query.eq('is_dedup_hidden', true)
-    else if (!__includeHidden) query = query.eq('is_dedup_hidden', false)
-  } else {
-    query = query.eq('is_deleted', false).eq('is_dedup_hidden', false)
-  }
+  // 过滤逻辑已在查询构建时应用，此处无需重复处理
 
   let items = (data || []).map((r: any) => {
     const work = Array.isArray(r.work_experience) ? r.work_experience : []
