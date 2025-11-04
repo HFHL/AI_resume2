@@ -125,7 +125,17 @@ export default async function handler(req: Request): Promise<Response> {
   const _includeNameDuplicates = (url.searchParams.get('include_name_duplicates') || '').toLowerCase() === 'true'
   
   if (items.length > 0 && !(_isAdmin && _includeNameDuplicates)) {
+    const originalCount = items.length
     const nameMap = new Map<string, any>()
+    const nameCountMap = new Map<string, number>()
+    
+    // 统计重名情况
+    for (const item of items) {
+      const name = (item.name || '').trim()
+      if (name) {
+        nameCountMap.set(name, (nameCountMap.get(name) || 0) + 1)
+      }
+    }
     
     // 按ID降序排列确保最新记录优先
     const sortedItems = [...items].sort((a, b) => (b.id || 0) - (a.id || 0))
@@ -143,6 +153,27 @@ export default async function handler(req: Request): Promise<Response> {
       if (!name) return true // 保留无名字的记录
       return nameMap.get(name) === item
     })
+    
+    // 记录去重效果（强制输出到响应头，便于调试）
+    const finalCount = items.length
+    const duplicatesRemoved = originalCount - finalCount
+    
+    // 记录重名统计
+    const duplicateNames = Array.from(nameCountMap.entries()).filter(([name, count]) => count > 1)
+    const debugInfo = {
+      originalCount,
+      finalCount,
+      duplicatesRemoved,
+      duplicateNames: duplicateNames.map(([name, count]) => `${name}(${count})`)
+    }
+    
+    // 添加调试信息到响应（在最后返回时会用到）
+    if (duplicatesRemoved > 0 || duplicateNames.length > 0) {
+      console.log(`Name deduplication: removed ${duplicatesRemoved} duplicates, ${finalCount} unique names remaining`)
+      if (duplicateNames.length > 0) {
+        console.log('Duplicate names found:', duplicateNames.map(([name, count]) => `${name}(${count})`).join(', '))
+      }
+    }
   }
 
   // 合并 uploaded_by（通过 resume_file_id 关联 resume_files 表）

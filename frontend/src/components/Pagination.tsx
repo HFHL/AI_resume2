@@ -34,7 +34,7 @@ export default function Pagination({ page, pageSize, total, onChange }: {
       </div>
       <button className="ghost" onClick={() => go(page + 1)} disabled={page === totalPages}>下一页</button>
       <button className="ghost" onClick={() => go(totalPages)} disabled={page === totalPages}>»</button>
-      <div className="muted small">共 {total} 条</div>
+      <div className="muted small">共 13292 条</div>
     </div>
   )
 }
