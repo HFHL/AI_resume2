@@ -154,24 +154,36 @@ export default async function handler(req: Request): Promise<Response> {
       const ra = find(a), rb = find(b)
       if (ra !== rb) parent[rb] = ra
     }
-    // 将同邮箱或同姓名的记录合并
-    const emailToIdx = new Map<string, number>()
-    const nameToIdx = new Map<string, number>()
+    // 将同邮箱或同姓名的记录合并（修复：统一使用一个Map）
+    const keyToFirstIdx = new Map<string, number>()
     for (let i = 0; i < n; i++) {
       const row = items[i]
       const email = normalizeEmail((row as any).email)
-      if (email) {
-        const key = `e:${email}`
-        if (emailToIdx.has(key)) union(i, emailToIdx.get(key)!)
-        else emailToIdx.set(key, i)
-        countByKey.set(key, (countByKey.get(key) || 0) + 1)
-      }
       const nm = normalizeName((row as any).name || '')
-      if (nm) {
-        const key = `n:${nm}`
-        if (nameToIdx.has(key)) union(i, nameToIdx.get(key)!)
-        else nameToIdx.set(key, i)
+      
+      // 为每条记录生成可能的去重键（邮箱键 + 姓名键）
+      const keys: string[] = []
+      if (email) keys.push(`email:${email}`)
+      if (nm) keys.push(`name:${nm}`)
+      
+      // 将当前记录与所有匹配的键关联，并union所有已存在的索引
+      let firstMatchedIdx: number | null = null
+      for (const key of keys) {
         countByKey.set(key, (countByKey.get(key) || 0) + 1)
+        if (keyToFirstIdx.has(key)) {
+          const existingIdx = keyToFirstIdx.get(key)!
+          if (firstMatchedIdx === null) {
+            firstMatchedIdx = existingIdx
+            union(i, existingIdx)
+          } else {
+            // 如果当前记录匹配多个键，需要将这些键对应的索引也union起来
+            union(firstMatchedIdx, existingIdx)
+            union(i, existingIdx)
+          }
+        } else {
+          keyToFirstIdx.set(key, i)
+          if (firstMatchedIdx === null) firstMatchedIdx = i
+        }
       }
     }
     // 每个集合保留 id 最大的一条
