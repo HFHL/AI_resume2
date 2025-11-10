@@ -120,58 +120,89 @@ export default async function handler(req: Request): Promise<Response> {
     })
   }
 
-  // 按姓名去重：只要重名就视为同一个人，只保留最新的一条记录
-  // 管理员可通过 ?include_name_duplicates=true 查看所有重名记录
+  // 去重策略（改进）：
+  // 1) 优先按手机号（仅数字）归并；2) 其次按邮箱（小写）；3) 最后按“规范化姓名”（去空白/标点、全半角统一、小写）。
+  // 每组仅保留最新的一条（id 最大）。管理员可通过 ?include_name_duplicates=true 查看所有重复。
   const _includeNameDuplicates = (url.searchParams.get('include_name_duplicates') || '').toLowerCase() === 'true'
   
   if (items.length > 0 && !(_isAdmin && _includeNameDuplicates)) {
     const originalCount = items.length
-    const nameMap = new Map<string, any>()
-    const nameCountMap = new Map<string, number>()
+    const keeperByKey = new Map<string, any>()
+    const countByKey = new Map<string, number>()
+
+    function toHalfWidth(str: string): string {
+      // 粗略全角转半角
+      return str.replace(/[\uFF01-\uFF5E]/g, (ch: string) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0)).replace(/\u3000/g, ' ')
+    }
+    function normalizeName(name: string): string {
+      const s = toHalfWidth(String(name || ''))
+        .normalize('NFKC')
+        .toLowerCase()
+        .replace(/[\s\u00A0\u200B\u200C\u200D\u2060]+/g, '')     // 各类空白（含零宽）
+        .replace(/[，,。.;；·•·\-\_\/\\|~`!@#\$%\^&\*\(\)\[\]\{\}<>\?:'"\u3002\uFF0C\uFF1B\uFF1A\uFF1F\u2014]+/g, '') // 标点
+      return s
+    }
+    function normalizePhone(phone: any): string | null {
+      const digits = String(phone || '').replace(/\D+/g, '')
+      return digits.length >= 6 ? digits : null
+    }
+    function normalizeEmail(email: any): string | null {
+      const s = String(email || '').trim().toLowerCase()
+      return s && s.includes('@') ? s : null
+    }
+    function buildKey(row: any): string | null {
+      const phone = normalizePhone(row?.phone)
+      if (phone) return `p:${phone}`
+      const email = normalizeEmail(row?.email)
+      if (email) return `e:${email}`
+      const nm = normalizeName(row?.name || '')
+      if (nm) return `n:${nm}`
+      return null
+    }
     
-    // 统计重名情况
-    for (const item of items) {
-      const name = (item.name || '').trim()
-      if (name) {
-        nameCountMap.set(name, (nameCountMap.get(name) || 0) + 1)
+    // 统计每个 key 的数量
+    for (const row of items) {
+      const k = buildKey(row)
+      if (k) {
+        countByKey.set(k, (countByKey.get(k) || 0) + 1)
       }
     }
     
     // 按ID降序排列确保最新记录优先
     const sortedItems = [...items].sort((a, b) => (b.id || 0) - (a.id || 0))
     
-    for (const item of sortedItems) {
-      const name = (item.name || '').trim()
-      if (name && !nameMap.has(name)) {
-        nameMap.set(name, item)
+    for (const row of sortedItems) {
+      const k = buildKey(row)
+      if (k && !keeperByKey.has(k)) {
+        keeperByKey.set(k, row)
       }
     }
     
-    // 保持原始顺序，但去除重名记录
+    // 保持原始顺序，但去除重复 key 的记录
     items = items.filter(item => {
-      const name = (item.name || '').trim()
-      if (!name) return true // 保留无名字的记录
-      return nameMap.get(name) === item
+      const k = buildKey(item)
+      if (!k) return true // 无 key 的记录保留
+      return keeperByKey.get(k) === item
     })
     
     // 记录去重效果（强制输出到响应头，便于调试）
     const finalCount = items.length
     const duplicatesRemoved = originalCount - finalCount
     
-    // 记录重名统计
-    const duplicateNames = Array.from(nameCountMap.entries()).filter(([name, count]) => count > 1)
+    // 记录重复 key 统计
+    const duplicateKeys = Array.from(countByKey.entries()).filter(([k, count]) => count > 1)
     const debugInfo = {
       originalCount,
       finalCount,
       duplicatesRemoved,
-      duplicateNames: duplicateNames.map(([name, count]) => `${name}(${count})`)
+      duplicateKeys: duplicateKeys.map(([k, count]) => `${k}(${count})`)
     }
     
     // 添加调试信息到响应（在最后返回时会用到）
-    if (duplicatesRemoved > 0 || duplicateNames.length > 0) {
-      console.log(`Name deduplication: removed ${duplicatesRemoved} duplicates, ${finalCount} unique names remaining`)
-      if (duplicateNames.length > 0) {
-        console.log('Duplicate names found:', duplicateNames.map(([name, count]) => `${name}(${count})`).join(', '))
+    if (duplicatesRemoved > 0 || duplicateKeys.length > 0) {
+      console.log(`Resume dedup: removed ${duplicatesRemoved} duplicates, ${finalCount} kept`)
+      if (duplicateKeys.length > 0) {
+        console.log('Duplicate groups:', duplicateKeys.map(([k, count]) => `${k}(${count})`).join(', '))
       }
     }
   }
