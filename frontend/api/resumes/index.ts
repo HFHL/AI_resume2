@@ -120,14 +120,14 @@ export default async function handler(req: Request): Promise<Response> {
     })
   }
 
-  // 去重策略（改进）：
-  // 1) 优先按手机号（仅数字）归并；2) 其次按邮箱（小写）；3) 最后按“规范化姓名”（去空白/标点、全半角统一、小写）。
-  // 每组仅保留最新的一条（id 最大）。管理员可通过 ?include_name_duplicates=true 查看所有重复。
+  // 去重策略（更新）：
+  // 规则：只要“邮箱相同”或“姓名相同”即视为同一人。
+  // 实现：使用并查集将同邮箱或同姓名的记录合并为同一组；每组仅保留 id 最大的一条。
+  // 管理员可通过 ?include_name_duplicates=true 查看所有重复。
   const _includeNameDuplicates = (url.searchParams.get('include_name_duplicates') || '').toLowerCase() === 'true'
   
   if (items.length > 0 && !(_isAdmin && _includeNameDuplicates)) {
     const originalCount = items.length
-    const keeperByKey = new Map<string, any>()
     const countByKey = new Map<string, number>()
 
     function toHalfWidth(str: string): string {
@@ -142,48 +142,48 @@ export default async function handler(req: Request): Promise<Response> {
         .replace(/[，,。.;；·•·\-\_\/\\|~`!@#\$%\^&\*\(\)\[\]\{\}<>\?:'"\u3002\uFF0C\uFF1B\uFF1A\uFF1F\u2014]+/g, '') // 标点
       return s
     }
-    function normalizePhone(phone: any): string | null {
-      const digits = String(phone || '').replace(/\D+/g, '')
-      return digits.length >= 6 ? digits : null
-    }
     function normalizeEmail(email: any): string | null {
       const s = String(email || '').trim().toLowerCase()
       return s && s.includes('@') ? s : null
     }
-    function buildKey(row: any): string | null {
-      const phone = normalizePhone(row?.phone)
-      if (phone) return `p:${phone}`
-      const email = normalizeEmail(row?.email)
-      if (email) return `e:${email}`
-      const nm = normalizeName(row?.name || '')
-      if (nm) return `n:${nm}`
-      return null
+    // 并查集
+    const n = items.length
+    const parent = new Array<number>(n).fill(0).map((_, i) => i)
+    function find(x: number): number { return parent[x] === x ? x : (parent[x] = find(parent[x])) }
+    function union(a: number, b: number) {
+      const ra = find(a), rb = find(b)
+      if (ra !== rb) parent[rb] = ra
     }
-    
-    // 统计每个 key 的数量
-    for (const row of items) {
-      const k = buildKey(row)
-      if (k) {
-        countByKey.set(k, (countByKey.get(k) || 0) + 1)
+    // 将同邮箱或同姓名的记录合并
+    const emailToIdx = new Map<string, number>()
+    const nameToIdx = new Map<string, number>()
+    for (let i = 0; i < n; i++) {
+      const row = items[i]
+      const email = normalizeEmail((row as any).email)
+      if (email) {
+        const key = `e:${email}`
+        if (emailToIdx.has(key)) union(i, emailToIdx.get(key)!)
+        else emailToIdx.set(key, i)
+        countByKey.set(key, (countByKey.get(key) || 0) + 1)
+      }
+      const nm = normalizeName((row as any).name || '')
+      if (nm) {
+        const key = `n:${nm}`
+        if (nameToIdx.has(key)) union(i, nameToIdx.get(key)!)
+        else nameToIdx.set(key, i)
+        countByKey.set(key, (countByKey.get(key) || 0) + 1)
       }
     }
-    
-    // 按ID降序排列确保最新记录优先
-    const sortedItems = [...items].sort((a, b) => (b.id || 0) - (a.id || 0))
-    
-    for (const row of sortedItems) {
-      const k = buildKey(row)
-      if (k && !keeperByKey.has(k)) {
-        keeperByKey.set(k, row)
-      }
+    // 每个集合保留 id 最大的一条
+    const bestByRoot = new Map<number, any>()
+    for (let i = 0; i < n; i++) {
+      const r = find(i)
+      const cur = items[i]
+      const prev = bestByRoot.get(r)
+      if (!prev || (cur?.id || 0) > (prev?.id || 0)) bestByRoot.set(r, cur)
     }
-    
-    // 保持原始顺序，但去除重复 key 的记录
-    items = items.filter(item => {
-      const k = buildKey(item)
-      if (!k) return true // 无 key 的记录保留
-      return keeperByKey.get(k) === item
-    })
+    // 过滤
+    items = items.filter((row, i) => bestByRoot.get(find(i)) === row)
     
     // 记录去重效果（强制输出到响应头，便于调试）
     const finalCount = items.length
