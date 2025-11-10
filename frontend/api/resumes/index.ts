@@ -156,6 +156,7 @@ export default async function handler(req: Request): Promise<Response> {
     }
     // 将同邮箱或同姓名的记录合并（修复：统一使用一个Map）
     const keyToFirstIdx = new Map<string, number>()
+    
     for (let i = 0; i < n; i++) {
       const row = items[i]
       const email = normalizeEmail((row as any).email)
@@ -192,8 +193,11 @@ export default async function handler(req: Request): Promise<Response> {
       const r = find(i)
       const cur = items[i]
       const prev = bestByRoot.get(r)
-      if (!prev || (cur?.id || 0) > (prev?.id || 0)) bestByRoot.set(r, cur)
+      if (!prev || (cur?.id || 0) > (prev?.id || 0)) {
+        bestByRoot.set(r, cur)
+      }
     }
+    
     // 过滤
     items = items.filter((row, i) => bestByRoot.get(find(i)) === row)
     
