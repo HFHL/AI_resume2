@@ -1,6 +1,6 @@
 /**
  * 公司分类数据
- * 从 AI高亮公司表.xlsx 自动生成
+ * 支持从数据库动态加载，同时保留静态数据作为备用
  */
 
 export interface CompanyCategory {
@@ -8,7 +8,8 @@ export interface CompanyCategory {
   companies: string[];
 }
 
-export const COMPANY_CATEGORIES: Record<string, string[]> = {
+// 静态备用数据（在API不可用时使用）
+export const COMPANY_CATEGORIES_STATIC: Record<string, string[]> = {
   "金融量化": [
     "幻方量化", "九坤投资", "灵均投资", "明汯投资", "诚奇资产", "金锝资产", "衍复投资", "佳期投资",
     "宽德投资", "天演资本", "稳博投资", "启林投资", "世纪前沿资产", "黑翼资产", "金戈量锐", "茂源量化",
@@ -64,19 +65,67 @@ export const COMPANY_CATEGORIES: Record<string, string[]> = {
   ]
 };
 
+// 当前使用的动态数据（从API加载）
+export let COMPANY_CATEGORIES: Record<string, string[]> = { ...COMPANY_CATEGORIES_STATIC };
+
 // 用于快速查找的扁平化数据
-export const COMPANY_LOOKUP: Map<string, string[]> = new Map();
+export let COMPANY_LOOKUP: Map<string, string[]> = new Map();
 
 // 初始化查找表
-Object.entries(COMPANY_CATEGORIES).forEach(([category, companies]) => {
-  companies.forEach(company => {
-    const normalizedCompany = company.toLowerCase().trim();
-    if (!COMPANY_LOOKUP.has(normalizedCompany)) {
-      COMPANY_LOOKUP.set(normalizedCompany, []);
-    }
-    COMPANY_LOOKUP.get(normalizedCompany)!.push(category);
+function buildLookupMap(categories: Record<string, string[]>) {
+  const lookup = new Map<string, string[]>();
+  Object.entries(categories).forEach(([category, companies]) => {
+    companies.forEach(company => {
+      const normalizedCompany = company.toLowerCase().trim();
+      if (!lookup.has(normalizedCompany)) {
+        lookup.set(normalizedCompany, []);
+      }
+      lookup.get(normalizedCompany)!.push(category);
+    });
   });
-});
+  return lookup;
+}
+
+// 初始化为静态数据
+COMPANY_LOOKUP = buildLookupMap(COMPANY_CATEGORIES_STATIC);
+
+/**
+ * 从API加载高亮公司数据
+ */
+export async function loadHighlightCompaniesFromAPI(apiBaseUrl: string): Promise<boolean> {
+  try {
+    const response = await fetch(`${apiBaseUrl}/admin/highlight_companies`, {
+      headers: { 'x-admin': 'true' }
+    });
+    
+    if (!response.ok) {
+      console.warn('[companyCategories] Failed to load from API, using static data');
+      return false;
+    }
+    
+    const data = await response.json();
+    const items = data.items || [];
+    
+    // 重新构建分类数据
+    const newCategories: Record<string, string[]> = {};
+    items.forEach((item: { category: string; company_name: string }) => {
+      if (!newCategories[item.category]) {
+        newCategories[item.category] = [];
+      }
+      newCategories[item.category].push(item.company_name);
+    });
+    
+    // 更新全局变量
+    COMPANY_CATEGORIES = newCategories;
+    COMPANY_LOOKUP = buildLookupMap(newCategories);
+    
+    console.log('[companyCategories] Loaded from API:', Object.keys(newCategories).length, 'categories');
+    return true;
+  } catch (error) {
+    console.error('[companyCategories] Error loading from API:', error);
+    return false;
+  }
+}
 
 /**
  * 检查公司名是否属于指定类别
@@ -171,4 +220,15 @@ export function resumeHasCompanyCategory(
   return categories.some(category => 
     companies.some(company => isCompanyInCategory(company, category))
   );
+}
+
+/**
+ * 检查简历是否包含任何高亮公司
+ */
+export function resumeHasAnyHighlightCompany(
+  workExperience: string[], 
+  workExperienceStruct: any[]
+): boolean {
+  const allCategories = Object.keys(COMPANY_CATEGORIES);
+  return resumeHasCompanyCategory(workExperience, workExperienceStruct, allCategories);
 }

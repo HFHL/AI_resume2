@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import { api } from '../api'
 import Pagination from '../components/Pagination'
-import { COMPANY_CATEGORIES, resumeHasCompanyCategory } from '../data/companyCategories'
+import { COMPANY_CATEGORIES, resumeHasCompanyCategory, resumeHasAnyHighlightCompany } from '../data/companyCategories'
 
 type ResumeItem = {
   id: number
@@ -78,6 +78,10 @@ function hasNonEmptyExperience(
   return 0
 }
 
+// 特殊筛选标识常量
+const SPECIAL_FILTER_ANY = '__包含任何高亮公司__'
+const SPECIAL_FILTER_NONE = '__不包含任何高亮公司__'
+
 export default function ResumesPage() {
   const [items, setItems] = useState<ResumeItem[]>([])
   const [loading, setLoading] = useState(true)
@@ -93,7 +97,7 @@ export default function ResumesPage() {
   const [vendorOnly, setVendorOnly] = useState(false)
   const [vendorList, setVendorList] = useState<string[]>([])
   const [geoCompanyOnly, setGeoCompanyOnly] = useState(false)
-  // 公司类别筛选状态
+  // 公司类别筛选状态（支持特殊选项）
   const [selectedCompanyCategories, setSelectedCompanyCategories] = useState<string[]>([])
   const geoKeywords = useMemo(() => {
     return [
@@ -707,8 +711,31 @@ export default function ResumesPage() {
       if (selectedCompanyCategories.length > 0) {
         const wxs = Array.isArray(r.work_experience_struct) ? r.work_experience_struct : []
         const workExp = Array.isArray(r.work_experience) ? r.work_experience : []
-        const hasCategory = resumeHasCompanyCategory(workExp, wxs, selectedCompanyCategories)
-        if (!hasCategory) return false
+        
+        // 检查是否包含特殊筛选
+        const hasSpecialAny = selectedCompanyCategories.includes(SPECIAL_FILTER_ANY)
+        const hasSpecialNone = selectedCompanyCategories.includes(SPECIAL_FILTER_NONE)
+        
+        // 如果选择了"不包含任何高亮公司"
+        if (hasSpecialNone) {
+          const hasAnyHighlight = resumeHasAnyHighlightCompany(workExp, wxs)
+          if (hasAnyHighlight) return false
+        }
+        
+        // 如果选择了"包含任何高亮公司"
+        if (hasSpecialAny) {
+          const hasAnyHighlight = resumeHasAnyHighlightCompany(workExp, wxs)
+          if (!hasAnyHighlight) return false
+        }
+        
+        // 普通类别筛选（排除特殊选项）
+        const normalCategories = selectedCompanyCategories.filter(
+          cat => cat !== SPECIAL_FILTER_ANY && cat !== SPECIAL_FILTER_NONE
+        )
+        if (normalCategories.length > 0) {
+          const hasCategory = resumeHasCompanyCategory(workExp, wxs, normalCategories)
+          if (!hasCategory) return false
+        }
       }
       
       return true
@@ -954,22 +981,38 @@ export default function ResumesPage() {
           </label>
         </div>
 
-        {/* 公司类别筛选 */}
+        {/* 高亮公司筛选 */}
         <div className="bar" style={{ flexWrap: 'wrap', gap: 8 }}>
-          <span style={{ fontWeight: 'bold', color: '#666' }}>公司类别：</span>
+          <span style={{ fontWeight: 'bold', color: '#666' }}>高亮公司：</span>
           {Object.keys(COMPANY_CATEGORIES).map(category => (
-            <label key={category} style={{ display: 'flex', alignItems: 'center', gap: 6 }} title={`筛选${category}相关公司的简历`}>
+            <label key={category} style={{ display: 'flex', alignItems: 'center', gap: 6 }} title={`筛选${category}高亮公司的简历`}>
               <input 
                 type="checkbox" 
                 checked={selectedCompanyCategories.includes(category)} 
                 onChange={() => toggleCompanyCategory(category)} 
               />
-              <span>{category}</span>
+              <span>{category}高亮公司</span>
             </label>
           ))}
+          <label style={{ display: 'flex', alignItems: 'center', gap: 6 }} title="筛选包含任何高亮公司的简历">
+            <input 
+              type="checkbox" 
+              checked={selectedCompanyCategories.includes(SPECIAL_FILTER_ANY)} 
+              onChange={() => toggleCompanyCategory(SPECIAL_FILTER_ANY)} 
+            />
+            <span style={{ color: '#1976d2' }}>包含任何高亮公司</span>
+          </label>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 6 }} title="筛选不包含任何高亮公司的简历">
+            <input 
+              type="checkbox" 
+              checked={selectedCompanyCategories.includes(SPECIAL_FILTER_NONE)} 
+              onChange={() => toggleCompanyCategory(SPECIAL_FILTER_NONE)} 
+            />
+            <span style={{ color: '#d32f2f' }}>不包含任何高亮公司</span>
+          </label>
           {selectedCompanyCategories.length > 0 && (
             <span style={{ color: '#999', fontSize: '14px' }}>
-              已选择 {selectedCompanyCategories.length} 个类别
+              已选择 {selectedCompanyCategories.length} 个筛选条件
             </span>
           )}
         </div>

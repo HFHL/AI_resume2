@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage'
 import AdminUsersPage from './pages/AdminUsersPage'
 import AdminDeletedResumesPage from './pages/AdminDeletedResumesPage'
 import AdminDeduplicatePage from './pages/AdminDeduplicatePage'
+import AdminHighlightCompaniesPage from './pages/AdminHighlightCompaniesPage'
 import MyUploadsPage from './pages/MyUploadsPage'
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="admin/users" element={<AdminUsersPage />} />
         <Route path="admin/resumes/deleted" element={<AdminDeletedResumesPage />} />
         <Route path="admin/resumes/deduplicate" element={<AdminDeduplicatePage />} />
+        <Route path="admin/highlight_companies" element={<AdminHighlightCompaniesPage />} />
       </Route>
     </Routes>
   )

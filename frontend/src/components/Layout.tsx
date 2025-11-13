@@ -43,6 +43,9 @@ export default function Layout() {
             <NavLink to="/admin/users" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>用户管理</NavLink>
           )}
           {user?.is_admin && (
+            <NavLink to="/admin/highlight_companies" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>高亮公司</NavLink>
+          )}
+          {user?.is_admin && (
             <NavLink to="/admin/resumes/deleted" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>回收站</NavLink>
           )}
           {user?.is_admin && (
