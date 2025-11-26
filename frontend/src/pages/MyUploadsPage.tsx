@@ -12,15 +12,25 @@ export default function MyUploadsPage() {
 
   useEffect(() => {
     const user = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
-    const account = user?.account || user?.full_name || ''
-    if (!account) { setItems([]); setLoading(false); return }
+    const account = (user?.account || '').trim()
+    const fullName = (user?.full_name || '').trim()
+    
+    if (!account && !fullName) { setItems([]); setLoading(false); return }
 
     const sb = getSupabase()
     if (!sb) { setItems([]); setLoading(false); return }
 
-    sb.from('resume_files')
-      .select('*')
-      .eq('uploaded_by', account)
+    let query = sb.from('resume_files').select('*')
+
+    if (account && fullName && account !== fullName) {
+      // 同时匹配 account 或 full_name
+      query = query.or(`uploaded_by.eq.${account},uploaded_by.eq.${fullName}`)
+    } else {
+      // 只有一个值有效，或者两者相同
+      query = query.eq('uploaded_by', account || fullName)
+    }
+
+    query
       .order('created_at', { ascending: false })
       .then(({ data, error }) => {
         if (error) {
