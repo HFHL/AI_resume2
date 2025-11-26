@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { api } from '../api'
+import { getSupabase } from '../supabase'
 import Pagination from '../components/Pagination'
 
 type Row = { id: number; file_name: string; file_path?: string | null; status?: string | null; uploaded_by?: string | null; created_at?: string | null; resume_id?: number | null }
@@ -14,10 +14,22 @@ export default function MyUploadsPage() {
     const user = (() => { try { return JSON.parse(localStorage.getItem('auth_user') || 'null') } catch { return null } })()
     const account = user?.account || user?.full_name || ''
     if (!account) { setItems([]); setLoading(false); return }
-    const url = api('/uploads/my_files')
-    fetch(url, { headers: { 'x-user': String(account) } })
-      .then(r => r.json())
-      .then(d => setItems(Array.isArray(d?.items) ? d.items : []))
+
+    const sb = getSupabase()
+    if (!sb) { setItems([]); setLoading(false); return }
+
+    sb.from('resume_files')
+      .select('*')
+      .eq('uploaded_by', account)
+      .order('created_at', { ascending: false })
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Fetch my files error:', error)
+          setItems([])
+        } else {
+          setItems((data || []) as Row[])
+        }
+      })
       .catch(() => setItems([]))
       .finally(() => setLoading(false))
   }, [])
